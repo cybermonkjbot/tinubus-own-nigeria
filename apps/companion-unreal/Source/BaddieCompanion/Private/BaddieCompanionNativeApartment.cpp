@@ -36,6 +36,44 @@ namespace BaddieCompanion::NativeApartment
             && Transform.GetScale3D().Equals(FVector::OneVector, 1.e-6)
             && Transform.GetRotation().RotateVector(FVector::UpVector).Equals(FVector::UpVector, 1.e-6);
     }
+    bool HasMeasuredEntrance(const FRoomPlan& Room)
+    {
+        if (!Room.Environment.Effective.IsSet() || Room.Environment.Effective.GetValue() != EEnvironment::Studio
+            || !Room.Layout.Effective.IsSet()) return false;
+        switch (Room.Layout.Effective.GetValue())
+        {
+        case ELayout::PinkBedroomV2:
+        case ELayout::PatStudioV1:
+        case ELayout::PinkBedroomV1: return true;
+        default: return false;
+        }
+    }
+    bool ResolveLocalDoorway(const FHomePresentationPlan& Plan, const FNativeApartmentLevelBinding& Binding,
+        const FNativeDoorwayBinding& Door, FNativeDoorwayPose& Out)
+    {
+        Out = {};
+        const FRoomPlan* Room = nullptr;
+        if (!Binding.Endpoint.RoomId.IsEmpty())
+        {
+            Room = Plan.Rooms.FindByPredicate([&](const auto& R)
+                { return R.Id.Equals(Binding.Endpoint.RoomId, ESearchCase::CaseSensitive); });
+            if (!Room || !Room->bSourceMapped || !Room->Shell.IsSet()) return false;
+        }
+        if (Room && HasMeasuredEntrance(*Room) && !IsAuthoredLivingExit(Plan.Apartment, Binding, Door))
+        {
+            // Bad measured input cannot fall through to an authored override.
+            if (Door.AuthoredLocalPose.IsSet() || !Door.SourceFloorYMetres.IsSet()) return false;
+            return CopyCanonicalNativeDoorway(*Room, Door.SourceFloorYMetres.GetValue(), FTransform::Identity, Out);
+        }
+        // Kitchen/bathroom/legacy entrances, common spaces and the separate living-room exit.
+        // Nothing here invents a doorway or uses the source navigation standing-point fallback.
+        if (Door.SourceFloorYMetres.IsSet() || !Door.AuthoredLocalPose.IsSet()) return false;
+        const auto& Authored = Door.AuthoredLocalPose.GetValue();
+        if (Authored.DoorCm.ContainsNaN() || Authored.PreferredApproachCm.ContainsNaN()
+            || Authored.DoorCm.Equals(Authored.PreferredApproachCm, .1)) return false;
+        Out = Authored;
+        return true;
+    }
     AActor* ActorNamed(ULevel* Level, FName Name)
     {
         if (!Level || Name.IsNone()) return nullptr;
@@ -193,15 +231,12 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
             const auto& Connection = Plan.Apartment.Connections[Door.ConnectionIndex];
             if (!SameEndpoint(Binding.Endpoint, Door.bFromEndpoint ? Connection.From : Connection.To))
             { AddGap(ENativeApartmentGap::InvalidBinding); return false; }
-            if (!Binding.Endpoint.RoomId.IsEmpty() && !IsAuthoredLivingExit(Plan.Apartment, Binding, Door))
-            {
-                const auto* Room = Plan.Rooms.FindByPredicate([&](const auto& R)
-                    { return R.Id.Equals(Binding.Endpoint.RoomId, ESearchCase::CaseSensitive); });
-                FNativeDoorwayPose Pose;
-                if (!Room || !Door.SourceFloorYMetres.IsSet()
-                    || !CopyCanonicalNativeDoorway(*Room, Door.SourceFloorYMetres.GetValue(), Binding.InstanceToApartment, Pose))
-                { AddGap(ENativeApartmentGap::DoorwayNotAuthored); return false; }
-            }
+            FNativeDoorwayPose Pose;
+            if (!ResolveLocalDoorway(Plan, Binding, Door, Pose))
+            { AddGap(ENativeApartmentGap::DoorwayNotAuthored); return false; }
+            if (Binding.InstanceToApartment.TransformPosition(Pose.DoorCm).ContainsNaN()
+                || Binding.InstanceToApartment.TransformPosition(Pose.PreferredApproachCm).ContainsNaN())
+            { AddGap(ENativeApartmentGap::InvalidBinding); return false; }
         }
         for (int32 I = 0; I < Plan.Apartment.Connections.Num(); ++I)
         {
@@ -293,23 +328,16 @@ bool UBaddieCompanionNativeApartment::ValidateLoadedAnchors(int32 Index)
         if (DoorPositions.ContainsByPredicate([&](const FVector& Position) { return Position.Equals(DoorPosition, .1); }))
             return false;
         DoorPositions.Add(DoorPosition);
-        // The saved entrance stays canonical. A living-room exit needs its own authored opening.
-        if (!Binding.Endpoint.RoomId.IsEmpty() && !IsAuthoredLivingExit(Presentation->Apartment, Binding, Door))
-        {
-            const auto* Room = Presentation->Rooms.FindByPredicate([&](const auto& R)
-                { return R.Id.Equals(Binding.Endpoint.RoomId, ESearchCase::CaseSensitive); });
-            FNativeDoorwayPose Expected;
-            if (!Room || !Door.SourceFloorYMetres.IsSet()
-                || !CopyCanonicalNativeDoorway(*Room, Door.SourceFloorYMetres.GetValue(), FTransform::Identity, Expected))
-                return false;
-            // UE owns when instance transforms are applied during streaming.
-            const FVector AnchorLocal = Level->bAlreadyMovedActors
-                ? Binding.InstanceToApartment.InverseTransformPosition(Anchor->GetActorLocation()) : Anchor->GetActorLocation();
-            const FVector ApproachLocal = Level->bAlreadyMovedActors
-                ? Binding.InstanceToApartment.InverseTransformPosition(Approach->GetActorLocation()) : Approach->GetActorLocation();
-            if (!AnchorLocal.Equals(Expected.DoorCm, .1)
-                || !ApproachLocal.Equals(Expected.PreferredApproachCm, .1)) return false;
-        }
+        // Validate every opening against its measured source or explicit authored local pose.
+        FNativeDoorwayPose Expected;
+        if (!ResolveLocalDoorway(Presentation.GetValue(), Binding, Door, Expected)) return false;
+        // UE owns when instance transforms are applied during streaming.
+        const FVector AnchorLocal = Level->bAlreadyMovedActors
+            ? Binding.InstanceToApartment.InverseTransformPosition(Anchor->GetActorLocation()) : Anchor->GetActorLocation();
+        const FVector ApproachLocal = Level->bAlreadyMovedActors
+            ? Binding.InstanceToApartment.InverseTransformPosition(Approach->GetActorLocation()) : Approach->GetActorLocation();
+        if (!AnchorLocal.Equals(Expected.DoorCm, .1)
+            || !ApproachLocal.Equals(Expected.PreferredApproachCm, .1)) return false;
     }
     // Two endpoint anchors must coincide after whole-level transforms, not teleport across gaps.
     for (int32 C = 0; C < Presentation->Apartment.Connections.Num(); ++C)

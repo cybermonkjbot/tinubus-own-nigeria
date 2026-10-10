@@ -26,14 +26,22 @@ namespace BaddieCompanion
         // Source bindings do not establish player-height acceptance or gameplay authority.
         bool IsWalkThroughReady() const { return false; }
     };
+    struct FNativeDoorwayPose
+    {
+        FVector DoorCm = FVector::ZeroVector, PreferredApproachCm = FVector::ZeroVector;
+    };
     struct FNativeDoorwayBinding
     {
         int32 ConnectionIndex = INDEX_NONE;
         bool bFromEndpoint = true;
         // Real actor names in the supplied native level; no invented sockets or tags.
         FName DoorActor, ApproachActor;
-        // Native navigation must supply this height; the doorway source does not define floorY.
+        // Measured bedroom/studio entrance only. Native navigation supplies its floor height.
         TOptional<double> SourceFloorYMetres;
+        // All other openings require measured native-level-local anchor positions, in UE cm.
+        // Already includes imported basis and the saved shell design, never the apartment transform.
+        // Trusted authored content only; not a standing-point fallback or a measured-entrance override.
+        TOptional<FNativeDoorwayPose> AuthoredLocalPose;
     };
     struct FNativeApartmentLevelBinding
     {
@@ -53,10 +61,6 @@ namespace BaddieCompanion
         // The whole-level transform never applies the saved shell turn to decor a second time.
         FSnapshotSelection Source;
         TArray<FNativeApartmentLevelBinding> Levels;
-    };
-    struct FNativeDoorwayPose
-    {
-        FVector DoorCm = FVector::ZeroVector, PreferredApproachCm = FVector::ZeroVector;
     };
     struct FNativeRoomCamera
     {
