@@ -14,7 +14,13 @@ namespace BaddieCompanion
     {
         constexpr int64 MaxInteger = 9007199254740991LL;
         constexpr int32 MaxDocumentCharacters = 2 * 1024 * 1024;
+        constexpr int32 MaxDocumentSeparators = 131072;
         constexpr int32 MaxLayoutIdentityCharacters = 160000;
+        // Loose array ceilings implied by the document separator budget: four-field
+        // boxes consume at least eight separators per entry, XYZ triples three.
+        constexpr int32 MaxNavigationObstacles = (MaxDocumentSeparators + 1) / 8;
+        constexpr int32 MaxInstanceSpawns = (MaxDocumentSeparators + 1) / 3;
+        constexpr int32 MaxStreetPoints = 2048, MaxStreetEdges = 8192;
         using FObject = TSharedPtr<FJsonObject>;
         using FValue = TSharedPtr<FJsonValue>;
 
@@ -42,7 +48,7 @@ namespace BaddieCompanion
                 if (C == TEXT('"')) bString = true;
                 else if (C == TEXT('{') || C == TEXT('[')) { if (++Depth > 32) return false; }
                 else if (C == TEXT('}') || C == TEXT(']')) { if (--Depth < 0) return false; }
-                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > 131072) return false; }
+                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > MaxDocumentSeparators) return false; }
             }
             if (bString || Depth != 0) return false;
             return FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
@@ -146,6 +152,103 @@ namespace BaddieCompanion
             const auto O = Object(Value);
             return Number(O, TEXT("x"), Out.X) && Number(O, TEXT("z"), Out.Z)
                 && Number(O, TEXT("yaw"), Out.YawRadians);
+        }
+        bool ScenePoint(const FValue& Value, FWorldScenePoint& Out)
+        {
+            if (!Value.IsValid() || Value->Type != EJson::Array) return false;
+            const auto& Values = Value->AsArray();
+            return Values.Num() == 3 && Number(Values[0], Out.X)
+                && Number(Values[1], Out.Y) && Number(Values[2], Out.Z);
+        }
+        bool ScenePoints(const FValue& Value, TArray<FWorldScenePoint>& Out, int32 Maximum)
+        {
+            if (!Value.IsValid() || Value->Type != EJson::Array) return false;
+            const auto& Values = Value->AsArray();
+            if (Values.Num() > Maximum) return false;
+            Out.Reserve(Values.Num());
+            for (const auto& Entry : Values)
+            {
+                FWorldScenePoint Next;
+                if (!ScenePoint(Entry, Next)) return false;
+                Out.Add(Next);
+            }
+            return true;
+        }
+        bool NavigationObstacle(const FValue& Value, FWorldNavigationObstacle& Out)
+        {
+            const auto O = Object(Value);
+            if (!Number(O, TEXT("minX"), Out.MinX) || !Number(O, TEXT("maxX"), Out.MaxX)
+                || !Number(O, TEXT("minZ"), Out.MinZ) || !Number(O, TEXT("maxZ"), Out.MaxZ)
+                || Out.MinX > Out.MaxX || Out.MinZ > Out.MaxZ
+                || !Optional(O, TEXT("yaw"), Out.YawRadians, false, false,
+                    [](const FValue& V, double& N) { return Number(V, N); })) return false;
+            return Optional(O, TEXT("polygon"), Out.Polygon, false, false,
+                [&Out](const FValue& V, TArray<FWorldNavigationVertex>& Vertices)
+                {
+                    if (!V.IsValid() || V->Type != EJson::Array
+                        || (Out.YawRadians.Value.IsSet() && Out.YawRadians.Value.GetValue() != 0)) return false;
+                    const auto& Values = V->AsArray();
+                    if (Values.Num() < 3 || Values.Num() > 8) return false;
+                    Vertices.Reserve(Values.Num());
+                    for (const auto& Entry : Values)
+                    {
+                        if (!Entry.IsValid() || Entry->Type != EJson::Array) return false;
+                        const auto& Pair = Entry->AsArray();
+                        FWorldNavigationVertex Next;
+                        if (Pair.Num() != 2 || !Number(Pair[0], Next.X) || !Number(Pair[1], Next.Z)
+                            || Next.X < Out.MinX || Next.X > Out.MaxX
+                            || Next.Z < Out.MinZ || Next.Z > Out.MaxZ) return false;
+                        Vertices.Add(Next);
+                    }
+                    return true;
+                });
+        }
+        bool StreetGraph(const FValue& Value, FWorldStreetGraph& Out)
+        {
+            const auto O = Object(Value);
+            if (!ScenePoints(Field(O, TEXT("points")), Out.Points, MaxStreetPoints)) return false;
+            const auto EdgeValue = Field(O, TEXT("edges"));
+            if (!EdgeValue.IsValid() || EdgeValue->Type != EJson::Array) return false;
+            const auto& Edges = EdgeValue->AsArray();
+            if (Edges.Num() > MaxStreetEdges) return false;
+            Out.Edges.Reserve(Edges.Num());
+            for (const auto& Entry : Edges)
+            {
+                if (!Entry.IsValid() || Entry->Type != EJson::Array) return false;
+                const auto& Pair = Entry->AsArray();
+                int64 From = 0, To = 0;
+                if (Pair.Num() != 2 || !Integer(Pair[0], From, Out.Points.Num() - 1)
+                    || !Integer(Pair[1], To, Out.Points.Num() - 1)) return false;
+                FWorldStreetGraphEdge Next;
+                Next.From = static_cast<int32>(From);
+                Next.To = static_cast<int32>(To);
+                Out.Edges.Add(Next);
+            }
+            return true;
+        }
+        bool Navigation(const FValue& Value, FWorldNavigation& Out)
+        {
+            const auto O = Object(Value);
+            if (!Key(O, TEXT("revision"), Out.Revision, MaxLayoutIdentityCharacters)
+                || !NavigationObstacle(Field(O, TEXT("bounds")), Out.Bounds)
+                || !Number(O, TEXT("radius"), Out.Radius) || Out.Radius <= 0
+                || !Number(O, TEXT("floorY"), Out.FloorY)
+                || !Optional(O, TEXT("gridSize"), Out.GridSize, false, false,
+                    // Race circuits supply 3; the walking planner's .12..1 range is not a wire limit.
+                    [](const FValue& V, double& N) { return Number(V, N) && N > 0; })
+                || !Optional(O, TEXT("streetGraph"), Out.StreetGraph, false, false, StreetGraph)) return false;
+            const auto ObstacleValue = Field(O, TEXT("obstacles"));
+            if (!ObstacleValue.IsValid() || ObstacleValue->Type != EJson::Array) return false;
+            const auto& Obstacles = ObstacleValue->AsArray();
+            if (Obstacles.Num() > MaxNavigationObstacles) return false;
+            Out.Obstacles.Reserve(Obstacles.Num());
+            for (const auto& Entry : Obstacles)
+            {
+                FWorldNavigationObstacle Next;
+                if (!NavigationObstacle(Entry, Next)) return false;
+                Out.Obstacles.Add(MoveTemp(Next));
+            }
+            return true;
         }
         bool Geo(const FValue& Value, double& Latitude, double& Longitude)
         {
@@ -484,12 +587,16 @@ namespace BaddieCompanion
         if (!Key(O, TEXT("id"), Next->Id) || !Key(O, TEXT("placeId"), Next->PlaceId)
             || !Key(O, TEXT("seed"), Next->Seed) || !Key(O, TEXT("generatorVersion"), Next->GeneratorVersion)
             || !Key(O, TEXT("layoutId"), Next->LayoutId, MaxLayoutIdentityCharacters)
-            || !Key(Object(Field(O, TEXT("navigation"))), TEXT("revision"), Next->NavigationRevision, MaxLayoutIdentityCharacters)
             || !Integer(O, TEXT("sharedStartedAt"), Next->SharedStartedAtMs)
             || !Optional(O, TEXT("roadside"), Next->Roadside, false, false, Endpoint)
             || !ObjectPresence(O, TEXT("layout"), Next->Layout, true, true)
             || !ObjectPresence(O, TEXT("room"), Next->Room, true, true)
             || !ObjectPresence(O, TEXT("transitPlan"), Next->TransitPlan, false, false)) return false;
+        OutError = TEXT("World instance navigation, spawns or exit is invalid or exceeds the decoder bounds.");
+        if (!Navigation(Field(O, TEXT("navigation")), Next->Navigation)
+            || !ScenePoints(Field(O, TEXT("spawns")), Next->Spawns, MaxInstanceSpawns)
+            || !ScenePoint(Field(O, TEXT("exit")), Next->Exit)) return false;
+        Next->NavigationRevision = Next->Navigation.Revision;
         const FWorldTravelEndpoint* ExpectedEndpoint = nullptr;
         FString ExpectedPlace = Player.PlaceId;
         if (Player.Status == EWorldPlayerStatus::Traveling)
