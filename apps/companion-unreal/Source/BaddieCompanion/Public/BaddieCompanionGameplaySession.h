@@ -1,0 +1,82 @@
+#pragma once
+
+#include "CoreMinimal.h"
+#include "Containers/Ticker.h"
+#include "Subsystems/GameInstanceSubsystem.h"
+#include "Templates/PimplPtr.h"
+#include "BaddieCompanionGameplaySession.generated.h"
+
+class FJsonObject;
+struct FBaddieCompanionGameplaySessionData;
+
+namespace BaddieCompanion
+{
+    enum class EGameplayConnectionState : uint8
+    {
+        Disabled, SignedOut, RequestingCode, AwaitingApproval, Authorized,
+        Entering, Joined, Leaving, EntryLost, Unavailable, Expired
+    };
+
+    // Status only. Joined means call presence, never world/mission/render readiness.
+    struct FGameplayConnectionView
+    {
+        EGameplayConnectionState State = EGameplayConnectionState::Disabled;
+        FString DeviceName, DisplayCode, ApprovalLink, Error;
+        double GrantOrPairingRemainingSeconds = 0;
+        double PresenceRemainingSeconds = 0;
+        double RetryAfterSeconds = 0;
+        bool bStale = false;
+    };
+
+    enum class EGameplayRequest : uint8 { None, Begin, Exchange, Enter, Heartbeat, Leave };
+}
+
+DECLARE_MULTICAST_DELEGATE(FBaddieCompanionGameplayConnectionChanged);
+
+/** Separate in-memory gameplay capability owner. No account tokens or gameplay controls. */
+UCLASS()
+class BADDIECOMPANION_API UBaddieCompanionGameplaySession : public UGameInstanceSubsystem
+{
+    GENERATED_BODY()
+
+public:
+    UBaddieCompanionGameplaySession();
+    virtual ~UBaddieCompanionGameplaySession() override;
+    virtual void Initialize(FSubsystemCollectionBase& Collection) override;
+    virtual void Deinitialize() override;
+
+    // Explicit trusted configuration only. Initialize reads no account-linking flag.
+    // This source adds no caller and defaults to disabled.
+    void Configure(const FString& ConvexOrigin, bool bEnabled);
+    void BeginPairing(const FString& DeviceName);
+    void Enter(const FString& CrewThreadId = FString());
+    void Leave();
+    void Disconnect();
+    BaddieCompanion::FGameplayConnectionView GetConnectionView() const;
+    FBaddieCompanionGameplayConnectionChanged OnConnectionChanged;
+
+private:
+    TPimplPtr<FBaddieCompanionGameplaySessionData> Data;
+    FTSTicker::FDelegateHandle Ticker;
+    FDelegateHandle DeactivateHandle, ReactivateHandle, BackgroundHandle, ForegroundHandle, SlateActivationHandle;
+
+    bool TickSession(float DeltaSeconds);
+    bool IsForeground() const;
+    void AttachSlateLifecycle();
+    void ApplicationDeactivated();
+    void ApplicationReactivated();
+    void ApplicationBackgrounded();
+    void ApplicationForegrounded();
+    void SlateActivationChanged(bool bActive);
+    void FocusLost();
+    void RetireRequest();
+    void ClearPrivateState();
+    void Stop(BaddieCompanion::EGameplayConnectionState State, const TCHAR* Message);
+    bool CheckLifetimes();
+    void BeginLeave(const TCHAR* Message);
+    void Send(BaddieCompanion::EGameplayRequest Operation);
+    void AcceptResult(BaddieCompanion::EGameplayRequest Operation,
+        const TSharedPtr<FJsonObject>& Result, double ElapsedSeconds);
+    void TransportFailed(BaddieCompanion::EGameplayRequest Operation);
+    void Schedule(BaddieCompanion::EGameplayRequest Operation, double DelaySeconds, const TCHAR* Message);
+};
