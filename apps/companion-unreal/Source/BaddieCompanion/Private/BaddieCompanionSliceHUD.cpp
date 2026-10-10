@@ -5,6 +5,62 @@
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
 #include "Engine/GameInstance.h"
+#include "Engine/GameViewportClient.h"
+#include "Engine/World.h"
+#include "SBaddieCompanionMissionPanel.h"
+#include "Widgets/SWeakWidget.h"
+
+bool ABaddieCompanionSliceHUD::PresentMission(const BaddieCompanion::FMissionHudView& View, double ListenerYawDegrees)
+{
+    auto* Controller = Cast<ABaddieCompanionSlicePlayerController>(GetOwningPlayerController());
+    auto* Viewport = GetWorld() ? GetWorld()->GetGameViewport() : nullptr;
+    if (!Controller || !Viewport || View.Token.Presentation == 0) return false;
+    if (!MissionPanel.IsValid())
+    {
+        SAssignNew(MissionPanel, SBaddieCompanionMissionPanel).Owner(Controller);
+        MissionViewportPanel = SNew(SWeakWidget).PossiblyNullContent(MissionPanel);
+        Viewport->AddViewportWidgetContent(MissionViewportPanel.ToSharedRef(), 20);
+    }
+    MissionPanel->Present(View, ListenerYawDegrees);
+    return true;
+}
+
+bool ABaddieCompanionSliceHUD::AddMissionHeardCue(uint64 Generation, uint8 WorldSector, double RemainingSeconds)
+{
+    return MissionPanel.IsValid() && MissionPanel->AddHeardCue(Generation, WorldSector, RemainingSeconds);
+}
+
+void ABaddieCompanionSliceHUD::ClearMission()
+{
+    if (MissionPanel.IsValid()) MissionPanel->Clear();
+}
+
+void ABaddieCompanionSliceHUD::CancelMissionPointers()
+{
+    if (MissionPanel.IsValid()) MissionPanel->CancelPointers();
+}
+
+bool ABaddieCompanionSliceHUD::HasMissionFocus() const
+{
+    return MissionPanel.IsValid() && (MissionPanel->HasKeyboardFocus() || MissionPanel->HasFocusedDescendants());
+}
+
+TSharedPtr<SWidget> ABaddieCompanionSliceHUD::GetMissionFocusWidget() const
+{
+    return MissionPanel;
+}
+
+void ABaddieCompanionSliceHUD::EndPlay(const EEndPlayReason::Type Reason)
+{
+    if (auto* Controller = Cast<ABaddieCompanionSlicePlayerController>(GetOwningPlayerController()))
+        Controller->ClearMissionPresentation();
+    ClearMission();
+    if (MissionViewportPanel.IsValid() && GetWorld() && GetWorld()->GetGameViewport())
+        GetWorld()->GetGameViewport()->RemoveViewportWidgetContent(MissionViewportPanel.ToSharedRef());
+    MissionViewportPanel.Reset();
+    MissionPanel.Reset();
+    Super::EndPlay(Reason);
+}
 
 void ABaddieCompanionSliceHUD::DrawHUD()
 {
