@@ -81,6 +81,7 @@ namespace BaddieCompanion
         FGuid Generation, CommandId;
         EPolicingResponseKind Kind = EPolicingResponseKind::Subscription;
         FString EncounterId;
+        bool bRequiresDispatchMark = false;
     };
     class BADDIECOMPANION_API FPolicingPreparedCommand
     {
@@ -96,6 +97,25 @@ namespace BaddieCompanion
         EPolicingAction Action = EPolicingAction::Cooperate;
         FPolicingReceipt Receipt;
     };
+    // Immutable endpoint/argument snapshot. Copies share one request identity, not another send.
+    // A valid packet is neither current dispatch ownership nor native authorization.
+    class BADDIECOMPANION_API FPolicingSerializedCommand
+    {
+    public:
+        bool IsValid() const { return bValid && !FunctionName.IsEmpty() && !ArgumentsJson.IsEmpty(); }
+        const FString& GetFunctionName() const { return FunctionName; }
+        const FString& GetArgumentsJson() const { return ArgumentsJson; }
+        EPolicingAction GetAction() const { return Prepared.GetAction(); }
+        const FString& GetEncounterId() const { return Prepared.GetEncounterId(); }
+        const FPolicingReceipt& GetReceipt() const { return Prepared.GetReceipt(); }
+        bool ShouldRetry() const { return false; }
+        bool ShouldInvalidateQueryCache() const { return false; }
+    private:
+        friend class FPolicingReadState;
+        FPolicingPreparedCommand Prepared;
+        FString FunctionName, ArgumentsJson;
+        bool bValid = false;
+    };
     struct FPolicingReadView
     {
         FString OwnerId;
@@ -103,7 +123,8 @@ namespace BaddieCompanion
         bool bReady = false, bBusy = false;
         TOptional<FString> Error;
     };
-    enum class EPolicingReadResult : uint8 { Accepted, StaleReceipt, StaleEncounter, InvalidResponse };
+    enum class EPolicingReadResult : uint8 { Accepted, StaleReceipt, StaleEncounter, InvalidResponse, WrongResponseKind };
+    enum class EPolicingCommandPrepareResult : uint8 { Prepared, Ignored, DemandRejected, SerializationFailed };
 
     // Single-threaded state only. The caller owns subscriber counts, authenticated scope,
     // transport and UI notifications. No automatic action, timers, simulation or replication.
@@ -120,6 +141,8 @@ namespace BaddieCompanion
         FPolicingReceipt BeginSubscription();
         // Last subscriber removal retains displayed data/error but retires pending callbacks.
         void EndSubscription();
+        // Subscription and legacy command completions only. Serialized commands use the
+        // marked-completion APIs below; their receipts cannot bypass marking through these APIs.
         EPolicingReadResult Accept(const FPolicingReceipt& Receipt, const FPolicingDecodedResponse& Response);
         // Pass only an already extracted, display-safe error message, never a transport body.
         bool AcceptFailure(const FPolicingReceipt& Receipt, const TOptional<FString>& SafeMessage = {});
@@ -129,14 +152,37 @@ namespace BaddieCompanion
             const TOptional<FPoliceDemandConfirmation>& Confirmed = {});
         // Recheck after caller/UI callbacks before dispatch; still not permission to send.
         bool IsCurrentCommand(const FPolicingPreparedCommand& Command) const;
+        // Reuses legacy preparation order. Out resets on every call. Notify synchronously for
+        // Prepared, DemandRejected or SerializationFailed, but not Ignored. Prepared sets busy;
+        // serialization failure releases it before returning, with a fixed action error.
+        EPolicingCommandPrepareResult PrepareSerializedCommand(EPolicingAction Action,
+            FPolicingSerializedCommand& Out, const TOptional<FPoliceDemandConfirmation>& Confirmed = {});
+        // Call after the busy notification, then send immediately on true without another
+        // yield/notification. Once-only local ownership; does not check refreshed consent/ID.
+        bool MarkCommandDispatched(const FPolicingSerializedCommand& Command);
+        // Only a current, unmarked serialized request may be abandoned. True releases busy
+        // without changing encounter/error and requires the caller's normal notification.
+        bool AbandonUnsentCommand(const FPolicingSerializedCommand& Command);
+        // Only marked serialized requests may finish. Notify for Accepted, StaleEncounter or
+        // InvalidResponse; all release busy. WrongResponseKind/StaleReceipt leave state alone.
+        EPolicingReadResult CompleteSerializedCommand(const FPolicingSerializedCommand& Command,
+            const FPolicingDecodedResponse& Response);
+        // True releases busy and requires notification; same-encounter error guard is unchanged.
+        bool FailSerializedCommand(const FPolicingSerializedCommand& Command, const TOptional<FString>& SafeMessage = {});
         void Clear();
         void Dispose();
     private:
+        EPolicingCommandPrepareResult PrepareCommandInternal(EPolicingAction Action,
+            const TOptional<FPoliceDemandConfirmation>& Confirmed, FPolicingPreparedCommand& Out);
         bool Current(const FPolicingReceipt& Receipt) const;
+        bool CurrentSerialized(const FPolicingSerializedCommand& Command) const;
         bool SameEncounter(const FPolicingReceipt& Receipt) const;
+        EPolicingReadResult AcceptCurrentResponse(const FPolicingReceipt& Receipt, const FPolicingDecodedResponse& Response);
+        void AcceptCurrentFailure(const FPolicingReceipt& Receipt, const TOptional<FString>& SafeMessage);
         void FinishCommand();
         FPolicingReadView View;
         FGuid Generation, ActiveCommand;
         bool bSubscribed = false, bDisposed = false;
+        bool bActiveCommandRequiresMark = false, bActiveCommandMarked = false;
     };
 }
