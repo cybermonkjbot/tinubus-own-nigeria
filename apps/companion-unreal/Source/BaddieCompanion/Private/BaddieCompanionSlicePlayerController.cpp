@@ -245,10 +245,8 @@ bool ABaddieCompanionSlicePlayerController::CopyNativeRoomCamera(const FString& 
 {
     Out = {};
     RefreshConnectionPresentation();
-    const bool bCopied = !bEndingPlay && IsLocalController() && !bOfflineInspection && HomePresentation.GetPlan()
+    return !bEndingPlay && IsLocalController() && !bOfflineInspection && HomePresentation.GetPlan()
         && NativeApartment && NativeApartment->CopyRoomCamera(RoomId, Out);
-    if (!bCopied && NativeApartment && NativeApartment->HasPrivateContent()) NativeApartment->ClearPrivateContent();
-    return bCopied;
 }
 
 bool ABaddieCompanionSlicePlayerController::CopyNativeDoorwayApproach(int32 Index, bool bFromEndpoint, FVector& Out)
@@ -257,15 +255,9 @@ bool ABaddieCompanionSlicePlayerController::CopyNativeDoorwayApproach(int32 Inde
     RefreshConnectionPresentation();
     auto* Character = Cast<ACharacter>(GetPawn());
     // Never use the inspection pawn's neutral-stage clamp/spawn in native apartment traversal.
-    const bool bCopied = !bEndingPlay && IsLocalController() && !bOfflineInspection && HomePresentation.GetPlan()
+    return !bEndingPlay && IsLocalController() && !bOfflineInspection && HomePresentation.GetPlan()
         && Character && !Character->IsA<ABaddieCompanionSliceCharacter>() && NativeApartment
         && NativeApartment->CopyNavigationApproach(*Character, Index, bFromEndpoint, Out);
-    if (!bCopied && NativeApartment && NativeApartment->HasPrivateContent())
-    {
-        NativeApartment->ClearPrivateContent();
-        NativeApartment->AddGap(BaddieCompanion::ENativeApartmentGap::NavigationUnavailable);
-    }
-    return bCopied;
 }
 
 void ABaddieCompanionSlicePlayerController::StartPairing(const FString& DeviceName)

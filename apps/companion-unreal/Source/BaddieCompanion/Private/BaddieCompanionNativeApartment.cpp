@@ -20,6 +20,15 @@ namespace BaddieCompanion::NativeApartment
     {
         return A.Space == B.Space && A.RoomId.Equals(B.RoomId, ESearchCase::CaseSensitive);
     }
+    bool IsAuthoredLivingExit(const FApartmentPlan& Plan, const FNativeApartmentLevelBinding& Binding,
+        const FNativeDoorwayBinding& Door)
+    {
+        if (Binding.Endpoint.Space != EApartmentSpace::LivingRoom
+            || !Plan.Connections.IsValidIndex(Door.ConnectionIndex)) return false;
+        const auto& Connection = Plan.Connections[Door.ConnectionIndex];
+        const auto& Other = Door.bFromEndpoint ? Connection.To : Connection.From;
+        return Other.Space == EApartmentSpace::ExteriorLanding;
+    }
     bool RigidInstance(const FTransform& Transform)
     {
         // No scaling, mirroring, pitch/roll or deformation of saved room geometry.
@@ -170,16 +179,21 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
         { AddGap(ENativeApartmentGap::InvalidBinding); return false; }
         Seen.Add(Binding.Endpoint);
         TArray<int32> DoorIndices;
+        TArray<FName> AnchorActors;
         for (const auto& Door : Binding.Doors)
         {
             if (!Plan.Apartment.Connections.IsValidIndex(Door.ConnectionIndex)
-                || Door.DoorActor.IsNone() || Door.ApproachActor.IsNone() || DoorIndices.Contains(Door.ConnectionIndex))
+                || Door.DoorActor.IsNone() || Door.ApproachActor.IsNone() || Door.DoorActor == Door.ApproachActor
+                || DoorIndices.Contains(Door.ConnectionIndex) || AnchorActors.Contains(Door.DoorActor)
+                || AnchorActors.Contains(Door.ApproachActor))
             { AddGap(ENativeApartmentGap::InvalidBinding); return false; }
             DoorIndices.Add(Door.ConnectionIndex);
+            AnchorActors.Add(Door.DoorActor);
+            AnchorActors.Add(Door.ApproachActor);
             const auto& Connection = Plan.Apartment.Connections[Door.ConnectionIndex];
             if (!SameEndpoint(Binding.Endpoint, Door.bFromEndpoint ? Connection.From : Connection.To))
             { AddGap(ENativeApartmentGap::InvalidBinding); return false; }
-            if (!Binding.Endpoint.RoomId.IsEmpty())
+            if (!Binding.Endpoint.RoomId.IsEmpty() && !IsAuthoredLivingExit(Plan.Apartment, Binding, Door))
             {
                 const auto* Room = Plan.Rooms.FindByPredicate([&](const auto& R)
                     { return R.Id.Equals(Binding.Endpoint.RoomId, ESearchCase::CaseSensitive); });
@@ -268,12 +282,19 @@ bool UBaddieCompanionNativeApartment::ValidateLoadedAnchors(int32 Index)
     auto* Level = Stream ? Stream->GetLoadedLevel() : nullptr;
     if (!Level) return false;
     const auto& Binding = Bindings[Index];
+    TArray<FVector> DoorPositions;
     for (const auto& Door : Binding.Doors)
     {
         auto* Anchor = ActorNamed(Level, Door.DoorActor);
         auto* Approach = ActorNamed(Level, Door.ApproachActor);
-        if (!Anchor || !Approach) return false;
-        if (!Binding.Endpoint.RoomId.IsEmpty())
+        if (!Anchor || !Approach || Anchor->GetActorLocation().ContainsNaN()
+            || Approach->GetActorLocation().ContainsNaN()) return false;
+        const FVector DoorPosition = Anchor->GetActorLocation();
+        if (DoorPositions.ContainsByPredicate([&](const FVector& Position) { return Position.Equals(DoorPosition, .1); }))
+            return false;
+        DoorPositions.Add(DoorPosition);
+        // The saved entrance stays canonical. A living-room exit needs its own authored opening.
+        if (!Binding.Endpoint.RoomId.IsEmpty() && !IsAuthoredLivingExit(Presentation->Apartment, Binding, Door))
         {
             const auto* Room = Presentation->Rooms.FindByPredicate([&](const auto& R)
                 { return R.Id.Equals(Binding.Endpoint.RoomId, ESearchCase::CaseSensitive); });
