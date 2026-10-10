@@ -103,9 +103,9 @@ struct FBaddieCompanionSessionData
     BaddieCompanion::FSnapshotSelection Selection;
     FHttpRequestPtr Request;
 
-    double Remaining() const
+    double Remaining(double Now = FPlatformTime::Seconds()) const
     {
-        return FMath::Max(0.0, FMath::Min(Deadline - FPlatformTime::Seconds(),
+        return FMath::Max(0.0, FMath::Min(Deadline - Now,
             (WallDeadline - FDateTime::UtcNow()).GetTotalSeconds()));
     }
 
@@ -234,8 +234,8 @@ void UBaddieCompanionSession::Disconnect()
 BaddieCompanion::FConnectionView UBaddieCompanionSession::GetConnectionView() const
 {
     auto View = Data->View;
-    View.RemainingSeconds = Data->Remaining();
     const double Now = FPlatformTime::Seconds();
+    View.RemainingSeconds = Data->Remaining(Now);
     View.RetryAfterSeconds = FMath::Max(0.0, Data->BeginRetryAt - Now);
     const double AutomaticDelay = FMath::Max(0.0, Data->NextAttempt - Now);
     // Reuse the request owner's deadline. Do not display normal polling as an
