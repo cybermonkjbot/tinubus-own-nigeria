@@ -137,13 +137,39 @@ namespace BaddieCompanion
     };
     enum class ECombatReceiptKind : uint8 { Subscription, Command, Input, NeutralRelease };
     enum class ECombatReadResult : uint8 { Accepted, OlderRevision, StaleReceipt, InvalidResponse, IdentityMismatch };
+    struct FCombatInputValue
+    {
+        int64 Sequence = 0;
+        // Source move[0] is right, move[1] is forward. Angles remain radians.
+        double MoveRight = 0, MoveForward = 0, YawRadians = 0, PitchRadians = 0;
+        bool bAttack = false, bBlock = false, bReload = false;
+    };
     class FCombatReceipt
     {
+    public:
+        // Bind cleanup to its original admitted adapter context, never the current selection.
+        const FString& GetInstanceId() const { return InstanceId; }
+        const FString& GetExpectedPlayerId() const { return ExpectedPlayerId; }
+        const FGuid& GetSubscriptionGeneration() const { return Generation; }
+    private:
         friend class FCombatReadState;
-        FGuid Generation, ScopeGeneration, InputGeneration, CommandId;
+        FGuid Generation, ScopeGeneration, InputGeneration, RequestId;
         ECombatReceiptKind Kind = ECombatReceiptKind::Subscription;
+        FString InstanceId, ExpectedPlayerId;
         TOptional<FString> MatchId, LifeId;
         double BeganAtMs = 0;
+        bool bOwned = false;
+    };
+    class FCombatRequest
+    {
+    public:
+        const FString& GetEndpoint() const { return Endpoint; }
+        const FString& GetArgumentsJson() const { return ArgumentsJson; }
+        const FCombatReceipt& GetReceipt() const { return Receipt; }
+    private:
+        friend class FCombatReadState;
+        FCombatReceipt Receipt;
+        FString Endpoint, ArgumentsJson;
     };
     struct FCombatReadView
     {
@@ -173,6 +199,23 @@ namespace BaddieCompanion
         TOptional<FCombatReceipt> CaptureCommand(double BeganAtMs);
         TOptional<FCombatReceipt> CaptureInput(double BeganAtMs, bool bNeutralRelease = false) const;
         void InvalidateInputReceipts();
+        TOptional<FCombatRequest> PrepareJoin(double BeganAtMs);
+        TOptional<FCombatRequest> PrepareLeave(double BeganAtMs);
+        TOptional<FCombatRequest> PrepareRobberyAction(const FString& Action, double BeganAtMs);
+        TOptional<FCombatRequest> PrepareInput(const FCombatInputValue& Input, double BeganAtMs);
+        // No send or notification. Stop captures cleanup; the adapter drains it after each
+        // lifecycle/response operation, including stale or silent terminal results.
+        void StopInputs();
+        // Pending identity supports abandonment only. Preparing gives it a new receipt.
+        TOptional<FCombatReceipt> GetPendingStop() const;
+        TOptional<FCombatRequest> PreparePendingStop(double BeganAtMs);
+        // Send the successful returned packet immediately, without yielding or notifying.
+        // The actual dispatch wall time owns rate accounting and mutation midpoint timing.
+        // Only captured neutral cleanup can dispatch after selection loss or Dispose.
+        TOptional<FCombatRequest> DispatchRequest(const FCombatReceipt& Receipt, double DispatchedAtMs);
+        bool AbandonRequest(const FCombatReceipt& Receipt);
+        // Keep this owner alive until sent flights settle and cleanup is drained/abandoned.
+        bool HasInputWork() const { return InputFlight.IsSet() || PendingStop.IsSet(); }
         ECombatReadResult Accept(const FCombatReceipt& Receipt, const FCombatDecodedResponse& Response,
             double ReceivedAtMs);
         bool AcceptFailure(const FCombatReceipt& Receipt);
@@ -182,9 +225,33 @@ namespace BaddieCompanion
         FCombatReceipt Capture(ECombatReceiptKind Kind, double BeganAtMs = 0) const;
         bool Current(const FCombatReceipt& Receipt) const;
         bool CurrentInput(const FCombatReceipt& Receipt) const;
+        bool CanComplete(const FCombatReceipt& Receipt) const;
+        bool MatchesFlight(const FCombatReceipt& Receipt) const;
+        const FCombatFighterView* DisplayedFighter() const;
+        bool CanStartCommand(double BeganAtMs) const;
+        bool StartCommand(const FCombatRequest& Request);
+        TOptional<FCombatRequest> PrepareCommand(const TCHAR* Endpoint, double BeganAtMs, const FString& Action);
+        struct FInputWork
+        {
+            FCombatRequest Request;
+            FCombatInputValue Input;
+            bool bDispatched = false, bCompleting = false;
+        };
+        bool EncodeInput(FInputWork& Work) const;
+        void ResetSelectedInput();
+        void RetireCommand();
         void FinishCommand(const FCombatReceipt& Receipt);
+        void FinishInput(const FCombatReceipt& Receipt);
+        ECombatReadResult ApplyResponse(const FCombatReceipt& Receipt, const FCombatDecodedResponse& Response, double ReceivedAtMs);
+        bool ApplyFailure(const FCombatReceipt& Receipt);
         FCombatReadView View;
         FGuid Generation, ScopeGeneration, InputGeneration, ActiveCommand;
+        TOptional<FCombatRequest> PreparedCommand;
+        bool bCommandDispatched = false;
+        TOptional<FInputWork> InputFlight, PendingStop;
+        TOptional<FCombatInputValue> LastInput;
+        TOptional<double> LastSendMs;
+        int64 LastSequence = -1;
         bool bSubscribed = false, bDisposed = false;
         FCombatReadChanged Changed;
     };
