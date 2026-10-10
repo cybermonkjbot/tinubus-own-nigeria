@@ -6,6 +6,7 @@
 #include "BaddieCompanionSession.h"
 #include "BaddieCompanionSnapshot.h"
 #include "BaddieCompanionNativeApartment.h"
+#include "BaddieCompanionMissionPresentation.h"
 #include "BaddieCompanionSlicePlayerController.generated.h"
 
 class SBaddieCompanionConnectionPanel;
@@ -41,10 +42,42 @@ public:
     bool CopyNativeDoorwayApproach(int32 ConnectionIndex, bool bFromEndpoint, FVector& Out);
     bool IsInspectionPointerCaptured() const { return bPointerCaptured; }
 
+    // Trusted native integration only. Bind before admission; never from Home connection or UI.
+    BaddieCompanion::FMissionAdmission MissionAdmission;
+    BaddieCompanion::FMissionVectorInput MissionMoveInput;
+    BaddieCompanion::FMissionVectorInput MissionLookInput;
+    BaddieCompanion::FMissionADSInput MissionADSInput;
+    BaddieCompanion::FMissionFireInput MissionFireInput;
+    BaddieCompanion::FMissionActionInput MissionActionInput;
+    BaddieCompanion::FMissionActionCancel MissionActionCancel;
+
+    bool CopyMissionToken(BaddieCompanion::FMissionPresentationToken& Out);
+    void RefreshMissionPresentation();
+    void ClearMissionPresentation();
+    // Monotonic sequence per presentation. Null selection explicitly invalidates the current target.
+    void PresentMissionAction(const BaddieCompanion::FMissionPresentationToken& Token, uint64 Sequence,
+        const TOptional<BaddieCompanion::FMissionSelectedAction>& Selection);
+    void PresentMissionCombat(const BaddieCompanion::FMissionPresentationToken& Token, uint64 Sequence,
+        const BaddieCompanion::FMissionCombatPolicy& Policy);
+    // Hearing owner has already admitted this event. Only eight world-bearing sectors are accepted.
+    bool PresentMissionHeardCue(const BaddieCompanion::FMissionPresentationToken& Token, uint64 Sequence,
+        uint8 WorldSector, double ExpiresAtSeconds);
+    void CompleteMissionAction(const BaddieCompanion::FMissionActionRequest& Request, bool bSucceeded);
+    void RequestMissionAction(const BaddieCompanion::FMissionPresentationToken& Token,
+        const BaddieCompanion::FMissionSelectedAction& Expected, bool bBrushSwipe = false);
+    void RequestMissionMove(const BaddieCompanion::FMissionPresentationToken& Token, FVector2D Value);
+    void RequestMissionLook(const BaddieCompanion::FMissionPresentationToken& Token, FVector2D Delta);
+    void RequestMissionADS(const BaddieCompanion::FMissionPresentationToken& Token, bool bHeld);
+    void RequestMissionFire(const BaddieCompanion::FMissionPresentationToken& Token, bool bHeld);
+    void CancelMissionInputs();
+    void SetMissionModal(bool bOpen);
+    void SetMissionHipAssistance(bool bEnabled);
+
 protected:
     virtual void BeginPlay() override;
     virtual void EndPlay(const EEndPlayReason::Type EndPlayReason) override;
     virtual void OnPossess(APawn* InPawn) override;
+    virtual void OnUnPossess() override;
     virtual void SetupInputComponent() override;
 
 private:
@@ -56,6 +89,13 @@ private:
     void StartPairing(const FString& DeviceName, BaddieCompanion::EConnectionScope Scope);
     void StopConnection();
     bool HasOfflineSelection() const;
+    bool CheckMissionAdmission();
+    bool AcceptMissionToken(const BaddieCompanion::FMissionPresentationToken& Token);
+    void InvalidateMissionAction();
+    void UpdateMissionFire();
+    void StopMissionFire();
+    bool HasMissionCombatPolicy() const;
+    void HandleMissionFocusLoss();
 
     TWeakObjectPtr<UBaddieCompanionSession> ConnectionSession;
     TWeakObjectPtr<UBaddieCompanionSliceSession> OfflineSession;
@@ -74,4 +114,36 @@ private:
     bool bOfflineInspection = false;
     bool bPointerCaptured = false;
     bool bEndingPlay = false;
+    TOptional<BaddieCompanion::FMissionPresentationToken> MissionToken;
+    TOptional<BaddieCompanion::FMissionSelectedAction> MissionSelection;
+    TOptional<BaddieCompanion::FMissionSelectedAction> CompletedMissionSelection;
+    TOptional<BaddieCompanion::FMissionActionRequest> MissionRequest;
+    BaddieCompanion::FMissionCombatPolicy MissionCombat;
+    BaddieCompanion::EMissionActionState MissionActionState = BaddieCompanion::EMissionActionState::Hidden;
+    uint64 RetiredMissionGeneration = 0;
+    uint64 MissionPresentationGeneration = 0;
+    uint64 MissionActionSequence = 0;
+    uint64 MissionCombatSequence = 0;
+    uint64 MissionHearingSequence = 0;
+    uint64 MissionRequestSequence = 0;
+    uint64 MissionADSInputSerial = 0;
+    bool bMissionModal = false;
+    bool bHipAssistance = false;
+    bool bManualFireHeld = false;
+    bool bMissionADSHeld = false;
+    bool bRefreshingMission = false;
+    bool bClearingMission = false;
+    bool bCancellingMissionInput = false;
+    bool bUpdatingMissionFire = false;
+    bool bOwnsMissionPitchLimits = false;
+    float SavedMissionPitchMin = 0;
+    float SavedMissionPitchMax = 0;
+    TOptional<BaddieCompanion::FMissionPresentationToken> HeldInputToken;
+    TOptional<BaddieCompanion::EMissionFireSource> HeldFireSource;
+    BaddieCompanion::FMissionFireInput HeldFireDelegate;
+    BaddieCompanion::FMissionADSInput HeldADSDelegate;
+    BaddieCompanion::FMissionVectorInput HeldMoveDelegate;
+    BaddieCompanion::FMissionActionCancel PendingCancelDelegate;
+    FDelegateHandle MissionDeactivateHandle;
+    FDelegateHandle MissionBackgroundHandle;
 };
