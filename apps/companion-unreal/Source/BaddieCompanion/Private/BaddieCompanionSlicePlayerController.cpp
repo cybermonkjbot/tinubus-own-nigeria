@@ -115,6 +115,7 @@ void ABaddieCompanionSlicePlayerController::OfflineSelectionChanged()
     if (bEndingPlay || !bOfflineInspection) return;
     // Notification order must not disable a newly spawned inspection pawn.
     RetainedSelection.Reset();
+    HomePresentation.Clear();
     PendingAction.Reset();
     PendingDeviceName.Reset();
     bPointerCaptured = false;
@@ -139,6 +140,7 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
     if (bOfflineInspection)
     {
         // Never reached as a fallback for failed live access.
+        HomePresentation.Clear();
         const auto* Session = OfflineSession.Get();
         const auto* Selection = HasOfflineSelection() ? Session->GetSelection() : nullptr;
         if (!Selection && RetainedSelection.IsSet()) ClearPrivatePresentation();
@@ -154,7 +156,7 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
     const bool bValid = Session && Session->CopySnapshot(Next);
     if (!bValid)
     {
-        if (RetainedSelection.IsSet() || PendingAction.IsSet()) ClearPrivatePresentation();
+        if (RetainedSelection.IsSet() || PendingAction.IsSet() || HomePresentation.HasInput()) ClearPrivatePresentation();
     }
     else
     {
@@ -164,14 +166,29 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
                 || !RetainedSelection.GetValue().ActiveRoom.Id.Equals(Next.ActiveRoom.Id, ESearchCase::CaseSensitive)))
             ClearPrivatePresentation();
         RetainedSelection = MoveTemp(Next);
+        HomePresentation.Update(RetainedSelection.GetValue());
     }
     if (ConnectionPanel.IsValid())
-        ConnectionPanel->PresentConnection(View, RetainedSelection.IsSet() ? &RetainedSelection.GetValue() : nullptr);
+        ConnectionPanel->PresentConnection(View, RetainedSelection.IsSet() ? &RetainedSelection.GetValue() : nullptr,
+            HomePresentation.GetPlan());
+}
+
+bool ABaddieCompanionSlicePlayerController::CopyHomePresentation(BaddieCompanion::FHomePresentationPlan& Out)
+{
+    Out = {};
+    if (bEndingPlay || !IsLocalController() || bOfflineInspection)
+    {
+        HomePresentation.Clear();
+        return false;
+    }
+    RefreshConnectionPresentation();
+    return HomePresentation.CopyPlan(Out);
 }
 
 void ABaddieCompanionSlicePlayerController::ClearPrivatePresentation()
 {
     RetainedSelection.Reset();
+    HomePresentation.Clear();
     PendingAction.Reset();
     PendingDeviceName.Reset();
     bPointerCaptured = false;

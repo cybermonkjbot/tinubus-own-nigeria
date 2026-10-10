@@ -96,16 +96,16 @@ struct FBaddieCompanionSessionData
 {
     FString Origin, DeviceId, DeviceSecret, GameToken, GrantId;
     uint64 Generation = 0;
-    bool bEnabled = false, bHasSnapshot = false;
+    bool bEnabled = false, bHasSnapshot = false, bRetryBackoff = false;
     double Deadline = 0, NextAttempt = 0, BeginRetryAt = 0;
     FDateTime WallDeadline;
     BaddieCompanion::FConnectionView View;
     BaddieCompanion::FSnapshotSelection Selection;
     FHttpRequestPtr Request;
 
-    double Remaining() const
+    double Remaining(double Now = FPlatformTime::Seconds()) const
     {
-        return FMath::Max(0.0, FMath::Min(Deadline - FPlatformTime::Seconds(),
+        return FMath::Max(0.0, FMath::Min(Deadline - Now,
             (WallDeadline - FDateTime::UtcNow()).GetTotalSeconds()));
     }
 
@@ -171,7 +171,7 @@ void UBaddieCompanionSession::ClearPrivateState()
         Data->Request.Reset();
     }
     Data->DeviceId.Reset(); Data->DeviceSecret.Reset(); Data->GameToken.Reset(); Data->GrantId.Reset();
-    Data->Selection = {}; Data->View = {}; Data->bHasSnapshot = false;
+    Data->Selection = {}; Data->View = {}; Data->bHasSnapshot = false; Data->bRetryBackoff = false;
     Data->Deadline = 0; Data->WallDeadline = FDateTime(); Data->NextAttempt = 0;
 }
 
@@ -234,8 +234,14 @@ void UBaddieCompanionSession::Disconnect()
 BaddieCompanion::FConnectionView UBaddieCompanionSession::GetConnectionView() const
 {
     auto View = Data->View;
-    View.RemainingSeconds = Data->Remaining();
-    View.RetryAfterSeconds = FMath::Max(0.0, Data->BeginRetryAt - FPlatformTime::Seconds());
+    const double Now = FPlatformTime::Seconds();
+    View.RemainingSeconds = Data->Remaining(Now);
+    View.RetryAfterSeconds = FMath::Max(0.0, Data->BeginRetryAt - Now);
+    const double AutomaticDelay = FMath::Max(0.0, Data->NextAttempt - Now);
+    // Reuse the request owner's deadline. Do not display normal polling as an
+    // error, or promise a retry that cannot happen within this grant/pairing.
+    View.AutomaticRetryAfterSeconds = Data->bRetryBackoff && !Data->Request.IsValid()
+        && AutomaticDelay < View.RemainingSeconds ? AutomaticDelay : 0;
     if (Data->Deadline > 0 && View.RemainingSeconds <= 0)
     {
         View = {};
@@ -283,8 +289,9 @@ void UBaddieCompanionSession::TransportFailed(const FString& Operation)
         return;
     }
     Data->NextAttempt = FPlatformTime::Seconds() + 5.0;
+    Data->bRetryBackoff = true;
     Data->View.bStale = Data->bHasSnapshot;
-    Data->View.Error = TEXT("Connection interrupted. Retrying.");
+    Data->View.Error = TEXT("Connection interrupted.");
     OnConnectionChanged.Broadcast();
 }
 
@@ -296,6 +303,7 @@ void UBaddieCompanionSession::Send(const FString& Operation, const TSharedRef<FJ
     const FDateTime WallStarted = FDateTime::UtcNow();
     const auto Request = MakeRequest(Data->Origin, Operation, Args);
     Data->Request = Request;
+    Data->bRetryBackoff = false;
     Request->OnProcessRequestComplete().BindWeakLambda(this,
         [this, Generation, Operation, Started, WallStarted](FHttpRequestPtr Incoming, FHttpResponsePtr Response, bool bSuccess)
     {
@@ -342,13 +350,14 @@ void UBaddieCompanionSession::AcceptResult(const FString& Operation, const TShar
             ClearPrivateState();
             Data->BeginRetryAt = FPlatformTime::Seconds() + RetryMs / 1000.0;
             Data->View.State = EConnectionState::Unavailable;
-            Data->View.Error = TEXT("Too many requests. Wait before connecting again.");
+            Data->View.Error = TEXT("Too many connection requests.");
             OnConnectionChanged.Broadcast();
             return;
         }
         Data->NextAttempt = FPlatformTime::Seconds() + FMath::Max(2.0, RetryMs / 1000.0);
+        Data->bRetryBackoff = true;
         Data->View.bStale = Data->bHasSnapshot;
-        Data->View.Error = TEXT("Waiting before retrying the connection.");
+        Data->View.Error = TEXT("Too many connection requests.");
         OnConnectionChanged.Broadcast();
         return;
     }

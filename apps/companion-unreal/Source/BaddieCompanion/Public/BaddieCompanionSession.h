@@ -25,7 +25,11 @@ namespace BaddieCompanion
         FString ApprovalLink;
         FString Error;
         double RemainingSeconds = 0;
+        // Manual begin throttling only. Existing Connect gating retains this meaning.
         double RetryAfterSeconds = 0;
+        // Existing exchange/snapshot error backoff, not routine polling. Zero while
+        // requesting, after clearing, or when expiry occurs before another attempt.
+        double AutomaticRetryAfterSeconds = 0;
         bool bStale = false;
     };
 }

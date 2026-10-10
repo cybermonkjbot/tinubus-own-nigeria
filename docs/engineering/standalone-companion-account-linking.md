@@ -99,6 +99,8 @@ The gameplay owner calls `BeginPairing`, renders only `GetConnectionView`, and u
 
 Exchange uses the returned polling interval. Snapshot refresh is limited to once per five seconds; server throttling delays subsequent reads. A throttled begin request blocks another begin for the returned interval and exposes `RetryAfterSeconds` in the public view. Deadline checks use both monotonic and wall clocks and subtract request duration. Snapshot responses may shorten, never extend, the original grant. The client requires exactly one character and Home, case-sensitive selection/grant IDs and nondecreasing revisions. Lost exchange responses retry with the original proof while the pairing remains valid. Sign-out clears local state immediately and makes a separate bounded best-effort cancellation/revocation request.
 
+`AutomaticRetryAfterSeconds` separately exposes exchange/snapshot transport-error and throttle delays from the existing request scheduler. It is not a second timer and does not gate manual Connect, re-pair or disconnect actions. The value is zero during routine polling, an in-flight request, cleared access, or when the next attempt would not precede local expiry. The Slate panel uses it for an automatic retry countdown while retaining `RetryAfterSeconds` for the manual begin delay. The source update is currently on Mac; guarded transfer and rendered verification remain pending.
+
 Credentials and private snapshots exist only in process memory. Restarting the game requires a new pairing. No credential is written to an INI file, SaveGame, log, analytics event or Blueprint property. Asset mapping and gameplay admission still belong to their separate owners; a readable snapshot does not grant permission to move in a server game.
 
 ## Remaining work
