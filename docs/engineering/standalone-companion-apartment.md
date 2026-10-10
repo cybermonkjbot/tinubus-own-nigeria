@@ -22,7 +22,7 @@ The measured bedroom and studio doorway sources are in `packages/utils/src/compa
 
 ## Current source
 
-The apartment mapping at Mac `a377f2ecbcd548a4a0b9cf2e9e755309368378f2` and support-policy follow-up reached Windows `3162fdf7f0fc07bb69c4b460c074b350cc451dd0`. The returned native source is reviewed and corrected at Mac `3f0318fb8`. Apartment session acceptance and explicit controls now use that native controller, but their combined Windows handoff remains pending. The connected environment is not complete.
+The apartment mapping at Mac `a377f2ecbcd548a4a0b9cf2e9e755309368378f2` and support-policy follow-up reached Windows `3162fdf7f0fc07bb69c4b460c074b350cc451dd0`. The reviewed native corrections, apartment session acceptance and explicit controls reached Windows together at `87295378a1ce93db180a879b87909dc7de3d050f`. The parent independently verified all 81 delivery/reference hashes and a clean Unreal worktree at 13:29:59 UTC on October 10. The connected environment is not complete.
 
 `BaddieCompanionLayoutMapping.cpp` extends the existing saved-room plan to Pat's studio, bedroom v01, kitchen, bathroom, legacy studio and terrace. Bedroom v02 keeps its measured mapping. It preserves floor/support anchors, walls/openings, camera references, fixed camera housings, preferred spawn, extension metadata and quarter turns. Legacy rooms retain catalog body dimensions and their original placement envelope. Terrace retains horizontal supports without indoor walls.
 
@@ -30,7 +30,17 @@ The apartment mapping at Mac `a377f2ecbcd548a4a0b9cf2e9e755309368378f2` and supp
 
 `BaddieCompanionApartment.h/.cpp` adds the required two-way adjacency to that existing plan. Supplied rooms connect to the hallway; the hallway connects to the living room; the living room connects to the exterior landing. A supplied `home-living` is reused as that living-room endpoint. Native doorways, common-space modules, lighting, complete inventory and exterior admission remain unverified, and `IsWalkThroughReady()` returns false. This is connected-apartment data, not a connected rendered environment.
 
-The existing `companion_home_read` grant supplies exactly one pinned Home room. Its server projection and Unreal session's Home-scope one-room check are unchanged. The original apartment plan added no grant or authority. The separate source follow-up in `standalone-companion-apartment-access.md` adds explicit apartment consent, a pinned all-room projection, Unreal session acceptance and controller/Slate controls. Only a validated apartment response marks complete inventory in the existing presentation plan. Combined Windows delivery remains pending. Neither scope adds room writes, extra room entitlements, world admission or enabled live access.
+The existing `companion_home_read` grant supplies exactly one pinned Home room. Its server projection and Unreal session's Home-scope one-room check are unchanged. The original apartment plan added no grant or authority. The separate source follow-up in `standalone-companion-apartment-access.md` adds explicit apartment consent, a pinned all-room projection, Unreal session acceptance and controller/Slate controls. Only a validated apartment response marks complete inventory in the existing presentation plan. The Unreal source is delivered; backend/mobile source remains with the existing Mac owners. Neither scope adds room writes, extra room entitlements, world admission or enabled live access.
+
+## Authored opening follow-up
+
+Source inspection after the combined delivery found that every saved-room entrance still had to pass `CopyCanonicalNativeDoorway`. That made kitchen, bathroom and legacy entrances impossible to bind even with real native openings, because the canonical source has measurements only for the bedroom/studio layouts.
+
+The native owner now accepts an explicit `AuthoredLocalPose` for those entrances and for common-space connections and the living-room exterior exit. The pose records real door/approach actor positions in native level-local centimetres. It already includes import basis and the saved shell design, but not the whole-apartment transform. The binding still requires the exact supplied presentation and real actor names. It never derives an opening from a source standing candidate or rewrites saved furniture coordinates.
+
+Measured bedroom/studio entrances retain their canonical coordinates and quarter-turn handling. They require `SourceFloorYMetres` and reject authored overrides, including when canonical validation fails. All other openings require the authored pose and reject the canonical-height field. Both paths clear output on failure. Preparation rejects missing/non-finite/coincident poses and transformed overflow. Loaded-actor inspection checks every binding against the expected local pose, regardless of whether Unreal has already applied the instance transform. Existing duplicate-anchor and cross-endpoint agreement checks remain intact.
+
+This follow-up is Mac source pending guarded Windows review/delivery. Source review traced all five authored layouts, legacy studio/terrace, reused `home-living`, invalid measured input and both native transform states. No native content, tests, compilation or walk-through inspection ran. Real openings and navigation clearance remain outstanding; saved-render readiness and gameplay admission remain closed.
 
 ## Source review
 
@@ -40,7 +50,7 @@ The apartment review covered the requested connection order, reuse of `home-livi
 
 ## Remaining work
 
-1. Deliver the reviewed native corrections and integrated apartment controls/session source to Windows through the guarded handoff. The session preserves the Home-only grant, validates the complete pinned room set and clears all room data on access loss. The backend, Baddie approval and Unreal client source are recorded in `standalone-companion-apartment-access.md`; live access remains disabled.
+1. Prepare the existing compressed assets for the installed Unreal importer without changing their saved identities or the production renderer. Use `standalone-companion-unreal-assets.md` for the exact sources and import prerequisites. The native corrections and apartment controls/session handoff are complete; live access remains disabled.
 2. Author native hallway, living-room and exterior modules. Bind supplied saved-room content and real doorway openings, preserving furniture and room-local coordinates.
 3. Use the existing Unreal camera, movement and navigation owners for room-to-hallway, hallway-to-living-room and living-room-to-exterior traversal. Bind exterior game admission separately.
 4. During the authorised engine/content pass, inspect connected spaces, doorway clearance, daylight, exterior views and all saved room variants. No installation, import, engine launch, compilation or release is implied by this source patch.
