@@ -381,12 +381,17 @@ class NativeAuthor:
         identity=digest({"recipe":value,"generator":self.generator_hash})
         path=NAMESPACE+"/R_"+identity[:24]+"/Maps/L_"+slug(value["id"])
         journal_path=owned_output("execution/jobs/"+identity+".json")
-        previous=json.loads(journal_path.read_text(encoding="utf-8")) if journal_path.exists() else None
-        existing=self.existing(path,identity)
-        if existing and previous and previous.get("state")=="saved":
-            # Asset metadata plus exact journal/file hash, not presence alone.
-            return self.verify_saved_world(path,identity)
-        if existing:
+        # A missing map does not erase evidence of an earlier attempt.
+        if journal_path.exists():
+            try:
+                previous=json.loads(journal_path.read_text(encoding="utf-8"))
+            except (OSError, UnicodeError, json.JSONDecodeError) as error:
+                raise RuntimeError("Invalid map journal; inspect before any recovery") from error
+            if isinstance(previous,dict) and previous.get("state")=="saved":
+                # Asset metadata plus exact journal/file hash, not presence alone.
+                return self.verify_saved_world(path,identity)
+            raise RuntimeError("Unjournaled or interrupted map; inspect before any recovery")
+        if self.existing(path,identity):
             raise RuntimeError("Unjournaled or interrupted map; inspect before any recovery")
         self.clean_editor()
         record={"owner":OWNER,"sourceCommit":SOURCE_COMMIT,"job":value["id"],"identity":identity,
