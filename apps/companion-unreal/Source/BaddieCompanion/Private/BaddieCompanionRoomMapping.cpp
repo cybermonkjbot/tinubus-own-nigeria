@@ -126,10 +126,18 @@ namespace BaddieCompanion::HomeMapping
         }
         if (!Out.Layout.Saved.IsSet()) Issue(Issues, EHomeIssue::LegacyLayout, Path + TEXT(".layoutId"));
         if (Out.Layout.Effective.IsSet()) Out.Asset = RoomReference(Out.Layout.Effective.GetValue());
-        if (Out.Layout.Effective.IsSet() && Out.Layout.Effective.GetValue() == ELayout::PinkBedroomV2
-            && Out.Environment.Effective.IsSet() && Out.Environment.Effective.GetValue() == EEnvironment::Studio)
+        if (!Out.Layout.Saved.IsSet() && Out.Environment.Effective.IsSet())
         {
-            Out.BedroomShell = BedroomShell(Out.SavedDesign);
+            if (Out.Environment.Effective.GetValue() == EEnvironment::Terrace) Out.Asset = TerraceReference();
+            else
+            {
+                Out.SourceGeometryRecipe = TEXT("studioGeometry.makeStudio");
+                Issue(Issues, EHomeIssue::ShellRecipeUnported, Path + TEXT(".geometry"));
+            }
+        }
+        Out.Shell = RoomShell(Out);
+        if (Out.Shell.IsSet())
+        {
             Out.bSourceMapped = true;
             MapFurniture(Out, Path, Issues);
             Issue(Issues, EHomeIssue::PlacementValidationUnavailable, Path + TEXT(".items"));

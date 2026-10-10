@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "BaddieCompanionSnapshot.h"
+#include "BaddieCompanionApartment.h"
 
 namespace BaddieCompanion
 {
@@ -12,7 +13,7 @@ namespace BaddieCompanion
         DuplicateItemId, LegacyLayout, LayoutNotMapped, MissingSurface, InvalidPlacement,
         AssetImportUnavailable, MaterialRecipeUnported, BaseRecipeUnported, FaceRecipeUnported,
         WardrobeRecipeUnported, AttachmentUnverified, PropRecipeUnported, MissingReference,
-        NavigationUnported, PlacementValidationUnavailable
+        NavigationUnported, PlacementValidationUnavailable, ShellRecipeUnported
     };
     struct FHomeMappingIssue
     {
@@ -153,23 +154,33 @@ namespace BaddieCompanion
         TOptional<FSourceBox> Clearance;
     };
     struct FCameraReference { FVector EyeMetres, TargetMetres, EyeUnrealCm, TargetUnrealCm; };
-    struct FBedroomShellPlan
+    enum class ERoomCameraPolicy : uint8 { AuthoredBounded, LegacyOrbit, OpenOrbit };
+    struct FRoomShellPlan
     {
         FString DerivedLayoutId;
         double MinX = 0, MaxX = 0, MinZ = 0, MaxZ = 0;
         // Horizontal measured bounds, not an invented GLB vertical extent.
         FBox UnrealFloorBounds = FBox(ForceInit);
         double ObjectScale = .45, CharacterScale = .38, CharacterRadius = .24, CharacterHeight = 1.4;
+        bool bLegacyPlacement = false;
         double ShellYawRadians = 0, ShellYawDegrees = 0;
+        // Kitchen/bathroom metadata only. Native shell geometry has not been extended or bound.
+        double ShellExtensionMetres = 0;
+        bool bShellGeometryBindingVerified = false;
         TArray<FLayoutObstacle> Obstacles;
+        // Fixed camera housings remain separate from walking obstacles and saved decor volumes.
+        TArray<FLayoutObstacle> CameraObstacles;
         TArray<FSourceBox> FloorPatches;
         TArray<FWallPlan> Walls;
         TArray<FSupportPlan> Supports;
         TArray<FSourcePose> StandingCandidates;
-        FSourcePose AuthoredSpawn;
-        FCameraReference Wide, PortraitWide, Close;
-        double FieldOfView = 64, CameraOrbitLimit = .12;
-        // This is the authored preferred spawn only; personalEnvironment's swept navigation is unported.
+        FSourcePose PreferredSpawn;
+        FCameraReference Wide, Close;
+        TOptional<FCameraReference> PortraitWide;
+        double FieldOfView = 64;
+        TOptional<double> CameraOrbitLimit = .12;
+        ERoomCameraPolicy CameraPolicy = ERoomCameraPolicy::AuthoredBounded;
+        // Preferred source spawn only. Native clearance and fallback selection remain unresolved.
         bool bSpawnClearanceVerified = false;
     };
     struct FHomeDesignPlan { int32 Version = 1, Turns = 0; double Extension = 0; };
@@ -214,7 +225,9 @@ namespace BaddieCompanion
         TOptional<FHomeDesignPlan> SavedDesign;
         TArray<FFurniturePlan> Items;
         TOptional<FCanonicalAssetReference> Asset;
-        TOptional<FBedroomShellPlan> BedroomShell;
+        TOptional<FRoomShellPlan> Shell;
+        // Legacy studio geometry has a source recipe, not an imported or substituted room asset.
+        FString SourceGeometryRecipe;
         // Layout data only. Item issues and imported-asset availability remain separate.
         bool bSourceMapped = false;
         ERecipeStatus MaterialTranslation = ERecipeStatus::Unported;
@@ -224,6 +237,8 @@ namespace BaddieCompanion
         // Preserve exact documents, IDs, names and revision in private process memory only.
         FSnapshotSelection Source;
         FRoomPlan Home, ActiveRoom;
+        TArray<FRoomPlan> Rooms;
+        FApartmentPlan Apartment;
         FAppearancePlan Appearance;
         FCanonicalAssetReference CharacterAsset;
         TArray<FCharacterMaterialRequirement> CharacterMaterials;

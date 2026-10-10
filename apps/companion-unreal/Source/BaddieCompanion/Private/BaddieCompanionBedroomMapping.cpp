@@ -2,9 +2,9 @@
 
 namespace BaddieCompanion::HomeMapping
 {
-    FBedroomShellPlan BedroomShell(const TOptional<FHomeDesignPlan>& Design)
+    FRoomShellPlan BedroomShell(const TOptional<FHomeDesignPlan>& Design)
     {
-        FBedroomShellPlan Out;
+        FRoomShellPlan Out;
         const int32 Turns = Design.IsSet() ? Design.GetValue().Turns : 0;
         const double Yaw = Turns * UE_DOUBLE_PI / 2;
         Out.DerivedLayoutId = Design.IsSet()
@@ -45,24 +45,19 @@ namespace BaddieCompanion::HomeMapping
         Wall(ESurface::WallRight, TEXT("wall-right"), TEXT("Wardrobe wall"), 2.395, 0, -UE_DOUBLE_PI / 2, 5.1, {});
         // Curved headboard is not a flat wall support. No synthetic wall-front.
         Out.FloorPatches.Add(ShellBox(-.7, .014, .25, 2.75, 0, 1.6));
-        const TArray<EItemKind> TableKinds = { EItemKind::Lamp, EItemKind::Plant, EItemKind::DeskFan,
-            EItemKind::DeskLamp, EItemKind::BookStack, EItemKind::Candle, EItemKind::Succulent };
         FSupportPlan Floor;
         Floor.Id = ESurface::Floor; Floor.SourceId = TEXT("floor"); Floor.Name = TEXT("Floor");
         Floor.Top = ShellBox(0, 0, 0, 4.8, 0, 5.2);
-        Floor.AllowedKinds = TableKinds;
-        Floor.AllowedKinds.Append({ EItemKind::Stool, EItemKind::StandingFan, EItemKind::TowerFan,
-            EItemKind::FloorLamp, EItemKind::Armchair, EItemKind::Loveseat, EItemKind::Ottoman,
-            EItemKind::CoffeeTable, EItemKind::SideTable, EItemKind::Bookcase, EItemKind::StorageBasket });
+        Floor.AllowedKinds = SupportKinds(ESurface::Floor);
         for (const auto& Standing : Out.StandingCandidates) Floor.Anchors.Add(Pose(Standing.Metres));
         Out.Supports.Add(MoveTemp(Floor));
-        const auto Support = [&Out, &ShellBox, &Point, &TableKinds](ESurface Id, const TCHAR* SourceId,
+        const auto Support = [&Out, &ShellBox, &Point](ESurface Id, const TCHAR* SourceId,
             const TCHAR* Name, double X, double Z, double Y, double W, double D,
             double AnchorX, double AnchorZ, const TCHAR* Obstacle)
         {
             FSupportPlan Result;
             Result.Id = Id; Result.SourceId = SourceId; Result.Name = Name;
-            Result.Top = ShellBox(X, Y, Z, W, 0, D); Result.AllowedKinds = TableKinds;
+            Result.Top = ShellBox(X, Y, Z, W, 0, D); Result.AllowedKinds = SupportKinds(Id);
             // Source anchors are horizontal x/z points, not an authored y/yaw.
             Result.Anchors.Add(Pose(Point(AnchorX, 0, AnchorZ)));
             Result.SupportingObstacleIds.Add(Obstacle);
@@ -96,7 +91,7 @@ namespace BaddieCompanion::HomeMapping
         Obstacle(TEXT("window-sill"), -2.375, .025, .2202, 2.1902, .0351, .7675);
         Obstacle(TEXT("bedside-indoor-plant"), 1.189, 1.856, .7866, .6854, 2.0338);
         Obstacle(TEXT("workstation-wall-painting"), 1.1, -2.5675, 1.21, .065, .91, 1.55);
-        Out.AuthoredSpawn = Pose(Point(0, 0, -.75), UE_DOUBLE_PI + Yaw);
+        Out.PreferredSpawn = Pose(Point(0, 0, -.75), UE_DOUBLE_PI + Yaw);
         const auto Camera = [Turns](FVector Eye, FVector Target)
         {
             Eye = TurnSourceShell(Eye, Turns); Target = TurnSourceShell(Target, Turns);

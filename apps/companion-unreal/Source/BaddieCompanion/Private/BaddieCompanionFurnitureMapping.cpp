@@ -38,30 +38,33 @@ namespace BaddieCompanion::HomeMapping
             { EItemKind::Succulent, .28, .48, .6, EPlacement::Tabletop }
         };
 
-        FItemDimensions Dimensions(const FCatalogItem& Definition, double Scale)
+        FItemDimensions Dimensions(const FCatalogItem& Definition, const FRoomShellPlan& Shell)
         {
             FItemDimensions Out;
             Out.CatalogRadius = Definition.Radius; Out.CatalogHeight = Definition.Height;
             Out.Mass = Definition.Mass; Out.Placement = Definition.Placement;
             double Radius = Definition.Radius, Support = Radius, Height = Definition.Height;
-            switch (Definition.Kind)
+            if (!Shell.bLegacyPlacement)
             {
-            case EItemKind::Lamp: Radius = .35; Support = .27; Height = .93; break;
-            case EItemKind::Plant: Radius = .44; Support = .25; Height = 1.22; break;
-            case EItemKind::Stool: Radius = .37; Support = .33; Height = .6; break;
-            default: break;
+                switch (Definition.Kind)
+                {
+                case EItemKind::Lamp: Radius = .35; Support = .27; Height = .93; break;
+                case EItemKind::Plant: Radius = .44; Support = .25; Height = 1.22; break;
+                case EItemKind::Stool: Radius = .37; Support = .33; Height = .6; break;
+                default: break;
+                }
             }
-            Out.RadiusMetres = Radius * Scale; Out.SupportRadiusMetres = Support * Scale;
-            Out.HeightMetres = Height * Scale;
+            Out.RadiusMetres = Radius * Shell.ObjectScale; Out.SupportRadiusMetres = Support * Shell.ObjectScale;
+            Out.HeightMetres = Height * Shell.ObjectScale;
             if (Definition.Placement == EPlacement::Wall)
             {
-                Out.WallWidthMetres = Definition.WallWidth * Scale;
-                Out.WallDepthMetres = Definition.WallDepth * Scale;
+                Out.WallWidthMetres = Definition.WallWidth * Shell.ObjectScale;
+                Out.WallDepthMetres = Definition.WallDepth * Shell.ObjectScale;
             }
             return Out;
         }
 
-        double FloorHeight(const FFurniturePlan& Item, const FBedroomShellPlan& Shell, double Base, double Radius)
+        double FloorHeight(const FFurniturePlan& Item, const FRoomShellPlan& Shell, double Base, double Radius)
         {
             double Height = Base;
             bool bDepression = false;
@@ -79,14 +82,18 @@ namespace BaddieCompanion::HomeMapping
         }
 
         bool FitsSupport(const FFurniturePlan& Item, const FItemDimensions& Body,
-            const FSupportPlan& Support, const FBedroomShellPlan& Shell)
+            const FSupportPlan& Support, const FRoomShellPlan& Shell)
         {
             const auto& Centre = Support.Top.BottomCentreMetres;
             const auto& Size = Support.Top.DimensionsMetres;
             const double Radius = Support.Id == ESurface::Floor ? Body.RadiusMetres : Body.SupportRadiusMetres;
+            // Older unassigned props retain the original ground-plane placement envelope.
+            if (Shell.bLegacyPlacement && !Item.Surface.Saved.IsSet()
+                && FMath::Abs(Item.X) <= 1.85 && Item.Z >= -1.15 && Item.Z <= 1.6) return true;
             if (FMath::Abs(Item.X - Centre.X) > Size.X / 2 - Radius
-                || FMath::Abs(Item.Z - Centre.Z) > Size.Z / 2 - Radius
-                || Item.X < Shell.MinX + Body.RadiusMetres || Item.X > Shell.MaxX - Body.RadiusMetres
+                || FMath::Abs(Item.Z - Centre.Z) > Size.Z / 2 - Radius) return false;
+            if (Shell.bLegacyPlacement) return true;
+            if (Item.X < Shell.MinX + Body.RadiusMetres || Item.X > Shell.MaxX - Body.RadiusMetres
                 || Item.Z < Shell.MinZ + Body.RadiusMetres || Item.Z > Shell.MaxZ - Body.RadiusMetres) return false;
             if (!Support.Clearance.IsSet()) return true;
             const auto& Space = Support.Clearance.GetValue();
@@ -124,8 +131,8 @@ namespace BaddieCompanion::HomeMapping
 
     void MapFurniture(FRoomPlan& Room, const FString& Path, TArray<FHomeMappingIssue>& Issues)
     {
-        if (!Room.BedroomShell.IsSet()) return;
-        const auto& Shell = Room.BedroomShell.GetValue();
+        if (!Room.Shell.IsSet()) return;
+        const auto& Shell = Room.Shell.GetValue();
         for (int32 Index = 0; Index < Room.Items.Num(); ++Index)
         {
             auto& Item = Room.Items[Index];
@@ -135,7 +142,7 @@ namespace BaddieCompanion::HomeMapping
             const FCatalogItem* Definition = nullptr;
             for (const auto& Entry : Catalog) if (Entry.Kind == Kind) { Definition = &Entry; break; }
             if (!Definition) { Issue(Issues, EHomeIssue::MissingReference, ItemPath + TEXT(".kind")); continue; }
-            const auto Body = Dimensions(*Definition, Shell.ObjectScale);
+            const auto Body = Dimensions(*Definition, Shell);
             Item.Dimensions = Body;
             Item.SourceGeometryRecipe = TEXT("studioGeometry.makeRoomObject:") + Item.Kind.Saved.GetValue();
             Issue(Issues, EHomeIssue::PropRecipeUnported, ItemPath + TEXT(".geometry"));
