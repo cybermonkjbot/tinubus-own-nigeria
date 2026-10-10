@@ -15,6 +15,11 @@
 #include "HAL/PlatformApplicationMisc.h"
 #include "Widgets/SWeakWidget.h"
 
+ABaddieCompanionSlicePlayerController::ABaddieCompanionSlicePlayerController()
+{
+    NativeApartment = CreateDefaultSubobject<UBaddieCompanionNativeApartment>(TEXT("NativeApartment"));
+}
+
 void ABaddieCompanionSlicePlayerController::BeginPlay()
 {
     Super::BeginPlay();
@@ -116,6 +121,7 @@ void ABaddieCompanionSlicePlayerController::OfflineSelectionChanged()
     // Notification order must not disable a newly spawned inspection pawn.
     RetainedSelection.Reset();
     HomePresentation.Clear();
+    if (NativeApartment) NativeApartment->ClearPrivateContent();
     PendingAction.Reset();
     PendingDeviceName.Reset();
     bPointerCaptured = false;
@@ -141,6 +147,7 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
     {
         // Never reached as a fallback for failed live access.
         HomePresentation.Clear();
+        if (NativeApartment && NativeApartment->HasPrivateContent()) NativeApartment->ClearPrivateContent();
         const auto* Session = OfflineSession.Get();
         const auto* Selection = HasOfflineSelection() ? Session->GetSelection() : nullptr;
         if (!Selection && RetainedSelection.IsSet()) ClearPrivatePresentation();
@@ -156,10 +163,14 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
     const bool bValid = Session && Session->CopySnapshot(Next);
     if (!bValid)
     {
-        if (RetainedSelection.IsSet() || PendingAction.IsSet() || HomePresentation.HasInput()) ClearPrivatePresentation();
+        if (RetainedSelection.IsSet() || PendingAction.IsSet() || HomePresentation.HasInput()
+            || (NativeApartment && NativeApartment->HasPrivateContent())) ClearPrivatePresentation();
     }
     else
     {
+        // Same revision/IDs can still carry replacement room, design or appearance documents.
+        if (NativeApartment && NativeApartment->HasPrivateContent() && !HomePresentation.Matches(Next))
+            NativeApartment->ClearPrivateContent();
         if (RetainedSelection.IsSet()
             && (!RetainedSelection.GetValue().Character.Id.Equals(Next.Character.Id, ESearchCase::CaseSensitive)
                 || !RetainedSelection.GetValue().HomeRoom.Id.Equals(Next.HomeRoom.Id, ESearchCase::CaseSensitive)
@@ -167,6 +178,15 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
             ClearPrivatePresentation();
         RetainedSelection = MoveTemp(Next);
         HomePresentation.Update(RetainedSelection.GetValue());
+        if (NativeApartment)
+        {
+            if (const auto* Plan = HomePresentation.GetPlan())
+            {
+                NativeApartment->ObserveValidPresentation(*Plan);
+                NativeApartment->PollNativeLevels();
+            }
+            else NativeApartment->ClearPrivateContent();
+        }
     }
     if (ConnectionPanel.IsValid())
         ConnectionPanel->PresentConnection(View, RetainedSelection.IsSet() ? &RetainedSelection.GetValue() : nullptr,
@@ -179,6 +199,7 @@ bool ABaddieCompanionSlicePlayerController::CopyHomePresentation(BaddieCompanion
     if (bEndingPlay || !IsLocalController() || bOfflineInspection)
     {
         HomePresentation.Clear();
+        if (NativeApartment) NativeApartment->ClearPrivateContent();
         return false;
     }
     RefreshConnectionPresentation();
@@ -187,6 +208,7 @@ bool ABaddieCompanionSlicePlayerController::CopyHomePresentation(BaddieCompanion
 
 void ABaddieCompanionSlicePlayerController::ClearPrivatePresentation()
 {
+    if (NativeApartment) NativeApartment->ClearPrivateContent();
     RetainedSelection.Reset();
     HomePresentation.Clear();
     PendingAction.Reset();
@@ -197,6 +219,53 @@ void ABaddieCompanionSlicePlayerController::ClearPrivatePresentation()
         Character->ClearInspectionPresentation();
     SetControlRotation(FRotator::ZeroRotator);
     if (!bEndingPlay) ApplyPointerCapture();
+}
+
+bool ABaddieCompanionSlicePlayerController::CopyNativeApartmentStatus(BaddieCompanion::FNativeApartmentStatus& Out)
+{
+    Out = {};
+    RefreshConnectionPresentation();
+    if (bEndingPlay || !IsLocalController() || bOfflineInspection || !HomePresentation.GetPlan() || !NativeApartment)
+        return false;
+    Out = NativeApartment->GetStatus();
+    return true;
+}
+
+bool ABaddieCompanionSlicePlayerController::PrepareNativeApartment(const BaddieCompanion::FNativeApartmentContent& Content)
+{
+    RefreshConnectionPresentation();
+    if (bEndingPlay || !IsLocalController() || bOfflineInspection || !NativeApartment) return false;
+    const auto* Plan = HomePresentation.GetPlan();
+    if (!Plan) { NativeApartment->ClearPrivateContent(); return false; }
+    return NativeApartment->PrepareContent(*Plan, Content);
+}
+
+bool ABaddieCompanionSlicePlayerController::CopyNativeRoomCamera(const FString& RoomId,
+    BaddieCompanion::FNativeRoomCamera& Out)
+{
+    Out = {};
+    RefreshConnectionPresentation();
+    const bool bCopied = !bEndingPlay && IsLocalController() && !bOfflineInspection && HomePresentation.GetPlan()
+        && NativeApartment && NativeApartment->CopyRoomCamera(RoomId, Out);
+    if (!bCopied && NativeApartment && NativeApartment->HasPrivateContent()) NativeApartment->ClearPrivateContent();
+    return bCopied;
+}
+
+bool ABaddieCompanionSlicePlayerController::CopyNativeDoorwayApproach(int32 Index, bool bFromEndpoint, FVector& Out)
+{
+    Out = FVector::ZeroVector;
+    RefreshConnectionPresentation();
+    auto* Character = Cast<ACharacter>(GetPawn());
+    // Never use the inspection pawn's neutral-stage clamp/spawn in native apartment traversal.
+    const bool bCopied = !bEndingPlay && IsLocalController() && !bOfflineInspection && HomePresentation.GetPlan()
+        && Character && !Character->IsA<ABaddieCompanionSliceCharacter>() && NativeApartment
+        && NativeApartment->CopyNavigationApproach(*Character, Index, bFromEndpoint, Out);
+    if (!bCopied && NativeApartment && NativeApartment->HasPrivateContent())
+    {
+        NativeApartment->ClearPrivateContent();
+        NativeApartment->AddGap(BaddieCompanion::ENativeApartmentGap::NavigationUnavailable);
+    }
+    return bCopied;
 }
 
 void ABaddieCompanionSlicePlayerController::StartPairing(const FString& DeviceName)

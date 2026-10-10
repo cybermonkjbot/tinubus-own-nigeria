@@ -4,6 +4,7 @@
 #include "GameFramework/PlayerController.h"
 #include "BaddieCompanionHomePresentation.h"
 #include "BaddieCompanionSnapshot.h"
+#include "BaddieCompanionNativeApartment.h"
 #include "BaddieCompanionSlicePlayerController.generated.h"
 
 class SBaddieCompanionConnectionPanel;
@@ -19,6 +20,7 @@ class BADDIECOMPANION_API ABaddieCompanionSlicePlayerController : public APlayer
     GENERATED_BODY()
 
 public:
+    ABaddieCompanionSlicePlayerController();
     virtual void Tick(float DeltaSeconds) override;
     // Client-only controls. No origin, approval token, proof or configuration accepted from UI.
     void RequestConnectionAction(EBaddieConnectionAction Action, const FString& DeviceName = FString());
@@ -28,6 +30,11 @@ public:
     void RefreshConnectionPresentation();
     // Rechecks the live snapshot grant; clears Out on failure. Never grants gameplay access.
     bool CopyHomePresentation(BaddieCompanion::FHomePresentationPlan& Out);
+    bool CopyNativeApartmentStatus(BaddieCompanion::FNativeApartmentStatus& Out);
+    // Trusted native content setup only. Currently blocked by missing presentation/admission.
+    bool PrepareNativeApartment(const BaddieCompanion::FNativeApartmentContent& Content);
+    bool CopyNativeRoomCamera(const FString& RoomId, BaddieCompanion::FNativeRoomCamera& Out);
+    bool CopyNativeDoorwayApproach(int32 ConnectionIndex, bool bFromEndpoint, FVector& Out);
     bool IsInspectionPointerCaptured() const { return bPointerCaptured; }
 
 protected:
@@ -55,6 +62,8 @@ private:
     // Process-memory only; preserve IDs and Home/active-room data without serialization or logging.
     TOptional<BaddieCompanion::FSnapshotSelection> RetainedSelection;
     BaddieCompanion::FHomePresentationCache HomePresentation;
+    UPROPERTY(Transient)
+    TObjectPtr<UBaddieCompanionNativeApartment> NativeApartment;
     TOptional<EBaddieConnectionAction> PendingAction;
     FString PendingDeviceName;
     bool bOfflineInspection = false;
