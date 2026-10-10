@@ -1,5 +1,7 @@
 #include "BaddieCompanionGameEconomyState.h"
 #include "BaddieCompanionStateJson.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 
 namespace BaddieCompanion
 {
@@ -12,6 +14,9 @@ namespace BaddieCompanion
         constexpr const TCHAR* CatalogError = TEXT("Service offers couldn't load. Reopen the service to try again.");
         constexpr const TCHAR* QuoteError = TEXT("The quote couldn't load. Request a new quote.");
         constexpr const TCHAR* VendorError = TEXT("The weapon vendor couldn't load.");
+        constexpr const TCHAR* CommandError = TEXT("The service response couldn't be read. Retry with the same request ID.");
+        constexpr const TCHAR* VendorCommandError = TEXT("The purchase response couldn't be read. Retry the same request.");
+        constexpr const TCHAR* PreparationError = TEXT("The service request couldn't be prepared.");
 
         bool AsciiAlphanumeric(TCHAR C)
         {
@@ -24,6 +29,23 @@ namespace BaddieCompanion
             return true;
         }
         bool Key(const FValue& V, FString& Out) { return String(V, Out) && ValidKey(Out); }
+        bool ValidRequestId(const FString& S) { return S.Len() >= 16 && S.Len() <= 128 && ValidKey(S); }
+        bool IsVendorCommand(EGameEconomyCommand Operation)
+        {
+            return Operation == EGameEconomyCommand::RequestWeaponQuote || Operation == EGameEconomyCommand::ConfirmWeaponQuote;
+        }
+        const TCHAR* CommandName(EGameEconomyCommand Operation)
+        {
+            switch (Operation)
+            {
+            case EGameEconomyCommand::RequestQuote: return TEXT("requestQuote");
+            case EGameEconomyCommand::ConfirmQuote: return TEXT("confirmQuote");
+            case EGameEconomyCommand::CancelQuote: return TEXT("cancelQuote");
+            case EGameEconomyCommand::RequestWeaponQuote: return TEXT("requestWeaponQuote");
+            case EGameEconomyCommand::ConfirmWeaponQuote: return TEXT("confirmWeaponQuote");
+            default: return nullptr;
+            }
+        }
         bool Text(const FValue& V, FString& Out, int32 Maximum)
         {
             return String(V, Out) && Out.Len() <= Maximum;
@@ -175,11 +197,13 @@ namespace BaddieCompanion
             if (!Parse(Json, O, Limits) || !Read(O, Next)) { Out = {}; OutError = Error; return false; }
             Out = MoveTemp(Next); OutError.Reset(); return true;
         }
-        bool SameScope(const FGameEconomyVendorScope& A, const FGameEconomyVendorScope& B)
+        bool SameVisit(const FGameEconomyVendorScope& A, const FGameEconomyVendorScope& B)
         {
             return Same(A.GameRoomId, B.GameRoomId) && Same(A.InstanceId, B.InstanceId) && Same(A.LifeId, B.LifeId)
-                && A.Revision == B.Revision && A.EquipmentRevision == B.EquipmentRevision;
+                && A.Revision == B.Revision;
         }
+        bool SameScope(const FGameEconomyVendorScope& A, const FGameEconomyVendorScope& B)
+        { return SameVisit(A, B) && A.EquipmentRevision == B.EquipmentRevision; }
         bool ValidScope(const FGameEconomyVendorScope& S)
         {
             return !S.GameRoomId.IsEmpty() && S.GameRoomId.Len() <= 240 && !S.InstanceId.IsEmpty() && S.InstanceId.Len() <= 240
@@ -257,12 +281,15 @@ namespace BaddieCompanion
         if (bDisposed || AccountId.IsEmpty()) return false;
         if (Same(PlaceKey, Place) && Same(NpcKey, Npc)) return true;
         if (!ValidKey(Place) || !ValidKey(Npc)) { View.Error = TEXT("Choose an existing NPC service."); return false; }
-        PlaceKey = Place; NpcKey = Npc; QuoteId.Reset(); View = {}; RetireReads(); return true;
+        ViewGeneration = FGuid::NewGuid();
+        PlaceKey = Place; NpcKey = Npc; QuoteId.Reset(); View = {}; View.bBusy = ActiveRequest.IsValid();
+        RetireReads(); return true;
     }
     bool FGameEconomyReadState::RecoverQuote(const TOptional<FString>& Id)
     {
         if (bDisposed || AccountId.IsEmpty()) return false;
         if (Id.IsSet() && !GameEconomyStatePrivate::ValidKey(*Id)) { View.Error = TEXT("Invalid quote ID."); return false; }
+        ViewGeneration = FGuid::NewGuid();
         QuoteId = Id; View.Quote.Reset(); View.bQuoteReady = !Id.IsSet(); View.Error.Reset();
         Slot(EGameEconomyReadKind::Quote).Retire(); return true;
     }
@@ -271,7 +298,11 @@ namespace BaddieCompanion
         using namespace GameEconomyStatePrivate;
         if (bDisposed || AccountId.IsEmpty() || (Scope.IsSet() && !ValidScope(*Scope))) return false;
         if (Scope.IsSet() == VendorScope.IsSet() && (!Scope.IsSet() || SameScope(*Scope, *VendorScope))) return true;
+        if (Scope.IsSet() && LastVendorScope.IsSet() && !SameVisit(*Scope, *LastVendorScope))
+        { PendingVendor.Reset(); VendorViewGeneration = FGuid::NewGuid(); }
+        if (Scope.IsSet()) LastVendorScope = Scope;
         VendorScope = Scope; View.Vendor = FGameEconomyVendor{};
+        View.Vendor->bBusy = ActiveRequest.IsValid();
         Slot(EGameEconomyReadKind::Vendor).Retire(); VendorNowMs.Reset(); return true;
     }
     void FGameEconomyReadState::Reload()
@@ -283,6 +314,8 @@ namespace BaddieCompanion
     {
         if (bDisposed) return;
         bObserving = false; AccountGeneration = FGuid::NewGuid(); RetireReads();
+        ViewGeneration = FGuid::NewGuid(); VendorViewGeneration = FGuid::NewGuid();
+        ReleaseCommand(); PendingVendor.Reset(); LastVendorScope.Reset();
         AccountId.Reset(); PlaceKey.Reset(); NpcKey.Reset(); QuoteId.Reset(); VendorScope.Reset(); View = {};
     }
     void FGameEconomyReadState::Dispose()
@@ -362,10 +395,7 @@ namespace BaddieCompanion
             FGameEconomyQuote QuoteValue;
             if (!DecodeGameEconomyQuote(Json, QuoteValue, Error) || !R.QuoteId.IsSet() || !Same(QuoteValue.Id, *R.QuoteId))
             { Fail(R.Kind, QuoteError); return EGameEconomyReadResult::InvalidResponse; }
-            // Compare only the CURRENT displayed quote. A failure/recovery clears this floor.
-            if (View.Quote.IsSet() && Same(View.Quote->Id, QuoteValue.Id) && View.Quote->Revision > QuoteValue.Revision)
-                return EGameEconomyReadResult::Retained;
-            View.Quote = MoveTemp(QuoteValue); View.bQuoteReady = true; View.Error.Reset();
+            if (!ReceiveQuote(QuoteValue)) return EGameEconomyReadResult::Retained;
         }
         else
         {
@@ -380,5 +410,207 @@ namespace BaddieCompanion
         if (!Current(R)) return false;
         // Ordinary failures retain the subscription generation. A later success can recover.
         Fail(R.Kind, PublicMessage); return true;
+    }
+    bool FGameEconomyReadState::ReceiveQuote(const FGameEconomyQuote& QuoteValue)
+    {
+        // Compare only the CURRENT displayed quote. A failure/recovery clears this floor.
+        if (View.Quote.IsSet() && StateJsonPrivate::Same(View.Quote->Id, QuoteValue.Id) && View.Quote->Revision > QuoteValue.Revision)
+            return false;
+        View.Quote = QuoteValue; View.bQuoteReady = true; View.Error.Reset(); return true;
+    }
+    bool FGameEconomyReadState::PrepareRequestQuote(const FGameEconomySelector& Selector, const FString& RequestId, FGameEconomyCommandReceipt& Out)
+    {
+        return PrepareCommand(EGameEconomyCommand::RequestQuote, RequestId, Selector.Key, Selector.Kind, Out);
+    }
+    bool FGameEconomyReadState::PrepareConfirmQuote(const FString& Id, const FString& RequestId, FGameEconomyCommandReceipt& Out)
+    {
+        return PrepareCommand(EGameEconomyCommand::ConfirmQuote, RequestId, Id, EGameEconomySelectorKind::OfferId, Out);
+    }
+    bool FGameEconomyReadState::PrepareCancelQuote(const FString& Id, const FString& RequestId, FGameEconomyCommandReceipt& Out)
+    {
+        return PrepareCommand(EGameEconomyCommand::CancelQuote, RequestId, Id, EGameEconomySelectorKind::OfferId, Out);
+    }
+    bool FGameEconomyReadState::PrepareRequestWeaponQuote(const FString& ServiceKey, const FString& RequestId, FGameEconomyCommandReceipt& Out)
+    {
+        return PrepareCommand(EGameEconomyCommand::RequestWeaponQuote, RequestId, ServiceKey, EGameEconomySelectorKind::ServiceKey, Out);
+    }
+    bool FGameEconomyReadState::PrepareConfirmWeaponQuote(const FString& Id, const FString& RequestId, FGameEconomyCommandReceipt& Out)
+    {
+        return PrepareCommand(EGameEconomyCommand::ConfirmWeaponQuote, RequestId, Id, EGameEconomySelectorKind::OfferId, Out);
+    }
+    bool FGameEconomyReadState::PrepareCommand(EGameEconomyCommand Operation, const FString& RequestId, const FString& Value,
+        EGameEconomySelectorKind SelectorKind, FGameEconomyCommandReceipt& Out)
+    {
+        using namespace GameEconomyStatePrivate;
+        Out = {};
+        if (bDisposed || AccountId.IsEmpty() || ActiveRequest.IsValid()) return false;
+        const bool bVendor = IsVendorCommand(Operation);
+        const TCHAR* Name = CommandName(Operation);
+        if (!Name || (bVendor && !VendorScope.IsSet())) return false;
+        if (!ValidRequestId(RequestId))
+        {
+            if (!bVendor) { View.Error = TEXT("Invalid service request ID."); Out.bNotifyPreparationFailure = true; }
+            return false;
+        }
+        if (!bVendor)
+        {
+            if (Operation == EGameEconomyCommand::RequestQuote)
+            {
+                if ((SelectorKind != EGameEconomySelectorKind::OfferId && SelectorKind != EGameEconomySelectorKind::ServiceKey) || !ValidKey(Value))
+                { View.Error = TEXT("Choose an existing service offer."); Out.bNotifyPreparationFailure = true; return false; }
+            }
+            else if (!ValidKey(Value)) { View.Error = TEXT("Choose an existing quote."); Out.bNotifyPreparationFailure = true; return false; }
+        }
+        // Additional native allocation bound only. Vendor payloads need not be keys or nonempty.
+        else if (Value.Len() > 8192) { View.Error = PreparationError; Out.bNotifyPreparationFailure = true; return false; }
+
+        const bool bReuse = bVendor && PendingVendor.IsSet() && PendingVendor->Operation == Operation && Same(PendingVendor->RequestId, RequestId);
+        FString Arguments;
+        if (bReuse) Arguments = PendingVendor->ArgumentsJson;
+        else
+        {
+            const auto Args = MakeShared<FJsonObject>();
+            Args->SetStringField(TEXT("requestId"), RequestId);
+            if (bVendor)
+            {
+                const auto& Scope = *VendorScope;
+                Args->SetStringField(TEXT("gameRoomId"), Scope.GameRoomId);
+                Args->SetStringField(TEXT("instanceId"), Scope.InstanceId);
+                Args->SetStringField(TEXT("lifeId"), Scope.LifeId);
+                Args->SetNumberField(TEXT("revision"), static_cast<double>(Scope.Revision));
+                Args->SetNumberField(TEXT("equipmentRevision"), static_cast<double>(Scope.EquipmentRevision));
+                Args->SetStringField(Operation == EGameEconomyCommand::RequestWeaponQuote ? TEXT("serviceKey") : TEXT("quoteId"), Value);
+            }
+            else if (Operation == EGameEconomyCommand::RequestQuote)
+            {
+                const auto Selector = MakeShared<FJsonObject>();
+                Selector->SetStringField(SelectorKind == EGameEconomySelectorKind::OfferId ? TEXT("offerId") : TEXT("serviceKey"), Value);
+                Args->SetObjectField(TEXT("selector"), Selector);
+            }
+            else Args->SetStringField(TEXT("quoteId"), Value);
+            const auto Writer = TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Arguments);
+            if (!FJsonSerializer::Serialize(Args, Writer)) { View.Error = PreparationError; Out.bNotifyPreparationFailure = true; return false; }
+        }
+        if (bVendor && !bReuse)
+        {
+            FPendingVendor Packet;
+            Packet.Id = FGuid::NewGuid(); Packet.Operation = Operation; Packet.RequestId = RequestId; Packet.ArgumentsJson = Arguments;
+            PendingVendor = MoveTemp(Packet);
+        }
+        ActiveRequest = FGuid::NewGuid();
+        ActiveDispatch.Endpoint = FString(TEXT("companionGameEconomy:")) + Name;
+        ActiveDispatch.ArgumentsJson = MoveTemp(Arguments);
+        bCommandDispatched = false; bCommandCompleting = false;
+        Out.Id = ActiveRequest; Out.AccountGeneration = AccountGeneration;
+        Out.ViewGeneration = ViewGeneration; Out.VendorViewGeneration = VendorViewGeneration;
+        Out.Operation = Operation; Out.AttemptedValue = Value;
+        if (bVendor) Out.PendingVendorId = PendingVendor->Id;
+        View.bBusy = true; View.Error.Reset(); return true;
+    }
+    bool FGameEconomyReadState::CurrentCommand(const FGameEconomyCommandReceipt& R) const
+    {
+        // Read subscriptions and display relevance do not own the global request latch.
+        return !bDisposed && !AccountId.IsEmpty() && R.Id.IsValid() && R.Id == ActiveRequest && R.AccountGeneration == AccountGeneration;
+    }
+    bool FGameEconomyReadState::CommandRelevant(const FGameEconomyCommandReceipt& R) const
+    {
+        return CurrentCommand(R) && R.ViewGeneration == ViewGeneration
+            && (!GameEconomyStatePrivate::IsVendorCommand(R.Operation) || R.VendorViewGeneration == VendorViewGeneration);
+    }
+    bool FGameEconomyReadState::MarkCommandDispatched(const FGameEconomyCommandReceipt& R, FGameEconomyCommandDispatch& Out)
+    {
+        Out = {};
+        if (!CurrentCommand(R) || bCommandDispatched || bCommandCompleting) return false;
+        bCommandDispatched = true; Out = ActiveDispatch; return true;
+    }
+    void FGameEconomyReadState::ReleaseCommand()
+    {
+        ActiveRequest.Invalidate(); ActiveCompletion.Invalidate(); ActiveDispatch = {};
+        bCommandDispatched = false; bCommandCompleting = false; View.bBusy = false;
+    }
+    bool FGameEconomyReadState::AbandonPreparedCommand(const FGameEconomyCommandReceipt& R)
+    {
+        if (!CurrentCommand(R) || bCommandDispatched || bCommandCompleting) return false;
+        // Preparation may have replaced the packet. Abandonment neither restores nor clears it.
+        ReleaseCommand(); return true;
+    }
+    bool FGameEconomyReadState::BeginCompletion(const FGameEconomyCommandReceipt& R, FGameEconomyCommandCompletion& Out)
+    {
+        Out = {};
+        if (!CurrentCommand(R) || !bCommandDispatched || bCommandCompleting) return false;
+        bCommandCompleting = true; ActiveCompletion = FGuid::NewGuid();
+        Out.Receipt = R; Out.Generation = ActiveCompletion; return true;
+    }
+    bool FGameEconomyReadState::CurrentCompletion(const FGameEconomyCommandCompletion& Completion) const
+    {
+        return CurrentCommand(Completion.Receipt) && bCommandCompleting && bCommandDispatched
+            && Completion.Generation.IsValid() && Completion.Generation == ActiveCompletion;
+    }
+    bool FGameEconomyReadState::ObserveCommand(const FGameEconomyCommandReceipt& R, const FString& Json, FGameEconomyCommandCompletion& Out)
+    {
+        using namespace GameEconomyStatePrivate;
+        if (!BeginCompletion(R, Out)) return false;
+        FGameEconomyQuote Result;
+        FString Error;
+        bool bValid = DecodeGameEconomyQuote(Json, Result, Error);
+        if (bValid) switch (R.Operation)
+        {
+        case EGameEconomyCommand::RequestQuote: break;
+        case EGameEconomyCommand::ConfirmQuote:
+            bValid = Same(Result.Id, R.AttemptedValue) && Result.Status == EGameEconomyQuoteStatus::ApprovalRequired; break;
+        case EGameEconomyCommand::CancelQuote:
+            bValid = Same(Result.Id, R.AttemptedValue) && Result.Status == EGameEconomyQuoteStatus::Cancelled; break;
+        case EGameEconomyCommand::RequestWeaponQuote:
+            bValid = Same(Result.Service.ServiceKey, R.AttemptedValue); break;
+        case EGameEconomyCommand::ConfirmWeaponQuote:
+            bValid = Same(Result.Id, R.AttemptedValue) && Result.Status == EGameEconomyQuoteStatus::Fulfilled; break;
+        default: bValid = false; break;
+        }
+        const bool bVendor = IsVendorCommand(R.Operation);
+        if (!bValid)
+        {
+            if (CommandRelevant(R)) { View.Error = bVendor ? VendorCommandError : CommandError; Out.bNotifyBeforeFinish = true; }
+            return true;
+        }
+        // Clear by packet identity before checking the view, never by current scope or payload.
+        if (bVendor && PendingVendor.IsSet() && PendingVendor->Id == R.PendingVendorId) PendingVendor.Reset();
+        if (!CommandRelevant(R)) return true;
+        const bool bChangedQuote = !QuoteId.IsSet() || !Same(*QuoteId, Result.Id);
+        QuoteId = Result.Id; ReceiveQuote(Result);
+        Out.Result = MoveTemp(Result);
+        Out.bRestartQuoteRead = bVendor || bChangedQuote;
+        if (Out.bRestartQuoteRead) Slot(EGameEconomyReadKind::Quote).Retire();
+        Out.bNotifyBeforeFinish = bVendor; return true;
+    }
+    bool FGameEconomyReadState::ObserveCommandFailure(const FGameEconomyCommandReceipt& R, const FString& PublicMessage, FGameEconomyCommandCompletion& Out)
+    {
+        if (!BeginCompletion(R, Out)) return false;
+        // Every vendor failure retains its packet. The caller supplies sanitized text, not a raw body.
+        if (CommandRelevant(R)) { View.Error = GameEconomyStatePrivate::PublicError(PublicMessage); Out.bNotifyBeforeFinish = true; }
+        return true;
+    }
+    bool FGameEconomyReadState::ObserveCommandCompletionFailure(const FGameEconomyCommandCompletion& Completion, const FString& PublicMessage,
+        FGameEconomyCommandCompletion& Out)
+    {
+        if (!CurrentCompletion(Completion) || !Completion.Result.IsSet()) { Out = {}; return false; }
+        FGameEconomyCommandCompletion Failed;
+        Failed.Receipt = Completion.Receipt;
+        // Old success copies cannot finalize after catch, even if selection changes again.
+        ActiveCompletion = FGuid::NewGuid(); Failed.Generation = ActiveCompletion;
+        if (CommandRelevant(Failed.Receipt))
+        {
+            View.Error = GameEconomyStatePrivate::PublicError(PublicMessage);
+            Failed.bNotifyBeforeFinish = true;
+        }
+        // Applied/read-delivered quotes and cleared vendor packets survive failure in caller work.
+        // The new completion has no result or reconnect obligation, including after a view change.
+        Out = MoveTemp(Failed); return true;
+    }
+    bool FGameEconomyReadState::FinalizeCommand(const FGameEconomyCommandCompletion& Completion, TOptional<FGameEconomyQuote>& Out)
+    {
+        Out.Reset();
+        if (!CurrentCompletion(Completion)) return false;
+        // Display/read changes during caller notifications do not rewrite the raw result.
+        Out = Completion.Result; ReleaseCommand(); return true;
     }
 }

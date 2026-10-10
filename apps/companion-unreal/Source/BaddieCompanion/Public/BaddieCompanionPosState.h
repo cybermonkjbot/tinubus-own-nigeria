@@ -62,9 +62,8 @@ namespace BaddieCompanion
         TSharedPtr<const FPosReceipt> Receipt;
         EPosReceiptPresence ReceiptPresence = EPosReceiptPresence::Missing;
         // Canonical ready belongs to the catalog, never to receipt recovery.
-        bool bReady = false;
+        bool bReady = false, bBusy = false, bRetryable = false;
         TOptional<FString> Error;
-        // No busy/retryable flags. Pending commands and their error composition are deferred.
     };
     class FPosOwnerReceipt
     {
@@ -106,7 +105,53 @@ namespace BaddieCompanion
     };
     enum class EPosReadResult : uint8 { Accepted, Retained, StaleRead, IdentityMismatch, InvalidResponse };
 
-    // Single owning thread, caller-driven reads. No requests, listeners, timers, commands,
+    enum class EPosCommandKind : uint8 { Invalid, Quote, Confirm, Settle, Cancel };
+    struct FPosCommand
+    {
+        EPosCommandKind Kind = EPosCommandKind::Invalid;
+        // Quote only, any finite number. The backend owns offered amounts and affordability.
+        TOptional<double> Amount;
+        // Confirm/settle/cancel only.
+        TOptional<FString> QuoteId;
+        // Confirm only. Explicit presence and true are required; never inferred or defaulted.
+        TOptional<bool> AcceptsCarriedLoss;
+    };
+    class FPosCommandIntent
+    {
+    public:
+        // Capture marker, not dispatch/admission. Default and copied stale intents cannot complete.
+        bool IsValid() const { return AttemptId.IsValid(); }
+    private:
+        friend class FPosReadState;
+        FGuid OwnerGeneration, PacketId, AttemptId;
+    };
+    struct FPosReadRestarts
+    {
+        // Obligations for the current owner, not requests or permission. Use its existing
+        // Begin*Read methods, which recheck owner/observation/selection and capture fresh time.
+        bool bCatalog = false, bReceipt = false;
+    };
+    struct FPosCommandDispatch
+    {
+        // Immutable const publication from MarkCommandDispatched. Non-auth arguments only.
+        // Adapter supplies authorized account credentials; no automatic retries/cache invalidation.
+        FString Operation, ArgumentsJson;
+    };
+    enum class EPosCommandFailureKind : uint8
+    {
+        Unclassified, NetworkUnavailable, GenericSaveFailure, Definite
+    };
+    struct FPosCommandFailure
+    {
+        // Classify BEFORE sanitization using isNetworkUnavailableError, or the exact
+        // Error-instance message "Unable to save changes right now. Please try again.".
+        // Definite means neither predicate matched. Unclassified is rejected, not guessed.
+        EPosCommandFailureKind Kind = EPosCommandFailureKind::Unclassified;
+        FPosPublicFailure PublicError;
+    };
+    enum class EPosCommandResult : uint8 { Accepted, InvalidResponse, StaleAttempt };
+
+    // Single owning thread, caller-driven reads and command ownership. No network, listeners, timers,
     // balance mutations, world/service resolution, utility progression or native UI.
     class BADDIECOMPANION_API FPosReadState
     {
@@ -117,7 +162,9 @@ namespace BaddieCompanion
         FPosReadState(FPosReadState&&) = delete;
         FPosReadState& operator=(FPosReadState&&) = delete;
         FPosReadView GetView() const { return View; }
-        // Replaces the account lifetime, even for the same ID. Invalidates every old read.
+        bool HasPendingCommand() const { return Pending.IsValid(); }
+        bool HasUncertainCommand() const { return Pending.IsValid() && bPendingUncertain; }
+        // Replaces the account lifetime, even for the same ID. Invalidates all reads/attempts.
         FPosOwnerReceipt BeginOwner(const FString& AccountId);
         void Clear();
         void Dispose();
@@ -139,6 +186,37 @@ namespace BaddieCompanion
         EPosReadResult ObserveReceipt(const FPosReceiptReadIntent& Intent, const FString& Json);
         bool ObserveCatalogFailure(const FPosCatalogReadIntent& Intent, const FPosPublicFailure& Failure);
         bool ObserveReceiptFailure(const FPosReceiptReadIntent& Intent, const FPosPublicFailure& Failure);
+
+        // Prepare captures an immutable packet and reserves the busy latch before caller notification.
+        // Initial preparation is UNSENT, not uncertain. Retry retains the original uncertain packet.
+        // No observation/catalog readiness is required here; transport admission is still external.
+        bool PrepareCommand(const FPosOwnerReceipt& Owner, const FPosCommand& Command,
+            const FString& RequestId, FPosCommandIntent& Out);
+        bool PrepareRetry(const FPosOwnerReceipt& Owner, FPosCommandIntent& Out);
+        // After busy notification, enter this stage once. A quote with truthy recovery clears it
+        // and requires receipt reconnect BEFORE dispatch. Service Out using the captured owner,
+        // including synchronous read notifications, then acknowledge that reconnect below.
+        // No restart means ready to mark directly. Both paths remain genuinely unsent.
+        bool BeginCommandPreDispatch(const FPosCommandIntent& Intent, FPosReadRestarts& Out);
+        // Only after the required reconnect returns, or completes without a read when unobserved.
+        // A failed reconnect must instead abandon unsent work; it is not a mutation failure.
+        bool CompleteCommandReceiptRestart(const FPosCommandIntent& Intent);
+        // Recheck exact lifetime and initial scope after all pre-dispatch callbacks. The admitted
+        // adapter must send these exact arguments immediately after marking, without yield/notify.
+        bool MarkCommandDispatched(const FPosCommandIntent& Intent, TSharedPtr<const FPosCommandDispatch>& Out);
+        // Valid in any unsent phase, including a failed reconnect or failed final scope check.
+        // Initial abandonment removes the packet; retry abandonment retains earlier uncertainty.
+        bool AbandonUnsentCommand(const FPosCommandIntent& Intent);
+        // Only marked current attempts can settle. Both outcome methods retain busy until finally.
+        // On success, service receipt restart first, then catalog restart, and notify before
+        // FinishCommand. On failure, notify before FinishCommand. If notification replaces
+        // the owner, the old finally is a no-op.
+        EPosCommandResult AcceptCommandResult(const FPosCommandIntent& Intent, const FString& Json, FPosReadRestarts& Out);
+        bool AcceptCommandFailure(const FPosCommandIntent& Intent, const FPosCommandFailure& Failure);
+        // Evaluate canonical accepted-or-returned receipt after outcome notification, then release
+        // busy and reconcile subscription evidence. Null Out is the catch result. Notify again
+        // after this returns. Rejects unmarked, duplicate and retired-account finally calls.
+        bool FinishCommand(const FPosCommandIntent& Intent, TSharedPtr<const FPosReceipt>& Out);
     private:
         bool CurrentOwner(const FPosOwnerReceipt& Owner) const;
         bool Current(const FPosCatalogReadIntent& Intent) const;
@@ -146,10 +224,32 @@ namespace BaddieCompanion
         void CloseCatalog();
         void CloseReceipt();
         EPosReadResult AcceptReceipt(TSharedPtr<const FPosReceipt> Receipt);
+        struct FPendingPacket
+        {
+            FGuid Id;
+            FPosScope Scope;
+            FPosCommand Command;
+            FString RequestId, Operation, ArgumentsJson;
+        };
+        enum class EAttemptPhase : uint8
+        {
+            None, Prepared, AwaitingReceiptRestart, ReadyToDispatch, Dispatched, AwaitingFinally
+        };
+        bool CurrentAttempt(const FPosCommandIntent& Intent) const;
+        bool InitialScopeMatches() const;
+        void PrepareAttempt(FPosCommandIntent& Out);
+        void ClearAttempt();
+        void ReconcileReceipt();
+        void RecordCommandFailure(bool bUncertain, FString Message);
         FGuid OwnerGeneration, CatalogGeneration, ReceiptGeneration;
         TOptional<FPosScope> Selected;
         TOptional<FString> RecoveringId;
         FPosReadView View;
+        TSharedPtr<const FPendingPacket> Pending;
+        bool bPendingUncertain = false;
+        FGuid ActiveAttempt, ActivePacket;
+        EAttemptPhase AttemptPhase = EAttemptPhase::None;
+        TSharedPtr<const FPosReceipt> ReturnedReceipt;
         bool bObserved = false, bDisposed = false;
     };
 }
