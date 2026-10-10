@@ -17,17 +17,20 @@ namespace BaddieCompanion
         None, OwnerUnavailable, SourceMismatch, InvalidBinding, UnsupportedRecipe,
         ParameterUnavailable, MaterialChanged, InstanceUnavailable
     };
-    struct FNativeCharacterMaterialBinding
+    struct FNativeCharacterMaterialSlot
     {
         // Trusted imported content, not names or paths derived from a saved appearance.
         FString SourceMaterialName;
-        TWeakObjectPtr<UMeshComponent> Component;
         TSoftObjectPtr<UObject> MeshAsset;
         TSoftObjectPtr<UMaterialInterface> AuthoredMaterial;
         FName MaterialSlot, ColorParameter, IrisEnabledParameter;
         // BaseColorFactor replaces the source material factor, not its texture.
         // IrisLuminanceTint requires the source luminance formula in the native material graph.
         ENativeCharacterColorRecipe Recipe = ENativeCharacterColorRecipe::BaseColorFactor;
+    };
+    struct FNativeCharacterMaterialBinding : FNativeCharacterMaterialSlot
+    {
+        TWeakObjectPtr<UMeshComponent> Component;
     };
     struct FNativeCharacterMaterialContent
     {
@@ -68,6 +71,11 @@ public:
     bool Apply(const BaddieCompanion::FHomePresentationPlan& Plan,
         const BaddieCompanion::FNativeCharacterMaterialContent& Content);
     void ClearPrivateMaterials();
+    // Game-thread lifetime guard, including restoration from EndPlay/OnUnregister.
+    bool IsChangingMaterials() const { return bChangingMaterials; }
+    // Zero means unavailable. Each successful Apply has a distinct identity; clear/unregister
+    // invalidates it immediately, even when the component subsequently registers again.
+    uint64 GetAppliedGeneration() const;
     BaddieCompanion::ENativeCharacterMaterialIssue GetIssue() const { return Issue; }
 protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
@@ -77,6 +85,8 @@ private:
     UPROPERTY(Transient)
     TArray<FBaddieOwnedCharacterMaterial> Owned;
     BaddieCompanion::ENativeCharacterMaterialIssue Issue = BaddieCompanion::ENativeCharacterMaterialIssue::None;
+    uint64 ApplicationGeneration = 0;
+    uint64 AppliedGeneration = 0;
     bool bEndingPlay = false;
     bool bChangingMaterials = false;
     bool bClearRequested = false;

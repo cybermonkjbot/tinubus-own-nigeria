@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
+#include "BaddieCompanionCharacterActor.h"
 #include "BaddieCompanionFurnitureActor.h"
 #include "BaddieCompanionHomePresentation.h"
 #include "BaddieCompanionNativeApartment.generated.h"
@@ -18,7 +19,8 @@ namespace BaddieCompanion
     {
         MissingContent, IncompleteInventory, AdmissionUnavailable, SavedPresentationUnavailable,
         InvalidBinding, DoorwayNotAuthored, LoadFailed, AnchorUnavailable,
-        NavigationUnavailable, DaylightUnverified, RenderAcceptanceOutstanding, FurnitureUnavailable
+        NavigationUnavailable, DaylightUnverified, RenderAcceptanceOutstanding, FurnitureUnavailable,
+        CharacterUnavailable
     };
     struct FNativeApartmentStatus
     {
@@ -27,6 +29,8 @@ namespace BaddieCompanion
         int32 BoundDoorways = 0;
         int32 PreparedFurniture = 0;
         bool bFurnitureAssetsPending = false;
+        bool bCharacterAssetsPending = false;
+        bool bCharacterPrepared = false;
         // Source bindings do not establish player-height acceptance or gameplay authority.
         bool IsWalkThroughReady() const { return false; }
     };
@@ -67,6 +71,7 @@ namespace BaddieCompanion
         FSnapshotSelection Source;
         TArray<FNativeApartmentLevelBinding> Levels;
         TArray<FNativeFurnitureAsset> FurnitureAssets;
+        FNativeCharacterContent Character;
     };
     struct FNativeRoomCamera
     {
@@ -92,12 +97,14 @@ public:
     const BaddieCompanion::FNativeApartmentStatus& GetStatus() const { return Status; }
 protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
+    virtual void OnUnregister() override;
 private:
     friend class ABaddieCompanionSlicePlayerController;
     bool PrepareContent(const BaddieCompanion::FHomePresentationPlan& Plan,
         const BaddieCompanion::FNativeApartmentContent& Content);
     void PollNativeLevels();
     bool PrepareRoomFurniture(int32 Index);
+    bool PrepareHomeCharacter(int32 Index);
     bool ValidateLoadedAnchors(int32 Index);
     bool CopyNavigationApproach(ACharacter& Character, int32 ConnectionIndex,
         bool bFromEndpoint, FVector& Out);
@@ -110,6 +117,10 @@ private:
     TArray<BaddieCompanion::FNativeApartmentLevelBinding> Bindings;
     TArray<BaddieCompanion::FNativeFurnitureAsset> FurnitureAssets;
     TSharedPtr<FStreamableHandle> FurnitureAssetLoad;
+    TOptional<BaddieCompanion::FNativeCharacterContent> CharacterContent;
+    TSharedPtr<FStreamableHandle> CharacterAssetLoad;
+    UPROPERTY(Transient)
+    TObjectPtr<ABaddieCompanionCharacterActor> PreparedCharacter;
     // GC owns pending stream objects; reset requests hide/unload before dropping references.
     UPROPERTY(Transient)
     TArray<TObjectPtr<ULevelStreamingDynamic>> Streams;
@@ -118,5 +129,8 @@ private:
     TArray<bool> AnchorsChecked;
     TArray<bool> FurniturePrepared;
     bool bDaylightHookAttempted = false;
+    bool bClearing = false;
+    bool bEndingPlay = false;
+    uint64 ContentGeneration = 0;
     BaddieCompanion::FNativeApartmentStatus Status;
 };

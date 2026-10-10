@@ -16,6 +16,7 @@
 #include "NavigationSystem.h"
 #include "NavigationData.h"
 #include "NavigationSystemTypes.h"
+#include "Templates/UnrealTemplate.h"
 
 namespace BaddieCompanion::NativeApartment
 {
@@ -141,7 +142,22 @@ void UBaddieCompanionNativeApartment::AddGap(BaddieCompanion::ENativeApartmentGa
 
 void UBaddieCompanionNativeApartment::ClearPrivateContent()
 {
+    ++ContentGeneration;
+    if (bClearing) return;
+    TGuardValue<bool> Clearing(bClearing, true);
     bool bFurnitureDestroyFailed = false;
+    bool bCharacterDestroyFailed = false;
+    if (CharacterAssetLoad.IsValid())
+    {
+        CharacterAssetLoad->CancelHandle();
+        CharacterAssetLoad.Reset();
+    }
+    if (IsValid(PreparedCharacter.Get()))
+    {
+        const TWeakObjectPtr<ABaddieCompanionCharacterActor> Current(PreparedCharacter.Get());
+        if (!Current->DestroyPrivateCharacter()) bCharacterDestroyFailed = true;
+    }
+    PreparedCharacter = nullptr; CharacterContent.Reset();
     if (FurnitureAssetLoad.IsValid())
     {
         FurnitureAssetLoad->CancelHandle();
@@ -185,12 +201,20 @@ void UBaddieCompanionNativeApartment::ClearPrivateContent()
     AddGap(BaddieCompanion::ENativeApartmentGap::MissingContent);
     // A failed destroy still leaves an empty, inactive actor in a level requested for unload.
     if (bFurnitureDestroyFailed) AddGap(BaddieCompanion::ENativeApartmentGap::FurnitureUnavailable);
+    if (bCharacterDestroyFailed) AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable);
 }
 
 void UBaddieCompanionNativeApartment::EndPlay(const EEndPlayReason::Type Reason)
 {
+    bEndingPlay = true;
     ClearPrivateContent();
     Super::EndPlay(Reason);
+}
+
+void UBaddieCompanionNativeApartment::OnUnregister()
+{
+    ClearPrivateContent();
+    Super::OnUnregister();
 }
 
 void UBaddieCompanionNativeApartment::ObserveValidPresentation(const BaddieCompanion::FHomePresentationPlan& Plan)
@@ -209,6 +233,7 @@ void UBaddieCompanionNativeApartment::ObserveValidPresentation(const BaddieCompa
 bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHomePresentationPlan& Plan,
     const BaddieCompanion::FNativeApartmentContent& Content)
 {
+    if (bClearing || bEndingPlay || !IsRegistered()) return false;
     ClearPrivateContent();
     ObserveValidPresentation(Plan);
     using namespace BaddieCompanion;
@@ -218,6 +243,8 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
         AddGap(ENativeApartmentGap::InvalidBinding);
         return false;
     }
+    if (!ABaddieCompanionCharacterActor::AcceptsContent(Plan, Content.Character))
+    { AddGap(ENativeApartmentGap::CharacterUnavailable); return false; }
     TArray<EItemKind> AssetKinds;
     if (Content.FurnitureAssets.Num() > 23) { AddGap(ENativeApartmentGap::InvalidBinding); return false; }
     for (const auto& Asset : Content.FurnitureAssets)
@@ -245,8 +272,10 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
                 Required.Add(Endpoint);
     if (Required.Num() != Content.Levels.Num()) { AddGap(ENativeApartmentGap::InvalidBinding); return false; }
     TArray<FApartmentEndpoint> Seen;
+    int32 HomeLevels = 0;
     for (const auto& Binding : Content.Levels)
     {
+        if (Binding.Endpoint.RoomId.Equals(Plan.Home.Id, ESearchCase::CaseSensitive)) ++HomeLevels;
         if (Binding.Level.IsNull()) { AddGap(ENativeApartmentGap::MissingContent); return false; }
         if (!RigidInstance(Binding.InstanceToApartment)
             || !Required.ContainsByPredicate([&](const auto& E) { return SameEndpoint(E, Binding.Endpoint); })
@@ -282,16 +311,32 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
             { AddGap(ENativeApartmentGap::AnchorUnavailable); return false; }
         }
     }
+    if (HomeLevels != 1) { AddGap(ENativeApartmentGap::CharacterUnavailable); return false; }
     // Content setup, topology and configuration are not consent or gameplay admission.
     // No admitted standalone owner exists yet. No caller-supplied admission boolean is accepted.
     constexpr bool bStandaloneApartmentAdmissionImplemented = false;
     if (!Plan.Apartment.bCompleteHomeInventoryVerified || !Plan.IsRenderReady()
         || !bStandaloneApartmentAdmissionImplemented) return false;
-    if (!GetWorld() || GetWorld()->GetNetMode() != NM_Standalone) return false;
+    if (!GetWorld() || !GetWorld()->IsGameWorld() || GetWorld()->GetNetMode() != NM_Standalone) return false;
 
     Source = Plan.Source; Presentation = Plan; Bindings = Content.Levels;
     FurnitureAssets = Content.FurnitureAssets;
+    CharacterContent = Content.Character;
     Status = {};
+    if (!UAssetManager::IsInitialized())
+    { ClearPrivateContent(); AddGap(ENativeApartmentGap::CharacterUnavailable); return false; }
+    TArray<FSoftObjectPath> CharacterPaths { Content.Character.ActorClass.ToSoftObjectPath() };
+    for (const auto& Material : Content.Character.Materials)
+    {
+        CharacterPaths.AddUnique(Material.MeshAsset.ToSoftObjectPath());
+        CharacterPaths.AddUnique(Material.AuthoredMaterial.ToSoftObjectPath());
+    }
+    for (const auto& Accessory : Content.Character.Accessories)
+        CharacterPaths.AddUnique(Accessory.MeshAsset.ToSoftObjectPath());
+    CharacterAssetLoad = UAssetManager::GetStreamableManager().RequestAsyncLoad(CharacterPaths);
+    if (!CharacterAssetLoad.IsValid())
+    { ClearPrivateContent(); AddGap(ENativeApartmentGap::CharacterUnavailable); return false; }
+    Status.bCharacterAssetsPending = !CharacterAssetLoad->HasLoadCompleted();
     if (!FurniturePaths.IsEmpty())
     {
         // UE retains mesh dependencies until every native furniture instance owns its mesh.
@@ -325,6 +370,11 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
 
 void UBaddieCompanionNativeApartment::PollNativeLevels()
 {
+    if (bClearing || bEndingPlay) return;
+    const uint64 PollGeneration = ContentGeneration;
+    if (CharacterAssetLoad.IsValid() && (CharacterAssetLoad->WasCanceled() || !CharacterAssetLoad->IsActive()))
+    { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable); return; }
+    Status.bCharacterAssetsPending = CharacterAssetLoad.IsValid() && !CharacterAssetLoad->HasLoadCompleted();
     if (FurnitureAssetLoad.IsValid() && (FurnitureAssetLoad->WasCanceled() || !FurnitureAssetLoad->IsActive()))
     { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::FurnitureUnavailable); return; }
     Status.bFurnitureAssetsPending = FurnitureAssetLoad.IsValid() && !FurnitureAssetLoad->HasLoadCompleted();
@@ -346,6 +396,31 @@ void UBaddieCompanionNativeApartment::PollNativeLevels()
             if (!PrepareRoomFurniture(I))
             { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::FurnitureUnavailable); return; }
             FurniturePrepared[I] = true;
+        }
+        if (!Status.bCharacterAssetsPending && !Status.bCharacterPrepared && Presentation.IsSet()
+            && Bindings[I].Endpoint.RoomId.Equals(Presentation->Home.Id, ESearchCase::CaseSensitive))
+        {
+            const bool bCharacterReady = PrepareHomeCharacter(I);
+            if (ContentGeneration != PollGeneration) return;
+            if (!bCharacterReady)
+            { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable); return; }
+            Status.bCharacterPrepared = true;
+        }
+    }
+    if (Status.bCharacterPrepared)
+    {
+        auto* Actor = PreparedCharacter.Get();
+        const bool bCurrent = IsValid(Actor) && Actor->GetOwner() == GetOwner() && Actor->GetWorld() == GetWorld()
+            && Streams.ContainsByPredicate([&](const auto& Stream)
+                { return IsValid(Stream.Get()) && Stream->GetLoadedLevel() == Actor->GetLevel(); })
+            && Actor->ReconcileLevelTransform();
+        if (ContentGeneration != PollGeneration) return;
+        if (!bCurrent)
+        { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable); return; }
+        if (CharacterAssetLoad.IsValid())
+        {
+            CharacterAssetLoad->ReleaseHandle();
+            CharacterAssetLoad.Reset();
         }
     }
     for (const auto& OwnedFurniture : Furniture)
@@ -378,6 +453,49 @@ void UBaddieCompanionNativeApartment::PollNativeLevels()
             }
         }
     }
+}
+
+bool UBaddieCompanionNativeApartment::PrepareHomeCharacter(int32 Index)
+{
+    if (bClearing || bEndingPlay || !Presentation.IsSet() || !CharacterContent.IsSet() || PreparedCharacter
+        || !Streams.IsValidIndex(Index) || !Bindings.IsValidIndex(Index)) return false;
+    auto* Stream = Streams[Index].Get();
+    auto* Level = IsValid(Stream) ? Stream->GetLoadedLevel() : nullptr;
+    auto* Class = CharacterContent->ActorClass.Get();
+    if (!IsValid(Level) || Level->GetWorld() != GetWorld()
+        || !ABaddieCompanionCharacterActor::HasInertDefaults(Class)
+        || !Bindings[Index].Endpoint.RoomId.Equals(Presentation->Home.Id, ESearchCase::CaseSensitive)) return false;
+    // Spawn/asset callbacks must not retain references into a cleared owner.
+    const uint64 Generation = ContentGeneration;
+    const auto Plan = Presentation.GetValue();
+    const auto Content = CharacterContent.GetValue();
+    const auto Instance = Bindings[Index].InstanceToApartment;
+    FActorSpawnParameters Params;
+    Params.OverrideLevel = Level; Params.Owner = GetOwner(); Params.ObjectFlags |= RF_Transient;
+    Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+    auto* Actor = GetWorld()->SpawnActor<ABaddieCompanionCharacterActor>(Class, FTransform::Identity, Params);
+    if (!IsValid(Actor)) return false;
+    if (Generation != ContentGeneration)
+    {
+        const TWeakObjectPtr<ABaddieCompanionCharacterActor> Current(Actor);
+        if (!Current->DestroyPrivateCharacter())
+            AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable);
+        return false;
+    }
+    PreparedCharacter = Actor;
+    if (Actor->GetLevel() != Level || Actor->GetWorld() != GetWorld() || Actor->GetOwner() != GetOwner()) return false;
+    const TWeakObjectPtr<ABaddieCompanionCharacterActor> Current(Actor);
+    const bool bPrepared = Actor->Prepare(Plan, Content, Instance, Level->bAlreadyMovedActors);
+    if (Generation != ContentGeneration)
+    {
+        if (Current.IsValid())
+        {
+            if (!Current->DestroyPrivateCharacter())
+                AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable);
+        }
+        return false;
+    }
+    return bPrepared;
 }
 
 bool UBaddieCompanionNativeApartment::PrepareRoomFurniture(int32 Index)
