@@ -7,7 +7,7 @@
 
 namespace BaddieCompanion
 {
-    namespace
+    namespace MovementProtocolPrivate
     {
         constexpr int64 MaxSequence = 1000000000;
         constexpr int64 MaxRevision = 9007199254740991LL;
@@ -121,13 +121,13 @@ namespace BaddieCompanion
     bool EncodeCallMovementRequest(const FMovementRequest& Request,
         TSharedPtr<FJsonObject>& Out, FString& OutError)
     {
-        return EncodeRequest(Request, false, Out, OutError);
+        return MovementProtocolPrivate::EncodeRequest(Request, false, Out, OutError);
     }
 
     bool EncodeWorldMovementRequest(const FMovementRequest& Request,
         TSharedPtr<FJsonObject>& Out, FString& OutError)
     {
-        return EncodeRequest(Request, true, Out, OutError);
+        return MovementProtocolPrivate::EncodeRequest(Request, true, Out, OutError);
     }
 
     bool DecodeCallMovementResult(const TSharedPtr<FJsonObject>& Object,
@@ -138,17 +138,17 @@ namespace BaddieCompanion
         OutError = TEXT("Call movement response has an invalid result or revision.");
         const auto Ok = Object.IsValid() ? Object->TryGetField(TEXT("ok")) : nullptr;
         if (!Ok.IsValid() || Ok->Type != EJson::Boolean || !Ok->TryGetBool(Next.bOk)
-            || !ReadNonnegativeInteger(Object, TEXT("sequence"), MaxSequence, Next.Sequence)
-            || !ReadNonnegativeInteger(Object, TEXT("roomRevision"), MaxRevision, Next.RoomRevision)
-            || !ReadNumber(Object, TEXT("retryAfterMs"), Next.RetryAfterMs) || Next.RetryAfterMs < 0) return false;
+            || !MovementProtocolPrivate::ReadNonnegativeInteger(Object, TEXT("sequence"), MovementProtocolPrivate::MaxSequence, Next.Sequence)
+            || !MovementProtocolPrivate::ReadNonnegativeInteger(Object, TEXT("roomRevision"), MovementProtocolPrivate::MaxRevision, Next.RoomRevision)
+            || !MovementProtocolPrivate::ReadNumber(Object, TEXT("retryAfterMs"), Next.RetryAfterMs) || Next.RetryAfterMs < 0) return false;
 
         OutError = TEXT("Call movement response has an invalid position.");
         const TSharedPtr<FJsonObject>* Position = nullptr;
         if (!Object->TryGetObjectField(TEXT("position"), Position) || !Position || !Position->IsValid()
-            || !ReadNumber(*Position, TEXT("x"), Next.Position.X)
-            || !ReadNumber(*Position, TEXT("z"), Next.Position.Z)
-            || !ReadNumber(*Position, TEXT("yaw"), Next.Position.YawRadians)
-            || !ValidPosition(Next.Position)) return false;
+            || !MovementProtocolPrivate::ReadNumber(*Position, TEXT("x"), Next.Position.X)
+            || !MovementProtocolPrivate::ReadNumber(*Position, TEXT("z"), Next.Position.Z)
+            || !MovementProtocolPrivate::ReadNumber(*Position, TEXT("yaw"), Next.Position.YawRadians)
+            || !MovementProtocolPrivate::ValidPosition(Next.Position)) return false;
 
         OutError = TEXT("Call movement response has an invalid movement.");
         const auto Movement = Object->TryGetField(TEXT("movement"));
