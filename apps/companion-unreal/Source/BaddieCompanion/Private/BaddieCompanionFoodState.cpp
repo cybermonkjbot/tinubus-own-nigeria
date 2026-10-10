@@ -1,5 +1,7 @@
 #include "BaddieCompanionFoodState.h"
 #include "BaddieCompanionStateJson.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 
 namespace BaddieCompanion
 {
@@ -8,14 +10,15 @@ namespace BaddieCompanion
         using namespace StateJsonPrivate;
         // Allocation limits, not gameplay capacity or inventory admission rules.
         constexpr FParseLimits Limits { 2097152, 32, 131072 };
+        const std::initializer_list<TPair<const TCHAR*, EFoodKey>> FoodKeys = {
+            { TEXT("suya"), EFoodKey::Suya }, { TEXT("akara"), EFoodKey::Akara }, { TEXT("water"), EFoodKey::Water },
+            { TEXT("ready-meal"), EFoodKey::ReadyMeal }, { TEXT("energy-drink"), EFoodKey::EnergyDrink },
+            { TEXT("rice"), EFoodKey::Rice }, { TEXT("beans"), EFoodKey::Beans }, { TEXT("tomato"), EFoodKey::Tomato },
+            { TEXT("oil"), EFoodKey::Oil } };
         template <typename T> bool Enum(const FValue& V, T& Out,
             std::initializer_list<TPair<const TCHAR*, T>> Choices)
         {
-            FString Wire;
-            if (!String(V, Wire)) return false;
-            for (const auto& Choice : Choices)
-                if (Same(Wire, Choice.Key)) { Out = Choice.Value; return true; }
-            return false;
+            return EnumValue(V, Out, Choices);
         }
         bool Literal(const FValue& V, const TCHAR* Expected)
         {
@@ -31,14 +34,7 @@ namespace BaddieCompanion
         }
         template <typename T, typename F> bool Array(const FValue& V, TArray<T>& Out, F Read)
         {
-            if (!V.IsValid() || V->Type != EJson::Array || V->AsArray().Num() > 4096) return false;
-            for (const auto& Item : V->AsArray())
-            {
-                T Next;
-                if (!Read(Item, Next)) return false;
-                Out.Add(MoveTemp(Next));
-            }
-            return true;
+            return ReadBoundedArray(V, Out, 4096, Read);
         }
         bool Scope(const FObject& O, FFoodScope& Out)
         {
@@ -263,19 +259,106 @@ namespace BaddieCompanion
         {
             return A.IsSet() == B.IsSet() && (!A.IsSet() || SameScope(A.GetValue(), B.GetValue()));
         }
+        bool MovingScope(const FFoodScope& Scope)
+        {
+            return Scope.MovingOfferId.IsSet() && !Scope.MovingOfferId->IsEmpty();
+        }
+        void RetainMoving(TWorldPlayerField<FFoodMovingOffer>& Current, const TWorldPlayerField<FFoodMovingOffer>& Next)
+        {
+            if (!Next.Value.IsSet()) return;
+            const auto& Incoming = Next.Value.GetValue();
+            const auto& Previous = Current.Value;
+            if (!Previous.IsSet() || !Same(Previous->Id, Incoming.Id) || Incoming.Revision > Previous->Revision
+                || (Incoming.Revision == Previous->Revision
+                    && (Previous->Status == EFoodMovingStatus::Offered || Incoming.Status == Previous->Status)))
+                Current = Next;
+        }
+        bool EncodeCommand(const FFoodScope& Scope, const FFoodAction& Action, const FString& RequestId,
+            FString& Endpoint, FString& Json)
+        {
+            const bool bMoving = MovingScope(Scope);
+            if (bMoving && ((Action.Type != EFoodActionType::Confirm && Action.Type != EFoodActionType::Cancel)
+                || !Same(Action.QuoteId, Scope.MovingOfferId.GetValue()))) return false;
+            auto Args = MakeShared<FJsonObject>();
+            // Ordinary cancellation deliberately omits every scope field.
+            if (bMoving || Action.Type != EFoodActionType::Cancel)
+            {
+                Args->SetStringField(TEXT("gameRoomId"), Scope.GameRoomId);
+                Args->SetStringField(TEXT("instanceId"), Scope.InstanceId);
+                Args->SetStringField(TEXT("lifeId"), Scope.LifeId);
+                Args->SetNumberField(TEXT("revision"), static_cast<double>(Scope.Revision));
+                Args->SetStringField(TEXT("serviceId"), Scope.ServiceId);
+                if (Scope.MovingOfferId.IsSet()) Args->SetStringField(TEXT("movingOfferId"), Scope.MovingOfferId.GetValue());
+            }
+            Args->SetStringField(TEXT("requestId"), RequestId);
+            if (bMoving)
+            {
+                Endpoint = TEXT("companionWorld:movingFoodCommand");
+                Args->SetStringField(TEXT("type"), Action.Type == EFoodActionType::Confirm ? TEXT("confirm") : TEXT("cancel"));
+                Args->SetStringField(TEXT("offerId"), Action.QuoteId);
+            }
+            else switch (Action.Type)
+            {
+            case EFoodActionType::Quote:
+            {
+                const TCHAR* Key = FoodKeyWire(Action.OfferKey);
+                if (!Key || (Action.Quantity != EFoodQuantity::One && Action.Quantity != EFoodQuantity::Three
+                    && Action.Quantity != EFoodQuantity::Six)) return false;
+                Endpoint = TEXT("companionFood:requestQuote");
+                Args->SetStringField(TEXT("offerKey"), Key);
+                Args->SetNumberField(TEXT("quantity"), static_cast<uint8>(Action.Quantity));
+                break;
+            }
+            case EFoodActionType::Confirm:
+                Endpoint = TEXT("companionFood:confirmQuote");
+                Args->SetStringField(TEXT("quoteId"), Action.QuoteId);
+                break;
+            case EFoodActionType::Cancel:
+                Endpoint = TEXT("companionFood:cancelQuote");
+                Args->SetStringField(TEXT("quoteId"), Action.QuoteId);
+                break;
+            case EFoodActionType::Collect:
+            case EFoodActionType::Eat:
+                Endpoint = TEXT("companionFood:useOrder");
+                Args->SetStringField(TEXT("orderId"), Action.OrderId);
+                Args->SetStringField(TEXT("type"), Action.Type == EFoodActionType::Collect ? TEXT("collect") : TEXT("eat"));
+                break;
+            default: return false;
+            }
+            return FJsonSerializer::Serialize(Args, TJsonWriterFactory<>::Create(&Json));
+        }
     }
 
     bool ParseFoodKey(const FString& Wire, EFoodKey& Out)
     {
-        const TPair<const TCHAR*, EFoodKey> Keys[] = {
-            { TEXT("suya"), EFoodKey::Suya }, { TEXT("akara"), EFoodKey::Akara }, { TEXT("water"), EFoodKey::Water },
-            { TEXT("ready-meal"), EFoodKey::ReadyMeal }, { TEXT("energy-drink"), EFoodKey::EnergyDrink },
-            { TEXT("rice"), EFoodKey::Rice }, { TEXT("beans"), EFoodKey::Beans }, { TEXT("tomato"), EFoodKey::Tomato },
-            { TEXT("oil"), EFoodKey::Oil } };
         Out = EFoodKey::Suya;
-        for (const auto& Key : Keys)
-            if (StateJsonPrivate::Same(Wire, Key.Key)) { Out = Key.Value; return true; }
-        return false;
+        return StateJsonPrivate::EnumValue(MakeShared<FJsonValueString>(Wire), Out, FoodPrivate::FoodKeys);
+    }
+    const TCHAR* FoodKeyWire(EFoodKey Key)
+    {
+        for (const auto& Entry : FoodPrivate::FoodKeys) if (Entry.Value == Key) return Entry.Key;
+        return nullptr;
+    }
+    bool ValidFoodKitchenRequestId(const FString& RequestId)
+    {
+        if (RequestId.Len() < 16 || RequestId.Len() > 128) return false;
+        const auto Alphanumeric = [](TCHAR C)
+        {
+            return (C >= TEXT('A') && C <= TEXT('Z')) || (C >= TEXT('a') && C <= TEXT('z'))
+                || (C >= TEXT('0') && C <= TEXT('9'));
+        };
+        if (!Alphanumeric(RequestId[0])) return false;
+        for (const TCHAR C : RequestId)
+            if (!Alphanumeric(C) && C != TEXT('.') && C != TEXT('_') && C != TEXT(':') && C != TEXT('-')) return false;
+        return true;
+    }
+    FString FFoodKitchenCommandFailure::PublicMessage(const TCHAR* Fallback) const
+    {
+        // Bounding is not sanitization. The adapter supplies approved public text only.
+        if (SafePublicMessage.IsEmpty() || SafePublicMessage.Len() > 500) return Fallback;
+        for (const TCHAR C : SafePublicMessage)
+            if ((C < 32 && C != TEXT('\n') && C != TEXT('\t')) || C == 127) return Fallback;
+        return SafePublicMessage;
     }
     bool DecodeFoodScope(const FString& Json, FFoodScope& Out, FString& OutError)
     {
@@ -308,6 +391,8 @@ namespace BaddieCompanion
         EndSubscription();
         Selection = Scope;
         View = FFoodReadView{};
+        View.bBusy = Attempt.IsValid();
+        View.bRetryable = Pending.IsValid() && bUncertain;
         Changed.Broadcast();
         return true;
     }
@@ -338,19 +423,10 @@ namespace BaddieCompanion
         FString Error;
         if (!DecodeFoodCatalog(Json, Next, Error)) return EFoodReadResult::InvalidResponse;
         if (!FoodPrivate::SameScope(Next.Scope, Receipt.Scope.GetValue())) return EFoodReadResult::ScopeMismatch;
-        if (Next.MovingOffer.Value.IsSet())
-        {
-            const auto& Incoming = Next.MovingOffer.Value.GetValue();
-            const auto& Previous = View.MovingOffer.Value;
-            if (!Previous.IsSet() || !StateJsonPrivate::Same(Previous->Id, Incoming.Id)
-                || Incoming.Revision > Previous->Revision
-                || (Incoming.Revision == Previous->Revision
-                    && (Previous->Status == EFoodMovingStatus::Offered || Incoming.Status == Previous->Status)))
-                View.MovingOffer = Next.MovingOffer;
-        }
+        FoodPrivate::RetainMoving(View.MovingOffer, Next.MovingOffer);
         View.Catalog = MakeShared<FFoodCatalog>(MoveTemp(Next));
         View.bReady = true;
-        View.Error.Reset();
+        if (!Pending.IsValid() || !bUncertain) View.Error.Reset();
         Changed.Broadcast();
         return EFoodReadResult::Accepted;
     }
@@ -363,11 +439,137 @@ namespace BaddieCompanion
         Changed.Broadcast();
         return true;
     }
+    bool FFoodReadState::PrepareCommand(const FFoodAction& Action, const FString& RequestId, FFoodKitchenCommandReceipt& Out)
+    {
+        Out = FFoodKitchenCommandReceipt{};
+        if (bDisposed || Attempt.IsValid() || Pending.IsValid() || !Selection.IsSet()
+            || !ValidFoodKitchenRequestId(RequestId)) return false;
+        auto Request = MakeShared<FRequest>();
+        Request->Scope = Selection.GetValue();
+        Request->Action = Action;
+        Request->RequestId = RequestId;
+        if (!FoodPrivate::EncodeCommand(Request->Scope, Action, RequestId, Request->Endpoint, Request->ArgumentsJson)) return false;
+        Pending = Request;
+        bUncertain = false;
+        return PrepareAttempt(Out);
+    }
+    bool FFoodReadState::PrepareRetry(FFoodKitchenCommandReceipt& Out)
+    {
+        Out = FFoodKitchenCommandReceipt{};
+        return Pending.IsValid() && bUncertain && PrepareAttempt(Out);
+    }
+    bool FFoodReadState::PrepareAttempt(FFoodKitchenCommandReceipt& Out)
+    {
+        if (bDisposed || Attempt.IsValid() || !Pending.IsValid()
+            || (!bUncertain && (!Selection.IsSet() || !FoodPrivate::SameScope(Selection.GetValue(), Pending->Scope)))) return false;
+        FFoodKitchenCommandReceipt Receipt;
+        Receipt.Attempt = Attempt = FGuid::NewGuid();
+        Receipt.Endpoint = Pending->Endpoint;
+        Receipt.ArgumentsJson = Pending->ArgumentsJson;
+        Receipt.RequestId = Pending->RequestId;
+        AttemptReadGeneration = Generation;
+        bReplay = bUncertain;
+        bDispatched = false;
+        View.bBusy = true;
+        View.bRetryable = false;
+        View.Error.Reset();
+        View.Result.Reset();
+        Changed.Broadcast();
+        // Clear/dispose may have invalidated this attempt and reentry may have prepared another.
+        if (!CurrentAttempt(Receipt)) return false;
+        if (!bReplay && (!Selection.IsSet() || !FoodPrivate::SameScope(Selection.GetValue(), Pending->Scope)))
+        {
+            AbandonPreparedCommand(Receipt);
+            return false;
+        }
+        Out = MoveTemp(Receipt);
+        return true;
+    }
+    bool FFoodReadState::CurrentAttempt(const FFoodKitchenCommandReceipt& Receipt) const
+    {
+        return !bDisposed && Pending.IsValid() && Receipt.Attempt.IsValid() && Receipt.Attempt == Attempt;
+    }
+    bool FFoodReadState::DispatchCommand(const FFoodKitchenCommandReceipt& Receipt)
+    {
+        if (!CurrentAttempt(Receipt) || bDispatched) return false;
+        if (!bReplay && (!Selection.IsSet() || !FoodPrivate::SameScope(Selection.GetValue(), Pending->Scope)))
+        {
+            AbandonPreparedCommand(Receipt);
+            return false;
+        }
+        bDispatched = true;
+        bUncertain = true;
+        return true;
+    }
+    bool FFoodReadState::AbandonPreparedCommand(const FFoodKitchenCommandReceipt& Receipt)
+    {
+        if (!CurrentAttempt(Receipt) || bDispatched) return false;
+        if (!bUncertain) Pending.Reset();
+        FinishAttempt();
+        return true;
+    }
+    void FFoodReadState::FinishAttempt()
+    {
+        Attempt.Invalidate();
+        bDispatched = bReplay = false;
+        if (!Pending.IsValid()) bUncertain = false;
+        View.bBusy = false;
+        View.bRetryable = Pending.IsValid() && bUncertain;
+        Changed.Broadcast();
+        // No writes after notification: a listener may have started the next command.
+    }
+    EFoodKitchenCompletion FFoodReadState::CompleteCommand(const FFoodKitchenCommandReceipt& Receipt,
+        const FString& Json, TSharedPtr<const FFoodResult>& OutResult)
+    {
+        OutResult.Reset();
+        if (!CurrentAttempt(Receipt) || !bDispatched) return EFoodKitchenCompletion::StaleReceipt;
+        FFoodResult Next;
+        FString Error;
+        const bool bMoving = FoodPrivate::MovingScope(Pending->Scope);
+        if (!DecodeFoodResult(Json, Next, Error)
+            || (bMoving && (Next.Quote.IsSet() || Next.MovingOffer.Presence == EWorldFieldPresence::Missing))
+            || (!bMoving && Next.MovingOffer.Presence != EWorldFieldPresence::Missing))
+        {
+            // An undecodable server reply cannot prove that the dispatched mutation failed.
+            FailCommand(Receipt, FFoodKitchenCommandFailure{});
+            return EFoodKitchenCompletion::InvalidResponse;
+        }
+        const bool bPublish = Selection.IsSet() && FoodPrivate::SameScope(Selection.GetValue(), Pending->Scope)
+            && AttemptReadGeneration == Generation;
+        Pending.Reset();
+        OutResult = MakeShared<FFoodResult>(MoveTemp(Next));
+        if (bPublish)
+        {
+            const auto& Incoming = OutResult->Quote;
+            if (Incoming.IsSet() && (!View.Quote.IsSet() || !StateJsonPrivate::Same(View.Quote->Id, Incoming->Id)
+                || Incoming->Revision >= View.Quote->Revision)) View.Quote = Incoming;
+            FoodPrivate::RetainMoving(View.MovingOffer, OutResult->MovingOffer);
+            View.Result = OutResult;
+            View.Error.Reset();
+        }
+        // Catalog remains query-owned, including all orders. Detached success only settles busy/retry.
+        FinishAttempt();
+        return bPublish ? EFoodKitchenCompletion::Applied : EFoodKitchenCompletion::Detached;
+    }
+    bool FFoodReadState::FailCommand(const FFoodKitchenCommandReceipt& Receipt, const FFoodKitchenCommandFailure& Failure)
+    {
+        if (!CurrentAttempt(Receipt) || !bDispatched
+            || (Failure.Category != EFoodKitchenFailureCategory::Definite && Failure.Category != EFoodKitchenFailureCategory::Ambiguous)) return false;
+        const bool bSelected = Selection.IsSet() && FoodPrivate::SameScope(Selection.GetValue(), Pending->Scope);
+        // Canonical Food/Kitchen clear even a replay on a definite failure.
+        if (Failure.Category == EFoodKitchenFailureCategory::Definite) Pending.Reset();
+        if (bSelected) View.Error = Failure.PublicMessage(TEXT("Food action couldn't finish. Retry the same request."));
+        FinishAttempt();
+        return true;
+    }
     void FFoodReadState::Clear()
     {
         if (bDisposed) return;
         EndSubscription();
         Selection.Reset();
+        Pending.Reset();
+        Attempt.Invalidate();
+        bUncertain = bDispatched = bReplay = false;
         View = FFoodReadView{};
         Changed.Broadcast();
     }
@@ -377,6 +579,9 @@ namespace BaddieCompanion
         bDisposed = true;
         EndSubscription();
         Selection.Reset();
+        Pending.Reset();
+        Attempt.Invalidate();
+        bUncertain = bDispatched = bReplay = false;
         View = FFoodReadView{};
         Changed.Clear();
     }

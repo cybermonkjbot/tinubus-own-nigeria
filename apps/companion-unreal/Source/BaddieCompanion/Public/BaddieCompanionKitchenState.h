@@ -52,6 +52,18 @@ namespace BaddieCompanion
     BADDIECOMPANION_API bool DecodeKitchenScope(const FString& Json, FKitchenScope& Out, FString& OutError);
     BADDIECOMPANION_API bool DecodeKitchenSnapshot(const FString& Json, FKitchenSnapshot& Out, FString& OutError);
 
+    enum class EKitchenCommandType : uint8 { Serve, Cook, StopCooking, PlateMeal, Drink, EatStock, Eat };
+    enum class EKitchenBatchCount : uint8 { One = 1, Two = 2 };
+    struct FKitchenCommand
+    {
+        EKitchenCommandType Type = EKitchenCommandType::Serve;
+        FString BatchId, ActivityId, RecipeKey;
+        double Portions = 0, ExpectedRevision = 0;
+        EKitchenBatchCount Batches = EKitchenBatchCount::One;
+        EFoodKey Key = EFoodKey::Suya;
+        // Only the selected branch's fields are encoded. Backend owns gameplay admission.
+    };
+
     class FKitchenReadReceipt
     {
     public:
@@ -66,8 +78,8 @@ namespace BaddieCompanion
         TSharedPtr<const FKitchenSnapshot> Kitchen;
         // Missing until a successful read; failure retains the last observed scope.
         TOptional<FKitchenScope> Scope;
-        bool bReady = false;
-        // Read failures only, separate from any future uncertain cooking command.
+        bool bReady = false, bBusy = false, bRetryable = false;
+        // Read success preserves this while a dispatched request remains unresolved.
         TOptional<FString> Error;
     };
     DECLARE_MULTICAST_DELEGATE(FKitchenReadChanged);
@@ -86,11 +98,31 @@ namespace BaddieCompanion
         void EndSubscription();
         EFoodReadResult Accept(const FKitchenReadReceipt& Receipt, const FString& Json);
         bool AcceptFailure(const FKitchenReadReceipt& Receipt);
+        bool PrepareCommand(const FKitchenCommand& Command, const FString& RequestId, FFoodKitchenCommandReceipt& Out);
+        bool PrepareRetry(FFoodKitchenCommandReceipt& Out);
+        // Same actual-send and prepared-abandon contract as FoodState. Sends nothing itself.
+        bool DispatchCommand(const FFoodKitchenCommandReceipt& Receipt);
+        bool AbandonPreparedCommand(const FFoodKitchenCommandReceipt& Receipt);
+        // Decodes matching requestId and applied/replayed only. Never replaces Kitchen.
+        EFoodKitchenCompletion CompleteCommand(const FFoodKitchenCommandReceipt& Receipt, const FString& Json);
+        bool FailCommand(const FFoodKitchenCommandReceipt& Receipt, const FFoodKitchenCommandFailure& Failure);
         void Clear();
         // Canonical disposal retains presentation. Call Clear first for account teardown.
         void Dispose();
     private:
         bool Current(const FKitchenReadReceipt& Receipt) const;
+        struct FRequest
+        {
+            FKitchenScope Scope;
+            FKitchenCommand Command;
+            FString RequestId, ArgumentsJson;
+        };
+        bool PrepareAttempt(FFoodKitchenCommandReceipt& Out);
+        bool CurrentAttempt(const FFoodKitchenCommandReceipt& Receipt) const;
+        void FinishAttempt();
+        TSharedPtr<const FRequest> Pending;
+        FGuid Attempt;
+        bool bUncertain = false, bDispatched = false, bReplay = false;
         FKitchenReadView View;
         TOptional<FKitchenScope> Selection;
         FGuid Generation;

@@ -1,5 +1,8 @@
 #include "BaddieCompanionKitchenState.h"
 #include "BaddieCompanionStateJson.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
+#include <cmath>
 
 namespace BaddieCompanion
 {
@@ -20,14 +23,7 @@ namespace BaddieCompanion
         }
         template <typename T, typename F> bool Array(const FValue& V, TArray<T>& Out, F Read)
         {
-            if (!V.IsValid() || V->Type != EJson::Array || V->AsArray().Num() > 4096) return false;
-            for (const auto& Item : V->AsArray())
-            {
-                T Next;
-                if (!Read(Item, Next)) return false;
-                Out.Add(MoveTemp(Next));
-            }
-            return true;
+            return ReadBoundedArray(V, Out, 4096, Read);
         }
         bool Revision(const FValue& V, int64& Out) { return Integer(V, Out); }
         bool Scalar(const FValue& V, double& Out) { return Number(V, Out); }
@@ -114,6 +110,70 @@ namespace BaddieCompanion
         {
             return A.IsSet() == B.IsSet() && (!A.IsSet() || SameScope(A.GetValue(), B.GetValue()));
         }
+        bool EncodeCommand(const FKitchenScope& Scope, const FKitchenCommand& Command, const FString& RequestId, FString& Json)
+        {
+            auto Action = MakeShared<FJsonObject>();
+            switch (Command.Type)
+            {
+            case EKitchenCommandType::Serve:
+                if (!std::isfinite(Command.Portions)) return false;
+                Action->SetStringField(TEXT("type"), TEXT("serve"));
+                Action->SetStringField(TEXT("batchId"), Command.BatchId);
+                Action->SetNumberField(TEXT("portions"), Command.Portions);
+                break;
+            case EKitchenCommandType::Cook:
+                if (!std::isfinite(Command.ExpectedRevision) || (Command.Batches != EKitchenBatchCount::One
+                    && Command.Batches != EKitchenBatchCount::Two)) return false;
+                Action->SetStringField(TEXT("type"), TEXT("cook"));
+                Action->SetStringField(TEXT("recipeKey"), Command.RecipeKey);
+                Action->SetNumberField(TEXT("batches"), static_cast<uint8>(Command.Batches));
+                Action->SetNumberField(TEXT("expectedRevision"), Command.ExpectedRevision);
+                break;
+            case EKitchenCommandType::StopCooking:
+                if (!std::isfinite(Command.ExpectedRevision)) return false;
+                Action->SetStringField(TEXT("type"), TEXT("stop-cooking"));
+                Action->SetStringField(TEXT("batchId"), Command.BatchId);
+                Action->SetStringField(TEXT("activityId"), Command.ActivityId);
+                Action->SetNumberField(TEXT("expectedRevision"), Command.ExpectedRevision);
+                break;
+            case EKitchenCommandType::PlateMeal:
+                if (!std::isfinite(Command.Portions)) return false;
+                Action->SetStringField(TEXT("type"), TEXT("plate-meal"));
+                Action->SetNumberField(TEXT("portions"), Command.Portions);
+                break;
+            case EKitchenCommandType::Drink:
+            case EKitchenCommandType::EatStock:
+            {
+                const TCHAR* Key = FoodKeyWire(Command.Key);
+                if (!Key) return false;
+                Action->SetStringField(TEXT("type"), Command.Type == EKitchenCommandType::Drink ? TEXT("drink") : TEXT("eat-stock"));
+                Action->SetStringField(TEXT("key"), Key);
+                break;
+            }
+            case EKitchenCommandType::Eat:
+                Action->SetStringField(TEXT("type"), TEXT("eat"));
+                Action->SetStringField(TEXT("batchId"), Command.BatchId);
+                break;
+            default: return false;
+            }
+            auto Args = MakeShared<FJsonObject>();
+            Args->SetStringField(TEXT("roomId"), Scope.RoomId);
+            Args->SetStringField(TEXT("characterId"), Scope.CharacterId);
+            if (Scope.CallSessionId.IsSet()) Args->SetStringField(TEXT("callSessionId"), Scope.CallSessionId.GetValue());
+            if (Scope.InvitationId.IsSet()) Args->SetStringField(TEXT("invitationId"), Scope.InvitationId.GetValue());
+            if (Scope.RoomRevision.IsSet()) Args->SetNumberField(TEXT("roomRevision"), static_cast<double>(Scope.RoomRevision.GetValue()));
+            Args->SetObjectField(TEXT("command"), Action);
+            Args->SetStringField(TEXT("requestId"), RequestId);
+            return FJsonSerializer::Serialize(Args, TJsonWriterFactory<>::Create(&Json));
+        }
+        bool CommandResult(const FString& Json, const FString& RequestId)
+        {
+            FObject O;
+            FString Id, Outcome;
+            return Parse(Json, O, Limits) && Only(O, { TEXT("requestId"), TEXT("outcome") })
+                && Text(O, TEXT("requestId"), Id) && Same(Id, RequestId) && Text(O, TEXT("outcome"), Outcome)
+                && (Same(Outcome, TEXT("applied")) || Same(Outcome, TEXT("replayed")));
+        }
     }
 
     bool DecodeKitchenScope(const FString& Json, FKitchenScope& Out, FString& OutError)
@@ -132,6 +192,8 @@ namespace BaddieCompanion
         EndSubscription();
         Selection = Scope;
         View = FKitchenReadView{};
+        View.bBusy = Attempt.IsValid();
+        View.bRetryable = Pending.IsValid() && bUncertain;
         Changed.Broadcast();
         return true;
     }
@@ -165,7 +227,7 @@ namespace BaddieCompanion
         View.Kitchen = MakeShared<FKitchenSnapshot>(MoveTemp(Next));
         View.Scope = Receipt.Scope;
         View.bReady = true;
-        View.Error.Reset();
+        if (!Pending.IsValid() || !bUncertain) View.Error.Reset();
         Changed.Broadcast();
         return EFoodReadResult::Accepted;
     }
@@ -178,11 +240,113 @@ namespace BaddieCompanion
         Changed.Broadcast();
         return true;
     }
+    bool FKitchenReadState::PrepareCommand(const FKitchenCommand& Command, const FString& RequestId, FFoodKitchenCommandReceipt& Out)
+    {
+        Out = FFoodKitchenCommandReceipt{};
+        if (bDisposed || Attempt.IsValid() || Pending.IsValid() || !Selection.IsSet()
+            || !ValidFoodKitchenRequestId(RequestId)) return false;
+        auto Request = MakeShared<FRequest>();
+        Request->Scope = Selection.GetValue();
+        Request->Command = Command;
+        Request->RequestId = RequestId;
+        if (!KitchenPrivate::EncodeCommand(Request->Scope, Command, RequestId, Request->ArgumentsJson)) return false;
+        Pending = Request;
+        bUncertain = false;
+        return PrepareAttempt(Out);
+    }
+    bool FKitchenReadState::PrepareRetry(FFoodKitchenCommandReceipt& Out)
+    {
+        Out = FFoodKitchenCommandReceipt{};
+        return Pending.IsValid() && bUncertain && PrepareAttempt(Out);
+    }
+    bool FKitchenReadState::PrepareAttempt(FFoodKitchenCommandReceipt& Out)
+    {
+        if (bDisposed || Attempt.IsValid() || !Pending.IsValid()
+            || (!bUncertain && (!Selection.IsSet() || !KitchenPrivate::SameScope(Selection.GetValue(), Pending->Scope)))) return false;
+        FFoodKitchenCommandReceipt Receipt;
+        Receipt.Attempt = Attempt = FGuid::NewGuid();
+        Receipt.Endpoint = TEXT("companionKitchen:command");
+        Receipt.ArgumentsJson = Pending->ArgumentsJson;
+        Receipt.RequestId = Pending->RequestId;
+        bReplay = bUncertain;
+        bDispatched = false;
+        View.bBusy = true;
+        View.bRetryable = false;
+        View.Error.Reset();
+        Changed.Broadcast();
+        if (!CurrentAttempt(Receipt)) return false;
+        if (!bReplay && (!Selection.IsSet() || !KitchenPrivate::SameScope(Selection.GetValue(), Pending->Scope)))
+        {
+            AbandonPreparedCommand(Receipt);
+            return false;
+        }
+        Out = MoveTemp(Receipt);
+        return true;
+    }
+    bool FKitchenReadState::CurrentAttempt(const FFoodKitchenCommandReceipt& Receipt) const
+    {
+        return !bDisposed && Pending.IsValid() && Receipt.Attempt.IsValid() && Receipt.Attempt == Attempt;
+    }
+    bool FKitchenReadState::DispatchCommand(const FFoodKitchenCommandReceipt& Receipt)
+    {
+        if (!CurrentAttempt(Receipt) || bDispatched) return false;
+        if (!bReplay && (!Selection.IsSet() || !KitchenPrivate::SameScope(Selection.GetValue(), Pending->Scope)))
+        {
+            AbandonPreparedCommand(Receipt);
+            return false;
+        }
+        bDispatched = true;
+        bUncertain = true;
+        return true;
+    }
+    bool FKitchenReadState::AbandonPreparedCommand(const FFoodKitchenCommandReceipt& Receipt)
+    {
+        if (!CurrentAttempt(Receipt) || bDispatched) return false;
+        if (!bUncertain) Pending.Reset();
+        FinishAttempt();
+        return true;
+    }
+    void FKitchenReadState::FinishAttempt()
+    {
+        Attempt.Invalidate();
+        bDispatched = bReplay = false;
+        if (!Pending.IsValid()) bUncertain = false;
+        View.bBusy = false;
+        View.bRetryable = Pending.IsValid() && bUncertain;
+        Changed.Broadcast();
+        // Reentrant listeners own any subsequent state changes.
+    }
+    EFoodKitchenCompletion FKitchenReadState::CompleteCommand(const FFoodKitchenCommandReceipt& Receipt, const FString& Json)
+    {
+        if (!CurrentAttempt(Receipt) || !bDispatched) return EFoodKitchenCompletion::StaleReceipt;
+        if (!KitchenPrivate::CommandResult(Json, Pending->RequestId))
+        {
+            FailCommand(Receipt, FFoodKitchenCommandFailure{});
+            return EFoodKitchenCompletion::InvalidResponse;
+        }
+        Pending.Reset();
+        // The live read owns Kitchen, Scope, readiness and any error received during flight.
+        FinishAttempt();
+        return EFoodKitchenCompletion::Applied;
+    }
+    bool FKitchenReadState::FailCommand(const FFoodKitchenCommandReceipt& Receipt, const FFoodKitchenCommandFailure& Failure)
+    {
+        if (!CurrentAttempt(Receipt) || !bDispatched
+            || (Failure.Category != EFoodKitchenFailureCategory::Definite && Failure.Category != EFoodKitchenFailureCategory::Ambiguous)) return false;
+        const bool bSelected = Selection.IsSet() && KitchenPrivate::SameScope(Selection.GetValue(), Pending->Scope);
+        if (Failure.Category == EFoodKitchenFailureCategory::Definite) Pending.Reset();
+        if (bSelected) View.Error = Failure.PublicMessage(TEXT("Something went wrong. Please try again."));
+        FinishAttempt();
+        return true;
+    }
     void FKitchenReadState::Clear()
     {
         if (bDisposed) return;
         EndSubscription();
         Selection.Reset();
+        Pending.Reset();
+        Attempt.Invalidate();
+        bUncertain = bDispatched = bReplay = false;
         View = FKitchenReadView{};
         Changed.Broadcast();
     }
@@ -192,6 +356,9 @@ namespace BaddieCompanion
         bDisposed = true;
         EndSubscription();
         Selection.Reset();
+        Pending.Reset();
+        Attempt.Invalidate();
+        bUncertain = bDispatched = bReplay = false;
         Changed.Clear();
     }
 }
