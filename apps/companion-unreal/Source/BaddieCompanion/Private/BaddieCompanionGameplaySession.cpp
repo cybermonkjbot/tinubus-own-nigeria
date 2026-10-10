@@ -1,4 +1,5 @@
 #include "BaddieCompanionGameplaySession.h"
+#include "BaddieCompanionHttpResponse.h"
 
 #include "Dom/JsonObject.h"
 #include "Dom/JsonValue.h"
@@ -17,6 +18,8 @@
 namespace BaddieGameplaySessionPrivate
 {
     using ERequest = BaddieCompanion::EGameplayRequest;
+    using BaddieCompanionHttpPrivate::FBoundedResponse;
+    using BaddieCompanionHttpPrivate::FBoundedResponsePtr;
     constexpr double PairingSeconds = 300;
     constexpr double GrantSeconds = 900;
     constexpr double PresenceSeconds = 180; // SPACE_GAME_JOIN_TTL_MS, ordinary renewal is 45s.
@@ -144,8 +147,8 @@ namespace BaddieGameplaySessionPrivate
         }
     }
 
-    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> MakeRequest(const FString& Origin,
-        const TCHAR* Operation, const TSharedRef<FJsonObject>& Args)
+    FHttpRequestPtr MakeRequest(const FString& Origin,
+        const TCHAR* Operation, const TSharedRef<FJsonObject>& Args, FBoundedResponsePtr& ResponseBody)
     {
         const auto Envelope = MakeShared<FJsonObject>();
         Envelope->SetStringField(TEXT("path"), Operation);
@@ -163,18 +166,22 @@ namespace BaddieGameplaySessionPrivate
         Request->SetTimeout(15.0f);
         Request->SetDelegateThreadPolicy(EHttpRequestDelegateThreadPolicy::CompleteOnGameThread);
         Request->SetContentAsString(Body);
+        ResponseBody = FBoundedResponse::Bind(Request, MaxResponseBytes);
+        if (!ResponseBody.IsValid()) return nullptr;
         return Request;
     }
 
-    TSharedPtr<FJsonObject> Decode(const FHttpResponsePtr& Response, const FString& Origin)
+    TSharedPtr<FJsonObject> Decode(const FHttpResponsePtr& Response, const FString& Origin,
+        const FBoundedResponsePtr& ResponseBody)
     {
+        FString Body;
         if (!Response.IsValid() || Response->GetResponseCode() != 200
-            || !Same(Response->GetURL(), Origin + TEXT("/api/mutation"))
-            || Response->GetContent().Num() > MaxResponseBytes) return nullptr;
+            || !Same(Response->GetEffectiveURL(), Origin + TEXT("/api/mutation"))
+            || !ResponseBody.IsValid() || !ResponseBody->ReadCompletedText(Body)) return nullptr;
         TSharedPtr<FJsonObject> Envelope;
         FString Status;
         const TSharedPtr<FJsonObject>* Value = nullptr;
-        if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Response->GetContentAsString()), Envelope)
+        if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Body), Envelope)
             || !Text(Envelope, TEXT("status"), 16, Status) || !Same(Status, TEXT("success"))
             || !Envelope->TryGetObjectField(TEXT("value"), Value) || !Value || !Value->IsValid()) return nullptr;
         return *Value;
@@ -199,22 +206,25 @@ namespace BaddieGameplaySessionPrivate
         const bool bLeave = bGrant && Sequence > 0;
         const auto Args = Credentials.Args(bGrant);
         if (bLeave) Args->SetNumberField(TEXT("entrySequence"), Sequence);
+        FBoundedResponsePtr ResponseBody;
         const auto Request = MakeRequest(Credentials.Origin, bLeave ? TEXT("companionGameplay:leave")
-            : bGrant ? TEXT("companionGameplay:disconnect") : TEXT("companionGameAccess:cancel"), Args);
+            : bGrant ? TEXT("companionGameplay:disconnect") : TEXT("companionGameAccess:cancel"), Args, ResponseBody);
+        if (!Request.IsValid()) return;
         Request->SetTimeout(static_cast<float>(FMath::Min(15.0, CleanupRemaining)));
         const auto Completed = MakeShared<bool>(false);
         Request->OnProcessRequestComplete().BindLambda(
-            [Credentials, Sequence, bDisconnect, Attempt, bLeave, Limit, Completed](FHttpRequestPtr, FHttpResponsePtr Response, bool bSuccess)
+            [Credentials, Sequence, bDisconnect, Attempt, bLeave, Limit, Completed, ResponseBody](FHttpRequestPtr, FHttpResponsePtr Response, bool bSuccess)
         {
             if (*Completed) return;
             *Completed = true;
-            const auto Result = bSuccess ? Decode(Response, Credentials.Origin) : nullptr;
+            const auto Result = bSuccess ? Decode(Response, Credentials.Origin, ResponseBody) : nullptr;
             FString Status;
             double RetryMs = 0;
             const bool bLimited = Text(Result, TEXT("status"), 32, Status) && Same(Status, TEXT("slow_down"))
                 && Number(Result, TEXT("retryAfterMs"), RetryMs) && RetryMs > 0 && RetryMs <= 300000;
             const double Delay = bLimited ? RetryMs / 1000 : 5;
-            if (Attempt < 2 && Delay < Limit.Remaining() && (bLimited || Retryable(Response, bSuccess)))
+            if (Attempt < 2 && Delay < Limit.Remaining() && !ResponseBody->HasRejectedData()
+                && (bLimited || Retryable(Response, bSuccess)))
             {
                 FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda(
                     [Credentials, Sequence, bDisconnect, Attempt, Limit](float)
@@ -560,15 +570,21 @@ void UBaddieCompanionGameplaySession::Send(EGameplayRequest Operation)
     const double Started = FPlatformTime::Seconds();
     const FDateTime WallStarted = FDateTime::UtcNow();
     const TWeakObjectPtr<UBaddieCompanionGameplaySession> WeakThis(this);
-    const auto Request = MakeRequest(Credentials.Origin, Path(Operation), Args);
+    FBoundedResponsePtr ResponseBody;
+    const auto Request = MakeRequest(Credentials.Origin, Path(Operation), Args, ResponseBody);
+    if (!Request.IsValid())
+    {
+        Stop(EGameplayState::Unavailable, TEXT("This gameplay connection is unavailable."));
+        return;
+    }
     Data->Request = Request;
     Data->NextOperation = EGameplayRequest::None;
     Data->NextAttempt = 0;
     Request->OnProcessRequestComplete().BindLambda(
-        [WeakThis, Credentials, Generation, Sequence, Operation, Started, WallStarted]
+        [WeakThis, Credentials, Generation, Sequence, Operation, Started, WallStarted, ResponseBody]
         (FHttpRequestPtr Incoming, FHttpResponsePtr Response, bool bSuccess)
     {
-        const auto Result = bSuccess ? Decode(Response, Credentials.Origin) : nullptr;
+        const auto Result = bSuccess ? Decode(Response, Credentials.Origin, ResponseBody) : nullptr;
         auto* Self = WeakThis.Get();
         if (!Self || Self->Data->bEnding || Self->Data->Generation != Generation)
         {
@@ -579,6 +595,11 @@ void UBaddieCompanionGameplaySession::Send(EGameplayRequest Operation)
         // stale-cleanup leave for that same entry. Only retirement grants cleanup.
         if (Self->Data->Request != Incoming) return;
         Self->Data->Request.Reset();
+        if (ResponseBody->HasRejectedData())
+        {
+            Self->Stop(EGameplayState::Unavailable, TEXT("The gameplay response was not accepted."));
+            return;
+        }
         if (Retryable(Response, bSuccess)) { Self->TransportFailed(Operation); return; }
         if (!Result.IsValid())
         {
