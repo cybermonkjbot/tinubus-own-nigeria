@@ -6,6 +6,6 @@ public class BaddieCompanion : ModuleRules
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
         PublicDependencyModuleNames.AddRange(new[] { "Core", "CoreUObject", "Engine" });
-        PrivateDependencyModuleNames.AddRange(new[] { "ApplicationCore", "HTTP", "InputCore", "Json", "Slate", "SlateCore" });
+        PrivateDependencyModuleNames.AddRange(new[] { "ApplicationCore", "HTTP", "InputCore", "Json", "NavigationSystem", "Slate", "SlateCore" });
     }
 }
