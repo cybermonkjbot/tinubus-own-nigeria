@@ -1,6 +1,6 @@
 # Standalone companion in Unreal
 
-October 10, 2026. Internal implementation plan and Windows handoff.
+October 10, 2026 UTC handoff; October 9, 2026 Windows follow-up in America/Los_Angeles. Internal implementation plan and Windows handoff.
 
 ## Direction
 
@@ -40,11 +40,19 @@ The TV pairing flow in `apps/backend/convex/tvAuth.ts` is a useful reference for
 
 ## First source slice
 
-`apps/companion-unreal` now contains an Unreal project, a runtime snapshot reader and an editor-only offline inspection commandlet. The reader consumes the existing decoded snapshot shape and preserves the selected appearance and room documents. It does not introduce a production bridge contract or change the embedded renderer.
+`apps/companion-unreal` contains an Unreal project, a runtime snapshot reader and an editor-only offline inspection commandlet. The reader consumes the existing decoded snapshot shape and preserves the selected appearance and room documents. It does not introduce a production bridge contract or change the embedded renderer.
 
 This gives the Windows implementation a concrete C++ starting point before engine installation and graphics work. It is not an account connection or a playable build. The reader is not a full validator for every retained JSON field; the future server projection and asset adapter must enforce their respective contracts.
 
 No backend, mobile, shared scene data, production asset registry or renderer registration changes belong to this slice. Renderer packaging and What's New changes are therefore not triggered. Future changes to those production inputs must follow the root companion packaging and mobile release rules.
+
+### Windows source follow-up, October 9, 2026 local time
+
+We have added a source-only offline preview path: a game-instance selection owner with replacement/clear generation guards, default game mode, engine-primitive inspection stage, local character movement, orbit/zoom camera, pointer controls and one status HUD. The game mode uses the engine Entry map as its startup container and requires both `-CompanionOfflinePreview` and an explicit `-CompanionOfflineSnapshot` file in a non-Shipping standalone world. Failed and empty selections have no stage or visible character. No data or credential is written back.
+
+The preview preserves and displays the selected Companion and Home separately from the active room, but does not interpret saved furniture, coordinates or appearance. It reports the missing approved art mapping rather than claiming the neutral stage is the person's saved Home. This is inspection infrastructure, not an admitted Companion, a linked account or visual parity. See the project README for the intended invocation after authorized engine setup and compilation.
+
+There was no running Unreal preview to capture or inspect. Compilation, tests, project generation, installation and rendered verification remain deferred. No production renderer inputs changed, and no mobile release note or renderer packaging was required. A local Git repository was initialized and the exact transferred source was checkpointed before implementation; this does not restore the full Baddie repository or configure a remote.
 
 ## Next implementation steps
 
@@ -76,6 +84,23 @@ The authenticated bridge returned this read-only inventory before source transfe
 | Storage | 98.9 GiB free on `C:` of 126.45 GiB at inspection. Recheck before any authorized installation. |
 
 A scoped transfer contains `AGENTS.md`, `CONTEXT.md`, this handoff and `apps/companion-unreal`. It is source preparation, not a full repository checkout. Backend and shared-module references above remain in the Mac repository until separately transferred. Continue account-bridge work against those existing modules there; do not recreate them in the Windows source copy.
+
+### Follow-up inventory, October 9, 2026, America/Los_Angeles
+
+This later inspection occurred on the same UTC date as the earlier October 10 handoff. The table above is historical, not the current installed-tool inventory.
+
+| Item | Observed state |
+| --- | --- |
+| Workspace | The scoped source transfer is present. A local Git repository now checkpoints it; there is no full backend/shared-module checkout or Git remote. |
+| OS | CIM reports `Microsoft Windows 11 Pro`, version `10.0.26100`, build `26100`. |
+| Launcher | `C:\Program Files\Epic Games\Launcher` exists. Launcher installation does not establish an installed engine. |
+| Engine | No `UE_*` installation directory or running Unreal editor was found in the inspected standard paths. The launcher's `C:\ProgramData\Epic\UnrealEngineLauncher\LauncherInstalled.dat` has an empty installation list. The registry's `4.0` entry points to `C:\Program Files\Epic Games\4.0\`, which does not exist. Engine association remains unset. |
+| Visual Studio | `vswhere` reports a complete, launchable Community 2022 installation, 17.14.41, installation version `17.14.37710.0`, at `C:\Program Files\Microsoft Visual Studio\2022\Community`. |
+| Compiler | Default MSVC toolset `14.44.35207`; x64 compiler at `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe`, file version `19.44.35229.0`. No compiler was invoked. |
+| Windows SDK | Headers and binaries for `10.0.26100.0` are present beneath `C:\Program Files (x86)\Windows Kits\10`. |
+| Storage | PowerShell reported about 972.6 GiB free on `C:` at this inspection. This differs from the earlier inventory; recheck before an authorized install. |
+
+An engine version and its supported MSVC/SDK combination still need confirmation before project generation or compilation. No engine or toolchain installation was performed in this source pass.
 
 ### Transfer and execution rules
 

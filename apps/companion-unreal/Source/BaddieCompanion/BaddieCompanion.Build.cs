@@ -5,7 +5,7 @@ public class BaddieCompanion : ModuleRules
     public BaddieCompanion(ReadOnlyTargetRules Target) : base(Target)
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
-        PublicDependencyModuleNames.Add("Core");
-        PrivateDependencyModuleNames.AddRange(new[] { "CoreUObject", "Engine", "Json" });
+        PublicDependencyModuleNames.AddRange(new[] { "Core", "CoreUObject", "Engine" });
+        PrivateDependencyModuleNames.AddRange(new[] { "InputCore", "Json" });
     }
 }
