@@ -1,6 +1,7 @@
 #include "BaddieCompanionPolicingState.h"
 #include "BaddieCompanionStateJson.h"
 
+#include "Serialization/JsonSerializer.h"
 #include <cmath>
 #include <initializer_list>
 
@@ -19,6 +20,9 @@ namespace BaddieCompanion
         using StateJsonPrivate::Number;
         using StateJsonPrivate::Nullable;
         constexpr StateJsonPrivate::FParseLimits ParseLimits{256 * 1024, 8, 2048};
+        // Every decoded ID fits the read bound. Allow six-character JSON escapes per
+        // character plus the fixed two-field object, without narrowing accepted IDs.
+        constexpr int32 MaxCommandJsonCharacters = 6 * ParseLimits.Characters + 128;
         constexpr int32 MaxEntries = 128; // COMPANION_HAUL_MAX_ENTRIES
         constexpr double MaxDemand = 100; // companionEnforcementTuning.extortionMaximum
         bool SafeNonnegativeInteger(double N)
@@ -156,6 +160,8 @@ namespace BaddieCompanion
         FPolicingDecodedResponse Next; Next.Kind = Kind;
         if (Same(Json.TrimStartAndEnd(), TEXT("null")))
         {
+            FValue NullValue;
+            if (!StateJsonPrivate::ParseNull(Json, NullValue, ParseLimits)) return false;
             Next.bValid = true; Out = MoveTemp(Next); OutError.Reset(); return true;
         }
         if (Kind == EPolicingResponseKind::Mutation) return false;
@@ -192,19 +198,26 @@ namespace BaddieCompanion
     FPolicingReceipt FPolicingReadState::BeginSubscription()
     {
         if (bDisposed || View.OwnerId.IsEmpty()) return {};
-        Generation = FGuid::NewGuid(); ActiveCommand.Invalidate(); bSubscribed = true;
+        Generation = FGuid::NewGuid(); FinishCommand(); bSubscribed = true;
         View.Encounter.Reset(); View.bReady = false; View.bBusy = false; View.Error.Reset();
         FPolicingReceipt Receipt; Receipt.Generation = Generation; return Receipt;
     }
     void FPolicingReadState::EndSubscription()
     {
         if (bDisposed) return;
-        Generation = FGuid::NewGuid(); ActiveCommand.Invalidate(); bSubscribed = false; View.bBusy = false;
+        Generation = FGuid::NewGuid(); FinishCommand(); bSubscribed = false;
     }
     bool FPolicingReadState::Current(const FPolicingReceipt& Receipt) const
     {
         return !bDisposed && bSubscribed && Receipt.Generation.IsValid() && Receipt.Generation == Generation
-            && (Receipt.Kind == EPolicingResponseKind::Subscription || (ActiveCommand.IsValid() && Receipt.CommandId == ActiveCommand));
+            && (Receipt.Kind == EPolicingResponseKind::Subscription || (ActiveCommand.IsValid() && Receipt.CommandId == ActiveCommand
+                && Receipt.bRequiresDispatchMark == bActiveCommandRequiresMark));
+    }
+    bool FPolicingReadState::CurrentSerialized(const FPolicingSerializedCommand& Command) const
+    {
+        const auto& Receipt = Command.GetReceipt();
+        return Command.IsValid() && Receipt.Kind == EPolicingResponseKind::Mutation
+            && Receipt.bRequiresDispatchMark && Current(Receipt);
     }
     bool FPolicingReadState::SameEncounter(const FPolicingReceipt& Receipt) const
     {
@@ -213,13 +226,18 @@ namespace BaddieCompanion
     void FPolicingReadState::FinishCommand()
     {
         ActiveCommand.Invalidate(); View.bBusy = false;
+        bActiveCommandRequiresMark = false; bActiveCommandMarked = false;
     }
     EPolicingReadResult FPolicingReadState::Accept(const FPolicingReceipt& Receipt, const FPolicingDecodedResponse& Response)
     {
-        if (!Current(Receipt)) return EPolicingReadResult::StaleReceipt;
+        if (!Current(Receipt) || Receipt.bRequiresDispatchMark) return EPolicingReadResult::StaleReceipt;
+        return AcceptCurrentResponse(Receipt, Response);
+    }
+    EPolicingReadResult FPolicingReadState::AcceptCurrentResponse(const FPolicingReceipt& Receipt, const FPolicingDecodedResponse& Response)
+    {
         if (!Response.IsValid() || Response.GetKind() != Receipt.Kind)
         {
-            AcceptFailure(Receipt); return EPolicingReadResult::InvalidResponse;
+            AcceptCurrentFailure(Receipt, {}); return EPolicingReadResult::InvalidResponse;
         }
         if (Receipt.Kind == EPolicingResponseKind::Subscription)
         {
@@ -235,7 +253,11 @@ namespace BaddieCompanion
     }
     bool FPolicingReadState::AcceptFailure(const FPolicingReceipt& Receipt, const TOptional<FString>& SafeMessage)
     {
-        if (!Current(Receipt)) return false;
+        if (!Current(Receipt) || Receipt.bRequiresDispatchMark) return false;
+        AcceptCurrentFailure(Receipt, SafeMessage); return true;
+    }
+    void FPolicingReadState::AcceptCurrentFailure(const FPolicingReceipt& Receipt, const TOptional<FString>& SafeMessage)
+    {
         if (Receipt.Kind == EPolicingResponseKind::Subscription)
         {
             View.bReady = false; View.Error = PolicingStatePrivate::FailureMessage(SafeMessage, true);
@@ -245,36 +267,90 @@ namespace BaddieCompanion
             if (SameEncounter(Receipt)) View.Error = PolicingStatePrivate::FailureMessage(SafeMessage, false);
             FinishCommand();
         }
-        return true;
     }
     TOptional<FPolicingPreparedCommand> FPolicingReadState::PrepareCommand(EPolicingAction Action,
         const TOptional<FPoliceDemandConfirmation>& Confirmed)
     {
-        if (bDisposed || !bSubscribed || View.bBusy) return {};
+        FPolicingPreparedCommand Command;
+        if (PrepareCommandInternal(Action, Confirmed, Command) != EPolicingCommandPrepareResult::Prepared) return {};
+        return Command;
+    }
+    EPolicingCommandPrepareResult FPolicingReadState::PrepareCommandInternal(EPolicingAction Action,
+        const TOptional<FPoliceDemandConfirmation>& Confirmed, FPolicingPreparedCommand& Out)
+    {
+        if (bDisposed || !bSubscribed || View.bBusy) return EPolicingCommandPrepareResult::Ignored;
         if (Action != EPolicingAction::Cooperate && Action != EPolicingAction::RequestRelease
-            && Action != EPolicingAction::PayExtortion && Action != EPolicingAction::RefuseExtortion) return {};
+            && Action != EPolicingAction::PayExtortion && Action != EPolicingAction::RefuseExtortion) return EPolicingCommandPrepareResult::Ignored;
         if (Action == EPolicingAction::PayExtortion
             && (!View.bReady || !Confirmed.IsSet() || !MatchesPoliceDemand(View.Encounter.Get(), Confirmed.GetValue())))
         {
             View.Error = View.bReady ? TEXT("This demand changed. Cancel and review the current encounter.")
                 : TEXT("Wait for the current encounter to load.");
-            return {};
+            return EPolicingCommandPrepareResult::DemandRejected;
         }
-        if (!View.bReady || !View.Encounter.IsValid()) return {};
+        if (!View.bReady || !View.Encounter.IsValid()) return EPolicingCommandPrepareResult::Ignored;
         FPolicingPreparedCommand Command; Command.Action = Action;
         Command.Receipt.Generation = Generation; Command.Receipt.Kind = EPolicingResponseKind::Mutation;
         Command.Receipt.EncounterId = View.Encounter->Id;
         ActiveCommand = FGuid::NewGuid(); Command.Receipt.CommandId = ActiveCommand;
-        View.bBusy = true; View.Error.Reset(); return Command;
+        bActiveCommandRequiresMark = false; bActiveCommandMarked = false;
+        View.bBusy = true; View.Error.Reset(); Out = MoveTemp(Command); return EPolicingCommandPrepareResult::Prepared;
     }
     bool FPolicingReadState::IsCurrentCommand(const FPolicingPreparedCommand& Command) const
     {
-        return Command.Receipt.Kind == EPolicingResponseKind::Mutation && Current(Command.Receipt);
+        return Command.Receipt.Kind == EPolicingResponseKind::Mutation && !Command.Receipt.bRequiresDispatchMark && Current(Command.Receipt);
+    }
+    EPolicingCommandPrepareResult FPolicingReadState::PrepareSerializedCommand(EPolicingAction Action,
+        FPolicingSerializedCommand& Out, const TOptional<FPoliceDemandConfirmation>& Confirmed)
+    {
+        Out = {};
+        FPolicingSerializedCommand Next;
+        const auto Result = PrepareCommandInternal(Action, Confirmed, Next.Prepared);
+        if (Result != EPolicingCommandPrepareResult::Prepared) return Result;
+        Next.Prepared.Receipt.bRequiresDispatchMark = true; bActiveCommandRequiresMark = true;
+        Next.FunctionName = Next.Prepared.GetFunctionName();
+        const auto Args = MakeShared<FJsonObject>();
+        Args->SetStringField(TEXT("encounterId"), Next.Prepared.GetEncounterId());
+        const auto Response = Next.Prepared.GetResponse();
+        if (Response.IsSet())
+            Args->SetStringField(TEXT("response"), Response.GetValue() == EPolicingExtortionResponse::Pay ? TEXT("pay") : TEXT("refuse"));
+        if (!FJsonSerializer::Serialize(Args, TJsonWriterFactory<>::Create(&Next.ArgumentsJson))
+            || Next.ArgumentsJson.Len() > PolicingStatePrivate::MaxCommandJsonCharacters)
+        {
+            // No callback has run since capture. Only this unsent request owns busy.
+            AcceptCurrentFailure(Next.Prepared.Receipt, {});
+            return EPolicingCommandPrepareResult::SerializationFailed;
+        }
+        Next.bValid = true; Out = MoveTemp(Next); return EPolicingCommandPrepareResult::Prepared;
+    }
+    bool FPolicingReadState::MarkCommandDispatched(const FPolicingSerializedCommand& Command)
+    {
+        if (!CurrentSerialized(Command) || bActiveCommandMarked) return false;
+        bActiveCommandMarked = true; return true;
+    }
+    bool FPolicingReadState::AbandonUnsentCommand(const FPolicingSerializedCommand& Command)
+    {
+        if (!CurrentSerialized(Command) || bActiveCommandMarked) return false;
+        FinishCommand(); return true;
+    }
+    EPolicingReadResult FPolicingReadState::CompleteSerializedCommand(const FPolicingSerializedCommand& Command,
+        const FPolicingDecodedResponse& Response)
+    {
+        if (!CurrentSerialized(Command) || !bActiveCommandMarked) return EPolicingReadResult::StaleReceipt;
+        // A valid subscription value is not an action acknowledgement. Leave this request
+        // pending for its own callback; a malformed action response instead settles as failure.
+        if (Response.IsValid() && Response.GetKind() != EPolicingResponseKind::Mutation) return EPolicingReadResult::WrongResponseKind;
+        return AcceptCurrentResponse(Command.GetReceipt(), Response);
+    }
+    bool FPolicingReadState::FailSerializedCommand(const FPolicingSerializedCommand& Command, const TOptional<FString>& SafeMessage)
+    {
+        if (!CurrentSerialized(Command) || !bActiveCommandMarked) return false;
+        AcceptCurrentFailure(Command.GetReceipt(), SafeMessage); return true;
     }
     void FPolicingReadState::Clear()
     {
         if (bDisposed) return;
-        View = {}; Generation = FGuid::NewGuid(); ActiveCommand.Invalidate(); bSubscribed = false;
+        View = {}; Generation = FGuid::NewGuid(); FinishCommand(); bSubscribed = false;
     }
     void FPolicingReadState::Dispose()
     {
