@@ -1,5 +1,8 @@
 #include "BaddieCompanionMovementPresentation.h"
 
+#include "Dom/JsonObject.h"
+#include "Dom/JsonValue.h"
+
 #include <algorithm>
 #include <cmath>
 
@@ -11,6 +14,23 @@ namespace BaddieCompanion
         constexpr double TurnSpeed = 4;
         constexpr int32 MaxPathPoints = 32;
         constexpr int64 MaxSafeInteger = 9007199254740991LL;
+
+        bool ReadNumber(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, double& Out)
+        {
+            const auto Value = Object.IsValid() ? Object->TryGetField(Key) : nullptr;
+            return Value.IsValid() && Value->Type == EJson::Number
+                && Value->TryGetNumber(Out) && std::isfinite(Out);
+        }
+
+        bool ReadInteger(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key,
+            int64 Minimum, int64 Maximum, int64& Out)
+        {
+            double Number = 0;
+            if (!ReadNumber(Object, Key, Number) || Number < Minimum || Number > Maximum
+                || std::floor(Number) != Number) return false;
+            Out = static_cast<int64>(Number);
+            return true;
+        }
 
         double NormalizeAngleRadians(double Value)
         {
@@ -167,6 +187,68 @@ namespace BaddieCompanion
                 : Movement.YawRadians;
             return true;
         }
+    }
+
+    bool DecodeMovementRoute(const TSharedPtr<FJsonObject>& Object, FMovementRoute& Out, FString& OutError)
+    {
+        Out = {};
+        FMovementRoute Next;
+        double Version = 0;
+        OutError = TEXT("Movement route has an unsupported version.");
+        if (!ReadNumber(Object, TEXT("version"), Version) || Version != 1) return false;
+        OutError = TEXT("Movement route has an invalid sequence or room revision.");
+        if (!ReadInteger(Object, TEXT("sequence"), 1, 1000000000, Next.Sequence)
+            || !ReadInteger(Object, TEXT("roomRevision"), 0, MaxSafeInteger, Next.RoomRevision)) return false;
+
+        OutError = TEXT("Movement route has invalid timing or positions.");
+        const TSharedPtr<FJsonObject>* From = nullptr;
+        if (!ReadNumber(Object, TEXT("startedAt"), Next.StartedAtMs)
+            || !Object->TryGetObjectField(TEXT("from"), From) || !From || !From->IsValid()
+            || !ReadNumber(*From, TEXT("x"), Next.From.X)
+            || !ReadNumber(*From, TEXT("z"), Next.From.Z)
+            || !ReadNumber(*From, TEXT("yaw"), Next.From.YawRadians)
+            || !ReadNumber(Object, TEXT("yaw"), Next.YawRadians)) return false;
+
+        if (Object->HasField(TEXT("initialSpeed")))
+        {
+            double Speed = 0;
+            OutError = TEXT("Movement route has an invalid initial speed.");
+            if (!ReadNumber(Object, TEXT("initialSpeed"), Speed)) return false;
+            Next.InitialSpeedMps = Speed;
+        }
+        if (Object->HasField(TEXT("pace")))
+        {
+            const auto Value = Object->TryGetField(TEXT("pace"));
+            FString Pace;
+            OutError = TEXT("Movement route has an unsupported pace.");
+            if (!Value.IsValid() || Value->Type != EJson::String || !Value->TryGetString(Pace)) return false;
+            if (Pace.Equals(TEXT("walk"), ESearchCase::CaseSensitive)) Next.Pace = EMovementPace::Walk;
+            else if (Pace.Equals(TEXT("run"), ESearchCase::CaseSensitive)) Next.Pace = EMovementPace::Run;
+            else if (Pace.Equals(TEXT("fast"), ESearchCase::CaseSensitive)) Next.Pace = EMovementPace::Fast;
+            else return false;
+        }
+
+        const TArray<TSharedPtr<FJsonValue>>* Path = nullptr;
+        OutError = TEXT("Movement route has an invalid path.");
+        if (!Object->TryGetArrayField(TEXT("path"), Path) || !Path || Path->Num() > MaxPathPoints) return false;
+        Next.Path.Reserve(Path->Num());
+        for (const auto& Value : *Path)
+        {
+            if (!Value.IsValid() || Value->Type != EJson::Object) return false;
+            FMovementPoint Point;
+            const auto PointObject = Value->AsObject();
+            if (!ReadNumber(PointObject, TEXT("x"), Point.X)
+                || !ReadNumber(PointObject, TEXT("z"), Point.Z)) return false;
+            Next.Path.Add(Point);
+        }
+        // Reuse the sampler's semantic/numeric guards, including derived durations.
+        // An empty path remains valid for a stop or turn in place.
+        double EndsAtMs = 0;
+        OutError = TEXT("Movement route cannot be sampled.");
+        if (!MovementEndsAt(Next, EndsAtMs)) return false;
+        Out = MoveTemp(Next);
+        OutError.Reset();
+        return true;
     }
 
     double MovementPaceSpeed(EMovementPace Pace)

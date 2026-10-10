@@ -2,6 +2,8 @@
 
 #include "CoreMinimal.h"
 
+class FJsonObject;
+
 namespace BaddieCompanion
 {
     enum class EMovementPace : uint8 { Unpaced, Walk, Run, Fast };
@@ -49,6 +51,13 @@ namespace BaddieCompanion
 
     BADDIECOMPANION_API double MovementPaceSpeed(EMovementPace Pace);
     BADDIECOMPANION_API double MovementPaceAcceleration(EMovementPace Pace);
+
+    // Decode the existing CompanionMovement object after the transport has bounded
+    // and decoded its response with Unreal JSON. Success establishes structure only,
+    // not admission, room/revision acceptance or route authority. Keeps server time
+    // unchanged; the receiving owner aligns its sampling clock. Clears Out on error.
+    BADDIECOMPANION_API bool DecodeMovementRoute(
+        const TSharedPtr<FJsonObject>& Object, FMovementRoute& Out, FString& OutError);
 
     /**
      * Presentation port of packages/utils/src/companionMovement.ts. These functions
