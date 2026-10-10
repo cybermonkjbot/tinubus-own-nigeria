@@ -30,6 +30,9 @@ namespace BaddieCompanion
         FCharacterSelection Character;
         FRoomSelection ActiveRoom;
         FRoomSelection HomeRoom;
+        // Only rooms supplied by the caller's authenticated projection or explicit offline file.
+        // A nonempty list does not establish a complete Home inventory or broader access.
+        TArray<FRoomSelection> Rooms;
     };
 
     // This limit belongs to the standalone reader, not the embedded scene protocol.

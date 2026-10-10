@@ -2,9 +2,9 @@
 
 namespace BaddieCompanion::HomeMapping
 {
-    FBedroomShellPlan BedroomShell(const TOptional<FHomeDesignPlan>& Design)
+    FRoomShellPlan BedroomShell(const TOptional<FHomeDesignPlan>& Design)
     {
-        FBedroomShellPlan Out;
+        FRoomShellPlan Out;
         const int32 Turns = Design.IsSet() ? Design.GetValue().Turns : 0;
         const double Yaw = Turns * UE_DOUBLE_PI / 2;
         Out.DerivedLayoutId = Design.IsSet()
@@ -96,7 +96,7 @@ namespace BaddieCompanion::HomeMapping
         Obstacle(TEXT("window-sill"), -2.375, .025, .2202, 2.1902, .0351, .7675);
         Obstacle(TEXT("bedside-indoor-plant"), 1.189, 1.856, .7866, .6854, 2.0338);
         Obstacle(TEXT("workstation-wall-painting"), 1.1, -2.5675, 1.21, .065, .91, 1.55);
-        Out.AuthoredSpawn = Pose(Point(0, 0, -.75), UE_DOUBLE_PI + Yaw);
+        Out.PreferredSpawn = Pose(Point(0, 0, -.75), UE_DOUBLE_PI + Yaw);
         const auto Camera = [Turns](FVector Eye, FVector Target)
         {
             Eye = TurnSourceShell(Eye, Turns); Target = TurnSourceShell(Target, Turns);

@@ -147,6 +147,7 @@ bool BaddieCompanion::ReadSnapshotSelection(
         RoomIds.Add(Room.Id);
         if (SameText(Room.Id, ActiveRoomId)) Next.ActiveRoom = Room;
         if (SameText(Room.Id, HomeRoomId)) Next.HomeRoom = Room;
+        Next.Rooms.Add(MoveTemp(Room));
     }
 
     OutError = TEXT("The selected companion or room is absent from the saved library.");

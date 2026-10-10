@@ -9,6 +9,11 @@ namespace BaddieCompanion::HomeMapping
 {
     using FObject = TSharedPtr<FJsonObject>;
     inline bool Same(const FString& A, const FString& B) { return A.Equals(B, ESearchCase::CaseSensitive); }
+    inline bool SameRoomSelection(const FRoomSelection& A, const FRoomSelection& B)
+    {
+        return Same(A.Id, B.Id) && Same(A.Name, B.Name) && Same(A.EnvironmentId, B.EnvironmentId)
+            && Same(A.LayoutId, B.LayoutId) && Same(A.RoomJson, B.RoomJson);
+    }
     inline void Issue(TArray<FHomeMappingIssue>& Issues, EHomeIssue Code, const FString& Field)
     {
         Issues.Add({ Code, Field });
@@ -46,9 +51,11 @@ namespace BaddieCompanion::HomeMapping
 
     FCanonicalAssetReference CharacterReference();
     TOptional<FCanonicalAssetReference> RoomReference(ELayout Layout);
+    FCanonicalAssetReference TerraceReference();
     FSourcePose Pose(const FVector& Point, double Yaw = 0);
     FSourceBox Box(const FVector& BottomCentre, const FVector& Dimensions);
-    FBedroomShellPlan BedroomShell(const TOptional<FHomeDesignPlan>& Design);
+    FRoomShellPlan BedroomShell(const TOptional<FHomeDesignPlan>& Design);
+    TOptional<FRoomShellPlan> RoomShell(const FRoomPlan& Room);
     bool ReadAppearance(const FCharacterSelection& Input, FAppearancePlan& Out,
         TArray<FCharacterMaterialRequirement>& Materials, TArray<FAttachmentRequirement>& Attachments,
         TArray<FHomeMappingIssue>& Issues);

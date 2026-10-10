@@ -27,14 +27,12 @@ namespace BaddieCompanion
                 && HomeMapping::Same(L.BaseId, R.BaseId) && HomeMapping::Same(L.Look, R.Look)
                 && HomeMapping::Same(L.AppearanceJson, R.AppearanceJson);
         };
-        const auto RoomSame = [](const FRoomSelection& L, const FRoomSelection& R)
-        {
-            return HomeMapping::Same(L.Id, R.Id) && HomeMapping::Same(L.Name, R.Name)
-                && HomeMapping::Same(L.EnvironmentId, R.EnvironmentId) && HomeMapping::Same(L.LayoutId, R.LayoutId)
-                && HomeMapping::Same(L.RoomJson, R.RoomJson);
-        };
+        if (A.Rooms.Num() != B.Rooms.Num()) return false;
+        for (int32 Index = 0; Index < A.Rooms.Num(); ++Index)
+            if (!HomeMapping::SameRoomSelection(A.Rooms[Index], B.Rooms[Index])) return false;
         return A.Revision == B.Revision && CharacterSame(A.Character, B.Character)
-            && RoomSame(A.HomeRoom, B.HomeRoom) && RoomSame(A.ActiveRoom, B.ActiveRoom);
+            && HomeMapping::SameRoomSelection(A.HomeRoom, B.HomeRoom)
+            && HomeMapping::SameRoomSelection(A.ActiveRoom, B.ActiveRoom);
     }
 
     bool BuildHomePresentationPlan(const FSnapshotSelection& Input,
@@ -54,12 +52,59 @@ namespace BaddieCompanion
         }
         // Same saved identity cannot carry two divergent room documents in one snapshot.
         if (HomeMapping::Same(Input.HomeRoom.Id, Input.ActiveRoom.Id)
-            && (!HomeMapping::Same(Input.HomeRoom.Name, Input.ActiveRoom.Name)
-                || !HomeMapping::Same(Input.HomeRoom.EnvironmentId, Input.ActiveRoom.EnvironmentId)
-                || !HomeMapping::Same(Input.HomeRoom.LayoutId, Input.ActiveRoom.LayoutId)
-                || !HomeMapping::Same(Input.HomeRoom.RoomJson, Input.ActiveRoom.RoomJson)))
+            && !HomeMapping::SameRoomSelection(Input.HomeRoom, Input.ActiveRoom))
         {
             HomeMapping::Issue(OutIssues, EHomeIssue::IdentityMismatch, TEXT("activeRoom"));
+            return false;
+        }
+        if (Input.Rooms.IsEmpty())
+        {
+            // Older C++ selection-only callers retain their known rooms, without inventing inventory.
+            Next.Rooms.Add(Next.Home);
+            if (!HomeMapping::Same(Input.HomeRoom.Id, Input.ActiveRoom.Id)) Next.Rooms.Add(Next.ActiveRoom);
+        }
+        else
+        {
+            bool bFoundHome = false, bFoundActive = false;
+            if (Input.Rooms.Num() > 12)
+            {
+                HomeMapping::Issue(OutIssues, EHomeIssue::InvalidDocument, TEXT("rooms"));
+                return false;
+            }
+            for (int32 Index = 0; Index < Input.Rooms.Num(); ++Index)
+            {
+                const auto& SourceRoom = Input.Rooms[Index];
+                const FString Path = FString::Printf(TEXT("rooms[%d]"), Index);
+                const bool bHome = HomeMapping::Same(SourceRoom.Id, Input.HomeRoom.Id);
+                const bool bActive = HomeMapping::Same(SourceRoom.Id, Input.ActiveRoom.Id);
+                if (Next.Rooms.ContainsByPredicate([&SourceRoom](const FRoomPlan& Room)
+                    { return HomeMapping::Same(Room.Id, SourceRoom.Id); })
+                    || (bHome && !HomeMapping::SameRoomSelection(SourceRoom, Input.HomeRoom))
+                    || (bActive && !HomeMapping::SameRoomSelection(SourceRoom, Input.ActiveRoom)))
+                {
+                    HomeMapping::Issue(OutIssues, EHomeIssue::IdentityMismatch, Path);
+                    return false;
+                }
+                FRoomPlan Room;
+                if (bHome) { Room = Next.Home; bFoundHome = true; }
+                else if (bActive) Room = Next.ActiveRoom;
+                else if (!HomeMapping::ReadRoom(SourceRoom, Room, Path, OutIssues))
+                {
+                    HomeMapping::Issue(OutIssues, EHomeIssue::InvalidDocument, Path);
+                    return false;
+                }
+                bFoundActive |= bActive;
+                Next.Rooms.Add(MoveTemp(Room));
+            }
+            if (!bFoundHome || !bFoundActive)
+            {
+                HomeMapping::Issue(OutIssues, EHomeIssue::IdentityMismatch, TEXT("rooms"));
+                return false;
+            }
+        }
+        if (!BuildApartmentPlan(Next.Rooms, Next.Apartment))
+        {
+            HomeMapping::Issue(OutIssues, EHomeIssue::InvalidDocument, TEXT("apartment"));
             return false;
         }
         Next.Source = Input;
@@ -180,7 +225,7 @@ namespace BaddieCompanion::HomeMapping
     }
     TOptional<FCanonicalAssetReference> RoomReference(ELayout Layout)
     {
-        // Catalog references for unsupported layouts are still not a translated shell.
+        // Catalog references do not establish native geometry or material availability.
         switch (Layout)
         {
         case ELayout::PinkBedroomV2: return FCanonicalAssetReference{ TEXT("bestiePinkBedroomV2"),
@@ -205,5 +250,11 @@ namespace BaddieCompanion::HomeMapping
             TEXT("4a5326e836ac16c566d33acf5f00b37a"), 795984, true };
         }
         return {};
+    }
+    FCanonicalAssetReference TerraceReference()
+    {
+        return { TEXT("bestieTerrace"), TEXT("bestie/rooms/terrace-v03-lossless.2765c88f90bd5e68.glb"),
+            TEXT("2765c88f90bd5e689aa4f618d148be141543346569266b25c19c74cfe18920be"),
+            TEXT("efae016b35b7b500d9db8be600329afa"), 3419968, true };
     }
 }
