@@ -40,14 +40,6 @@ namespace BaddieCompanion
         {
             return Number(V, Out) && ValidTime(Out);
         }
-        template <typename T> bool Enum(const FValue& V, T& Out,
-            std::initializer_list<TPair<const TCHAR*, T>> Choices)
-        {
-            FString S;
-            if (!String(V, S)) return false;
-            for (const auto& C : Choices) if (Same(S, C.Key)) { Out = C.Value; return true; }
-            return false;
-        }
         bool Root(const FString& Json, FValue& Out, const FParseLimits& Limits = ReadLimits)
         {
             return WithinParseLimits(Json, Limits)
@@ -102,7 +94,7 @@ namespace BaddieCompanion
                 if (!Boolean(Trusted, B) || !B) return false;
                 Out.RequiresTrustedCourier = true;
             }
-            if (!Enum<EJobsRewardApproval>(Field(Reward, TEXT("status")), Out.RewardApproval,
+            if (!EnumValue<EJobsRewardApproval>(Field(Reward, TEXT("status")), Out.RewardApproval,
                 {{TEXT("unavailable"), EJobsRewardApproval::Unavailable}, {TEXT("approved"), EJobsRewardApproval::Approved}})) return false;
             if (Out.RewardApproval == EJobsRewardApproval::Unavailable)
                 return Literal(Field(Reward, TEXT("reason")), TEXT("approval_required"));
@@ -120,7 +112,7 @@ namespace BaddieCompanion
             if (!Id(Field(O, TEXT("id")), Out.Id) || !Id(Field(O, TEXT("outingId")), Out.OutingId)
                 || !Literal(Field(Source, TEXT("kind")), TEXT("delivery")) || !Key(Field(Source, TEXT("key")), Out.Source.Key)
                 || !GameValue(Field(O, TEXT("reward")), Out.Reward, 0) || !Time(Field(O, TEXT("grantedAt")), Out.GrantedAtMs)
-                || !Enum<EHaulStatus>(Field(O, TEXT("status")), Out.Status, {{TEXT("carried"), EHaulStatus::Carried},
+                || !EnumValue<EHaulStatus>(Field(O, TEXT("status")), Out.Status, {{TEXT("carried"), EHaulStatus::Carried},
                     {TEXT("banked"), EHaulStatus::Banked}, {TEXT("forfeited"), EHaulStatus::Forfeited}})) return false;
             const auto Original = Field(O, TEXT("originalMoneyAmount"));
             if (Original.IsValid())
@@ -137,11 +129,11 @@ namespace BaddieCompanion
             if (!Id(Field(O, TEXT("id")), Out.Id) || !Id(Field(O, TEXT("offerId")), Out.OfferId)
                 || !Terms(Field(O, TEXT("terms")), Out.Terms) || !Id(Field(O, TEXT("outingId")), Out.OutingId)
                 || !Key(Field(O, TEXT("lifeId")), Out.LifeId) || !Integer(Field(O, TEXT("revision")), Out.Revision, 1)
-                || !Enum<EJobsStatus>(Field(O, TEXT("status")), Out.Status, {{TEXT("accepted"), EJobsStatus::Accepted},
+                || !EnumValue<EJobsStatus>(Field(O, TEXT("status")), Out.Status, {{TEXT("accepted"), EJobsStatus::Accepted},
                     {TEXT("carrying"), EJobsStatus::Carrying}, {TEXT("delivered"), EJobsStatus::Delivered},
                     {TEXT("cancelled"), EJobsStatus::Cancelled}, {TEXT("failed"), EJobsStatus::Failed}})
                 || !Nullable(Field(O, TEXT("failure")), Out.Failure, [](const FValue& F, EJobsFailure& Failure)
-                    { return Enum<EJobsFailure>(F, Failure, {{TEXT("death"), EJobsFailure::Death},
+                    { return EnumValue<EJobsFailure>(F, Failure, {{TEXT("death"), EJobsFailure::Death},
                         {TEXT("outing-ended"), EJobsFailure::OutingEnded}, {TEXT("life-ended"), EJobsFailure::LifeEnded}}); })
                 || !Time(Field(O, TEXT("acceptedAt")), Out.AcceptedAtMs)
                 || !Nullable(Field(O, TEXT("collectedAt")), Out.CollectedAtMs, Time)
@@ -185,10 +177,10 @@ namespace BaddieCompanion
         bool Result(const FValue& V, FJobsCommandResult& Out)
         {
             const auto O = Object(V);
-            return Enum<EJobsOutcome>(Field(O, TEXT("outcome")), Out.Feedback.Outcome, {
+            return EnumValue<EJobsOutcome>(Field(O, TEXT("outcome")), Out.Feedback.Outcome, {
                     {TEXT("applied"), EJobsOutcome::Applied}, {TEXT("replayed"), EJobsOutcome::Replayed}, {TEXT("blocked"), EJobsOutcome::Blocked}})
                 && Nullable(Field(O, TEXT("reason")), Out.Feedback.Reason, [](const FValue& F, EJobsBlockedReason& Reason)
-                    { return Enum<EJobsBlockedReason>(F, Reason, {
+                    { return EnumValue<EJobsBlockedReason>(F, Reason, {
                         {TEXT("stale_context"), EJobsBlockedReason::StaleContext}, {TEXT("not_found"), EJobsBlockedReason::NotFound},
                         {TEXT("wrong_world"), EJobsBlockedReason::WrongWorld}, {TEXT("wrong_contact"), EJobsBlockedReason::WrongContact},
                         {TEXT("offer_unavailable"), EJobsBlockedReason::OfferUnavailable}, {TEXT("reward_unavailable"), EJobsBlockedReason::RewardUnavailable},
