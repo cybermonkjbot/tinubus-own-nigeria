@@ -23,7 +23,7 @@ The Home-first scope stays unchanged. Apply this direction to supported environm
 
 Start with `packages/companion-scene/art/world-kit/README.md`, `packages/companion-scene/art/vehicles/README.md` and `packages/companion-scene/art/delivery-alignment-2026-10-07/README.md`. They record reusable sources, delivery boundaries and district sound decisions. Unreal import and material suitability still need their own review; reuse does not imply that these assets are installed on Cribtest11.
 
-For visual acceptance, compare player-height views with the chosen location references and review recognition with Joshua before expanding the area. Check street composition, material scale, readable signs and walkable routes, not only a skyline shot. This direction is documented locally; no Lagos Unreal scene, remote transfer or rendered verification is claimed by this update.
+For visual acceptance, compare player-height views with the chosen location references and review recognition with Joshua before expanding the area. Check street composition, material scale, readable signs and walkable routes, not only a skyline shot. This direction is now synced to Cribtest11; a Lagos Unreal scene and rendered verification remain outstanding.
 
 ## Existing owners
 
@@ -78,6 +78,8 @@ The first Windows implementation is checkpointed at `d041ba7`, after transferred
 That checkpoint adds `HomeStage`, `SliceCharacter`, `SliceGameMode`, `SliceHUD`, `SlicePlayerController` and `SliceSession`, plus startup and input configuration. The offline path requires an explicit snapshot in a non-Shipping standalone world. It preserves saved selection documents but reports unsupported appearance and Home art instead of presenting its engine-primitive stage as the saved Home. Local movement has no backend authority. These Windows additions are retained during the account-linking merge.
 
 ## Windows connection/Home source milestone, October 10, 2026
+
+The recorded Windows turn completed at `66f8616`; `1eda260` then checkpointed the exact imported account-session dependencies. The scoped source was returned to the Mac with matching hashes. Read `docs/engineering/cribtest11-home-integration-2026-10-10.md` for the actual thread/turn IDs, transfer evidence and completion boundary before starting another integration run.
 
 `SlicePlayerController` now integrates the unchanged transferred `UBaddieCompanionSession` through `BeginPairing(DeviceName)`, `GetConnectionView`, `OnConnectionChanged`, `CopySnapshot` and `Disconnect`. No gameplay/UI call configures an origin or enables linking. The client-only Slate panel supplies device naming, explicit connect/cancel, copy of only the public approval link, comparison code, local lifetime, public errors and the exposed retry countdown. Home is first in the read-only saved-selection presentation. Disconnect/re-pair use a separate confirmation modal, with cancellation and focus restoration.
 
@@ -140,6 +142,8 @@ The first gameplay agent recorded this later inspection on October 10, 2026 UTC.
 ### Transfer and execution rules
 
 The desktop helper starts an ephemeral remote conversation. Briefing that conversation does not automatically persist context for later agents. Keep this document and the Unreal source together when transferring the scoped patch. Verify exact file hashes on the Windows side and preserve unrelated changes.
+
+The recorded Home integration used a persistent thread through the same authenticated bridge. Check its real `thread/read` turn status before resuming or starting another gameplay run; a loaded thread may be idle. Preserve completed checkpoints and record the next turn ID in the integration handoff.
 
 Use the authenticated TLS bridge. Keep its existing certificate verification and token storage intact. Azure guest-agent/run-command and public plaintext WebSocket transport are not fallback paths. Remote agents inherit the same opt-in rules for tests, builds, compilation, project generation, installs and releases. Source transfer does not establish an account connection or a playable game.
 
