@@ -27,20 +27,6 @@ namespace BaddieCompanion
                 {TEXT("stretch"), EPlayEmote::Stretch}, {TEXT("groove"), EPlayEmote::Groove},
                 {TEXT("sway"), EPlayEmote::Sway}});
         }
-        template<typename T, typename F>
-        bool Rows(const FValue& Value, TArray<T>& Out, int32 Max, F Read)
-        {
-            if (!Value.IsValid() || Value->Type != EJson::Array) return false;
-            const auto& Values = Value->AsArray();
-            if (Values.Num() > Max) return false;
-            for (const auto& Item : Values)
-            {
-                T Next;
-                if (!Read(Item, Next)) return false;
-                Out.Add(MoveTemp(Next));
-            }
-            return true;
-        }
         bool Look(const FValue& Value, FPlayLook& Out)
         {
             const auto O = Object(Value);
@@ -110,7 +96,7 @@ namespace BaddieCompanion
                     {{TEXT("ball"), EPlayToy::Ball}, {TEXT("cushion"), EPlayToy::Cushion},
                     {TEXT("music"), EPlayToy::Music}, {TEXT("bubbles"), EPlayToy::Bubbles}})
                     || !Number(O, TEXT("hits"), Next.Hits) || !Number(O, TEXT("throws"), Next.Throws)
-                    || !Rows(Field(O, TEXT("notes")), Next.Notes, MaxSavedGameArray, Scalar)
+                    || !ReadBoundedArray(Field(O, TEXT("notes")), Next.Notes, MaxSavedGameArray, Scalar)
                     || !Nullable(Field(O, TEXT("flight")), Next.Flight, Flight)) return false;
                 const auto Touch = Field(O, TEXT("lastTouch"));
                 if (Touch.IsValid())
@@ -125,7 +111,7 @@ namespace BaddieCompanion
             case EKind::Mirror:
             {
                 FPlayMirrorGame Next;
-                if (!Rows(Field(O, TEXT("sequence")), Next.Sequence, MaxSavedGameArray, Emote)
+                if (!ReadBoundedArray(Field(O, TEXT("sequence")), Next.Sequence, MaxSavedGameArray, Emote)
                     || !Number(O, TEXT("showingAt"), Next.ShowingAt) || !Number(O, TEXT("level"), Next.Level)
                     || !Nullable(Field(O, TEXT("leader")), Next.Leader, Text)
                     || !Nullable(Field(O, TEXT("lastMove")), Next.LastMove, LastMove)) return false;
@@ -135,9 +121,9 @@ namespace BaddieCompanion
             case EKind::Mystery:
             {
                 FPlayMysteryGame Next;
-                if (!Rows(Field(O, TEXT("order")), Next.Order, MaxSavedGameArray, Scalar)
-                    || !Rows(Field(O, TEXT("found")), Next.Found, MaxSavedGameArray, Scalar)
-                    || !Rows(Field(O, TEXT("entered")), Next.Entered, MaxSavedGameArray, Scalar)
+                if (!ReadBoundedArray(Field(O, TEXT("order")), Next.Order, MaxSavedGameArray, Scalar)
+                    || !ReadBoundedArray(Field(O, TEXT("found")), Next.Found, MaxSavedGameArray, Scalar)
+                    || !ReadBoundedArray(Field(O, TEXT("entered")), Next.Entered, MaxSavedGameArray, Scalar)
                     || !Boolean(Field(O, TEXT("unlocked")), Next.bUnlocked)) return false;
                 Out = MoveTemp(Next);
                 return true;
@@ -155,8 +141,8 @@ namespace BaddieCompanion
             case EKind::Kitchen:
             {
                 FPlayKitchenGame Next;
-                if (!Rows(Field(O, TEXT("recipe")), Next.Recipe, MaxSavedGameArray, Scalar)
-                    || !Rows(Field(O, TEXT("ingredients")), Next.Ingredients, MaxSavedGameArray, Scalar)
+                if (!ReadBoundedArray(Field(O, TEXT("recipe")), Next.Recipe, MaxSavedGameArray, Scalar)
+                    || !ReadBoundedArray(Field(O, TEXT("ingredients")), Next.Ingredients, MaxSavedGameArray, Scalar)
                     || !Boolean(Field(O, TEXT("chopped")), Next.bChopped)
                     || !Nullable(Field(O, TEXT("heatAt")), Next.HeatAt, Scalar)
                     || !Boolean(Field(O, TEXT("cooked")), Next.bCooked)
@@ -170,7 +156,7 @@ namespace BaddieCompanion
             {
                 FPlayMemoriesGame Next;
                 if (!Number(O, TEXT("anchor"), Next.Anchor)
-                    || !Rows(Field(O, TEXT("moves")), Next.Moves, MaxSavedGameArray, Emote)
+                    || !ReadBoundedArray(Field(O, TEXT("moves")), Next.Moves, MaxSavedGameArray, Emote)
                     || !Boolean(Field(O, TEXT("recording")), Next.bRecording)) return false;
                 Out = MoveTemp(Next);
                 return true;
@@ -186,7 +172,7 @@ namespace BaddieCompanion
                 && Number(O, TEXT("revision"), Out.Revision) && Number(O, TEXT("seed"), Out.Seed)
                 && Number(O, TEXT("startedAt"), Out.StartedAt) && Number(O, TEXT("updatedAt"), Out.UpdatedAt)
                 && Number(O, TEXT("expiresAt"), Out.ExpiresAt)
-                && Rows(Field(O, TEXT("players")), Out.Players, 8, Player)
+                && ReadBoundedArray(Field(O, TEXT("players")), Out.Players, 8, Player)
                 && Game(Field(O, TEXT("game")), Out.Game);
         }
         bool Memory(const FValue& Value, FPlayMemory& Out)
@@ -196,7 +182,7 @@ namespace BaddieCompanion
             if (!O.IsValid() || !String(Field(O, TEXT("id")), Out.Id) || Out.Id.Len() > 100
                 || !String(Field(O, TEXT("author")), Out.Author) || Out.Author.Len() > 100
                 || !Integer(Field(O, TEXT("anchor")), Anchor) || Anchor > 5
-                || !Rows(Field(O, TEXT("moves")), Out.Moves, 8, Emote) || Out.Moves.IsEmpty()
+                || !ReadBoundedArray(Field(O, TEXT("moves")), Out.Moves, 8, Emote) || Out.Moves.IsEmpty()
                 || !Number(O, TEXT("createdAt"), Out.CreatedAt)) return false;
             Out.Anchor = static_cast<int32>(Anchor);
             return true;
@@ -218,7 +204,7 @@ namespace BaddieCompanion
         if (!StateJsonPrivate::Parse(Json, O, PlayLimits)
             || !StateJsonPrivate::Nullable(StateJsonPrivate::Field(O, TEXT("round")), Next.Round, Round)
             || !Text(StateJsonPrivate::Field(O, TEXT("playerId")), Next.PlayerId)
-            || !Rows(StateJsonPrivate::Field(O, TEXT("memories")), Next.Memories, 12, Memory))
+            || !StateJsonPrivate::ReadBoundedArray(StateJsonPrivate::Field(O, TEXT("memories")), Next.Memories, 12, Memory))
         {
             Result.Error = TEXT("Room activity couldn't load.");
             return Result;

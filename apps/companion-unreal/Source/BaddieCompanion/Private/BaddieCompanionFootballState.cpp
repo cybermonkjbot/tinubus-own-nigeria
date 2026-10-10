@@ -40,17 +40,6 @@ namespace BaddieCompanion
             Out = MoveTemp(Next);
             return true;
         }
-        template <typename T, typename F> bool Players(const FValue& V, TArray<T>& Out, int32 Maximum, F Read)
-        {
-            if (!V.IsValid() || V->Type != EJson::Array || V->AsArray().Num() > Maximum) return false;
-            for (const auto& Value : V->AsArray())
-            {
-                T Next;
-                if (!Read(Value, Next)) return false;
-                Out.Add(MoveTemp(Next));
-            }
-            return true;
-        }
         bool Point(const FValue& V, FFootballPoint& Out)
         {
             const auto O = Object(V);
@@ -126,7 +115,7 @@ namespace BaddieCompanion
                 && EnumValue(Field(O, TEXT("mode")), Out.Mode, { { TEXT("solo"), EFootballMode::Solo },
                     { TEXT("teams"), EFootballMode::Teams }, { TEXT("coop"), EFootballMode::Coop } })
                 && Phase(Field(O, TEXT("phase")), Out.Phase)
-                && Players(Field(O, TEXT("players")), Out.Players, MatchPlayers, Player)
+                && ReadBoundedArray(Field(O, TEXT("players")), Out.Players, MatchPlayers, Player)
                 && Ball(Field(O, TEXT("ball")), Out.Ball) && Score(Field(O, TEXT("score")), Out.Score)
                 && Nullable(Field(O, TEXT("winner")), Out.Winner, Winner)
                 && Nullable(Field(O, TEXT("startedAt")), Out.StartedAtMs, Numeric)
@@ -169,7 +158,7 @@ namespace BaddieCompanion
                 && Text(Field(O, TEXT("playerId")), Out.PlayerId) && Text(Field(O, TEXT("instanceId")), Out.InstanceId)
                 && Number(O, TEXT("revision"), Out.Revision) && Number(O, TEXT("epoch"), Out.Epoch)
                 && Nullable(Field(O, TEXT("phase")), Out.Phase, Phase) && Number(O, TEXT("serverNow"), Out.ServerNowMs)
-                && Players(Field(O, TEXT("players")), Out.Players, EntryPlayers, EntryPlayer);
+                && ReadBoundedArray(Field(O, TEXT("players")), Out.Players, EntryPlayers, EntryPlayer);
         }
         bool SameScope(const FFootballReadScope& A, const FFootballReadScope& B)
         {
