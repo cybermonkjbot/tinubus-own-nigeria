@@ -60,7 +60,9 @@ Source transfer used the existing SSH transport after bridge status verification
 
 The 22 canonical reference copies retained their recorded hashes. The destination source tree contained no `GaitPresentation` files or extra source files outside the manifest. Configuration remained unchanged, account access stayed disabled, and no engine, asset, test, build or live-service operation ran.
 
-This final evidence update is the only post-delivery file change. The manifest records its Mac/Windows evidence-only commits separately from the source delivery commit, alongside the final per-file read-back hashes. It is the bounded parity record; imported content and runtime parity are not implied.
+This record is the only post-delivery file changed by the handoff. The manifest records its Mac/Windows evidence-only commits separately from the source delivery commit, alongside the final per-file read-back hashes. It is the bounded parity record; imported content and runtime parity are not implied.
+
+Newer local saved-layout changes appeared during the final manifest audit. They were preserved and excluded from this handoff. Delivery parity is against the pinned reviewed commit plus this evidence record, not the current Mac working tree. The manifest lists the observed local differences and additional files separately from delivery mismatches; no newer layout or connected-apartment implementation was copied to Windows.
 
 ## Local continuation
 
@@ -125,6 +127,6 @@ The following exact Mac bytes were staged, SHA-256 checked, atomically renamed a
 
 Read-only Windows inventory during this run found `DirectXRedist`, `GameInputRedist` and `Launcher` under `C:\Program Files\Epic Games`, no `UE_*` directory there, an empty launcher `InstallationList`, and no `apps/companion-unreal/Content` directory. This establishes no imported art or engine in those inspected locations, not a scan of every disk path.
 
-The source slice has been implemented, reviewed and delivered to Windows with scoped source parity. No engine installation, asset import, tests, typechecks, lint, compilation, project generation, engine launch, deployment or live account configuration changes ran. Account linking remains disabled. Imported-art, material/rig parity, interaction, runtime and full-game acceptance remain outstanding.
+The source slice has been implemented, reviewed and delivered to Windows with parity against the pinned committed snapshot and final evidence record. Current Mac working-tree parity is not claimed. No engine installation, asset import, tests, typechecks, lint, compilation, project generation, engine launch, deployment or live account configuration changes ran. Account linking remains disabled. Imported-art, material/rig parity, interaction, runtime and full-game acceptance remain outstanding.
 
 The production renderer and shared contracts are read-only inputs. This slice does not trigger mobile/web renderer packaging or a What's New update.
