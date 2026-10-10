@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Containers/Ticker.h"
 #include "GameFramework/Actor.h"
 #include "BaddieCompanionHomePresentation.h"
 #include "BaddieCompanionFurnitureActor.generated.h"
@@ -42,8 +43,16 @@ private:
     bool Configure(const BaddieCompanion::FRoomPlan& Room, const BaddieCompanion::FFurniturePlan& Item,
         const BaddieCompanion::FNativeFurnitureAsset& Asset, const FTransform& LevelToApartment,
         bool bLevelAlreadyTransformed);
+    bool ConfigureBindings(const BaddieCompanion::FRoomPlan& Room, const BaddieCompanion::FFurniturePlan& Item,
+        const BaddieCompanion::FNativeFurnitureAsset& Asset, const FTransform& LevelToApartment,
+        bool bLevelAlreadyTransformed);
     bool ReconcileLevelTransform();
+    bool ApplyScenePower(float Factor);
+    void SuppressPower();
     void ClearPrivateFurniture();
+    bool DestroyPrivateFurniture();
+    bool FinishDeferredDisposal(float);
+    void QueueDeferredDisposal();
 
     UPROPERTY(Transient)
     TObjectPtr<UStaticMeshComponent> FurnitureMesh;
@@ -55,4 +64,13 @@ private:
     FString RoomId, ItemId;
     // Derived from saved local pose, not the actor's potentially stale cached world transform.
     TOptional<FTransform> PendingApartmentPose;
+    // Saved switch baselines are never overwritten by a grid factor or unavailable receipt.
+    float SavedLightIntensity = 0, SavedEmissiveIntensity = 0;
+    TOptional<float> LastAppliedPower;
+    FName EmissiveParameter;
+    uint64 PowerGeneration = 0;
+    bool bConfigured = false, bDiscarded = false, bChangingPresentation = false;
+    bool bClearing = false, bSuppressingPower = false;
+    bool bDestroyRequested = false, bDisposalBlocked = false;
+    FTSTicker::FDelegateHandle DeferredDisposal;
 };
