@@ -26,6 +26,9 @@ namespace BaddieCompanion
         bool WithinParseLimits(const FString& Json, const FParseLimits& Limits);
         // Object roots only. Callers own raw-null handling and atomic publication.
         bool Parse(const FString& Json, FObject& Out, const FParseLimits& Limits);
+        // Null roots only. UE validates the original input inside one array because its
+        // reader requires a container root. Assigns Out only after successful validation.
+        bool ParseNull(const FString& Json, FValue& Out, const FParseLimits& Limits);
         bool Same(const FString& A, const FString& B);
         FObject Object(const FValue& Value);
         FValue Field(const FObject& Parent, const TCHAR* Name);

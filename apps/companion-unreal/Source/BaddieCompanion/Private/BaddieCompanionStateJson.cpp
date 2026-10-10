@@ -35,6 +35,16 @@ namespace BaddieCompanion
             return WithinParseLimits(Json, Limits)
                 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
         }
+        bool ParseNull(const FString& Json, FValue& Out, const FParseLimits& Limits)
+        {
+            if (!WithinParseLimits(Json, Limits) || !Same(Json.TrimStartAndEnd(), TEXT("null"))) return false;
+            const FString Wrapped = FString(TEXT("[")) + Json + TEXT("]");
+            TArray<FValue> Values;
+            if (!FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Wrapped), Values)
+                || Values.Num() != 1 || !Values[0].IsValid() || Values[0]->Type != EJson::Null) return false;
+            Out = MoveTemp(Values[0]);
+            return true;
+        }
         bool Same(const FString& A, const FString& B)
         {
             return A.Equals(B, ESearchCase::CaseSensitive);

@@ -1,8 +1,6 @@
 #include "BaddieCompanionTeamsState.h"
 #include "BaddieCompanionStateJson.h"
 
-#include "Serialization/JsonReader.h"
-#include "Serialization/JsonSerializer.h"
 #include <cmath>
 #include <initializer_list>
 
@@ -26,9 +24,9 @@ namespace BaddieCompanion
         bool Parse(const FString& Json, FValue& Out)
         {
             if (Json.IsEmpty() || Json.Len() > ParseLimits.Characters) return false;
-            // Preserve the original reader's null/whitespace grammar before object-only Parse.
+            // UE requires a container root; validate nullable endpoint values in the helper.
             if (Same(Json.TrimStartAndEnd(), TEXT("null")))
-                return FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
+                return StateJsonPrivate::ParseNull(Json, Out, ParseLimits);
             FObject Root;
             if (!StateJsonPrivate::Parse(Json, Root, ParseLimits)) return false;
             Out = MakeShared<FJsonValueObject>(Root);

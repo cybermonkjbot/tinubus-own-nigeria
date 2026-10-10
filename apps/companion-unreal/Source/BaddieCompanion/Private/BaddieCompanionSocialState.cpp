@@ -30,9 +30,9 @@ namespace BaddieCompanion
         {
             if (Json.IsEmpty() || Json.Len() > ParseLimits.Characters) return false;
             const FString Trimmed = Json.TrimStartAndEnd();
-            // Keep UE's original whitespace and null-token acceptance, not Trimmed's grammar.
+            // UE requires a container root; validate nullable endpoint values in the helper.
             if (Same(Trimmed, TEXT("null")))
-                return FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
+                return StateJsonPrivate::ParseNull(Json, Out, ParseLimits);
             if (!Trimmed.StartsWith(TEXT("[")))
             {
                 FObject Root;
