@@ -9,7 +9,7 @@ namespace BaddieCompanion
 {
     namespace StateJsonPrivate
     {
-        bool Parse(const FString& Json, FObject& Out, const FParseLimits& Limits)
+        bool WithinParseLimits(const FString& Json, const FParseLimits& Limits)
         {
             if (Json.IsEmpty() || Json.Len() > Limits.Characters) return false;
             bool bString = false, bEscape = false;
@@ -28,7 +28,11 @@ namespace BaddieCompanion
                 else if (C == TEXT('}') || C == TEXT(']')) { if (--Depth < 0) return false; }
                 else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > Limits.Separators) return false; }
             }
-            return !bString && Depth == 0
+            return !bString && Depth == 0;
+        }
+        bool Parse(const FString& Json, FObject& Out, const FParseLimits& Limits)
+        {
+            return WithinParseLimits(Json, Limits)
                 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
         }
         bool Same(const FString& A, const FString& B)

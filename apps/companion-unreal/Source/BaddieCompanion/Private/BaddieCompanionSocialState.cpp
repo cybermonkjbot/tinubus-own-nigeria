@@ -40,25 +40,9 @@ namespace BaddieCompanion
                 Out = MakeShared<FJsonValueObject>(Root);
                 return true;
             }
-            // Shared Parse currently supports object roots only. Retain the existing bounded
-            // array preflight for offers; wrapping JSON would change its depth/size budgets.
-            bool bString = false, bEscape = false;
-            int32 Depth = 0, Separators = 0;
-            for (const TCHAR C : Json)
-            {
-                if (bString)
-                {
-                    if (bEscape) bEscape = false;
-                    else if (C == TEXT('\\')) bEscape = true;
-                    else if (C == TEXT('"')) bString = false;
-                    continue;
-                }
-                if (C == TEXT('"')) bString = true;
-                else if (C == TEXT('{') || C == TEXT('[')) { if (++Depth > ParseLimits.Depth) return false; }
-                else if (C == TEXT('}') || C == TEXT(']')) { if (--Depth < 0) return false; }
-                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > ParseLimits.Separators) return false; }
-            }
-            return !bString && Depth == 0 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
+            // Offers use an array root; keep the same UE value parser and original input.
+            return StateJsonPrivate::WithinParseLimits(Json, ParseLimits)
+                && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
         }
         FObject Object(const FValue& V, int32 Fields)
         {

@@ -21,6 +21,9 @@ namespace BaddieCompanion
             int32 Separators;
         };
 
+        // Shared allocation preflight for any root. Passing is not JSON syntax validation;
+        // callers still use the UE serializer and enforce their expected root type.
+        bool WithinParseLimits(const FString& Json, const FParseLimits& Limits);
         // Object roots only. Callers own raw-null handling and atomic publication.
         bool Parse(const FString& Json, FObject& Out, const FParseLimits& Limits);
         bool Same(const FString& A, const FString& B);
