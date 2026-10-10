@@ -3,6 +3,12 @@
   "EngineAssociation": "",
   "Category": "Games",
   "Description": "Standalone Baddie companion client. Source-only integration work.",
+  "Plugins": [
+    {
+      "Name": "PythonScriptPlugin",
+      "Enabled": true
+    }
+  ],
   "Modules": [
     {
       "Name": "BaddieCompanion",
