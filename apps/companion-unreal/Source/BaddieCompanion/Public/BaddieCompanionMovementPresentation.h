@@ -55,6 +55,8 @@ namespace BaddieCompanion
      * sample an existing route; they do not plan it, authorize it or move an actor.
      * The owner must first establish admission, room revision and route authority.
      * No current read-only Companion grant supplies or authorizes gameplay routes.
+     * Keep this shared server-timing contract separate from Unreal Character
+     * Movement, collision and animation. It is not a replacement movement system.
      * Invalid numeric/route input returns false and clears the output.
      */
     BADDIECOMPANION_API bool SampleMovement(
