@@ -183,8 +183,11 @@ bool ABaddieCompanionCharacterActor::PrepareBindings(const BaddieCompanion::FHom
         static_cast<BaddieCompanion::FNativeCharacterMaterialSlot&>(Binding) = Named;
         Binding.Component = Found;
     }
-    if (!Materials->Apply(Plan, Resolved) || bDiscarded || IsActorBeingDestroyed()) return false;
-    if (!PrepareAccessoryVisibility(Plan.Appearance, Content.Accessories)) return false;
+    if (!IsValid(Materials.Get()) || !Materials->Apply(Plan, Resolved)
+        || bDiscarded || IsActorBeingDestroyed() || !IsValid(Materials.Get())) return false;
+    PreparedMaterialGeneration = Materials->GetAppliedGeneration();
+    if (!HasCurrentMaterials() || !PrepareAccessoryVisibility(Plan.Appearance, Content.Accessories)
+        || !HasCurrentMaterials()) return false;
     if (!bLevelAlreadyTransformed) PendingApartmentPose = ApartmentPose;
     return true; // Hidden material/accessory preparation, not complete appearance or movement readiness.
 }
@@ -231,7 +234,7 @@ bool ABaddieCompanionCharacterActor::PrepareAccessoryVisibility(const BaddieComp
     const auto Matches = [&](const FResolved& Value, bool bExpectedVisible)
     {
         const auto* Mesh = Value.Component.Get();
-        return !bDiscarded && !IsActorBeingDestroyed() && IsHidden() && IsValid(Mesh)
+        return !bDiscarded && !IsActorBeingDestroyed() && HasCurrentMaterials() && IsHidden() && IsValid(Mesh)
             && Mesh->IsRegistered() && Mesh->GetOwner() == this && Mesh->GetWorld() == GetWorld()
             && Mesh->GetFName() == Value.Name && Value.Asset.IsValid()
             && MeshAsset(Value.Component.Get()) == Value.Asset.Get() && !Mesh->bHiddenInGame
@@ -249,9 +252,16 @@ bool ABaddieCompanionCharacterActor::PrepareAccessoryVisibility(const BaddieComp
     return true;
 }
 
+bool ABaddieCompanionCharacterActor::HasCurrentMaterials() const
+{
+    return PreparedMaterialGeneration != 0 && IsValid(Materials.Get())
+        && Materials->GetAppliedGeneration() == PreparedMaterialGeneration;
+}
+
 bool ABaddieCompanionCharacterActor::ReconcileLevelTransform()
 {
-    if (bChangingPresentation || !bPrepared || bDiscarded || IsActorBeingDestroyed()) return false;
+    if (bChangingPresentation || !bPrepared || bDiscarded || IsActorBeingDestroyed()
+        || !HasCurrentMaterials()) return false;
     TGuardValue<bool> Changing(bChangingPresentation, true);
     if (!PendingApartmentPose.IsSet()) return true;
     auto* Level = GetLevel();
@@ -260,11 +270,12 @@ bool ABaddieCompanionCharacterActor::ReconcileLevelTransform()
     if (!Level->bAlreadyMovedActors) return true;
     const FTransform Expected = PendingApartmentPose.GetValue();
     Root->UpdateComponentToWorld(EUpdateTransformFlags::None, ETeleportType::TeleportPhysics);
-    if (bDiscarded || IsActorBeingDestroyed()
+    if (bDiscarded || IsActorBeingDestroyed() || !HasCurrentMaterials()
         || !SetActorTransform(Expected, false, nullptr, ETeleportType::TeleportPhysics)
-        || bDiscarded || IsActorBeingDestroyed()) return false;
+        || bDiscarded || IsActorBeingDestroyed() || !HasCurrentMaterials()) return false;
     UpdateComponentTransforms();
-    if (bDiscarded || IsActorBeingDestroyed() || !GetActorTransform().Equals(Expected, 1.e-4)) return false;
+    if (bDiscarded || IsActorBeingDestroyed() || !HasCurrentMaterials()
+        || !GetActorTransform().Equals(Expected, 1.e-4)) return false;
     PendingApartmentPose.Reset();
     return true;
 }
@@ -272,7 +283,7 @@ bool ABaddieCompanionCharacterActor::ReconcileLevelTransform()
 void ABaddieCompanionCharacterActor::ClearPrivateCharacter()
 {
     check(IsInGameThread());
-    bDiscarded = true; bPrepared = false;
+    bDiscarded = true; bPrepared = false; PreparedMaterialGeneration = 0;
     PendingApartmentPose.Reset();
     if (bClearing) { QueueDeferredDisposal(); return; }
     TGuardValue<bool> Clearing(bClearing, true);

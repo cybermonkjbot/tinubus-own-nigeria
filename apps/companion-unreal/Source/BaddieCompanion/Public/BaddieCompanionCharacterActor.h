@@ -64,6 +64,7 @@ private:
         const BaddieCompanion::FNativeCharacterContent& Content,
         const FTransform& LevelToApartment, bool bLevelAlreadyTransformed);
     bool ReconcileLevelTransform();
+    bool HasCurrentMaterials() const;
     bool PrepareAccessoryVisibility(const BaddieCompanion::FAppearancePlan& Appearance,
         const TArray<BaddieCompanion::FNativeCharacterAccessoryMesh>& Bindings);
     void SuppressPresentation();
@@ -74,6 +75,7 @@ private:
     UPROPERTY(Transient)
     TObjectPtr<UBaddieCompanionCharacterMaterials> Materials;
     TOptional<FTransform> PendingApartmentPose;
+    uint64 PreparedMaterialGeneration = 0;
     FTSTicker::FDelegateHandle DeferredDisposal;
     bool bPrepared = false;
     bool bChangingPresentation = false;

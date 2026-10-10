@@ -60,9 +60,18 @@ UBaddieCompanionCharacterMaterials::UBaddieCompanionCharacterMaterials()
     SetIsReplicatedByDefault(false);
 }
 
+uint64 UBaddieCompanionCharacterMaterials::GetAppliedGeneration() const
+{
+    check(IsInGameThread());
+    const auto* Owner = GetOwner();
+    return !bClearRequested && !bChangingMaterials && !bEndingPlay && IsRegistered()
+        && IsValid(Owner) && !Owner->IsActorBeingDestroyed() ? AppliedGeneration : 0;
+}
+
 void UBaddieCompanionCharacterMaterials::ClearPrivateMaterials()
 {
     check(IsInGameThread());
+    AppliedGeneration = 0;
     bClearRequested = true;
     // SetMaterial can call lifecycle hooks. Keep the current traversal valid and cancel Apply
     // immediately after that native call returns, before another slot can be changed.
@@ -101,6 +110,7 @@ bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePrese
     check(IsInGameThread());
     if (bChangingMaterials) return false;
     TGuardValue<bool> Changing(bChangingMaterials, true);
+    AppliedGeneration = 0;
     bClearRequested = false;
     RestoreOwnedMaterials();
     Issue = ENativeCharacterMaterialIssue::None;
@@ -110,6 +120,8 @@ bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePrese
         Issue = Reason;
         return false;
     };
+    // Reserve zero for invalidation and never reuse an application identity after overflow.
+    if (ApplicationGeneration == MAX_uint64) return Fail(ENativeCharacterMaterialIssue::InstanceUnavailable);
     auto* Owner = GetOwner();
     auto* World = GetWorld();
     if (bClearRequested || bEndingPlay || !IsRegistered() || !IsValid(Owner)
@@ -250,6 +262,7 @@ bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePrese
             : Owned[Value.OwnedIndex].Override.Get();
         if (!BindingIsCurrent(Value, Expected)) return Fail(ENativeCharacterMaterialIssue::MaterialChanged);
     }
+    AppliedGeneration = ++ApplicationGeneration;
     return true; // Material parameters only, never whole-character or gameplay readiness.
 }
 

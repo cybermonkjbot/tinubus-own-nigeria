@@ -73,6 +73,9 @@ public:
     void ClearPrivateMaterials();
     // Game-thread lifetime guard, including restoration from EndPlay/OnUnregister.
     bool IsChangingMaterials() const { return bChangingMaterials; }
+    // Zero means unavailable. Each successful Apply has a distinct identity; clear/unregister
+    // invalidates it immediately, even when the component subsequently registers again.
+    uint64 GetAppliedGeneration() const;
     BaddieCompanion::ENativeCharacterMaterialIssue GetIssue() const { return Issue; }
 protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
@@ -82,6 +85,8 @@ private:
     UPROPERTY(Transient)
     TArray<FBaddieOwnedCharacterMaterial> Owned;
     BaddieCompanion::ENativeCharacterMaterialIssue Issue = BaddieCompanion::ENativeCharacterMaterialIssue::None;
+    uint64 ApplicationGeneration = 0;
+    uint64 AppliedGeneration = 0;
     bool bEndingPlay = false;
     bool bChangingMaterials = false;
     bool bClearRequested = false;
