@@ -1,7 +1,6 @@
 #include "BaddieCompanionSocialState.h"
+#include "BaddieCompanionStateJson.h"
 
-#include "Dom/JsonObject.h"
-#include "Dom/JsonValue.h"
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
 #include <cmath>
@@ -11,12 +10,15 @@ namespace BaddieCompanion
 {
     namespace SocialStatePrivate
     {
-        using FObject = TSharedPtr<FJsonObject>;
-        using FValue = TSharedPtr<FJsonValue>;
-        constexpr double MaxInteger = 9007199254740991.0;
+        using StateJsonPrivate::FObject;
+        using StateJsonPrivate::FValue;
+        using StateJsonPrivate::Field;
+        using StateJsonPrivate::Same;
+        using StateJsonPrivate::Boolean;
+        using StateJsonPrivate::Integer;
+        constexpr StateJsonPrivate::FParseLimits ParseLimits{256 * 1024, 8, 4096};
         constexpr int32 MaxOffers = 12;
         constexpr int32 MaxPlayerWatches = 64;
-        bool Same(const FString& A, const FString& B) { return A.Equals(B, ESearchCase::CaseSensitive); }
         bool Identifier(const FString& S)
         {
             if (S.IsEmpty() || S.Len() > 240 || !Same(S, S.TrimStartAndEnd())) return false;
@@ -26,7 +28,20 @@ namespace BaddieCompanion
         bool Clock(double N) { return std::isfinite(N) && N >= 0 && N <= 8640000000000000.0 && std::floor(N) == N; }
         bool Parse(const FString& Json, FValue& Out)
         {
-            if (Json.IsEmpty() || Json.Len() > 256 * 1024) return false;
+            if (Json.IsEmpty() || Json.Len() > ParseLimits.Characters) return false;
+            const FString Trimmed = Json.TrimStartAndEnd();
+            // Keep UE's original whitespace and null-token acceptance, not Trimmed's grammar.
+            if (Same(Trimmed, TEXT("null")))
+                return FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
+            if (!Trimmed.StartsWith(TEXT("[")))
+            {
+                FObject Root;
+                if (!StateJsonPrivate::Parse(Json, Root, ParseLimits)) return false;
+                Out = MakeShared<FJsonValueObject>(Root);
+                return true;
+            }
+            // Shared Parse currently supports object roots only. Retain the existing bounded
+            // array preflight for offers; wrapping JSON would change its depth/size budgets.
             bool bString = false, bEscape = false;
             int32 Depth = 0, Separators = 0;
             for (const TCHAR C : Json)
@@ -39,39 +54,25 @@ namespace BaddieCompanion
                     continue;
                 }
                 if (C == TEXT('"')) bString = true;
-                else if (C == TEXT('{') || C == TEXT('[')) { if (++Depth > 8) return false; }
+                else if (C == TEXT('{') || C == TEXT('[')) { if (++Depth > ParseLimits.Depth) return false; }
                 else if (C == TEXT('}') || C == TEXT(']')) { if (--Depth < 0) return false; }
-                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > 4096) return false; }
+                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > ParseLimits.Separators) return false; }
             }
             return !bString && Depth == 0 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
         }
         FObject Object(const FValue& V, int32 Fields)
         {
-            if (!V.IsValid() || V->Type != EJson::Object) return nullptr;
-            const auto O = V->AsObject();
+            const auto O = StateJsonPrivate::Object(V);
             return O.IsValid() && O->Values.Num() == Fields ? O : nullptr;
         }
-        FValue Field(const FObject& O, const TCHAR* Key) { return O.IsValid() ? O->TryGetField(Key) : nullptr; }
         bool Text(const FValue& V, FString& Out)
         {
-            return V.IsValid() && V->Type == EJson::String && V->TryGetString(Out) && Out.Len() <= 8192;
+            return StateJsonPrivate::String(V, Out) && Out.Len() <= 8192;
         }
         bool Id(const FValue& V, FString& Out) { return Text(V, Out) && Identifier(Out); }
         bool Number(const FValue& V, double& Out)
         {
-            return V.IsValid() && V->Type == EJson::Number && V->TryGetNumber(Out)
-                && std::isfinite(Out) && Out >= 0 && Out <= MaxInteger;
-        }
-        bool Integer(const FValue& V, int64& Out)
-        {
-            double N = 0;
-            if (!Number(V, N) || std::floor(N) != N) return false;
-            Out = static_cast<int64>(N);
-            return true;
-        }
-        bool Boolean(const FValue& V, bool& Out)
-        {
-            return V.IsValid() && V->Type == EJson::Boolean && V->TryGetBool(Out);
+            return StateJsonPrivate::Number(V, Out) && StateJsonPrivate::ValidTime(Out);
         }
         template <typename T> bool Enum(const FValue& V, T& Out, std::initializer_list<TPair<const TCHAR*, T>> Choices)
         {
@@ -82,9 +83,10 @@ namespace BaddieCompanion
         }
         template <typename T, typename F> bool Nullable(const FValue& V, TSocialField<T>& Out, F Read)
         {
-            if (!V.IsValid()) return false;
-            if (V->Type == EJson::Null) { Out.Presence = ESocialFieldPresence::Null; return true; }
-            if (!Read(V, Out.Value)) return false;
+            TOptional<T> Next;
+            if (!StateJsonPrivate::Nullable(V, Next, Read)) return false;
+            if (!Next.IsSet()) { Out.Presence = ESocialFieldPresence::Null; return true; }
+            Out.Value = MoveTemp(Next.GetValue());
             Out.Presence = ESocialFieldPresence::Value;
             return true;
         }
