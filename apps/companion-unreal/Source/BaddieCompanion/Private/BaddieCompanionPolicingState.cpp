@@ -1,9 +1,6 @@
 #include "BaddieCompanionPolicingState.h"
+#include "BaddieCompanionStateJson.h"
 
-#include "Dom/JsonObject.h"
-#include "Dom/JsonValue.h"
-#include "Serialization/JsonReader.h"
-#include "Serialization/JsonSerializer.h"
 #include <cmath>
 #include <initializer_list>
 
@@ -11,59 +8,22 @@ namespace BaddieCompanion
 {
     namespace PolicingStatePrivate
     {
-        using FObject = TSharedPtr<FJsonObject>;
-        using FValue = TSharedPtr<FJsonValue>;
-        constexpr int32 MaxJsonCharacters = 256 * 1024;
+        using StateJsonPrivate::FObject;
+        using StateJsonPrivate::FValue;
+        using StateJsonPrivate::Same;
+        using StateJsonPrivate::Object;
+        using StateJsonPrivate::Field;
+        using StateJsonPrivate::Only;
+        using StateJsonPrivate::Parse;
+        using StateJsonPrivate::String;
+        using StateJsonPrivate::Number;
+        using StateJsonPrivate::Nullable;
+        constexpr StateJsonPrivate::FParseLimits ParseLimits{256 * 1024, 8, 2048};
         constexpr int32 MaxEntries = 128; // COMPANION_HAUL_MAX_ENTRIES
-        constexpr double MaxInteger = 9007199254740991.0;
         constexpr double MaxDemand = 100; // companionEnforcementTuning.extortionMaximum
-        bool Same(const FString& A, const FString& B) { return A.Equals(B, ESearchCase::CaseSensitive); }
         bool SafeNonnegativeInteger(double N)
         {
-            return std::isfinite(N) && N >= 0 && N <= MaxInteger && std::floor(N) == N;
-        }
-        FObject Object(const FValue& V) { return V.IsValid() && V->Type == EJson::Object ? V->AsObject() : nullptr; }
-        FValue Field(const FObject& O, const TCHAR* Key) { return O.IsValid() ? O->TryGetField(Key) : nullptr; }
-        bool Only(const FObject& O, std::initializer_list<const TCHAR*> Keys)
-        {
-            if (!O.IsValid()) return false;
-            for (const auto& Pair : O->Values)
-            {
-                bool bKnown = false;
-                for (const auto Key : Keys) if (Same(Pair.Key, Key)) { bKnown = true; break; }
-                if (!bKnown) return false;
-            }
-            return true;
-        }
-        bool Parse(const FString& Json, FObject& Out)
-        {
-            if (Json.IsEmpty() || Json.Len() > MaxJsonCharacters) return false;
-            bool bString = false, bEscape = false;
-            int32 Depth = 0, Separators = 0;
-            for (TCHAR C : Json)
-            {
-                if (bString)
-                {
-                    if (bEscape) bEscape = false;
-                    else if (C == TEXT('\\')) bEscape = true;
-                    else if (C == TEXT('"')) bString = false;
-                    continue;
-                }
-                if (C == TEXT('"')) bString = true;
-                else if (C == TEXT('{') || C == TEXT('[')) { if (++Depth > 8) return false; }
-                else if (C == TEXT('}') || C == TEXT(']')) { if (--Depth < 0) return false; }
-                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > 2048) return false; }
-            }
-            return !bString && Depth == 0 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
-        }
-        bool String(const FValue& V, FString& Out)
-        {
-            // Preserve exact strings, including empty values permitted by the public validator.
-            return V.IsValid() && V->Type == EJson::String && V->TryGetString(Out);
-        }
-        bool Number(const FValue& V, double& Out)
-        {
-            return V.IsValid() && V->Type == EJson::Number && V->TryGetNumber(Out) && std::isfinite(Out);
+            return StateJsonPrivate::ValidTime(N) && std::floor(N) == N;
         }
         template <typename T> bool Enum(const FValue& V, T& Out, std::initializer_list<TPair<const TCHAR*, T>> Choices)
         {
@@ -71,14 +31,6 @@ namespace BaddieCompanion
             if (!String(V, S)) return false;
             for (const auto& Choice : Choices) if (Same(S, Choice.Key)) { Out = Choice.Value; return true; }
             return false;
-        }
-        template <typename T, typename F> bool Nullable(const FValue& V, TOptional<T>& Out, F Read)
-        {
-            if (!V.IsValid()) return false;
-            if (V->Type == EJson::Null) return true;
-            T Next;
-            if (!Read(V, Next)) return false;
-            Out = MoveTemp(Next); return true;
         }
         template <typename T, typename F> bool Optional(const FObject& O, const TCHAR* Key,
             TWorldPlayerField<T>& Out, bool bNullable, F Read)
@@ -151,7 +103,7 @@ namespace BaddieCompanion
                     {TEXT("weapon-possession"), EPoliceFinding::WeaponPossession}, {TEXT("observed-weapon"), EPoliceFinding::ObservedWeapon},
                     {TEXT("gunfire"), EPoliceFinding::Gunfire}})
                 && Number(Field(O, TEXT("createdAt")), Out.CreatedAtMs) && Number(Field(O, TEXT("resolvesAt")), Out.ResolvesAtMs)
-                && Nullable(Field(O, TEXT("releaseAt")), Out.ReleaseAtMs, Number)
+                && Nullable(Field(O, TEXT("releaseAt")), Out.ReleaseAtMs, [](const FValue& V, double& N) { return Number(V, N); })
                 && Nullable(Field(O, TEXT("stationPlaceId")), Out.StationPlaceId, String)
                 && Nullable(Field(O, TEXT("stationInstanceId")), Out.StationInstanceId, String)
                 && Point(Field(O, TEXT("position")), Out.Position) && String(Field(O, TEXT("evidenceKey")), Out.EvidenceKey)
@@ -159,7 +111,7 @@ namespace BaddieCompanion
                 && Optional(O, TEXT("weaponId"), Out.WeaponId, true, Weapon)
                 && Optional(O, TEXT("journeyId"), Out.JourneyId, true, String)
                 && Optional(O, TEXT("officerPosition"), Out.OfficerPosition, false, Point)
-                && Optional(O, TEXT("lastObservedAt"), Out.LastObservedAtMs, false, Number)
+                && Optional(O, TEXT("lastObservedAt"), Out.LastObservedAtMs, false, [](const FValue& V, double& N) { return Number(V, N); })
                 && Optional(O, TEXT("agency"), Out.Agency, false, Agency)
                 && Optional(O, TEXT("stopKind"), Out.StopKind, false, StopKind)
                 && Optional(O, TEXT("extortion"), Out.Extortion, true, Extortion);
@@ -199,7 +151,7 @@ namespace BaddieCompanion
     {
         using namespace PolicingStatePrivate;
         Out = {}; OutError = TEXT("Policing response is unsupported or malformed.");
-        if (Json.IsEmpty() || Json.Len() > MaxJsonCharacters
+        if (Json.IsEmpty() || Json.Len() > ParseLimits.Characters
             || (Kind != EPolicingResponseKind::Subscription && Kind != EPolicingResponseKind::Mutation)) return false;
         FPolicingDecodedResponse Next; Next.Kind = Kind;
         if (Same(Json.TrimStartAndEnd(), TEXT("null")))
@@ -209,7 +161,7 @@ namespace BaddieCompanion
         if (Kind == EPolicingResponseKind::Mutation) return false;
         FObject O;
         FPoliceEncounter Candidate;
-        if (!Parse(Json, O) || !Encounter(O, Candidate)) return false;
+        if (!Parse(Json, O, ParseLimits) || !Encounter(O, Candidate)) return false;
         Next.Encounter = MakeShared<FPoliceEncounter>(MoveTemp(Candidate));
         Next.bHasEncounter = true; Next.bValid = true; Out = MoveTemp(Next); OutError.Reset(); return true;
     }
