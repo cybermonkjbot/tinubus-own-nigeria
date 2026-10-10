@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
+#include "BaddieCompanionHomePresentation.h"
 #include "BaddieCompanionSnapshot.h"
 #include "BaddieCompanionSlicePlayerController.generated.h"
 
@@ -25,6 +26,8 @@ public:
     void CancelConnectionAction();
     void HandleConnectionEscape();
     void RefreshConnectionPresentation();
+    // Rechecks the live snapshot grant; clears Out on failure. Never grants gameplay access.
+    bool CopyHomePresentation(BaddieCompanion::FHomePresentationPlan& Out);
     bool IsInspectionPointerCaptured() const { return bPointerCaptured; }
 
 protected:
@@ -51,6 +54,7 @@ private:
     TSharedPtr<SWidget> ViewportPanel;
     // Process-memory only; preserve IDs and Home/active-room data without serialization or logging.
     TOptional<BaddieCompanion::FSnapshotSelection> RetainedSelection;
+    BaddieCompanion::FHomePresentationCache HomePresentation;
     TOptional<EBaddieConnectionAction> PendingAction;
     FString PendingDeviceName;
     bool bOfflineInspection = false;

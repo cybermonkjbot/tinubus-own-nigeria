@@ -12,6 +12,7 @@ class SBorder;
 class SEditableTextBox;
 class SScrollBox;
 class STextBlock;
+namespace BaddieCompanion { struct FHomePresentationPlan; }
 
 /** One client-only connection/Home surface. No credentials, snapshot JSON, IDs or asset creation. */
 class SBaddieCompanionConnectionPanel : public SCompoundWidget
@@ -23,7 +24,8 @@ public:
 
     void Construct(const FArguments& Args);
     void PresentConnection(const BaddieCompanion::FConnectionView& View,
-        const BaddieCompanion::FSnapshotSelection* Selection);
+        const BaddieCompanion::FSnapshotSelection* Selection,
+        const BaddieCompanion::FHomePresentationPlan* Presentation = nullptr);
     void PresentOffline(const BaddieCompanion::FSnapshotSelection* Selection,
         const FString& Status, bool bCaptured);
     void ClearPrivatePresentation();

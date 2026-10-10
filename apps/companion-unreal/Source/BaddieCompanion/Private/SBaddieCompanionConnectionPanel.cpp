@@ -1,6 +1,7 @@
 #include "SBaddieCompanionConnectionPanel.h"
 
 #include "BaddieCompanionConnectionUi.h"
+#include "BaddieCompanionHomePresentation.h"
 #include "BaddieCompanionSlicePlayerController.h"
 #include "Framework/Application/SlateApplication.h"
 #include "Framework/Text/TextLayout.h"
@@ -171,7 +172,8 @@ void SBaddieCompanionConnectionPanel::SetVisible(const TSharedPtr<SWidget>& Targ
 }
 
 void SBaddieCompanionConnectionPanel::PresentConnection(
-    const BaddieCompanion::FConnectionView& View, const BaddieCompanion::FSnapshotSelection* Selection)
+    const BaddieCompanion::FConnectionView& View, const BaddieCompanion::FSnapshotSelection* Selection,
+    const BaddieCompanion::FHomePresentationPlan* Presentation)
 {
     const bool bChanged = bOffline || State != View.State || bHasSelection != (Selection != nullptr);
     bOffline = false;
@@ -220,7 +222,9 @@ void SBaddieCompanionConnectionPanel::PresentConnection(
     SetText(ActiveRoomText, Selection ? (Selection->ActiveRoom.Id.Equals(Selection->HomeRoom.Id, ESearchCase::CaseSensitive)
         ? TEXT("Selected room: Home") : TEXT("Selected room: ") + Selection->ActiveRoom.Name) : FString());
     SetText(UnsupportedText, Selection
-        ? TEXT("Saved Companion appearance and Home mapping are not supported yet. Gameplay entry is not available.") : FString());
+        ? (!Presentation ? TEXT("Saved Home or Companion data is invalid. Gameplay entry is not available.")
+            : !Presentation->Home.bSourceMapped ? TEXT("This saved Home layout is not supported yet. Gameplay entry is not available.")
+            : TEXT("Saved Home and Companion assets are not available yet. Gameplay entry is not available.")) : FString());
     SetVisible(ConnectButton, bCanRequest);
     SetVisible(CopyButton, bApproval && !View.ApprovalLink.IsEmpty());
     SetVisible(CancelButton, bPending);
