@@ -17,17 +17,20 @@ namespace BaddieCompanion
         None, OwnerUnavailable, SourceMismatch, InvalidBinding, UnsupportedRecipe,
         ParameterUnavailable, MaterialChanged, InstanceUnavailable
     };
-    struct FNativeCharacterMaterialBinding
+    struct FNativeCharacterMaterialSlot
     {
         // Trusted imported content, not names or paths derived from a saved appearance.
         FString SourceMaterialName;
-        TWeakObjectPtr<UMeshComponent> Component;
         TSoftObjectPtr<UObject> MeshAsset;
         TSoftObjectPtr<UMaterialInterface> AuthoredMaterial;
         FName MaterialSlot, ColorParameter, IrisEnabledParameter;
         // BaseColorFactor replaces the source material factor, not its texture.
         // IrisLuminanceTint requires the source luminance formula in the native material graph.
         ENativeCharacterColorRecipe Recipe = ENativeCharacterColorRecipe::BaseColorFactor;
+    };
+    struct FNativeCharacterMaterialBinding : FNativeCharacterMaterialSlot
+    {
+        TWeakObjectPtr<UMeshComponent> Component;
     };
     struct FNativeCharacterMaterialContent
     {
