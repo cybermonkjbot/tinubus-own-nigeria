@@ -107,7 +107,9 @@ private:
     // Deliberately private and without a token producer. Read-only Home is not power admission.
     bool AcceptScenePower(const BaddieCompanion::FAcceptedApartmentScenePower& Accepted);
     void PollScenePower();
-    void ClearScenePower();
+    enum class EScenePowerClear : uint8 { RestoreSavedLighting, SuppressOutput };
+    void ClearScenePower(EScenePowerClear Mode);
+    bool RestoreSavedLighting();
     bool PrepareRoomFurniture(int32 Index);
     bool PrepareHomeCharacter(int32 Index);
     bool ValidateLoadedAnchors(int32 Index);
@@ -148,6 +150,7 @@ private:
     };
     TArray<FRetainedScenePower> ScenePower;
     bool bClearingPower = false, bApplyingPower = false;
+    bool bPowerSuppressionRequested = false, bUseSavedLighting = false;
     uint64 PowerGeneration = 0;
     BaddieCompanion::FNativeApartmentStatus Status;
 };

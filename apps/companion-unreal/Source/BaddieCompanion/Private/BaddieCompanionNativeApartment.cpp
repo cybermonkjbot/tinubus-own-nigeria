@@ -150,7 +150,7 @@ void UBaddieCompanionNativeApartment::ClearPrivateContent()
     ++ContentGeneration;
     if (bClearing) return;
     TGuardValue<bool> Clearing(bClearing, true);
-    ClearScenePower();
+    ClearScenePower(EScenePowerClear::SuppressOutput);
     bool bFurnitureDestroyFailed = false;
     bool bCharacterDestroyFailed = false;
     if (CharacterAssetLoad.IsValid())
@@ -237,31 +237,97 @@ void UBaddieCompanionNativeApartment::ObserveValidPresentation(const BaddieCompa
     // Do not retain another full plan on controller ticks unless actual content was prepared.
 }
 
-void UBaddieCompanionNativeApartment::ClearScenePower()
+void UBaddieCompanionNativeApartment::ClearScenePower(EScenePowerClear Mode)
 {
     if (PowerGeneration == MAX_uint64) bContentGenerationExhausted = true;
     ++PowerGeneration;
     ScenePower.Reset();
     AddGap(BaddieCompanion::ENativeApartmentGap::ScenePowerUnavailable);
+    // A nested teardown wins over restoration, including after an earlier lamp was restored.
+    if (Mode == EScenePowerClear::SuppressOutput) bPowerSuppressionRequested = true;
+    bUseSavedLighting = false;
     if (bClearingPower) return;
     TGuardValue<bool> Clearing(bClearingPower, true);
+    bPowerSuppressionRequested = Mode == EScenePowerClear::SuppressOutput;
+    const uint64 Generation = ContentGeneration, Power = PowerGeneration;
     const auto CurrentFurniture = Furniture;
     for (const auto& Owned : CurrentFurniture)
         if (IsValid(Owned.Get())) Owned->SuppressPower();
+    if (Mode == EScenePowerClear::SuppressOutput) return;
+    const bool bRestored = !bPowerSuppressionRequested && Generation == ContentGeneration
+        && Power == PowerGeneration && RestoreSavedLighting();
+    if (bRestored) { bUseSavedLighting = true; return; }
+    // Acceptance/polling is blocked throughout both passes. A callback cannot relight an
+    // already visited lamp while another lamp is still being suppressed or disposed.
+    for (const auto& Owned : CurrentFurniture)
+        if (IsValid(Owned.Get())) Owned->SuppressPower();
+    bUseSavedLighting = !bPowerSuppressionRequested && Generation == ContentGeneration
+        && !bClearing && !bEndingPlay && !bContentGenerationExhausted && IsRegistered()
+        && Source.IsSet() && Presentation.IsSet();
+}
+
+bool UBaddieCompanionNativeApartment::RestoreSavedLighting()
+{
+    // Baseline restoration is not an accepted utility event. Only an already retained native
+    // presentation may use it; no actor, mesh or level is made visible here.
+    if (bPowerSuppressionRequested || bClearing || bEndingPlay || bContentGenerationExhausted
+        || !IsRegistered() || !Source.IsSet() || !Presentation.IsSet()
+        || !BaddieCompanion::SamePresentationInput(Source.GetValue(), Presentation->Source))
+    { bPowerSuppressionRequested = true; return false; }
+    const auto IsCurrent = [&](ABaddieCompanionFurnitureActor* Actor)
+    {
+        if (!IsValid(Actor) || Actor->GetOwner() != GetOwner() || Actor->GetWorld() != GetWorld()
+            || !Actor->bConfigured || Actor->bDiscarded || Actor->IsActorBeingDestroyed())
+            return false;
+        const int32 Index = Bindings.IndexOfByPredicate([&](const auto& Binding)
+            { return Binding.Endpoint.RoomId.Equals(Actor->RoomId, ESearchCase::CaseSensitive); });
+        auto* Stream = Streams.IsValidIndex(Index) ? Streams[Index].Get() : nullptr;
+        if (!IsValid(Stream) || Stream->GetLevelStreamingState() != ELevelStreamingState::LoadedVisible
+            || !IsValid(Stream->GetLoadedLevel()) || Stream->GetLoadedLevel()->GetWorld() != GetWorld()
+            || Stream->GetLoadedLevel() != Actor->GetLevel()
+            || !FurniturePrepared.IsValidIndex(Index) || !FurniturePrepared[Index])
+            return false;
+        const auto* Room = Presentation->Rooms.FindByPredicate([&](const auto& Value)
+            { return Value.Id.Equals(Actor->RoomId, ESearchCase::CaseSensitive); });
+        return Room && Room->Items.ContainsByPredicate([&](const auto& Item)
+            { return Item.Id.Equals(Actor->ItemId, ESearchCase::CaseSensitive); });
+    };
+    const auto Actors = Furniture;
+    for (const auto& Owned : Actors)
+    {
+        if (!IsCurrent(Owned.Get())) { bPowerSuppressionRequested = true; return false; }
+        // An ordinary utility clear can run inside a material/light setter. Retry through the
+        // existing owner poll after that stack unwinds, never through a recursive setter.
+        if (Owned->bChangingPresentation) return false;
+    }
+    const uint64 Generation = ContentGeneration, Power = PowerGeneration;
+    for (const auto& Owned : Actors)
+    {
+        if (!IsCurrent(Owned.Get())) { bPowerSuppressionRequested = true; return false; }
+        const bool bRestored = Owned->ApplyScenePower(1.f);
+        if (!bRestored || bPowerSuppressionRequested || Generation != ContentGeneration || Power != PowerGeneration)
+            return false;
+    }
+    // A later setter can affect a level used by an earlier actor without replacing its IDs.
+    for (const auto& Owned : Actors)
+        if (!IsCurrent(Owned.Get())) { bPowerSuppressionRequested = true; return false; }
+    return true;
 }
 
 bool UBaddieCompanionNativeApartment::AcceptScenePower(
     const BaddieCompanion::FAcceptedApartmentScenePower& Accepted)
 {
     check(IsInGameThread());
+    if (bClearingPower || bApplyingPower) return false;
     // An old callback must not clear or relight a replacement apartment, even with identical IDs.
     if (Accepted.Apartment.Get() != this || Accepted.ContentGeneration != ContentGeneration
         || Accepted.PowerGeneration != PowerGeneration) return false;
-    if (bClearing || bEndingPlay || bContentGenerationExhausted || bApplyingPower || !IsRegistered()
+    if (bClearing || bEndingPlay || bContentGenerationExhausted || !IsRegistered()
         || !Source.IsSet() || !Presentation.IsSet()
-        || !BaddieCompanion::SamePresentationInput(Source.GetValue(), Accepted.Source)
-        || !Accepted.Scope.IsSupported())
-    { ClearScenePower(); return false; }
+        || !BaddieCompanion::SamePresentationInput(Source.GetValue(), Accepted.Source))
+    { ClearScenePower(EScenePowerClear::SuppressOutput); return false; }
+    if (!Accepted.Scope.IsSupported())
+    { ClearScenePower(EScenePowerClear::RestoreSavedLighting); return false; }
     // The sealed input has no current producer. Matching a read-only snapshot alone cannot mint it.
     int32 MatchingLevels = 0;
     for (int32 I = 0; I < Bindings.Num(); ++I)
@@ -271,7 +337,7 @@ bool UBaddieCompanionNativeApartment::AcceptScenePower(
             && FurniturePrepared.IsValidIndex(I) && FurniturePrepared[I]) ++MatchingLevels;
     if (MatchingLevels != 1 || !Presentation->Rooms.ContainsByPredicate([&](const auto& Room)
         { return Room.Id.Equals(Accepted.Scope.RoomId, ESearchCase::CaseSensitive); }))
-    { ClearScenePower(); return false; }
+    { ClearScenePower(EScenePowerClear::RestoreSavedLighting); return false; }
     float Factor = 0;
     const double Now = FPlatformTime::Seconds();
     if (!FMath::IsFinite(Accepted.SampledAtSeconds) || Accepted.SampledAtSeconds <= 0
@@ -279,16 +345,20 @@ bool UBaddieCompanionNativeApartment::AcceptScenePower(
         || std::floor((Now - Accepted.SampledAtSeconds) * 1000) > 60000
         || !BaddieCompanion::ProjectScenePowerFactor(Accepted.Sample,
             Accepted.Sample.SampledAtRealMs, Accepted.bReducedMotion, Factor))
-    { ClearScenePower(); return false; }
+    { ClearScenePower(EScenePowerClear::RestoreSavedLighting); return false; }
     auto* Prior = ScenePower.FindByPredicate([&](const auto& Entry)
         { return Entry.Scope.RoomId.Equals(Accepted.Scope.RoomId, ESearchCase::CaseSensitive); });
     if (Prior)
     {
         // Replays cannot extend freshness. A changed visit/zone requires explicit owner invalidation.
-        if (!Prior->Scope.Matches(Accepted.Scope)) { ClearScenePower(); return false; }
-        if (Accepted.Sample.SampledAtRealMs <= Prior->Sample.SampledAtRealMs
-            || Accepted.Sample.ObservedAtRealMs < Prior->Sample.ObservedAtRealMs
-            || Accepted.Sample.SampledAtRealMs < Prior->LastDisplayRealMs) return false;
+        if (!Prior->Scope.Matches(Accepted.Scope))
+        { ClearScenePower(EScenePowerClear::RestoreSavedLighting); return false; }
+        if (Accepted.Sample.SampledAtRealMs < Prior->Sample.SampledAtRealMs
+            || Accepted.Sample.ObservedAtRealMs < Prior->Sample.ObservedAtRealMs)
+        { ClearScenePower(EScenePowerClear::RestoreSavedLighting); return false; }
+        if (Accepted.Sample.SampledAtRealMs == Prior->Sample.SampledAtRealMs) return false;
+        if (Accepted.Sample.SampledAtRealMs < Prior->LastDisplayRealMs)
+        { ClearScenePower(EScenePowerClear::RestoreSavedLighting); return false; }
     }
     FRetainedScenePower Next;
     Next.Scope = Accepted.Scope; Next.Sample = Accepted.Sample;
@@ -297,16 +367,31 @@ bool UBaddieCompanionNativeApartment::AcceptScenePower(
     Next.bReducedMotion = Accepted.bReducedMotion;
     if (Prior) *Prior = MoveTemp(Next);
     else ScenePower.Add(MoveTemp(Next));
+    bUseSavedLighting = false;
     PollScenePower();
     return ScenePower.ContainsByPredicate([&](const auto& Entry) { return Entry.Scope.Matches(Accepted.Scope); });
 }
 
 void UBaddieCompanionNativeApartment::PollScenePower()
 {
-    if (ScenePower.IsEmpty()) return;
-    if (bClearing || bEndingPlay || bContentGenerationExhausted || bApplyingPower || !IsRegistered()
+    if (bClearingPower || bApplyingPower) return;
+    if (ScenePower.IsEmpty())
+    {
+        if (!bUseSavedLighting) return;
+        bool bRestored = false;
+        {
+            // Keep checking ownership after fallback too. This does not mint a utility sample,
+            // refresh its age or invalidate an incoming token on every ordinary controller tick.
+            TGuardValue<bool> Clearing(bClearingPower, true);
+            bRestored = RestoreSavedLighting();
+        }
+        if (!bRestored) ClearScenePower(bPowerSuppressionRequested
+            ? EScenePowerClear::SuppressOutput : EScenePowerClear::RestoreSavedLighting);
+        return;
+    }
+    if (bClearing || bEndingPlay || bContentGenerationExhausted || !IsRegistered()
         || !Source.IsSet() || !Presentation.IsSet())
-    { ClearScenePower(); return; }
+    { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
     TGuardValue<bool> Applying(bApplyingPower, true);
     const uint64 Generation = ContentGeneration, Power = PowerGeneration;
     const double Now = FPlatformTime::Seconds();
@@ -317,40 +402,40 @@ void UBaddieCompanionNativeApartment::PollScenePower()
     {
         const double ElapsedMs = std::floor((Now - Entry.SampledAtSeconds) * 1000);
         if (!FMath::IsFinite(ElapsedMs) || ElapsedMs < 0 || ElapsedMs > 60000)
-        { ClearScenePower(); return; }
+        { ClearScenePower(EScenePowerClear::RestoreSavedLighting); return; }
         const int64 SharedNow = Entry.Sample.SampledAtRealMs + static_cast<int64>(ElapsedMs);
         float Factor = 0;
         if (SharedNow < Entry.LastDisplayRealMs || !BaddieCompanion::ProjectScenePowerFactor(
             Entry.Sample, SharedNow, Entry.bReducedMotion, Factor))
-        { ClearScenePower(); return; }
+        { ClearScenePower(EScenePowerClear::RestoreSavedLighting); return; }
         const int32 Index = Bindings.IndexOfByPredicate([&](const auto& Binding)
             { return Binding.Endpoint.RoomId.Equals(Entry.Scope.RoomId, ESearchCase::CaseSensitive); });
         auto* Stream = Streams.IsValidIndex(Index) ? Streams[Index].Get() : nullptr;
         auto* Level = IsValid(Stream) ? Stream->GetLoadedLevel() : nullptr;
-        // A hidden/removing/unloaded level must receive a fresh accepted frame before relighting.
+        // Hidden/removing/unloaded levels lose utility state without making content visible.
         if (!IsValid(Level) || Level->GetWorld() != GetWorld()
             || Stream->GetLevelStreamingState() != ELevelStreamingState::LoadedVisible)
-        { ClearScenePower(); return; }
+        { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
         const auto* Room = Presentation->Rooms.FindByPredicate([&](const auto& Value)
             { return Value.Id.Equals(Entry.Scope.RoomId, ESearchCase::CaseSensitive); });
-        if (!Room) { ClearScenePower(); return; }
+        if (!Room) { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
         // Do not hold Room across a native callback.
         const auto Items = Room->Items;
         for (const auto& Owned : Actors)
         {
             auto* Actor = Owned.Get();
-            if (!IsValid(Actor)) { ClearScenePower(); return; }
+            if (!IsValid(Actor)) { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
             if (!Actor->RoomId.Equals(Entry.Scope.RoomId, ESearchCase::CaseSensitive)) continue;
             if (Actor->GetOwner() != GetOwner() || Actor->GetWorld() != GetWorld() || Actor->GetLevel() != Level
                 || !Items.ContainsByPredicate([&](const auto& Item)
                     { return Item.Id.Equals(Actor->ItemId, ESearchCase::CaseSensitive); }))
-            { ClearScenePower(); return; }
+            { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
             const bool bApplied = Actor->ApplyScenePower(Factor);
             if (ContentGeneration != Generation || PowerGeneration != Power) return;
-            if (!bApplied) { ClearScenePower(); return; }
+            if (!bApplied) { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
         }
         auto* Retained = ScenePower.FindByPredicate([&](const auto& Value) { return Value.Scope.Matches(Entry.Scope); });
-        if (!Retained) { ClearScenePower(); return; }
+        if (!Retained) { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
         Retained->LastDisplayRealMs = SharedNow;
     }
 }
