@@ -12,7 +12,7 @@ namespace BaddieCompanion
         constexpr int32 MaxPathPoints = 32;
         constexpr int64 MaxSafeInteger = 9007199254740991LL;
 
-        double Angle(double Value)
+        double NormalizeAngleRadians(double Value)
         {
             return std::atan2(std::sin(Value), std::cos(Value));
         }
@@ -47,13 +47,13 @@ namespace BaddieCompanion
 
         struct FTravelProfile
         {
-            double Start = 0;
-            double Ramp = 0;
-            double RampDistance = 0;
-            double Peak = 0;
-            double Cruise = 0;
-            double Acceleration = 0;
-            double Duration = 0;
+            double StartSpeedMps = 0;
+            double RampDurationSeconds = 0;
+            double RampDistanceMetres = 0;
+            double PeakSpeedMps = 0;
+            double CruiseDurationSeconds = 0;
+            double AccelerationMps2 = 0;
+            double DurationSeconds = 0;
         };
 
         FTravelProfile Travel(double Distance, double InitialSpeed, EMovementPace Pace)
@@ -105,19 +105,19 @@ namespace BaddieCompanion
                 if (!std::isfinite(Distance)) return false;
                 if (Distance < .000001) continue;
                 const double Heading = std::atan2(Dx, Dz);
-                const double Turn = Angle(Heading - Position.YawRadians);
+                const double Turn = NormalizeAngleRadians(Heading - Position.YawRadians);
                 const double TurnDuration = std::abs(Turn) / TurnSpeed;
                 const FTravelProfile Profile = Travel(Distance,
                     TurnDuration < .001 ? InitialSpeed : 0, Movement.Pace);
-                if (!std::isfinite(Profile.Duration)) return false;
+                if (!std::isfinite(Profile.DurationSeconds)) return false;
                 const FMovementPose Next{Point.X, Point.Z, Heading};
                 Out.Segments.Add(FMovementSegment{Position, Next, Distance, Turn, TurnDuration, Profile});
-                Seconds += TurnDuration + Profile.Duration;
+                Seconds += TurnDuration + Profile.DurationSeconds;
                 InitialSpeed = 0;
                 Position = Next;
             }
             Out.Last = Position;
-            Out.FinalTurn = Angle(Movement.YawRadians - Position.YawRadians);
+            Out.FinalTurn = NormalizeAngleRadians(Movement.YawRadians - Position.YawRadians);
             Out.FinalTurnDuration = std::abs(Out.FinalTurn) / TurnSpeed;
             Out.EndsAtMs = Movement.StartedAtMs + (Seconds + Out.FinalTurnDuration) * 1000;
             return std::isfinite(Out.EndsAtMs);
@@ -134,23 +134,23 @@ namespace BaddieCompanion
                 if (Seconds < Segment.TurnDuration)
                 {
                     Out = {Segment.From, true, 0};
-                    Out.Position.YawRadians = Angle(Segment.From.YawRadians
+                    Out.Position.YawRadians = NormalizeAngleRadians(Segment.From.YawRadians
                         + Segment.Turn * Seconds / Segment.TurnDuration);
                     return true;
                 }
                 Seconds -= Segment.TurnDuration;
                 const FTravelProfile& Profile = Segment.Profile;
-                if (Seconds < Profile.Duration)
+                if (Seconds < Profile.DurationSeconds)
                 {
-                    const bool bRamping = Seconds < Profile.Ramp;
-                    const bool bCruising = Seconds < Profile.Ramp + Profile.Cruise;
-                    const double Remaining = Profile.Duration - Seconds;
-                    const double Speed = bRamping ? Profile.Start + Profile.Acceleration * Seconds
-                        : bCruising ? Profile.Peak : Profile.Acceleration * Remaining;
+                    const bool bRamping = Seconds < Profile.RampDurationSeconds;
+                    const bool bCruising = Seconds < Profile.RampDurationSeconds + Profile.CruiseDurationSeconds;
+                    const double Remaining = Profile.DurationSeconds - Seconds;
+                    const double Speed = bRamping ? Profile.StartSpeedMps + Profile.AccelerationMps2 * Seconds
+                        : bCruising ? Profile.PeakSpeedMps : Profile.AccelerationMps2 * Remaining;
                     const double Walked = bRamping
-                        ? Profile.Start * Seconds + .5 * Profile.Acceleration * (Seconds * Seconds)
-                        : bCruising ? Profile.RampDistance + Profile.Peak * (Seconds - Profile.Ramp)
-                        : Segment.Distance - .5 * Profile.Acceleration * (Remaining * Remaining);
+                        ? Profile.StartSpeedMps * Seconds + .5 * Profile.AccelerationMps2 * (Seconds * Seconds)
+                        : bCruising ? Profile.RampDistanceMetres + Profile.PeakSpeedMps * (Seconds - Profile.RampDurationSeconds)
+                        : Segment.Distance - .5 * Profile.AccelerationMps2 * (Remaining * Remaining);
                     const FMovementPose Position{
                         Segment.From.X + (Segment.To.X - Segment.From.X) * Walked / Segment.Distance,
                         Segment.From.Z + (Segment.To.Z - Segment.From.Z) * Walked / Segment.Distance,
@@ -159,11 +159,11 @@ namespace BaddieCompanion
                     Out = {Position, true, Speed};
                     return true;
                 }
-                Seconds -= Profile.Duration;
+                Seconds -= Profile.DurationSeconds;
             }
             Out = {Route.Last, Seconds < Route.FinalTurnDuration, 0};
             Out.Position.YawRadians = Out.bMoving
-                ? Angle(Route.Last.YawRadians + Route.FinalTurn * Seconds / Route.FinalTurnDuration)
+                ? NormalizeAngleRadians(Route.Last.YawRadians + Route.FinalTurn * Seconds / Route.FinalTurnDuration)
                 : Movement.YawRadians;
             return true;
         }
@@ -212,7 +212,7 @@ namespace BaddieCompanion
         double At = Movement.StartedAtMs;
         for (const FMovementSegment& Segment : Route.Segments)
         {
-            At += (Segment.TurnDuration + Segment.Profile.Duration) * 1000;
+            At += (Segment.TurnDuration + Segment.Profile.DurationSeconds) * 1000;
             if (At > FromAtMs && At < ToAtMs) OutPositions.Add(Segment.To);
             if (At >= ToAtMs) break;
         }
