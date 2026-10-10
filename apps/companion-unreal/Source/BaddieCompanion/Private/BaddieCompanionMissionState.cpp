@@ -2,6 +2,8 @@
 #include "BaddieCompanionStateJson.h"
 
 #include "Containers/SharedString.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 
 namespace BaddieCompanion
 {
@@ -181,6 +183,75 @@ namespace BaddieCompanion
         {
             return RunValue.HasValue() ? RunValue.Value.Revision : -1;
         }
+
+        bool EncodeCommand(const FMissionCommand& Command, const FString& GameRoomId, FString& Out)
+        {
+            const TCHAR* Type = nullptr;
+            switch (Command.Type)
+            {
+            case EMissionCommandType::Resume: Type = TEXT("resume"); break;
+            case EMissionCommandType::Start: Type = TEXT("start"); break;
+            case EMissionCommandType::Join: Type = TEXT("join"); break;
+            case EMissionCommandType::SetReady: Type = TEXT("set-ready"); break;
+            case EMissionCommandType::TransferLead: Type = TEXT("transfer-lead"); break;
+            case EMissionCommandType::Choose: Type = TEXT("choose"); break;
+            case EMissionCommandType::Begin: Type = TEXT("begin"); break;
+            case EMissionCommandType::Advance: Type = TEXT("advance"); break;
+            case EMissionCommandType::Skip: Type = TEXT("skip"); break;
+            case EMissionCommandType::Retry: Type = TEXT("retry"); break;
+            case EMissionCommandType::Leave: Type = TEXT("leave"); break;
+            default: return false;
+            }
+            // Native revisions are integers by type; validate presence and the wire range.
+            const auto ValidRevision = [](const TOptional<int64>& Value)
+                { return Value.IsSet() && *Value >= 0 && *Value <= MaxInteger; };
+            const auto Value = MakeShared<FJsonObject>();
+            Value->SetStringField(TEXT("type"), Type);
+            if (Command.Type == EMissionCommandType::Start)
+            {
+                if (!Identifier(Command.MissionId) || !Command.WithCrew.IsSet()) return false;
+                Value->SetStringField(TEXT("missionId"), Command.MissionId);
+                Value->SetBoolField(TEXT("withCrew"), *Command.WithCrew);
+                if (Command.Pickup.IsSet())
+                {
+                    if (!Identifier(Command.Pickup->InstanceId) || !ValidRevision(Command.Pickup->Revision)) return false;
+                    const auto Pickup = MakeShared<FJsonObject>();
+                    Pickup->SetStringField(TEXT("instanceId"), Command.Pickup->InstanceId);
+                    Pickup->SetNumberField(TEXT("revision"), static_cast<double>(*Command.Pickup->Revision));
+                    Value->SetObjectField(TEXT("pickup"), Pickup);
+                }
+            }
+            else if (Command.Type != EMissionCommandType::Resume)
+            {
+                if (!Identifier(Command.RunId)) return false;
+                Value->SetStringField(TEXT("runId"), Command.RunId);
+                if (Command.Type == EMissionCommandType::SetReady)
+                {
+                    if (!ValidRevision(Command.ReadinessRevision) || !Command.Ready.IsSet()) return false;
+                    Value->SetNumberField(TEXT("readinessRevision"), static_cast<double>(*Command.ReadinessRevision));
+                    Value->SetBoolField(TEXT("ready"), *Command.Ready);
+                }
+                else if (Command.Type != EMissionCommandType::Join)
+                {
+                    if (!ValidRevision(Command.Revision)) return false;
+                    Value->SetNumberField(TEXT("revision"), static_cast<double>(*Command.Revision));
+                    if (Command.Type == EMissionCommandType::TransferLead)
+                    {
+                        if (!Identifier(Command.UserId)) return false;
+                        Value->SetStringField(TEXT("userId"), Command.UserId);
+                    }
+                    else if (Command.Type == EMissionCommandType::Choose)
+                    {
+                        if (!Identifier(Command.ChoiceId)) return false;
+                        Value->SetStringField(TEXT("choiceId"), Command.ChoiceId);
+                    }
+                }
+            }
+            const auto Arguments = MakeShared<FJsonObject>();
+            Arguments->SetStringField(TEXT("gameRoomId"), GameRoomId);
+            Arguments->SetObjectField(TEXT("command"), Value);
+            return FJsonSerializer::Serialize(Arguments, TJsonWriterFactory<>::Create(&Out));
+        }
     }
 
     bool DecodeMissionSnapshot(const FString& Json, FMissionSnapshotWire& Out, FString& OutError)
@@ -221,8 +292,8 @@ namespace BaddieCompanion
 
     void FMissionState::RetireCallbacks()
     {
-        PendingRequest = 0;
-        State.bBusy = false;
+        ReleaseMutation();
+        bResumed = false;
         if (Generation == MAX_uint64)
         {
             bDisposed = true;
@@ -232,6 +303,14 @@ namespace BaddieCompanion
         }
         ++Generation;
         Updates = 0;
+    }
+
+    void FMissionState::ReleaseMutation()
+    {
+        CommandDispatch.Reset();
+        bCommandDispatched = false;
+        PendingRequest = 0;
+        State.bBusy = false;
     }
 
     void FMissionState::Reload()
@@ -299,6 +378,14 @@ namespace BaddieCompanion
     EMissionResponseDisposition FMissionState::Observe(const FMissionObservationToken& Token,
         const FString& Json, double ReceivedAtMs)
     {
+        FMissionResumeObservation Ignored;
+        return Observe(Token, Json, ReceivedAtMs, Ignored);
+    }
+
+    EMissionResponseDisposition FMissionState::Observe(const FMissionObservationToken& Token,
+        const FString& Json, double ReceivedAtMs, FMissionResumeObservation& Out)
+    {
+        Out = {};
         if (!IsCurrent(Token)) return EMissionResponseDisposition::Ignored;
         FMissionSnapshotWire Wire;
         FString Error;
@@ -309,7 +396,14 @@ namespace BaddieCompanion
                 ? EMissionStateError::InvalidReceiptTime : EMissionStateError::InvalidSnapshot;
             return EMissionResponseDisposition::Invalid;
         }
-        return Accept(MoveTemp(Wire), ReceivedAtMs) ? EMissionResponseDisposition::Applied : EMissionResponseDisposition::Retained;
+        const bool bObservedRun = Wire.Run.HasValue();
+        const bool bApplied = Accept(MoveTemp(Wire), ReceivedAtMs);
+        if (bObservedRun && IsCurrent(Token))
+        {
+            Out.Observation = Token;
+            Out.Consumed = MakeShared<bool>(false);
+        }
+        return bApplied ? EMissionResponseDisposition::Applied : EMissionResponseDisposition::Retained;
     }
 
     bool FMissionState::ObserveFailure(const FMissionObservationToken& Token)
@@ -343,14 +437,13 @@ namespace BaddieCompanion
         const FString& Json, double ReceivedAtMs)
     {
         using namespace MissionStatePrivate;
-        if (!IsCurrent(Receipt)) return EMissionResponseDisposition::Ignored;
+        if (!IsCurrent(Receipt) || (CommandDispatch.IsSet() && !bCommandDispatched)) return EMissionResponseDisposition::Ignored;
         FMissionSnapshotWire Wire;
         FString Error;
         if (!ValidTime(ReceivedAtMs) || !DecodeMissionSnapshot(Json, Wire, Error))
         {
             State.Error = !ValidTime(ReceivedAtMs) ? EMissionStateError::InvalidReceiptTime : EMissionStateError::InvalidSnapshot;
-            State.bBusy = false;
-            PendingRequest = 0;
+            ReleaseMutation();
             return EMissionResponseDisposition::Invalid;
         }
         EMissionResponseDisposition Result = EMissionResponseDisposition::Retained;
@@ -363,17 +456,73 @@ namespace BaddieCompanion
             // an older same-run revision. Wall-clock changes do not become request ordering.
             if (!bDisposed) State.ServerOffsetMs = ServerTime - (Receipt.BeganAtMs + ReceivedAtMs) / 2;
         }
-        State.bBusy = false;
-        PendingRequest = 0;
+        ReleaseMutation();
         return Result;
     }
 
     bool FMissionState::FinishMutationFailure(const FMissionMutationReceipt& Receipt)
     {
-        if (!IsCurrent(Receipt)) return false;
+        if (!IsCurrent(Receipt) || (CommandDispatch.IsSet() && !bCommandDispatched)) return false;
         State.Error = EMissionStateError::MutationFailed;
-        State.bBusy = false;
-        PendingRequest = 0;
+        ReleaseMutation();
+        return true;
+    }
+
+    bool FMissionState::PrepareCommand(const FMissionCommand& Command, double BeganAtMs, FMissionMutationReceipt& Out)
+    {
+        Out = {};
+        if (bDisposed || State.bBusy || SelectedRoom.IsEmpty()) return false;
+        // Keep the accepted invalid-start-time diagnostic without minting a request.
+        if (!MissionStatePrivate::ValidTime(BeganAtMs))
+        {
+            State.Error = EMissionStateError::InvalidReceiptTime;
+            return false;
+        }
+        FMissionDispatch Dispatch;
+        if (!MissionStatePrivate::EncodeCommand(Command, SelectedRoom, Dispatch.ArgumentsJson))
+        {
+            State.Error = EMissionStateError::InvalidCommand;
+            return false;
+        }
+        if (!BeginObservedMutation(BeganAtMs, Out)) return false;
+        CommandDispatch = MoveTemp(Dispatch);
+        bCommandDispatched = false;
+        return true;
+    }
+
+    bool FMissionState::PrepareObservedResume(const FMissionResumeObservation& Observation,
+        double BeganAtMs, FMissionMutationReceipt& Out)
+    {
+        Out = {};
+        if (!IsCurrent(Observation.Observation) || !Observation.Consumed.IsValid() || *Observation.Consumed) return false;
+        // Consume the callback's check even on busy refusal. A later observation may
+        // still try, but copies of this one cannot defer its check until a request ends.
+        if (bResumed || State.bBusy)
+        {
+            *Observation.Consumed = true;
+            return false;
+        }
+        FMissionCommand Resume;
+        Resume.Type = EMissionCommandType::Resume;
+        if (!PrepareCommand(Resume, BeganAtMs, Out)) return false;
+        *Observation.Consumed = true;
+        bResumed = true;
+        return true;
+    }
+
+    bool FMissionState::MarkCommandDispatched(const FMissionMutationReceipt& Receipt, FMissionDispatch& Out)
+    {
+        Out = {};
+        if (!IsCurrent(Receipt) || !CommandDispatch.IsSet() || bCommandDispatched) return false;
+        Out = *CommandDispatch;
+        bCommandDispatched = true;
+        return true;
+    }
+
+    bool FMissionState::AbandonPreparedCommand(const FMissionMutationReceipt& Receipt)
+    {
+        if (!IsCurrent(Receipt) || !CommandDispatch.IsSet() || bCommandDispatched) return false;
+        ReleaseMutation();
         return true;
     }
 }
