@@ -11,6 +11,8 @@ struct FBaddieCompanionSessionData;
 
 namespace BaddieCompanion
 {
+    enum class EConnectionScope : uint8 { Home, Apartment };
+
     enum class EConnectionState : uint8
     {
         Disabled, SignedOut, RequestingCode, AwaitingApproval, LoadingHome, Ready, Unavailable, Expired
@@ -20,6 +22,7 @@ namespace BaddieCompanion
     struct FConnectionView
     {
         EConnectionState State = EConnectionState::Disabled;
+        EConnectionScope Scope = EConnectionScope::Home;
         FString DeviceName;
         FString DisplayCode;
         FString ApprovalLink;
@@ -50,7 +53,8 @@ public:
 
     // Trusted application configuration only. Both client and backend default to disabled.
     void Configure(const FString& ConvexOrigin, bool bEnabled);
-    void BeginPairing(const FString& DeviceName);
+    void BeginPairing(const FString& DeviceName,
+        BaddieCompanion::EConnectionScope Scope = BaddieCompanion::EConnectionScope::Home);
     void Disconnect();
     void RefreshSnapshot();
     BaddieCompanion::FConnectionView GetConnectionView() const;

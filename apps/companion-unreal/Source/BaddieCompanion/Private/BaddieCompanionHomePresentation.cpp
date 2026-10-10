@@ -27,7 +27,8 @@ namespace BaddieCompanion
                 && HomeMapping::Same(L.BaseId, R.BaseId) && HomeMapping::Same(L.Look, R.Look)
                 && HomeMapping::Same(L.AppearanceJson, R.AppearanceJson);
         };
-        if (A.Rooms.Num() != B.Rooms.Num()) return false;
+        if (A.Rooms.Num() != B.Rooms.Num()
+            || A.HasCompleteApartmentInventory() != B.HasCompleteApartmentInventory()) return false;
         for (int32 Index = 0; Index < A.Rooms.Num(); ++Index)
             if (!HomeMapping::SameRoomSelection(A.Rooms[Index], B.Rooms[Index])) return false;
         return A.Revision == B.Revision && CharacterSame(A.Character, B.Character)
@@ -107,6 +108,7 @@ namespace BaddieCompanion
             HomeMapping::Issue(OutIssues, EHomeIssue::InvalidDocument, TEXT("apartment"));
             return false;
         }
+        Next.Apartment.bCompleteHomeInventoryVerified = Input.HasCompleteApartmentInventory();
         Next.Source = Input;
         Next.CharacterAsset = HomeMapping::CharacterReference();
         HomeMapping::Issue(OutIssues, EHomeIssue::AssetImportUnavailable, TEXT("character.asset"));

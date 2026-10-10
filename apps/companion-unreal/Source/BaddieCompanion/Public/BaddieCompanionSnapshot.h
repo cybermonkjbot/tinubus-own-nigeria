@@ -2,6 +2,8 @@
 
 #include "CoreMinimal.h"
 
+class UBaddieCompanionSession;
+
 namespace BaddieCompanion
 {
     struct FCharacterSelection
@@ -33,6 +35,14 @@ namespace BaddieCompanion
         // Only rooms supplied by the caller's authenticated projection or explicit offline file.
         // A nonempty list does not establish a complete Home inventory or broader access.
         TArray<FRoomSelection> Rooms;
+
+        // Session-accepted read scope only, never gameplay or exterior admission.
+        // Raw/offline JSON cannot set this provenance, even with apartment-shaped fields.
+        bool HasCompleteApartmentInventory() const { return bCompleteApartmentInventory; }
+
+    private:
+        friend class ::UBaddieCompanionSession;
+        bool bCompleteApartmentInventory = false;
     };
 
     // This limit belongs to the standalone reader, not the embedded scene protocol.
