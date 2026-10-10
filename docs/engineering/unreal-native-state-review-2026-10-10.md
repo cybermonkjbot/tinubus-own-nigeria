@@ -139,3 +139,21 @@ Both reviewers are closed. Jobs and NPC source are accepted with the matching he
 ## First native-state Windows delivery
 
 The accepted seven state pairs and StateJson from `691a60a98`, with six records from `b0ea171004b0a510c39c5f8779bc6938d538edbd`, reached Windows `535b7a190eaaef0568fc6f1708016957fad390b2`. The coordinator's exact 22-file receipt and independent readback preserve seven dependencies and 174 protected paths. At `2026-10-10T19:57:38.2302900Z`, a separate parent SSH read matched all 22 working-file hashes and committed blobs plus the seven dependencies, with stable Windows HEAD. Evidence is `output/cribtest11-native-state-2026-10-10/parent-readback.json`; the coordinator's adjacent record owns the protection audit. Jobs, dialogue, food/kitchen and the later EnumValue helper were not delivered. No new compilation, imported content, native integration, in-game acceptance or release is implied.
+
+## Life read-state acceptance
+
+The full three-path review is `b0ea171004b0a510c39c5f8779bc6938d538edbd...01dc5e06ef34f00e5e343cabc174f452a36c1ac6`, containing LifeState.h/.cpp and its handoff. Source is `6fd4af7afea28944880aa1949f5ed15f4cc5ea49`, with matching StateJson dependency `bc6e288621f97054c06368a9e7434835c7ce0ede`. Both reviewers read the complete scope and traced all nine canonical references; all listed hashes matched.
+
+### Standards
+
+Reviewer `01a12767-3877-7d03-b376-0b960010b1d7` found zero documented breaches and zero actionable smell judgments. Shared enum decoding leaves domain tables local. Typed values preserve exact validator and missing/null boundaries. Per-observation defaults, receipt invalidation, current-display revision ordering and lifecycle ownership match the handoff. Producer, permission and command-composition gaps remain explicit.
+
+### Spec
+
+Reviewer `01a12767-396e-77e2-ae9c-397fab503425` found zero scoped findings. The decoder preserves all eleven activity kinds, eight skills and eight-task queue rules, finite timestamp semantics, bounded values and legacy omissions. A default is captured but unpublished until a current decoded null; repeated null reuses it. Lower revisions and wrong-character reads are ignored, equal revisions replace, and errors clear the displayed life so revision-zero/null can later recover. Stale callbacks are rejected before decoding. Ending or reconnecting retains presentation; changed selection clears it. Account teardown remains caller-owned.
+
+The canonical pending-act error retention remains an explicit composition requirement, not implemented command ownership. A local default or receipt does not grant permission. Both reviewers are closed. Totals are zero Standards and zero Spec findings. Source is accepted for a later guarded handoff; no native adapter, command integration, Windows delivery, compilation or runtime acceptance is claimed.
+
+## Food, kitchen, jobs and dialogue Windows delivery
+
+The subsequent batch reached Windows `35c6865601c27484e860d5831589e89bfdae22ee`. It verifies fourteen payload paths, with thirteen changed commit paths. The unchanged StateJson.cpp was verified without rewriting it. Source is pinned to `c911f7a1ff1d0e18ef85f353fe1ab14ef7754a1e`, with four records from `4725d3addd045049045c425a783c7546e71257b1`. Coordinator receipts under `output/cribtest11-native-read-state-2026-10-10/` match all payloads, eleven dependencies and 196 protected paths; the earlier commit and operation record remain intact. The parent compared every payload receipt to its pinned Mac bytes and checked the recorded dependency/protection comparisons. It has not repeated a live Windows read for this batch. LifeState is still excluded, and no compilation or runtime acceptance is established.
