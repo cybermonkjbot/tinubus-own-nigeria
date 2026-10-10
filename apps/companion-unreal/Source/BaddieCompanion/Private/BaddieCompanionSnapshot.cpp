@@ -13,6 +13,16 @@ namespace
     constexpr int32 LibraryLimit = 12;
     constexpr double MaxSafeRevision = 9007199254740991.0;
 
+    bool SameText(const FString& Left, const FString& Right)
+    {
+        return Left.Equals(Right, ESearchCase::CaseSensitive);
+    }
+
+    bool ContainsId(const TArray<FString>& Ids, const FString& Id)
+    {
+        return Ids.ContainsByPredicate([&Id](const FString& Existing) { return SameText(Existing, Id); });
+    }
+
     TSharedPtr<FJsonObject> ObjectField(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key)
     {
         const TSharedPtr<FJsonObject>* Value = nullptr;
@@ -53,15 +63,15 @@ namespace
 
         const auto Appearance = ObjectField(Object, TEXT("appearance"));
         if (!ReadText(Appearance, TEXT("look"), 16, Out.Look)
-            || (Out.Look != TEXT("rose") && Out.Look != TEXT("ivory"))) return false;
+            || (!SameText(Out.Look, TEXT("rose")) && !SameText(Out.Look, TEXT("ivory")))) return false;
 
         // Legacy appearances omit baseId; the existing renderer uses Bestie.
         Out.BaseId = TEXT("bestie");
         if (Appearance->HasField(TEXT("baseId"))
             && !ReadText(Appearance, TEXT("baseId"), 16, Out.BaseId)) return false;
-        if (Out.BaseId != TEXT("bestie") && Out.BaseId != TEXT("bunny")
-            && Out.BaseId != TEXT("bear") && Out.BaseId != TEXT("cat")
-            && Out.BaseId != TEXT("fox") && Out.BaseId != TEXT("panda")) return false;
+        if (!SameText(Out.BaseId, TEXT("bestie")) && !SameText(Out.BaseId, TEXT("bunny"))
+            && !SameText(Out.BaseId, TEXT("bear")) && !SameText(Out.BaseId, TEXT("cat"))
+            && !SameText(Out.BaseId, TEXT("fox")) && !SameText(Out.BaseId, TEXT("panda"))) return false;
 
         return WriteObject(Appearance, Out.AppearanceJson);
     }
@@ -71,7 +81,7 @@ namespace
         if (!ReadText(Object, TEXT("id"), 80, Out.Id)
             || !ReadText(Object, TEXT("name"), 32, Out.Name)
             || !ReadText(Object, TEXT("environmentId"), 16, Out.EnvironmentId)
-            || (Out.EnvironmentId != TEXT("studio") && Out.EnvironmentId != TEXT("terrace"))) return false;
+            || (!SameText(Out.EnvironmentId, TEXT("studio")) && !SameText(Out.EnvironmentId, TEXT("terrace")))) return false;
         if (Object->HasField(TEXT("layoutId"))
             && !ReadText(Object, TEXT("layoutId"), 80, Out.LayoutId)) return false;
         return WriteObject(Object, Out.RoomJson);
@@ -116,15 +126,16 @@ bool BaddieCompanion::ReadSnapshotSelection(
 
     FSnapshotSelection Next;
     Next.Revision = IntegerRevision;
-    TSet<FString> CharacterIds, RoomIds;
+    // Saved IDs follow JavaScript's case-sensitive equality, including duplicate detection.
+    TArray<FString> CharacterIds, RoomIds;
     OutError = TEXT("The companion library contains an invalid or duplicate character.");
     for (const auto& Value : *Characters)
     {
         FCharacterSelection Character;
         if (!Value.IsValid() || Value->Type != EJson::Object
-            || !ReadCharacter(Value->AsObject(), Character) || CharacterIds.Contains(Character.Id)) return false;
+            || !ReadCharacter(Value->AsObject(), Character) || ContainsId(CharacterIds, Character.Id)) return false;
         CharacterIds.Add(Character.Id);
-        if (Character.Id == CharacterId) Next.Character = MoveTemp(Character);
+        if (SameText(Character.Id, CharacterId)) Next.Character = MoveTemp(Character);
     }
 
     OutError = TEXT("The companion library contains an invalid or duplicate room.");
@@ -132,14 +143,14 @@ bool BaddieCompanion::ReadSnapshotSelection(
     {
         FRoomSelection Room;
         if (!Value.IsValid() || Value->Type != EJson::Object
-            || !ReadRoom(Value->AsObject(), Room) || RoomIds.Contains(Room.Id)) return false;
+            || !ReadRoom(Value->AsObject(), Room) || ContainsId(RoomIds, Room.Id)) return false;
         RoomIds.Add(Room.Id);
-        if (Room.Id == ActiveRoomId) Next.ActiveRoom = Room;
-        if (Room.Id == HomeRoomId) Next.HomeRoom = Room;
+        if (SameText(Room.Id, ActiveRoomId)) Next.ActiveRoom = Room;
+        if (SameText(Room.Id, HomeRoomId)) Next.HomeRoom = Room;
     }
 
     OutError = TEXT("The selected companion or room is absent from the saved library.");
-    if (!CharacterIds.Contains(CharacterId) || !RoomIds.Contains(ActiveRoomId) || !RoomIds.Contains(HomeRoomId)) return false;
+    if (!ContainsId(CharacterIds, CharacterId) || !ContainsId(RoomIds, ActiveRoomId) || !ContainsId(RoomIds, HomeRoomId)) return false;
 
     OutSelection = MoveTemp(Next);
     OutError.Reset();

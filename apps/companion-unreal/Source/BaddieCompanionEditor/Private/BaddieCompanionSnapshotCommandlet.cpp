@@ -48,6 +48,7 @@ int32 UBaddieCompanionSnapshotCommandlet::Main(const FString& Params)
     }
 
     UE_LOG(LogBaddieSnapshot, Display, TEXT("Companion selection decoded. Revision=%lld. Active room is Home=%s."),
-        static_cast<long long>(Selection.Revision), Selection.ActiveRoom.Id == Selection.HomeRoom.Id ? TEXT("true") : TEXT("false"));
+        static_cast<long long>(Selection.Revision),
+        Selection.ActiveRoom.Id.Equals(Selection.HomeRoom.Id, ESearchCase::CaseSensitive) ? TEXT("true") : TEXT("false"));
     return 0;
 }
