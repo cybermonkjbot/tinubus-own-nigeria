@@ -212,7 +212,9 @@ void SBaddieCompanionConnectionPanel::PresentConnection(
         bApproval ? TEXT("Approval") : TEXT("Connection"), FMath::CeilToInt(View.RemainingSeconds)) : FString());
     SetText(ErrorText, View.Error);
     SetText(RetryText, RetrySeconds > 0 ? FString::Printf(TEXT("Retry available in %d seconds."),
-        FMath::CeilToInt(RetrySeconds)) : FString());
+        FMath::CeilToInt(RetrySeconds)) : View.AutomaticRetryAfterSeconds > 0
+            ? FString::Printf(TEXT("Retrying in %d seconds."), FMath::CeilToInt(View.AutomaticRetryAfterSeconds))
+            : FString());
     SetText(HomeText, Selection ? TEXT("Home: ") + Selection->HomeRoom.Name : FString());
     SetText(CompanionText, Selection ? TEXT("Companion: ") + Selection->Character.Name : FString());
     SetText(ActiveRoomText, Selection ? (Selection->ActiveRoom.Id.Equals(Selection->HomeRoom.Id, ESearchCase::CaseSensitive)
