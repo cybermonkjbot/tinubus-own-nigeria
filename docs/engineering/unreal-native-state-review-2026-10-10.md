@@ -105,3 +105,37 @@ Reviewer `01a12753-7dc1-79c1-8b58-cf0db282728d` found no documented breach and o
 Reviewer `01a12753-7e53-73e2-b73d-6933be175683` found zero missing, partial, unrequested or incorrectly implemented scoped read requirements. Complete fields, unions and required/optional/null distinctions match the pinned projections. Food endpoint truthiness, scope equality, reload/end/failure retention and moving-offer ordering match the canonical store. Kitchen retains observed scope after read failure and presentation on disposal; account teardown must clear it first. Guest quantities and recipe availability remain server projections. Command ownership and uncertain-command error composition are explicitly deferred, not silently translated.
 
 Both reviewers are closed. Totals are zero documented Standards breaches, one optional P3 judgment and zero Spec findings. Source is accepted for a later guarded handoff. No Windows delivery, native adapter/UI binding, executable validation, compilation or runtime acceptance is established by this review.
+
+## Jobs and NPC dialogue review
+
+The six-path review covers `12afce03a1b3c305bd2f56a974e3e9b6b93ed1db...bec5a28fdae1976ed1c7fb469f765b30c8458ea8`, including both complete source pairs and their handoffs. Both reviewers matched the source, canonical and dependency hashes. Concurrent work was excluded.
+
+### Standards
+
+Reviewer `01a12758-4d3a-71e3-9848-aaa2afd6a4fb` found one shared documented duplication breach. JobsState.cpp line 43 and NpcDialogueState.cpp line 62 each implement the same schema-independent enum reader: read a string, search case-sensitively and assign its matching choice. AGENTS.md requires avoiding duplicated implementations. Choice tables remain domain-owned; the common reader can belong to the existing private helper. The parent confirmed the duplicate.
+
+Two optional judgments remain deferred. JobsState's `ReadGeneration` and `ReadActive` repeat dispatch over parallel slot fields. NpcDialogueState's `ReadTarget` repeats profile-key dispatch for NPC ID and authored name. Neither is a demonstrated behavior defect. No additional documented breach or permissive producer fallback was found.
+
+### Spec
+
+Reviewer `01a12758-4db5-78e2-b3fc-22964f447749` found zero actionable findings in either slice. Jobs preserves fields, reward projection, goal independence, lifecycle, query ordering and stale/in-flight responses within its read-only scope. NPC dialogue preserves targets/topics/replies, scope, local intents and completion receipts. Missing target/resident evidence fails closed. Command scheduling, retries, goal writes, target production and network integration remain explicitly deferred.
+
+Original totals are one shared documented Standards breach, two optional judgments and zero Spec findings. Source delivery is held for the bounded enum-reader correction, not for a functional mismatch.
+
+The parent added private `StateJsonPrivate::EnumValue` at `bc6e288621f97054c06368a9e7434835c7ce0ede`. It preserves the duplicate loops' string read, exact comparison, choice order and assignment-on-match behavior. Only StateJson.h changes; its existing operations and StateJson.cpp remain unchanged from accepted `691a60a98`. Jobs and NPC owners now own their respective private consumer/handoff corrections, leaving public headers and domain tables unchanged. LifeState's active owner was directed to use the same helper in its new files. Re-review follows a complete pinned integration. The existing Windows batch remains fixed to `691a60a98` and is unaffected.
+
+Both consumer corrections are committed. Jobs source is `0005d007a2edb413054a2e2b1007d45ac14944d5`, with handoff `c911f7a1ff1d0e18ef85f353fe1ab14ef7754a1e`; NPC source/handoff is `a099824b34b7d9d8ffa4a010a8df1618474d0713`. Parent diff inspection found only the shared template, removal of the two duplicates, replacement of six Jobs and three NPC calls, and matching dependency records. The original public headers, tables, validation and lifecycle remain unchanged. The same two independent reviewers accepted the five-path correction `77b680f4f20fad320d76fd20d3165b59b39d2bc0...c911f7a1ff1d0e18ef85f353fe1ab14ef7754a1e`, excluding LifeState and parent documentation.
+
+### Enum correction Standards acceptance
+
+Reviewer `01a12758-4d3a-71e3-9848-aaa2afd6a4fb` confirmed the documented duplication breach is resolved with no new breach or smell finding. Domain choice tables remain local, exact reads and first-match assignment are unchanged, and handoff hashes match. The two original read-slot/profile organization judgments remain optional and deferred. There are zero outstanding documented breaches.
+
+### Enum correction Spec acceptance
+
+Reviewer `01a12758-4db5-78e2-b3fc-22964f447749` found zero actionable findings. Six Jobs and three NPC replacements preserve field destinations, choice/evaluation order, nullability, failure clearing, publication and lifecycle. The helper preserves non-string/unknown rejection without output assignment. StateJson.cpp, existing operations, public headers and previous consumers are unchanged. Both handoffs correctly require `bc6e28862`.
+
+Both reviewers are closed. Jobs and NPC source are accepted with the matching helper. Original full Spec results remain zero findings per slice; correction results are zero new Standards findings and zero Spec findings. These consumers and the newer helper still require their own Windows handoff and runtime acceptance.
+
+## First native-state Windows delivery
+
+The accepted seven state pairs and StateJson from `691a60a98`, with six records from `b0ea171004b0a510c39c5f8779bc6938d538edbd`, reached Windows `535b7a190eaaef0568fc6f1708016957fad390b2`. The coordinator's exact 22-file receipt and independent readback preserve seven dependencies and 174 protected paths. At `2026-10-10T19:57:38.2302900Z`, a separate parent SSH read matched all 22 working-file hashes and committed blobs plus the seven dependencies, with stable Windows HEAD. Evidence is `output/cribtest11-native-state-2026-10-10/parent-readback.json`; the coordinator's adjacent record owns the protection audit. Jobs, dialogue, food/kitchen and the later EnumValue helper were not delivered. No new compilation, imported content, native integration, in-game acceptance or release is implied.

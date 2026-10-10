@@ -42,6 +42,17 @@ namespace BaddieCompanion
         bool Integer(const FValue& Value, int64& Out, int64 Minimum = 0);
         bool ValidTime(double Value);
 
+        // Domain choice tables stay with callers. Assign only an exact string match.
+        template <typename T> bool EnumValue(const FValue& Value, T& Out,
+            std::initializer_list<TPair<const TCHAR*, T>> Choices)
+        {
+            FString Name;
+            if (!String(Value, Name)) return false;
+            for (const auto& Choice : Choices)
+                if (Same(Name, Choice.Key)) { Out = Choice.Value; return true; }
+            return false;
+        }
+
         // Required nullable value into a fresh candidate. Missing fails; null succeeds
         // without assigning. Optional-field presence and null policy are not handled here.
         template <typename T, typename F> bool Nullable(const FValue& Value, TOptional<T>& Out, F Read)
