@@ -1,72 +1,23 @@
 #include "BaddieCompanionRecoveryState.h"
-
-#include "Dom/JsonObject.h"
-#include "Dom/JsonValue.h"
-#include "Serialization/JsonReader.h"
-#include "Serialization/JsonSerializer.h"
-#include <cmath>
-#include <initializer_list>
+#include "BaddieCompanionStateJson.h"
 
 namespace BaddieCompanion
 {
     namespace RecoveryStatePrivate
     {
-        using FObject = TSharedPtr<FJsonObject>;
-        using FValue = TSharedPtr<FJsonValue>;
-        constexpr double MaxInteger = 9007199254740991.0;
-        bool Same(const FString& A, const FString& B) { return A.Equals(B, ESearchCase::CaseSensitive); }
-        bool Time(double N) { return std::isfinite(N) && N >= 0 && N <= MaxInteger; }
-        FObject Object(const FValue& V) { return V.IsValid() && V->Type == EJson::Object ? V->AsObject() : nullptr; }
-        FValue Field(const FObject& O, const TCHAR* Key) { return O.IsValid() ? O->TryGetField(Key) : nullptr; }
-        bool Only(const FObject& O, std::initializer_list<const TCHAR*> Keys)
-        {
-            if (!O.IsValid()) return false;
-            for (const auto& Pair : O->Values)
-            {
-                bool bKnown = false;
-                for (const auto Key : Keys) if (Same(Pair.Key, Key)) { bKnown = true; break; }
-                if (!bKnown) return false;
-            }
-            return true;
-        }
-        bool Parse(const FString& Json, FObject& Out)
-        {
-            if (Json.IsEmpty() || Json.Len() > 32768) return false;
-            bool bString = false, bEscape = false;
-            int32 Depth = 0, Separators = 0;
-            for (TCHAR C : Json)
-            {
-                if (bString)
-                {
-                    if (bEscape) bEscape = false;
-                    else if (C == TEXT('\\')) bEscape = true;
-                    else if (C == TEXT('"')) bString = false;
-                    continue;
-                }
-                if (C == TEXT('"')) bString = true;
-                else if (C == TEXT('{') || C == TEXT('[')) { if (++Depth > 8) return false; }
-                else if (C == TEXT('}') || C == TEXT(']')) { if (--Depth < 0) return false; }
-                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > 128) return false; }
-            }
-            return !bString && Depth == 0 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
-        }
-        bool String(const FValue& V, FString& Out)
-        {
-            return V.IsValid() && V->Type == EJson::String && V->TryGetString(Out);
-        }
-        bool Number(const FValue& V, double& Out)
-        {
-            return V.IsValid() && V->Type == EJson::Number && V->TryGetNumber(Out) && std::isfinite(Out);
-        }
-        bool Number(const FObject& O, const TCHAR* Key, double& Out) { return Number(Field(O, Key), Out); }
-        template <typename T, typename F> bool Nullable(const FValue& V, TOptional<T>& Out, F Read)
-        {
-            if (!V.IsValid()) return false;
-            if (V->Type == EJson::Null) return true;
-            T Next;
-            if (!Read(V, Next)) return false;
-            Out = MoveTemp(Next); return true;
-        }
+        using StateJsonPrivate::FObject;
+        using StateJsonPrivate::FValue;
+        using StateJsonPrivate::Same;
+        using StateJsonPrivate::Object;
+        using StateJsonPrivate::Field;
+        using StateJsonPrivate::Only;
+        using StateJsonPrivate::Parse;
+        using StateJsonPrivate::String;
+        using StateJsonPrivate::Number;
+        using StateJsonPrivate::Integer;
+        using StateJsonPrivate::Nullable;
+        using StateJsonPrivate::ValidTime;
+        constexpr StateJsonPrivate::FParseLimits ParseLimits{32768, 8, 128};
         bool Destination(const FValue& V, FCompanionRecoveryDestination& Out)
         {
             const auto O = Object(V);
@@ -80,17 +31,15 @@ namespace BaddieCompanion
         }
         bool Health(const FObject& O, FCompanionHealthView& Out)
         {
-            double Revision = 0;
             FString Status;
             if (!Only(O, {TEXT("lifeId"), TEXT("revision"), TEXT("health"), TEXT("maxHealth"), TEXT("status"),
                     TEXT("deathKey"), TEXT("protectedUntil"), TEXT("recovery")})
                 || !String(Field(O, TEXT("lifeId")), Out.LifeId) || Out.LifeId.IsEmpty()
-                || !Number(O, TEXT("revision"), Revision) || !Time(Revision) || std::floor(Revision) != Revision
+                || !Integer(Field(O, TEXT("revision")), Out.Revision)
                 || !Number(O, TEXT("health"), Out.Health) || !Number(O, TEXT("maxHealth"), Out.MaxHealth)
                 || !String(Field(O, TEXT("status")), Status) || !Number(O, TEXT("protectedUntil"), Out.ProtectedUntilMs)
                 || !Nullable(Field(O, TEXT("deathKey")), Out.DeathKey, String)
                 || !Nullable(Field(O, TEXT("recovery")), Out.Recovery, Destination)) return false;
-            Out.Revision = static_cast<int64>(Revision);
             if (Same(Status, TEXT("active"))) Out.Status = ECompanionHealthStatus::Active;
             else if (Same(Status, TEXT("hospital"))) Out.Status = ECompanionHealthStatus::Hospital;
             else if (Same(Status, TEXT("detained"))) Out.Status = ECompanionHealthStatus::Detained;
@@ -103,7 +52,7 @@ namespace BaddieCompanion
     {
         using namespace RecoveryStatePrivate;
         Out = {}; OutError = TEXT("Recovery response is unsupported or malformed.");
-        if (Json.IsEmpty() || Json.Len() > 32768
+        if (Json.IsEmpty() || Json.Len() > ParseLimits.Characters
             || (Kind != ERecoveryResponseKind::Subscription && Kind != ERecoveryResponseKind::Mutation)) return false;
         FRecoveryDecodedResponse Next; Next.Kind = Kind;
         if (Kind == ERecoveryResponseKind::Subscription && Same(Json.TrimStartAndEnd(), TEXT("null")))
@@ -111,12 +60,12 @@ namespace BaddieCompanion
             Next.bValid = true; Out = MoveTemp(Next); OutError.Reset(); return true;
         }
         FObject O;
-        if (!Parse(Json, O)) return false;
+        if (!Parse(Json, O, ParseLimits)) return false;
         FObject HealthObject = O;
         if (Kind == ERecoveryResponseKind::Mutation)
         {
             if (!Only(O, {TEXT("health"), TEXT("serverTime")}) || !Number(O, TEXT("serverTime"), Next.ServerTimeMs)
-                || !Time(Next.ServerTimeMs)) return false;
+                || !ValidTime(Next.ServerTimeMs)) return false;
             HealthObject = Object(Field(O, TEXT("health")));
         }
         FCompanionHealthView Candidate;
@@ -148,7 +97,7 @@ namespace BaddieCompanion
     }
     TOptional<FRecoveryReceipt> FRecoveryReadState::CaptureRecovery(double BeganAtMs)
     {
-        if (bDisposed || !bSubscribed || View.bBusy || !View.Health.IsValid() || !RecoveryStatePrivate::Time(BeganAtMs)) return {};
+        if (bDisposed || !bSubscribed || View.bBusy || !View.Health.IsValid() || !RecoveryStatePrivate::ValidTime(BeganAtMs)) return {};
         FRecoveryReceipt Receipt;
         Receipt.Generation = Generation; Receipt.Kind = ERecoveryResponseKind::Mutation;
         ActiveMutation = FGuid::NewGuid(); Receipt.MutationId = ActiveMutation;
@@ -165,7 +114,7 @@ namespace BaddieCompanion
         using namespace RecoveryStatePrivate;
         if (!Current(Receipt)) return ERecoveryReadResult::StaleReceipt;
         if (!Response.IsValid() || Response.GetKind() != Receipt.Kind
-            || (Receipt.Kind == ERecoveryResponseKind::Mutation && !Time(ReceivedAtMs)))
+            || (Receipt.Kind == ERecoveryResponseKind::Mutation && !ValidTime(ReceivedAtMs)))
         {
             AcceptFailure(Receipt); return ERecoveryReadResult::InvalidResponse;
         }

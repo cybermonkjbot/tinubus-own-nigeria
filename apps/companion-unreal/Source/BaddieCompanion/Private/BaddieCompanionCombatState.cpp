@@ -1,21 +1,24 @@
 #include "BaddieCompanionCombatState.h"
-
-#include "Dom/JsonObject.h"
-#include "Dom/JsonValue.h"
-#include "Serialization/JsonReader.h"
-#include "Serialization/JsonSerializer.h"
-#include <cmath>
-#include <initializer_list>
+#include "BaddieCompanionStateJson.h"
 
 namespace BaddieCompanion
 {
     namespace CombatStatePrivate
     {
-        using FObject = TSharedPtr<FJsonObject>;
-        using FValue = TSharedPtr<FJsonValue>;
-        constexpr double MaxInteger = 9007199254740991.0;
-        constexpr int32 MaxSeparators = 131072;
-        bool Same(const FString& A, const FString& B) { return A.Equals(B, ESearchCase::CaseSensitive); }
+        using StateJsonPrivate::FObject;
+        using StateJsonPrivate::FValue;
+        using StateJsonPrivate::Same;
+        using StateJsonPrivate::Object;
+        using StateJsonPrivate::Field;
+        using StateJsonPrivate::Only;
+        using StateJsonPrivate::Parse;
+        using StateJsonPrivate::String;
+        using StateJsonPrivate::Number;
+        using StateJsonPrivate::Integer;
+        using StateJsonPrivate::Boolean;
+        using StateJsonPrivate::Nullable;
+        using StateJsonPrivate::ValidTime;
+        constexpr StateJsonPrivate::FParseLimits ParseLimits{2 * 1024 * 1024, 32, 131072};
         bool Same(const TOptional<FString>& A, const TOptional<FString>& B)
         {
             return A.IsSet() == B.IsSet() && (!A.IsSet() || Same(A.GetValue(), B.GetValue()));
@@ -24,75 +27,12 @@ namespace BaddieCompanion
         {
             return Match.IsValid() ? TOptional<FString>(Match->Id) : TOptional<FString>();
         }
-        bool Time(double N) { return std::isfinite(N) && N >= 0 && N <= MaxInteger; }
-        FObject Object(const FValue& V) { return V.IsValid() && V->Type == EJson::Object ? V->AsObject() : nullptr; }
-        FValue Field(const FObject& O, const TCHAR* Key) { return O.IsValid() ? O->TryGetField(Key) : nullptr; }
-        bool Only(const FObject& O, std::initializer_list<const TCHAR*> Keys)
-        {
-            if (!O.IsValid()) return false;
-            for (const auto& Pair : O->Values)
-            {
-                bool bKnown = false;
-                for (const auto Key : Keys) if (Same(Pair.Key, Key)) { bKnown = true; break; }
-                if (!bKnown) return false;
-            }
-            return true;
-        }
-        bool Parse(const FString& Json, FObject& Out)
-        {
-            if (Json.IsEmpty() || Json.Len() > 2 * 1024 * 1024) return false;
-            bool bString = false, bEscape = false;
-            int32 Depth = 0, Separators = 0;
-            for (TCHAR C : Json)
-            {
-                if (bString)
-                {
-                    if (bEscape) bEscape = false;
-                    else if (C == TEXT('\\')) bEscape = true;
-                    else if (C == TEXT('"')) bString = false;
-                    continue;
-                }
-                if (C == TEXT('"')) bString = true;
-                else if (C == TEXT('{') || C == TEXT('[')) { if (++Depth > 32) return false; }
-                else if (C == TEXT('}') || C == TEXT(']')) { if (--Depth < 0) return false; }
-                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > MaxSeparators) return false; }
-            }
-            return !bString && Depth == 0 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
-        }
-        bool String(const FValue& V, FString& Out)
-        {
-            // Preserve exact backend strings, including the empty finish-event actor sentinel.
-            return V.IsValid() && V->Type == EJson::String && V->TryGetString(Out);
-        }
-        bool Number(const FValue& V, double& Out)
-        {
-            return V.IsValid() && V->Type == EJson::Number && V->TryGetNumber(Out) && std::isfinite(Out);
-        }
-        bool Number(const FObject& O, const TCHAR* Key, double& Out) { return Number(Field(O, Key), Out); }
-        bool Integer(const FValue& V, int64& Out, double Minimum = 0)
-        {
-            double N = 0;
-            if (!Number(V, N) || N < Minimum || N > MaxInteger || std::floor(N) != N) return false;
-            Out = static_cast<int64>(N); return true;
-        }
-        bool Boolean(const FValue& V, bool& Out)
-        {
-            return V.IsValid() && V->Type == EJson::Boolean && V->TryGetBool(Out);
-        }
         template <typename T> bool Enum(const FValue& V, T& Out, std::initializer_list<TPair<const TCHAR*, T>> Choices)
         {
             FString S;
             if (!String(V, S)) return false;
             for (const auto& Choice : Choices) if (Same(S, Choice.Key)) { Out = Choice.Value; return true; }
             return false;
-        }
-        template <typename T, typename F> bool Nullable(const FValue& V, TOptional<T>& Out, F Read)
-        {
-            if (!V.IsValid()) return false;
-            if (V->Type == EJson::Null) return true;
-            T Next;
-            if (!Read(V, Next)) return false;
-            Out = MoveTemp(Next); return true;
         }
         template <typename T, typename F> bool Optional(const FObject& O, const TCHAR* Key,
             TWorldPlayerField<T>& Out, bool bNullable, F Read)
@@ -298,7 +238,7 @@ namespace BaddieCompanion
         Out = {}; OutError = TEXT("Combat response is unsupported or malformed.");
         FObject O;
         FCombatDecodedResponse Next;
-        if (!Parse(Json, O) || !Only(O, {TEXT("state"), TEXT("playerId"), TEXT("lifeId"), TEXT("serverTime")})
+        if (!Parse(Json, O, ParseLimits) || !Only(O, {TEXT("state"), TEXT("playerId"), TEXT("lifeId"), TEXT("serverTime")})
             || !String(Field(O, TEXT("playerId")), Next.PlayerId) || Next.PlayerId.IsEmpty()
             || !Nullable(Field(O, TEXT("lifeId")), Next.LifeId, String)
             || (Next.LifeId.IsSet() && Next.LifeId.GetValue().IsEmpty())) return false;
@@ -317,7 +257,7 @@ namespace BaddieCompanion
         if (ServerTime.IsValid())
         {
             double N = 0;
-            if (!Number(ServerTime, N) || !Time(N)) return false;
+            if (!Number(ServerTime, N) || !ValidTime(N)) return false;
             Next.ServerTimeMs = N;
         }
         Next.bValid = true; Out = MoveTemp(Next); OutError.Reset(); return true;
@@ -357,7 +297,7 @@ namespace BaddieCompanion
     }
     TOptional<FCombatReceipt> FCombatReadState::CaptureCommand(double BeganAtMs)
     {
-        if (!bSubscribed || bDisposed || View.bBusy || !CombatStatePrivate::Time(BeganAtMs)) return {};
+        if (!bSubscribed || bDisposed || View.bBusy || !CombatStatePrivate::ValidTime(BeganAtMs)) return {};
         InputGeneration = FGuid::NewGuid(); ActiveCommand = FGuid::NewGuid();
         auto Receipt = Capture(ECombatReceiptKind::Command, BeganAtMs); Receipt.CommandId = ActiveCommand;
         View.bBusy = true; View.Error.Reset(); Changed.Broadcast(); return Receipt;
@@ -365,7 +305,7 @@ namespace BaddieCompanion
     TOptional<FCombatReceipt> FCombatReadState::CaptureInput(double BeganAtMs, bool bNeutralRelease) const
     {
         if (!bSubscribed || bDisposed || !View.State.IsValid() || !View.LifeId.Value.IsSet()
-            || !CombatStatePrivate::Time(BeganAtMs)) return {};
+            || !CombatStatePrivate::ValidTime(BeganAtMs)) return {};
         return Capture(bNeutralRelease ? ECombatReceiptKind::NeutralRelease : ECombatReceiptKind::Input, BeganAtMs);
     }
     void FCombatReadState::InvalidateInputReceipts()
@@ -395,7 +335,7 @@ namespace BaddieCompanion
         const bool bInput = Receipt.Kind == ECombatReceiptKind::Input || Receipt.Kind == ECombatReceiptKind::NeutralRelease;
         if (bInput && !CurrentInput(Receipt)) return ECombatReadResult::StaleReceipt;
         const bool bMutation = Receipt.Kind != ECombatReceiptKind::Subscription;
-        if (!Response.IsValid() || (bMutation && (!Response.GetServerTimeMs().IsSet() || !Time(ReceivedAtMs))))
+        if (!Response.IsValid() || (bMutation && (!Response.GetServerTimeMs().IsSet() || !ValidTime(ReceivedAtMs))))
         {
             AcceptFailure(Receipt); return ECombatReadResult::InvalidResponse;
         }

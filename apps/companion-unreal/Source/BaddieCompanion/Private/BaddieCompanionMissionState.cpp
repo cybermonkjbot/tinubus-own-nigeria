@@ -1,32 +1,29 @@
 #include "BaddieCompanionMissionState.h"
+#include "BaddieCompanionStateJson.h"
 
 #include "Containers/SharedString.h"
-#include "Dom/JsonObject.h"
-#include "Dom/JsonValue.h"
-#include "Serialization/JsonReader.h"
-#include "Serialization/JsonSerializer.h"
-
-#include <cmath>
-#include <initializer_list>
 
 namespace BaddieCompanion
 {
     // Named for unity-build isolation from the other protocol decoders.
     namespace MissionStatePrivate
     {
-        constexpr int64 MaxInteger = 9007199254740991LL;
-        constexpr int32 MaxDocumentCharacters = 256 * 1024;
-        constexpr int32 MaxSeparators = 16384;
+        using StateJsonPrivate::FObject;
+        using StateJsonPrivate::FValue;
+        using StateJsonPrivate::Same;
+        using StateJsonPrivate::Object;
+        using StateJsonPrivate::Field;
+        using StateJsonPrivate::Parse;
+        using StateJsonPrivate::String;
+        using StateJsonPrivate::Number;
+        using StateJsonPrivate::Integer;
+        using StateJsonPrivate::Boolean;
+        using StateJsonPrivate::ValidTime;
+        using StateJsonPrivate::MaxInteger;
+        constexpr StateJsonPrivate::FParseLimits ParseLimits{256 * 1024, 16, 16384};
         constexpr int32 MaxIdCharacters = 240;
         constexpr int32 MaxTextCharacters = 8192;
         constexpr int32 MaxHistoryEntries = 128;
-        using FObject = TSharedPtr<FJsonObject>;
-        using FValue = TSharedPtr<FJsonValue>;
-
-        bool Same(const FString& A, const FString& B)
-        {
-            return A.Equals(B, ESearchCase::CaseSensitive);
-        }
 
         bool Identifier(const FString& Value)
         {
@@ -35,69 +32,18 @@ namespace BaddieCompanion
             return true;
         }
 
-        bool Parse(const FString& Json, FObject& Out)
-        {
-            if (Json.IsEmpty() || Json.Len() > MaxDocumentCharacters) return false;
-            bool bString = false, bEscape = false;
-            int32 Depth = 0, Separators = 0;
-            for (const TCHAR C : Json)
-            {
-                if (bString)
-                {
-                    if (bEscape) bEscape = false;
-                    else if (C == TEXT('\\')) bEscape = true;
-                    else if (C == TEXT('"')) bString = false;
-                    continue;
-                }
-                if (C == TEXT('"')) bString = true;
-                else if (C == TEXT('{') || C == TEXT('[')) { if (++Depth > 16) return false; }
-                else if (C == TEXT('}') || C == TEXT(']')) { if (--Depth < 0) return false; }
-                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > MaxSeparators) return false; }
-            }
-            if (bString || Depth != 0) return false;
-            return FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
-        }
-
-        FObject Object(const FValue& Value)
-        {
-            return Value.IsValid() && Value->Type == EJson::Object ? Value->AsObject() : nullptr;
-        }
-        FValue Field(const FObject& Value, const TCHAR* Name)
-        {
-            return Value.IsValid() ? Value->TryGetField(Name) : nullptr;
-        }
         bool Text(const FValue& Value, FString& Out)
         {
-            return Value.IsValid() && Value->Type == EJson::String && Value->TryGetString(Out)
-                && Out.Len() <= MaxTextCharacters;
+            return String(Value, Out) && Out.Len() <= MaxTextCharacters;
         }
         bool Id(const FValue& Value, FString& Out)
         {
             return Text(Value, Out) && Identifier(Out);
         }
-        bool Number(const FValue& Value, double& Out)
-        {
-            return Value.IsValid() && Value->Type == EJson::Number && Value->TryGetNumber(Out) && std::isfinite(Out);
-        }
-        bool Integer(const FValue& Value, int64& Out)
-        {
-            double N = 0;
-            if (!Number(Value, N) || N < 0 || N > MaxInteger || std::floor(N) != N) return false;
-            Out = static_cast<int64>(N);
-            return true;
-        }
-        bool ValidTime(double Value)
-        {
-            return std::isfinite(Value) && Value >= 0 && Value <= MaxInteger;
-        }
         bool Time(const FValue& Value, double& Out)
         {
             // Keep fractional public v.number() times; do not round server data.
             return Number(Value, Out) && ValidTime(Out);
-        }
-        bool Boolean(const FValue& Value, bool& Out)
-        {
-            return Value.IsValid() && Value->Type == EJson::Boolean && Value->TryGetBool(Out);
         }
 
         template <typename T> bool Enum(const FValue& Value, T& Out,
@@ -242,7 +188,7 @@ namespace BaddieCompanion
         using namespace MissionStatePrivate;
         FObject O;
         FMissionSnapshotWire Next;
-        if (!Parse(Json, O)
+        if (!Parse(Json, O, ParseLimits)
             || !ReadField(O, TEXT("run"), Next.Run, true, true, Run)
             || !ReadField(O, TEXT("joinable"), Next.Joinable, true, true, Run)
             || !Array(Field(O, TEXT("completed")), Next.Completed, MaxHistoryEntries, Id)
@@ -377,8 +323,13 @@ namespace BaddieCompanion
     bool FMissionState::BeginObservedMutation(double BeganAtMs, FMissionMutationReceipt& Out)
     {
         Out = FMissionMutationReceipt{};
-        if (bDisposed || State.bBusy || !MissionStatePrivate::ValidTime(BeganAtMs)
-            || RequestSerial == MAX_uint64 || !CaptureObservation(Out.Observation)) return false;
+        if (bDisposed || State.bBusy || SelectedRoom.IsEmpty()) return false;
+        if (!MissionStatePrivate::ValidTime(BeganAtMs))
+        {
+            State.Error = EMissionStateError::InvalidReceiptTime;
+            return false;
+        }
+        if (RequestSerial == MAX_uint64 || !CaptureObservation(Out.Observation)) return false;
         Out.RequestId = ++RequestSerial;
         Out.ObservedUpdates = Updates;
         Out.BeganAtMs = BeganAtMs;
