@@ -5,6 +5,7 @@
 
 namespace BaddieCompanion
 {
+    DECLARE_MULTICAST_DELEGATE(FCombatReadChanged);
     enum class ECombatMode : uint8 { Melee, Arena };
     enum class ECombatPhase : uint8 { Playing, Finished, Cancelled };
     enum class ECombatFighterKind : uint8 { Player, Agbero };
@@ -108,11 +109,19 @@ namespace BaddieCompanion
         TWorldPlayerField<FCombatGunfireView> Gunfire;
     };
 
+    class FCombatDecodedResponse;
+    // Receives the endpoint's value, not a Convex envelope. Failure resets Out.
+    BADDIECOMPANION_API bool DecodeCombatResponse(const FString& Json,
+        FCombatDecodedResponse& Out, FString& OutError);
     // Only the decoder can construct a valid response. No JSON or mutable shared data escapes.
     class BADDIECOMPANION_API FCombatDecodedResponse
     {
     public:
-        bool IsValid() const { return bValid; }
+        bool IsValid() const
+        {
+            return bValid && bHasMatch == Match.IsValid() && !PlayerId.IsEmpty()
+                && (!LifeId.IsSet() || !LifeId.GetValue().IsEmpty());
+        }
         const TSharedPtr<const FCombatMatchView>& GetMatch() const { return Match; }
         const FString& GetPlayerId() const { return PlayerId; }
         const TOptional<FString>& GetLifeId() const { return LifeId; }
@@ -120,15 +129,12 @@ namespace BaddieCompanion
     private:
         friend bool DecodeCombatResponse(const FString&, FCombatDecodedResponse&, FString&);
         bool bValid = false;
+        bool bHasMatch = false;
         TSharedPtr<const FCombatMatchView> Match;
         FString PlayerId;
         TOptional<FString> LifeId;
         TOptional<double> ServerTimeMs;
     };
-    // Receives the endpoint's value, not a Convex envelope. Failure resets Out.
-    BADDIECOMPANION_API bool DecodeCombatResponse(const FString& Json,
-        FCombatDecodedResponse& Out, FString& OutError);
-
     enum class ECombatReceiptKind : uint8 { Subscription, Command, Input, NeutralRelease };
     enum class ECombatReadResult : uint8 { Accepted, OlderRevision, StaleReceipt, InvalidResponse, IdentityMismatch };
     class FCombatReceipt
@@ -159,7 +165,7 @@ namespace BaddieCompanion
         FCombatReadState(const FCombatReadState&) = delete;
         FCombatReadState& operator=(const FCombatReadState&) = delete;
         const FCombatReadView& GetView() const { return View; }
-        FSimpleMulticastDelegate& OnChanged() { return Changed; }
+        FCombatReadChanged& OnChanged() { return Changed; }
         void Select(const FString& InstanceId, const FString& ExpectedPlayerId);
         FCombatReceipt BeginSubscription();
         void EndSubscription();
@@ -168,7 +174,7 @@ namespace BaddieCompanion
         TOptional<FCombatReceipt> CaptureInput(double BeganAtMs, bool bNeutralRelease = false) const;
         void InvalidateInputReceipts();
         ECombatReadResult Accept(const FCombatReceipt& Receipt, const FCombatDecodedResponse& Response,
-            double ReceivedAtMs = 0);
+            double ReceivedAtMs);
         bool AcceptFailure(const FCombatReceipt& Receipt);
         void Clear();
         void Dispose();
@@ -176,10 +182,10 @@ namespace BaddieCompanion
         FCombatReceipt Capture(ECombatReceiptKind Kind, double BeganAtMs = 0) const;
         bool Current(const FCombatReceipt& Receipt) const;
         bool CurrentInput(const FCombatReceipt& Receipt) const;
-        bool FinishCommand(const FCombatReceipt& Receipt);
+        void FinishCommand(const FCombatReceipt& Receipt);
         FCombatReadView View;
         FGuid Generation, ScopeGeneration, InputGeneration, ActiveCommand;
         bool bSubscribed = false, bDisposed = false;
-        FSimpleMulticastDelegate Changed;
+        FCombatReadChanged Changed;
     };
 }

@@ -122,6 +122,7 @@ namespace BaddieCompanion
         FCompanionHealthView Candidate;
         if (!Health(HealthObject, Candidate)) return false;
         Next.Health = MakeShared<FCompanionHealthView>(MoveTemp(Candidate));
+        Next.bHasHealth = true;
         Next.bValid = true; Out = MoveTemp(Next); OutError.Reset(); return true;
     }
 

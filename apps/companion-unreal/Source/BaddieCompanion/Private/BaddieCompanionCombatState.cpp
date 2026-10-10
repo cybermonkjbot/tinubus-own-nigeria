@@ -312,6 +312,7 @@ namespace BaddieCompanion
             for (const auto& Fighter : Candidate.Fighters)
                 if (!Same(Fighter.Id, Next.PlayerId) && Fighter.Robbery.Presence == EWorldFieldPresence::Value) return false;
             Next.Match = MakeShared<FCombatMatchView>(MoveTemp(Candidate));
+            Next.bHasMatch = true;
         }
         if (ServerTime.IsValid())
         {
@@ -382,10 +383,10 @@ namespace BaddieCompanion
         return Receipt.InputGeneration == InputGeneration && Same(Receipt.MatchId, MatchId(View.State))
             && Same(Receipt.LifeId, View.LifeId.Value);
     }
-    bool FCombatReadState::FinishCommand(const FCombatReceipt& Receipt)
+    void FCombatReadState::FinishCommand(const FCombatReceipt& Receipt)
     {
-        if (Receipt.Kind != ECombatReceiptKind::Command) return false;
-        ActiveCommand.Invalidate(); View.bBusy = false; return true;
+        if (Receipt.Kind != ECombatReceiptKind::Command) return;
+        ActiveCommand.Invalidate(); View.bBusy = false;
     }
     ECombatReadResult FCombatReadState::Accept(const FCombatReceipt& Receipt, const FCombatDecodedResponse& Response, double ReceivedAtMs)
     {
@@ -410,10 +411,10 @@ namespace BaddieCompanion
         }
         // Canonical mutation timing is recorded before the same-match revision check.
         if (bMutation) View.ServerOffsetMs = Response.GetServerTimeMs().GetValue() - (Receipt.BeganAtMs / 2 + ReceivedAtMs / 2);
-        const bool bFinishedCommand = FinishCommand(Receipt);
+        FinishCommand(Receipt);
         if (View.State.IsValid() && Match.IsValid() && Same(View.State->Id, Match->Id) && Match->Revision < View.State->Revision)
         {
-            if (bMutation || bFinishedCommand) Changed.Broadcast();
+            if (bMutation) Changed.Broadcast();
             return ECombatReadResult::OlderRevision;
         }
         if (!Same(MatchId(Match), MatchId(View.State)) || !Same(Response.GetLifeId(), View.LifeId.Value))

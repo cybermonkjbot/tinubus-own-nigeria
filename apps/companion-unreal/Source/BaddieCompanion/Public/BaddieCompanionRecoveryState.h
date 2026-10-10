@@ -5,6 +5,7 @@
 
 namespace BaddieCompanion
 {
+    DECLARE_MULTICAST_DELEGATE(FRecoveryReadChanged);
     enum class ECompanionHealthStatus : uint8 { Active, Hospital, Detained };
     struct FCompanionRecoveryDestination
     {
@@ -22,24 +23,25 @@ namespace BaddieCompanion
         TOptional<FCompanionRecoveryDestination> Recovery;
     };
     enum class ERecoveryResponseKind : uint8 { Subscription, Mutation };
+    class FRecoveryDecodedResponse;
+    // Subscription value is health/null; mutation value is { health, serverTime }.
+    BADDIECOMPANION_API bool DecodeRecoveryResponse(const FString& Json, ERecoveryResponseKind Kind,
+        FRecoveryDecodedResponse& Out, FString& OutError);
     class BADDIECOMPANION_API FRecoveryDecodedResponse
     {
     public:
-        bool IsValid() const { return bValid; }
+        bool IsValid() const { return bValid && bHasHealth == Health.IsValid(); }
         ERecoveryResponseKind GetKind() const { return Kind; }
         const TSharedPtr<const FCompanionHealthView>& GetHealth() const { return Health; }
         double GetServerTimeMs() const { return ServerTimeMs; }
     private:
         friend bool DecodeRecoveryResponse(const FString&, ERecoveryResponseKind, FRecoveryDecodedResponse&, FString&);
         bool bValid = false;
+        bool bHasHealth = false;
         ERecoveryResponseKind Kind = ERecoveryResponseKind::Subscription;
         TSharedPtr<const FCompanionHealthView> Health;
         double ServerTimeMs = 0;
     };
-    // Subscription value is health/null; mutation value is { health, serverTime }.
-    BADDIECOMPANION_API bool DecodeRecoveryResponse(const FString& Json, ERecoveryResponseKind Kind,
-        FRecoveryDecodedResponse& Out, FString& OutError);
-
     class FRecoveryReceipt
     {
         friend class FRecoveryReadState;
@@ -66,14 +68,14 @@ namespace BaddieCompanion
         FRecoveryReadState(const FRecoveryReadState&) = delete;
         FRecoveryReadState& operator=(const FRecoveryReadState&) = delete;
         const FRecoveryReadView& GetView() const { return View; }
-        FSimpleMulticastDelegate& OnChanged() { return Changed; }
+        FRecoveryReadChanged& OnChanged() { return Changed; }
         void SelectOwner(const FString& OwnerId);
         FRecoveryReceipt BeginSubscription();
         void EndSubscription();
         // Receipt capture only, after separate external admission. Never permission to recover.
         TOptional<FRecoveryReceipt> CaptureRecovery(double BeganAtMs);
         ERecoveryReadResult Accept(const FRecoveryReceipt& Receipt, const FRecoveryDecodedResponse& Response,
-            double ReceivedAtMs = 0);
+            double ReceivedAtMs);
         bool AcceptFailure(const FRecoveryReceipt& Receipt);
         void Clear();
         void Dispose();
@@ -82,6 +84,6 @@ namespace BaddieCompanion
         FRecoveryReadView View;
         FGuid Generation, ActiveMutation;
         bool bSubscribed = false, bDisposed = false;
-        FSimpleMulticastDelegate Changed;
+        FRecoveryReadChanged Changed;
     };
 }
