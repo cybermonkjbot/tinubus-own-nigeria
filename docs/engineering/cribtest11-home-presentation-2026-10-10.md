@@ -6,7 +6,7 @@ October 10, 2026. Source translation record. This slice does not complete the Un
 
 Translate the existing saved Home and Companion documents into typed Unreal presentation data. Preserve the account-owned Home, appearance, furniture IDs and coordinates. Keep the Lagos direction in `standalone-companion-unreal.md`; this slice does not author a city scene or replace saved rooms.
 
-The initial Windows implementation turn was interrupted. Its five partial files have been preserved on Mac, where the room/furniture decoder and controller integration are now implemented, source-reviewed and checkpointed. The later guarded Windows handoff remains pending. This is source translation, not rendered Home or Companion parity.
+The initial Windows implementation turn was interrupted. Its five partial files were preserved on Mac, where the room/furniture decoder and controller integration were implemented, source-reviewed and checkpointed. The guarded Windows source handoff is complete. This is source translation and delivery, not rendered Home or Companion parity.
 
 | Evidence | Value |
 | --- | --- |
@@ -17,6 +17,8 @@ The initial Windows implementation turn was interrupted. Its five partial files 
 | Prior turn confirmed completed | `01a1251b-2bee-70a0-84f3-801040520b8c` |
 | Home presentation implementation turn | `01a12545-2303-7cf3-b4bc-2e17fadd7d4f` |
 | Local Home source checkpoint | `15de0f335064cc9772fc95056d95e1960a94a09d` |
+| Reviewed Mac handoff snapshot | `5917dab5fa96d00a4e17be9380b297ab412d8938` |
+| Windows source delivery checkpoint | `73d2ed5deaa205c9d5d558e76e021b8b6f89a56a` |
 
 Before resuming, the bridge reported the prior turn completed and the Windows worktree clean at the source baseline. The resumed chat was idle before the new turn started. Use the existing authenticated TLS bridge to `Cribtest11`; no guest-agent operations or new workers were used.
 
@@ -30,7 +32,7 @@ A subsequent read-only Windows `git status --short` confirmed five untracked par
 
 One `thread/resume` request was sent for the same persistent chat after the interrupted status was recovered. The bridge closed before a response established its result. A later fresh connection succeeded: `thread/loaded/list` returned an empty list, and `thread/read` again reported `notLoaded`, the original Home turn `interrupted`, and no later turn. No new implementation turn was started. That fresh status resolved the uncertainty before any local source continuation; no duplicate worker, service restart or guest-agent operation was used in this recovery pass.
 
-A status-only recheck after local implementation timed out on `thread/loaded/list`. It sent no resume or turn-start request and establishes no newer Windows status. The last confirmed state remains the interrupted Home turn and unloaded chat observed before the local continuation.
+A status-only recheck after local implementation timed out on `thread/loaded/list`. It sent no resume or turn-start request and established no newer Windows status. A fresh connection before the subsequent source handoff again confirmed the chat `notLoaded`, the Home turn `interrupted`, no later turn and an empty loaded-chat list. The handoff started no implementation turn.
 
 The bridge was available for read-only source recovery, so SSH fallback was unnecessary. Its `fs/readFile` returned the actual five Windows files. Each destination was confirmed absent on Mac. Exact bytes were written to exclusive staging files, hashed, attached with atomic no-overwrite hard links and read back. The following are the recovered preimage hashes; later local edits deliberately change the Home header.
 
@@ -44,7 +46,21 @@ The bridge was available for read-only source recovery, so SSH fallback was unne
 
 These paths are relative to `apps/companion-unreal/Source/BaddieCompanion`. Source recovery did not write to Windows. All 22 canonical Mac reference files below still matched their recorded hashes before local continuation review.
 
-The parent-owned Mac checkpoints are `9a70da421` for automatic retry presentation, `37abd51f7` for retry/expiry clock alignment, `73d5c1847` for canonical route-object decoding, `37afa339d` for movement wire contracts and `22bd1b9e6` for world presentation clock semantics. Their movement, protocol, clock and session files remain outside this slice's edits. The Home panel was edited in place, preserving the retry-text expression. The later Windows handoff must include the matching current session pair, all current parent movement/protocol/clock files and parent documents, after checking their latest committed state.
+The parent-owned Mac checkpoints are `9a70da421` for automatic retry presentation, `37abd51f7` for retry/expiry clock alignment, `73d5c1847` for canonical route-object decoding, `37afa339d` for movement wire contracts and `22bd1b9e6` for world presentation clock semantics. Their movement, protocol, clock and session files remained outside this slice's implementation edits and were delivered unchanged from the reviewed Mac snapshot. The Home panel retained the retry-text expression and travelled with its matching session pair. Parent architecture and tracker updates from `5917dab5f` were included without editing them during handoff.
+
+## Guarded Windows handoff
+
+The delivery scope is 50 files: all 45 tracked files under `apps/companion-unreal`, plus `standalone-companion-unreal.md`, `standalone-companion-unreal-port.md`, `standalone-companion-unreal-assets.md`, `standalone-companion-account-linking.md` and this record under `docs/engineering`. The complete path/SHA-256 manifest is `output/cribtest11-home-handoff-2026-10-10/final-manifest.json` on Mac. A matching receipt is kept on Windows at `.git/home-reviewed-11a1e980-f412-4c34-aaf3-8c04193fcd32/final-manifest.json`.
+
+All source bytes were pinned to reviewed Mac commit `5917dab5f`. The independent review reported no documented-standard breaches or actionable specification defects; its two optional P3 maintenance refactors remain deferred. The handoff made no gameplay-source edits.
+
+Before writing, Windows was at `389e1c62bd5a34c20c40f9f856ee25e649d2a8f1`. All 34 tracked destinations matched the shared baseline, and the five expected untracked partial files matched their recovery hashes. No unrelated pending changes were present. Of the 50 destinations, 29 already matched; 21 needed writes. The four byte-identical untracked mapping files were staged without rewriting them.
+
+Source transfer used the existing SSH transport after bridge status verification. Each changed file was staged and hashed. Destination preimages were checked again immediately before atomic replacement, and replaced bytes were backed up under the delivery's `.git` staging directory. All 50 working files and staged Git blobs matched the Mac manifest. Review covered the transferred source diff and the scoped whitespace check. The Windows source commit contains only 25 changed paths from the 50-file scope; its worktree was clean after commit, and all 50 committed blobs and working files were read back successfully.
+
+The 22 canonical reference copies retained their recorded hashes. The destination source tree contained no `GaitPresentation` files or extra source files outside the manifest. Configuration remained unchanged, account access stayed disabled, and no engine, asset, test, build or live-service operation ran.
+
+This final evidence update is the only post-delivery file change. The manifest records its Mac/Windows evidence-only commits separately from the source delivery commit, alongside the final per-file read-back hashes. It is the bounded parity record; imported content and runtime parity are not implied.
 
 ## Local continuation
 
@@ -109,6 +125,6 @@ The following exact Mac bytes were staged, SHA-256 checked, atomically renamed a
 
 Read-only Windows inventory during this run found `DirectXRedist`, `GameInputRedist` and `Launcher` under `C:\Program Files\Epic Games`, no `UE_*` directory there, an empty launcher `InstallationList`, and no `apps/companion-unreal/Content` directory. This establishes no imported art or engine in those inspected locations, not a scan of every disk path.
 
-The local source slice has been implemented and reviewed. It has not been transferred back to Windows, and no cross-host final parity is claimed. No engine installation, asset import, tests, typechecks, lint, compilation, project generation, engine launch, deployment or live account configuration changes ran. Account linking remains disabled. Imported-art, material/rig parity, interaction, runtime and full-game acceptance remain outstanding.
+The source slice has been implemented, reviewed and delivered to Windows with scoped source parity. No engine installation, asset import, tests, typechecks, lint, compilation, project generation, engine launch, deployment or live account configuration changes ran. Account linking remains disabled. Imported-art, material/rig parity, interaction, runtime and full-game acceptance remain outstanding.
 
 The production renderer and shared contracts are read-only inputs. This slice does not trigger mobile/web renderer packaging or a What's New update.
