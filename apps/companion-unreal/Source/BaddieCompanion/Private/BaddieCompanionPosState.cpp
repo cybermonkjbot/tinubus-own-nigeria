@@ -423,25 +423,43 @@ namespace BaddieCompanion
         PrepareAttempt(Out);
         return true;
     }
+    bool FPosReadState::BeginCommandPreDispatch(const FPosCommandIntent& Intent, FPosReadRestarts& Out)
+    {
+        Out = FPosReadRestarts();
+        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::Prepared || !Pending.IsValid()
+            || Pending->Id != Intent.PacketId || !InitialScopeMatches()) return false;
+        AttemptPhase = EAttemptPhase::ReadyToDispatch;
+        // Canonical receipt reconnect precedes the request, including synchronous callbacks.
+        // Empty recovery stays empty. This stage does not claim that a request was sent.
+        if (Pending->Command.Kind == EPosCommandKind::Quote && RecoveringId.IsSet() && !RecoveringId.GetValue().IsEmpty())
+        {
+            RecoveringId.Reset(); CloseReceipt(); Out.bReceipt = true;
+            AttemptPhase = EAttemptPhase::AwaitingReceiptRestart;
+        }
+        return true;
+    }
+    bool FPosReadState::CompleteCommandReceiptRestart(const FPosCommandIntent& Intent)
+    {
+        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::AwaitingReceiptRestart
+            || !Pending.IsValid() || Pending->Id != Intent.PacketId) return false;
+        AttemptPhase = EAttemptPhase::ReadyToDispatch;
+        return true;
+    }
     bool FPosReadState::MarkCommandDispatched(const FPosCommandIntent& Intent, TSharedPtr<const FPosCommandDispatch>& Out)
     {
         Out.Reset();
-        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::Prepared || !Pending.IsValid()
+        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::ReadyToDispatch || !Pending.IsValid()
             || Pending->Id != Intent.PacketId || !InitialScopeMatches()) return false;
         FPosCommandDispatch Next;
         Next.Operation = Pending->Operation; Next.ArgumentsJson = Pending->ArgumentsJson;
         bPendingUncertain = true; AttemptPhase = EAttemptPhase::Dispatched;
-        // Canonical order: after busy publication, before the request. Empty recovery stays empty.
-        if (Pending->Command.Kind == EPosCommandKind::Quote && RecoveringId.IsSet() && !RecoveringId.GetValue().IsEmpty())
-        {
-            RecoveringId.Reset(); CloseReceipt(); Next.RestartReads.bReceipt = true;
-        }
         Out = MakeShared<FPosCommandDispatch>(MoveTemp(Next));
         return true;
     }
     bool FPosReadState::AbandonUnsentCommand(const FPosCommandIntent& Intent)
     {
-        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::Prepared
+        if (!CurrentAttempt(Intent) || (AttemptPhase != EAttemptPhase::Prepared
+            && AttemptPhase != EAttemptPhase::AwaitingReceiptRestart && AttemptPhase != EAttemptPhase::ReadyToDispatch)
             || !Pending.IsValid() || Pending->Id != Intent.PacketId) return false;
         if (!bPendingUncertain) Pending.Reset();
         ClearAttempt(); View.bBusy = false; View.bRetryable = HasUncertainCommand();

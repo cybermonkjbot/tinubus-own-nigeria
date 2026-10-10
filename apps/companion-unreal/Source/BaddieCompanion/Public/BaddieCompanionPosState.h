@@ -136,7 +136,6 @@ namespace BaddieCompanion
         // Immutable const publication from MarkCommandDispatched. Non-auth arguments only.
         // Adapter supplies authorized account credentials; no automatic retries/cache invalidation.
         FString Operation, ArgumentsJson;
-        FPosReadRestarts RestartReads;
     };
     enum class EPosCommandFailureKind : uint8
     {
@@ -194,10 +193,19 @@ namespace BaddieCompanion
         bool PrepareCommand(const FPosOwnerReceipt& Owner, const FPosCommand& Command,
             const FString& RequestId, FPosCommandIntent& Out);
         bool PrepareRetry(const FPosOwnerReceipt& Owner, FPosCommandIntent& Out);
-        // After notification, recheck and mark once. The admitted adapter must send these exact
-        // arguments immediately, without yield/notification, then service RestartReads.
-        // A failed mark leaves prepared work for AbandonUnsentCommand; it does not fake a failure.
+        // After busy notification, enter this stage once. A quote with truthy recovery clears it
+        // and requires receipt reconnect BEFORE dispatch. Service Out using the captured owner,
+        // including synchronous read notifications, then acknowledge that reconnect below.
+        // No restart means ready to mark directly. Both paths remain genuinely unsent.
+        bool BeginCommandPreDispatch(const FPosCommandIntent& Intent, FPosReadRestarts& Out);
+        // Only after the required reconnect returns, or completes without a read when unobserved.
+        // A failed reconnect must instead abandon unsent work; it is not a mutation failure.
+        bool CompleteCommandReceiptRestart(const FPosCommandIntent& Intent);
+        // Recheck exact lifetime and initial scope after all pre-dispatch callbacks. The admitted
+        // adapter must send these exact arguments immediately after marking, without yield/notify.
         bool MarkCommandDispatched(const FPosCommandIntent& Intent, TSharedPtr<const FPosCommandDispatch>& Out);
+        // Valid in any unsent phase, including a failed reconnect or failed final scope check.
+        // Initial abandonment removes the packet; retry abandonment retains earlier uncertainty.
         bool AbandonUnsentCommand(const FPosCommandIntent& Intent);
         // Only marked current attempts can settle. Both outcome methods retain busy until finally.
         // On success, service receipt restart first, then catalog restart, and notify before
@@ -223,7 +231,10 @@ namespace BaddieCompanion
             FPosCommand Command;
             FString RequestId, Operation, ArgumentsJson;
         };
-        enum class EAttemptPhase : uint8 { None, Prepared, Dispatched, AwaitingFinally };
+        enum class EAttemptPhase : uint8
+        {
+            None, Prepared, AwaitingReceiptRestart, ReadyToDispatch, Dispatched, AwaitingFinally
+        };
         bool CurrentAttempt(const FPosCommandIntent& Intent) const;
         bool InitialScopeMatches() const;
         void PrepareAttempt(FPosCommandIntent& Out);
