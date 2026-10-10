@@ -56,6 +56,8 @@ The expressway-to-bush direction adds Intercept, Extraction and Insurgent Strong
 
 The runtime module declares `AIModule`; no pawn, map or mission instantiates the new controller. The admitted mission owner, NPC content, touch command wheel, terrain penalties, sound cues and authoritative mission extensions remain pending. Read-only account linking and offline inspection do not gain squad or combat controls. No tests, compilation or engine/device inspection ran for this source slice. It is pending guarded Windows review and transfer; the existing editor/Python/MCP setup is separate.
 
+The subsequent mobile first-person source adds `SBaddieCompanionAudioCompass`, a private native Slate widget for at most eight short-lived direction marks around the crosshair. It accepts only owner-admitted sound bearings, drops exact direction into coarse sectors, clears across presentation generations and retains no actor or position. No HUD mounts it yet. Read the rural brief before camera, sound-cue, contextual-action, fire-assistance or terrain-presentation work; it now includes Joshua's screenshot reference and the unimplemented mobile requirements. Native exposure and animation reuse findings are in `../../docs/engineering/unreal-first-person-mobile-presentation-2026-10-10.md`. Existing Home/connection views remain unchanged.
+
 ## Offline preview
 
 After engine selection and a separately requested compilation pass, the intended standalone invocation is:
