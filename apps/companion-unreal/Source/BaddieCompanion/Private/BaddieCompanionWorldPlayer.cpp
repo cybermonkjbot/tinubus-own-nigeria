@@ -184,24 +184,62 @@ namespace BaddieCompanion
             const TArray<FValue>* Points = nullptr;
             if (!O->TryGetArrayField(TEXT("points"), Points) || !Points || Points->Num() < 2 || Points->Num() > 4096) return false;
             Out.PointCount = Points->Num();
+            Out.Points.Reserve(Points->Num());
             for (const auto& Point : *Points)
             {
-                double Latitude = 0, Longitude = 0;
-                if (!Geo(Point, Latitude, Longitude)) return false;
+                FWorldJourneyGeoPoint Next;
+                if (!Geo(Point, Next.Latitude, Next.Longitude)) return false;
+                Out.Points.Add(Next);
             }
             if (Out.Kind == EWorldJourneyRouteKind::Corridor)
                 return Same(Placement, TEXT("proposed")) && !O->HasField(TEXT("segmentDurationsMs")) && !O->HasField(TEXT("profile"));
             const TArray<FValue>* Durations = nullptr;
             if (!Same(Placement, TEXT("road-network")) || !O->TryGetArrayField(TEXT("segmentDurationsMs"), Durations)
                 || !Durations || Durations->Num() != Points->Num() - 1) return false;
+            TArray<double> SegmentDurations;
+            SegmentDurations.Reserve(Durations->Num());
             for (const auto& Duration : *Durations)
             {
                 double N = 0;
                 if (!Time(Duration, N)) return false;
+                SegmentDurations.Add(N);
             }
+            Out.SegmentDurationsMs.Presence = EWorldFieldPresence::Value;
+            Out.SegmentDurationsMs.Value = MoveTemp(SegmentDurations);
             return Optional(O, TEXT("profile"), Out.Profile, false, false,
                 [](const FValue& V, EWorldJourneyProfile& P) { return Enum(V, P,
                     {{TEXT("driving-traffic"), EWorldJourneyProfile::DrivingTraffic}, {TEXT("walking"), EWorldJourneyProfile::Walking}}); });
+        }
+        bool JourneyTraffic(const FValue& Value, FWorldJourneyTraffic& Out)
+        {
+            const auto O = Object(Value);
+            return Enum(Field(O, TEXT("provider")), Out.Provider, {{TEXT("mapbox"), EWorldTrafficProvider::Mapbox}})
+                && Time(O, TEXT("fetchedAtRealMs"), Out.FetchedAtRealMs) && Time(O, TEXT("durationMs"), Out.DurationMs)
+                && Optional(O, TEXT("typicalDurationMs"), Out.TypicalDurationMs, true, true,
+                    [](const FValue& V, double& N) { return Time(V, N); })
+                && Enum(Field(O, TEXT("coverage")), Out.Coverage,
+                    {{TEXT("complete"), EWorldTrafficCoverage::Complete}, {TEXT("partial"), EWorldTrafficCoverage::Partial},
+                     {TEXT("unavailable"), EWorldTrafficCoverage::Unavailable}})
+                && Optional(O, TEXT("congestion"), Out.Congestion, true, true,
+                    [](const FValue& V, EWorldTrafficCongestion& C) { return Enum(V, C,
+                        {{TEXT("low"), EWorldTrafficCongestion::Low}, {TEXT("moderate"), EWorldTrafficCongestion::Moderate},
+                         {TEXT("heavy"), EWorldTrafficCongestion::Heavy}, {TEXT("severe"), EWorldTrafficCongestion::Severe}}); });
+        }
+        bool JourneyEnforcement(const FValue& Value, FWorldJourneyEnforcement& Out)
+        {
+            const auto O = Object(Value);
+            return Integer(O, TEXT("version"), Out.Version, 1) && Out.Version == 1
+                && Enum(Field(O, TEXT("agency")), Out.Agency,
+                    {{TEXT("police"), EWorldEnforcementAgency::Police}, {TEXT("lastma"), EWorldEnforcementAgency::Lastma},
+                     {TEXT("efcc"), EWorldEnforcementAgency::Efcc}, {TEXT("ndlea"), EWorldEnforcementAgency::Ndlea}})
+                && Enum(Field(O, TEXT("stopKind")), Out.StopKind,
+                    {{TEXT("checkpoint"), EWorldEnforcementStopKind::Checkpoint}, {TEXT("roadside"), EWorldEnforcementStopKind::Roadside}})
+                && Enum(Field(O, TEXT("district")), Out.District,
+                    {{TEXT("town-centre"), EWorldEnforcementDistrict::TownCentre}, {TEXT("palm-courts"), EWorldEnforcementDistrict::PalmCourts},
+                     {TEXT("garden-quarter"), EWorldEnforcementDistrict::GardenQuarter}, {TEXT("south-market"), EWorldEnforcementDistrict::SouthMarket},
+                     {TEXT("marina"), EWorldEnforcementDistrict::Marina}, {TEXT("skyline"), EWorldEnforcementDistrict::Skyline},
+                     {TEXT("lagoon-gardens"), EWorldEnforcementDistrict::LagoonGardens}})
+                && Boolean(Field(O, TEXT("isNight")), Out.bIsNight);
         }
         bool Checkpoint(const FValue& Value, FWorldJourneyCheckpoint& Out)
         {
@@ -211,7 +249,7 @@ namespace BaddieCompanion
                 && Out.EndsAtMs >= Out.StartsAtMs
                 && Optional(O, TEXT("resumedAt"), Out.ResumedAtMs, false, true,
                     [](const FValue& V, double& N) { return Time(V, N); })
-                && ObjectPresence(O, TEXT("enforcement"), Out.Enforcement, false, false);
+                && Optional(O, TEXT("enforcement"), Out.Enforcement, false, false, JourneyEnforcement);
         }
         bool JourneyTiming(const FValue& Value, FWorldJourneyTiming& Out)
         {
@@ -242,7 +280,7 @@ namespace BaddieCompanion
                 || !Optional(O, TEXT("travelMode"), Out.TravelMode, false, false,
                     [](const FValue& V, EWorldTravelMode& M) { return Enum(V, M, {{TEXT("walk"), EWorldTravelMode::Walk},
                         {TEXT("vehicle"), EWorldTravelMode::Vehicle}, {TEXT("boat"), EWorldTravelMode::Boat}}); })
-                || !ObjectPresence(O, TEXT("traffic"), Out.Traffic, false, false)) return false;
+                || !Optional(O, TEXT("traffic"), Out.Traffic, false, false, JourneyTraffic)) return false;
             return (!Out.FromEndpoint.Value.IsSet() || Same(PlaceId(Out.FromEndpoint.Value.GetValue()), Out.FromPlaceId))
                 && (!Out.ToEndpoint.Value.IsSet() || Same(PlaceId(Out.ToEndpoint.Value.GetValue()), Out.ToPlaceId));
         }

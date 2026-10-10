@@ -25,7 +25,12 @@ namespace BaddieCompanion
     enum class EWorldJourneyVehicle : uint8 { Car, Okada, Keke, Danfo, Canoe, Speedboat };
     enum class EWorldJourneyRouteKind : uint8 { Corridor, RoadNetwork };
     enum class EWorldJourneyProfile : uint8 { DrivingTraffic, Walking };
-    // Identity projection only. Geometry/timing arrays are checked, not published as a route.
+    struct FWorldJourneyGeoPoint
+    {
+        // Geographic degrees, not source metres or Unreal world coordinates.
+        double Latitude = 0, Longitude = 0;
+    };
+    // Retained wire geometry only. No sampling, length repair or route admission.
     struct FWorldJourneyRouteIdentity
     {
         FString Id;
@@ -33,13 +38,42 @@ namespace BaddieCompanion
         TWorldPlayerField<EWorldJourneyProfile> Profile;
         int32 PointCount = 0;
         double LengthMetres = 0;
+        TArray<FWorldJourneyGeoPoint> Points;
+        // Missing on corridors; required value on road routes. Original real ms,
+        // including fractional/zero durations, in the supplied segment order.
+        TWorldPlayerField<TArray<double>> SegmentDurationsMs;
+    };
+    enum class EWorldTrafficProvider : uint8 { Mapbox };
+    enum class EWorldTrafficCoverage : uint8 { Complete, Partial, Unavailable };
+    enum class EWorldTrafficCongestion : uint8 { Low, Moderate, Heavy, Severe };
+    struct FWorldJourneyTraffic
+    {
+        EWorldTrafficProvider Provider = EWorldTrafficProvider::Mapbox;
+        double FetchedAtRealMs = 0, DurationMs = 0;
+        TWorldPlayerField<double> TypicalDurationMs;
+        EWorldTrafficCoverage Coverage = EWorldTrafficCoverage::Unavailable;
+        TWorldPlayerField<EWorldTrafficCongestion> Congestion;
+    };
+    enum class EWorldEnforcementAgency : uint8 { Police, Lastma, Efcc, Ndlea };
+    enum class EWorldEnforcementStopKind : uint8 { Checkpoint, Roadside };
+    enum class EWorldEnforcementDistrict : uint8
+    {
+        TownCentre, PalmCourts, GardenQuarter, SouthMarket, Marina, Skyline, LagoonGardens
+    };
+    // The saved departure decision, not a current encounter or permission to stop/release.
+    struct FWorldJourneyEnforcement
+    {
+        int64 Version = 0;
+        EWorldEnforcementAgency Agency = EWorldEnforcementAgency::Police;
+        EWorldEnforcementStopKind StopKind = EWorldEnforcementStopKind::Checkpoint;
+        EWorldEnforcementDistrict District = EWorldEnforcementDistrict::TownCentre;
+        bool bIsNight = false;
     };
     struct FWorldJourneyCheckpoint
     {
         double Progress = 0, StartsAtMs = 0, EndsAtMs = 0;
         TWorldPlayerField<double> ResumedAtMs;
-        // Shape only, not an enforcement decision or encounter receipt.
-        EWorldFieldPresence Enforcement = EWorldFieldPresence::Missing;
+        TWorldPlayerField<FWorldJourneyEnforcement> Enforcement;
     };
     struct FWorldJourneyTiming
     {
@@ -57,8 +91,8 @@ namespace BaddieCompanion
         TWorldPlayerField<FWorldJourneyTiming> TravelTiming;
         TWorldPlayerField<FWorldTravelEndpoint> FromEndpoint, ToEndpoint;
         TWorldPlayerField<EWorldTravelMode> TravelMode;
-        // Shape only. No departure traffic estimate is exposed by this slice.
-        EWorldFieldPresence Traffic = EWorldFieldPresence::Missing;
+        // Optional departure estimate. Never refreshed or inferred from route timing.
+        TWorldPlayerField<FWorldJourneyTraffic> Traffic;
     };
     struct FWorldRoadsideVisit
     {
