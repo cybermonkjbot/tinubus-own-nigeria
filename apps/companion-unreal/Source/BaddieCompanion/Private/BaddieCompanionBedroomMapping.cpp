@@ -45,24 +45,19 @@ namespace BaddieCompanion::HomeMapping
         Wall(ESurface::WallRight, TEXT("wall-right"), TEXT("Wardrobe wall"), 2.395, 0, -UE_DOUBLE_PI / 2, 5.1, {});
         // Curved headboard is not a flat wall support. No synthetic wall-front.
         Out.FloorPatches.Add(ShellBox(-.7, .014, .25, 2.75, 0, 1.6));
-        const TArray<EItemKind> TableKinds = { EItemKind::Lamp, EItemKind::Plant, EItemKind::DeskFan,
-            EItemKind::DeskLamp, EItemKind::BookStack, EItemKind::Candle, EItemKind::Succulent };
         FSupportPlan Floor;
         Floor.Id = ESurface::Floor; Floor.SourceId = TEXT("floor"); Floor.Name = TEXT("Floor");
         Floor.Top = ShellBox(0, 0, 0, 4.8, 0, 5.2);
-        Floor.AllowedKinds = TableKinds;
-        Floor.AllowedKinds.Append({ EItemKind::Stool, EItemKind::StandingFan, EItemKind::TowerFan,
-            EItemKind::FloorLamp, EItemKind::Armchair, EItemKind::Loveseat, EItemKind::Ottoman,
-            EItemKind::CoffeeTable, EItemKind::SideTable, EItemKind::Bookcase, EItemKind::StorageBasket });
+        Floor.AllowedKinds = SupportKinds(ESurface::Floor);
         for (const auto& Standing : Out.StandingCandidates) Floor.Anchors.Add(Pose(Standing.Metres));
         Out.Supports.Add(MoveTemp(Floor));
-        const auto Support = [&Out, &ShellBox, &Point, &TableKinds](ESurface Id, const TCHAR* SourceId,
+        const auto Support = [&Out, &ShellBox, &Point](ESurface Id, const TCHAR* SourceId,
             const TCHAR* Name, double X, double Z, double Y, double W, double D,
             double AnchorX, double AnchorZ, const TCHAR* Obstacle)
         {
             FSupportPlan Result;
             Result.Id = Id; Result.SourceId = SourceId; Result.Name = Name;
-            Result.Top = ShellBox(X, Y, Z, W, 0, D); Result.AllowedKinds = TableKinds;
+            Result.Top = ShellBox(X, Y, Z, W, 0, D); Result.AllowedKinds = SupportKinds(Id);
             // Source anchors are horizontal x/z points, not an authored y/yaw.
             Result.Anchors.Add(Pose(Point(AnchorX, 0, AnchorZ)));
             Result.SupportingObstacleIds.Add(Obstacle);

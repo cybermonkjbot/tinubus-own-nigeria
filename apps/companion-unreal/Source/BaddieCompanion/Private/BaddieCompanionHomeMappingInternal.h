@@ -54,6 +54,7 @@ namespace BaddieCompanion::HomeMapping
     FCanonicalAssetReference TerraceReference();
     FSourcePose Pose(const FVector& Point, double Yaw = 0);
     FSourceBox Box(const FVector& BottomCentre, const FVector& Dimensions);
+    TArray<EItemKind> SupportKinds(ESurface Surface);
     FRoomShellPlan BedroomShell(const TOptional<FHomeDesignPlan>& Design);
     TOptional<FRoomShellPlan> RoomShell(const FRoomPlan& Room);
     bool ReadAppearance(const FCharacterSelection& Input, FAppearancePlan& Out,

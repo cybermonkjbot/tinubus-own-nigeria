@@ -139,6 +139,17 @@ namespace BaddieCompanion
 
 namespace BaddieCompanion::HomeMapping
 {
+    TArray<EItemKind> SupportKinds(ESurface Surface)
+    {
+        TArray<EItemKind> Out = { EItemKind::Lamp, EItemKind::Plant, EItemKind::DeskFan,
+            EItemKind::DeskLamp, EItemKind::BookStack, EItemKind::Candle, EItemKind::Succulent };
+        if (Surface == ESurface::Floor) Out.Append({ EItemKind::Stool, EItemKind::StandingFan,
+            EItemKind::TowerFan, EItemKind::FloorLamp, EItemKind::Armchair, EItemKind::Loveseat,
+            EItemKind::Ottoman, EItemKind::CoffeeTable, EItemKind::SideTable, EItemKind::Bookcase,
+            EItemKind::StorageBasket });
+        return Out;
+    }
+
     bool ReadObject(const FString& Json, FObject& Out)
     {
         Out.Reset();

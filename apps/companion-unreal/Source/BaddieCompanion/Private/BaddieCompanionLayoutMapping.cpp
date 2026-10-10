@@ -2,20 +2,13 @@
 
 namespace BaddieCompanion::HomeMapping::LayoutMapping
 {
-    const TArray<EItemKind> TableKinds = { EItemKind::Lamp, EItemKind::Plant, EItemKind::DeskFan,
-        EItemKind::DeskLamp, EItemKind::BookStack, EItemKind::Candle, EItemKind::Succulent };
-
     FSupportPlan Support(ESurface Id, const TCHAR* SourceId, const TCHAR* Name,
         const FVector& Top, const FVector& Size, std::initializer_list<FVector> Anchors,
         const TCHAR* SupportingObstacle = nullptr)
     {
         FSupportPlan Out;
         Out.Id = Id; Out.SourceId = SourceId; Out.Name = Name;
-        Out.Top = Box(Top, Size); Out.AllowedKinds = TableKinds;
-        if (Id == ESurface::Floor) Out.AllowedKinds.Append({ EItemKind::Stool, EItemKind::StandingFan,
-            EItemKind::TowerFan, EItemKind::FloorLamp, EItemKind::Armchair, EItemKind::Loveseat,
-            EItemKind::Ottoman, EItemKind::CoffeeTable, EItemKind::SideTable, EItemKind::Bookcase,
-            EItemKind::StorageBasket });
+        Out.Top = Box(Top, Size); Out.AllowedKinds = SupportKinds(Id);
         for (const auto& Anchor : Anchors) Out.Anchors.Add(Pose(Anchor));
         if (SupportingObstacle) Out.SupportingObstacleIds.Add(SupportingObstacle);
         return Out;
