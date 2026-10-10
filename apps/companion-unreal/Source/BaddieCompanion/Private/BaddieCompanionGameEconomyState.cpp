@@ -449,7 +449,7 @@ namespace BaddieCompanion
         if (!Name || (bVendor && !VendorScope.IsSet())) return false;
         if (!ValidRequestId(RequestId))
         {
-            if (!bVendor) View.Error = TEXT("Invalid service request ID.");
+            if (!bVendor) { View.Error = TEXT("Invalid service request ID."); Out.bNotifyPreparationFailure = true; }
             return false;
         }
         if (!bVendor)
@@ -457,12 +457,12 @@ namespace BaddieCompanion
             if (Operation == EGameEconomyCommand::RequestQuote)
             {
                 if ((SelectorKind != EGameEconomySelectorKind::OfferId && SelectorKind != EGameEconomySelectorKind::ServiceKey) || !ValidKey(Value))
-                { View.Error = TEXT("Choose an existing service offer."); return false; }
+                { View.Error = TEXT("Choose an existing service offer."); Out.bNotifyPreparationFailure = true; return false; }
             }
-            else if (!ValidKey(Value)) { View.Error = TEXT("Choose an existing quote."); return false; }
+            else if (!ValidKey(Value)) { View.Error = TEXT("Choose an existing quote."); Out.bNotifyPreparationFailure = true; return false; }
         }
         // Additional native allocation bound only. Vendor payloads need not be keys or nonempty.
-        else if (Value.Len() > 8192) { View.Error = PreparationError; return false; }
+        else if (Value.Len() > 8192) { View.Error = PreparationError; Out.bNotifyPreparationFailure = true; return false; }
 
         const bool bReuse = bVendor && PendingVendor.IsSet() && PendingVendor->Operation == Operation && Same(PendingVendor->RequestId, RequestId);
         FString Arguments;
@@ -489,7 +489,7 @@ namespace BaddieCompanion
             }
             else Args->SetStringField(TEXT("quoteId"), Value);
             const auto Writer = TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Arguments);
-            if (!FJsonSerializer::Serialize(Args, Writer)) { View.Error = PreparationError; return false; }
+            if (!FJsonSerializer::Serialize(Args, Writer)) { View.Error = PreparationError; Out.bNotifyPreparationFailure = true; return false; }
         }
         if (bVendor && !bReuse)
         {

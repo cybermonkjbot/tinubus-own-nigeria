@@ -146,11 +146,16 @@ namespace BaddieCompanion
     class FGameEconomyCommandReceipt
     {
         friend class FGameEconomyReadState;
+    public:
+        // On failed preparation, emit this validation error even if its text is unchanged.
+        // The receipt still has no command identity and cannot dispatch or complete.
+        bool ShouldNotifyPreparationFailure() const { return bNotifyPreparationFailure; }
     private:
         FGuid Id, AccountGeneration, ViewGeneration, VendorViewGeneration, PendingVendorId;
         EGameEconomyCommand Operation = EGameEconomyCommand::RequestQuote;
         // The current attempt's target can differ from the saved vendor wire payload.
         FString AttemptedValue;
+        bool bNotifyPreparationFailure = false;
     };
     class FGameEconomyCommandCompletion
     {
