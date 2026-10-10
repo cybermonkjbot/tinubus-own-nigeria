@@ -123,8 +123,8 @@ namespace BaddieCompanion
         TOptional<FJobsGoal> Goal;
         TOptional<FJobsFeedback> Result;
         bool bReady = false, bOffersReady = false, bGoalReady = false, bBusy = false;
+        bool bRetryable = false, bGoalBusy = false;
         TOptional<FString> Error, GoalError;
-        // This read slice owns no pending command, retry decision or goal save.
     };
     enum class EJobsReadKind : uint8 { Job, Offers, Goal };
     enum class EJobsReadResult : uint8 { Accepted, Retained, StaleReceipt, InvalidResponse };
@@ -139,8 +139,8 @@ namespace BaddieCompanion
         FGuid SourcesGeneration, ReadGeneration;
         EJobsReadKind Kind = EJobsReadKind::Job;
     };
-    // Supplied by the external request owner, including the ORIGINAL contact on a retry.
-    // Identifiers only. The command/request ID and uncertain retry lifecycle stay external.
+    // Legacy external receipt capture still accepts an origin. Owned commands construct
+    // it from current sources and retain the ORIGINAL contact across retries.
     struct FJobsRequestOrigin
     {
         FString AccountId, GameRoomId, UserId, LifeId, OutingId;
@@ -155,6 +155,8 @@ namespace BaddieCompanion
         int64 WorldRevision = 0, RenderAttempt = 0;
         EWorldPlayerStatus PlayerStatus = EWorldPlayerStatus::Present;
         uint64 JobUpdates = 0;
+        FGuid PendingId;
+        bool bWasUncertain = false;
     };
     struct FJobsPublicFailure
     {
@@ -166,8 +168,37 @@ namespace BaddieCompanion
         bool bDefinitivelyRejected = false;
     };
 
-    // Account-private, single game-thread reducer. No requests, retry/goal scheduling,
-    // ledger writes, movement, actor ownership, delegates or admission.
+    enum class EJobsAction : uint8 { Accept, Collect, Deliver, Cancel };
+    struct FJobsAction
+    {
+        EJobsAction Type = EJobsAction::Accept;
+        FString Id; // offerId for accept; jobId otherwise. No concurrency tokens.
+    };
+    class FJobsDispatch
+    {
+        friend class FJobsReadState;
+    public:
+        FString GetEndpoint() const { return Endpoint; }
+        FString GetArgumentsJson() const { return ArgumentsJson; }
+    private:
+        FString Endpoint, ArgumentsJson; // Non-secret endpoint arguments only.
+    };
+    class FJobsCompletionReceipt
+    {
+        friend class FJobsReadState;
+        FJobsMutationReceipt Mutation;
+        TOptional<FJobsCommandResult> Result;
+    };
+    class FJobsGoalMutationReceipt
+    {
+        friend class FJobsReadState;
+        FGuid Id, Generation;
+        FString AccountId, GameRoomId, GoalUserId;
+        FJobsDispatch Dispatch;
+    };
+
+    // Account-private, single game-thread reducer with local command lifecycle only.
+    // No transport, credentials, automatic retries, ledger writes, delegates or admission.
     class BADDIECOMPANION_API FJobsReadState
     {
     public:
@@ -196,6 +227,29 @@ namespace BaddieCompanion
         EJobsReadResult ObserveMutation(const FJobsMutationReceipt& Receipt, const FString& Json);
         bool ObserveMutationFailure(const FJobsMutationReceipt& Receipt, const FJobsPublicFailure& Failure);
 
+        // Caller supplies fresh coherent sources before preparation and every callback.
+        // Prepare sets busy; notify externally, then recheck via MarkCommandDispatched.
+        bool PrepareCommand(const FJobsAction& Action, FJobsMutationReceipt& Out);
+        bool PrepareRetry(FJobsMutationReceipt& Out);
+        // Call only when the separately admitted adapter will dispatch immediately.
+        // No callbacks/notifications may intervene between marking and actual dispatch.
+        bool MarkCommandDispatched(const FJobsMutationReceipt& Receipt, FJobsDispatch& Out);
+        bool CancelPreparedCommand(const FJobsMutationReceipt& Receipt);
+        // One result-application path, also used by the original two-argument entry point.
+        EJobsReadResult ObserveMutation(const FJobsMutationReceipt& Receipt, const FString& Json,
+            FJobsCompletionReceipt& Out);
+        // Consume AFTER the caller's final notification; rechecks contact/visit/job feedback.
+        bool TakeCommandResult(FJobsCompletionReceipt& Completion, FJobsCommandResult& Out) const;
+        bool HasPendingCommand() const { return Pending.IsSet(); }
+        bool IsPendingUncertain() const { return Pending.IsSet() && Pending->bUncertain; }
+
+        bool PrepareGoalSelection(bool bSelected, FJobsGoalMutationReceipt& Out);
+        bool MarkGoalDispatched(const FJobsGoalMutationReceipt& Receipt, FJobsDispatch& Out);
+        bool CancelPreparedGoal(const FJobsGoalMutationReceipt& Receipt);
+        // selectGoal returns null. The live goal query alone publishes saved goal state.
+        EJobsReadResult ObserveGoalMutation(const FJobsGoalMutationReceipt& Receipt, const FString& Json);
+        bool ObserveGoalMutationFailure(const FJobsGoalMutationReceipt& Receipt, const FJobsPublicFailure& Failure);
+
     private:
         struct FContext
         {
@@ -211,6 +265,14 @@ namespace BaddieCompanion
         bool SameVisit(const FJobsMutationReceipt& Receipt) const;
         bool FeedbackCurrent(const FJobsMutationReceipt& Receipt) const;
         bool CanWork() const;
+        bool OriginMatchesContext(const FJobsRequestOrigin& Origin) const;
+        bool ProvenOriginEnded(const FJobsRequestOrigin& Origin) const;
+        bool BeginMutation(const FJobsRequestOrigin& Origin, FJobsMutationReceipt& Out);
+        bool PreparePending(FJobsMutationReceipt& Out);
+        bool RejectCommand(const TCHAR* Message);
+        bool CurrentGoalMutation(const FJobsGoalMutationReceipt& Receipt) const;
+        void FinishGoalMutation();
+        void ClearOwnedRequests();
         TOptional<FContext> ReadContext() const;
         TOptional<FJobsContact> ResolveContact(const TOptional<FString>& ServiceId) const;
         void Reconcile();
@@ -231,6 +293,17 @@ namespace BaddieCompanion
         FGuid JobGeneration = FGuid::NewGuid(), OffersGeneration = FGuid::NewGuid(), GoalGeneration = FGuid::NewGuid();
         FGuid ActiveMutation;
         FJobsRequestOrigin ActiveOrigin;
+        struct FPendingCommand
+        {
+            FGuid Id;
+            FJobsRequestOrigin Origin;
+            // Encoded exactly once. Retry never substitutes current tokens or contact.
+            FJobsDispatch Dispatch;
+            bool bUncertain = false;
+        };
+        TOptional<FPendingCommand> Pending;
+        FGuid ActivePendingId, ActiveGoalMutation;
+        bool bCommandDispatched = false, bGoalDispatched = false;
         uint64 JobUpdates = 0;
         bool bObserving = false, bDisposed = false, bBlocked = false, bMutationEligible = false;
         bool bJobActive = false, bOffersActive = false, bGoalActive = false;
