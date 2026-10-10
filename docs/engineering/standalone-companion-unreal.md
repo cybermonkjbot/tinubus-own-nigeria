@@ -10,6 +10,8 @@ For the full translation scope and continuation rules, read `standalone-companio
 
 Follow the tracker's Unreal-first implementation section before adding movement, animation, navigation or rendering code. Joshua requires reuse of existing Unreal systems and applicable Epic samples. Keep custom code for Baddie-specific contracts and demonstrated gaps, not replacements for engine facilities.
 
+For the installed toolchain and existing editor connection, read `cribtest11-python-mcp-2026-10-10.md`. Its separately authorized build/launch supersedes the historical machine inventory below. The verified editor checkpoint does not include queued gameplay/material work and has no imported Baddie map. Further compilation, launches, imports and live configuration still require their own authority.
+
 The first playable slice is one admitted Companion in the person's saved Home. Start with appearance, room selection, camera and local movement presentation. Add authoritative game entry and movement before porting city systems. Keep the existing mobile/web renderer working throughout.
 
 Joshua expanded the Home layout on October 10: each user's saved rooms must connect to a hallway, then to a living room with abundant exterior daylight, then outside the apartment. This is a private apartment, not a shared corridor between accounts. Reuse a supplied `home-living` instead of duplicating that room. Read `standalone-companion-apartment.md` for the connection source, native-level direction and outstanding doorway and lighting work. Separate apartment consent/projection, Unreal session acceptance and explicit Slate controls are recorded in `standalone-companion-apartment-access.md`. The combined Unreal client is delivered to Windows at `87295378a1ce93db180a879b87909dc7de3d050f`. The current one-room grant stays unchanged and live access remains disabled.
@@ -18,7 +20,9 @@ Joshua expanded the Home layout on October 10: each user's saved rooms must conn
 
 Joshua's requirement on October 10, 2026: the game must be unmistakably Lagos. We are building contemporary, lived-in Lagos. An ordinary street view should communicate the setting with the map label hidden; recognition cannot depend only on a landmark or a yellow bus.
 
-The Home-first scope stays unchanged. Apply this direction to supported environment art and exterior views while preserving the person's saved layout, furniture and Companion. This brief does not authorize a replacement Home, new city gameplay or changes to the production renderer.
+Joshua's subsequent rural-expedition direction adds an optional expressway-to-bush mission sequence: The Intercept, The Extraction and The Insurgent Stronghold. It includes a MOPOL squad, difficult river crossings, touch-friendly commands, listener-relevant directional sound cues and a mid-tier Android rendering target. Read `standalone-companion-rural-expedition.md` for the complete brief, the first native move/hold controller and the unimplemented mission/content requirements. This expands the future city gameplay scope without replacing Home-first playable work, existing mission/combat authority or the social game. It does not make these missions available now.
+
+Home remains the first playable target. Apply the Lagos art direction to supported environments and exterior views while preserving the person's saved layout, furniture and Companion. Rural gameplay follows the expedition brief and existing mission authority. Neither direction replaces the saved Home or changes the production renderer in this source slice.
 
 - Choose one named Lagos neighborhood and a dated photographic reference set for each area before authoring. Keep building types, street widths, transport and waterside views consistent with that place. Yaba, Surulere, Lagos Island and Lekki are reference candidates, not interchangeable scenery or newly promised districts.
 - Build streets from reference-checked facades, balconies, compound gates, shopfront shutters, awnings, drainage and utilities. Vary finishes and upkeep by building. Include ordinary homes, contemporary businesses and cultural spaces; constant decay or a uniform luxury-estate treatment cannot represent the whole world.
@@ -155,7 +159,7 @@ Use the authenticated TLS bridge. Keep its existing certificate verification and
 
 ## Documentation consulted
 
-Epic's module and commandlet references informed the source structure. An actual engine association and successful compilation remain outstanding.
+Epic's module and commandlet references informed the source structure. The editor setup record above owns current compilation evidence; it does not establish commandlet execution, imported content or gameplay acceptance.
 
 ```text
 https://dev.epicgames.com/documentation/en-us/unreal-engine/unreal-engine-modules

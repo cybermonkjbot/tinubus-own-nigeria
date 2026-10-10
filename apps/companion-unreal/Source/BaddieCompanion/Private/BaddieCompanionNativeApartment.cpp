@@ -5,8 +5,11 @@
 #include "Components/PrimitiveComponent.h"
 #include "Components/SkyAtmosphereComponent.h"
 #include "Components/SkyLightComponent.h"
+#include "Engine/AssetManager.h"
 #include "Engine/Level.h"
 #include "Engine/LevelStreamingDynamic.h"
+#include "Engine/StaticMesh.h"
+#include "Engine/StreamableManager.h"
 #include "Engine/World.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
@@ -138,6 +141,19 @@ void UBaddieCompanionNativeApartment::AddGap(BaddieCompanion::ENativeApartmentGa
 
 void UBaddieCompanionNativeApartment::ClearPrivateContent()
 {
+    bool bFurnitureDestroyFailed = false;
+    if (FurnitureAssetLoad.IsValid())
+    {
+        FurnitureAssetLoad->CancelHandle();
+        FurnitureAssetLoad.Reset();
+    }
+    for (const auto& OwnedFurniture : Furniture)
+        if (auto* Actor = OwnedFurniture.Get(); IsValid(Actor))
+        {
+            Actor->ClearPrivateFurniture();
+            if (!Actor->Destroy(false, false)) bFurnitureDestroyFailed = true;
+        }
+    Furniture.Reset(); FurniturePrepared.Reset(); FurnitureAssets.Reset();
     // No async lambdas retain a plan or an old request. All streams start invisible.
     for (const auto& OwnedStream : Streams)
     {
@@ -167,6 +183,8 @@ void UBaddieCompanionNativeApartment::ClearPrivateContent()
     Streams.Reset(); AnchorsChecked.Reset(); Bindings.Reset();
     Presentation.Reset(); Source.Reset(); Status = {}; bDaylightHookAttempted = false;
     AddGap(BaddieCompanion::ENativeApartmentGap::MissingContent);
+    // A failed destroy still leaves an empty, inactive actor in a level requested for unload.
+    if (bFurnitureDestroyFailed) AddGap(BaddieCompanion::ENativeApartmentGap::FurnitureUnavailable);
 }
 
 void UBaddieCompanionNativeApartment::EndPlay(const EEndPlayReason::Type Reason)
@@ -200,6 +218,25 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
         AddGap(ENativeApartmentGap::InvalidBinding);
         return false;
     }
+    TArray<EItemKind> AssetKinds;
+    if (Content.FurnitureAssets.Num() > 23) { AddGap(ENativeApartmentGap::InvalidBinding); return false; }
+    for (const auto& Asset : Content.FurnitureAssets)
+    {
+        if (AssetKinds.Contains(Asset.Kind)) { AddGap(ENativeApartmentGap::InvalidBinding); return false; }
+        AssetKinds.Add(Asset.Kind);
+    }
+    TArray<FSoftObjectPath> FurniturePaths;
+    for (const auto& Room : Plan.Rooms)
+        for (const auto& Item : Room.Items)
+        {
+            const auto* Asset = Item.Kind.Effective.IsSet() ? Content.FurnitureAssets.FindByPredicate([&](const auto& Entry)
+                { return Entry.Kind == Item.Kind.Effective.GetValue(); }) : nullptr;
+            if (!Room.bSourceMapped || !Room.Shell.IsSet() || !Item.PlacementPose.IsSet()
+                || !Item.Dimensions.IsSet() || !Item.Volume.IsSet() || !Asset
+                || !ABaddieCompanionFurnitureActor::AcceptsBinding(Item, *Asset))
+            { AddGap(ENativeApartmentGap::FurnitureUnavailable); return false; }
+            FurniturePaths.AddUnique(Asset->Mesh.ToSoftObjectPath());
+        }
     // Exact endpoint coverage: no missing inventory synthesized into common-space content.
     TArray<FApartmentEndpoint> Required;
     for (const auto& Connection : Plan.Apartment.Connections)
@@ -253,18 +290,30 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
     if (!GetWorld() || GetWorld()->GetNetMode() != NM_Standalone) return false;
 
     Source = Plan.Source; Presentation = Plan; Bindings = Content.Levels;
+    FurnitureAssets = Content.FurnitureAssets;
     Status = {};
+    if (!FurniturePaths.IsEmpty())
+    {
+        // UE retains mesh dependencies until every native furniture instance owns its mesh.
+        // No callbacks capture private snapshots; the existing controller poll owns completion.
+        if (!UAssetManager::IsInitialized())
+        { ClearPrivateContent(); AddGap(ENativeApartmentGap::FurnitureUnavailable); return false; }
+        FurnitureAssetLoad = UAssetManager::GetStreamableManager().RequestAsyncLoad(FurniturePaths);
+        if (!FurnitureAssetLoad.IsValid())
+        { ClearPrivateContent(); AddGap(ENativeApartmentGap::FurnitureUnavailable); return false; }
+        Status.bFurnitureAssetsPending = !FurnitureAssetLoad->HasLoadCompleted();
+    }
     for (const auto& Binding : Bindings)
     {
-        // Native packages must bake source basis + saved shell design + saved decor once.
-        // The rigid apartment transform moves the complete level, including support/camera actors.
+        // Native packages bake source basis + saved shell design + authored fixed fixtures once.
+        // Saved item actors are added separately with their existing room-local placements.
         ULevelStreamingDynamic::FLoadLevelInstanceParams Params(GetWorld(),
             Binding.Level.ToSoftObjectPath().GetLongPackageName(), Binding.InstanceToApartment);
         Params.bInitiallyVisible = false;
         Params.bAllowReuseExitingLevelStreaming = false;
         bool bLoaded = false;
         auto* Stream = ULevelStreamingDynamic::LoadLevelInstance(Params, bLoaded);
-        if (Stream) { Streams.Add(Stream); AnchorsChecked.Add(false); }
+        if (Stream) { Streams.Add(Stream); AnchorsChecked.Add(false); FurniturePrepared.Add(false); }
         if (!bLoaded || !Stream)
         { ClearPrivateContent(); AddGap(ENativeApartmentGap::LoadFailed); return false; }
     }
@@ -276,6 +325,9 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
 
 void UBaddieCompanionNativeApartment::PollNativeLevels()
 {
+    if (FurnitureAssetLoad.IsValid() && (FurnitureAssetLoad->WasCanceled() || !FurnitureAssetLoad->IsActive()))
+    { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::FurnitureUnavailable); return; }
+    Status.bFurnitureAssetsPending = FurnitureAssetLoad.IsValid() && !FurnitureAssetLoad->HasLoadCompleted();
     Status.PendingLevels = 0;
     for (int32 I = 0; I < Streams.Num(); ++I)
     {
@@ -289,8 +341,28 @@ void UBaddieCompanionNativeApartment::PollNativeLevels()
             { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::AnchorUnavailable); return; }
             AnchorsChecked[I] = true;
         }
+        if (!Status.bFurnitureAssetsPending && !FurniturePrepared[I])
+        {
+            if (!PrepareRoomFurniture(I))
+            { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::FurnitureUnavailable); return; }
+            FurniturePrepared[I] = true;
+        }
     }
-    if (!Streams.IsEmpty() && Status.PendingLevels == 0 && !bDaylightHookAttempted)
+    for (const auto& OwnedFurniture : Furniture)
+    {
+        auto* Actor = OwnedFurniture.Get();
+        if (!IsValid(Actor) || Actor->GetWorld() != GetWorld()
+            || !Streams.ContainsByPredicate([&](const auto& Stream)
+                { return IsValid(Stream.Get()) && Stream->GetLoadedLevel() == Actor->GetLevel(); })
+            || !Actor->ReconcileLevelTransform())
+        { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::FurnitureUnavailable); return; }
+    }
+    if (!Streams.IsEmpty() && Status.PendingLevels == 0 && !Status.bFurnitureAssetsPending && FurnitureAssetLoad.IsValid())
+    {
+        FurnitureAssetLoad->ReleaseHandle();
+        FurnitureAssetLoad.Reset();
+    }
+    if (!Streams.IsEmpty() && Status.PendingLevels == 0 && !Status.bFurnitureAssetsPending && !bDaylightHookAttempted)
     {
         // Invisible level content is not yet an illuminated scene. Retry only when UE makes it visible.
         bool bAllVisible = true;
@@ -306,6 +378,41 @@ void UBaddieCompanionNativeApartment::PollNativeLevels()
             }
         }
     }
+}
+
+bool UBaddieCompanionNativeApartment::PrepareRoomFurniture(int32 Index)
+{
+    using namespace BaddieCompanion;
+    if (!Presentation.IsSet() || !Streams.IsValidIndex(Index) || !Bindings.IsValidIndex(Index)) return false;
+    auto* Stream = Streams[Index].Get();
+    auto* Level = Stream ? Stream->GetLoadedLevel() : nullptr;
+    if (!IsValid(Level) || !GetWorld() || Level->GetWorld() != GetWorld()) return false;
+    const auto& Binding = Bindings[Index];
+    if (Binding.Endpoint.RoomId.IsEmpty()) return true;
+    const auto* Room = Presentation->Rooms.FindByPredicate([&](const auto& Entry)
+        { return Entry.Id.Equals(Binding.Endpoint.RoomId, ESearchCase::CaseSensitive); });
+    if (!Room) return false;
+    for (const auto& Item : Room->Items)
+    {
+        const auto* Asset = Item.Kind.Effective.IsSet() ? FurnitureAssets.FindByPredicate([&](const auto& Entry)
+            { return Entry.Kind == Item.Kind.Effective.GetValue(); }) : nullptr;
+        if (!Asset || !IsValid(Asset->Mesh.Get())) return false;
+        FActorSpawnParameters Params;
+        Params.OverrideLevel = Level;
+        Params.Owner = GetOwner();
+        Params.ObjectFlags |= RF_Transient;
+        // Collision cannot silently move a saved item to a different coordinate.
+        // This native actor starts hidden, non-colliding, non-replicated and without a tick.
+        Params.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+        auto* Actor = GetWorld()->SpawnActor<ABaddieCompanionFurnitureActor>(
+            ABaddieCompanionFurnitureActor::StaticClass(), FTransform::Identity, Params);
+        if (!IsValid(Actor)) return false;
+        Furniture.Add(Actor);
+        if (Actor->GetLevel() != Level || Actor->GetWorld() != GetWorld()) return false;
+        if (!Actor->Configure(*Room, Item, *Asset, Binding.InstanceToApartment, Level->bAlreadyMovedActors)) return false;
+    }
+    Status.PreparedFurniture = Furniture.Num();
+    return true;
 }
 
 bool UBaddieCompanionNativeApartment::ValidateLoadedAnchors(int32 Index)
