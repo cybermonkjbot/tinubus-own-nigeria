@@ -143,6 +143,7 @@ void ABaddieCompanionExpeditionCharacter::ClearEncounterPresentation()
     StopNativeMovement();
     GetCharacterMovement()->MaxWalkSpeed = 0;
     GetCharacterMovement()->MaxWalkSpeedCrouched = 0;
+    GetCharacterMovement()->DefaultLandMovementMode = MOVE_None;
     GetCharacterMovement()->DisableMovement();
     SetActorEnableCollision(false);
     SetActorHiddenInGame(true);
@@ -240,6 +241,8 @@ void ABaddieCompanionExpeditionCharacter::PrepareAcceptedMovement()
         return;
     }
     // Assignment restores normal terrain policy without stacking previous penalties.
+    // Native landing must return to walking while this accepted source is current.
+    Movement->DefaultLandMovementMode = MOVE_Walking;
     Movement->MaxWalkSpeed = State.MaxGroundSpeedCmPerSecond;
     Movement->MaxWalkSpeedCrouched = State.MaxGroundSpeedCmPerSecond;
     ApplyCameraAndStance(State);
