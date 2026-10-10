@@ -126,6 +126,7 @@ private:
     uint64 MissionCombatSequence = 0;
     uint64 MissionHearingSequence = 0;
     uint64 MissionRequestSequence = 0;
+    uint64 MissionADSInputSerial = 0;
     bool bMissionModal = false;
     bool bHipAssistance = false;
     bool bManualFireHeld = false;

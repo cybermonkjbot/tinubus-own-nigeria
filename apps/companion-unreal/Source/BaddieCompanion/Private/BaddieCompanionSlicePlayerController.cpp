@@ -681,9 +681,16 @@ void ABaddieCompanionSlicePlayerController::PresentMissionCombat(
     MissionCombat = Policy;
     if (bChangedTarget) StopMissionFire();
     if (!AcceptMissionToken(Token) || Sequence != MissionCombatSequence) return;
-    if (!HasMissionCombatPolicy() || !Policy.bFiringStance || !Policy.bWeaponRaised) CancelMissionInputs();
+    if (!HasMissionCombatPolicy() || !Policy.bFiringStance || !Policy.bWeaponRaised)
+    {
+        // Lowered-weapon traversal removes combat ownership, not the movement/look gesture.
+        bManualFireHeld = false;
+        StopMissionFire();
+        if (!AcceptMissionToken(Token) || Sequence != MissionCombatSequence) return;
+        RequestMissionADS(Token, false);
+    }
     else if (!Policy.bADSAvailable) RequestMissionADS(Token, false);
-    if (AcceptMissionToken(Token)) UpdateMissionFire();
+    if (AcceptMissionToken(Token) && Sequence == MissionCombatSequence) UpdateMissionFire();
 }
 
 bool ABaddieCompanionSlicePlayerController::PresentMissionHeardCue(
@@ -722,6 +729,7 @@ void ABaddieCompanionSlicePlayerController::RequestMissionADS(
     if (!bHeld)
     {
         if (!HeldInputToken.IsSet() || !(Token == HeldInputToken.GetValue()) || !bMissionADSHeld) return;
+        ++MissionADSInputSerial;
         bMissionADSHeld = false;
         const auto Release = HeldADSDelegate;
         HeldADSDelegate.Unbind();
@@ -730,15 +738,29 @@ void ABaddieCompanionSlicePlayerController::RequestMissionADS(
     }
     if (!AcceptMissionToken(Token) || bMissionADSHeld || MissionSelection.IsSet()
         || !HasMissionCombatPolicy() || !MissionCombat.bADSAvailable || !MissionADSInput.IsBound()) return;
+    const uint64 InputSerial = ++MissionADSInputSerial;
+    const uint64 ActionSequence = MissionActionSequence;
+    const uint64 PolicySequence = MissionCombatSequence;
+    HeldInputToken = Token;
     bMissionADSHeld = true; // Suppress assistance before a synchronous fire-release callback.
     bManualFireHeld = false;
     StopMissionFire();
-    if (!AcceptMissionToken(Token) || !HasMissionCombatPolicy() || !MissionCombat.bADSAvailable
-        || !MissionADSInput.IsBound()) { bMissionADSHeld = false; return; }
-    HeldInputToken = Token;
+    const auto StillOwnsPress = [this, &Token, InputSerial]()
+    {
+        return InputSerial == MissionADSInputSerial && bMissionADSHeld
+            && HeldInputToken.IsSet() && Token == HeldInputToken.GetValue();
+    };
+    // Fire release may synchronously cancel input or present an action without changing Token.
+    if (!StillOwnsPress() || !AcceptMissionToken(Token) || MissionSelection.IsSet()
+        || ActionSequence != MissionActionSequence || PolicySequence != MissionCombatSequence
+        || !HasMissionCombatPolicy() || !MissionCombat.bADSAvailable || !MissionADSInput.IsBound())
+    {
+        if (StillOwnsPress()) { bMissionADSHeld = false; HeldADSDelegate.Unbind(); }
+        return;
+    }
     HeldADSDelegate = MissionADSInput;
     const auto ADS = HeldADSDelegate;
-    if (!ADS.Execute(Token, true) && HeldInputToken.IsSet() && Token == HeldInputToken.GetValue())
+    if (!ADS.Execute(Token, true) && StillOwnsPress())
     {
         bMissionADSHeld = false;
         HeldADSDelegate.Unbind();
@@ -809,6 +831,7 @@ void ABaddieCompanionSlicePlayerController::CancelMissionInputs()
 {
     if (bCancellingMissionInput) return;
     TGuardValue<bool> CancelGuard(bCancellingMissionInput, true);
+    ++MissionADSInputSerial;
     const auto Token = HeldInputToken;
     const auto Move = HeldMoveDelegate;
     const auto ADS = HeldADSDelegate;

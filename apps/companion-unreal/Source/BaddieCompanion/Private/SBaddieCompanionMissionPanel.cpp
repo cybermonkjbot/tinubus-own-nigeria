@@ -19,6 +19,27 @@
 
 namespace BaddieMissionPanelPrivate
 {
+    class SMissionHoldButton : public SButton
+    {
+    public:
+        void Construct(const SButton::FArguments& Args, TWeakPtr<SBaddieCompanionMissionPanel> InPanel)
+        {
+            Panel = InPanel;
+            SButton::Construct(Args);
+        }
+
+        virtual void OnMouseCaptureLost(const FCaptureLostEvent& Event) override
+        {
+            // SButton releases its pressed state before ordinary pointer-up capture release.
+            // Retire unexpected loss before its OnReleased delegate can restart assistance.
+            if (IsPressed()) if (const auto OwnerPanel = Panel.Pin()) OwnerPanel->HandleControlCaptureLost();
+            SButton::OnMouseCaptureLost(Event);
+        }
+
+    private:
+        TWeakPtr<SBaddieCompanionMissionPanel> Panel;
+    };
+
     BaddieCompanion::FMissionSelectedAction SelectionFromView(const BaddieCompanion::FMissionHudView& View)
     {
         BaddieCompanion::FMissionSelectedAction Selection;
@@ -103,7 +124,8 @@ void SBaddieCompanionMissionPanel::Construct(const FArguments& Args)
                     [
                         SNew(SBox).MinDesiredWidth(80).MinDesiredHeight(48)
                         [
-                            SAssignNew(AimButton, SButton).Text(FText::FromString(TEXT("Aim"))).IsFocusable(false)
+                            SAssignNew(AimButton, BaddieMissionPanelPrivate::SMissionHoldButton, SharedThis(this))
+                            .Text(FText::FromString(TEXT("Aim"))).IsFocusable(false)
                             .IsEnabled_Lambda([this]() { return View.bCanADS; })
                             .OnPressed_Lambda([this]()
                             {
@@ -122,7 +144,8 @@ void SBaddieCompanionMissionPanel::Construct(const FArguments& Args)
                     [
                         SNew(SBox).MinDesiredWidth(80).MinDesiredHeight(64)
                         [
-                            SAssignNew(FireButton, SButton).Text(FText::FromString(TEXT("Fire"))).IsFocusable(false)
+                            SAssignNew(FireButton, BaddieMissionPanelPrivate::SMissionHoldButton, SharedThis(this))
+                            .Text(FText::FromString(TEXT("Fire"))).IsFocusable(false)
                             .IsEnabled_Lambda([this]() { return View.bCanFire; })
                             .OnPressed_Lambda([this]()
                             {
@@ -223,6 +246,8 @@ void SBaddieCompanionMissionPanel::Clear()
 
 void SBaddieCompanionMissionPanel::CancelPointers()
 {
+    if (bCancellingPointers) return;
+    TGuardValue<bool> CancelGuard(bCancellingPointers, true);
     const auto Releasing = MoveTemp(Pointers);
     Pointers.Reset();
     MoveKeys.Reset();
@@ -247,6 +272,12 @@ void SBaddieCompanionMissionPanel::CancelPointers()
             ReleaseOwned(FSlateApplication::CursorPointerIndex);
         });
     }
+}
+
+void SBaddieCompanionMissionPanel::HandleControlCaptureLost()
+{
+    if (!bCancellingPointers)
+        if (auto* Controller = Owner.Get()) Controller->ClearMissionPresentation();
 }
 
 void SBaddieCompanionMissionPanel::BeginControl()

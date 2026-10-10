@@ -21,6 +21,7 @@ public:
     bool AddHeardCue(uint64 Generation, uint8 WorldSector, double RemainingSeconds);
     void Clear();
     void CancelPointers();
+    void HandleControlCaptureLost();
     virtual bool SupportsKeyboardFocus() const override { return true; }
     virtual void Tick(const FGeometry& Geometry, double CurrentTime, float DeltaTime) override;
     virtual FReply OnTouchStarted(const FGeometry& Geometry, const FPointerEvent& Event) override;
@@ -71,4 +72,5 @@ private:
     TOptional<BaddieCompanion::FMissionPresentationToken> ADSPressToken;
     TOptional<BaddieCompanion::FMissionHudView> ActionPressView;
     double ActionAppearedAt = 0;
+    bool bCancellingPointers = false;
 };
