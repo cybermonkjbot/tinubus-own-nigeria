@@ -1,0 +1,11 @@
+/Binaries/
+/DerivedDataCache/
+/Intermediate/
+/Saved/
+/.vs/
+/*.sln
+/*.suo
+/*.VC.db
+/*.VC.opendb
+/*.code-workspace
+
