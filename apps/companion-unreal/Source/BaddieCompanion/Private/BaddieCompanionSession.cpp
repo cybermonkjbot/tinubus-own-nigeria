@@ -1,4 +1,5 @@
 #include "BaddieCompanionSession.h"
+#include "BaddieCompanionHttpResponse.h"
 
 #include "Dom/JsonObject.h"
 #include "Dom/JsonValue.h"
@@ -102,8 +103,8 @@ namespace
         return FJsonSerializer::Serialize(Object, TJsonWriterFactory<>::Create(&Out));
     }
 
-    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> SessionMakeRequest(
-        const FString& Origin, const FString& Operation, const TSharedRef<FJsonObject>& Args)
+    FHttpRequestPtr SessionMakeRequest(const FString& Origin, const FString& Operation,
+        const TSharedRef<FJsonObject>& Args, BaddieCompanionHttpPrivate::FBoundedResponsePtr& ResponseBody)
     {
         const auto Envelope = MakeShared<FJsonObject>();
         Envelope->SetStringField(TEXT("path"), TEXT("companionGameAccess:") + Operation);
@@ -122,6 +123,8 @@ namespace
         Request->SetTimeout(15.0f);
         Request->SetDelegateThreadPolicy(EHttpRequestDelegateThreadPolicy::CompleteOnGameThread);
         Request->SetContentAsString(Body);
+        ResponseBody = BaddieCompanionHttpPrivate::FBoundedResponse::Bind(Request, SessionMaxResponseBytes);
+        if (!ResponseBody.IsValid()) return nullptr;
         return Request;
     }
 
@@ -265,7 +268,9 @@ void UBaddieCompanionSession::BestEffortDisconnect()
     const auto Args = Data->DeviceArgs();
     const bool bGrant = !Data->GameToken.IsEmpty();
     if (bGrant) Args->SetStringField(TEXT("gameToken"), Data->GameToken);
-    const auto Request = SessionMakeRequest(Data->Origin, bGrant ? TEXT("disconnect") : TEXT("cancel"), Args);
+    BaddieCompanionHttpPrivate::FBoundedResponsePtr ResponseBody;
+    const auto Request = SessionMakeRequest(Data->Origin, bGrant ? TEXT("disconnect") : TEXT("cancel"), Args, ResponseBody);
+    if (!Request.IsValid()) return;
     // Detached, bounded cleanup cannot delay local sign-out or restore private state.
     Request->OnProcessRequestComplete().BindLambda([](FHttpRequestPtr, FHttpResponsePtr, bool) {});
     Request->ProcessRequest();
@@ -347,22 +352,28 @@ void UBaddieCompanionSession::Send(const FString& Operation, const TSharedRef<FJ
     const uint64 Generation = Data->Generation;
     const double Started = FPlatformTime::Seconds();
     const FDateTime WallStarted = FDateTime::UtcNow();
-    const auto Request = SessionMakeRequest(Data->Origin, Operation, Args);
+    BaddieCompanionHttpPrivate::FBoundedResponsePtr ResponseBody;
+    const auto Request = SessionMakeRequest(Data->Origin, Operation, Args, ResponseBody);
+    if (!Request.IsValid())
+    { Stop(ECompanionConnectionState::Unavailable, TEXT("This connection is unavailable.")); return; }
     Data->Request = Request;
     Data->bRetryBackoff = false;
     Request->OnProcessRequestComplete().BindWeakLambda(this,
-        [this, Generation, Operation, Started, WallStarted](FHttpRequestPtr Incoming, FHttpResponsePtr Response, bool bSuccess)
+        [this, Generation, Operation, Started, WallStarted, ResponseBody](FHttpRequestPtr Incoming, FHttpResponsePtr Response, bool bSuccess)
     {
         if (Generation != Data->Generation || Incoming != Data->Request) return;
         Data->Request.Reset();
+        if (ResponseBody->HasRejectedData())
+        { Stop(ECompanionConnectionState::Unavailable, TEXT("The connection response was not accepted.")); return; }
         if (!bSuccess || !Response.IsValid()) { TransportFailed(Operation); return; }
         const int32 Code = Response->GetResponseCode();
         if (Code == 429 || Code == 500 || Code == 502 || Code == 503 || Code == 504) { TransportFailed(Operation); return; }
-        if (Code != 200 || !Response->GetURL().Equals(Data->Origin + TEXT("/api/mutation"), ESearchCase::CaseSensitive)
-            || Response->GetContent().Num() > SessionMaxResponseBytes)
+        FString Body;
+        if (Code != 200 || !Response->GetEffectiveURL().Equals(Data->Origin + TEXT("/api/mutation"), ESearchCase::CaseSensitive)
+            || !ResponseBody->ReadCompletedText(Body))
         { Stop(ECompanionConnectionState::Unavailable, TEXT("The connection response was not accepted.")); return; }
         TSharedPtr<FJsonObject> Envelope;
-        const auto Reader = TJsonReaderFactory<>::Create(Response->GetContentAsString());
+        const auto Reader = TJsonReaderFactory<>::Create(Body);
         FString Status;
         const TSharedPtr<FJsonObject>* Value = nullptr;
         if (!FJsonSerializer::Deserialize(Reader, Envelope) || !SessionReadText(Envelope, TEXT("status"), 16, Status)

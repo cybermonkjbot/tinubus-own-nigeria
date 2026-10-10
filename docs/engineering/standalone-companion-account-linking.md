@@ -23,7 +23,7 @@ All operation names below have the `companionGameAccess:` prefix. Arguments mark
 | `approve` | Baddie: preview arguments plus `scope`, `expectedRevision`, `characterId`, `homeRoomId` from that preview | Records consent only if those values still match that account's active saved Companion and Home and the scope matches the pairing. Apartment approval additionally requires the complete displayed `roomIds`; Home approval rejects that field. Returns `{ ok: true }`. |
 | `reject` | Baddie: preview arguments | Cancels a pending request. |
 | `exchange` | Game: private `deviceSecret`, original `deviceId` | `pending` with a poll interval, or `connected` with private `gameToken`, `grantId`, scope and expiry. |
-| `cancel` | Game: private `deviceSecret`, original `deviceId` | Cancels the pairing and revokes its issued grant, if any, while the pairing remains available and unexpired. |
+| `cancel` | Game: private `deviceSecret`, original `deviceId` | Cancels a retained pairing and revokes its matching issued grant, including after pairing expiry. Approval and exchange still stop at expiry. |
 
 Pairings expire after five minutes. The eight-character display code is for comparing the two screens, not a lookup or exchange credential. The canonical link is `baddie://companion/connect?token=<64-character-lowercase-hex-token>`. It contains only the public pairing token. The Baddie parser rejects extra parameters, alternate encodings, credentials, ports, fragments and noncanonical addresses. Game-side QR artwork and login presentation are part of the separate Windows gameplay work, not this transport patch.
 
@@ -77,6 +77,12 @@ Revocation and cancellation remain available while the feature is disabled. Sign
 
 There are at most ten unexpired, unrevoked issued grants per account. An invalidated parent session does not itself delete a grant; it can still be listed and revoked. Begin requests perform bounded cleanup of expired pairings and grants. Existing centralized rate-limit buckets govern creation, account actions and device requests. On `slow_down`, wait `retryAfterMs`; normal exchange polling uses the returned interval and stops after connection.
 
+The parent cancellation correction retains an expired approved pairing while its issued grant remains unrevoked and unexpired. This preserves device-proof cleanup when the exchange response was lost. Cancellation checks the linked grant's scope, approving account/session, saved selection and both device hashes before revoking it. It does not require a game token, an active approving session or an enabled feature. It never renews a pairing or grant, and no public token or claimed device ID can replace the private proof.
+
+Pruning still reads at most 25 expired pairings and 25 expired grants per begin request, with at most one linked-grant read per selected pairing. Retained proof records may delay later pairing deletions until the linked grant ends. Pruning runs only during an allowed begin request, so deletion has no wall-clock guarantee while disabled or idle. Expired-grant pruning proceeds independently; authorization expiry does not depend on row deletion. Pairings already deleted by older source cannot be reconstructed. Their grants remain subject to the existing expiry and account-owned revocation.
+
+Independent source re-review found no actionable defect in the cancellation/retention correction. It covered exchange/cancel/prune ordering, linked identity/device checks, replacement selection, Home/apartment compatibility, disabled-feature cleanup and bounded reads. Concurrency was reasoned through, not executed. No deployment or runtime acceptance is claimed.
+
 The Unreal session owner clears private state on `disabled`, `denied`, `expired`, selection loss, sign-out and configuration changes. It discards late responses from older session generations. Only a transport failure, temporary service error or throttling can retain stale presentation within the same locally unexpired grant. A successful response for a previous session cannot repopulate the current one.
 
 ## Baddie client
@@ -91,7 +97,7 @@ The connection list reads on opening, explicit refresh, reconnect and foreground
 
 ## Unreal client
 
-`UBaddieCompanionSession` in `apps/companion-unreal/Source/BaddieCompanion` is a game-instance subsystem. The HTTP request follows the installed Convex client's `convex_encoded_json` mutation envelope and accepts only a configured HTTPS `<deployment>.convex.cloud` origin. It checks HTTP and envelope status before consuming the operation result. Requests time out after 15 seconds; decoded responses are size-limited before the existing snapshot reader runs. Custom backend domains and persistent sign-in are not implemented.
+`UBaddieCompanionSession` in `apps/companion-unreal/Source/BaddieCompanion` is a game-instance subsystem. The HTTP request follows the installed Convex client's `convex_encoded_json` mutation envelope and accepts only a configured HTTPS `<deployment>.convex.cloud` origin. It checks HTTP and envelope status before consuming the operation result. Requests time out after 15 seconds. The source continuation in `unreal-http-response-bounds-handoff-2026-10-10.md` limits retained response bytes during reception and checks the effective response URL before the existing snapshot reader runs. That continuation awaits independent review and Windows delivery; redirect prevention and engine diagnostic privacy remain unresolved. Custom backend domains and persistent sign-in are not implemented.
 
 The subsystem reads `[BaddieCompanion]` keys `ConvexOrigin` and `bAccountLinkingEnabled` from game configuration. The latter defaults to false; no enabled configuration or live origin is committed. `Configure` is for trusted C++ application setup, never an untrusted game link. No request runs just because the subsystem exists.
 
