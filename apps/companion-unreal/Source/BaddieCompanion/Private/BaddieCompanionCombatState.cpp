@@ -1,5 +1,7 @@
 #include "BaddieCompanionCombatState.h"
 #include "BaddieCompanionStateJson.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 
 namespace BaddieCompanion
 {
@@ -19,6 +21,26 @@ namespace BaddieCompanion
         using StateJsonPrivate::Nullable;
         using StateJsonPrivate::ValidTime;
         constexpr StateJsonPrivate::FParseLimits ParseLimits{2 * 1024 * 1024, 32, 131072};
+        constexpr int64 MaxSafeSequence = 9007199254740991LL;
+        constexpr double InputPi = 3.14159265358979323846;
+        bool ValidInput(const FCombatInputValue& Input)
+        {
+            return Input.Sequence >= 0 && Input.Sequence < MaxSafeSequence
+                && FMath::IsFinite(Input.MoveRight) && FMath::Abs(Input.MoveRight) <= 1
+                && FMath::IsFinite(Input.MoveForward) && FMath::Abs(Input.MoveForward) <= 1
+                && FMath::IsFinite(Input.YawRadians) && FMath::Abs(Input.YawRadians) <= InputPi * 2
+                && FMath::IsFinite(Input.PitchRadians) && FMath::Abs(Input.PitchRadians) <= InputPi / 2 - .05;
+        }
+        bool Neutral(const FCombatInputValue& Input)
+        {
+            return Input.MoveRight == 0 && Input.MoveForward == 0 && !Input.bAttack && !Input.bBlock && !Input.bReload;
+        }
+        FCombatInputValue Idle(int64 Sequence, const FCombatInputValue& Prior)
+        {
+            FCombatInputValue Input;
+            Input.Sequence = Sequence; Input.YawRadians = Prior.YawRadians; Input.PitchRadians = Prior.PitchRadians;
+            return Input;
+        }
         bool Same(const TOptional<FString>& A, const TOptional<FString>& B)
         {
             return A.IsSet() == B.IsSet() && (!A.IsSet() || Same(A.GetValue(), B.GetValue()));
@@ -268,9 +290,10 @@ namespace BaddieCompanion
         using namespace CombatStatePrivate;
         if (bDisposed || (Same(View.InstanceId, InstanceId) && Same(View.ExpectedPlayerId, ExpectedPlayerId))) return;
         const FString NextInstance = InstanceId, NextPlayer = ExpectedPlayerId;
+        StopInputs(); ResetSelectedInput();
         View = {}; View.InstanceId = NextInstance; View.ExpectedPlayerId = NextPlayer;
         Generation = FGuid::NewGuid(); ScopeGeneration = FGuid::NewGuid(); InputGeneration = FGuid::NewGuid();
-        ActiveCommand.Invalidate(); bSubscribed = false;
+        RetireCommand(); bSubscribed = false;
         Changed.Broadcast();
     }
     FCombatReceipt FCombatReadState::Capture(ECombatReceiptKind Kind, double BeganAtMs) const
@@ -278,13 +301,15 @@ namespace BaddieCompanion
         FCombatReceipt Receipt;
         if (!bSubscribed || bDisposed) return Receipt;
         Receipt.Generation = Generation; Receipt.ScopeGeneration = ScopeGeneration; Receipt.InputGeneration = InputGeneration;
+        Receipt.InstanceId = View.InstanceId; Receipt.ExpectedPlayerId = View.ExpectedPlayerId;
         Receipt.Kind = Kind; Receipt.MatchId = CombatStatePrivate::MatchId(View.State); Receipt.LifeId = View.LifeId.Value;
         Receipt.BeganAtMs = BeganAtMs; return Receipt;
     }
     FCombatReceipt FCombatReadState::BeginSubscription()
     {
         if (bDisposed || View.InstanceId.IsEmpty() || View.ExpectedPlayerId.IsEmpty()) return {};
-        Generation = FGuid::NewGuid(); InputGeneration = FGuid::NewGuid(); ActiveCommand.Invalidate();
+        StopInputs();
+        Generation = FGuid::NewGuid(); InputGeneration = FGuid::NewGuid(); RetireCommand();
         bSubscribed = true; View.bBusy = false;
         const auto Receipt = Capture(ECombatReceiptKind::Subscription);
         Changed.Broadcast(); return Receipt;
@@ -292,15 +317,16 @@ namespace BaddieCompanion
     void FCombatReadState::EndSubscription()
     {
         if (bDisposed) return;
-        Generation = FGuid::NewGuid(); InputGeneration = FGuid::NewGuid(); ActiveCommand.Invalidate();
+        StopInputs();
+        Generation = FGuid::NewGuid(); InputGeneration = FGuid::NewGuid(); RetireCommand();
         bSubscribed = false; View.bBusy = false; Changed.Broadcast();
     }
     TOptional<FCombatReceipt> FCombatReadState::CaptureCommand(double BeganAtMs)
     {
-        if (!bSubscribed || bDisposed || View.bBusy || !CombatStatePrivate::ValidTime(BeganAtMs)) return {};
-        InputGeneration = FGuid::NewGuid(); ActiveCommand = FGuid::NewGuid();
-        auto Receipt = Capture(ECombatReceiptKind::Command, BeganAtMs); Receipt.CommandId = ActiveCommand;
-        View.bBusy = true; View.Error.Reset(); Changed.Broadcast(); return Receipt;
+        if (!CanStartCommand(BeganAtMs)) return {};
+        FCombatRequest Request; Request.Receipt = Capture(ECombatReceiptKind::Command, BeganAtMs);
+        Request.Receipt.RequestId = FGuid::NewGuid();
+        return StartCommand(Request) ? TOptional<FCombatReceipt>(Request.Receipt) : TOptional<FCombatReceipt>();
     }
     TOptional<FCombatReceipt> FCombatReadState::CaptureInput(double BeganAtMs, bool bNeutralRelease) const
     {
@@ -312,10 +338,211 @@ namespace BaddieCompanion
     {
         if (!bDisposed) InputGeneration = FGuid::NewGuid();
     }
+    bool FCombatReadState::CanStartCommand(double BeganAtMs) const
+    {
+        return bSubscribed && !bDisposed && !View.bBusy && !View.InstanceId.IsEmpty()
+            && !View.ExpectedPlayerId.IsEmpty() && CombatStatePrivate::ValidTime(BeganAtMs);
+    }
+    bool FCombatReadState::StartCommand(const FCombatRequest& Request)
+    {
+        // Request values and response scope were captured before this stop boundary.
+        StopInputs();
+        ActiveCommand = Request.Receipt.RequestId; PreparedCommand.Reset(); bCommandDispatched = false;
+        if (Request.Receipt.bOwned) PreparedCommand = Request;
+        View.bBusy = true; View.Error.Reset(); Changed.Broadcast();
+        return Current(Request.Receipt);
+    }
+    const FCombatFighterView* FCombatReadState::DisplayedFighter() const
+    {
+        if (!View.State.IsValid() || !View.PlayerId.IsSet()) return nullptr;
+        for (const auto& Fighter : View.State->Fighters)
+            if (CombatStatePrivate::Same(Fighter.Id, View.PlayerId.GetValue())) return &Fighter;
+        return nullptr;
+    }
+    TOptional<FCombatRequest> FCombatReadState::PrepareJoin(double BeganAtMs)
+    {
+        return PrepareCommand(TEXT("companionCombat:join"), BeganAtMs, {});
+    }
+    TOptional<FCombatRequest> FCombatReadState::PrepareLeave(double BeganAtMs)
+    {
+        return PrepareCommand(TEXT("companionCombat:leave"), BeganAtMs, {});
+    }
+    TOptional<FCombatRequest> FCombatReadState::PrepareRobberyAction(const FString& Action, double BeganAtMs)
+    {
+        if (!CombatStatePrivate::Same(Action, TEXT("defend")) && !CombatStatePrivate::Same(Action, TEXT("flee"))) return {};
+        return PrepareCommand(TEXT("companionCombat:robberyAction"), BeganAtMs, Action);
+    }
+    TOptional<FCombatRequest> FCombatReadState::PrepareCommand(const TCHAR* Endpoint, double BeganAtMs, const FString& Action)
+    {
+        using namespace CombatStatePrivate;
+        if (!CanStartCommand(BeganAtMs)) return {};
+        const bool bJoin = Same(Endpoint, TEXT("companionCombat:join")), bRobbery = !Action.IsEmpty();
+        if (!bJoin && (!View.State.IsValid() || !View.LifeId.Value.IsSet())) return {};
+        const auto* Fighter = DisplayedFighter();
+        if (bRobbery && (!Fighter || !Fighter->Robbery.Value.IsSet())) return {};
+        FCombatRequest Request;
+        Request.Receipt = Capture(ECombatReceiptKind::Command, BeganAtMs);
+        Request.Receipt.bOwned = true; Request.Receipt.RequestId = FGuid::NewGuid(); Request.Endpoint = Endpoint;
+        const auto Args = MakeShared<FJsonObject>();
+        Args->SetStringField(TEXT("instanceId"), Request.Receipt.InstanceId);
+        if (Request.Receipt.LifeId.IsSet()) Args->SetStringField(TEXT("lifeId"), Request.Receipt.LifeId.GetValue());
+        if (!bJoin) Args->SetStringField(TEXT("matchId"), Request.Receipt.MatchId.GetValue());
+        if (bRobbery)
+        {
+            const auto& Robbery = Fighter->Robbery.Value.GetValue();
+            Args->SetStringField(TEXT("encounterId"), Robbery.Id);
+            Args->SetNumberField(TEXT("revision"), static_cast<double>(Robbery.Revision));
+            Args->SetStringField(TEXT("action"), Action);
+        }
+        if (!FJsonSerializer::Serialize(Args, TJsonWriterFactory<>::Create(&Request.ArgumentsJson))) return {};
+        return StartCommand(Request) ? TOptional<FCombatRequest>(Request) : TOptional<FCombatRequest>();
+    }
+    bool FCombatReadState::EncodeInput(FInputWork& Work) const
+    {
+        const auto& Receipt = Work.Request.Receipt;
+        if (!Receipt.MatchId.IsSet() || !Receipt.LifeId.IsSet() || !CombatStatePrivate::ValidInput(Work.Input)) return false;
+        const auto Args = MakeShared<FJsonObject>(), Input = MakeShared<FJsonObject>();
+        Args->SetStringField(TEXT("instanceId"), Receipt.InstanceId);
+        Args->SetStringField(TEXT("matchId"), Receipt.MatchId.GetValue());
+        Args->SetStringField(TEXT("lifeId"), Receipt.LifeId.GetValue());
+        Input->SetNumberField(TEXT("sequence"), static_cast<double>(Work.Input.Sequence));
+        TArray<TSharedPtr<FJsonValue>> Move;
+        Move.Add(MakeShared<FJsonValueNumber>(Work.Input.MoveRight));
+        Move.Add(MakeShared<FJsonValueNumber>(Work.Input.MoveForward));
+        Input->SetArrayField(TEXT("move"), Move);
+        Input->SetNumberField(TEXT("yaw"), Work.Input.YawRadians); Input->SetNumberField(TEXT("pitch"), Work.Input.PitchRadians);
+        Input->SetBoolField(TEXT("attack"), Work.Input.bAttack); Input->SetBoolField(TEXT("block"), Work.Input.bBlock);
+        Input->SetBoolField(TEXT("reload"), Work.Input.bReload); Args->SetObjectField(TEXT("input"), Input);
+        Work.Request.Endpoint = TEXT("companionCombat:input"); Work.Request.ArgumentsJson.Reset();
+        return FJsonSerializer::Serialize(Args, TJsonWriterFactory<>::Create(&Work.Request.ArgumentsJson));
+    }
+    TOptional<FCombatRequest> FCombatReadState::PrepareInput(const FCombatInputValue& Input, double BeganAtMs)
+    {
+        using namespace CombatStatePrivate;
+        if (bDisposed || !bSubscribed || HasInputWork() || View.bBusy || View.InstanceId.IsEmpty()
+            || !View.State.IsValid() || !View.LifeId.Value.IsSet() || View.State->Phase != ECombatPhase::Playing
+            || !ValidInput(Input) || !ValidTime(BeganAtMs) || (LastSendMs.IsSet() && BeganAtMs - LastSendMs.GetValue() < 200)) return {};
+        const auto* Fighter = DisplayedFighter();
+        FInputWork Work; Work.Input = Input;
+        Work.Input.Sequence = FMath::Max(Input.Sequence, FMath::Max(LastSequence + 1, Fighter ? Fighter->LastInputSequence + 1 : int64(0)));
+        if (Work.Input.Sequence >= MaxSafeSequence - 1) return {};
+        Work.Request.Receipt = Capture(ECombatReceiptKind::Input, BeganAtMs);
+        Work.Request.Receipt.bOwned = true; Work.Request.Receipt.RequestId = FGuid::NewGuid();
+        if (!EncodeInput(Work)) return {};
+        InputFlight = Work;
+        return Work.Request;
+    }
+    void FCombatReadState::ResetSelectedInput()
+    {
+        LastSequence = -1; LastInput.Reset(); LastSendMs.Reset();
+    }
+    void FCombatReadState::StopInputs()
+    {
+        using namespace CombatStatePrivate;
+        if (bDisposed) return;
+        InputGeneration = FGuid::NewGuid();
+        // Unsent gameplay has no server-side controls to release. Retain prior sent input.
+        if (InputFlight.IsSet() && !InputFlight->bDispatched && InputFlight->Request.Receipt.Kind == ECombatReceiptKind::Input)
+            InputFlight.Reset();
+        if (InputFlight.IsSet())
+        {
+            if (!Neutral(InputFlight->Input) && !PendingStop.IsSet())
+            {
+                FInputWork Stop;
+                Stop.Request.Receipt = InputFlight->Request.Receipt;
+                Stop.Request.Receipt.Kind = ECombatReceiptKind::NeutralRelease;
+                Stop.Request.Receipt.RequestId = FGuid::NewGuid(); Stop.Request.Receipt.BeganAtMs = 0;
+                Stop.Input = Idle(InputFlight->Input.Sequence + 1, InputFlight->Input);
+                PendingStop = Stop;
+                const auto& Scope = Stop.Request.Receipt;
+                if (Same(Scope.InstanceId, View.InstanceId) && Same(Scope.ExpectedPlayerId, View.ExpectedPlayerId)
+                    && Same(Scope.MatchId, MatchId(View.State)) && Same(Scope.LifeId, View.LifeId.Value))
+                    LastSequence = FMath::Max(LastSequence, Stop.Input.Sequence);
+            }
+            LastInput.Reset(); return;
+        }
+        if (PendingStop.IsSet()) return;
+        const auto* Fighter = DisplayedFighter();
+        if (!Fighter || Fighter->Status != ECombatFighterStatus::Active || View.InstanceId.IsEmpty()
+            || !View.State.IsValid() || !View.LifeId.Value.IsSet() || !LastInput.IsSet() || Neutral(LastInput.GetValue())) return;
+        FInputWork Stop;
+        Stop.Input = Idle(FMath::Max(LastSequence + 1, Fighter->LastInputSequence + 1), LastInput.GetValue());
+        if (!ValidInput(Stop.Input)) return;
+        Stop.Request.Receipt = Capture(ECombatReceiptKind::NeutralRelease);
+        if (!Stop.Request.Receipt.Generation.IsValid()) return;
+        Stop.Request.Receipt.bOwned = true; Stop.Request.Receipt.RequestId = FGuid::NewGuid();
+        LastSequence = Stop.Input.Sequence; LastInput = Stop.Input; PendingStop = Stop;
+    }
+    TOptional<FCombatReceipt> FCombatReadState::GetPendingStop() const
+    {
+        return PendingStop.IsSet() ? TOptional<FCombatReceipt>(PendingStop->Request.Receipt) : TOptional<FCombatReceipt>();
+    }
+    TOptional<FCombatRequest> FCombatReadState::PreparePendingStop(double BeganAtMs)
+    {
+        // This drain deliberately survives Clear/Dispose. It cannot create gameplay input.
+        if (InputFlight.IsSet() || !PendingStop.IsSet() || !CombatStatePrivate::ValidTime(BeganAtMs)) return {};
+        FInputWork Work = PendingStop.GetValue(); Work.Request.Receipt.BeganAtMs = BeganAtMs;
+        Work.Request.Receipt.RequestId = FGuid::NewGuid();
+        if (!EncodeInput(Work)) return {};
+        InputFlight = Work; PendingStop.Reset();
+        return Work.Request;
+    }
+    bool FCombatReadState::MatchesFlight(const FCombatReceipt& Receipt) const
+    {
+        return Receipt.bOwned && Receipt.RequestId.IsValid() && InputFlight.IsSet()
+            && Receipt.RequestId == InputFlight->Request.Receipt.RequestId;
+    }
+    TOptional<FCombatRequest> FCombatReadState::DispatchRequest(const FCombatReceipt& Receipt, double DispatchedAtMs)
+    {
+        using namespace CombatStatePrivate;
+        if (!Receipt.bOwned || !ValidTime(DispatchedAtMs)) return {};
+        if (Receipt.Kind == ECombatReceiptKind::Command)
+        {
+            if (!Current(Receipt) || bCommandDispatched) return {};
+            // A no-flight stop precedes the command send. An existing sent flight instead
+            // drains its queued stop on completion, without delaying the command.
+            if ((PendingStop.IsSet() && !InputFlight.IsSet()) || (InputFlight.IsSet() && !InputFlight->bDispatched)) return {};
+            PreparedCommand->Receipt.BeganAtMs = DispatchedAtMs;
+            bCommandDispatched = true; return PreparedCommand.GetValue();
+        }
+        if (!MatchesFlight(Receipt) || InputFlight->bDispatched || InputFlight->bCompleting) return {};
+        if (Receipt.Kind != ECombatReceiptKind::NeutralRelease
+            && (!Current(Receipt) || !CurrentInput(Receipt) || View.bBusy || !View.State.IsValid()
+                || View.State->Phase != ECombatPhase::Playing || (LastSendMs.IsSet() && DispatchedAtMs - LastSendMs.GetValue() < 200))) return {};
+        InputFlight->Request.Receipt.BeganAtMs = DispatchedAtMs;
+        InputFlight->bDispatched = true;
+        if (Receipt.Kind == ECombatReceiptKind::Input)
+        {
+            LastSequence = InputFlight->Input.Sequence; LastSendMs = DispatchedAtMs; LastInput = InputFlight->Input;
+        }
+        return InputFlight->Request;
+    }
+    bool FCombatReadState::AbandonRequest(const FCombatReceipt& Receipt)
+    {
+        if (!Receipt.bOwned || !Receipt.RequestId.IsValid()) return false;
+        if (Receipt.Kind == ECombatReceiptKind::Command)
+        {
+            if (!Current(Receipt) || bCommandDispatched) return false;
+            RetireCommand(); Changed.Broadcast(); return true;
+        }
+        if (MatchesFlight(Receipt))
+        {
+            if (InputFlight->bDispatched || InputFlight->bCompleting) return false;
+            InputFlight.Reset(); return true;
+        }
+        if (PendingStop.IsSet() && Receipt.RequestId == PendingStop->Request.Receipt.RequestId)
+        {
+            PendingStop.Reset(); return true;
+        }
+        return false;
+    }
     bool FCombatReadState::Current(const FCombatReceipt& Receipt) const
     {
         return !bDisposed && bSubscribed && Receipt.Generation.IsValid() && Receipt.Generation == Generation
-            && (Receipt.Kind != ECombatReceiptKind::Command || (ActiveCommand.IsValid() && Receipt.CommandId == ActiveCommand));
+            && CombatStatePrivate::Same(Receipt.InstanceId, View.InstanceId)
+            && CombatStatePrivate::Same(Receipt.ExpectedPlayerId, View.ExpectedPlayerId)
+            && (Receipt.Kind != ECombatReceiptKind::Command || (ActiveCommand.IsValid() && Receipt.RequestId == ActiveCommand
+                && Receipt.bOwned == PreparedCommand.IsSet()));
     }
     bool FCombatReadState::CurrentInput(const FCombatReceipt& Receipt) const
     {
@@ -326,9 +553,36 @@ namespace BaddieCompanion
     void FCombatReadState::FinishCommand(const FCombatReceipt& Receipt)
     {
         if (Receipt.Kind != ECombatReceiptKind::Command) return;
-        ActiveCommand.Invalidate(); View.bBusy = false;
+        RetireCommand();
+    }
+    void FCombatReadState::RetireCommand()
+    {
+        ActiveCommand.Invalidate(); PreparedCommand.Reset(); bCommandDispatched = false; View.bBusy = false;
+    }
+    bool FCombatReadState::CanComplete(const FCombatReceipt& Receipt) const
+    {
+        if (!Receipt.bOwned) return true;
+        if (Receipt.Kind == ECombatReceiptKind::Command) return Current(Receipt) && bCommandDispatched;
+        return MatchesFlight(Receipt) && InputFlight->bDispatched && !InputFlight->bCompleting;
+    }
+    void FCombatReadState::FinishInput(const FCombatReceipt& Receipt)
+    {
+        // Like submit's finally, release the original flight even if its response is stale.
+        // Matching prevents a reentrant continuation from releasing newer work.
+        if (MatchesFlight(Receipt) && InputFlight->bCompleting) InputFlight.Reset();
     }
     ECombatReadResult FCombatReadState::Accept(const FCombatReceipt& Receipt, const FCombatDecodedResponse& Response, double ReceivedAtMs)
+    {
+        if (!CanComplete(Receipt)) return ECombatReadResult::StaleReceipt;
+        const bool bFlight = MatchesFlight(Receipt);
+        const auto Completion = bFlight ? InputFlight->Request.Receipt
+            : Receipt.bOwned ? PreparedCommand->Receipt : Receipt;
+        if (bFlight) InputFlight->bCompleting = true;
+        const auto Result = ApplyResponse(Completion, Response, ReceivedAtMs);
+        if (bFlight) FinishInput(Completion);
+        return Result;
+    }
+    ECombatReadResult FCombatReadState::ApplyResponse(const FCombatReceipt& Receipt, const FCombatDecodedResponse& Response, double ReceivedAtMs)
     {
         using namespace CombatStatePrivate;
         if (!Current(Receipt)) return ECombatReadResult::StaleReceipt;
@@ -337,12 +591,12 @@ namespace BaddieCompanion
         const bool bMutation = Receipt.Kind != ECombatReceiptKind::Subscription;
         if (!Response.IsValid() || (bMutation && (!Response.GetServerTimeMs().IsSet() || !ValidTime(ReceivedAtMs))))
         {
-            AcceptFailure(Receipt); return ECombatReadResult::InvalidResponse;
+            ApplyFailure(Receipt); return ECombatReadResult::InvalidResponse;
         }
         const auto& Match = Response.GetMatch();
         if (!Same(Response.GetPlayerId(), View.ExpectedPlayerId) || (Match.IsValid() && !Same(Match->InstanceId, View.InstanceId)))
         {
-            AcceptFailure(Receipt); return ECombatReadResult::IdentityMismatch;
+            ApplyFailure(Receipt); return ECombatReadResult::IdentityMismatch;
         }
         if (Receipt.Kind == ECombatReceiptKind::Command && Receipt.ScopeGeneration != ScopeGeneration
             && (!Same(MatchId(Match), MatchId(View.State)) || !Same(Response.GetLifeId(), View.LifeId.Value)))
@@ -359,6 +613,7 @@ namespace BaddieCompanion
         }
         if (!Same(MatchId(Match), MatchId(View.State)) || !Same(Response.GetLifeId(), View.LifeId.Value))
         {
+            StopInputs(); ResetSelectedInput();
             ScopeGeneration = FGuid::NewGuid(); InputGeneration = FGuid::NewGuid();
         }
         View.State = Match; View.StatePresence = Match.IsValid() ? EWorldFieldPresence::Value : EWorldFieldPresence::Null;
@@ -367,6 +622,17 @@ namespace BaddieCompanion
         View.bReady = true; View.Error.Reset(); Changed.Broadcast(); return ECombatReadResult::Accepted;
     }
     bool FCombatReadState::AcceptFailure(const FCombatReceipt& Receipt)
+    {
+        if (!CanComplete(Receipt)) return false;
+        const bool bFlight = MatchesFlight(Receipt);
+        const auto Completion = bFlight ? InputFlight->Request.Receipt
+            : Receipt.bOwned ? PreparedCommand->Receipt : Receipt;
+        if (bFlight) InputFlight->bCompleting = true;
+        const bool bApplied = ApplyFailure(Completion);
+        if (bFlight) FinishInput(Completion);
+        return bApplied;
+    }
+    bool FCombatReadState::ApplyFailure(const FCombatReceipt& Receipt)
     {
         if (!Current(Receipt)) return false;
         if (Receipt.Kind == ECombatReceiptKind::Input || Receipt.Kind == ECombatReceiptKind::NeutralRelease)
@@ -388,14 +654,16 @@ namespace BaddieCompanion
     void FCombatReadState::Clear()
     {
         if (bDisposed) return;
+        StopInputs(); ResetSelectedInput();
         View = {}; Generation = FGuid::NewGuid(); ScopeGeneration = FGuid::NewGuid(); InputGeneration = FGuid::NewGuid();
-        ActiveCommand.Invalidate(); bSubscribed = false; Changed.Broadcast();
+        RetireCommand(); bSubscribed = false; Changed.Broadcast();
     }
     void FCombatReadState::Dispose()
     {
         if (bDisposed) return;
+        StopInputs(); ResetSelectedInput();
         bDisposed = true; bSubscribed = false; View = {};
-        Generation.Invalidate(); ScopeGeneration.Invalidate(); InputGeneration.Invalidate(); ActiveCommand.Invalidate();
+        Generation.Invalidate(); ScopeGeneration.Invalidate(); InputGeneration.Invalidate(); RetireCommand();
         Changed.Broadcast(); Changed.Clear();
     }
 }

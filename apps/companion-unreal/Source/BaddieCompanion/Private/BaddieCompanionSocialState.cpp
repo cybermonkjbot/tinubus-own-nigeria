@@ -1,8 +1,10 @@
 #include "BaddieCompanionSocialState.h"
 #include "BaddieCompanionStateJson.h"
 
+#include "Policies/CondensedJsonPrintPolicy.h"
 #include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 #include <cmath>
 #include <initializer_list>
 
@@ -316,5 +318,278 @@ namespace BaddieCompanion
         const int32 Index = FindPlayer(Token);
         Out = Index == INDEX_NONE ? FSocialPlayerSnapshot{} : Players[Index].Snapshot;
         return Index != INDEX_NONE;
+    }
+
+    namespace SocialCommandPrivate
+    {
+        constexpr int32 MaxArgumentsCharacters = 128 * 1024;
+        constexpr int32 MaxOptionalTextCharacters = 8192;
+
+        struct FPacket
+        {
+            ESocialCommandKind Kind = ESocialCommandKind::None;
+            FString ArgumentsJson;
+            FString IdentityScope;
+        };
+        struct FLifetime
+        {
+            TSharedPtr<uint8> Owner;
+            TSharedPtr<uint8> Identity;
+            FString IdentityScope;
+            ESocialCommandKind Kind = ESocialCommandKind::None;
+            ESocialCommandStage Stage = ESocialCommandStage::Prepared;
+            TSharedPtr<const FPacket> PreparedPacket;
+
+            void Retire(ESocialCommandStage TerminalStage)
+            {
+                Stage = TerminalStage;
+                PreparedPacket.Reset();
+                Owner.Reset();
+                Identity.Reset();
+                IdentityScope.Reset();
+                Kind = ESocialCommandKind::None;
+            }
+        };
+
+        bool InputInteger(double Number, double Minimum)
+        {
+            return std::isfinite(Number) && Number >= Minimum && Number <= StateJsonPrivate::MaxInteger
+                && std::floor(Number) == Number;
+        }
+        bool OptionalText(const TOptional<FString>& Text)
+        {
+            return !Text.IsSet() || Text.GetValue().Len() <= MaxOptionalTextCharacters;
+        }
+        bool Encode(const TSharedRef<FJsonObject>& Arguments, FString& Out)
+        {
+            const auto Writer = TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Out);
+            if (!FJsonSerializer::Serialize(Arguments, Writer) || Out.Len() > MaxArgumentsCharacters)
+            {
+                Out.Reset();
+                return false;
+            }
+            return true;
+        }
+        bool EncounterResult(const StateJsonPrivate::FValue& V, FSocialEncounterResult& Out)
+        {
+            using namespace SocialStatePrivate;
+            const auto O = Object(V, 3);
+            return Id(Field(O, TEXT("encounterId")), Out.EncounterId)
+                && StateJsonPrivate::EnumValue<ESocialEncounterStatus>(Field(O, TEXT("status")), Out.Status,
+                    {{TEXT("offered"), ESocialEncounterStatus::Offered}, {TEXT("qualified"), ESocialEncounterStatus::Qualified},
+                    {TEXT("declined"), ESocialEncounterStatus::Declined}})
+                && Nullable(Field(O, TEXT("threadId")), Out.ThreadId, Id);
+        }
+        bool CreditTransferResult(const StateJsonPrivate::FValue& V, FSocialCreditTransferResult& Out)
+        {
+            using namespace SocialStatePrivate;
+            const auto O = Object(V, 8);
+            return Boolean(Field(O, TEXT("success")), Out.bSuccess)
+                // These are returned v.number() values, not local inputs or calculated money.
+                && StateJsonPrivate::Number(Field(O, TEXT("credits")), Out.Credits)
+                && StateJsonPrivate::Number(Field(O, TEXT("kobo")), Out.Kobo)
+                && Text(Field(O, TEXT("nairaLabel")), Out.NairaLabel)
+                && Text(Field(O, TEXT("recipientHandle")), Out.RecipientHandle)
+                && Text(Field(O, TEXT("recipientName")), Out.RecipientName)
+                && Id(Field(O, TEXT("threadId")), Out.ThreadId) && Id(Field(O, TEXT("messageId")), Out.MessageId);
+        }
+    }
+
+    bool DecodeSocialEncounterResult(const FString& Json, FSocialEncounterResult& Out, FString& OutError)
+    {
+        return SocialStatePrivate::Decode(Json, Out, OutError, SocialCommandPrivate::EncounterResult);
+    }
+    bool DecodeSocialCreditTransferResult(const FString& Json, FSocialCreditTransferResult& Out, FString& OutError)
+    {
+        return SocialStatePrivate::Decode(Json, Out, OutError, SocialCommandPrivate::CreditTransferResult);
+    }
+
+    ESocialCommandKind FSocialCommandPacket::GetKind() const
+    {
+        return Data.IsValid() ? Data->Kind : ESocialCommandKind::None;
+    }
+    FString FSocialCommandPacket::GetEndpoint() const
+    {
+        switch (GetKind())
+        {
+        case ESocialCommandKind::Offer: return TEXT("companionGameSocial:offer");
+        case ESocialCommandKind::Respond: return TEXT("companionGameSocial:respond");
+        case ESocialCommandKind::TransferCredits: return TEXT("companionGameSocial:transferCredits");
+        default: return {};
+        }
+    }
+    FString FSocialCommandPacket::GetArgumentsJson() const { return Data.IsValid() ? Data->ArgumentsJson : FString{}; }
+    FString FSocialCommandPacket::GetIdentityScope() const { return Data.IsValid() ? Data->IdentityScope : FString{}; }
+    bool FSocialCommandPacket::ShouldInvalidateQueryCache() const { return GetKind() == ESocialCommandKind::TransferCredits; }
+
+    ESocialCommandStage FSocialCommandRequest::GetStage() const
+    {
+        return Lifetime.IsValid() ? Lifetime->Stage : ESocialCommandStage::Unavailable;
+    }
+    bool FSocialCommandRequest::GetPreparedPacket(FSocialCommandPacket& Out) const
+    {
+        Out = FSocialCommandPacket{};
+        if (GetStage() != ESocialCommandStage::Prepared || !Lifetime->PreparedPacket.IsValid()) return false;
+        Out.Data = Lifetime->PreparedPacket;
+        return true;
+    }
+    bool FSocialCommandRequest::AbandonUnsent() const
+    {
+        if (GetStage() != ESocialCommandStage::Prepared) return false;
+        Lifetime->Retire(ESocialCommandStage::Abandoned);
+        return true;
+    }
+    bool FSocialCommandRequest::CanComplete(const FSocialCommandReceipt& Receipt) const
+    {
+        return GetStage() == ESocialCommandStage::Dispatched && Receipt.Lifetime == Lifetime
+            && Lifetime->Owner.IsValid() && Lifetime->Identity.IsValid();
+    }
+    void FSocialCommandRequest::CaptureOrigin(FSocialCommandOutcome& Out) const
+    {
+        Out.Origin.Owner = Lifetime->Owner;
+        Out.Origin.Identity = Lifetime->Identity;
+        Out.Origin.IdentityScope = Lifetime->IdentityScope;
+        Out.Command = Lifetime->Kind;
+    }
+    bool FSocialCommandRequest::Complete(const FSocialCommandReceipt& Receipt, const FString& Json, FSocialCommandOutcome& Out) const
+    {
+        if (!CanComplete(Receipt)) { Out = FSocialCommandOutcome{}; return false; }
+        FSocialCommandOutcome Next;
+        CaptureOrigin(Next);
+        FString Error;
+        if (Next.Command == ESocialCommandKind::TransferCredits)
+        {
+            FSocialCreditTransferResult Value;
+            if (DecodeSocialCreditTransferResult(Json, Value, Error))
+            {
+                Next.Transfer = MoveTemp(Value);
+                Next.Error = ESocialCommandFailure::None;
+            }
+            else Next.Error = ESocialCommandFailure::InvalidResponse;
+        }
+        else
+        {
+            FSocialEncounterResult Value;
+            if (DecodeSocialEncounterResult(Json, Value, Error))
+            {
+                Next.Encounter = MoveTemp(Value);
+                Next.Error = ESocialCommandFailure::None;
+            }
+            else Next.Error = ESocialCommandFailure::InvalidResponse;
+        }
+        // No state owner is consulted or mutated. Sent Promises outlive their original view.
+        Lifetime->Retire(ESocialCommandStage::Finished);
+        Out = MoveTemp(Next);
+        return true;
+    }
+    bool FSocialCommandRequest::CompleteFailure(const FSocialCommandReceipt& Receipt, FSocialCommandOutcome& Out) const
+    {
+        if (!CanComplete(Receipt)) { Out = FSocialCommandOutcome{}; return false; }
+        FSocialCommandOutcome Next;
+        CaptureOrigin(Next);
+        Next.Error = ESocialCommandFailure::RequestFailed;
+        Lifetime->Retire(ESocialCommandStage::Finished);
+        Out = MoveTemp(Next);
+        return true;
+    }
+    bool FSocialCommandRequest::DiscardCompletion(const FSocialCommandReceipt& Receipt) const
+    {
+        if (!CanComplete(Receipt)) return false;
+        Lifetime->Retire(ESocialCommandStage::Discarded);
+        return true;
+    }
+
+    bool FSocialState::PrepareCommandPacket(ESocialCommandKind Kind, FString ArgumentsJson,
+        FSocialCommandRequest& Out, ESocialCommandFailure& OutError) const
+    {
+        Out = FSocialCommandRequest{};
+        OutError = ESocialCommandFailure::Unavailable;
+        if (bDisposed || !Identity.IsValid()) return false;
+        auto Packet = MakeShared<SocialCommandPrivate::FPacket>();
+        Packet->Kind = Kind;
+        Packet->ArgumentsJson = MoveTemp(ArgumentsJson);
+        Packet->IdentityScope = IdentityScope;
+        auto Lifetime = MakeShared<SocialCommandPrivate::FLifetime>();
+        Lifetime->Owner = CommandOwner;
+        Lifetime->Identity = Identity;
+        Lifetime->IdentityScope = IdentityScope;
+        Lifetime->Kind = Kind;
+        Lifetime->PreparedPacket = Packet;
+        Out.Lifetime = MoveTemp(Lifetime);
+        OutError = ESocialCommandFailure::None;
+        return true;
+    }
+    bool FSocialState::PrepareOffer(const FSocialOfferCommand& Command, FSocialCommandRequest& Out, ESocialCommandFailure& OutError) const
+    {
+        Out = FSocialCommandRequest{};
+        OutError = ESocialCommandFailure::Unavailable;
+        if (bDisposed || !Identity.IsValid()) return false;
+        if (!SocialStatePrivate::Identifier(Command.UserId) || !SocialStatePrivate::Identifier(Command.CallSessionId)
+            || !SocialCommandPrivate::InputInteger(Command.RoomRevision, -static_cast<double>(StateJsonPrivate::MaxInteger)))
+        {
+            OutError = ESocialCommandFailure::InvalidArguments;
+            return false;
+        }
+        const auto Args = MakeShared<FJsonObject>();
+        Args->SetStringField(TEXT("userId"), Command.UserId);
+        Args->SetStringField(TEXT("callSessionId"), Command.CallSessionId);
+        Args->SetNumberField(TEXT("roomRevision"), Command.RoomRevision);
+        FString Json;
+        if (!SocialCommandPrivate::Encode(Args, Json)) { OutError = ESocialCommandFailure::EncodingFailed; return false; }
+        return PrepareCommandPacket(ESocialCommandKind::Offer, MoveTemp(Json), Out, OutError);
+    }
+    bool FSocialState::PrepareRespond(const FSocialRespondCommand& Command, FSocialCommandRequest& Out, ESocialCommandFailure& OutError) const
+    {
+        Out = FSocialCommandRequest{};
+        OutError = ESocialCommandFailure::Unavailable;
+        if (bDisposed || !Identity.IsValid()) return false;
+        if (!SocialStatePrivate::Identifier(Command.EncounterId)) { OutError = ESocialCommandFailure::InvalidArguments; return false; }
+        const auto Args = MakeShared<FJsonObject>();
+        Args->SetStringField(TEXT("encounterId"), Command.EncounterId);
+        Args->SetBoolField(TEXT("accept"), Command.bAccept);
+        FString Json;
+        if (!SocialCommandPrivate::Encode(Args, Json)) { OutError = ESocialCommandFailure::EncodingFailed; return false; }
+        return PrepareCommandPacket(ESocialCommandKind::Respond, MoveTemp(Json), Out, OutError);
+    }
+    bool FSocialState::PrepareTransferCredits(const FSocialTransferCreditsCommand& Command,
+        FSocialCommandRequest& Out, ESocialCommandFailure& OutError) const
+    {
+        Out = FSocialCommandRequest{};
+        OutError = ESocialCommandFailure::Unavailable;
+        if (bDisposed || !Identity.IsValid()) return false;
+        if (!SocialStatePrivate::Identifier(Command.RecipientUserId) || !SocialCommandPrivate::InputInteger(Command.Credits, 1)
+            || !SocialCommandPrivate::OptionalText(Command.ContextPlace) || !SocialCommandPrivate::OptionalText(Command.Note))
+        {
+            OutError = ESocialCommandFailure::InvalidArguments;
+            return false;
+        }
+        const auto Args = MakeShared<FJsonObject>();
+        Args->SetStringField(TEXT("recipientUserId"), Command.RecipientUserId);
+        Args->SetNumberField(TEXT("credits"), Command.Credits);
+        if (Command.ContextPlace.IsSet()) Args->SetStringField(TEXT("contextPlace"), Command.ContextPlace.GetValue());
+        if (Command.Note.IsSet()) Args->SetStringField(TEXT("note"), Command.Note.GetValue());
+        FString Json;
+        if (!SocialCommandPrivate::Encode(Args, Json)) { OutError = ESocialCommandFailure::EncodingFailed; return false; }
+        return PrepareCommandPacket(ESocialCommandKind::TransferCredits, MoveTemp(Json), Out, OutError);
+    }
+    bool FSocialState::MarkCommandDispatched(const FSocialCommandRequest& Request,
+        FSocialCommandPacket& OutPacket, FSocialCommandReceipt& OutReceipt) const
+    {
+        OutPacket = FSocialCommandPacket{};
+        OutReceipt = FSocialCommandReceipt{};
+        const auto& Lifetime = Request.Lifetime;
+        if (bDisposed || !Identity.IsValid() || !Lifetime.IsValid() || Lifetime->Owner != CommandOwner
+            || Lifetime->Identity != Identity || Lifetime->Stage != ESocialCommandStage::Prepared
+            || !Lifetime->PreparedPacket.IsValid()) return false;
+        OutPacket.Data = Lifetime->PreparedPacket;
+        OutReceipt.Lifetime = Lifetime;
+        Lifetime->Stage = ESocialCommandStage::Dispatched;
+        // The original caller's request/receipt now retain only bounded lifetime metadata.
+        Lifetime->PreparedPacket.Reset();
+        return true;
+    }
+    bool FSocialState::MatchesCommandOrigin(const FSocialCommandOrigin& Origin) const
+    {
+        return !bDisposed && Identity.IsValid() && Origin.Owner == CommandOwner && Origin.Identity == Identity;
     }
 }
