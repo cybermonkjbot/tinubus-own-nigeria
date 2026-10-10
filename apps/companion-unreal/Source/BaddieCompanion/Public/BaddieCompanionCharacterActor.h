@@ -4,6 +4,7 @@
 #include "Containers/Ticker.h"
 #include "GameFramework/Actor.h"
 #include "BaddieCompanionCharacterMaterials.h"
+#include "BaddieCompanionCharacterAppearance.h"
 #include "BaddieCompanionCharacterActor.generated.h"
 
 class ABaddieCompanionCharacterActor;
@@ -35,6 +36,8 @@ namespace BaddieCompanion
         TArray<FNativeCharacterNamedMaterial> Materials;
         // Every imported mesh occurrence under both source accessory roots, including hidden ones.
         TArray<FNativeCharacterAccessoryMesh> Accessories;
+        // Eight source face transform roots and their complete accepted drawable subtrees.
+        TArray<FNativeCharacterFaceNode> FaceNodes;
     };
 }
 
@@ -74,6 +77,7 @@ private:
 
     UPROPERTY(Transient)
     TObjectPtr<UBaddieCompanionCharacterMaterials> Materials;
+    BaddieCompanion::FNativeCharacterFaceAppearance FaceAppearance;
     TOptional<FTransform> PendingApartmentPose;
     uint64 PreparedMaterialGeneration = 0;
     FTSTicker::FDelegateHandle DeferredDisposal;
