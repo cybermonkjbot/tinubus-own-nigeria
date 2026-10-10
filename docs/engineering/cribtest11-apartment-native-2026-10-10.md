@@ -64,8 +64,33 @@ The guarded delivery used exact committed bytes for all 50 standalone Unreal pro
 
 Before staging and replacement, the helper checked the remote Git state, destination preimages and the completed native turn. It retained backups, made one scoped commit with hooks disabled, and verified the committed readback. The native turn remains `01a125c8-4d22-7b02-8d2c-4a26dc7ca458`; this delivery started zero implementation turns. The receipt is `output/cribtest11-apartment-handoff-2026-10-10/combined-client-manifest.json`.
 
-The delivered parent documents retain their checkpoint-era pending-delivery wording. This record supplies the completed delivery evidence without changing parent-owned documents. Its separate committed-byte sync is recorded in `output/cribtest11-apartment-handoff-2026-10-10/native-evidence-manifest.json` after that operation completes.
+The parent documents in that delivery retained their checkpoint-era pending-delivery wording. We supplied the completed delivery evidence without editing parent-owned documents. The separate record-only sync reached Windows `e0b4f77cc2ff9ec0fd539bd1972c63a0cda75074` from Mac `381e463f7d277b136767c1784263b032e8a0794b`; `output/cribtest11-apartment-handoff-2026-10-10/native-evidence-manifest.json` records its 81 matching working/committed hashes.
+
+## Authored doorway continuation
+
+We reviewed the exact parent increment `86315dba6dd6a95490c0d7586f9a4ed6e9f79d8f` against its parent. Independent Standards and Spec reviews found no concrete defects or new documented-standard violations. No corrective source change was needed. Parent-owned source and documents were not edited by this coordination task.
+
+The change removes the unconditional measured-doorway requirement for unmeasured saved entrances. `PinkBedroomV2`, `PatStudioV1` and `PinkBedroomV1` entrances still require `SourceFloorYMetres` and reject `AuthoredLocalPose`. Kitchen, bathroom and legacy studio/terrace entrances, common-space openings and the separate living-room exterior exit require an explicit authored pose. These positions already include the imported basis and saved shell design in native level-local centimetres; preparation does not apply extension, quarter-turn or source conversion again. A standing-point fallback cannot supply an opening.
+
+Preflight and loaded-anchor inspection share `ResolveLocalDoorway`. Review covered real unique actor names, finite and distinct door/approach poses, canonical measured positions, the separate living exit, and local pose agreement whether Unreal has applied the instance transform or not. Invalid content still clears through the existing owner. Ordinary unavailable navigation/camera queries retain their non-destructive behavior. Saved-render readiness, standalone admission and walk-through readiness remain false.
+
+A fresh bridge read found no loaded chats and confirmed the same terminal native turn `01a125c8-4d22-7b02-8d2c-4a26dc7ca458`. The remote Git/preimage audit independently found Windows `e0b4f77cc2ff9ec0fd539bd1972c63a0cda75074`, a clean tree and all 81 prior hashes intact. The new importer-note destination was absent and untracked. We did not assume the earlier Windows head was still current.
+
+Reviewed Mac source `86315dba6dd6a95490c0d7586f9a4ed6e9f79d8f` reached Windows `fe64f51d937aaee85aae5303b59543f89abe94c5`. The guarded source delivery included all 50 Unreal project files and eight engineering documents from the pinned commit, including the importer, assets, architecture, apartment/access, account-linking and full-port notes added or updated from `80954e0d5540de31b6ea9102626325e9dc420b6e`. Ten paths changed. All 82 resulting files/references matched their working and committed hashes; the Windows tree was clean. Prior references and the existing native record were preserved.
+
+The following SHA-256 values matched the Mac committed bytes and both the Windows working files and committed Git blobs. Native source paths are under `apps/companion-unreal/Source/BaddieCompanion`; the importer note is under `docs/engineering`.
+
+| File | Matching SHA-256 |
+| --- | --- |
+| `Private/BaddieCompanionNativeApartment.cpp` | `26683d602002962ea56a049073bc2d9beef95270e69610f17548ce791e06d7f9` |
+| `Public/BaddieCompanionNativeApartment.h` | `354ef59754a4ed7b8a14b669332185e05d2b3df72cef753147fdf1669cd64016` |
+| `apps/companion-unreal/README.md` | `c8c1ff049fc3db2b1323dc2866e2034c3d45fff87f9fb34dac621ec0dc36ccac` |
+| `cribtest11-unreal-importer-2026-10-10.md` | `1f19e279f2db261146ae3c059afc55803eb20d056bcf01140e81d6d65bfdeaef` |
+
+The receipt is `output/cribtest11-apartment-handoff-2026-10-10/doorway-source-manifest.json`. Separate bridge and remote-audit files share the `doorway-source` prefix. The helper retained preimage backups, rechecked the terminal native turn and Git state before replacement, committed only the scoped files with hooks disabled, and completed full hash readback. The separate record-only transfer records its result in `doorway-evidence-manifest.json`; it does not change the delivered source checkpoint.
+
+The asset-preparation script in `packages/companion-scene` and its dependencies stayed on the Mac. We did not run it, convert or import art, invent native Content packages, or perform further importer research. The installed-importer findings in the transferred note remain the parent's source evidence, not observed import or runtime acceptance. No additional Windows implementation turn was started.
 
 ## Verification boundary
 
-The native source slice, correction review, parent increment review and combined source delivery are complete. Native content binding, compilation, rendered inspection and the full game port are not complete. The saved-render-readiness and standalone-admission barriers remain closed; source bindings do not make an apartment walk-through ready. No tests, typechecks, lint, builds, code generation, engine launches, installs, asset imports, deployment, live configuration changes or pushes were performed in this slice. This native slice did not change production renderer inputs, backend contracts or mobile behavior; no renderer packaging or What's New update was triggered by it.
+The native source slice, correction review, parent increment reviews and guarded source deliveries are complete. Native content binding, compilation, rendered inspection and the full game port are not complete. The saved-render-readiness and standalone-admission barriers remain closed; source bindings do not make an apartment walk-through ready. No tests, typechecks, lint, builds, code generation, engine launches, installs, asset conversion/imports, deployment, live configuration changes or pushes were performed in this slice. This native slice did not change production renderer inputs, backend contracts or mobile behavior; no renderer packaging or What's New update was triggered by it.
