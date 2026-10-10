@@ -16,7 +16,7 @@ The decoder requires complete typed fields, finite scalar values, exact three-va
 
 This extends the existing MovementProtocol module and uses its Unreal JSON and optional-value types. It adds no endpoint, input command, tick, simulated clock, physics loop, lease renewal, actor movement or asset loading.
 
-The admitted gameplay owner still needs the equivalent of `admitCompanionWorldControls`: current scope/life/layout checks, occupancy conflict checks, receipt ordering, timestamp/lease and domain acceptance, and stale-response handling. Decoded water state must never be used as acceptance. Road driving and its optional dynamics remain opaque in the retained player document.
+The admitted gameplay owner still needs the equivalent of `admitCompanionWorldControls`: current scope/life/layout checks, occupancy conflict checks, receipt ordering, timestamp/lease and domain acceptance, and stale-response handling. Decoded water state must never be used as acceptance. A subsequent source continuation decodes road driving and its optional dynamics in the same module; `unreal-world-driving-decoding-2026-10-10.md` records that contract. Neither domain is admitted by decoding.
 
 This is the existing CMS boat-control contract. It is not the new expedition's waist-deep wading, muddy-gully slowdown, lowered weapon pose or movement-noise implementation. Those remain in the rural expedition brief. Native craft rendering, input ownership and gameplay admission also remain unfinished.
 
@@ -34,3 +34,5 @@ The parent read these existing sources for this implementation:
 Source review covers missing/null/object control, active/landed phase, numeric and tuple shape, missing/null/object snag, storage-only fields and failure-output clearing. No tests, compilation or rendered inspection ran. Account access and apartment render admission remain closed. The production mobile/web renderer is unchanged.
 
 The Mac initially rejected the implementation write without changing either source file. The parent prepared the candidate in memory from Mac `78bd85c9ee102a6698853d6fe7af7669006e034a` for reviewed, preimage-guarded Windows delivery. After storage recovered, the parent saved the same source locally. Windows delivery and the local source checkpoint remain separate evidence.
+
+The water checkpoint `66c5ec1598e8e93b35f56d9dfc9e194fe9fc4b4c` subsequently reached Windows `9334934b78140a3bcfe720b2da77de4f3323976c`. A parent read-only SSH snapshot matched all four delivered file hashes to the pinned Mac source and found those paths unchanged against Windows HEAD. Windows evidence is under `C:\dev\cribtest-game\.git\operations\water-decoder-20261010-66c5ec15`. This proves source delivery only; it does not cover the later driving continuation or establish compilation or gameplay.
