@@ -134,6 +134,98 @@ namespace BaddieCompanion
             return Value.IsValid() && (Value->Type == EJson::Null
                 || (Value->Type == EJson::Object && Value->AsObject().IsValid()));
         }
+
+        bool ReadControlIdentity(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key,
+            FString& Out, int32 MaximumLength = 240)
+        {
+            return ReadIdentity(Object, Key, Out) && Out.Len() <= MaximumLength
+                && Out.Equals(Out.TrimStartAndEnd(), ESearchCase::CaseSensitive);
+        }
+
+        bool ReadBoolean(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, bool& Out)
+        {
+            const auto Value = Object.IsValid() ? Object->TryGetField(Key) : nullptr;
+            return Value.IsValid() && Value->Type == EJson::Boolean && Value->TryGetBool(Out);
+        }
+
+        bool ReadNumberTuple(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key,
+            double* Out, int32 Count)
+        {
+            const TArray<TSharedPtr<FJsonValue>>* Values = nullptr;
+            if (!Object.IsValid() || !Object->TryGetArrayField(Key, Values)
+                || !Values || Values->Num() != Count) return false;
+            for (int32 I = 0; I < Count; ++I)
+            {
+                const auto& Value = (*Values)[I];
+                if (!Value.IsValid() || Value->Type != EJson::Number
+                    || !Value->TryGetNumber(Out[I]) || !std::isfinite(Out[I])) return false;
+            }
+            return true;
+        }
+
+        bool ReadWaterControl(const TSharedPtr<FJsonObject>& Object, FWorldWaterControl& Out)
+        {
+            // worldWaterPublicControl excludes these fields. Do not retain a stored control
+            // accidentally sent in place of its public projection, even when a field is null.
+            if (!Object.IsValid() || Object->HasField(TEXT("sessionId"))
+                || Object->HasField(TEXT("landingReceipt"))) return false;
+            const TSharedPtr<FJsonObject>* Scope = nullptr;
+            const TSharedPtr<FJsonObject>* Input = nullptr;
+            if (!Object->TryGetObjectField(TEXT("scope"), Scope) || !Scope || !Scope->IsValid()
+                || !Object->TryGetObjectField(TEXT("input"), Input) || !Input || !Input->IsValid()) return false;
+            auto& S = Out.Scope;
+            if (!ReadControlIdentity(Object, TEXT("id"), Out.Id)
+                || !ReadControlIdentity(Object, TEXT("craftId"), Out.CraftId)
+                || !ReadIdentity(Object, TEXT("domainId"), Out.DomainId)
+                || !ReadControlIdentity(*Scope, TEXT("gameRoomId"), S.GameRoomId)
+                || !ReadControlIdentity(*Scope, TEXT("instanceId"), S.InstanceId)
+                || !ReadControlIdentity(*Scope, TEXT("placeId"), S.PlaceId)
+                || !ReadControlIdentity(*Scope, TEXT("layoutId"), S.LayoutId, 160000)
+                || !ReadControlIdentity(*Scope, TEXT("layoutRevision"), S.LayoutRevision, 160000)
+                || !ReadControlIdentity(*Scope, TEXT("userId"), S.UserId)
+                || !ReadControlIdentity(*Scope, TEXT("characterId"), S.CharacterId)
+                || !ReadControlIdentity(*Scope, TEXT("lifeId"), S.LifeId)
+                || !ReadNonnegativeInteger(*Scope, TEXT("revision"), MaxRevision, S.Revision)
+                || !ReadNonnegativeInteger(Object, TEXT("craftRevision"), MaxRevision, Out.CraftRevision)
+                || !ReadNonnegativeInteger(Object, TEXT("sequence"), MaxRevision, Out.Sequence)
+                || !ReadNonnegativeInteger(Object, TEXT("simulatedAt"), MaxRevision, Out.SimulatedAtMs)
+                || !ReadNonnegativeInteger(Object, TEXT("startedAt"), MaxRevision, Out.StartedAtMs)
+                || !ReadNonnegativeInteger(Object, TEXT("expiresAt"), MaxRevision, Out.ExpiresAtMs)
+                || !ReadNonnegativeInteger(Object, TEXT("endsAt"), MaxRevision, Out.EndsAtMs)
+                || !ReadNonnegativeInteger(Object, TEXT("lastInputAt"), MaxRevision, Out.LastInputAtMs)) return false;
+            double Point[3] = {}, Velocity[2] = {};
+            if (!ReadNumberTuple(Object, TEXT("point"), Point, 3)
+                || !ReadNumberTuple(Object, TEXT("velocity"), Velocity, 2)
+                || !ReadNumber(Object, TEXT("yaw"), Out.YawRadians)
+                || !ReadNumber(*Input, TEXT("throttle"), Out.Throttle) || std::abs(Out.Throttle) > 1
+                || !ReadNumber(*Input, TEXT("steer"), Out.Steer) || std::abs(Out.Steer) > 1
+                || !ReadBoolean(*Input, TEXT("brake"), Out.bBrake)) return false;
+            Out.X = Point[0]; Out.Y = Point[1]; Out.Z = Point[2];
+            Out.Velocity.X = Velocity[0]; Out.Velocity.Z = Velocity[1];
+            FString Phase, Feedback;
+            if (!ReadIdentity(Object, TEXT("phase"), Phase) || !ReadIdentity(Object, TEXT("feedback"), Feedback)) return false;
+            if (Phase.Equals(TEXT("active"), ESearchCase::CaseSensitive)) Out.Phase = EWorldWaterPhase::Active;
+            else if (Phase.Equals(TEXT("landed"), ESearchCase::CaseSensitive)) Out.Phase = EWorldWaterPhase::Landed;
+            else return false;
+            if (Feedback.Equals(TEXT("clear"), ESearchCase::CaseSensitive)) Out.Feedback = EWorldWaterFeedback::Clear;
+            else if (Feedback.Equals(TEXT("hyacinth"), ESearchCase::CaseSensitive)) Out.Feedback = EWorldWaterFeedback::Hyacinth;
+            else if (Feedback.Equals(TEXT("snagged"), ESearchCase::CaseSensitive)) Out.Feedback = EWorldWaterFeedback::Snagged;
+            else if (Feedback.Equals(TEXT("blocked"), ESearchCase::CaseSensitive)) Out.Feedback = EWorldWaterFeedback::Blocked;
+            else return false;
+            const auto Snag = Object->TryGetField(TEXT("snag"));
+            if (!Snag.IsValid()) return false;
+            if (Snag->Type != EJson::Null)
+            {
+                if (Snag->Type != EJson::Object || !Snag->AsObject().IsValid()) return false;
+                FWorldWaterSnag Value;
+                if (!ReadControlIdentity(Snag->AsObject(), TEXT("zoneId"), Value.ZoneId)
+                    || !ReadNumber(Snag->AsObject(), TEXT("exposureMs"), Value.ExposureMs) || Value.ExposureMs < 0
+                    || !ReadNumber(Snag->AsObject(), TEXT("clearMs"), Value.ClearMs) || Value.ClearMs < 0
+                    || !ReadBoolean(Snag->AsObject(), TEXT("held"), Value.bHeld)) return false;
+                Out.Snag = MoveTemp(Value);
+            }
+            return true;
+        }
     }
 
     bool EncodeCallMovementRequest(const FMovementRequest& Request,
@@ -247,9 +339,25 @@ namespace BaddieCompanion
         OutError = TEXT("World movement response has an invalid player state.");
         if (!MovementProtocolPrivate::NullableObjectField(*Player, TEXT("journey"), true)) return false;
         for (const TCHAR* Field : { TEXT("roadside"), TEXT("transitRide"), TEXT("driving"),
-            TEXT("waterControl"), TEXT("nightclub"), TEXT("residence") })
+            TEXT("nightclub"), TEXT("residence") })
             if (!MovementProtocolPrivate::NullableObjectField(*Player, Field, false)) return false;
-        // These checks preserve envelope shape only, not the nested domain schemas or their authority.
+
+        Next.bHasWaterControlField = (*Player)->HasField(TEXT("waterControl"));
+        if (Next.bHasWaterControlField)
+        {
+            OutError = TEXT("World movement response has an invalid public water control.");
+            const auto Water = (*Player)->TryGetField(TEXT("waterControl"));
+            if (!Water.IsValid()) return false;
+            if (Water->Type != EJson::Null)
+            {
+                FWorldWaterControl Value;
+                if (Water->Type != EJson::Object
+                    || !MovementProtocolPrivate::ReadWaterControl(Water->AsObject(), Value)) return false;
+                Next.WaterControl = MoveTemp(Value);
+            }
+        }
+        OutError = TEXT("World movement response has an invalid player state.");
+        // Remaining envelope checks do not decode the other domain schemas or their authority.
         if ((*Player)->HasField(TEXT("drawnWeaponId")))
         {
             const auto Weapon = (*Player)->TryGetField(TEXT("drawnWeaponId"));

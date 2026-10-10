@@ -30,6 +30,39 @@ namespace BaddieCompanion
     };
 
     enum class EWorldPlayerStatus : uint8 { Present, Traveling, Recovering };
+
+    enum class EWorldWaterPhase : uint8 { Active, Landed };
+    enum class EWorldWaterFeedback : uint8 { Clear, Hyacinth, Snagged, Blocked };
+    struct FWorldWaterScope
+    {
+        FString GameRoomId, InstanceId, PlaceId, LayoutId, LayoutRevision;
+        FString UserId, CharacterId, LifeId;
+        int64 Revision = 0;
+    };
+    struct FWorldWaterSnag
+    {
+        FString ZoneId;
+        double ExposureMs = 0;
+        double ClearMs = 0;
+        bool bHeld = false;
+    };
+    struct FWorldWaterControl
+    {
+        FString Id, CraftId, DomainId;
+        FWorldWaterScope Scope;
+        int64 CraftRevision = 0;
+        int64 Sequence = 0;
+        EWorldWaterPhase Phase = EWorldWaterPhase::Active;
+        // Shared source coordinates: metres, +Y up, X/Z water plane; no UE conversion.
+        double X = 0, Y = 0, Z = 0, YawRadians = 0;
+        FMovementPoint Velocity;
+        int64 SimulatedAtMs = 0, StartedAtMs = 0, ExpiresAtMs = 0, EndsAtMs = 0, LastInputAtMs = 0;
+        double Throttle = 0, Steer = 0;
+        bool bBrake = false;
+        TOptional<FWorldWaterSnag> Snag;
+        EWorldWaterFeedback Feedback = EWorldWaterFeedback::Clear;
+    };
+
     struct FWorldMovementResult
     {
         // Scope identifiers are private process-memory data, not proof of an admitted visit.
@@ -41,8 +74,13 @@ namespace BaddieCompanion
         TOptional<FMovementRoute> Movement;
         EWorldPlayerStatus Status = EWorldPlayerStatus::Present;
         double Health = 0;
+        // Missing: false/unset. Explicit null: true/unset. Object: true/set.
+        // None of these states alone establishes who owns movement.
+        bool bHasWaterControlField = false;
+        TOptional<FWorldWaterControl> WaterControl;
         // Retain the full player document, including omitted versus null control state.
-        // Nested journey/vehicle/water/activity state is not decoded or admitted by this helper.
+        // Public water control is decoded; journey/vehicle/activity schemas remain opaque.
+        // No control state is admitted here, and private water session/landing fields are rejected.
         // No logging, Blueprint, SaveGame or persistent storage of this document.
         FString PlayerDocumentJson;
     };
@@ -64,7 +102,9 @@ namespace BaddieCompanion
 
     // Input must already be size-bounded and decoded by the transport.
     // World movement returns player/serverNow, not ok/retryAfterMs. Decode movement fields
-    // and retain the complete player document; nested player schemas need their own adapters.
+    // and public water-control fields, retaining the complete player document. Other nested
+    // player schemas need their own adapters. Water scope/life/layout, occupancy, freshness,
+    // lease and domain acceptance still belong to the admitted gameplay owner.
     // An older moveSequence can be a soft decline, and a stop may return a vehicle-owned
     // player unchanged. Neither a decoded result nor null movement grants on-foot control.
     // The owner must enforce generation, visit/instance, revision and controller ownership
