@@ -48,3 +48,4 @@ $Receipt = [ordered]@{
 }
 $Receipt | ConvertTo-Json -Depth 4 | Set-Content (Join-Path $BridgeDir "launch-$Stamp.json") -Encoding UTF8
 $Receipt | ConvertTo-Json -Depth 4
+Wait-Process -Id $Process.Id

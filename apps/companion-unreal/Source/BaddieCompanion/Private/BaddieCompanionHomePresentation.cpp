@@ -1,3 +1,5 @@
+#include "BaddieCompanionHomePresentation.h"
+
 #include "BaddieCompanionHomeMappingInternal.h"
 
 #include "Containers/StringConv.h"
@@ -210,7 +212,8 @@ namespace BaddieCompanion::HomeMapping
         for (const auto& Pair : Object->Values)
         {
             bool bKnown = false;
-            for (const TCHAR* Key : Known) if (Same(Pair.Key, Key)) { bKnown = true; break; }
+            for (const TCHAR* Key : Known)
+                if (MakeStringView(Pair.Key).Equals(Key, ESearchCase::CaseSensitive)) { bKnown = true; break; }
             // Unknown key text is not copied into an issue (could itself contain private data).
             if (!bKnown) Issue(Issues, EHomeIssue::UnknownField, Path);
         }

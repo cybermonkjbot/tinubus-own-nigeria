@@ -17,7 +17,7 @@
 #include "Widgets/SOverlay.h"
 #include "Widgets/Text/STextBlock.h"
 
-using BaddieCompanion::EConnectionState;
+using ECompanionConnectionState = BaddieCompanion::EConnectionState;
 
 void SBaddieCompanionConnectionPanel::Construct(const FArguments& Args)
 {
@@ -192,30 +192,30 @@ void SBaddieCompanionConnectionPanel::PresentConnection(
     FString Status;
     switch (State)
     {
-    case EConnectionState::Disabled: Status = TEXT("Companion connections are disabled."); break;
-    case EConnectionState::SignedOut: Status = TEXT("Not connected to Baddie."); break;
-    case EConnectionState::RequestingCode: Status = TEXT("Requesting an approval link."); break;
-    case EConnectionState::AwaitingApproval:
+    case ECompanionConnectionState::Disabled: Status = TEXT("Companion connections are disabled."); break;
+    case ECompanionConnectionState::SignedOut: Status = TEXT("Not connected to Baddie."); break;
+    case ECompanionConnectionState::RequestingCode: Status = TEXT("Requesting an approval link."); break;
+    case ECompanionConnectionState::AwaitingApproval:
         Status = TEXT("Approval pending. Paste this link in Baddie's Companion connections and compare the code."); break;
-    case EConnectionState::LoadingHome:
+    case ECompanionConnectionState::LoadingHome:
         Status = bApartment ? TEXT("Connected. Loading the saved apartment rooms.")
             : TEXT("Connected. Loading the saved Home."); break;
-    case EConnectionState::Ready:
+    case ECompanionConnectionState::Ready:
         Status = Selection ? (View.bStale ? TEXT("Connected. Showing the last valid read while retrying.")
             : bApartment ? TEXT("Connected. Read-only apartment access.") : TEXT("Connected. Read-only Home access."))
             : TEXT("Saved room access is unavailable."); break;
-    case EConnectionState::Expired: Status = View.Error.IsEmpty() ? TEXT("Connection expired.") : FString(); break;
-    case EConnectionState::Unavailable: Status = TEXT("Connection unavailable."); break;
+    case ECompanionConnectionState::Expired: Status = View.Error.IsEmpty() ? TEXT("Connection expired.") : FString(); break;
+    case ECompanionConnectionState::Unavailable: Status = TEXT("Connection unavailable."); break;
     }
     SetText(StatusText, Status);
     const bool bPending = BaddieCompanion::IsConnectionPending(State);
-    const bool bReady = State == EConnectionState::Ready && Selection;
-    const bool bCanRequest = !bPending && State != EConnectionState::Ready && State != EConnectionState::Disabled;
+    const bool bReady = State == ECompanionConnectionState::Ready && Selection;
+    const bool bCanRequest = !bPending && State != ECompanionConnectionState::Ready && State != ECompanionConnectionState::Disabled;
     SetVisible(DeviceName, bCanRequest);
     SetText(DeviceNameError, bCanRequest && !ValidDeviceName()
         ? TEXT("Use a device name of 1 to 80 characters without control characters.") : FString());
     SetText(DeviceText, View.DeviceName.IsEmpty() ? FString() : TEXT("Device: ") + View.DeviceName);
-    const bool bApproval = State == EConnectionState::AwaitingApproval && View.RemainingSeconds > 0;
+    const bool bApproval = State == ECompanionConnectionState::AwaitingApproval && View.RemainingSeconds > 0;
     SetText(ApprovalLink, bApproval ? View.ApprovalLink : FString());
     SetText(ComparisonCode, bApproval ? TEXT("Comparison code: ") + View.DisplayCode : FString());
     SetText(Lifetime, View.RemainingSeconds > 0 ? FString::Printf(TEXT("%s remaining: %d seconds"),
@@ -344,7 +344,7 @@ void SBaddieCompanionConnectionPanel::DismissConfirmation()
 bool SBaddieCompanionConnectionPanel::CanConnect() const
 {
     return !bOffline && !bModal && Owner.IsValid() && RetrySeconds <= 0
-        && State != EConnectionState::Disabled && State != EConnectionState::Ready
+        && State != ECompanionConnectionState::Disabled && State != ECompanionConnectionState::Ready
         && !BaddieCompanion::IsConnectionPending(State);
 }
 

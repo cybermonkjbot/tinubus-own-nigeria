@@ -11,7 +11,7 @@
 #include "Engine/World.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "GameFramework/PlayerCameraManager.h"
+#include "Camera/PlayerCameraManager.h"
 #include "HAL/PlatformApplicationMisc.h"
 #include "Widgets/SWeakWidget.h"
 
