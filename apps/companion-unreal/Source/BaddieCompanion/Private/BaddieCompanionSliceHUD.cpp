@@ -1,6 +1,7 @@
 #include "BaddieCompanionSliceHUD.h"
 
 #include "BaddieCompanionSliceSession.h"
+#include "BaddieCompanionSlicePlayerController.h"
 #include "Engine/Canvas.h"
 #include "Engine/Engine.h"
 #include "Engine/GameInstance.h"
@@ -9,6 +10,9 @@ void ABaddieCompanionSliceHUD::DrawHUD()
 {
     Super::DrawHUD();
     if (!Canvas || !GEngine || !GetGameInstance()) return;
+    const auto* Controller = Cast<ABaddieCompanionSlicePlayerController>(GetOwningPlayerController());
+    if (!UBaddieCompanionSliceSession::IsOfflinePreviewAllowed(GetWorld())
+        || !Controller || !Controller->IsInspectionPointerCaptured()) return;
     const auto* Session = GetGameInstance()->GetSubsystem<UBaddieCompanionSliceSession>();
     if (!Session) return;
 
@@ -40,20 +44,12 @@ void ABaddieCompanionSliceHUD::DrawHUD()
         if (!Line.IsEmpty()) Flush();
     };
 
-    DrawLine(TEXT("Offline Home preview"));
+    DrawLine(TEXT("Offline Home inspection"));
     if (const auto* Selection = Session->GetSelection())
     {
-        DrawLine(FString::Printf(TEXT("Companion: %s | Home: %s"),
-            *Selection->Character.Name, *Selection->HomeRoom.Name));
-        DrawLine(TEXT("Approved appearance and saved Home art are not mapped. Local movement only."));
+        DrawLine(FString::Printf(TEXT("Saved Home: %s | Saved Companion: %s"),
+            *Selection->HomeRoom.Name, *Selection->Character.Name));
+        DrawLine(TEXT("Neutral stage and primitive only. Saved appearance and Home layout are not mapped."));
         DrawLine(TEXT("WASD / left stick: move | Mouse / right stick: camera | Wheel: zoom | R: reset | Esc / Start: pointer"));
-    }
-    else if (!Session->GetStatus().IsEmpty())
-    {
-        DrawLine(Session->GetStatus());
-    }
-    else
-    {
-        DrawLine(TEXT("Open with -CompanionOfflinePreview and -CompanionOfflineSnapshot=<local JSON file>."));
     }
 }

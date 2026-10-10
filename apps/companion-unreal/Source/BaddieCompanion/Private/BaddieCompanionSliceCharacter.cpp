@@ -56,6 +56,7 @@ void ABaddieCompanionSliceCharacter::BeginPlay()
 
 void ABaddieCompanionSliceCharacter::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
+    ClearInspectionPresentation();
     if (auto* Instance = GetGameInstance())
         if (auto* Session = Instance->GetSubsystem<UBaddieCompanionSliceSession>())
             Session->OnSelectionChanged.RemoveAll(this);
@@ -65,7 +66,8 @@ void ABaddieCompanionSliceCharacter::EndPlay(const EEndPlayReason::Type EndPlayR
 void ABaddieCompanionSliceCharacter::ApplySelection()
 {
     const auto* Session = GetGameInstance()->GetSubsystem<UBaddieCompanionSliceSession>();
-    bSelectionReady = Session && Session->GetSelection();
+    bSelectionReady = UBaddieCompanionSliceSession::IsOfflinePreviewAllowed(GetWorld())
+        && Session && Session->GetSelection();
     PlaceholderBody->SetHiddenInGame(!bSelectionReady);
     SetActorEnableCollision(bSelectionReady);
     GetCharacterMovement()->StopMovementImmediately();
@@ -76,13 +78,29 @@ void ABaddieCompanionSliceCharacter::ApplySelection()
     }
     else
     {
-        GetCharacterMovement()->DisableMovement();
+        ClearInspectionPresentation();
     }
+}
+
+void ABaddieCompanionSliceCharacter::ClearInspectionPresentation()
+{
+    bSelectionReady = false;
+    PlaceholderBody->SetHiddenInGame(true);
+    SetActorEnableCollision(false);
+    ConsumeMovementInputVector();
+    GetCharacterMovement()->StopMovementImmediately();
+    GetCharacterMovement()->DisableMovement();
+    SetActorLocation(FVector::ZeroVector, false, nullptr, ETeleportType::TeleportPhysics);
+    SetActorRotation(FRotator::ZeroRotator);
+    CameraArm->TargetArmLength = 600;
+    if (Controller) Controller->SetControlRotation(FRotator::ZeroRotator);
 }
 
 void ABaddieCompanionSliceCharacter::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
+    if (!UBaddieCompanionSliceSession::IsOfflinePreviewAllowed(GetWorld()))
+        ClearInspectionPresentation();
     if (!bSelectionReady) return;
 
     const double Limit = ABaddieCompanionHomeStage::HalfExtentCm - 45.0;
@@ -146,6 +164,7 @@ void ABaddieCompanionSliceCharacter::Zoom(float Value)
 
 void ABaddieCompanionSliceCharacter::ResetCamera()
 {
+    if (!bSelectionReady || (Controller && Controller->IsLookInputIgnored())) return;
     CameraArm->TargetArmLength = 600;
     if (Controller) Controller->SetControlRotation(FRotator(-30, -90, 0));
 }

@@ -1,7 +1,23 @@
 #include "BaddieCompanionSliceSession.h"
 
 #include "HAL/FileManager.h"
+#include "Engine/World.h"
+#include "Misc/CommandLine.h"
 #include "Misc/FileHelper.h"
+#include "Misc/Parse.h"
+
+bool UBaddieCompanionSliceSession::IsOfflinePreviewAllowed(const UWorld* World)
+{
+#if UE_BUILD_SHIPPING
+    return false;
+#else
+    FString Path;
+    return World && World->GetNetMode() == NM_Standalone
+        && FParse::Param(FCommandLine::Get(), TEXT("CompanionOfflinePreview"))
+        && FParse::Value(FCommandLine::Get(), TEXT("CompanionOfflineSnapshot="), Path)
+        && !Path.TrimStartAndEnd().IsEmpty();
+#endif
+}
 
 void UBaddieCompanionSliceSession::Deinitialize()
 {
@@ -12,6 +28,11 @@ void UBaddieCompanionSliceSession::Deinitialize()
 
 BaddieCompanion::FOfflineSnapshotRequest UBaddieCompanionSliceSession::BeginOfflineRead()
 {
+    if (!IsOfflinePreviewAllowed(GetWorld()))
+    {
+        ClearSelection();
+        return {};
+    }
     // Every replacement is a new scope. A failed replacement cannot retain a prior file's data.
     Generation = FGuid::NewGuid();
     ++Sequence;
@@ -26,7 +47,7 @@ BaddieCompanion::FOfflineSnapshotRequest UBaddieCompanionSliceSession::BeginOffl
 bool UBaddieCompanionSliceSession::IsCurrentRequest(
     const BaddieCompanion::FOfflineSnapshotRequest& Request) const
 {
-    return State == BaddieCompanion::EOfflineSelectionState::Loading
+    return IsOfflinePreviewAllowed(GetWorld()) && State == BaddieCompanion::EOfflineSelectionState::Loading
         && Request.Generation.IsValid() && Request.Generation == Generation
         && Request.Sequence == Sequence;
 }
@@ -60,11 +81,11 @@ void UBaddieCompanionSliceSession::FailOfflineRead(
 
 bool UBaddieCompanionSliceSession::LoadOfflineSnapshot(const FString& Path)
 {
-#if UE_BUILD_SHIPPING
-    ClearSelection();
-    SetUnavailable(TEXT("Offline snapshot inspection is not available in this build."));
-    return false;
-#else
+    if (!IsOfflinePreviewAllowed(GetWorld()))
+    {
+        ClearSelection();
+        return false;
+    }
     const auto Request = BeginOfflineRead();
     const int64 Size = IFileManager::Get().FileSize(*Path);
     if (Size <= 0 || Size > BaddieCompanion::MaxSnapshotBytes)
@@ -81,7 +102,6 @@ bool UBaddieCompanionSliceSession::LoadOfflineSnapshot(const FString& Path)
         return false;
     }
     return CompleteOfflineRead(Request, Json);
-#endif
 }
 
 void UBaddieCompanionSliceSession::SetUnavailable(const FString& Message)
@@ -104,6 +124,6 @@ void UBaddieCompanionSliceSession::ClearSelection()
 
 const BaddieCompanion::FSnapshotSelection* UBaddieCompanionSliceSession::GetSelection() const
 {
-    return State == BaddieCompanion::EOfflineSelectionState::Ready && Selection.IsSet()
+    return IsOfflinePreviewAllowed(GetWorld()) && State == BaddieCompanion::EOfflineSelectionState::Ready && Selection.IsSet()
         ? &Selection.GetValue() : nullptr;
 }

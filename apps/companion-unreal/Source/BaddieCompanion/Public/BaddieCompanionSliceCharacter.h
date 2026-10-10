@@ -18,6 +18,7 @@ public:
     ABaddieCompanionSliceCharacter();
     virtual void Tick(float DeltaSeconds) override;
     virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+    void ClearInspectionPresentation();
 
 protected:
     virtual void BeginPlay() override;

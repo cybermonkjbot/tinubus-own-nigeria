@@ -27,6 +27,7 @@ class BADDIECOMPANION_API UBaddieCompanionSliceSession : public UGameInstanceSub
 
 public:
     virtual void Deinitialize() override;
+    static bool IsOfflinePreviewAllowed(const UWorld* World);
 
     BaddieCompanion::FOfflineSnapshotRequest BeginOfflineRead();
     bool CompleteOfflineRead(const BaddieCompanion::FOfflineSnapshotRequest& Request, const FString& Json);

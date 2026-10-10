@@ -1,12 +1,29 @@
 # Standalone companion in Unreal
 
-October 10, 2026 UTC handoff; October 9, 2026 Windows follow-up in America/Los_Angeles. Internal implementation plan and Windows handoff.
+October 10, 2026. Internal implementation plan and Windows handoff.
 
 ## Direction
 
 We are starting a separately installed Unreal game connected to an existing Baddie account, using that person's saved Companion. Baddie remains our social app. The game does not create another account, companion library or economic ledger. Windows is the first development target; mobile delivery is a later platform pass. Browser streaming and GPU deployment are outside this first slice.
 
 The first playable slice is one admitted Companion in the person's saved Home. Start with appearance, room selection, camera and local movement presentation. Add authoritative game entry and movement before porting city systems. Keep the existing mobile/web renderer working throughout.
+
+## Lagos world direction
+
+Joshua's requirement on October 10, 2026: the game must be unmistakably Lagos. We are building contemporary, lived-in Lagos. An ordinary street view should communicate the setting with the map label hidden; recognition cannot depend only on a landmark or a yellow bus.
+
+The Home-first scope stays unchanged. Apply this direction to supported environment art and exterior views while preserving the person's saved layout, furniture and Companion. This brief does not authorize a replacement Home, new city gameplay or changes to the production renderer.
+
+- Choose one named Lagos neighborhood and a dated photographic reference set for each area before authoring. Keep building types, street widths, transport and waterside views consistent with that place. Yaba, Surulere, Lagos Island and Lekki are reference candidates, not interchangeable scenery or newly promised districts.
+- Build streets from reference-checked facades, balconies, compound gates, shopfront shutters, awnings, drainage and utilities. Vary finishes and upkeep by building. Include ordinary homes, contemporary businesses and cultural spaces; constant decay or a uniform luxury-estate treatment cannot represent the whole world.
+- Use our existing danfo, BRT, boats, stalls, suya grills and street props where the chosen references support them. Preserve crossings, entrances, walking routes and boarding clearances. Scenery does not create working routes, services or interactions.
+- Author legible local shop signs and street details with the existing fictional business names. Use Nigerian English, Pidgin and Yoruba where appropriate to the speaker and place, with fluent review before recording or publishing new dialogue. Clothing and everyday activity should reflect contemporary people of different genders and backgrounds.
+- Match light, materials and vegetation to the reference scene. Wet surfaces belong to an actual wet-weather treatment, not every street. Carry forward the restrained district sound direction: nearby conversations, traffic and water with quieter residential areas. Generator sound needs the existing power state and a visible source; music needs an appropriate venue and cleared audio.
+- Give AI tools the neighborhood references and approved asset set. Use procedural placement for repetition within authored parcels and clearances. Hand-author focal buildings and street composition, then review generated placements; a generic prompt is not the art brief.
+
+Start with `packages/companion-scene/art/world-kit/README.md`, `packages/companion-scene/art/vehicles/README.md` and `packages/companion-scene/art/delivery-alignment-2026-10-07/README.md`. They record reusable sources, delivery boundaries and district sound decisions. Unreal import and material suitability still need their own review; reuse does not imply that these assets are installed on Cribtest11.
+
+For visual acceptance, compare player-height views with the chosen location references and review recognition with Joshua before expanding the area. Check street composition, material scale, readable signs and walkable routes, not only a skyline shot. This direction is documented locally; no Lagos Unreal scene, remote transfer or rendered verification is claimed by this update.
 
 ## Existing owners
 
@@ -26,12 +43,12 @@ Paths below are relative to the repository root.
 
 ## Account-linking plan
 
-These steps describe work still to implement, not deployed endpoints.
+These steps describe the integration target. The scoped backend, Baddie approval UI and Unreal transport/session owner are implemented in source as described below. No endpoints have been deployed or live account connection verified.
 
 1. The game creates an expiring pairing request with a device-held proof secret. Show a public approval link/code and device name. Keep the proof secret off the approval URL.
 2. Baddie's signed-in app or web flow resolves the request and presents a dedicated approval sheet. The backend derives the account from the verified session, records consent and binds the approval to that request and device proof.
 3. The game exchanges the approved request over HTTPS for a short-lived, game-scoped session. A replay from another device fails. Retries after a lost response recover the same grant, without issuing broader or extra access. Recheck approval, expiry, revocation and account moderation at exchange.
-4. A scoped snapshot operation derives the account and permitted Companion server-side, then projects the existing companion library and Home. Factor out the existing entitlement-filtered read when implementing this backend adapter; do not copy the companion store or call public functions using a borrowed phone token.
+4. A scoped snapshot operation derives the account and permitted Companion server-side, then projects the existing companion library and Home using the shared entitlement-filtered read. Preserve that ownership boundary when adding adapters; do not copy the companion store or call public functions using a borrowed phone token.
 5. The Unreal session owner clears private state on sign-out, account change or revocation and discards late responses from older sessions. Only transport errors within the same valid grant may retain stale presentation. Client-supplied IDs never establish ownership. Later writes require an admitted game context, expected revision and retry identity.
 
 Begin with read-only companion/Home access. Keep Inbox, social publication, purchases and other account operations out of the game grant. Return to the existing Baddie flow for actions outside that grant. Refresh and device revocation need explicit backend rules before a persistent sign-in is shipped. Store any persistent credential in platform secure storage, never Unreal config, save-game files or logs.
@@ -40,25 +57,47 @@ The TV pairing flow in `apps/backend/convex/tvAuth.ts` is a useful reference for
 
 ## First source slice
 
-`apps/companion-unreal` contains an Unreal project, a runtime snapshot reader and an editor-only offline inspection commandlet. The reader consumes the existing decoded snapshot shape and preserves the selected appearance and room documents. It does not introduce a production bridge contract or change the embedded renderer.
+`apps/companion-unreal` now contains an Unreal project, a runtime snapshot reader and an editor-only offline inspection commandlet. The reader consumes the existing decoded snapshot shape and preserves the selected appearance and room documents. It does not introduce a production bridge contract or change the embedded renderer.
 
 This gives the Windows implementation a concrete C++ starting point before engine installation and graphics work. It is not an account connection or a playable build. The reader is not a full validator for every retained JSON field; the future server projection and asset adapter must enforce their respective contracts.
 
-No backend, mobile, shared scene data, production asset registry or renderer registration changes belong to this slice. Renderer packaging and What's New changes are therefore not triggered. Future changes to those production inputs must follow the root companion packaging and mobile release rules.
+The initial Unreal slice did not change the backend or embedded renderer. It remains separate from the scoped backend work below.
 
-### Windows source follow-up, October 9, 2026 local time
+## Scoped backend source
 
-We have added a source-only offline preview path: a game-instance selection owner with replacement/clear generation guards, default game mode, engine-primitive inspection stage, local character movement, orbit/zoom camera, pointer controls and one status HUD. The game mode uses the engine Entry map as its startup container and requires both `-CompanionOfflinePreview` and an explicit `-CompanionOfflineSnapshot` file in a non-Shipping standalone world. Failed and empty selections have no stage or visible character. No data or credential is written back.
+`apps/backend/convex/companionGameAccess.ts` now implements expiring pairing requests, authenticated consent, proof-bound short-lived grants, read-only snapshots and revocation. Its new tables do not issue normal account sessions. It pins the approved saved Companion and Home, and shares entitlement filtering with the existing app query through `lib/companionLibraryProjection.ts`.
 
-The preview preserves and displays the selected Companion and Home separately from the active room, but does not interpret saved furniture, coordinates or appearance. It reports the missing approved art mapping rather than claiming the neutral stage is the person's saved Home. This is inspection infrastructure, not an admitted Companion, a linked account or visual parity. See the project README for the intended invocation after authorized engine setup and compilation.
+Read `docs/engineering/standalone-companion-account-linking.md` before changing Baddie approval, the Unreal transport or the grant lifecycle. It defines the operation arguments, retry window, consent rules, current client interfaces and remaining verification. The backend is disabled unless `STANDALONE_COMPANION_ENABLED` is explicitly enabled. No deployment setting was changed.
 
-There was no running Unreal preview to capture or inspect. Compilation, tests, project generation, installation and rendered verification remain deferred. No production renderer inputs changed, and no mobile release note or renderer packaging was required. A local Git repository was initialized and the exact transferred source was checkpointed before implementation; this does not restore the full Baddie repository or configure a remote.
+This is source implementation, not a working account connection. The existing app snapshot keeps its response and behavior. Baddie now has a dedicated consent sheet, camera/deep-link handling and connection management under You's Security and permissions. The current public What's New highlights are retained while the feature is disabled. No scene data, embedded renderer protocol or production asset registry changed, so renderer packaging is not triggered.
+
+`UBaddieCompanionSession` owns Unreal's HTTP transport, pairing and read-only grant lifecycle. It defaults to disabled and holds credentials only in memory. Use `BeginPairing`, `GetConnectionView`, `OnConnectionChanged`, `CopySnapshot` and `Disconnect` from gameplay C++; never copy its internal credentials into a pawn, renderer or Blueprint. Gameplay consumers must clear old character/Home presentation when the session no longer supplies a snapshot.
+
+The first Windows implementation is checkpointed at `d041ba7`, after transferred-source checkpoint `dead6fe`. A direct bridge check on October 10 found no loaded threads and a clean Windows worktree. The old helper used ephemeral threads, so it left no stored final-turn record; the commit and inspected files establish the source result, not a successful engine run.
+
+That checkpoint adds `HomeStage`, `SliceCharacter`, `SliceGameMode`, `SliceHUD`, `SlicePlayerController` and `SliceSession`, plus startup and input configuration. The offline path requires an explicit snapshot in a non-Shipping standalone world. It preserves saved selection documents but reports unsupported appearance and Home art instead of presenting its engine-primitive stage as the saved Home. Local movement has no backend authority. These Windows additions are retained during the account-linking merge.
+
+## Windows connection/Home source milestone, October 10, 2026
+
+`SlicePlayerController` now integrates the unchanged transferred `UBaddieCompanionSession` through `BeginPairing(DeviceName)`, `GetConnectionView`, `OnConnectionChanged`, `CopySnapshot` and `Disconnect`. No gameplay/UI call configures an origin or enables linking. The client-only Slate panel supplies device naming, explicit connect/cancel, copy of only the public approval link, comparison code, local lifetime, public errors and the exposed retry countdown. Home is first in the read-only saved-selection presentation. Disconnect/re-pair use a separate confirmation modal, with cancellation and focus restoration.
+
+The controller removes subscriptions before disconnecting on teardown and detaches its viewport panel. Notifications, controller/Slate ticks and actions guard local expiry with `CopySnapshot`; failed access drops all retained saved IDs/documents, visible names, modal state and input state. Replacement pairings clear before starting. The same valid grant may retain the session's stale read during a temporary failure; no file or neutral-stage fallback exists in live mode.
+
+Offline inspection remains separate and requires non-Shipping `NM_Standalone`, `-CompanionOfflinePreview` and a nonempty `-CompanionOfflineSnapshot`. Those prerequisites now guard the offline owner/read path, stage/pawn creation and movement presentation. The default game mode creates no pawn in live mode. Clearing an offline selection destroys its stage/pawn and drops movement/camera state; missing or failed files leave one connection/empty surface. The saved Companion and Home are not replaced by the explicitly labeled neutral inspection primitives.
+
+Keyboard/pointer controls, per-character public-link wrapping, bounded panel width, scrolling and focus ownership are implemented in source. Tab/Shift+Tab remain within available controls or the open modal; Esc cancels pending access or dismisses confirmation. The offline panel has an explicit Resume inspection action and releases input when reopened. A future engine pass must inspect these paths at narrow/wide widths and larger text, including focus, overlays, loading, errors, expiry and stale/ready states. No running preview was available; rendered verification is incomplete.
+
+Source review covered privacy clearing, delegate/viewport lifetime, valid/stale reads and input routing. No tests, builds, compilation, lint, code generation, project generation, installs, engine launches, servers, cloud changes or deployments ran. No mobile/backend/production-renderer files or shared assets changed. `bAccountLinkingEnabled` and `STANDALONE_COMPANION_ENABLED` remain disabled; no live origin is committed.
+
+Public-interface blocker: `RetryAfterSeconds` currently reports begin throttling only. Exchange/snapshot throttling and temporary retry deadlines are private to the transferred session. Their public error is rendered, but an exact remaining delay cannot be shown through the allowed interface. Leave this with the transport owner; do not infer timing or change the exact transferred files during gameplay integration. See the existing account-linking document for the backend contract rather than duplicating it here.
+
+Saved appearance and Home mapping, authoritative admission/movement and runtime acceptance remain outstanding. The Lagos direction above is preserved for future accepted art and Home-first presentation; this milestone authors no Lagos scene, replacement Home, city systems or shared assets.
 
 ## Next implementation steps
 
 1. Verify the installed Unreal version, compiler, Windows SDK and free space on Cribtest11. If Unreal is absent, choose the supported engine/toolchain combination before a separately authorized installation. Account login and licence acceptance stay with Joshua. Completion means recording real installed paths and versions, not assuming the launcher installed an engine.
-2. Implement the scoped pairing and read-only backend snapshot adapter, plus Baddie's approval flow. Reuse existing auth and companion modules. Completion means an approved device can read only the granting account's permitted Companion/Home and an expired, revoked or different-device grant cannot. Run tests and compilation only when explicitly requested.
-3. Connect the Unreal session owner to that adapter. Keep tokens out of renderer objects and Blueprint-exposed state. Completion means the admitted saved IDs reach the Unreal reader and session changes cannot reuse another account's data.
+2. During a separately authorized verification pass, exercise Baddie's consent/connection controls and confirm an approved device reads only the granted Companion/Home. Reject expired, revoked, cross-account or wrong-proof access. Keep the feature disabled until consent and client session clearing pass. Run tests and compilation only when explicitly requested.
+3. Verify the implemented Windows connection/Home source with the accepted engine and a separately authorized account-linking pass. Exercise connect/cancel/disconnect/re-pair, clipboard, public countdowns, local expiry between notifications, revocation/configuration changes, stale callbacks and UI focus. Resolve the public retry-deadline gap with the session owner. QR is not required for the usable public link/code flow.
 4. Import the approved Companion and one supported Home layout into Unreal. Preserve source IDs, scale and coordinate mapping; inspect rigging, outfit fit and room placement before claiming parity. Unsupported saved appearances/layouts need an explicit unavailable result, not a silently substituted character or room. Do not copy third-party art whose distribution clearance is unresolved.
 5. Add authoritative game entry and movement through the existing server rules. In-game verification must cover re-entry, account switching, interrupted responses and simultaneous mobile/game activity before broader city work.
 
@@ -85,22 +124,18 @@ The authenticated bridge returned this read-only inventory before source transfe
 
 A scoped transfer contains `AGENTS.md`, `CONTEXT.md`, this handoff and `apps/companion-unreal`. It is source preparation, not a full repository checkout. Backend and shared-module references above remain in the Mac repository until separately transferred. Continue account-bridge work against those existing modules there; do not recreate them in the Windows source copy.
 
-### Follow-up inventory, October 9, 2026, America/Los_Angeles
+### Preserved Windows follow-up inventory
 
-This later inspection occurred on the same UTC date as the earlier October 10 handoff. The table above is historical, not the current installed-tool inventory.
+The first gameplay agent recorded this later inspection on October 10, 2026 UTC. Its original note used October 9 in America/Los_Angeles. These are historical observations, not a fresh installation check.
 
 | Item | Observed state |
 | --- | --- |
-| Workspace | The scoped source transfer is present. A local Git repository now checkpoints it; there is no full backend/shared-module checkout or Git remote. |
-| OS | CIM reports `Microsoft Windows 11 Pro`, version `10.0.26100`, build `26100`. |
-| Launcher | `C:\Program Files\Epic Games\Launcher` exists. Launcher installation does not establish an installed engine. |
-| Engine | No `UE_*` installation directory or running Unreal editor was found in the inspected standard paths. The launcher's `C:\ProgramData\Epic\UnrealEngineLauncher\LauncherInstalled.dat` has an empty installation list. The registry's `4.0` entry points to `C:\Program Files\Epic Games\4.0\`, which does not exist. Engine association remains unset. |
-| Visual Studio | `vswhere` reports a complete, launchable Community 2022 installation, 17.14.41, installation version `17.14.37710.0`, at `C:\Program Files\Microsoft Visual Studio\2022\Community`. |
-| Compiler | Default MSVC toolset `14.44.35207`; x64 compiler at `C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64\cl.exe`, file version `19.44.35229.0`. No compiler was invoked. |
-| Windows SDK | Headers and binaries for `10.0.26100.0` are present beneath `C:\Program Files (x86)\Windows Kits\10`. |
-| Storage | PowerShell reported about 972.6 GiB free on `C:` at this inspection. This differs from the earlier inventory; recheck before an authorized install. |
-
-An engine version and its supported MSVC/SDK combination still need confirmation before project generation or compilation. No engine or toolchain installation was performed in this source pass.
+| Workspace | Scoped source present and checkpointed in a local Git repository, without a full backend/shared-module checkout or Git remote. |
+| Launcher and engine | Epic Launcher present at `C:\Program Files\Epic Games\Launcher`. No `UE_*` engine in inspected paths and no running editor. `C:\ProgramData\Epic\UnrealEngineLauncher\LauncherInstalled.dat` had an empty installation list; the registry's `C:\Program Files\Epic Games\4.0\` target did not exist. |
+| Visual Studio | Complete, launchable Community 2022 `17.14.41`, installation `17.14.37710.0`, at `C:\Program Files\Microsoft Visual Studio\2022\Community`. |
+| Compiler | Default MSVC `14.44.35207`; x64 `cl.exe` under `VC\Tools\MSVC\14.44.35207\bin\Hostx64\x64`, file version `19.44.35229.0`. No compiler invoked. |
+| Windows SDK | Headers and binaries for `10.0.26100.0` beneath `C:\Program Files (x86)\Windows Kits\10`. |
+| Storage | About 972.6 GiB free on `C:` at that inspection. Recheck before any authorized installation. |
 
 ### Transfer and execution rules
 
