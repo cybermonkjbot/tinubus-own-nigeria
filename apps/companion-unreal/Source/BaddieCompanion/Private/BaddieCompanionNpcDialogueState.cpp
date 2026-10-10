@@ -16,6 +16,7 @@ namespace BaddieCompanion
         using StateJsonPrivate::Integer;
         using StateJsonPrivate::Only;
         using StateJsonPrivate::Nullable;
+        using StateJsonPrivate::EnumValue;
         constexpr StateJsonPrivate::FParseLimits ReplyLimits{16384, 4, 64};
         constexpr int32 MessageCharacters = 400, ReplyCharacters = 1024;
 
@@ -58,15 +59,6 @@ namespace BaddieCompanion
                     || (C >= TEXT('0') && C <= TEXT('9')) || C == TEXT('.') || C == TEXT('_')
                     || C == TEXT(':') || C == TEXT('-'))) return false;
             return true;
-        }
-        template <typename T> bool Enum(const FValue& Value, T& Out,
-            std::initializer_list<TPair<const TCHAR*, T>> Choices)
-        {
-            FString Name;
-            if (!String(Value, Name)) return false;
-            for (const auto& Choice : Choices)
-                if (Same(Name, Choice.Key)) { Out = Choice.Value; return true; }
-            return false;
         }
         const TCHAR* ServiceId(ENpcDialogueKey Key)
         {
@@ -156,15 +148,15 @@ namespace BaddieCompanion
             || !ReadString(O, TEXT("actorIdentity"), Next->ActorIdentity, 320)
             || !ReadString(O, TEXT("speakerName"), Next->SpeakerName, 160) || !HasText(Next->SpeakerName)
             || !ReadString(O, TEXT("text"), Next->Text, ReplyCharacters) || !HasText(Next->Text)
-            || !Enum(Field(O, TEXT("npcKey")), Next->NpcKey,
+            || !EnumValue(Field(O, TEXT("npcKey")), Next->NpcKey,
                 {{TEXT("mama-vendor"), ENpcDialogueKey::MamaVendor}, {TEXT("delivery-contact"), ENpcDialogueKey::DeliveryContact}})
-            || !Enum(Field(O, TEXT("reply")), Next->Reply,
+            || !EnumValue(Field(O, TEXT("reply")), Next->Reply,
                 {{TEXT("greet"), ENpcDialogueReplyKey::Greet}, {TEXT("welcome-back"), ENpcDialogueReplyKey::WelcomeBack},
                  {TEXT("menu"), ENpcDialogueReplyKey::Menu}, {TEXT("work"), ENpcDialogueReplyKey::Work},
                  {TEXT("directions"), ENpcDialogueReplyKey::Directions}, {TEXT("price-boundary"), ENpcDialogueReplyKey::PriceBoundary},
                  {TEXT("de-escalate"), ENpcDialogueReplyKey::DeEscalate}, {TEXT("clarify"), ENpcDialogueReplyKey::Clarify},
                  {TEXT("compliment"), ENpcDialogueReplyKey::Compliment}})
-            || !Enum(Field(O, TEXT("source")), Next->Source,
+            || !EnumValue(Field(O, TEXT("source")), Next->Source,
                 {{TEXT("laya"), ENpcDialogueReplySource::Laya}, {TEXT("scripted"), ENpcDialogueReplySource::Scripted}})
             || !Nullable(Field(O, TEXT("confidence")), Next->Confidence,
                 [](const FValue& V, double& N) { return Number(V, N); })
