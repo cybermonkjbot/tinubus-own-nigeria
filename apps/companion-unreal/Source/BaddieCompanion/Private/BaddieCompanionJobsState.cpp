@@ -270,6 +270,8 @@ namespace BaddieCompanion
     {
         View.Error = CommandError.IsSet() ? CommandError : JobError.IsSet() ? JobError : OffersError;
         View.bBusy = ActiveMutation.IsValid();
+        View.bRetryable = Pending.IsSet() && !ActiveMutation.IsValid()
+            && OriginMatchesContext(Pending->Origin) && CanWork();
     }
     void FJobsReadState::ClearView(bool bKeepGoal)
     {
@@ -280,8 +282,9 @@ namespace BaddieCompanion
         const auto Goal = bKeepGoal ? View.Goal : TOptional<FJobsGoal>{};
         const auto GoalError = bKeepGoal ? View.GoalError : TOptional<FString>{};
         const bool bGoalReady = bKeepGoal && View.bGoalReady;
+        const bool bGoalBusy = bKeepGoal && View.bGoalBusy;
         if (!bKeepGoal) { GoalGeneration = FGuid::NewGuid(); bGoalActive = false; GoalUserId.Reset(); }
-        View = {}; View.Goal = Goal; View.GoalError = GoalError; View.bGoalReady = bGoalReady;
+        View = {}; View.Goal = Goal; View.GoalError = GoalError; View.bGoalReady = bGoalReady; View.bGoalBusy = bGoalBusy;
         RefreshError();
     }
     bool FJobsReadState::Select(const FString& InAccountId, const FString& GameRoomId)
@@ -289,6 +292,8 @@ namespace BaddieCompanion
         using namespace JobsStatePrivate;
         if (bDisposed || InAccountId.Len() > 240 || GameRoomId.Len() > 240) return false;
         if (Same(AccountId, InAccountId) && Same(RoomId, GameRoomId)) return true;
+        if (!Same(AccountId, InAccountId)) ClearOwnedRequests();
+        Pending.Reset();
         AccountId = InAccountId; RoomId = GameRoomId; bBlocked = false; bMutationEligible = false;
         SourcesGeneration = FGuid::NewGuid(); Sources = {}; ClearView(false); return true;
     }
@@ -323,6 +328,7 @@ namespace BaddieCompanion
     void FJobsReadState::Clear()
     {
         if (bDisposed) return;
+        ClearOwnedRequests();
         EndObservation(); AccountId.Reset(); RoomId.Reset(); bBlocked = false; bMutationEligible = false;
     }
     void FJobsReadState::Dispose()
@@ -332,6 +338,7 @@ namespace BaddieCompanion
     }
     void FJobsReadState::Revoke(const FString& Message)
     {
+        Pending.Reset();
         bBlocked = true; bMutationEligible = false;
         SourcesGeneration = FGuid::NewGuid(); Sources = {}; ClearView(false);
         JobError = JobsStatePrivate::SafeMessage(Message, TEXT("Courier access is unavailable."));
@@ -379,6 +386,26 @@ namespace BaddieCompanion
             && Sources.Haul.Wire.Outing.IsSet() && Sources.Haul.Wire.Outing->Status == EHaulStatus::Carried
             && !Sources.bWorldBusy && !Sources.Recovery.bBusy;
     }
+    bool FJobsReadState::OriginMatchesContext(const FJobsRequestOrigin& Origin) const
+    {
+        using namespace JobsStatePrivate;
+        return Context.IsSet() && Same(Origin.AccountId, AccountId) && Same(Origin.GameRoomId, RoomId)
+            && Same(Origin.UserId, Context->UserId) && Same(Origin.LifeId, Context->LifeId)
+            && Same(Origin.OutingId, Context->OutingId);
+    }
+    bool FJobsReadState::ProvenOriginEnded(const FJobsRequestOrigin& Origin) const
+    {
+        using namespace JobsStatePrivate;
+        const auto& P = Sources.Player;
+        const auto& R = Sources.Recovery;
+        const auto& H = Sources.Haul;
+        return (Sources.bWorldReady && !HasError(Sources.WorldError)
+                && (!P.IsValid() || !Same(P->UserId, Origin.UserId) || !Same(P->GameRoomId, Origin.GameRoomId) || P->Health <= 0))
+            || (R.bReady && !HasError(R.Error) && (!R.Health.IsValid() || !Same(R.Health->LifeId, Origin.LifeId)
+                || R.Health->Status == ECompanionHealthStatus::Hospital || R.Health->Health <= 0))
+            || (H.bReady && !HasError(H.Error) && (!H.Wire.Outing.IsSet() || !Same(H.Wire.Outing->Id, Origin.OutingId)
+                || H.Wire.Outing->Status != EHaulStatus::Carried));
+    }
     void FJobsReadState::Reconcile()
     {
         using namespace JobsStatePrivate;
@@ -388,12 +415,8 @@ namespace BaddieCompanion
         const auto& R = Sources.Recovery;
         const auto& H = Sources.Haul;
         // Trusted null/change cancels eligibility. A transport-error empty snapshot does not.
-        if (bMutationEligible && ((Sources.bWorldReady && !HasError(Sources.WorldError)
-                && (!P.IsValid() || !Same(P->UserId, ActiveOrigin.UserId) || !Same(P->GameRoomId, ActiveOrigin.GameRoomId) || P->Health <= 0))
-            || (R.bReady && !HasError(R.Error) && (!R.Health.IsValid() || !Same(R.Health->LifeId, ActiveOrigin.LifeId)
-                || R.Health->Status == ECompanionHealthStatus::Hospital || R.Health->Health <= 0))
-            || (H.bReady && !HasError(H.Error) && (!H.Wire.Outing.IsSet() || !Same(H.Wire.Outing->Id, ActiveOrigin.OutingId)
-                || H.Wire.Outing->Status != EHaulStatus::Carried)))) bMutationEligible = false;
+        if (bMutationEligible && ProvenOriginEnded(ActiveOrigin)) bMutationEligible = false;
+        if (Pending.IsSet() && ProvenOriginEnded(Pending->Origin)) Pending.Reset();
         const auto Next = ReadContext();
         if (!Next.IsSet())
         {
@@ -410,6 +433,7 @@ namespace BaddieCompanion
                 || Context->PlayerStatus != Next->PlayerStatus || Context->RenderAttempt != Next->RenderAttempt)
             { SelectedService.Reset(); View.Result.Reset(); CommandError.Reset(); }
             Context = Next;
+            if (Pending.IsSet() && !OriginMatchesContext(Pending->Origin)) Pending.Reset();
             const auto Contact = ResolveContact(SelectedService);
             if (!Contact.IsSet()) SelectedService.Reset();
             if (!SameContact(Contact, View.Contact))
@@ -485,7 +509,7 @@ namespace BaddieCompanion
             || (!Same(Previous->Id, Job->Id) && (Previous->AcceptedAtMs > Job->AcceptedAtMs || (!bFromQuery && UpdatesAtStart != JobUpdates))));
         const auto& Latest = bOlder ? Previous : Job;
         const bool bEnded = Ended(Latest);
-        if (bEnded) { bMutationEligible = false; CommandError.Reset(); }
+        if (bEnded) { bMutationEligible = false; Pending.Reset(); CommandError.Reset(); }
         if (!SameProgress(Previous, Latest) || bEnded) View.Result.Reset();
         if (!bOlder) View.Job = MoveTemp(Job);
         View.JobPresence = View.Job.IsSet() ? EWorldFieldPresence::Value : EWorldFieldPresence::Null;
@@ -543,10 +567,9 @@ namespace BaddieCompanion
     }
     bool FJobsReadState::SameScope(const FJobsMutationReceipt& R) const
     {
-        using namespace JobsStatePrivate;
         return Enabled() && !bBlocked && bMutationEligible && R.Generation == Generation && Context.IsSet()
-            && Same(R.Origin.AccountId, AccountId) && Same(R.Origin.GameRoomId, RoomId)
-            && Same(R.Origin.UserId, Context->UserId) && Same(R.Origin.LifeId, Context->LifeId) && Same(R.Origin.OutingId, Context->OutingId);
+            && OriginMatchesContext(R.Origin)
+            && (!R.PendingId.IsValid() || (Pending.IsSet() && Pending->Id == R.PendingId));
     }
     bool FJobsReadState::SameVisit(const FJobsMutationReceipt& R) const
     {
@@ -564,11 +587,15 @@ namespace BaddieCompanion
     }
     bool FJobsReadState::CaptureMutation(const FJobsRequestOrigin& Origin, FJobsMutationReceipt& Out)
     {
-        using namespace JobsStatePrivate;
+        Out = {};
+        if (Pending.IsSet() || ActiveGoalMutation.IsValid()) return false;
+        return BeginMutation(Origin, Out);
+    }
+    bool FJobsReadState::BeginMutation(const FJobsRequestOrigin& Origin, FJobsMutationReceipt& Out)
+    {
         Out = {};
         if (!Enabled() || bBlocked || ActiveMutation.IsValid() || !CanWork()
-            || !Same(Origin.AccountId, AccountId) || !Same(Origin.GameRoomId, RoomId)
-            || !Same(Origin.UserId, Context->UserId) || !Same(Origin.LifeId, Context->LifeId) || !Same(Origin.OutingId, Context->OutingId)) return false;
+            || ActiveGoalMutation.IsValid() || !OriginMatchesContext(Origin)) return false;
         Out.Id = FGuid::NewGuid(); Out.Generation = Generation; Out.ContactGeneration = ContactGeneration; Out.Origin = Origin;
         Out.InstanceId = Context->InstanceId; Out.WorldRevision = Context->WorldRevision;
         Out.PlayerStatus = Context->PlayerStatus; Out.RenderAttempt = Context->RenderAttempt; Out.JobUpdates = JobUpdates;
@@ -577,12 +604,22 @@ namespace BaddieCompanion
     }
     void FJobsReadState::FinishReceipt()
     {
+        ActivePendingId.Invalidate(); bCommandDispatched = false;
         ActiveMutation.Invalidate(); ActiveOrigin = {}; bMutationEligible = false; RefreshError();
     }
     EJobsReadResult FJobsReadState::ObserveMutation(const FJobsMutationReceipt& R, const FString& Json)
     {
+        FJobsCompletionReceipt Ignored;
+        return ObserveMutation(R, Json, Ignored);
+    }
+    EJobsReadResult FJobsReadState::ObserveMutation(const FJobsMutationReceipt& R, const FString& Json,
+        FJobsCompletionReceipt& Out)
+    {
         using namespace JobsStatePrivate;
+        Out = {};
         if (!R.Id.IsValid() || R.Id != ActiveMutation || bDisposed) return EJobsReadResult::StaleReceipt;
+        if (ActivePendingId.IsValid() && !bCommandDispatched) return EJobsReadResult::StaleReceipt;
+        if (R.PendingId.IsValid()) Reconcile();
         if (!SameVisit(R)) { FinishReceipt(); return EJobsReadResult::StaleReceipt; }
         FJobsCommandResponse Wire;
         FString Error;
@@ -596,18 +633,235 @@ namespace BaddieCompanion
             || !Same(P.InstanceId, R.InstanceId) || P.Revision != R.WorldRevision || P.Status != R.PlayerStatus)
         { FinishReceipt(); return EJobsReadResult::StaleReceipt; }
         const bool bAccepted = !HasError(JobError) && ReceiveJob(Wire.Result.Job, false, R.JobUpdates);
+        if (R.PendingId.IsValid() && Pending.IsSet() && Pending->Id == R.PendingId) Pending.Reset();
         if (!HasError(JobError) && FeedbackCurrent(R) && (Wire.Result.Feedback.Outcome == EJobsOutcome::Blocked
-            || (View.Job.IsSet() && SameProgress(View.Job, Wire.Result.Job) && !Ended(View.Job)))) View.Result = Wire.Result.Feedback;
+            || (View.Job.IsSet() && SameProgress(View.Job, Wire.Result.Job) && !Ended(View.Job))))
+        {
+            View.Result = Wire.Result.Feedback;
+            Out.Mutation = R; Out.Result = FJobsCommandResult{Wire.Result.Feedback, View.Job};
+        }
         FinishReceipt(); return bAccepted ? EJobsReadResult::Accepted : EJobsReadResult::Retained;
     }
     bool FJobsReadState::ObserveMutationFailure(const FJobsMutationReceipt& R, const FJobsPublicFailure& Failure)
     {
         if (!R.Id.IsValid() || R.Id != ActiveMutation || bDisposed) return false;
+        if (ActivePendingId.IsValid() && !bCommandDispatched) return false;
+        if (R.PendingId.IsValid()) Reconcile();
         if (SameScope(R) && Failure.bAccessFailure) Revoke(Failure.Message);
-        else if (SameVisit(R) && FeedbackCurrent(R))
-            CommandError = Failure.bDefinitivelyRejected
-                ? JobsStatePrivate::SafeMessage(Failure.Message, TEXT("The courier action couldn't finish."))
-                : FString(TEXT("The courier result wasn't received. Retry the same action."));
+        else if (SameVisit(R))
+        {
+            if (R.PendingId.IsValid() && Failure.bDefinitivelyRejected && !R.bWasUncertain)
+                Pending.Reset();
+            if (FeedbackCurrent(R)) CommandError = Failure.bDefinitivelyRejected
+                    ? JobsStatePrivate::SafeMessage(Failure.Message, TEXT("The courier action couldn't finish."))
+                    : FString(TEXT("The courier result wasn't received. Retry the same action."));
+        }
         FinishReceipt(); return true;
+    }
+
+    bool FJobsReadState::RejectCommand(const TCHAR* Message)
+    {
+        CommandError = Message; RefreshError(); return false;
+    }
+    bool FJobsReadState::PrepareCommand(const FJobsAction& Action, FJobsMutationReceipt& Out)
+    {
+        using namespace JobsStatePrivate;
+        Out = {};
+        Reconcile();
+        if (!Enabled() || bBlocked || ActiveMutation.IsValid() || ActiveGoalMutation.IsValid()) return false;
+        if (Pending.IsSet()) return RejectCommand(TEXT("Retry the pending courier action first."));
+        if (!CanWork() || !View.bReady || HasError(JobError))
+            return RejectCommand(TEXT("Wait for your current world, life and haul to load."));
+        const auto Contact = ResolveContact(SelectedService);
+        const auto& Job = View.Job;
+        const TCHAR* Type = nullptr;
+        switch (Action.Type)
+        {
+        case EJobsAction::Accept: Type = TEXT("accept"); break;
+        case EJobsAction::Collect: Type = TEXT("collect"); break;
+        case EJobsAction::Deliver: Type = TEXT("deliver"); break;
+        case EJobsAction::Cancel: Type = TEXT("cancel"); break;
+        default: return RejectCommand(TEXT("This courier job has changed."));
+        }
+        if (Action.Type == EJobsAction::Accept)
+        {
+            const FJobsOffer* Offer = View.Offers.FindByPredicate([&Action](const FJobsOffer& Value)
+                { return Same(Value.Id, Action.Id); });
+            if (!Contact.IsSet() || !View.bOffersReady || HasError(OffersError) || !Offer || !Offer->bAvailable
+                || !SameContact(*Contact, Offer->Terms.Employer))
+                return RejectCommand(TEXT("Choose an available offer at this contact."));
+            if (Offer->Terms.RewardApproval != EJobsRewardApproval::Approved)
+                return RejectCommand(TEXT("This courier reward is unavailable."));
+            if (Job.IsSet() && (Job->Status == EJobsStatus::Accepted || Job->Status == EJobsStatus::Carrying))
+                return RejectCommand(TEXT("Finish or cancel the current courier job first."));
+        }
+        else
+        {
+            const bool bNext = Job.IsSet() && ((Action.Type == EJobsAction::Collect && Job->Status == EJobsStatus::Accepted)
+                || (Action.Type == EJobsAction::Deliver && Job->Status == EJobsStatus::Carrying)
+                || (Action.Type == EJobsAction::Cancel && (Job->Status == EJobsStatus::Accepted || Job->Status == EJobsStatus::Carrying)));
+            if (!bNext || !Same(Job->Id, Action.Id)) return RejectCommand(TEXT("This courier job has changed."));
+            if (Action.Type != EJobsAction::Cancel && (!Contact.IsSet()
+                || !SameContact(*Contact, Action.Type == EJobsAction::Collect ? Job->Terms.Employer : Job->Terms.Destination)))
+                return RejectCommand(TEXT("Visit this job's current contact."));
+        }
+        // Read tokens can include MAX_SAFE_INTEGER; command validators stop one below it.
+        // Reject unsupported capture without truncating or substituting any source token.
+        if (Action.Id.IsEmpty() || Action.Id.Len() > 240 || Context->WorldRevision < 0 || Context->WorldRevision >= MaxInteger
+            || Context->InstanceId.Len() > 160 || Context->InstanceId.TrimStartAndEnd().IsEmpty()
+            || Context->LifeId.Len() > 160 || Context->LifeId.TrimStartAndEnd().IsEmpty()
+            || (Action.Type != EJobsAction::Accept && (Job->Revision < 1 || Job->Revision >= MaxInteger)))
+            return RejectCommand(TEXT("The courier action couldn't be prepared. Reload courier details."));
+
+        FPendingCommand Request;
+        Request.Id = FGuid::NewGuid();
+        Request.Origin = {AccountId, RoomId, Context->UserId, Context->LifeId, Context->OutingId, Contact};
+        Request.Dispatch.Endpoint = TEXT("companionJobs:command");
+        const auto Observed = MakeShared<FJsonObject>();
+        Observed->SetStringField(TEXT("instanceId"), Context->InstanceId);
+        Observed->SetNumberField(TEXT("worldRevision"), static_cast<double>(Context->WorldRevision));
+        Observed->SetStringField(TEXT("lifeId"), Context->LifeId);
+        Observed->SetStringField(TEXT("outingId"), Context->OutingId);
+        const auto Command = MakeShared<FJsonObject>();
+        Command->SetStringField(TEXT("type"), Type);
+        Command->SetStringField(TEXT("requestId"), FString(TEXT("courier-")) + Request.Id.ToString(EGuidFormats::DigitsWithHyphens));
+        Command->SetObjectField(TEXT("observed"), Observed);
+        if (Action.Type == EJobsAction::Accept) Command->SetStringField(TEXT("offerId"), Action.Id);
+        else
+        {
+            Command->SetStringField(TEXT("jobId"), Job->Id);
+            Command->SetNumberField(TEXT("jobRevision"), static_cast<double>(Job->Revision));
+        }
+        const auto Arguments = MakeShared<FJsonObject>();
+        Arguments->SetStringField(TEXT("gameRoomId"), RoomId);
+        if (Action.Type != EJobsAction::Cancel) Arguments->SetStringField(TEXT("serviceId"), Contact->ServiceId);
+        Arguments->SetObjectField(TEXT("command"), Command);
+        if (!FJsonSerializer::Serialize(Arguments, TJsonWriterFactory<>::Create(&Request.Dispatch.ArgumentsJson)))
+            return RejectCommand(TEXT("The courier action couldn't be prepared. Reload courier details."));
+        Pending = MoveTemp(Request);
+        return PreparePending(Out);
+    }
+    bool FJobsReadState::PreparePending(FJobsMutationReceipt& Out)
+    {
+        Out = {};
+        if (!Pending.IsSet() || !BeginMutation(Pending->Origin, Out)) return false;
+        Out.PendingId = Pending->Id; Out.bWasUncertain = Pending->bUncertain;
+        ActivePendingId = Pending->Id; bCommandDispatched = false;
+        return true;
+    }
+    bool FJobsReadState::PrepareRetry(FJobsMutationReceipt& Out)
+    {
+        Reconcile();
+        // No offer, stage or contact revalidation: the original request is immutable.
+        return PreparePending(Out);
+    }
+    bool FJobsReadState::MarkCommandDispatched(const FJobsMutationReceipt& R, FJobsDispatch& Out)
+    {
+        Out = {};
+        if (bDisposed || !R.Id.IsValid() || R.Id != ActiveMutation || !R.PendingId.IsValid()
+            || R.PendingId != ActivePendingId || bCommandDispatched) return false;
+        Reconcile();
+        if (!SameVisit(R)) { FinishReceipt(); return false; }
+        Out = Pending->Dispatch;
+        Pending->bUncertain = true; bCommandDispatched = true;
+        return true;
+    }
+    bool FJobsReadState::CancelPreparedCommand(const FJobsMutationReceipt& R)
+    {
+        if (bDisposed || !R.Id.IsValid() || R.Id != ActiveMutation || !R.PendingId.IsValid()
+            || R.PendingId != ActivePendingId || bCommandDispatched) return false;
+        // A cancelled setup cannot resolve either a new or previously uncertain request.
+        FinishReceipt(); return true;
+    }
+    bool FJobsReadState::TakeCommandResult(FJobsCompletionReceipt& Completion, FJobsCommandResult& Out) const
+    {
+        using namespace JobsStatePrivate;
+        const auto Captured = MoveTemp(Completion);
+        Completion = {}; Out = {};
+        if (!Captured.Result.IsSet() || !FeedbackCurrent(Captured.Mutation) || HasError(JobError)
+            || !SameProgress(Captured.Result->Job, View.Job)
+            || (Captured.Result->Feedback.Outcome != EJobsOutcome::Blocked && Ended(View.Job))) return false;
+        Out = *Captured.Result; Out.Job = View.Job; return true;
+    }
+
+    bool FJobsReadState::PrepareGoalSelection(bool bSelected, FJobsGoalMutationReceipt& Out)
+    {
+        using namespace JobsStatePrivate;
+        Out = {};
+        Reconcile();
+        if (!Enabled() || bBlocked || ActiveGoalMutation.IsValid() || ActiveMutation.IsValid() || Pending.IsSet()
+            || !View.bGoalReady || HasError(View.GoalError) || !View.Goal.IsSet() || !View.Goal->Resident.IsSet()
+            || !Sources.Player.IsValid() || !Same(Sources.Player->GameRoomId, RoomId)
+            || (bSelected && !View.Goal->bInCurrentWorld)) return false;
+        FJobsGoalMutationReceipt R;
+        R.Id = FGuid::NewGuid(); R.Generation = Generation;
+        R.AccountId = AccountId; R.GameRoomId = RoomId; R.GoalUserId = GoalUserId;
+        R.Dispatch.Endpoint = TEXT("companionJobs:selectGoal");
+        const auto Arguments = MakeShared<FJsonObject>();
+        Arguments->SetStringField(TEXT("gameRoomId"), RoomId);
+        Arguments->SetBoolField(TEXT("selected"), bSelected);
+        Arguments->SetStringField(TEXT("actorIdentity"), View.Goal->Resident->ActorIdentity);
+        if (!FJsonSerializer::Serialize(Arguments, TJsonWriterFactory<>::Create(&R.Dispatch.ArgumentsJson)))
+        {
+            View.GoalError = TEXT("The courier goal couldn't be saved. Reload its saved state before trying again.");
+            return false;
+        }
+        ActiveGoalMutation = R.Id; bGoalDispatched = false;
+        View.bGoalBusy = true; View.GoalError.Reset(); Out = MoveTemp(R); RefreshError(); return true;
+    }
+    bool FJobsReadState::CurrentGoalMutation(const FJobsGoalMutationReceipt& R) const
+    {
+        using namespace JobsStatePrivate;
+        // Goal query generation and resident changes do not retire this account/room save.
+        return Enabled() && !bBlocked && R.Generation == Generation && Same(R.AccountId, AccountId)
+            && Same(R.GameRoomId, RoomId) && Same(R.GoalUserId, GoalUserId);
+    }
+    void FJobsReadState::FinishGoalMutation()
+    {
+        ActiveGoalMutation.Invalidate(); bGoalDispatched = false;
+        View.bGoalBusy = false; RefreshError();
+    }
+    bool FJobsReadState::MarkGoalDispatched(const FJobsGoalMutationReceipt& R, FJobsDispatch& Out)
+    {
+        Out = {};
+        if (bDisposed || !R.Id.IsValid() || R.Id != ActiveGoalMutation || bGoalDispatched) return false;
+        Reconcile();
+        if (!CurrentGoalMutation(R)) { FinishGoalMutation(); return false; }
+        Out = R.Dispatch; bGoalDispatched = true; return true;
+    }
+    bool FJobsReadState::CancelPreparedGoal(const FJobsGoalMutationReceipt& R)
+    {
+        if (bDisposed || !R.Id.IsValid() || R.Id != ActiveGoalMutation || bGoalDispatched) return false;
+        FinishGoalMutation(); return true;
+    }
+    EJobsReadResult FJobsReadState::ObserveGoalMutation(const FJobsGoalMutationReceipt& R, const FString& Json)
+    {
+        using namespace JobsStatePrivate;
+        if (bDisposed || !R.Id.IsValid() || R.Id != ActiveGoalMutation || !bGoalDispatched) return EJobsReadResult::StaleReceipt;
+        Reconcile();
+        if (!CurrentGoalMutation(R)) { FinishGoalMutation(); return EJobsReadResult::StaleReceipt; }
+        FValue Value;
+        const bool bValid = ParseNull(Json, Value, {64, 2, 4});
+        if (!bValid) View.GoalError = TEXT("The courier goal couldn't be saved. Reload its saved state before trying again.");
+        // A successful save never publishes or clears query-owned goal/error state.
+        FinishGoalMutation(); return bValid ? EJobsReadResult::Accepted : EJobsReadResult::InvalidResponse;
+    }
+    bool FJobsReadState::ObserveGoalMutationFailure(const FJobsGoalMutationReceipt& R, const FJobsPublicFailure& Failure)
+    {
+        if (bDisposed || !R.Id.IsValid() || R.Id != ActiveGoalMutation || !bGoalDispatched) return false;
+        Reconcile();
+        if (CurrentGoalMutation(R))
+        {
+            if (Failure.bAccessFailure) Revoke(Failure.Message);
+            else View.GoalError = JobsStatePrivate::SafeMessage(Failure.Message,
+                TEXT("The courier goal couldn't be saved. Reload its saved state before trying again."));
+        }
+        FinishGoalMutation(); return true;
+    }
+    void FJobsReadState::ClearOwnedRequests()
+    {
+        Pending.Reset();
+        if (ActivePendingId.IsValid()) FinishReceipt();
+        FinishGoalMutation();
     }
 }

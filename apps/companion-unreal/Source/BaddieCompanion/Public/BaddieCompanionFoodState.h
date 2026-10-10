@@ -7,6 +7,7 @@ namespace BaddieCompanion
 {
     enum class EFoodKey : uint8 { Suya, Akara, Water, ReadyMeal, EnergyDrink, Rice, Beans, Tomato, Oil };
     BADDIECOMPANION_API bool ParseFoodKey(const FString& Wire, EFoodKey& Out);
+    BADDIECOMPANION_API const TCHAR* FoodKeyWire(EFoodKey Key);
     enum class EFoodOrderMode : uint8 { Pickup, Delivery };
     enum class EFoodOrderStatus : uint8 { Ready, Carried, Secured, Stocked, Consumed, Lost };
     enum class EFoodMovingStatus : uint8 { Offered, Fulfilled, Cancelled };
@@ -128,11 +129,46 @@ namespace BaddieCompanion
     };
 
     // Endpoint values, not envelopes. Failure clears Out and supplies fixed diagnostic text.
-    // Quote/result decoding does not install command receipts into the read owner.
+    // Standalone decoding does not publish state.
     BADDIECOMPANION_API bool DecodeFoodScope(const FString& Json, FFoodScope& Out, FString& OutError);
     BADDIECOMPANION_API bool DecodeFoodCatalog(const FString& Json, FFoodCatalog& Out, FString& OutError);
     BADDIECOMPANION_API bool DecodeFoodResult(const FString& Json, FFoodResult& Out, FString& OutError);
     BADDIECOMPANION_API bool DecodeFoodQuote(const FString& Json, FFoodEconomyQuote& Out, FString& OutError);
+
+    enum class EFoodActionType : uint8 { Quote, Confirm, Cancel, Collect, Eat };
+    enum class EFoodQuantity : uint8 { One = 1, Three = 3, Six = 6 };
+    struct FFoodAction
+    {
+        EFoodActionType Type = EFoodActionType::Quote;
+        EFoodKey OfferKey = EFoodKey::Suya;
+        EFoodQuantity Quantity = EFoodQuantity::One;
+        FString QuoteId, OrderId;
+        // Only the selected branch's fields are encoded; no caller-supplied scope.
+    };
+    // Shared by these two account-bound owners. No transport or authorization evidence.
+    BADDIECOMPANION_API bool ValidFoodKitchenRequestId(const FString& RequestId);
+    enum class EFoodKitchenFailureCategory : uint8 { Definite, Ambiguous };
+    struct BADDIECOMPANION_API FFoodKitchenCommandFailure
+    {
+        EFoodKitchenFailureCategory Category = EFoodKitchenFailureCategory::Ambiguous;
+        // Already sanitized by the authenticated boundary. Never pass raw exception text.
+        FString SafePublicMessage;
+        FString PublicMessage(const TCHAR* Fallback) const;
+    };
+    class FFoodKitchenCommandReceipt
+    {
+    public:
+        bool IsValid() const { return Attempt.IsValid(); }
+        const FString& GetEndpoint() const { return Endpoint; }
+        const FString& GetArgumentsJson() const { return ArgumentsJson; }
+        const FString& GetRequestId() const { return RequestId; }
+    private:
+        friend class FFoodReadState;
+        friend class FKitchenReadState;
+        FGuid Attempt;
+        FString Endpoint, ArgumentsJson, RequestId;
+    };
+    enum class EFoodKitchenCompletion : uint8 { Applied, Detached, StaleReceipt, InvalidResponse };
 
     enum class EFoodReadResult : uint8 { Accepted, StaleReceipt, InvalidResponse, ScopeMismatch };
     enum class EFoodReadEndpoint : uint8 { Catalog, MovingCatalog };
@@ -151,12 +187,14 @@ namespace BaddieCompanion
         TSharedPtr<const FFoodCatalog> Catalog;
         // Canonical initial value is missing. Incoming null/missing never clears retention.
         TWorldPlayerField<FFoodMovingOffer> MovingOffer;
-        bool bReady = false;
-        // Read failures only. An eventual command owner must keep uncertain errors separately.
+        TOptional<FFoodEconomyQuote> Quote;
+        TSharedPtr<const FFoodResult> Result;
+        bool bReady = false, bBusy = false, bRetryable = false;
+        // Read success preserves this while a dispatched request remains unresolved.
         TOptional<FString> Error;
     };
     DECLARE_MULTICAST_DELEGATE(FFoodReadChanged);
-    // Single-threaded read bookkeeping. No transport, command state or purchase authority.
+    // Single-threaded, one account per owner lifetime. No transport or purchase authority.
     class BADDIECOMPANION_API FFoodReadState
     {
     public:
@@ -174,10 +212,33 @@ namespace BaddieCompanion
         EFoodReadResult Accept(const FFoodReadReceipt& Receipt, const FString& Json);
         // Fixed safe fallback; transport error sanitization is outside this owner.
         bool AcceptFailure(const FFoodReadReceipt& Receipt);
+        bool PrepareCommand(const FFoodAction& Action, const FString& RequestId, FFoodKitchenCommandReceipt& Out);
+        bool PrepareRetry(FFoodKitchenCommandReceipt& Out);
+        // After adapter admission, call immediately at actual send with no intervening callbacks.
+        // False means do not send. Successful dispatch does not notify.
+        bool DispatchCommand(const FFoodKitchenCommandReceipt& Receipt);
+        // Only for a prepared attempt that has never been sent. Retains a prior uncertain request.
+        bool AbandonPreparedCommand(const FFoodKitchenCommandReceipt& Receipt);
+        EFoodKitchenCompletion CompleteCommand(const FFoodKitchenCommandReceipt& Receipt,
+            const FString& Json, TSharedPtr<const FFoodResult>& OutResult);
+        bool FailCommand(const FFoodKitchenCommandReceipt& Receipt, const FFoodKitchenCommandFailure& Failure);
+        // Account teardown invalidates read and command receipts, even with identical next scopes.
         void Clear();
         void Dispose();
     private:
         bool Current(const FFoodReadReceipt& Receipt) const;
+        struct FRequest
+        {
+            FFoodScope Scope;
+            FFoodAction Action;
+            FString RequestId, Endpoint, ArgumentsJson;
+        };
+        bool PrepareAttempt(FFoodKitchenCommandReceipt& Out);
+        bool CurrentAttempt(const FFoodKitchenCommandReceipt& Receipt) const;
+        void FinishAttempt();
+        TSharedPtr<const FRequest> Pending;
+        FGuid Attempt, AttemptReadGeneration;
+        bool bUncertain = false, bDispatched = false, bReplay = false;
         FFoodReadView View;
         TOptional<FFoodScope> Selection;
         FGuid Generation;
