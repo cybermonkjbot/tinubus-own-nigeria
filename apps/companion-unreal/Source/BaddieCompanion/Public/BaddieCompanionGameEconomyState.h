@@ -100,9 +100,8 @@ namespace BaddieCompanion
         // Unset vendor means absent, not a known empty vendor result.
         TOptional<FGameEconomyVendor> Vendor;
         EGameEconomyActivation LiveFinancialActivation = EGameEconomyActivation::Disabled;
-        bool bReady = false, bQuoteReady = true;
+        bool bReady = false, bQuoteReady = true, bBusy = false;
         TOptional<FString> Error;
-        // No command busy/latch or retry state. Vendor busy is received read data only.
     };
     enum class EGameEconomyReadKind : uint8 { Catalog, Quote, Vendor };
     enum class EGameEconomyReadResult : uint8 { Accepted, Retained, StaleReceipt, InvalidResponse };
@@ -125,8 +124,48 @@ namespace BaddieCompanion
         TOptional<int64> VendorNowMs;
     };
 
-    // Account-private single-game-thread read owner, using UE value types and GUIDs.
-    // No subscriptions, networking, commands, timers, money/equipment writes or admission.
+    enum class EGameEconomySelectorKind : uint8 { OfferId, ServiceKey };
+    struct FGameEconomySelector
+    {
+        EGameEconomySelectorKind Kind = EGameEconomySelectorKind::OfferId;
+        FString Key;
+    };
+    enum class EGameEconomyCommand : uint8
+    {
+        RequestQuote, ConfirmQuote, CancelQuote, RequestWeaponQuote, ConfirmWeaponQuote
+    };
+    class FGameEconomyCommandDispatch
+    {
+        friend class FGameEconomyReadState;
+    public:
+        FString GetEndpoint() const { return Endpoint; }
+        FString GetArgumentsJson() const { return ArgumentsJson; }
+    private:
+        FString Endpoint, ArgumentsJson;
+    };
+    class FGameEconomyCommandReceipt
+    {
+        friend class FGameEconomyReadState;
+    private:
+        FGuid Id, AccountGeneration, ViewGeneration, VendorViewGeneration, PendingVendorId;
+        EGameEconomyCommand Operation = EGameEconomyCommand::RequestQuote;
+        // The current attempt's target can differ from the saved vendor wire payload.
+        FString AttemptedValue;
+    };
+    class FGameEconomyCommandCompletion
+    {
+        friend class FGameEconomyReadState;
+    public:
+        bool ShouldRestartQuoteRead() const { return bRestartQuoteRead; }
+        bool ShouldNotifyBeforeFinish() const { return bNotifyBeforeFinish; }
+    private:
+        FGuid Id, AccountGeneration;
+        TOptional<FGameEconomyQuote> Result;
+        bool bRestartQuoteRead = false, bNotifyBeforeFinish = false;
+    };
+
+    // Account-private single-game-thread read/command owner, using UE value types and GUIDs.
+    // No subscriptions, networking, timers, money/equipment writes or admission.
     class BADDIECOMPANION_API FGameEconomyReadState
     {
     public:
@@ -156,6 +195,23 @@ namespace BaddieCompanion
         EGameEconomyReadResult Observe(const FGameEconomyReadReceipt& Receipt, const FString& Json);
         // Public error text only. Length is capped here; sanitization belongs to the caller.
         bool ObserveFailure(const FGameEconomyReadReceipt& Receipt, const FString& PublicMessage);
+        // Prepare before notifying listeners. Success reserves the shared busy latch.
+        bool PrepareRequestQuote(const FGameEconomySelector& Selector, const FString& RequestId, FGameEconomyCommandReceipt& Out);
+        bool PrepareConfirmQuote(const FString& Id, const FString& RequestId, FGameEconomyCommandReceipt& Out);
+        bool PrepareCancelQuote(const FString& Id, const FString& RequestId, FGameEconomyCommandReceipt& Out);
+        bool PrepareRequestWeaponQuote(const FString& ServiceKey, const FString& RequestId, FGameEconomyCommandReceipt& Out);
+        bool PrepareConfirmWeaponQuote(const FString& Id, const FString& RequestId, FGameEconomyCommandReceipt& Out);
+        // Recheck immediately before sending returned immutable arguments, with no yield or notification.
+        // View/read changes affect response relevance, not dispatch ownership. Credentials stay outside.
+        bool MarkCommandDispatched(const FGameEconomyCommandReceipt& Receipt, FGameEconomyCommandDispatch& Out);
+        // Unsent only. Retains the vendor packet, including one reused from an unresolved attempt.
+        bool AbandonPreparedCommand(const FGameEconomyCommandReceipt& Receipt);
+        // True consumes one callback and leaves busy held. False rejects receipt without state changes.
+        bool ObserveCommand(const FGameEconomyCommandReceipt& Receipt, const FString& Json, FGameEconomyCommandCompletion& Out);
+        bool ObserveCommandFailure(const FGameEconomyCommandReceipt& Receipt, const FString& PublicMessage, FGameEconomyCommandCompletion& Out);
+        // Reconcile the selected quote read and notify as flagged, then finalize once and emit.
+        // Out is the detached raw response, not a newer retained display. Account clear invalidates it.
+        bool FinalizeCommand(const FGameEconomyCommandCompletion& Completion, TOptional<FGameEconomyQuote>& Out);
     private:
         struct FReadSlot
         {
@@ -170,12 +226,31 @@ namespace BaddieCompanion
         const FReadSlot& Slot(EGameEconomyReadKind Kind) const;
         void RetireReads();
         void Fail(EGameEconomyReadKind Kind, const FString& PublicMessage);
+        bool ReceiveQuote(const FGameEconomyQuote& Quote);
+        bool PrepareCommand(EGameEconomyCommand Operation, const FString& RequestId, const FString& Value,
+            EGameEconomySelectorKind SelectorKind, FGameEconomyCommandReceipt& Out);
+        bool CurrentCommand(const FGameEconomyCommandReceipt& Receipt) const;
+        bool CommandRelevant(const FGameEconomyCommandReceipt& Receipt) const;
+        bool BeginCompletion(const FGameEconomyCommandReceipt& Receipt, FGameEconomyCommandCompletion& Out);
+        void ReleaseCommand();
+        struct FPendingVendor
+        {
+            FGuid Id;
+            EGameEconomyCommand Operation = EGameEconomyCommand::RequestWeaponQuote;
+            FString RequestId, ArgumentsJson;
+        };
         FString AccountId, PlaceKey, NpcKey;
         TOptional<FString> QuoteId;
         TOptional<FGameEconomyVendorScope> VendorScope;
         TOptional<int64> VendorNowMs;
         FGameEconomyReadView View;
         FGuid AccountGeneration = FGuid::NewGuid();
+        FGuid ViewGeneration = FGuid::NewGuid(), VendorViewGeneration = FGuid::NewGuid(), ActiveRequest;
+        TOptional<FGameEconomyVendorScope> LastVendorScope;
+        TOptional<FPendingVendor> PendingVendor;
+        // Independent of PendingVendor so a changed visit cannot retarget a prepared dispatch.
+        FGameEconomyCommandDispatch ActiveDispatch;
+        bool bCommandDispatched = false, bCommandCompleting = false;
         FReadSlot ReadSlots[3];
         bool bObserving = false, bDisposed = false;
     };
