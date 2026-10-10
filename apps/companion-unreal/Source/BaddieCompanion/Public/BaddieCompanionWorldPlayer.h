@@ -25,7 +25,12 @@ namespace BaddieCompanion
     enum class EWorldJourneyVehicle : uint8 { Car, Okada, Keke, Danfo, Canoe, Speedboat };
     enum class EWorldJourneyRouteKind : uint8 { Corridor, RoadNetwork };
     enum class EWorldJourneyProfile : uint8 { DrivingTraffic, Walking };
-    // Identity projection only. Geometry/timing arrays are checked, not published as a route.
+    struct FWorldJourneyGeoPoint
+    {
+        // Geographic degrees, not source metres or Unreal world coordinates.
+        double Latitude = 0, Longitude = 0;
+    };
+    // Retained wire geometry only. No sampling, length repair or route admission.
     struct FWorldJourneyRouteIdentity
     {
         FString Id;
@@ -33,13 +38,42 @@ namespace BaddieCompanion
         TWorldPlayerField<EWorldJourneyProfile> Profile;
         int32 PointCount = 0;
         double LengthMetres = 0;
+        TArray<FWorldJourneyGeoPoint> Points;
+        // Missing on corridors; required value on road routes. Original real ms,
+        // including fractional/zero durations, in the supplied segment order.
+        TWorldPlayerField<TArray<double>> SegmentDurationsMs;
+    };
+    enum class EWorldTrafficProvider : uint8 { Mapbox };
+    enum class EWorldTrafficCoverage : uint8 { Complete, Partial, Unavailable };
+    enum class EWorldTrafficCongestion : uint8 { Low, Moderate, Heavy, Severe };
+    struct FWorldJourneyTraffic
+    {
+        EWorldTrafficProvider Provider = EWorldTrafficProvider::Mapbox;
+        double FetchedAtRealMs = 0, DurationMs = 0;
+        TWorldPlayerField<double> TypicalDurationMs;
+        EWorldTrafficCoverage Coverage = EWorldTrafficCoverage::Unavailable;
+        TWorldPlayerField<EWorldTrafficCongestion> Congestion;
+    };
+    enum class EWorldEnforcementAgency : uint8 { Police, Lastma, Efcc, Ndlea };
+    enum class EWorldEnforcementStopKind : uint8 { Checkpoint, Roadside };
+    enum class EWorldEnforcementDistrict : uint8
+    {
+        TownCentre, PalmCourts, GardenQuarter, SouthMarket, Marina, Skyline, LagoonGardens
+    };
+    // The saved departure decision, not a current encounter or permission to stop/release.
+    struct FWorldJourneyEnforcement
+    {
+        int64 Version = 0;
+        EWorldEnforcementAgency Agency = EWorldEnforcementAgency::Police;
+        EWorldEnforcementStopKind StopKind = EWorldEnforcementStopKind::Checkpoint;
+        EWorldEnforcementDistrict District = EWorldEnforcementDistrict::TownCentre;
+        bool bIsNight = false;
     };
     struct FWorldJourneyCheckpoint
     {
         double Progress = 0, StartsAtMs = 0, EndsAtMs = 0;
         TWorldPlayerField<double> ResumedAtMs;
-        // Shape only, not an enforcement decision or encounter receipt.
-        EWorldFieldPresence Enforcement = EWorldFieldPresence::Missing;
+        TWorldPlayerField<FWorldJourneyEnforcement> Enforcement;
     };
     struct FWorldJourneyTiming
     {
@@ -57,8 +91,8 @@ namespace BaddieCompanion
         TWorldPlayerField<FWorldJourneyTiming> TravelTiming;
         TWorldPlayerField<FWorldTravelEndpoint> FromEndpoint, ToEndpoint;
         TWorldPlayerField<EWorldTravelMode> TravelMode;
-        // Shape only. No departure traffic estimate is exposed by this slice.
-        EWorldFieldPresence Traffic = EWorldFieldPresence::Missing;
+        // Optional departure estimate. Never refreshed or inferred from route timing.
+        TWorldPlayerField<FWorldJourneyTraffic> Traffic;
     };
     struct FWorldRoadsideVisit
     {
@@ -148,11 +182,52 @@ namespace BaddieCompanion
         FWorldPlayerControlObservations Controls;
     };
     enum class EWorldInstanceRelation : uint8 { CurrentVisit, TravelDestination };
+    // Source metres, +Y up, X/Z ground plane. Never Unreal centimetres or axes.
+    struct FWorldScenePoint
+    {
+        double X = 0, Y = 0, Z = 0;
+    };
+    struct FWorldNavigationVertex
+    {
+        double X = 0, Z = 0;
+    };
+    struct FWorldNavigationObstacle
+    {
+        double MinX = 0, MaxX = 0, MinZ = 0, MaxZ = 0;
+        // Local rectangle yaw about its centre, in source radians, without wrapping.
+        TWorldPlayerField<double> YawRadians;
+        // World-space X/Z vertices, in source order. Present polygons cannot rotate.
+        TWorldPlayerField<TArray<FWorldNavigationVertex>> Polygon;
+    };
+    struct FWorldStreetGraphEdge
+    {
+        // Zero-based indices into this graph's Points, not IDs or a generated adjacency.
+        int32 From = 0, To = 0;
+    };
+    struct FWorldStreetGraph
+    {
+        TArray<FWorldScenePoint> Points;
+        TArray<FWorldStreetGraphEdge> Edges;
+    };
+    struct FWorldNavigation
+    {
+        FString Revision;
+        FWorldNavigationObstacle Bounds;
+        TArray<FWorldNavigationObstacle> Obstacles;
+        double Radius = 0, FloorY = 0;
+        // Omission stays missing; no default grid or topology is generated.
+        TWorldPlayerField<double> GridSize;
+        TWorldPlayerField<FWorldStreetGraph> StreetGraph;
+    };
     struct FWorldCurrentInstanceIdentity
     {
+        // NavigationRevision is retained for existing identity consumers and equals Navigation.Revision.
         FString Id, PlaceId, Seed, GeneratorVersion, LayoutId, NavigationRevision;
         int64 SharedStartedAtMs = 0;
         EWorldInstanceRelation Relation = EWorldInstanceRelation::CurrentVisit;
+        FWorldNavigation Navigation;
+        TArray<FWorldScenePoint> Spawns;
+        FWorldScenePoint Exit;
         TWorldPlayerField<FWorldTravelEndpoint> Roadside;
         EWorldFieldPresence Layout = EWorldFieldPresence::Missing;
         EWorldFieldPresence Room = EWorldFieldPresence::Missing;
@@ -171,8 +246,8 @@ namespace BaddieCompanion
     BADDIECOMPANION_API bool DecodeWorldPlayerDocument(const FString& PlayerDocumentJson,
         int64 ServerNowMs, TSharedPtr<const FWorldPlayerView>& Out, FString& OutError);
 
-    // Existing snapshot.instanceJson, not a new endpoint. Identity projection only;
-    // successful decoding does not validate navigation geometry, art or generator support.
+    // Existing snapshot.instanceJson, not a new endpoint. Typed identity and geometry;
+    // checks structure/references, not clearance, reachability, art or generator support.
     // Traveling snapshots describe the destination, which is not the occupied instance.
     // Failure resets Out. Caller must drop prior views on scope/access loss.
     BADDIECOMPANION_API bool DecodeWorldCurrentInstanceIdentity(const FString& InstanceDocumentJson,
