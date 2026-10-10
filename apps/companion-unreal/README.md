@@ -48,6 +48,14 @@ The current session interface distinguishes manual begin throttling (`RetryAfter
 
 The Lagos requirement in the main handoff governs future accepted Home/environment art: contemporary, reference-checked Lagos, while preserving the saved Home and Companion. This slice adds no city gameplay, art or shared assets. Unreal asset import and binding, authoritative admission/movement, engine-version compatibility and live pairing acceptance remain outstanding. Typed source plans do not establish rendered parity or completion of the full game port.
 
+## Rural expedition source
+
+The expressway-to-bush direction adds Intercept, Extraction and Insurgent Stronghold missions, MOPOL squad support, river crossings and mobile-first interaction/performance requirements. The complete brief is `../../docs/engineering/standalone-companion-rural-expedition.md`; native environment/mobile rendering research is in `../../docs/engineering/unreal-rural-mobile-reuse-2026-10-10.md`.
+
+`SquadController` is a native `AAIController` for one future encounter-owned unit. It supplies Move/Hold/clear and an order-state view through Unreal NavMesh and path-following. It uses the authored navigation filter and acceptance radius, rejects partial routes and unrelated AI ownership, validates navigable endpoints without rewriting destinations, and clears tracked requests on unpossession/teardown. Native request IDs and a generation guard protect replacement/cancellation. Arrival does not award an objective, attack or reward.
+
+The runtime module declares `AIModule`; no pawn, map or mission instantiates the new controller. The admitted mission owner, NPC content, touch command wheel, terrain penalties, sound cues and authoritative mission extensions remain pending. Read-only account linking and offline inspection do not gain squad or combat controls. No tests, compilation or engine/device inspection ran for this source slice. It is pending guarded Windows review and transfer; the existing editor/Python/MCP setup is separate.
+
 ## Offline preview
 
 After engine selection and a separately requested compilation pass, the intended standalone invocation is:
