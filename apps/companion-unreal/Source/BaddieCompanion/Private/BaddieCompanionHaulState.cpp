@@ -1,56 +1,36 @@
 #include "BaddieCompanionHaulState.h"
+#include "BaddieCompanionStateJson.h"
 
 #include "Dom/JsonObject.h"
 #include "Dom/JsonValue.h"
-#include "Serialization/JsonReader.h"
 #include "Serialization/JsonSerializer.h"
 #include "Serialization/JsonWriter.h"
 
-#include <cmath>
 #include <initializer_list>
 
 namespace BaddieCompanion
 {
     namespace HaulStatePrivate
     {
-        constexpr int64 MaxInteger = 9007199254740991LL;
+        using StateJsonPrivate::FValue;
+        using StateJsonPrivate::FObject;
+        using StateJsonPrivate::MaxInteger;
+        using StateJsonPrivate::Same;
+        using StateJsonPrivate::Object;
+        using StateJsonPrivate::Field;
+        using StateJsonPrivate::Boolean;
+
         constexpr int64 MaxAmount = 1000000000;
         constexpr int32 MaxEntries = 128, MaxQuantity = 10000, MaxPendingReads = 64;
         constexpr int32 MaxDocumentCharacters = 512 * 1024, MaxCursorCharacters = 16384;
-        using FValue = TSharedPtr<FJsonValue>;
-        using FObject = TSharedPtr<FJsonObject>;
 
-        bool Same(const FString& A, const FString& B) { return A.Equals(B, ESearchCase::CaseSensitive); }
         bool Parse(const FString& Json, FObject& Out)
         {
-            if (Json.IsEmpty() || Json.Len() > MaxDocumentCharacters) return false;
-            bool bString = false, bEscape = false;
-            int32 Depth = 0, Separators = 0;
-            for (const TCHAR C : Json)
-            {
-                if (bString)
-                {
-                    if (bEscape) bEscape = false;
-                    else if (C == TEXT('\\')) bEscape = true;
-                    else if (C == TEXT('"')) bString = false;
-                    continue;
-                }
-                if (C == TEXT('"')) bString = true;
-                else if (C == TEXT('{') || C == TEXT('[')) { if (++Depth > 12) return false; }
-                else if (C == TEXT('}') || C == TEXT(']')) { if (--Depth < 0) return false; }
-                else if (C == TEXT(',') || C == TEXT(':')) { if (++Separators > 16384) return false; }
-            }
-            if (bString || Depth != 0) return false;
-            return FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Json), Out) && Out.IsValid();
+            return StateJsonPrivate::Parse(Json, Out, {MaxDocumentCharacters, 12, 16384});
         }
-        FObject Object(const FValue& Value)
-        {
-            return Value.IsValid() && Value->Type == EJson::Object ? Value->AsObject() : nullptr;
-        }
-        FValue Field(const FObject& O, const TCHAR* Name) { return O.IsValid() ? O->TryGetField(Name) : nullptr; }
         bool Text(const FValue& Value, FString& Out, int32 Maximum)
         {
-            return Value.IsValid() && Value->Type == EJson::String && Value->TryGetString(Out) && Out.Len() <= Maximum;
+            return StateJsonPrivate::String(Value, Out) && Out.Len() <= Maximum;
         }
         bool Id(const FValue& Value, FString& Out) { return Text(Value, Out, 240) && !Out.IsEmpty(); }
         bool Key(const FValue& Value, FString& Out)
@@ -61,20 +41,14 @@ namespace BaddieCompanion
         bool Cursor(const FValue& Value, FString& Out) { return Text(Value, Out, MaxCursorCharacters); }
         bool Integer(const FValue& Value, int64& Out, int64 Max = MaxInteger, int64 Min = 0)
         {
-            double N = 0;
-            if (!Value.IsValid() || Value->Type != EJson::Number || !Value->TryGetNumber(N)
-                || !std::isfinite(N) || N < Min || N > Max || std::floor(N) != N) return false;
-            Out = static_cast<int64>(N);
+            int64 Next = 0;
+            if (!StateJsonPrivate::Integer(Value, Next, Min) || Next > Max) return false;
+            Out = Next;
             return true;
         }
         bool Time(const FValue& Value, double& Out)
         {
-            return Value.IsValid() && Value->Type == EJson::Number && Value->TryGetNumber(Out)
-                && std::isfinite(Out) && Out >= 0 && Out <= MaxInteger;
-        }
-        bool Boolean(const FValue& Value, bool& Out)
-        {
-            return Value.IsValid() && Value->Type == EJson::Boolean && Value->TryGetBool(Out);
+            return StateJsonPrivate::Number(Value, Out) && StateJsonPrivate::ValidTime(Out);
         }
         template <typename T> bool Enum(const FValue& Value, T& Out,
             std::initializer_list<TPair<const TCHAR*, T>> Choices)
@@ -159,15 +133,8 @@ namespace BaddieCompanion
                 || !Status(Field(O, TEXT("status")), Out.Status) || !Integer(Field(O, TEXT("revision")), Out.Revision)
                 || !Integer(Field(O, TEXT("entryCount")), Out.EntryCount, MaxEntries)
                 || !Time(Field(O, TEXT("departedAt")), Out.DepartedAtMs)) return false;
-            const auto Resolved = Field(O, TEXT("resolvedAt"));
-            if (!Resolved.IsValid()) return false;
-            if (Resolved->Type != EJson::Null)
-            {
-                double ResolvedAt = 0;
-                if (!Time(Resolved, ResolvedAt)) return false;
-                Out.ResolvedAtMs = ResolvedAt;
-            }
-            return true;
+            // Entry into this reader always uses a fresh candidate; null leaves it unset.
+            return StateJsonPrivate::Nullable(Field(O, TEXT("resolvedAt")), Out.ResolvedAtMs, Time);
         }
         bool Literal(const FObject& O, const TCHAR* Name, const FString& Expected)
         {
@@ -187,12 +154,7 @@ namespace BaddieCompanion
             && Literal(O, TEXT("cashConversion"), Next.CashConversion)
             && Literal(O, TEXT("withdrawal"), Next.Withdrawal)
             && Literal(O, TEXT("bankedTransfer"), Next.BankedTransfer);
-        if (bValid && OutingValue->Type != EJson::Null)
-        {
-            FHaulOuting Value;
-            bValid = Outing(OutingValue, Value);
-            if (bValid) Next.Outing = MoveTemp(Value);
-        }
+        bValid = bValid && StateJsonPrivate::Nullable(OutingValue, Next.Outing, Outing);
         if (bValid)
         {
             // These are the public snapshot endpoint's consistency checks, not settlement.
