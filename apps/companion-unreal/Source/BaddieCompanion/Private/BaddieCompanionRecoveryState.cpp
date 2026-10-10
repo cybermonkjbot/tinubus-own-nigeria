@@ -1,5 +1,7 @@
 #include "BaddieCompanionRecoveryState.h"
 #include "BaddieCompanionStateJson.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 
 namespace BaddieCompanion
 {
@@ -79,40 +81,89 @@ namespace BaddieCompanion
     {
         if (bDisposed || RecoveryStatePrivate::Same(View.OwnerId, OwnerId)) return;
         const FString NextOwner = OwnerId;
-        View = {}; View.OwnerId = NextOwner; Generation = FGuid::NewGuid(); ActiveMutation.Invalidate();
+        View = {}; View.OwnerId = NextOwner; Generation = FGuid::NewGuid(); RetireRecovery();
         bSubscribed = false; Changed.Broadcast();
     }
     FRecoveryReceipt FRecoveryReadState::BeginSubscription()
     {
         if (bDisposed || View.OwnerId.IsEmpty()) return {};
-        Generation = FGuid::NewGuid(); ActiveMutation.Invalidate(); bSubscribed = true; View.bBusy = false;
-        FRecoveryReceipt Receipt; Receipt.Generation = Generation;
+        Generation = FGuid::NewGuid(); RetireRecovery(); bSubscribed = true;
+        FRecoveryReceipt Receipt; Receipt.Generation = Generation; Receipt.OwnerId = View.OwnerId;
         Changed.Broadcast(); return Receipt;
     }
     void FRecoveryReadState::EndSubscription()
     {
         if (bDisposed) return;
-        Generation = FGuid::NewGuid(); ActiveMutation.Invalidate(); bSubscribed = false; View.bBusy = false;
+        Generation = FGuid::NewGuid(); RetireRecovery(); bSubscribed = false;
         Changed.Broadcast();
     }
     TOptional<FRecoveryReceipt> FRecoveryReadState::CaptureRecovery(double BeganAtMs)
     {
+        return CaptureRecoveryInternal(BeganAtMs, {});
+    }
+    TOptional<FRecoveryReceipt> FRecoveryReadState::PrepareRecovery(const FString& ServiceId, double BeganAtMs)
+    {
+        if (ServiceId.IsEmpty() || ServiceId.Len() > 100) return {};
+        return CaptureRecoveryInternal(BeganAtMs, TOptional<FString>(ServiceId));
+    }
+    TOptional<FRecoveryReceipt> FRecoveryReadState::CaptureRecoveryInternal(double BeganAtMs, const TOptional<FString>& ServiceId)
+    {
         if (bDisposed || !bSubscribed || View.bBusy || !View.Health.IsValid() || !RecoveryStatePrivate::ValidTime(BeganAtMs)) return {};
         FRecoveryReceipt Receipt;
         Receipt.Generation = Generation; Receipt.Kind = ERecoveryResponseKind::Mutation;
-        ActiveMutation = FGuid::NewGuid(); Receipt.MutationId = ActiveMutation;
+        Receipt.MutationId = FGuid::NewGuid(); Receipt.OwnerId = View.OwnerId;
         Receipt.LifeId = View.Health->LifeId; Receipt.BeganAtMs = BeganAtMs;
-        View.bBusy = true; View.Error.Reset(); Changed.Broadcast(); return Receipt;
+        Receipt.bOwnedPreparation = ServiceId.IsSet();
+        if (Receipt.bOwnedPreparation)
+        {
+            const auto Args = MakeShared<FJsonObject>();
+            Args->SetStringField(TEXT("serviceId"), ServiceId.GetValue());
+            Args->SetStringField(TEXT("lifeId"), Receipt.LifeId);
+            if (!FJsonSerializer::Serialize(Args, TJsonWriterFactory<>::Create(&Receipt.ArgumentsJson))) return {};
+        }
+        ActiveMutation = Receipt.MutationId;
+        PreparedRecovery.Reset(); bRecoveryDispatched = false;
+        if (Receipt.bOwnedPreparation) PreparedRecovery = Receipt;
+        View.bBusy = true; View.Error.Reset(); Changed.Broadcast();
+        // Reentry may retire this generation and even prepare another owner's request.
+        if (!Current(Receipt)) return {};
+        return Receipt;
+    }
+    TOptional<FRecoveryDispatch> FRecoveryReadState::DispatchRecovery(const FRecoveryReceipt& Receipt)
+    {
+        if (!Receipt.bOwnedPreparation || !Current(Receipt) || bRecoveryDispatched) return {};
+        FRecoveryDispatch Dispatch;
+        Dispatch.Receipt = PreparedRecovery.GetValue();
+        bRecoveryDispatched = true;
+        return Dispatch;
+    }
+    bool FRecoveryReadState::AbandonPreparedRecovery(const FRecoveryReceipt& Receipt)
+    {
+        if (!Receipt.bOwnedPreparation || !Current(Receipt) || bRecoveryDispatched) return false;
+        RetireRecovery();
+        Changed.Broadcast();
+        return true;
+    }
+    void FRecoveryReadState::RetireRecovery()
+    {
+        ActiveMutation.Invalidate(); PreparedRecovery.Reset(); bRecoveryDispatched = false; View.bBusy = false;
     }
     bool FRecoveryReadState::Current(const FRecoveryReceipt& Receipt) const
     {
         return !bDisposed && bSubscribed && Receipt.Generation.IsValid() && Receipt.Generation == Generation
-            && (Receipt.Kind != ERecoveryResponseKind::Mutation || (ActiveMutation.IsValid() && Receipt.MutationId == ActiveMutation));
+            && RecoveryStatePrivate::Same(Receipt.OwnerId, View.OwnerId)
+            && (Receipt.Kind != ERecoveryResponseKind::Mutation || (ActiveMutation.IsValid() && Receipt.MutationId == ActiveMutation
+                && Receipt.bOwnedPreparation == PreparedRecovery.IsSet()
+                && (!Receipt.bOwnedPreparation || PreparedRecovery->MutationId == Receipt.MutationId)));
+    }
+    bool FRecoveryReadState::CanComplete(const FRecoveryReceipt& Receipt) const
+    {
+        return Current(Receipt) && (!Receipt.bOwnedPreparation || bRecoveryDispatched);
     }
     ERecoveryReadResult FRecoveryReadState::Accept(const FRecoveryReceipt& Receipt, const FRecoveryDecodedResponse& Response, double ReceivedAtMs)
     {
         using namespace RecoveryStatePrivate;
-        if (!Current(Receipt)) return ERecoveryReadResult::StaleReceipt;
+        if (!CanComplete(Receipt)) return ERecoveryReadResult::StaleReceipt;
         if (!Response.IsValid() || Response.GetKind() != Receipt.Kind
             || (Receipt.Kind == ERecoveryResponseKind::Mutation && !ValidTime(ReceivedAtMs)))
         {
@@ -125,7 +176,7 @@ namespace BaddieCompanion
             View.Health = Health; View.HealthPresence = Health.IsValid() ? EWorldFieldPresence::Value : EWorldFieldPresence::Null;
             View.bReady = true; View.Error.Reset(); Changed.Broadcast(); return ERecoveryReadResult::Accepted;
         }
-        ActiveMutation.Invalidate(); View.bBusy = false;
+        RetireRecovery();
         if (View.Health.IsValid() && Health->Revision < View.Health->Revision)
         {
             Changed.Broadcast(); return ERecoveryReadResult::OlderRevision;
@@ -138,7 +189,7 @@ namespace BaddieCompanion
     }
     bool FRecoveryReadState::AcceptFailure(const FRecoveryReceipt& Receipt)
     {
-        if (!Current(Receipt)) return false;
+        if (!CanComplete(Receipt)) return false;
         if (Receipt.Kind == ERecoveryResponseKind::Subscription)
         {
             View.bReady = true; View.Error = TEXT("Recovery could not connect. Try again.");
@@ -147,20 +198,20 @@ namespace BaddieCompanion
         {
             if (View.Health.IsValid() && RecoveryStatePrivate::Same(View.Health->LifeId, Receipt.LifeId))
                 View.Error = TEXT("Recovery could not finish. Try again.");
-            ActiveMutation.Invalidate(); View.bBusy = false;
+            RetireRecovery();
         }
         Changed.Broadcast(); return true;
     }
     void FRecoveryReadState::Clear()
     {
         if (bDisposed) return;
-        View = {}; Generation = FGuid::NewGuid(); ActiveMutation.Invalidate(); bSubscribed = false;
+        View = {}; Generation = FGuid::NewGuid(); RetireRecovery(); bSubscribed = false;
         Changed.Broadcast();
     }
     void FRecoveryReadState::Dispose()
     {
         if (bDisposed) return;
-        bDisposed = true; bSubscribed = false; View = {}; Generation.Invalidate(); ActiveMutation.Invalidate();
+        bDisposed = true; bSubscribed = false; View = {}; Generation.Invalidate(); RetireRecovery();
         Changed.Broadcast(); Changed.Clear();
     }
 }
