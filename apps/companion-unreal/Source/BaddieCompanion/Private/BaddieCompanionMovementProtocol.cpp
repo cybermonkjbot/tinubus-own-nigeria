@@ -163,6 +163,153 @@ namespace BaddieCompanion
             return true;
         }
 
+        bool ReadVehicleVector(const TSharedPtr<FJsonObject>& Object, FWorldVehicleVector& Out)
+        {
+            return ReadNumber(Object, TEXT("x"), Out.X) && ReadNumber(Object, TEXT("y"), Out.Y)
+                && ReadNumber(Object, TEXT("z"), Out.Z);
+        }
+
+        bool ReadDrivingPose(const TSharedPtr<FJsonObject>& Object, FWorldDrivingPose& Out)
+        {
+            return ReadVehicleVector(Object, Out.Position) && ReadNumber(Object, TEXT("yaw"), Out.YawRadians);
+        }
+
+        bool ReadDrivingOccupant(const TSharedPtr<FJsonObject>& Object, FWorldDrivingOccupant& Out)
+        {
+            FString Role;
+            double Seat = 0;
+            return ReadControlIdentity(Object, TEXT("userId"), Out.UserId)
+                && ReadControlIdentity(Object, TEXT("characterId"), Out.CharacterId)
+                && ReadControlIdentity(Object, TEXT("lifeId"), Out.LifeId)
+                && ReadIdentity(Object, TEXT("role"), Role) && Role.Equals(TEXT("driver"), ESearchCase::CaseSensitive)
+                && ReadNumber(Object, TEXT("seat"), Seat) && Seat == 0;
+        }
+
+        bool ReadVehicleDynamics(const TSharedPtr<FJsonObject>& Object, FWorldVehicleDynamics& Out)
+        {
+            if (!Object.IsValid()) return false;
+            double Version = 0;
+            const TSharedPtr<FJsonObject>* Position = nullptr;
+            const TSharedPtr<FJsonObject>* Velocity = nullptr;
+            const TSharedPtr<FJsonObject>* AngularVelocity = nullptr;
+            const TSharedPtr<FJsonObject>* Orientation = nullptr;
+            const TArray<TSharedPtr<FJsonValue>>* Wheels = nullptr;
+            if (!ReadNumber(Object, TEXT("version"), Version) || Version != 1
+                || !Object->TryGetObjectField(TEXT("position"), Position) || !Position || !Position->IsValid()
+                || !Object->TryGetObjectField(TEXT("velocity"), Velocity) || !Velocity || !Velocity->IsValid()
+                || !Object->TryGetObjectField(TEXT("angularVelocity"), AngularVelocity) || !AngularVelocity || !AngularVelocity->IsValid()
+                || !Object->TryGetObjectField(TEXT("orientation"), Orientation) || !Orientation || !Orientation->IsValid()
+                || !ReadVehicleVector(*Position, Out.Position) || !ReadVehicleVector(*Velocity, Out.Velocity)
+                || !ReadVehicleVector(*AngularVelocity, Out.AngularVelocity)
+                || !ReadVehicleVector(*Orientation, Out.OrientationXYZ) || !ReadNumber(*Orientation, TEXT("w"), Out.OrientationW)
+                || !ReadNumber(Object, TEXT("steering"), Out.Steering)
+                || !ReadNumber(Object, TEXT("engineOmega"), Out.EngineOmega)
+                || !ReadNumber(Object, TEXT("shiftRemaining"), Out.ShiftRemaining)
+                || !ReadNonnegativeInteger(Object, TEXT("gear"), MaxRevision, Out.Gear)
+                || !Object->TryGetArrayField(TEXT("wheels"), Wheels) || !Wheels) return false;
+            // Current player driving is keke-only. Preserve its three authored wheel slots.
+            // Physical limits and matching to an accepted vehicle configuration are not decoding.
+            if (Wheels->Num() != 3) return false;
+            Out.Wheels.Reserve(Wheels->Num());
+            for (const auto& Item : *Wheels)
+            {
+                if (!Item.IsValid() || Item->Type != EJson::Object || !Item->AsObject().IsValid()) return false;
+                const auto Wheel = Item->AsObject();
+                FWorldVehicleWheel Value;
+                if (!ReadNumber(Wheel, TEXT("angularVelocity"), Value.AngularVelocity)
+                    || !ReadNumber(Wheel, TEXT("angle"), Value.Angle)
+                    || !ReadNumber(Wheel, TEXT("steering"), Value.Steering)
+                    || !ReadNumber(Wheel, TEXT("compression"), Value.Compression)
+                    || !ReadNumber(Wheel, TEXT("normalLoad"), Value.NormalLoad)
+                    || !ReadNumber(Wheel, TEXT("slipRatio"), Value.SlipRatio)
+                    || !ReadNumber(Wheel, TEXT("slipAngle"), Value.SlipAngle)
+                    || !ReadNumber(Wheel, TEXT("longitudinalForce"), Value.LongitudinalForce)
+                    || !ReadNumber(Wheel, TEXT("lateralForce"), Value.LateralForce)
+                    || !ReadBoolean(Wheel, TEXT("grounded"), Value.bGrounded)) return false;
+                Out.Wheels.Add(MoveTemp(Value));
+            }
+            return true;
+        }
+
+        bool ReadDrivingControl(const TSharedPtr<FJsonObject>& Object, FWorldDrivingControl& Out)
+        {
+            if (!Object.IsValid()) return false;
+            const TSharedPtr<FJsonObject>* Driver = nullptr;
+            const TSharedPtr<FJsonObject>* Pose = nullptr;
+            const TSharedPtr<FJsonObject>* Input = nullptr;
+            const TArray<TSharedPtr<FJsonValue>>* Occupants = nullptr;
+            if (!ReadControlIdentity(Object, TEXT("id"), Out.Id)
+                || !ReadControlIdentity(Object, TEXT("vehicleId"), Out.VehicleId)
+                || !ReadControlIdentity(Object, TEXT("gameRoomId"), Out.GameRoomId)
+                || !ReadControlIdentity(Object, TEXT("instanceId"), Out.InstanceId)
+                || !ReadIdentity(Object, TEXT("navigationRevision"), Out.NavigationRevision)
+                || !ReadControlIdentity(Object, TEXT("routeId"), Out.RouteId)
+                || !ReadNonnegativeInteger(Object, TEXT("vehicleRevision"), MaxRevision, Out.VehicleRevision)
+                || !ReadNonnegativeInteger(Object, TEXT("revision"), MaxRevision, Out.Revision)
+                || !ReadNonnegativeInteger(Object, TEXT("sequence"), MaxRevision, Out.Sequence)
+                || !ReadNonnegativeInteger(Object, TEXT("acceptedAt"), MaxRevision, Out.AcceptedAtMs)
+                || !ReadNonnegativeInteger(Object, TEXT("inputExpiresAt"), MaxRevision, Out.InputExpiresAtMs)
+                || !Object->TryGetObjectField(TEXT("driver"), Driver) || !Driver || !Driver->IsValid()
+                || !ReadDrivingOccupant(*Driver, Out.Driver)
+                || !Object->TryGetObjectField(TEXT("pose"), Pose) || !Pose || !Pose->IsValid()
+                || !ReadDrivingPose(*Pose, Out.Pose)
+                || !ReadNumber(Object, TEXT("speed"), Out.Speed)
+                || !ReadNumber(Object, TEXT("drivenMetres"), Out.DrivenMetres) || Out.DrivenMetres < 0
+                || !ReadNumber(Object, TEXT("fuelMetres"), Out.FuelMetres) || Out.FuelMetres < 0
+                || !Object->TryGetObjectField(TEXT("input"), Input) || !Input || !Input->IsValid()
+                || !ReadNumber(*Input, TEXT("throttle"), Out.Throttle) || Out.Throttle < 0 || Out.Throttle > 1
+                || !ReadNumber(*Input, TEXT("brake"), Out.Brake) || Out.Brake < 0 || Out.Brake > 1
+                || !ReadNumber(*Input, TEXT("steering"), Out.Steering) || std::abs(Out.Steering) > 1
+                || !Object->TryGetArrayField(TEXT("occupants"), Occupants) || !Occupants || Occupants->Num() != 1) return false;
+            // The current contract permits exactly one driver; retain the supplied identity
+            // independently, so the gameplay owner must still match it to the driver/player.
+            for (const auto& Item : *Occupants)
+            {
+                FWorldDrivingOccupant Value;
+                if (!Item.IsValid() || Item->Type != EJson::Object
+                    || !ReadDrivingOccupant(Item->AsObject(), Value)) return false;
+                Out.Occupants.Add(MoveTemp(Value));
+            }
+            FString Mode, Surface;
+            if (!ReadIdentity(Object, TEXT("mode"), Mode) || !ReadIdentity(Object, TEXT("surface"), Surface)) return false;
+            if (Mode.Equals(TEXT("driving"), ESearchCase::CaseSensitive)) Out.Mode = EWorldDrivingMode::Driving;
+            else if (Mode.Equals(TEXT("stopped"), ESearchCase::CaseSensitive)) Out.Mode = EWorldDrivingMode::Stopped;
+            else if (Mode.Equals(TEXT("pulled-over"), ESearchCase::CaseSensitive)) Out.Mode = EWorldDrivingMode::PulledOver;
+            else if (Mode.Equals(TEXT("suspended"), ESearchCase::CaseSensitive)) Out.Mode = EWorldDrivingMode::Suspended;
+            else return false;
+            if (Surface.Equals(TEXT("clean_asphalt"), ESearchCase::CaseSensitive)) Out.Surface = EWorldDrivingSurface::CleanAsphalt;
+            else if (Surface.Equals(TEXT("laterite_mud"), ESearchCase::CaseSensitive)) Out.Surface = EWorldDrivingSurface::LateriteMud;
+            else if (Surface.Equals(TEXT("pothole"), ESearchCase::CaseSensitive)) Out.Surface = EWorldDrivingSurface::Pothole;
+            else if (Surface.Equals(TEXT("gutter_wood"), ESearchCase::CaseSensitive)) Out.Surface = EWorldDrivingSurface::GutterWood;
+            else return false;
+            const auto Contact = Object->TryGetField(TEXT("contact"));
+            if (!Contact.IsValid()) return false;
+            if (Contact->Type != EJson::Null)
+            {
+                if (Contact->Type != EJson::Object || !Contact->AsObject().IsValid()) return false;
+                const auto ContactObject = Contact->AsObject();
+                const TSharedPtr<FJsonObject>* ContactPose = nullptr;
+                FWorldDrivingContact Value;
+                if (!ReadControlIdentity(ContactObject, TEXT("id"), Value.Id)
+                    || !ReadControlIdentity(ContactObject, TEXT("bodyId"), Value.BodyId)
+                    || !ReadNonnegativeInteger(ContactObject, TEXT("at"), MaxRevision, Value.AtMs)
+                    || !ReadNumber(ContactObject, TEXT("speed"), Value.Speed)
+                    || !ContactObject->TryGetObjectField(TEXT("pose"), ContactPose) || !ContactPose || !ContactPose->IsValid()
+                    || !ReadDrivingPose(*ContactPose, Value.Pose)) return false;
+                Out.Contact = MoveTemp(Value);
+            }
+            if (Object->HasField(TEXT("dynamics")))
+            {
+                const auto Dynamics = Object->TryGetField(TEXT("dynamics"));
+                FWorldVehicleDynamics Value;
+                // Optional is not nullable. Old records omit dynamics; do not manufacture it.
+                if (!Dynamics.IsValid() || Dynamics->Type != EJson::Object
+                    || !ReadVehicleDynamics(Dynamics->AsObject(), Value)) return false;
+                Out.Dynamics = MoveTemp(Value);
+            }
+            return true;
+        }
+
         bool ReadWaterControl(const TSharedPtr<FJsonObject>& Object, FWorldWaterControl& Out)
         {
             // worldWaterPublicControl excludes these fields. Do not retain a stored control
@@ -338,10 +485,24 @@ namespace BaddieCompanion
 
         OutError = TEXT("World movement response has an invalid player state.");
         if (!MovementProtocolPrivate::NullableObjectField(*Player, TEXT("journey"), true)) return false;
-        for (const TCHAR* Field : { TEXT("roadside"), TEXT("transitRide"), TEXT("driving"),
+        for (const TCHAR* Field : { TEXT("roadside"), TEXT("transitRide"),
             TEXT("nightclub"), TEXT("residence") })
             if (!MovementProtocolPrivate::NullableObjectField(*Player, Field, false)) return false;
 
+        Next.bHasDrivingField = (*Player)->HasField(TEXT("driving"));
+        if (Next.bHasDrivingField)
+        {
+            OutError = TEXT("World movement response has an invalid driving control.");
+            const auto Driving = (*Player)->TryGetField(TEXT("driving"));
+            if (!Driving.IsValid()) return false;
+            if (Driving->Type != EJson::Null)
+            {
+                FWorldDrivingControl Value;
+                if (Driving->Type != EJson::Object
+                    || !MovementProtocolPrivate::ReadDrivingControl(Driving->AsObject(), Value)) return false;
+                Next.Driving = MoveTemp(Value);
+            }
+        }
         Next.bHasWaterControlField = (*Player)->HasField(TEXT("waterControl"));
         if (Next.bHasWaterControlField)
         {

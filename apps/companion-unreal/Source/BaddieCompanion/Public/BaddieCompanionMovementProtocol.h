@@ -31,6 +31,64 @@ namespace BaddieCompanion
 
     enum class EWorldPlayerStatus : uint8 { Present, Traveling, Recovering };
 
+    // Receipt values retain the shared source's +Y-up metres, radians and server time.
+    // These are data only, not Unreal transforms or another vehicle simulation.
+    struct FWorldVehicleVector
+    {
+        double X = 0, Y = 0, Z = 0;
+    };
+    struct FWorldDrivingPose
+    {
+        FWorldVehicleVector Position;
+        double YawRadians = 0;
+    };
+    struct FWorldDrivingOccupant
+    {
+        // This type represents the wire's only supported role/seat: driver, zero.
+        FString UserId, CharacterId, LifeId;
+    };
+    struct FWorldDrivingContact
+    {
+        FString Id, BodyId;
+        int64 AtMs = 0;
+        double Speed = 0;
+        FWorldDrivingPose Pose;
+    };
+    struct FWorldVehicleWheel
+    {
+        double AngularVelocity = 0, Angle = 0, Steering = 0, Compression = 0;
+        double NormalLoad = 0, SlipRatio = 0, SlipAngle = 0;
+        double LongitudinalForce = 0, LateralForce = 0;
+        bool bGrounded = false;
+    };
+    struct FWorldVehicleDynamics
+    {
+        // Only wire version 1 is decoded. No missing mechanical state is synthesized.
+        int32 Version = 1;
+        FWorldVehicleVector Position, Velocity, AngularVelocity, OrientationXYZ;
+        double OrientationW = 0;
+        double Steering = 0, EngineOmega = 0, ShiftRemaining = 0;
+        int64 Gear = 0;
+        TArray<FWorldVehicleWheel> Wheels;
+    };
+    enum class EWorldDrivingMode : uint8 { Driving, Stopped, PulledOver, Suspended };
+    enum class EWorldDrivingSurface : uint8 { CleanAsphalt, LateriteMud, Pothole, GutterWood };
+    struct FWorldDrivingControl
+    {
+        FString Id, VehicleId, GameRoomId, InstanceId, NavigationRevision, RouteId;
+        int64 VehicleRevision = 0, Revision = 0, Sequence = 0;
+        FWorldDrivingOccupant Driver;
+        TArray<FWorldDrivingOccupant> Occupants;
+        FWorldDrivingPose Pose;
+        double Speed = 0, Throttle = 0, Brake = 0, Steering = 0;
+        double DrivenMetres = 0, FuelMetres = 0;
+        int64 AcceptedAtMs = 0, InputExpiresAtMs = 0;
+        EWorldDrivingMode Mode = EWorldDrivingMode::Stopped;
+        EWorldDrivingSurface Surface = EWorldDrivingSurface::CleanAsphalt;
+        TOptional<FWorldDrivingContact> Contact;
+        TOptional<FWorldVehicleDynamics> Dynamics;
+    };
+
     enum class EWorldWaterPhase : uint8 { Active, Landed };
     enum class EWorldWaterFeedback : uint8 { Clear, Hyacinth, Snagged, Blocked };
     struct FWorldWaterScope
@@ -76,10 +134,12 @@ namespace BaddieCompanion
         double Health = 0;
         // Missing: false/unset. Explicit null: true/unset. Object: true/set.
         // None of these states alone establishes who owns movement.
+        bool bHasDrivingField = false;
+        TOptional<FWorldDrivingControl> Driving;
         bool bHasWaterControlField = false;
         TOptional<FWorldWaterControl> WaterControl;
         // Retain the full player document, including omitted versus null control state.
-        // Public water control is decoded; journey/vehicle/activity schemas remain opaque.
+        // Driving/public water controls are decoded; journey/transit/activity remain opaque.
         // No control state is admitted here, and private water session/landing fields are rejected.
         // No logging, Blueprint, SaveGame or persistent storage of this document.
         FString PlayerDocumentJson;
@@ -102,9 +162,9 @@ namespace BaddieCompanion
 
     // Input must already be size-bounded and decoded by the transport.
     // World movement returns player/serverNow, not ok/retryAfterMs. Decode movement fields
-    // and public water-control fields, retaining the complete player document. Other nested
-    // player schemas need their own adapters. Water scope/life/layout, occupancy, freshness,
-    // lease and domain acceptance still belong to the admitted gameplay owner.
+    // and driving/public water-control fields, retaining the complete player document. Other
+    // nested player schemas need their own adapters. Scope/life/layout, occupancy, freshness,
+    // lease, vehicle configuration and domain acceptance belong to the admitted gameplay owner.
     // An older moveSequence can be a soft decline, and a stop may return a vehicle-owned
     // player unchanged. Neither a decoded result nor null movement grants on-foot control.
     // The owner must enforce generation, visit/instance, revision and controller ownership
