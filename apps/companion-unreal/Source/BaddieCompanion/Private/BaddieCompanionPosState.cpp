@@ -1,6 +1,9 @@
 #include "BaddieCompanionPosState.h"
 
 #include "BaddieCompanionStateJson.h"
+#include "Policies/CondensedJsonPrintPolicy.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 #include <cmath>
 
 namespace BaddieCompanion
@@ -70,15 +73,7 @@ namespace BaddieCompanion
                     {{TEXT("disabled"), EPosCashConversion::Disabled}})
                 || !EnumValue<EPosDeposit>(Field(O, TEXT("deposit")), Out.Deposit,
                     {{TEXT("own-home-only"), EPosDeposit::OwnHomeOnly}})) return false;
-            const FValue Values = Field(O, TEXT("amounts"));
-            if (!Values.IsValid() || Values->Type != EJson::Array || Values->AsArray().Num() > MaxAmounts) return false;
-            for (const FValue& Value : Values->AsArray())
-            {
-                double Amount = 0;
-                if (!ValueAmount(Value, Amount)) return false;
-                Out.Amounts.Add(Amount);
-            }
-            return true;
+            return ReadBoundedArray(Field(O, TEXT("amounts")), Out.Amounts, MaxAmounts, ValueAmount);
         }
         bool ReadReceipt(const FObject& O, FPosReceipt& Out)
         {
@@ -124,6 +119,68 @@ namespace BaddieCompanion
         FString FailureText(const FPosPublicFailure& Failure, const TCHAR* Fallback)
         {
             return !Failure.Message.IsEmpty() && Failure.Message.Len() <= MaxTextLength ? Failure.Message : FString(Fallback);
+        }
+        bool RequestId(const FString& Value)
+        {
+            if (Value.Len() < 16 || Value.Len() > 128) return false;
+            for (int32 Index = 0; Index < Value.Len(); ++Index)
+            {
+                const TCHAR C = Value[Index];
+                const bool bAlphanumeric = (C >= TEXT('A') && C <= TEXT('Z'))
+                    || (C >= TEXT('a') && C <= TEXT('z')) || (C >= TEXT('0') && C <= TEXT('9'));
+                if (!bAlphanumeric && (Index == 0 || (C != TEXT('.') && C != TEXT('_') && C != TEXT(':') && C != TEXT('-')))) return false;
+            }
+            return true;
+        }
+        bool ValidCommand(const FPosCommand& Command)
+        {
+            if (Command.Kind == EPosCommandKind::Quote)
+                return Command.Amount.IsSet() && std::isfinite(Command.Amount.GetValue())
+                    && !Command.QuoteId.IsSet() && !Command.AcceptsCarriedLoss.IsSet();
+            if (!Command.QuoteId.IsSet() || Command.QuoteId.GetValue().IsEmpty()
+                || Command.QuoteId.GetValue().Len() > MaxIdLength || Command.Amount.IsSet()) return false;
+            if (Command.Kind == EPosCommandKind::Confirm)
+                return Command.AcceptsCarriedLoss.IsSet() && Command.AcceptsCarriedLoss.GetValue();
+            return (Command.Kind == EPosCommandKind::Settle || Command.Kind == EPosCommandKind::Cancel)
+                && !Command.AcceptsCarriedLoss.IsSet();
+        }
+        bool EncodeCommand(const FPosScope& Scope, const FPosCommand& Command, const FString& Id,
+            FString& Operation, FString& Json)
+        {
+            if (!ValidScope(Scope) || !ValidCommand(Command) || !RequestId(Id)) return false;
+            const auto Arguments = MakeShared<FJsonObject>();
+            if (Command.Kind != EPosCommandKind::Cancel)
+            {
+                Arguments->SetStringField(TEXT("gameRoomId"), Scope.GameRoomId);
+                Arguments->SetStringField(TEXT("instanceId"), Scope.InstanceId);
+                Arguments->SetStringField(TEXT("lifeId"), Scope.LifeId);
+                Arguments->SetNumberField(TEXT("revision"), static_cast<double>(Scope.Revision));
+                Arguments->SetStringField(TEXT("serviceId"), Scope.ServiceId);
+            }
+            switch (Command.Kind)
+            {
+            case EPosCommandKind::Quote:
+                Operation = TEXT("companionPos:requestQuote");
+                Arguments->SetNumberField(TEXT("amount"), Command.Amount.GetValue());
+                break;
+            case EPosCommandKind::Confirm:
+                Operation = TEXT("companionPos:confirm");
+                Arguments->SetStringField(TEXT("quoteId"), Command.QuoteId.GetValue());
+                Arguments->SetBoolField(TEXT("acceptsCarriedLoss"), Command.AcceptsCarriedLoss.GetValue());
+                break;
+            case EPosCommandKind::Settle:
+                Operation = TEXT("companionPos:settle");
+                Arguments->SetStringField(TEXT("quoteId"), Command.QuoteId.GetValue());
+                break;
+            case EPosCommandKind::Cancel:
+                Operation = TEXT("companionPos:cancel");
+                Arguments->SetStringField(TEXT("quoteId"), Command.QuoteId.GetValue());
+                break;
+            default: return false;
+            }
+            Arguments->SetStringField(TEXT("requestId"), Id);
+            const auto Writer = TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Json);
+            return FJsonSerializer::Serialize(Arguments.ToSharedRef(), Writer);
         }
     }
 
@@ -175,6 +232,7 @@ namespace BaddieCompanion
     void FPosReadState::Clear()
     {
         CloseCatalog(); CloseReceipt(); OwnerGeneration.Invalidate();
+        Pending.Reset(); bPendingUncertain = false; ClearAttempt();
         Selected.Reset(); RecoveringId.Reset(); View = FPosReadView(); bObserved = false;
     }
     void FPosReadState::Dispose() { Clear(); bDisposed = true; }
@@ -193,7 +251,9 @@ namespace BaddieCompanion
         if (Scope.IsSet() == Selected.IsSet() && (!Scope.IsSet() || SamePosScope(Scope.GetValue(), Selected.GetValue()))) return true;
         Selected = Scope;
         CloseCatalog();
-        View.Catalog.Reset(); View.bReady = false; View.Error.Reset();
+        View.Catalog.Reset(); View.bReady = false;
+        View.bBusy = ActiveAttempt.IsValid(); View.bRetryable = HasUncertainCommand();
+        if (!HasUncertainCommand()) View.Error.Reset();
         // Receipt, its presence, recovery ID and receipt subscription survive service/visit changes.
         return true;
     }
@@ -259,7 +319,8 @@ namespace BaddieCompanion
             return EPosReadResult::InvalidResponse;
         }
         if (!SamePosScope(Next->Scope, Intent.Scope)) return EPosReadResult::IdentityMismatch;
-        View.Catalog = MoveTemp(Next); View.bReady = true; View.Error.Reset();
+        View.Catalog = MoveTemp(Next); View.bReady = true;
+        if (!HasUncertainCommand()) View.Error.Reset();
         return EPosReadResult::Accepted;
     }
     EPosReadResult FPosReadState::AcceptReceipt(TSharedPtr<const FPosReceipt> Receipt)
@@ -296,8 +357,10 @@ namespace BaddieCompanion
             && (!Next.IsValid() || !StateJsonPrivate::Same(Next->Id, Intent.RecoveringId.GetValue())))
             return EPosReadResult::IdentityMismatch;
         // Account-owned receipt is deliberately not filtered by selected catalog scope.
-        // A successful read neither clears errors nor ends recovery. No pending mutation exists here.
-        return AcceptReceipt(MoveTemp(Next));
+        // A read alone does not end recovery or clear errors. Only known pending evidence does.
+        const EPosReadResult Result = AcceptReceipt(MoveTemp(Next));
+        ReconcileReceipt();
+        return Result;
     }
     bool FPosReadState::ObserveCatalogFailure(const FPosCatalogReadIntent& Intent, const FPosPublicFailure& Failure)
     {
@@ -311,5 +374,148 @@ namespace BaddieCompanion
         if (!Current(Intent)) return false;
         View.Error = PosStatePrivate::FailureText(Failure, TEXT("Unable to load POS receipt."));
         return true;
+    }
+
+    bool FPosReadState::CurrentAttempt(const FPosCommandIntent& Intent) const
+    {
+        return !bDisposed && OwnerGeneration.IsValid() && Intent.OwnerGeneration == OwnerGeneration
+            && ActiveAttempt.IsValid() && Intent.AttemptId == ActiveAttempt
+            && ActivePacket.IsValid() && Intent.PacketId == ActivePacket;
+    }
+    bool FPosReadState::InitialScopeMatches() const
+    {
+        return Pending.IsValid() && (bPendingUncertain || Pending->Command.Kind == EPosCommandKind::Cancel
+            || (Selected.IsSet() && SamePosScope(Pending->Scope, Selected.GetValue())));
+    }
+    void FPosReadState::PrepareAttempt(FPosCommandIntent& Out)
+    {
+        ActiveAttempt = FGuid::NewGuid(); ActivePacket = Pending->Id;
+        AttemptPhase = EAttemptPhase::Prepared; ReturnedReceipt.Reset();
+        View.bBusy = true; View.bRetryable = false; View.Error.Reset();
+        Out.OwnerGeneration = OwnerGeneration; Out.PacketId = ActivePacket; Out.AttemptId = ActiveAttempt;
+    }
+    void FPosReadState::ClearAttempt()
+    {
+        ActiveAttempt.Invalidate(); ActivePacket.Invalidate();
+        AttemptPhase = EAttemptPhase::None; ReturnedReceipt.Reset();
+    }
+    bool FPosReadState::PrepareCommand(const FPosOwnerReceipt& Owner, const FPosCommand& Command,
+        const FString& RequestId, FPosCommandIntent& Out)
+    {
+        Out = FPosCommandIntent();
+        if (!CurrentOwner(Owner) || ActiveAttempt.IsValid() || Pending.IsValid()
+            || !PosStatePrivate::ValidCommand(Command) || !PosStatePrivate::RequestId(RequestId)) return false;
+        TOptional<FPosScope> Scope = Selected;
+        if (Command.Kind == EPosCommandKind::Cancel && View.Receipt.IsValid()
+            && StateJsonPrivate::Same(View.Receipt->Id, Command.QuoteId.GetValue())) Scope = View.Receipt->Scope;
+        if (!Scope.IsSet()) return false;
+        FPendingPacket Next;
+        Next.Id = FGuid::NewGuid(); Next.Scope = Scope.GetValue(); Next.Command = Command; Next.RequestId = RequestId;
+        if (!PosStatePrivate::EncodeCommand(Next.Scope, Next.Command, Next.RequestId, Next.Operation, Next.ArgumentsJson)) return false;
+        Pending = MakeShared<FPendingPacket>(MoveTemp(Next)); bPendingUncertain = false;
+        PrepareAttempt(Out);
+        return true;
+    }
+    bool FPosReadState::PrepareRetry(const FPosOwnerReceipt& Owner, FPosCommandIntent& Out)
+    {
+        Out = FPosCommandIntent();
+        if (!CurrentOwner(Owner) || ActiveAttempt.IsValid() || !HasUncertainCommand()) return false;
+        PrepareAttempt(Out);
+        return true;
+    }
+    bool FPosReadState::MarkCommandDispatched(const FPosCommandIntent& Intent, TSharedPtr<const FPosCommandDispatch>& Out)
+    {
+        Out.Reset();
+        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::Prepared || !Pending.IsValid()
+            || Pending->Id != Intent.PacketId || !InitialScopeMatches()) return false;
+        FPosCommandDispatch Next;
+        Next.Operation = Pending->Operation; Next.ArgumentsJson = Pending->ArgumentsJson;
+        bPendingUncertain = true; AttemptPhase = EAttemptPhase::Dispatched;
+        // Canonical order: after busy publication, before the request. Empty recovery stays empty.
+        if (Pending->Command.Kind == EPosCommandKind::Quote && RecoveringId.IsSet() && !RecoveringId.GetValue().IsEmpty())
+        {
+            RecoveringId.Reset(); CloseReceipt(); Next.RestartReads.bReceipt = true;
+        }
+        Out = MakeShared<FPosCommandDispatch>(MoveTemp(Next));
+        return true;
+    }
+    bool FPosReadState::AbandonUnsentCommand(const FPosCommandIntent& Intent)
+    {
+        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::Prepared
+            || !Pending.IsValid() || Pending->Id != Intent.PacketId) return false;
+        if (!bPendingUncertain) Pending.Reset();
+        ClearAttempt(); View.bBusy = false; View.bRetryable = HasUncertainCommand();
+        // An unsent retry keeps its earlier uncertainty unless retained read evidence resolves it.
+        ReconcileReceipt();
+        return true;
+    }
+    void FPosReadState::RecordCommandFailure(bool bUncertain, FString Message)
+    {
+        if (!bUncertain) { Pending.Reset(); bPendingUncertain = false; }
+        ReturnedReceipt.Reset(); AttemptPhase = EAttemptPhase::AwaitingFinally;
+        View.bRetryable = bUncertain; View.Error = MoveTemp(Message);
+    }
+    EPosCommandResult FPosReadState::AcceptCommandResult(const FPosCommandIntent& Intent, const FString& Json, FPosReadRestarts& Out)
+    {
+        Out = FPosReadRestarts();
+        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::Dispatched
+            || !Pending.IsValid() || Pending->Id != Intent.PacketId) return EPosCommandResult::StaleAttempt;
+        TSharedPtr<const FPosReceipt> Next;
+        FString Error;
+        if (!DecodePosReceipt(Json, Next, Error) || !Next.IsValid())
+        {
+            // A sent request can have taken effect despite an unusable reply, including null.
+            RecordCommandFailure(true, TEXT("The POS response is invalid. Retry the same action or reload the receipt."));
+            return EPosCommandResult::InvalidResponse;
+        }
+        Pending.Reset(); bPendingUncertain = false;
+        AcceptReceipt(Next);
+        if (RecoveringId.IsSet() && !RecoveringId.GetValue().IsEmpty())
+        {
+            RecoveringId.Reset(); CloseReceipt(); Out.bReceipt = true;
+        }
+        CloseCatalog(); Out.bCatalog = true;
+        ReturnedReceipt = MoveTemp(Next); AttemptPhase = EAttemptPhase::AwaitingFinally;
+        return EPosCommandResult::Accepted;
+    }
+    bool FPosReadState::AcceptCommandFailure(const FPosCommandIntent& Intent, const FPosCommandFailure& Failure)
+    {
+        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::Dispatched
+            || !Pending.IsValid() || Pending->Id != Intent.PacketId) return false;
+        bool bUncertain;
+        switch (Failure.Kind)
+        {
+        case EPosCommandFailureKind::NetworkUnavailable:
+        case EPosCommandFailureKind::GenericSaveFailure: bUncertain = true; break;
+        case EPosCommandFailureKind::Definite: bUncertain = false; break;
+        default: return false;
+        }
+        RecordCommandFailure(bUncertain, PosStatePrivate::FailureText(Failure.PublicError,
+            TEXT("The POS result is unknown. Retry the same action.")));
+        return true;
+    }
+    bool FPosReadState::FinishCommand(const FPosCommandIntent& Intent, TSharedPtr<const FPosReceipt>& Out)
+    {
+        Out.Reset();
+        if (!CurrentAttempt(Intent) || AttemptPhase != EAttemptPhase::AwaitingFinally) return false;
+        // JS evaluates the successful return after its outcome emit, before entering finally.
+        if (ReturnedReceipt.IsValid()) Out = View.Receipt.IsValid()
+            && StateJsonPrivate::Same(View.Receipt->Id, ReturnedReceipt->Id) ? View.Receipt : ReturnedReceipt;
+        ClearAttempt(); View.bBusy = false; View.bRetryable = HasUncertainCommand();
+        ReconcileReceipt();
+        return true;
+    }
+    void FPosReadState::ReconcileReceipt()
+    {
+        if (!HasUncertainCommand() || ActiveAttempt.IsValid() || !View.Receipt.IsValid()) return;
+        const FPosCommand& Command = Pending->Command;
+        const FPosReceipt& Receipt = *View.Receipt;
+        const bool bKnown = Command.Kind == EPosCommandKind::Quote
+            ? StateJsonPrivate::Same(Receipt.RequestId, Pending->RequestId) && SamePosScope(Receipt.Scope, Pending->Scope)
+                && Receipt.Amount == Command.Amount.GetValue()
+            : StateJsonPrivate::Same(Receipt.Id, Command.QuoteId.GetValue()) && (Command.Kind == EPosCommandKind::Confirm
+                ? Receipt.Status != EPosStatus::Quoted : !PosStatePrivate::OpenStatus(Receipt.Status));
+        if (!bKnown) return;
+        Pending.Reset(); bPendingUncertain = false; View.bRetryable = false; View.Error.Reset();
     }
 }
