@@ -96,6 +96,7 @@ public:
     bool HasPrivateContent() const { return Source.IsSet() || !Streams.IsEmpty(); }
     void ObserveValidPresentation(const BaddieCompanion::FHomePresentationPlan& Plan);
     const BaddieCompanion::FNativeApartmentStatus& GetStatus() const { return Status; }
+    BaddieCompanion::FCharacterEquipmentStatus GetEquipmentStatus() const;
 protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual void OnUnregister() override;
@@ -104,6 +105,9 @@ private:
     bool PrepareContent(const BaddieCompanion::FHomePresentationPlan& Plan,
         const BaddieCompanion::FNativeApartmentContent& Content);
     void PollNativeLevels();
+    // Sealed accepted-state consumer only. No Home adapter or authorized producer exists yet.
+    BaddieCompanion::ECharacterEquipmentIssue AcceptCharacterEquipment(
+        const BaddieCompanion::FAcceptedCharacterEquipment& Accepted);
     // Deliberately private and without a token producer. Read-only Home is not power admission.
     bool AcceptScenePower(const BaddieCompanion::FAcceptedApartmentScenePower& Accepted);
     void PollScenePower();
@@ -127,6 +131,7 @@ private:
     TSharedPtr<FStreamableHandle> FurnitureAssetLoad;
     TOptional<BaddieCompanion::FNativeCharacterContent> CharacterContent;
     TSharedPtr<FStreamableHandle> CharacterAssetLoad;
+    uint64 LastEquipmentObservation = 0;
     UPROPERTY(Transient)
     TObjectPtr<ABaddieCompanionCharacterActor> PreparedCharacter;
     // GC owns pending stream objects; reset requests hide/unload before dropping references.
