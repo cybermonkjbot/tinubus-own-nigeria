@@ -75,6 +75,59 @@ namespace BaddieCompanion
         // Caller-owned account identity, never a token or a grant. Not sent by this owner.
         FString AccountId, CharacterId;
     };
+    enum class ELifeCareAction : uint8 { Start, Cancel, RemindersOn, RemindersOff };
+    struct FLifeCareIntent
+    {
+        FString RoomId, StationId;
+        ELifeCareAction Action = ELifeCareAction::Start;
+        TOptional<FLifeTaskCooking> Cooking;
+    };
+    enum class ELifeReportStatus : uint8 { Arrived, Blocked, Interrupted };
+    struct FLifeActivityReport
+    {
+        FString ActivityId;
+        ELifeReportStatus Status = ELifeReportStatus::Arrived;
+    };
+    enum class ELifeTaskCommandType : uint8 { Enqueue, Pause, Resume, Stop, Remove, Retry, Move, Advance };
+    enum class ELifeTaskMoveDirection : uint8 { Up, Down };
+    struct FLifeTaskCommand
+    {
+        ELifeTaskCommandType Type = ELifeTaskCommandType::Pause;
+        FString RoomId, StationId, TaskId;
+        ELifeTaskMoveDirection Direction = ELifeTaskMoveDirection::Up;
+        TOptional<FLifeTaskCooking> Cooking;
+        // Only the selected branch is serialized. Retry here edits a task, not transport.
+    };
+    enum class ELifeCommandKind : uint8 { Care, Report, Task };
+    class FLifeCommandReceipt
+    {
+    public:
+        bool IsValid() const { return Id.IsValid(); }
+        ELifeCommandKind GetKind() const { return Kind; }
+        const FString& GetArgumentsJson() const { return ArgumentsJson; }
+        const FString& GetRequestId() const { return RequestId; }
+        const FLifeReadScope& GetScope() const { return Scope; }
+        const TCHAR* GetEndpoint() const
+        {
+            return Kind == ELifeCommandKind::Care ? TEXT("companionLife:act")
+                : Kind == ELifeCommandKind::Report ? TEXT("companionLife:report") : TEXT("companionLife:task");
+        }
+    private:
+        friend class FLifeReadState;
+        FGuid Id, Generation;
+        FLifeReadScope Scope;
+        ELifeCommandKind Kind = ELifeCommandKind::Care;
+        FString ArgumentsJson, RequestId;
+    };
+    enum class ELifeCommandResult : uint8 { Applied, ResolvedWithoutPublication, NullResult, InvalidResponse, StaleReceipt };
+    enum class ELifeCommandFailureCategory : uint8 { Definite, Ambiguous };
+    struct FLifeCommandFailure
+    {
+        ELifeCommandFailureCategory Category = ELifeCommandFailureCategory::Ambiguous;
+        // Sanitized boundary text only, bounded to 500 characters. Missing uses the operation
+        // fallback; present-empty remains empty. Never pass raw exceptions or credentials.
+        TOptional<FString> PublicMessage;
+    };
     class FLifeReadReceipt
     {
     public:
@@ -92,7 +145,10 @@ namespace BaddieCompanion
         TSharedPtr<const FLife> Life;
         // DefaultForNull is a captured local default, not a server save or action permission.
         ELifeReadOrigin Origin = ELifeReadOrigin::Unavailable;
-        // Read errors only. Future pending-act errors must be composed separately.
+        bool bBusy = false;
+        // Missing initially and after read failures, as in the canonical snapshot.
+        TOptional<bool> Retryable;
+        // Read success preserves the current error while any care request is pending.
         TOptional<FString> Error;
     };
     enum class ELifeReadResult : uint8 { Accepted, OlderRevision, CharacterMismatch, InvalidResponse, StaleReceipt };
@@ -104,8 +160,8 @@ namespace BaddieCompanion
     };
     DECLARE_MULTICAST_DELEGATE(FLifeReadChanged);
 
-    // Single-threaded, caller-driven account/character read state. No care projection,
-    // commands, retries, scheduling, transport or admission. Delegate binding is not observation.
+    // Single-threaded account/character read and local command owner. No care projection,
+    // scheduling, transport or admission. Delegate binding is not observation.
     class BADDIECOMPANION_API FLifeReadState
     {
     public:
@@ -126,11 +182,52 @@ namespace BaddieCompanion
         void EndSubscription();
         ELifeReadResult Accept(const FLifeReadReceipt& Receipt, const FString& Json);
         bool AcceptFailure(const FLifeReadReceipt& Receipt, const FLifePublicReadFailure& Failure);
+        // Explicit caller IDs must satisfy the backend's 8..100 character contract.
+        // Character and expectedRevision are captured from the selected current view.
+        bool PrepareCare(const FLifeCareIntent& Intent, const FString& RequestId, FLifeCommandReceipt& Out);
+        bool PrepareCareRetry(FLifeCommandReceipt& Out);
+        bool PrepareReport(const FLifeActivityReport& Report, FLifeCommandReceipt& Out);
+        bool PrepareTask(const FLifeTaskCommand& Command, const FString& RequestId, FLifeCommandReceipt& Out);
+        // Call at actual send, after separate authenticated admission. True marks dispatch
+        // without notification; send captured arguments immediately with no callback gap.
+        bool DispatchCommand(const FLifeCommandReceipt& Receipt);
+        bool AbandonPreparedCommand(const FLifeCommandReceipt& Receipt);
+        ELifeCommandResult CompleteCommand(const FLifeCommandReceipt& Receipt, const FString& Json);
+        bool FailCommand(const FLifeCommandReceipt& Receipt, const FLifeCommandFailure& Failure);
+        static constexpr int32 MaxAuxiliaryReceipts = 64;
         void Clear();
         void Dispose();
     private:
         bool Current(const FLifeReadReceipt& Receipt) const;
+        void RetireSubscription();
         void FailRead(const FString& Message);
+        struct FCareRequest
+        {
+            FLifeReadScope Scope;
+            FLifeCareIntent Intent;
+            int64 ExpectedRevision = 0;
+            FString RequestId, ArgumentsJson;
+        };
+        struct FAuxiliaryAttempt
+        {
+            FLifeCommandReceipt Receipt;
+            ELifeReportStatus ReportStatus = ELifeReportStatus::Arrived;
+            bool bDispatched = false;
+        };
+        bool PrepareCareAttempt(bool bReplay, FLifeCommandReceipt& Out);
+        bool CurrentCare(const FLifeCommandReceipt& Receipt) const;
+        bool CurrentPresentation(const FLifeCommandReceipt& Receipt) const;
+        bool CaptureAuxiliary(const FString& ArgumentsJson, const FString& RequestId,
+            ELifeCommandKind Kind, ELifeReportStatus Status, FLifeCommandReceipt& Out);
+        const FAuxiliaryAttempt* FindAuxiliary(const FLifeCommandReceipt& Receipt) const;
+        bool PublishCommandLife(const FLifeCommandReceipt& Receipt, FLife&& Life);
+        void FinishCare();
+        void ClearCommands();
+        TSharedPtr<const FCareRequest> PendingCare;
+        FLifeCommandReceipt CareAttempt;
+        // Private actInFlight must survive read failures and last-observer removal.
+        bool bActInFlight = false, bCareDispatched = false, bCareUncertain = false, bCareReplay = false;
+        TMap<FGuid, FAuxiliaryAttempt> Auxiliary;
         FLifeReadScope Selection;
         FLifeReadView View;
         FGuid Generation;
