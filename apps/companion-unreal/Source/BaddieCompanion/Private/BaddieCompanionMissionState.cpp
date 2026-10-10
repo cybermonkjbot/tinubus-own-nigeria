@@ -209,7 +209,7 @@ namespace BaddieCompanion
                 && ReadField(O, TEXT("target"), Out.Target, false, true, Target)
                 && ReadField(O, TEXT("reward"), Out.Reward, false, true, Reward);
         }
-        bool RewardTimes(const FValue& Value, TMap<FString, double>& Out)
+        bool RewardTimes(const FValue& Value, FMissionRewardTimes& Out)
         {
             if (!Value.IsValid() || Value->Type == EJson::Null) return true;
             const auto O = Object(Value);

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Internationalization/LocKeyFuncs.h"
 
 namespace BaddieCompanion
 {
@@ -77,13 +78,15 @@ namespace BaddieCompanion
         TMissionField<FMissionPublicReward> Reward;
     };
 
+    using FMissionRewardTimes = TMap<FString, double, FDefaultSetAllocator, FLocKeyMapFuncs<double>>;
+
     struct FMissionSnapshotWire
     {
         TMissionField<FMissionRunState> Run;
         TMissionField<FMissionRunState> Joinable;
         TArray<FString> Completed;
         // Missing/null rewardReadyAt follows the canonical store's empty-map fallback.
-        TMap<FString, double> RewardReadyAt;
+        FMissionRewardTimes RewardReadyAt;
         bool bCanUseCrew = false;
         double ServerTimeMs = 0;
     };
