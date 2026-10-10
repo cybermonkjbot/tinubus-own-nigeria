@@ -110,6 +110,7 @@ private:
     enum class EScenePowerClear : uint8 { RestoreSavedLighting, SuppressOutput };
     void ClearScenePower(EScenePowerClear Mode);
     bool RestoreSavedLighting();
+    bool OwnsScenePowerFurniture(const ABaddieCompanionFurnitureActor* Actor) const;
     bool PrepareRoomFurniture(int32 Index);
     bool PrepareHomeCharacter(int32 Index);
     bool ValidateLoadedAnchors(int32 Index);

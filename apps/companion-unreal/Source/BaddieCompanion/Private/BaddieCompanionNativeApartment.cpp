@@ -266,6 +266,24 @@ void UBaddieCompanionNativeApartment::ClearScenePower(EScenePowerClear Mode)
         && Source.IsSet() && Presentation.IsSet();
 }
 
+bool UBaddieCompanionNativeApartment::OwnsScenePowerFurniture(const ABaddieCompanionFurnitureActor* Actor) const
+{
+    if (!Presentation.IsSet() || !IsValid(Actor)
+        || Actor->GetOwner() != GetOwner() || Actor->GetWorld() != GetWorld()
+        || !Actor->bConfigured || Actor->bDiscarded || Actor->IsActorBeingDestroyed()) return false;
+    const int32 Index = Bindings.IndexOfByPredicate([&](const auto& Binding)
+        { return Binding.Endpoint.RoomId.Equals(Actor->RoomId, ESearchCase::CaseSensitive); });
+    auto* Stream = Streams.IsValidIndex(Index) ? Streams[Index].Get() : nullptr;
+    if (!IsValid(Stream) || Stream->GetLevelStreamingState() != ELevelStreamingState::LoadedVisible
+        || !IsValid(Stream->GetLoadedLevel()) || Stream->GetLoadedLevel()->GetWorld() != GetWorld()
+        || Stream->GetLoadedLevel() != Actor->GetLevel()
+        || !FurniturePrepared.IsValidIndex(Index) || !FurniturePrepared[Index]) return false;
+    const auto* Room = Presentation->Rooms.FindByPredicate([&](const auto& Value)
+        { return Value.Id.Equals(Actor->RoomId, ESearchCase::CaseSensitive); });
+    return Room && Room->Items.ContainsByPredicate([&](const auto& Item)
+        { return Item.Id.Equals(Actor->ItemId, ESearchCase::CaseSensitive); });
+}
+
 bool UBaddieCompanionNativeApartment::RestoreSavedLighting()
 {
     // Baseline restoration is not an accepted utility event. Only an already retained native
@@ -274,28 +292,10 @@ bool UBaddieCompanionNativeApartment::RestoreSavedLighting()
         || !IsRegistered() || !Source.IsSet() || !Presentation.IsSet()
         || !BaddieCompanion::SamePresentationInput(Source.GetValue(), Presentation->Source))
     { bPowerSuppressionRequested = true; return false; }
-    const auto IsCurrent = [&](ABaddieCompanionFurnitureActor* Actor)
-    {
-        if (!IsValid(Actor) || Actor->GetOwner() != GetOwner() || Actor->GetWorld() != GetWorld()
-            || !Actor->bConfigured || Actor->bDiscarded || Actor->IsActorBeingDestroyed())
-            return false;
-        const int32 Index = Bindings.IndexOfByPredicate([&](const auto& Binding)
-            { return Binding.Endpoint.RoomId.Equals(Actor->RoomId, ESearchCase::CaseSensitive); });
-        auto* Stream = Streams.IsValidIndex(Index) ? Streams[Index].Get() : nullptr;
-        if (!IsValid(Stream) || Stream->GetLevelStreamingState() != ELevelStreamingState::LoadedVisible
-            || !IsValid(Stream->GetLoadedLevel()) || Stream->GetLoadedLevel()->GetWorld() != GetWorld()
-            || Stream->GetLoadedLevel() != Actor->GetLevel()
-            || !FurniturePrepared.IsValidIndex(Index) || !FurniturePrepared[Index])
-            return false;
-        const auto* Room = Presentation->Rooms.FindByPredicate([&](const auto& Value)
-            { return Value.Id.Equals(Actor->RoomId, ESearchCase::CaseSensitive); });
-        return Room && Room->Items.ContainsByPredicate([&](const auto& Item)
-            { return Item.Id.Equals(Actor->ItemId, ESearchCase::CaseSensitive); });
-    };
     const auto Actors = Furniture;
     for (const auto& Owned : Actors)
     {
-        if (!IsCurrent(Owned.Get())) { bPowerSuppressionRequested = true; return false; }
+        if (!OwnsScenePowerFurniture(Owned.Get())) { bPowerSuppressionRequested = true; return false; }
         // An ordinary utility clear can run inside a material/light setter. Retry through the
         // existing owner poll after that stack unwinds, never through a recursive setter.
         if (Owned->bChangingPresentation) return false;
@@ -303,14 +303,14 @@ bool UBaddieCompanionNativeApartment::RestoreSavedLighting()
     const uint64 Generation = ContentGeneration, Power = PowerGeneration;
     for (const auto& Owned : Actors)
     {
-        if (!IsCurrent(Owned.Get())) { bPowerSuppressionRequested = true; return false; }
+        if (!OwnsScenePowerFurniture(Owned.Get())) { bPowerSuppressionRequested = true; return false; }
         const bool bRestored = Owned->ApplyScenePower(1.f);
         if (!bRestored || bPowerSuppressionRequested || Generation != ContentGeneration || Power != PowerGeneration)
             return false;
     }
     // A later setter can affect a level used by an earlier actor without replacing its IDs.
     for (const auto& Owned : Actors)
-        if (!IsCurrent(Owned.Get())) { bPowerSuppressionRequested = true; return false; }
+        if (!OwnsScenePowerFurniture(Owned.Get())) { bPowerSuppressionRequested = true; return false; }
     return true;
 }
 
@@ -390,7 +390,8 @@ void UBaddieCompanionNativeApartment::PollScenePower()
         return;
     }
     if (bClearing || bEndingPlay || bContentGenerationExhausted || !IsRegistered()
-        || !Source.IsSet() || !Presentation.IsSet())
+        || !Source.IsSet() || !Presentation.IsSet()
+        || !BaddieCompanion::SamePresentationInput(Source.GetValue(), Presentation->Source))
     { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
     TGuardValue<bool> Applying(bApplyingPower, true);
     const uint64 Generation = ContentGeneration, Power = PowerGeneration;
@@ -398,6 +399,11 @@ void UBaddieCompanionNativeApartment::PollScenePower()
     // Copy before UE setters. A callback can clear both retained arrays.
     const auto Samples = ScenePower;
     const auto Actors = Furniture;
+    // Rooms without a fresh sample may still display restored saved lighting. A sample
+    // for another room must not stop checking their ownership and loaded visibility.
+    for (const auto& Owned : Actors)
+        if (!OwnsScenePowerFurniture(Owned.Get()))
+        { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
     for (const auto& Entry : Samples)
     {
         const double ElapsedMs = std::floor((Now - Entry.SampledAtSeconds) * 1000);
@@ -438,6 +444,10 @@ void UBaddieCompanionNativeApartment::PollScenePower()
         if (!Retained) { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
         Retained->LastDisplayRealMs = SharedNow;
     }
+    // A setter in a sampled room can invalidate an unsampled room during this same poll.
+    for (const auto& Owned : Actors)
+        if (!OwnsScenePowerFurniture(Owned.Get()))
+        { ClearScenePower(EScenePowerClear::SuppressOutput); return; }
 }
 
 bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHomePresentationPlan& Plan,
