@@ -3,6 +3,23 @@
   "EngineAssociation": "",
   "Category": "Games",
   "Description": "Standalone Baddie companion client. Source-only integration work.",
+  "Plugins": [
+    {
+      "Name": "PythonScriptPlugin",
+      "Enabled": true,
+      "TargetAllowList": ["Editor"]
+    },
+    {
+      "Name": "ModelContextProtocol",
+      "Enabled": true,
+      "TargetAllowList": ["Editor"]
+    },
+    {
+      "Name": "AllToolsets",
+      "Enabled": true,
+      "TargetAllowList": ["Editor"]
+    }
+  ],
   "Modules": [
     {
       "Name": "BaddieCompanion",

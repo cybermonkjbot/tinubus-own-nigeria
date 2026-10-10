@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "Containers/Ticker.h"
 #include "Subsystems/GameInstanceSubsystem.h"
+#include "Templates/PimplPtr.h"
 #include "BaddieCompanionSnapshot.h"
 #include "BaddieCompanionSession.generated.h"
 
@@ -63,7 +64,7 @@ public:
     FBaddieCompanionConnectionChanged OnConnectionChanged;
 
 private:
-    TUniquePtr<FBaddieCompanionSessionData> Data;
+    TPimplPtr<FBaddieCompanionSessionData> Data;
     FTSTicker::FDelegateHandle Ticker;
 
     bool TickSession(float DeltaSeconds);

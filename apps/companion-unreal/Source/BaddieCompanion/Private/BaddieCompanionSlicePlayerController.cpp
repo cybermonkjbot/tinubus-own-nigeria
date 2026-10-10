@@ -11,7 +11,7 @@
 #include "Engine/World.h"
 #include "GameFramework/Character.h"
 #include "GameFramework/CharacterMovementComponent.h"
-#include "GameFramework/PlayerCameraManager.h"
+#include "Camera/PlayerCameraManager.h"
 #include "HAL/PlatformApplicationMisc.h"
 #include "Widgets/SWeakWidget.h"
 
@@ -128,8 +128,8 @@ void ABaddieCompanionSlicePlayerController::OfflineSelectionChanged()
     bPointerCaptured = false;
     if (ConnectionPanel.IsValid()) ConnectionPanel->ClearPrivatePresentation();
     if (!HasOfflineSelection())
-        if (auto* Character = Cast<ABaddieCompanionSliceCharacter>(GetPawn()))
-            Character->ClearInspectionPresentation();
+        if (auto* ControlledCharacter = Cast<ABaddieCompanionSliceCharacter>(GetPawn()))
+            ControlledCharacter->ClearInspectionPresentation();
     ApplyPointerCapture();
     RefreshConnectionPresentation();
 }
@@ -217,8 +217,8 @@ void ABaddieCompanionSlicePlayerController::ClearPrivatePresentation()
     PendingScope = BaddieCompanion::EConnectionScope::Home;
     bPointerCaptured = false;
     if (ConnectionPanel.IsValid()) ConnectionPanel->ClearPrivatePresentation();
-    if (auto* Character = Cast<ABaddieCompanionSliceCharacter>(GetPawn()))
-        Character->ClearInspectionPresentation();
+    if (auto* ControlledCharacter = Cast<ABaddieCompanionSliceCharacter>(GetPawn()))
+        ControlledCharacter->ClearInspectionPresentation();
     SetControlRotation(FRotator::ZeroRotator);
     if (!bEndingPlay) ApplyPointerCapture();
 }
@@ -255,11 +255,11 @@ bool ABaddieCompanionSlicePlayerController::CopyNativeDoorwayApproach(int32 Inde
 {
     Out = FVector::ZeroVector;
     RefreshConnectionPresentation();
-    auto* Character = Cast<ACharacter>(GetPawn());
+    auto* ControlledCharacter = Cast<ACharacter>(GetPawn());
     // Never use the inspection pawn's neutral-stage clamp/spawn in native apartment traversal.
     return !bEndingPlay && IsLocalController() && !bOfflineInspection && HomePresentation.GetPlan()
-        && Character && !Character->IsA<ABaddieCompanionSliceCharacter>() && NativeApartment
-        && NativeApartment->CopyNavigationApproach(*Character, Index, bFromEndpoint, Out);
+        && ControlledCharacter && !ControlledCharacter->IsA<ABaddieCompanionSliceCharacter>() && NativeApartment
+        && NativeApartment->CopyNavigationApproach(*ControlledCharacter, Index, bFromEndpoint, Out);
 }
 
 void ABaddieCompanionSlicePlayerController::StartPairing(
@@ -381,10 +381,10 @@ void ABaddieCompanionSlicePlayerController::ApplyPointerCapture()
     SetIgnoreMoveInput(!bPointerCaptured);
     SetIgnoreLookInput(!bPointerCaptured);
     if (!bPointerCaptured)
-        if (auto* Character = Cast<ACharacter>(GetPawn()))
+        if (auto* ControlledCharacter = Cast<ACharacter>(GetPawn()))
         {
-            Character->ConsumeMovementInputVector();
-            Character->GetCharacterMovement()->StopMovementImmediately();
+            ControlledCharacter->ConsumeMovementInputVector();
+            ControlledCharacter->GetCharacterMovement()->StopMovementImmediately();
         }
     if (bPointerCaptured)
     {
