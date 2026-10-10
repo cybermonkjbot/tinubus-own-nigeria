@@ -1,10 +1,11 @@
 param(
     [Parameter(Mandatory = $true)][string]$EngineRoot,
-    [string]$Project = (Join-Path $PSScriptRoot '..\BaddieCompanion.uproject'),
+    [string]$Project,
     [switch]$Headless
 )
 
 $ErrorActionPreference = 'Stop'
+if (!$Project) { $Project = Join-Path $PSScriptRoot '..\BaddieCompanion.uproject' }
 $Project = (Resolve-Path $Project).Path
 $ProjectDir = Split-Path $Project
 $Editor = Join-Path $EngineRoot 'Binaries\Win64\UnrealEditor.exe'
