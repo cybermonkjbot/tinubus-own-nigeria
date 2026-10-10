@@ -16,13 +16,13 @@ There is no playable map, imported character, live transport or login UI yet. No
 
 ## Engine setup
 
-The engine association is deliberately unset until an installed Unreal version is verified on Cribtest. Record that version and its compatible compiler/Windows SDK before the first authorized project generation or compilation. The game and editor targets currently use UE5 `BuildSettingsVersion.V5`; compatibility remains unverified.
+The engine association is deliberately unset until an installed Unreal version is verified on Cribtest11. Use the Windows coordination instructions in `../../docs/engineering/standalone-companion-unreal.md`. Record that version and its compatible compiler/Windows SDK before the first authorized project generation or compilation. The game and editor targets currently use UE5 `BuildSettingsVersion.V5`; compatibility remains unverified.
 
 After the engine and editor target have been compiled in a separately authorized pass, the intended offline invocation is:
 
 ```powershell
 & '<verified-engine-path>\Engine\Binaries\Win64\UnrealEditor-Cmd.exe' `
-  'C:\dev\baddie.ng\apps\companion-unreal\BaddieCompanion.uproject' `
+  'C:\dev\cribtest-game\apps\companion-unreal\BaddieCompanion.uproject' `
   -run=BaddieCompanionSnapshot -Snapshot='<local-snapshot.json>' `
   -nullrhi -NoShaderCompile -unattended -nosound
 ```
