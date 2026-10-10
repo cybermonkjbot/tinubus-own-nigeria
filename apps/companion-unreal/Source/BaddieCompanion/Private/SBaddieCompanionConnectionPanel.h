@@ -30,7 +30,7 @@ public:
         const FString& Status, bool bCaptured);
     void ClearPrivatePresentation();
     void DetachOwner();
-    void ShowConfirmation(EBaddieConnectionAction Action);
+    void ShowConfirmation(EBaddieConnectionAction Action, BaddieCompanion::EConnectionScope Scope);
     void DismissConfirmation();
     virtual bool SupportsKeyboardFocus() const override { return true; }
     virtual FReply OnPreviewKeyDown(const FGeometry& Geometry, const FKeyEvent& Event) override;
@@ -58,8 +58,8 @@ private:
     TSharedPtr<SEditableTextBox> DeviceName;
     TSharedPtr<STextBlock> Title, StatusText, DeviceText, DeviceNameError, ApprovalLink, ComparisonCode, Lifetime,
         ErrorText, RetryText, HomeText, CompanionText, ActiveRoomText, UnsupportedText, ModalTitle, ModalBody;
-    TSharedPtr<SButton> ConnectButton, CopyButton, CancelButton, DisconnectButton, RepairButton,
-        ResumeButton, ConfirmButton, KeepButton;
+    TSharedPtr<SButton> ConnectButton, ApartmentButton, CopyButton, CancelButton, DisconnectButton,
+        RepairButton, RepairApartmentButton, ResumeButton, ConfirmButton, KeepButton;
     TArray<TSharedPtr<SWidget>> Controls;
     TWeakPtr<SWidget> ReturnFocus;
     BaddieCompanion::EConnectionState State = BaddieCompanion::EConnectionState::Disabled;

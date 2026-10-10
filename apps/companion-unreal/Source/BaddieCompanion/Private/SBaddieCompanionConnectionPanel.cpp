@@ -126,14 +126,18 @@ void SBaddieCompanionConnectionPanel::Construct(const FArguments& Args)
     {
         Content->AddSlot().AutoHeight().Padding(0, 0, 0, 8)[MakeButton(Target, Label, Action)];
     };
-    AddButton(ConnectButton, TEXT("Connect to Baddie"), EBaddieConnectionAction::Connect);
+    AddButton(ConnectButton, TEXT("Connect Home only"), EBaddieConnectionAction::Connect);
     ConnectButton->SetEnabled(TAttribute<bool>::CreateLambda([this]() { return CanConnect() && ValidDeviceName(); }));
+    AddButton(ApartmentButton, TEXT("Connect apartment"), EBaddieConnectionAction::ConnectApartment);
+    ApartmentButton->SetEnabled(TAttribute<bool>::CreateLambda([this]() { return CanConnect() && ValidDeviceName(); }));
     AddButton(CopyButton, TEXT("Copy approval link"), EBaddieConnectionAction::CopyLink);
     AddButton(CancelButton, TEXT("Cancel connection"), EBaddieConnectionAction::Cancel);
     AddButton(DisconnectButton, TEXT("Disconnect"), EBaddieConnectionAction::Disconnect);
     AddButton(RepairButton, TEXT("Pair again"), EBaddieConnectionAction::Repair);
+    AddButton(RepairApartmentButton, TEXT("Connect apartment"), EBaddieConnectionAction::RepairApartment);
     AddButton(ResumeButton, TEXT("Resume inspection"), EBaddieConnectionAction::ResumeInspection);
-    Controls = { DeviceName, ConnectButton, CopyButton, CancelButton, DisconnectButton, RepairButton, ResumeButton };
+    Controls = { DeviceName, ConnectButton, ApartmentButton, CopyButton, CancelButton,
+        DisconnectButton, RepairButton, RepairApartmentButton, ResumeButton };
     PresentConnection(BaddieCompanion::FConnectionView(), nullptr);
 }
 
@@ -183,7 +187,8 @@ void SBaddieCompanionConnectionPanel::PresentConnection(
     if (bChanged) bFocusDefault = true;
     SetVisibility(EVisibility::Visible);
     SetVisible(MainSurface, true);
-    SetText(Title, TEXT("Home"));
+    const bool bApartment = View.Scope == BaddieCompanion::EConnectionScope::Apartment;
+    SetText(Title, bApartment ? TEXT("Apartment") : TEXT("Home"));
     FString Status;
     switch (State)
     {
@@ -192,10 +197,13 @@ void SBaddieCompanionConnectionPanel::PresentConnection(
     case EConnectionState::RequestingCode: Status = TEXT("Requesting an approval link."); break;
     case EConnectionState::AwaitingApproval:
         Status = TEXT("Approval pending. Paste this link in Baddie's Companion connections and compare the code."); break;
-    case EConnectionState::LoadingHome: Status = TEXT("Connected. Loading the saved Home."); break;
+    case EConnectionState::LoadingHome:
+        Status = bApartment ? TEXT("Connected. Loading the saved apartment rooms.")
+            : TEXT("Connected. Loading the saved Home."); break;
     case EConnectionState::Ready:
         Status = Selection ? (View.bStale ? TEXT("Connected. Showing the last valid read while retrying.")
-            : TEXT("Connected. Read-only Home access.")) : TEXT("Home access is unavailable."); break;
+            : bApartment ? TEXT("Connected. Read-only apartment access.") : TEXT("Connected. Read-only Home access."))
+            : TEXT("Saved room access is unavailable."); break;
     case EConnectionState::Expired: Status = View.Error.IsEmpty() ? TEXT("Connection expired.") : FString(); break;
     case EConnectionState::Unavailable: Status = TEXT("Connection unavailable."); break;
     }
@@ -226,10 +234,12 @@ void SBaddieCompanionConnectionPanel::PresentConnection(
             : !Presentation->Home.bSourceMapped ? TEXT("This saved Home layout is not supported yet. Gameplay entry is not available.")
             : TEXT("Saved Home and Companion assets are not available yet. Gameplay entry is not available.")) : FString());
     SetVisible(ConnectButton, bCanRequest);
+    SetVisible(ApartmentButton, bCanRequest);
     SetVisible(CopyButton, bApproval && !View.ApprovalLink.IsEmpty());
     SetVisible(CancelButton, bPending);
     SetVisible(DisconnectButton, bReady);
     SetVisible(RepairButton, bReady);
+    SetVisible(RepairApartmentButton, bReady && !bApartment);
     SetVisible(ResumeButton, false);
 }
 
@@ -290,17 +300,25 @@ void SBaddieCompanionConnectionPanel::DetachOwner()
     Owner.Reset();
 }
 
-void SBaddieCompanionConnectionPanel::ShowConfirmation(EBaddieConnectionAction Action)
+void SBaddieCompanionConnectionPanel::ShowConfirmation(
+    EBaddieConnectionAction Action, BaddieCompanion::EConnectionScope Scope)
 {
-    ReturnFocus = Action == EBaddieConnectionAction::Repair ? RepairButton : DisconnectButton;
+    const bool bRepair = Action == EBaddieConnectionAction::Repair || Action == EBaddieConnectionAction::RepairApartment;
+    const bool bApartment = Scope == BaddieCompanion::EConnectionScope::Apartment;
+    ReturnFocus = Action == EBaddieConnectionAction::RepairApartment ? RepairApartmentButton
+        : bRepair ? RepairButton : DisconnectButton;
     bModal = true;
     MainSurface->SetEnabled(false);
-    SetText(ModalTitle, Action == EBaddieConnectionAction::Repair ? TEXT("Pair again?") : TEXT("Disconnect from Baddie?"));
-    SetText(ModalBody, Action == EBaddieConnectionAction::Repair
-        ? TEXT("Clear this connection and request fresh approval for a Companion and Home.")
-        : TEXT("Clear the shared Companion and Home from this game."));
+    SetText(ModalTitle, Action == EBaddieConnectionAction::RepairApartment ? TEXT("Connect apartment?")
+        : bRepair ? TEXT("Pair again?") : TEXT("Disconnect from Baddie?"));
+    SetText(ModalBody, bRepair
+        ? (bApartment ? TEXT("Clear this connection and request approval for a Companion and all saved apartment rooms.")
+            : TEXT("Clear this connection and request fresh approval for a Companion and Home."))
+        : (bApartment ? TEXT("Clear the shared Companion and apartment rooms from this game.")
+            : TEXT("Clear the shared Companion and Home from this game.")));
     ConfirmButton->SetContent(SNew(STextBlock).Text(FText::FromString(
-        Action == EBaddieConnectionAction::Repair ? TEXT("Pair again") : TEXT("Disconnect"))));
+        Action == EBaddieConnectionAction::RepairApartment ? TEXT("Connect apartment")
+            : bRepair ? TEXT("Pair again") : TEXT("Disconnect"))));
     SetVisible(ModalSurface, true);
     Focus(KeepButton);
     bFocusDefault = false;

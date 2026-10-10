@@ -3,6 +3,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/PlayerController.h"
 #include "BaddieCompanionHomePresentation.h"
+#include "BaddieCompanionSession.h"
 #include "BaddieCompanionSnapshot.h"
 #include "BaddieCompanionNativeApartment.h"
 #include "BaddieCompanionSlicePlayerController.generated.h"
@@ -12,7 +13,10 @@ class SWidget;
 class UBaddieCompanionSession;
 class UBaddieCompanionSliceSession;
 
-enum class EBaddieConnectionAction : uint8 { Connect, Cancel, CopyLink, Disconnect, Repair, ResumeInspection };
+enum class EBaddieConnectionAction : uint8
+{
+    Connect, ConnectApartment, Cancel, CopyLink, Disconnect, Repair, RepairApartment, ResumeInspection
+};
 
 UCLASS(NotBlueprintable)
 class BADDIECOMPANION_API ABaddieCompanionSlicePlayerController : public APlayerController
@@ -49,7 +53,7 @@ private:
     void ClearPrivatePresentation();
     void ConnectionChanged();
     void OfflineSelectionChanged();
-    void StartPairing(const FString& DeviceName);
+    void StartPairing(const FString& DeviceName, BaddieCompanion::EConnectionScope Scope);
     void StopConnection();
     bool HasOfflineSelection() const;
 
@@ -66,6 +70,7 @@ private:
     TObjectPtr<UBaddieCompanionNativeApartment> NativeApartment;
     TOptional<EBaddieConnectionAction> PendingAction;
     FString PendingDeviceName;
+    BaddieCompanion::EConnectionScope PendingScope = BaddieCompanion::EConnectionScope::Home;
     bool bOfflineInspection = false;
     bool bPointerCaptured = false;
     bool bEndingPlay = false;

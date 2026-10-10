@@ -124,6 +124,7 @@ void ABaddieCompanionSlicePlayerController::OfflineSelectionChanged()
     if (NativeApartment) NativeApartment->ClearPrivateContent();
     PendingAction.Reset();
     PendingDeviceName.Reset();
+    PendingScope = BaddieCompanion::EConnectionScope::Home;
     bPointerCaptured = false;
     if (ConnectionPanel.IsValid()) ConnectionPanel->ClearPrivatePresentation();
     if (!HasOfflineSelection())
@@ -213,6 +214,7 @@ void ABaddieCompanionSlicePlayerController::ClearPrivatePresentation()
     HomePresentation.Clear();
     PendingAction.Reset();
     PendingDeviceName.Reset();
+    PendingScope = BaddieCompanion::EConnectionScope::Home;
     bPointerCaptured = false;
     if (ConnectionPanel.IsValid()) ConnectionPanel->ClearPrivatePresentation();
     if (auto* Character = Cast<ABaddieCompanionSliceCharacter>(GetPawn()))
@@ -260,11 +262,12 @@ bool ABaddieCompanionSlicePlayerController::CopyNativeDoorwayApproach(int32 Inde
         && NativeApartment->CopyNavigationApproach(*Character, Index, bFromEndpoint, Out);
 }
 
-void ABaddieCompanionSlicePlayerController::StartPairing(const FString& DeviceName)
+void ABaddieCompanionSlicePlayerController::StartPairing(
+    const FString& DeviceName, BaddieCompanion::EConnectionScope Scope)
 {
     // Clear before a synchronous notification or request from a new pairing.
     ClearPrivatePresentation();
-    if (auto* Session = ConnectionSession.Get()) Session->BeginPairing(DeviceName);
+    if (auto* Session = ConnectionSession.Get()) Session->BeginPairing(DeviceName, Scope);
     RefreshConnectionPresentation();
 }
 
@@ -304,17 +307,22 @@ void ABaddieCompanionSlicePlayerController::RequestConnectionAction(
         return;
     }
     if (Action == EBaddieConnectionAction::Cancel && bPending) { StopConnection(); return; }
-    if ((Action == EBaddieConnectionAction::Disconnect || Action == EBaddieConnectionAction::Repair) && bConnected)
+    if ((Action == EBaddieConnectionAction::Disconnect || Action == EBaddieConnectionAction::Repair
+        || Action == EBaddieConnectionAction::RepairApartment) && bConnected)
     {
         PendingAction = Action;
         PendingDeviceName = View.DeviceName;
-        if (ConnectionPanel.IsValid()) ConnectionPanel->ShowConfirmation(Action);
+        PendingScope = Action == EBaddieConnectionAction::RepairApartment
+            ? BaddieCompanion::EConnectionScope::Apartment : View.Scope;
+        if (ConnectionPanel.IsValid()) ConnectionPanel->ShowConfirmation(Action, PendingScope);
         return;
     }
-    if (Action == EBaddieConnectionAction::Connect && BaddieCompanion::IsValidConnectionDeviceName(DeviceName)
+    if ((Action == EBaddieConnectionAction::Connect || Action == EBaddieConnectionAction::ConnectApartment)
+        && BaddieCompanion::IsValidConnectionDeviceName(DeviceName)
         && !bPending && !bConnected
         && View.State != EConnectionState::Disabled && View.RetryAfterSeconds <= 0)
-        StartPairing(DeviceName);
+        StartPairing(DeviceName, Action == EBaddieConnectionAction::ConnectApartment
+            ? BaddieCompanion::EConnectionScope::Apartment : BaddieCompanion::EConnectionScope::Home);
 }
 
 void ABaddieCompanionSlicePlayerController::ConfirmConnectionAction()
@@ -324,7 +332,9 @@ void ABaddieCompanionSlicePlayerController::ConfirmConnectionAction()
     if (!PendingAction.IsSet()) return;
     const auto Action = PendingAction.GetValue();
     const FString Name = PendingDeviceName;
-    if (Action == EBaddieConnectionAction::Repair) StartPairing(Name);
+    const auto Scope = PendingScope;
+    if (Action == EBaddieConnectionAction::Repair || Action == EBaddieConnectionAction::RepairApartment)
+        StartPairing(Name, Scope);
     else StopConnection();
 }
 
@@ -332,6 +342,7 @@ void ABaddieCompanionSlicePlayerController::CancelConnectionAction()
 {
     PendingAction.Reset();
     PendingDeviceName.Reset();
+    PendingScope = BaddieCompanion::EConnectionScope::Home;
     if (ConnectionPanel.IsValid()) ConnectionPanel->DismissConfirmation();
 }
 
