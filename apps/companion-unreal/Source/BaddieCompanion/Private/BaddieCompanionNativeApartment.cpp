@@ -333,6 +333,9 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
     }
     for (const auto& Accessory : Content.Character.Accessories)
         CharacterPaths.AddUnique(Accessory.MeshAsset.ToSoftObjectPath());
+    for (const auto& FaceNode : Content.Character.FaceNodes)
+        for (const auto& Mesh : FaceNode.Meshes)
+            CharacterPaths.AddUnique(Mesh.MeshAsset.ToSoftObjectPath());
     CharacterAssetLoad = UAssetManager::GetStreamableManager().RequestAsyncLoad(CharacterPaths);
     if (!CharacterAssetLoad.IsValid())
     { ClearPrivateContent(); AddGap(ENativeApartmentGap::CharacterUnavailable); return false; }

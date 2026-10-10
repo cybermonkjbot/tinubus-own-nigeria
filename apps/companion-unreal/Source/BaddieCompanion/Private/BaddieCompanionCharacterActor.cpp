@@ -67,7 +67,8 @@ bool ABaddieCompanionCharacterActor::AcceptsContent(const BaddieCompanion::FHome
         bNecklace |= Binding.SourceNode.Equals(TEXT("AccessoryNecklace"), ESearchCase::CaseSensitive);
         bHipChain |= Binding.SourceNode.Equals(TEXT("AccessoryChain"), ESearchCase::CaseSensitive);
     }
-    if (!bNecklace || !bHipChain) return false;
+    if (!bNecklace || !bHipChain
+        || !BaddieCompanion::FNativeCharacterFaceAppearance::Accepts(Plan.Appearance, Content.FaceNodes)) return false;
     return true; // Declaration checks only; imported provenance/coverage requires content acceptance.
 }
 
@@ -186,10 +187,15 @@ bool ABaddieCompanionCharacterActor::PrepareBindings(const BaddieCompanion::FHom
     if (!IsValid(Materials.Get()) || !Materials->Apply(Plan, Resolved)
         || bDiscarded || IsActorBeingDestroyed() || !IsValid(Materials.Get())) return false;
     PreparedMaterialGeneration = Materials->GetAppliedGeneration();
-    if (!HasCurrentMaterials() || !PrepareAccessoryVisibility(Plan.Appearance, Content.Accessories)
-        || !HasCurrentMaterials()) return false;
+    const auto IsCurrent = [this]()
+    {
+        return !bDiscarded && !IsActorBeingDestroyed() && IsHidden() && HasCurrentMaterials();
+    };
+    if (!FaceAppearance.Apply(*this, Plan.Appearance, Content.FaceNodes, IsCurrent)
+        || !PrepareAccessoryVisibility(Plan.Appearance, Content.Accessories)
+        || !IsCurrent() || !FaceAppearance.Matches(*this)) return false;
     if (!bLevelAlreadyTransformed) PendingApartmentPose = ApartmentPose;
-    return true; // Hidden material/accessory preparation, not complete appearance or movement readiness.
+    return true; // Hidden face/material/accessory preparation, not complete appearance or movement readiness.
 }
 
 bool ABaddieCompanionCharacterActor::PrepareAccessoryVisibility(const BaddieCompanion::FAppearancePlan& Appearance,
@@ -261,7 +267,7 @@ bool ABaddieCompanionCharacterActor::HasCurrentMaterials() const
 bool ABaddieCompanionCharacterActor::ReconcileLevelTransform()
 {
     if (bChangingPresentation || !bPrepared || bDiscarded || IsActorBeingDestroyed()
-        || !HasCurrentMaterials()) return false;
+        || !HasCurrentMaterials() || !FaceAppearance.Matches(*this)) return false;
     TGuardValue<bool> Changing(bChangingPresentation, true);
     if (!PendingApartmentPose.IsSet()) return true;
     auto* Level = GetLevel();
@@ -275,7 +281,7 @@ bool ABaddieCompanionCharacterActor::ReconcileLevelTransform()
         || bDiscarded || IsActorBeingDestroyed() || !HasCurrentMaterials()) return false;
     UpdateComponentTransforms();
     if (bDiscarded || IsActorBeingDestroyed() || !HasCurrentMaterials()
-        || !GetActorTransform().Equals(Expected, 1.e-4)) return false;
+        || !FaceAppearance.Matches(*this) || !GetActorTransform().Equals(Expected, 1.e-4)) return false;
     PendingApartmentPose.Reset();
     return true;
 }
@@ -293,6 +299,10 @@ void ABaddieCompanionCharacterActor::ClearPrivateCharacter()
     // nor their actor may be disposed from inside an active native setter or suppression callback.
     if (bChangingPresentation || (IsValid(Materials.Get()) && Materials->IsChangingMaterials()))
     { QueueDeferredDisposal(); return; }
+    {
+        TGuardValue<bool> Changing(bChangingPresentation, true);
+        FaceAppearance.Clear(*this);
+    }
     TInlineComponentArray<UMeshComponent*> Meshes(this);
     for (auto* Mesh : Meshes)
     {
