@@ -164,6 +164,12 @@ bool BaddieCompanion::FNativeCharacterFaceAppearance::Matches(const ABaddieCompa
     return true;
 }
 
+void BaddieCompanion::FNativeCharacterFaceAppearance::AppendControlledComponentNames(TSet<FName>& Out) const
+{
+    for (const auto& Node : Nodes)
+        for (const auto& Component : Node.Components) Out.Add(Component.Name);
+}
+
 bool BaddieCompanion::FNativeCharacterFaceAppearance::Apply(ABaddieCompanionCharacterActor& Actor,
     const FAppearancePlan& Appearance, const TArray<FNativeCharacterFaceNode>& Bindings,
     TFunctionRef<bool()> IsCurrent)

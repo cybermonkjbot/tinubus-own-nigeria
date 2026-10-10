@@ -5,6 +5,7 @@
 #include "GameFramework/Actor.h"
 #include "BaddieCompanionCharacterMaterials.h"
 #include "BaddieCompanionCharacterAppearance.h"
+#include "BaddieCompanionCharacterEquipment.h"
 #include "BaddieCompanionCharacterActor.generated.h"
 
 class ABaddieCompanionCharacterActor;
@@ -38,6 +39,7 @@ namespace BaddieCompanion
         TArray<FNativeCharacterAccessoryMesh> Accessories;
         // Eight source face transform roots and their complete accepted drawable subtrees.
         TArray<FNativeCharacterFaceNode> FaceNodes;
+        FNativeCharacterEquipmentContent Equipment;
     };
 }
 
@@ -68,6 +70,10 @@ private:
         const FTransform& LevelToApartment, bool bLevelAlreadyTransformed);
     bool ReconcileLevelTransform();
     bool HasCurrentMaterials() const;
+    BaddieCompanion::ECharacterEquipmentIssue ObserveEquipment(
+        const BaddieCompanion::FCharacterEquipmentObservation& Observation, bool bRetryFailed);
+    bool PollEquipment();
+    BaddieCompanion::FCharacterEquipmentStatus EquipmentStatus() const;
     bool PrepareAccessoryVisibility(const BaddieCompanion::FAppearancePlan& Appearance,
         const TArray<BaddieCompanion::FNativeCharacterAccessoryMesh>& Bindings);
     void SuppressPresentation();
@@ -78,6 +84,7 @@ private:
     UPROPERTY(Transient)
     TObjectPtr<UBaddieCompanionCharacterMaterials> Materials;
     BaddieCompanion::FNativeCharacterFaceAppearance FaceAppearance;
+    BaddieCompanion::FNativeCharacterEquipment Equipment;
     TOptional<FTransform> PendingApartmentPose;
     uint64 PreparedMaterialGeneration = 0;
     FTSTicker::FDelegateHandle DeferredDisposal;

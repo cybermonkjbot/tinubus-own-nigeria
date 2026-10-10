@@ -36,6 +36,7 @@ namespace BaddieCompanion
         bool Apply(ABaddieCompanionCharacterActor& Actor, const FAppearancePlan& Appearance,
             const TArray<FNativeCharacterFaceNode>& Bindings, TFunctionRef<bool()> IsCurrent);
         bool Matches(const ABaddieCompanionCharacterActor& Actor) const;
+        void AppendControlledComponentNames(TSet<FName>& Out) const;
         void Clear(ABaddieCompanionCharacterActor& Actor);
 
         struct FComponentState

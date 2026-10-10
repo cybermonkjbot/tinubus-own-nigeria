@@ -148,6 +148,7 @@ void UBaddieCompanionNativeApartment::ClearPrivateContent()
 {
     if (ContentGeneration == MAX_uint64) bContentGenerationExhausted = true;
     ++ContentGeneration;
+    LastEquipmentObservation = 0;
     if (bClearing) return;
     TGuardValue<bool> Clearing(bClearing, true);
     ClearScenePower(EScenePowerClear::SuppressOutput);
@@ -558,6 +559,18 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
     for (const auto& FaceNode : Content.Character.FaceNodes)
         for (const auto& Mesh : FaceNode.Meshes)
             CharacterPaths.AddUnique(Mesh.MeshAsset.ToSoftObjectPath());
+    for (const auto& Item : Content.Character.Equipment.Items)
+        if (!Item.Group.AttachmentMeshAsset.IsNull()) CharacterPaths.AddUnique(Item.Group.AttachmentMeshAsset.ToSoftObjectPath());
+    if (Content.Character.Equipment.GeneratedRoundFrames.IsSet())
+    {
+        const auto& Frames = Content.Character.Equipment.GeneratedRoundFrames->Group;
+        if (!Frames.AttachmentMeshAsset.IsNull()) CharacterPaths.AddUnique(Frames.AttachmentMeshAsset.ToSoftObjectPath());
+        for (const auto& Mesh : Frames.Meshes)
+        {
+            CharacterPaths.AddUnique(Mesh.Mesh.ToSoftObjectPath());
+            for (const auto& Material : Mesh.Materials) CharacterPaths.AddUnique(Material.Material.ToSoftObjectPath());
+        }
+    }
     CharacterAssetLoad = UAssetManager::GetStreamableManager().RequestAsyncLoad(CharacterPaths);
     if (!CharacterAssetLoad.IsValid())
     { ClearPrivateContent(); AddGap(ENativeApartmentGap::CharacterUnavailable); return false; }
@@ -640,7 +653,7 @@ void UBaddieCompanionNativeApartment::PollNativeLevels()
         const bool bCurrent = IsValid(Actor) && Actor->GetOwner() == GetOwner() && Actor->GetWorld() == GetWorld()
             && Streams.ContainsByPredicate([&](const auto& Stream)
                 { return IsValid(Stream.Get()) && Stream->GetLoadedLevel() == Actor->GetLevel(); })
-            && Actor->ReconcileLevelTransform();
+            && Actor->ReconcileLevelTransform() && Actor->PollEquipment();
         if (ContentGeneration != PollGeneration) return;
         if (!bCurrent)
         { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable); return; }
@@ -686,6 +699,38 @@ void UBaddieCompanionNativeApartment::PollNativeLevels()
             }
         }
     }
+}
+
+BaddieCompanion::FCharacterEquipmentStatus UBaddieCompanionNativeApartment::GetEquipmentStatus() const
+{
+    return !bClearing && !bEndingPlay && IsValid(PreparedCharacter.Get())
+        ? PreparedCharacter->EquipmentStatus() : BaddieCompanion::FCharacterEquipmentStatus();
+}
+
+BaddieCompanion::ECharacterEquipmentIssue UBaddieCompanionNativeApartment::AcceptCharacterEquipment(
+    const BaddieCompanion::FAcceptedCharacterEquipment& Accepted)
+{
+    using BaddieCompanion::ECharacterEquipmentIssue;
+    check(IsInGameThread());
+    if (Accepted.Apartment.Get() != this || Accepted.ContentGeneration != ContentGeneration
+        || Accepted.ObservationSequence == 0 || Accepted.ObservationSequence <= LastEquipmentObservation)
+        return ECharacterEquipmentIssue::StaleObservation;
+    auto* Actor = PreparedCharacter.Get();
+    if (bClearing || bEndingPlay || bContentGenerationExhausted || !IsRegistered()
+        || !Source.IsSet() || !Presentation.IsSet() || !Status.bCharacterPrepared
+        || !BaddieCompanion::SamePresentationInput(*Source, Accepted.Source)
+        || !IsValid(Actor) || Actor->bChangingPresentation || Actor->GetOwner() != GetOwner()
+        || Actor->GetWorld() != GetWorld() || !Streams.ContainsByPredicate([&](const auto& Stream)
+            { return IsValid(Stream.Get()) && Stream->GetLoadedLevel() == Actor->GetLevel(); }))
+        return ECharacterEquipmentIssue::OwnerUnavailable;
+    const uint64 Generation = ContentGeneration;
+    LastEquipmentObservation = Accepted.ObservationSequence;
+    // No captured completion delegate. Slot loads are polled by this existing apartment owner.
+    const auto Result = Actor->ObserveEquipment(Accepted.Observation, Accepted.bRetryFailed);
+    if (Generation != ContentGeneration) return ECharacterEquipmentIssue::StaleObservation;
+    if (Result == ECharacterEquipmentIssue::OwnerUnavailable)
+    { ClearPrivateContent(); AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable); }
+    return Result;
 }
 
 bool UBaddieCompanionNativeApartment::PrepareHomeCharacter(int32 Index)

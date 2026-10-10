@@ -194,6 +194,13 @@ bool ABaddieCompanionCharacterActor::PrepareBindings(const BaddieCompanion::FHom
     if (!FaceAppearance.Apply(*this, Plan.Appearance, Content.FaceNodes, IsCurrent)
         || !PrepareAccessoryVisibility(Plan.Appearance, Content.Accessories)
         || !IsCurrent() || !FaceAppearance.Matches(*this)) return false;
+    TSet<FName> FaceComponents;
+    FaceAppearance.AppendControlledComponentNames(FaceComponents);
+    TSet<FName> ProtectedComponents = FaceComponents;
+    for (const auto& Material : Content.Materials) ProtectedComponents.Add(Material.MeshComponent);
+    for (const auto& Accessory : Content.Accessories) ProtectedComponents.Add(Accessory.MeshComponent);
+    if (!Equipment.Initialize(*this, Content.Equipment, ProtectedComponents, FaceComponents,
+        Plan.Appearance.Eyewear.Effective.GetValue() == BaddieCompanion::EEyewear::Round)) return false;
     if (!bLevelAlreadyTransformed) PendingApartmentPose = ApartmentPose;
     return true; // Hidden face/material/accessory preparation, not complete appearance or movement readiness.
 }
@@ -264,6 +271,52 @@ bool ABaddieCompanionCharacterActor::HasCurrentMaterials() const
         && Materials->GetAppliedGeneration() == PreparedMaterialGeneration;
 }
 
+BaddieCompanion::ECharacterEquipmentIssue ABaddieCompanionCharacterActor::ObserveEquipment(
+    const BaddieCompanion::FCharacterEquipmentObservation& Observation, bool bRetryFailed)
+{
+    using BaddieCompanion::ECharacterEquipmentIssue;
+    check(IsInGameThread());
+    if (bChangingPresentation || !bPrepared || bDiscarded) return ECharacterEquipmentIssue::OwnerUnavailable;
+    ECharacterEquipmentIssue Result;
+    {
+        TGuardValue<bool> Changing(bChangingPresentation, true);
+        const auto Current = [this]()
+        {
+            return !bDiscarded && !IsActorBeingDestroyed() && IsHidden() && HasCurrentMaterials()
+                && FaceAppearance.Matches(*this);
+        };
+        Result = Equipment.Observe(*this, Observation, bRetryFailed, Current);
+        if (!Current()) Result = ECharacterEquipmentIssue::OwnerUnavailable;
+    }
+    if (Result == ECharacterEquipmentIssue::OwnerUnavailable) ClearPrivateCharacter();
+    return Result;
+}
+
+bool ABaddieCompanionCharacterActor::PollEquipment()
+{
+    check(IsInGameThread());
+    if (bChangingPresentation || !bPrepared || bDiscarded) return false;
+    bool bCurrent;
+    {
+        TGuardValue<bool> Changing(bChangingPresentation, true);
+        const auto Current = [this]()
+        {
+            return !bDiscarded && !IsActorBeingDestroyed() && IsHidden() && HasCurrentMaterials()
+                && FaceAppearance.Matches(*this);
+        };
+        bCurrent = Equipment.Poll(*this, Current) && Current();
+    }
+    if (!bCurrent) ClearPrivateCharacter();
+    return bCurrent;
+}
+
+BaddieCompanion::FCharacterEquipmentStatus ABaddieCompanionCharacterActor::EquipmentStatus() const
+{
+    // A native callback must not observe a half-committed attachment/visibility transition.
+    return !bChangingPresentation && bPrepared && !bDiscarded ? Equipment.Status()
+        : BaddieCompanion::FCharacterEquipmentStatus();
+}
+
 bool ABaddieCompanionCharacterActor::ReconcileLevelTransform()
 {
     if (bChangingPresentation || !bPrepared || bDiscarded || IsActorBeingDestroyed()
@@ -290,6 +343,7 @@ void ABaddieCompanionCharacterActor::ClearPrivateCharacter()
 {
     check(IsInGameThread());
     bDiscarded = true; bPrepared = false; PreparedMaterialGeneration = 0;
+    Equipment.Cancel();
     PendingApartmentPose.Reset();
     if (bClearing) { QueueDeferredDisposal(); return; }
     TGuardValue<bool> Clearing(bClearing, true);
@@ -301,6 +355,7 @@ void ABaddieCompanionCharacterActor::ClearPrivateCharacter()
     { QueueDeferredDisposal(); return; }
     {
         TGuardValue<bool> Changing(bChangingPresentation, true);
+        Equipment.Clear(*this);
         FaceAppearance.Clear(*this);
     }
     TInlineComponentArray<UMeshComponent*> Meshes(this);
