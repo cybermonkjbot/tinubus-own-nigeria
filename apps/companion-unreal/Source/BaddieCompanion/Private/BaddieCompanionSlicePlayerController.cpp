@@ -39,10 +39,15 @@ void ABaddieCompanionSlicePlayerController::BeginPlay()
     MissionBackgroundHandle = FCoreDelegates::ApplicationWillEnterBackgroundDelegate.AddUObject(this,
         &ABaddieCompanionSlicePlayerController::HandleMissionFocusLoss);
     ConnectionSession = GetGameInstance()->GetSubsystem<UBaddieCompanionSession>();
+    // Obtain status only. No Home flag or UI action configures/enables this capability.
+    GameplaySession = GetGameInstance()->GetSubsystem<UBaddieCompanionGameplaySession>();
     OfflineSession = GetGameInstance()->GetSubsystem<UBaddieCompanionSliceSession>();
     if (auto* Session = ConnectionSession.Get())
         ConnectionHandle = Session->OnConnectionChanged.AddUObject(this,
             &ABaddieCompanionSlicePlayerController::ConnectionChanged);
+    if (auto* Session = GameplaySession.Get())
+        GameplayConnectionHandle = Session->OnConnectionChanged.AddUObject(this,
+            &ABaddieCompanionSlicePlayerController::GameplayConnectionChanged);
     if (auto* Session = OfflineSession.Get())
     {
         OfflineHandle = Session->OnSelectionChanged.AddUObject(this,
@@ -50,7 +55,10 @@ void ABaddieCompanionSlicePlayerController::BeginPlay()
         if (!bOfflineInspection) Session->ClearSelection();
     }
     if (bOfflineInspection)
+    {
         if (auto* Session = ConnectionSession.Get()) Session->Disconnect();
+        if (auto* Session = GameplaySession.Get()) Session->Disconnect();
+    }
     if (auto* Viewport = GetWorld()->GetGameViewport())
     {
         SAssignNew(ConnectionPanel, SBaddieCompanionConnectionPanel).Owner(this);
@@ -86,11 +94,14 @@ void ABaddieCompanionSlicePlayerController::EndPlay(const EEndPlayReason::Type E
     FCoreDelegates::ApplicationWillEnterBackgroundDelegate.Remove(MissionBackgroundHandle);
     ClearMissionPresentation();
     if (auto* Session = ConnectionSession.Get()) Session->OnConnectionChanged.Remove(ConnectionHandle);
+    if (auto* Session = GameplaySession.Get()) Session->OnConnectionChanged.Remove(GameplayConnectionHandle);
     if (auto* Session = OfflineSession.Get()) Session->OnSelectionChanged.Remove(OfflineHandle);
     ConnectionHandle.Reset();
+    GameplayConnectionHandle.Reset();
     OfflineHandle.Reset();
     ClearPrivatePresentation();
     if (auto* Session = ConnectionSession.Get()) Session->Disconnect();
+    if (auto* Session = GameplaySession.Get()) Session->Disconnect();
     if (auto* Session = OfflineSession.Get()) Session->ClearSelection();
     if (ViewportPanel.IsValid())
         if (auto* World = GetWorld())
@@ -100,6 +111,8 @@ void ABaddieCompanionSlicePlayerController::EndPlay(const EEndPlayReason::Type E
     ViewportPanel.Reset();
     ConnectionPanel.Reset();
     ConnectionSession.Reset();
+    GameplaySession.Reset();
+    LastGameplayView.Reset();
     OfflineSession.Reset();
     Super::EndPlay(EndPlayReason);
 }
@@ -114,6 +127,7 @@ void ABaddieCompanionSlicePlayerController::Tick(float DeltaSeconds)
 void ABaddieCompanionSlicePlayerController::ConnectionChanged()
 {
     if (bEndingPlay || !IsLocalController()) return;
+    InvalidateGameplayControls();
     // Offline inspection is isolated even if trusted setup changes while its world is open.
     if (bOfflineInspection)
     {
@@ -132,6 +146,40 @@ void ABaddieCompanionSlicePlayerController::ConnectionChanged()
             ClearPrivatePresentation();
     }
     RefreshConnectionPresentation();
+}
+
+void ABaddieCompanionSlicePlayerController::GameplayConnectionChanged()
+{
+    if (bEndingPlay || !IsLocalController()) return;
+    // Even a same-status notification may represent a replaced private grant/configuration.
+    InvalidateGameplayControls();
+    if (bOfflineInspection)
+    {
+        if (auto* Session = GameplaySession.Get())
+        {
+            const auto State = Session->GetConnectionView().State;
+            if (State != BaddieCompanion::EGameplayConnectionState::Disabled
+                && State != BaddieCompanion::EGameplayConnectionState::SignedOut) Session->Disconnect();
+        }
+    }
+    RefreshConnectionPresentation();
+}
+
+void ABaddieCompanionSlicePlayerController::InvalidateGameplayControls()
+{
+    ++GameplayUiRevision;
+    const bool bHadPending = PendingGameplayAction.IsSet();
+    PendingGameplayAction.Reset();
+    PendingGameplayRevision = 0;
+    if (bHadPending && ConnectionPanel.IsValid()) ConnectionPanel->DismissConfirmation();
+}
+
+bool ABaddieCompanionSlicePlayerController::HasConnectionUiFocus() const
+{
+    return !bEndingPlay && !bOfflineInspection && !MissionToken.IsSet() && ConnectionPanel.IsValid()
+        && ConnectionPanel->GetVisibility() == EVisibility::Visible
+        && FSlateApplication::IsInitialized() && FSlateApplication::Get().IsActive()
+        && (ConnectionPanel->HasKeyboardFocus() || ConnectionPanel->HasFocusedDescendants());
 }
 
 void ABaddieCompanionSlicePlayerController::OfflineSelectionChanged()
@@ -163,7 +211,14 @@ bool ABaddieCompanionSlicePlayerController::HasOfflineSelection() const
 
 void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
 {
-    if (bEndingPlay || !IsLocalController()) return;
+    if (bEndingPlay || !IsLocalController() || bRefreshingConnection) return;
+    TGuardValue<bool> RefreshGuard(bRefreshingConnection, true);
+    const bool bFocused = HasConnectionUiFocus();
+    if (bHadConnectionUiFocus && !bFocused)
+    {
+        CancelConnectionAction();
+    }
+    bHadConnectionUiFocus = bFocused;
     if (bOfflineInspection)
     {
         // Never reached as a fallback for failed live access.
@@ -209,9 +264,20 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
             else NativeApartment->ClearPrivateContent();
         }
     }
+    // Read after Home validation, which may synchronously notify and invalidate UI state.
+    const auto* EntrySession = GameplaySession.Get();
+    const auto GameplayView = EntrySession ? EntrySession->GetConnectionView() : BaddieCompanion::FGameplayConnectionView();
+    if (!LastGameplayView.IsSet() || !BaddieCompanion::SameGameplayControls(LastGameplayView.GetValue(), GameplayView))
+    {
+        InvalidateGameplayControls();
+        LastGameplayView = GameplayView;
+    }
     if (ConnectionPanel.IsValid() && !MissionToken.IsSet())
+    {
         ConnectionPanel->PresentConnection(View, RetainedSelection.IsSet() ? &RetainedSelection.GetValue() : nullptr,
             HomePresentation.GetPlan());
+        ConnectionPanel->PresentGameplay(GameplayView, GameplayUiRevision);
+    }
 }
 
 bool ABaddieCompanionSlicePlayerController::CopyHomePresentation(BaddieCompanion::FHomePresentationPlan& Out)
@@ -229,6 +295,7 @@ bool ABaddieCompanionSlicePlayerController::CopyHomePresentation(BaddieCompanion
 
 void ABaddieCompanionSlicePlayerController::ClearPrivatePresentation()
 {
+    InvalidateGameplayControls();
     ClearMissionPresentation();
     if (NativeApartment) NativeApartment->ClearPrivateContent();
     RetainedSelection.Reset();
@@ -303,7 +370,7 @@ void ABaddieCompanionSlicePlayerController::RequestConnectionAction(
     EBaddieConnectionAction Action, const FString& DeviceName)
 {
     RefreshConnectionPresentation();
-    if (bEndingPlay || !IsLocalController()) return;
+    if (bEndingPlay || !IsLocalController() || PendingGameplayAction.IsSet()) return;
     // Existing account controls cannot share a pointer or a pending mission action.
     ClearMissionPresentation();
     if (Action == EBaddieConnectionAction::ResumeInspection)
@@ -348,10 +415,78 @@ void ABaddieCompanionSlicePlayerController::RequestConnectionAction(
             ? BaddieCompanion::EConnectionScope::Apartment : BaddieCompanion::EConnectionScope::Home);
 }
 
+void ABaddieCompanionSlicePlayerController::RequestGameplayConnectionAction(
+    EBaddieGameplayConnectionAction Action, uint64 ExpectedRevision, const FString& DeviceName)
+{
+    RefreshConnectionPresentation();
+    if (!IsLocalController() || !HasConnectionUiFocus() || PendingAction.IsSet() || PendingGameplayAction.IsSet()
+        || ExpectedRevision != GameplayUiRevision) return;
+    auto* Session = GameplaySession.Get();
+    if (!Session) return;
+    const auto View = Session->GetConnectionView();
+    using BaddieCompanion::EGameplayConnectionState;
+    if (Action == EBaddieGameplayConnectionAction::CopyLink)
+    {
+        if (View.State == EGameplayConnectionState::AwaitingApproval && View.GrantOrPairingRemainingSeconds > 0
+            && !View.ApprovalLink.IsEmpty()) FPlatformApplicationMisc::ClipboardCopy(*View.ApprovalLink);
+        return;
+    }
+    if (Action == EBaddieGameplayConnectionAction::Pair && BaddieCompanion::CanPairGameplay(View)
+        && BaddieCompanion::IsValidConnectionDeviceName(DeviceName))
+    {
+        InvalidateGameplayControls();
+        // A view can observe expiry just before the session's existing ticker retires it.
+        if (View.State == EGameplayConnectionState::Expired) Session->Disconnect();
+        if (HasConnectionUiFocus() && BaddieCompanion::CanPairGameplay(Session->GetConnectionView()))
+            Session->BeginPairing(DeviceName);
+    }
+    else if (Action == EBaddieGameplayConnectionAction::CancelPairing && BaddieCompanion::IsGameplayPairing(View.State))
+    {
+        InvalidateGameplayControls();
+        Session->Disconnect();
+    }
+    else if (Action == EBaddieGameplayConnectionAction::Enter && BaddieCompanion::CanEnterGameplay(View))
+    {
+        InvalidateGameplayControls();
+        Session->Enter(); // Explicit city presence only. No crew, pawn, mission or world authority.
+    }
+    else if (Action == EBaddieGameplayConnectionAction::CancelEntry && View.State == EGameplayConnectionState::Entering)
+    {
+        InvalidateGameplayControls();
+        Session->Leave();
+    }
+    else if ((Action == EBaddieGameplayConnectionAction::Leave && View.State == EGameplayConnectionState::Joined
+        && View.GrantOrPairingRemainingSeconds > 0 && View.PresenceRemainingSeconds > 0)
+        || (Action == EBaddieGameplayConnectionAction::Disconnect && BaddieCompanion::CanDisconnectGameplay(View)))
+    {
+        PendingGameplayAction = Action;
+        PendingGameplayRevision = GameplayUiRevision;
+        if (ConnectionPanel.IsValid()) ConnectionPanel->ShowGameplayConfirmation(Action);
+    }
+    RefreshConnectionPresentation();
+}
+
 void ABaddieCompanionSlicePlayerController::ConfirmConnectionAction()
 {
     // A locally expired/configuration-changed grant dismisses the modal before this action.
     RefreshConnectionPresentation();
+    if (!IsLocalController() || !HasConnectionUiFocus()) { CancelConnectionAction(); return; }
+    if (PendingGameplayAction.IsSet())
+    {
+        auto* Session = GameplaySession.Get();
+        if (!Session || PendingGameplayRevision != GameplayUiRevision) { CancelConnectionAction(); return; }
+        const auto Action = PendingGameplayAction.GetValue();
+        const auto View = Session->GetConnectionView();
+        const bool bLeave = Action == EBaddieGameplayConnectionAction::Leave
+            && View.State == BaddieCompanion::EGameplayConnectionState::Joined
+            && View.GrantOrPairingRemainingSeconds > 0 && View.PresenceRemainingSeconds > 0;
+        const bool bDisconnect = Action == EBaddieGameplayConnectionAction::Disconnect && BaddieCompanion::CanDisconnectGameplay(View);
+        CancelConnectionAction();
+        if (bLeave) Session->Leave();
+        else if (bDisconnect) Session->Disconnect();
+        RefreshConnectionPresentation();
+        return;
+    }
     if (!PendingAction.IsSet()) return;
     const auto Action = PendingAction.GetValue();
     const FString Name = PendingDeviceName;
@@ -363,6 +498,7 @@ void ABaddieCompanionSlicePlayerController::ConfirmConnectionAction()
 
 void ABaddieCompanionSlicePlayerController::CancelConnectionAction()
 {
+    InvalidateGameplayControls();
     PendingAction.Reset();
     PendingDeviceName.Reset();
     PendingScope = BaddieCompanion::EConnectionScope::Home;
@@ -372,7 +508,7 @@ void ABaddieCompanionSlicePlayerController::CancelConnectionAction()
 void ABaddieCompanionSlicePlayerController::HandleConnectionEscape()
 {
     if (MissionToken.IsSet()) { SetMissionModal(!bMissionModal); return; }
-    if (PendingAction.IsSet()) { CancelConnectionAction(); return; }
+    if (PendingAction.IsSet() || PendingGameplayAction.IsSet()) { CancelConnectionAction(); return; }
     if (bOfflineInspection) { TogglePointerCapture(); return; }
     if (auto* Session = ConnectionSession.Get())
     {
@@ -380,6 +516,7 @@ void ABaddieCompanionSlicePlayerController::HandleConnectionEscape()
         if (BaddieCompanion::IsConnectionPending(View.State))
             StopConnection();
     }
+    // Gameplay pairing/entry uses its labelled cancel controls; Escape never chooses between scopes.
 }
 
 void ABaddieCompanionSlicePlayerController::SetupInputComponent()
@@ -447,7 +584,7 @@ bool ABaddieCompanionSlicePlayerController::CheckMissionAdmission()
     if (bEndingPlay || bClearingMission || !IsLocalController() || bOfflineInspection
         || UBaddieCompanionSliceSession::IsOfflinePreviewAllowed(GetWorld())
         || !GetPawn() || GetPawn()->IsA<ABaddieCompanionSliceCharacter>()
-        || PendingAction.IsSet() || !MissionAdmission.IsBound()
+        || PendingAction.IsSet() || PendingGameplayAction.IsSet() || !MissionAdmission.IsBound()
         || !FSlateApplication::IsInitialized() || !FSlateApplication::Get().IsActive()) return false;
     const auto* Hud = Cast<ABaddieCompanionSliceHUD>(GetHUD());
     if (!Hud || !Hud->HasMissionFocus()) return false;
@@ -493,7 +630,7 @@ void ABaddieCompanionSlicePlayerController::RefreshMissionPresentation()
     {
         // Closed until the separate admitted gameplay owner binds this callback.
         if (bOfflineInspection || UBaddieCompanionSliceSession::IsOfflinePreviewAllowed(GetWorld())
-            || PendingAction.IsSet() || !GetPawn() || GetPawn()->IsA<ABaddieCompanionSliceCharacter>()
+            || PendingAction.IsSet() || PendingGameplayAction.IsSet() || !GetPawn() || GetPawn()->IsA<ABaddieCompanionSliceCharacter>()
             || !MissionAdmission.IsBound() || !FSlateApplication::IsInitialized()
             || !FSlateApplication::Get().IsActive()) return;
         BaddieCompanion::FMissionIdentity Identity;
@@ -579,6 +716,8 @@ void ABaddieCompanionSlicePlayerController::ClearMissionPresentation()
 
 void ABaddieCompanionSlicePlayerController::HandleMissionFocusLoss()
 {
+    CancelConnectionAction();
+    if (ConnectionPanel.IsValid()) ConnectionPanel->ClearGameplayPresentation();
     ClearMissionPresentation();
 }
 

@@ -4,6 +4,7 @@
 #include "GameFramework/PlayerController.h"
 #include "BaddieCompanionHomePresentation.h"
 #include "BaddieCompanionSession.h"
+#include "BaddieCompanionGameplaySession.h"
 #include "BaddieCompanionSnapshot.h"
 #include "BaddieCompanionNativeApartment.h"
 #include "BaddieCompanionMissionPresentation.h"
@@ -19,6 +20,11 @@ enum class EBaddieConnectionAction : uint8
     Connect, ConnectApartment, Cancel, CopyLink, Disconnect, Repair, RepairApartment, ResumeInspection
 };
 
+enum class EBaddieGameplayConnectionAction : uint8
+{
+    Pair, CopyLink, CancelPairing, Enter, CancelEntry, Leave, Disconnect
+};
+
 UCLASS(NotBlueprintable)
 class BADDIECOMPANION_API ABaddieCompanionSlicePlayerController : public APlayerController
 {
@@ -29,6 +35,8 @@ public:
     virtual void Tick(float DeltaSeconds) override;
     // Client-only controls. No origin, approval token, proof or configuration accepted from UI.
     void RequestConnectionAction(EBaddieConnectionAction Action, const FString& DeviceName = FString());
+    void RequestGameplayConnectionAction(EBaddieGameplayConnectionAction Action, uint64 ExpectedRevision,
+        const FString& DeviceName = FString());
     void ConfirmConnectionAction();
     void CancelConnectionAction();
     void HandleConnectionEscape();
@@ -85,6 +93,9 @@ private:
     void ApplyPointerCapture();
     void ClearPrivatePresentation();
     void ConnectionChanged();
+    void GameplayConnectionChanged();
+    void InvalidateGameplayControls();
+    bool HasConnectionUiFocus() const;
     void OfflineSelectionChanged();
     void StartPairing(const FString& DeviceName, BaddieCompanion::EConnectionScope Scope);
     void StopConnection();
@@ -98,8 +109,10 @@ private:
     void HandleMissionFocusLoss();
 
     TWeakObjectPtr<UBaddieCompanionSession> ConnectionSession;
+    TWeakObjectPtr<UBaddieCompanionGameplaySession> GameplaySession;
     TWeakObjectPtr<UBaddieCompanionSliceSession> OfflineSession;
     FDelegateHandle ConnectionHandle;
+    FDelegateHandle GameplayConnectionHandle;
     FDelegateHandle OfflineHandle;
     TSharedPtr<SBaddieCompanionConnectionPanel> ConnectionPanel;
     TSharedPtr<SWidget> ViewportPanel;
@@ -109,11 +122,17 @@ private:
     UPROPERTY(Transient)
     TObjectPtr<UBaddieCompanionNativeApartment> NativeApartment;
     TOptional<EBaddieConnectionAction> PendingAction;
+    TOptional<EBaddieGameplayConnectionAction> PendingGameplayAction;
+    TOptional<BaddieCompanion::FGameplayConnectionView> LastGameplayView;
+    uint64 GameplayUiRevision = 1;
+    uint64 PendingGameplayRevision = 0;
     FString PendingDeviceName;
     BaddieCompanion::EConnectionScope PendingScope = BaddieCompanion::EConnectionScope::Home;
     bool bOfflineInspection = false;
     bool bPointerCaptured = false;
     bool bEndingPlay = false;
+    bool bRefreshingConnection = false;
+    bool bHadConnectionUiFocus = false;
     TOptional<BaddieCompanion::FMissionPresentationToken> MissionToken;
     TOptional<BaddieCompanion::FMissionSelectedAction> MissionSelection;
     TOptional<BaddieCompanion::FMissionSelectedAction> CompletedMissionSelection;

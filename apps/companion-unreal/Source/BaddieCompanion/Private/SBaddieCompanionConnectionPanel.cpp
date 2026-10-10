@@ -19,6 +19,59 @@
 
 using ECompanionConnectionState = BaddieCompanion::EConnectionState;
 
+namespace BaddieConnectionPanelPrivate
+{
+    // Keep native button behavior, but do not let a held press act on replacement UI state.
+    class SRevisionButton : public SButton
+    {
+    public:
+        void Construct(const SButton::FArguments& Args, TAttribute<uint64> InRevision)
+        {
+            Revision = InRevision;
+            SButton::FArguments Guarded = Args;
+            Guarded.OnPressed_Lambda([this, Press = Args._OnPressed]()
+            {
+                PressRevision = Revision.Get();
+                Press.ExecuteIfBound();
+            });
+            Guarded.OnClicked_Lambda([this, Click = Args._OnClicked]()
+            {
+                // Native accessibility activation can invoke a click without a pointer/key press.
+                const bool bCurrent = !PressRevision.IsSet() || PressRevision.GetValue() == Revision.Get();
+                PressRevision.Reset();
+                return bCurrent && Click.IsBound() ? Click.Execute() : FReply::Handled();
+            });
+            SButton::Construct(Guarded);
+        }
+
+        virtual FReply OnMouseButtonUp(const FGeometry& Geometry, const FPointerEvent& Event) override
+        {
+            const FReply Reply = SButton::OnMouseButtonUp(Geometry, Event);
+            if (!IsPressed()) PressRevision.Reset();
+            return Reply;
+        }
+        virtual FReply OnKeyUp(const FGeometry& Geometry, const FKeyEvent& Event) override
+        {
+            const FReply Reply = SButton::OnKeyUp(Geometry, Event);
+            if (!IsPressed()) PressRevision.Reset();
+            return Reply;
+        }
+        virtual void OnMouseCaptureLost(const FCaptureLostEvent& Event) override
+        {
+            PressRevision.Reset();
+            SButton::OnMouseCaptureLost(Event);
+        }
+        virtual void OnFocusLost(const FFocusEvent& Event) override
+        {
+            PressRevision.Reset();
+            SButton::OnFocusLost(Event);
+        }
+    private:
+        TAttribute<uint64> Revision;
+        TOptional<uint64> PressRevision;
+    };
+}
+
 void SBaddieCompanionConnectionPanel::Construct(const FArguments& Args)
 {
     Owner = Args._Owner;
@@ -67,21 +120,25 @@ void SBaddieCompanionConnectionPanel::Construct(const FArguments& Args)
                             [ MakeText(ModalBody) ]
                             + SVerticalBox::Slot().AutoHeight().Padding(0, 0, 0, 8)
                             [
-                                SAssignNew(KeepButton, SButton).ContentPadding(12)
+                                SAssignNew(KeepButton, BaddieConnectionPanelPrivate::SRevisionButton,
+                                    TAttribute<uint64>::CreateLambda([this]() { return ConfirmationRevision; })).ContentPadding(12)
                                 .Text(FText::FromString(TEXT("Cancel")))
                                 .OnClicked_Lambda([this]()
                                 {
-                                    if (auto* Controller = Owner.Get()) Controller->CancelConnectionAction();
+                                    if (bModal)
+                                        if (auto* Controller = Owner.Get()) Controller->CancelConnectionAction();
                                     return FReply::Handled();
                                 })
                             ]
                             + SVerticalBox::Slot().AutoHeight()
                             [
-                                SAssignNew(ConfirmButton, SButton).ContentPadding(12)
+                                SAssignNew(ConfirmButton, BaddieConnectionPanelPrivate::SRevisionButton,
+                                    TAttribute<uint64>::CreateLambda([this]() { return ConfirmationRevision; })).ContentPadding(12)
                                 .Text(FText::FromString(TEXT("Confirm")))
                                 .OnClicked_Lambda([this]()
                                 {
-                                    if (auto* Controller = Owner.Get()) Controller->ConfirmConnectionAction();
+                                    if (bModal)
+                                        if (auto* Controller = Owner.Get()) Controller->ConfirmConnectionAction();
                                     return FReply::Handled();
                                 })
                             ]
@@ -138,7 +195,45 @@ void SBaddieCompanionConnectionPanel::Construct(const FArguments& Args)
     AddButton(ResumeButton, TEXT("Resume inspection"), EBaddieConnectionAction::ResumeInspection);
     Controls = { DeviceName, ConnectButton, ApartmentButton, CopyButton, CancelButton,
         DisconnectButton, RepairButton, RepairApartmentButton, ResumeButton };
+
+    AddText(GameplayTitle, 24);
+    AddText(GameplayStatus);
+    AddText(GameplayLimits);
+    AddText(GameplayDeviceText);
+    Content->AddSlot().AutoHeight().Padding(0, 0, 0, 12)
+    [
+        SAssignNew(GameplayDeviceName, SEditableTextBox)
+        .Text(FText::FromString(TEXT("Baddie on Windows")))
+        .HintText(FText::FromString(TEXT("Gameplay device name")))
+        .IsEnabled_Lambda([this]() { return CanUseGameplayControls() && BaddieCompanion::CanPairGameplay(GameplayView); })
+    ];
+    AddText(GameplayNameError);
+    AddText(GameplayCode, 24);
+    AddText(GameplayLink);
+    AddText(GameplayLifetime);
+    AddText(GameplayPresence);
+    AddText(GameplayError);
+    AddText(GameplayRetry);
+    const auto AddGameplayButton = [this, &Content](TSharedPtr<SButton>& Target, const TCHAR* Label, EBaddieGameplayConnectionAction Action)
+    {
+        Content->AddSlot().AutoHeight().Padding(0, 0, 0, 8)[MakeGameplayButton(Target, Label, Action)];
+    };
+    AddGameplayButton(GameplayPairButton, TEXT("Connect gameplay entry"), EBaddieGameplayConnectionAction::Pair);
+    GameplayPairButton->SetEnabled(TAttribute<bool>::CreateLambda([this]()
+        { return CanUseGameplayControls() && BaddieCompanion::CanPairGameplay(GameplayView) && ValidGameplayDeviceName(); }));
+    AddGameplayButton(GameplayCopyButton, TEXT("Copy gameplay approval link"), EBaddieGameplayConnectionAction::CopyLink);
+    AddGameplayButton(GameplayCancelButton, TEXT("Cancel gameplay pairing"), EBaddieGameplayConnectionAction::CancelPairing);
+    AddGameplayButton(GameplayEnterButton, TEXT("Enter city presence"), EBaddieGameplayConnectionAction::Enter);
+    GameplayEnterButton->SetEnabled(TAttribute<bool>::CreateLambda([this]()
+        { return CanUseGameplayControls() && BaddieCompanion::CanEnterGameplay(GameplayView); }));
+    AddGameplayButton(GameplayCancelEntryButton, TEXT("Cancel entry"), EBaddieGameplayConnectionAction::CancelEntry);
+    AddGameplayButton(GameplayLeaveButton, TEXT("Leave city presence"), EBaddieGameplayConnectionAction::Leave);
+    AddGameplayButton(GameplayDisconnectButton, TEXT("Disconnect gameplay"), EBaddieGameplayConnectionAction::Disconnect);
+    GameplayControls = { GameplayDeviceName, GameplayPairButton, GameplayCopyButton, GameplayCancelButton,
+        GameplayEnterButton, GameplayCancelEntryButton, GameplayLeaveButton, GameplayDisconnectButton };
+    Controls.Append(GameplayControls);
     PresentConnection(BaddieCompanion::FConnectionView(), nullptr);
+    PresentGameplay(BaddieCompanion::FGameplayConnectionView(), 0);
 }
 
 TSharedRef<STextBlock> SBaddieCompanionConnectionPanel::MakeText(TSharedPtr<STextBlock>& Target, int32 Size)
@@ -160,6 +255,21 @@ TSharedRef<SButton> SBaddieCompanionConnectionPanel::MakeButton(
             .WrapTextAt(this, &SBaddieCompanionConnectionPanel::TextWidth)
             .WrappingPolicy(ETextWrappingPolicy::AllowPerCharacterWrapping)
         ];
+}
+
+TSharedRef<SButton> SBaddieCompanionConnectionPanel::MakeGameplayButton(
+    TSharedPtr<SButton>& Target, const TCHAR* Label, EBaddieGameplayConnectionAction Action)
+{
+    return SAssignNew(Target, BaddieConnectionPanelPrivate::SRevisionButton,
+        TAttribute<uint64>::CreateLambda([this]() { return GameplayRevision; })).ContentPadding(12)
+        .IsEnabled_Lambda([this]() { return CanUseGameplayControls(); })
+        .OnClicked_Lambda([this, Action]()
+        {
+            if (CanUseGameplayControls()) if (auto* Controller = Owner.Get())
+                Controller->RequestGameplayConnectionAction(Action, GameplayRevision, GameplayDeviceName->GetText().ToString().TrimStartAndEnd());
+            return FReply::Handled();
+        })
+        [ SNew(STextBlock).Text(FText::FromString(Label)).WrapTextAt(this, &SBaddieCompanionConnectionPanel::TextWidth) ];
 }
 
 void SBaddieCompanionConnectionPanel::SetText(const TSharedPtr<STextBlock>& Target, const FString& Text)
@@ -230,9 +340,9 @@ void SBaddieCompanionConnectionPanel::PresentConnection(
     SetText(ActiveRoomText, Selection ? (Selection->ActiveRoom.Id.Equals(Selection->HomeRoom.Id, ESearchCase::CaseSensitive)
         ? TEXT("Selected room: Home") : TEXT("Selected room: ") + Selection->ActiveRoom.Name) : FString());
     SetText(UnsupportedText, Selection
-        ? (!Presentation ? TEXT("Saved Home or Companion data is invalid. Gameplay entry is not available.")
-            : !Presentation->Home.bSourceMapped ? TEXT("This saved Home layout is not supported yet. Gameplay entry is not available.")
-            : TEXT("Saved Home and Companion assets are not available yet. Gameplay entry is not available.")) : FString());
+        ? (!Presentation ? TEXT("Saved Home or Companion data is invalid.")
+            : !Presentation->Home.bSourceMapped ? TEXT("This saved Home layout is not supported yet.")
+            : TEXT("Saved Home and Companion assets are not available yet.")) : FString());
     SetVisible(ConnectButton, bCanRequest);
     SetVisible(ApartmentButton, bCanRequest);
     SetVisible(CopyButton, bApproval && !View.ApprovalLink.IsEmpty());
@@ -243,11 +353,77 @@ void SBaddieCompanionConnectionPanel::PresentConnection(
     SetVisible(ResumeButton, false);
 }
 
+void SBaddieCompanionConnectionPanel::PresentGameplay(const BaddieCompanion::FGameplayConnectionView& View, uint64 Revision)
+{
+    using BaddieCompanion::EGameplayConnectionState;
+    const bool bChanged = GameplayRevision != Revision;
+    const bool bFocused = GameplayControls.ContainsByPredicate([](const TSharedPtr<SWidget>& Control)
+        { return Control->HasKeyboardFocus() || Control->HasFocusedDescendants(); });
+    GameplayView = View;
+    GameplayRevision = Revision;
+    if (bOffline) { ClearGameplayPresentation(); return; }
+    if (bChanged && bFocused && !bModal) { bFocusDefault = true; bPreferGameplayFocus = true; }
+    SetText(GameplayTitle, TEXT("Gameplay entry"));
+    FString Status;
+    switch (View.State)
+    {
+    case EGameplayConnectionState::Disabled: Status = TEXT("Gameplay entry is disabled."); break;
+    case EGameplayConnectionState::SignedOut: Status = TEXT("Gameplay entry is not connected."); break;
+    case EGameplayConnectionState::RequestingCode: Status = TEXT("Requesting gameplay approval."); break;
+    case EGameplayConnectionState::AwaitingApproval: Status = TEXT("Approve gameplay entry in Baddie and compare the code."); break;
+    case EGameplayConnectionState::Authorized: Status = TEXT("Gameplay entry approved. Ready to enter."); break;
+    case EGameplayConnectionState::Entering: Status = TEXT("Requesting city presence."); break;
+    case EGameplayConnectionState::Joined: Status = View.bStale ? TEXT("City presence was last confirmed; reconnecting.") : TEXT("City presence active."); break;
+    case EGameplayConnectionState::Leaving: Status = TEXT("Ending city presence. Waiting for confirmation."); break;
+    case EGameplayConnectionState::EntryLost: Status = TEXT("City presence ended. Waiting for entry cleanup."); break;
+    case EGameplayConnectionState::Expired: Status = TEXT("Gameplay access expired."); break;
+    case EGameplayConnectionState::Unavailable: Status = TEXT("Gameplay entry is unavailable."); break;
+    }
+    SetText(GameplayStatus, Status);
+    SetText(GameplayLimits, View.State == EGameplayConnectionState::Disabled ? FString()
+        : TEXT("City presence only. Movement, combat and voice are not available."));
+    SetText(GameplayDeviceText, View.DeviceName.IsEmpty() ? FString() : TEXT("Gameplay device: ") + View.DeviceName);
+    const bool bCanRequest = View.State == EGameplayConnectionState::SignedOut || View.State == EGameplayConnectionState::Expired
+        || View.State == EGameplayConnectionState::Unavailable;
+    const bool bApproval = View.State == EGameplayConnectionState::AwaitingApproval && View.GrantOrPairingRemainingSeconds > 0;
+    SetVisible(GameplayDeviceName, bCanRequest);
+    SetText(GameplayNameError, bCanRequest && !ValidGameplayDeviceName()
+        ? TEXT("Use a device name of 1 to 80 characters without control characters.") : FString());
+    SetText(GameplayCode, bApproval ? TEXT("Gameplay comparison code: ") + View.DisplayCode : FString());
+    SetText(GameplayLink, bApproval ? View.ApprovalLink : FString());
+    SetText(GameplayLifetime, View.GrantOrPairingRemainingSeconds > 0 ? FString::Printf(TEXT("%s expires in %d seconds."),
+        bApproval ? TEXT("Gameplay approval") : TEXT("Gameplay access"), FMath::CeilToInt(View.GrantOrPairingRemainingSeconds)) : FString());
+    SetText(GameplayPresence, View.State == EGameplayConnectionState::Joined && View.PresenceRemainingSeconds > 0
+        ? FString::Printf(TEXT("%s presence expires in %d seconds."), View.bStale ? TEXT("Last confirmed") : TEXT("Current"),
+            FMath::CeilToInt(View.PresenceRemainingSeconds)) : FString());
+    SetText(GameplayError, View.Error);
+    SetText(GameplayRetry, View.RetryAfterSeconds > 0
+        ? FString::Printf(TEXT("Gameplay retry in %d seconds."), FMath::CeilToInt(View.RetryAfterSeconds)) : FString());
+    SetVisible(GameplayPairButton, bCanRequest);
+    SetVisible(GameplayCopyButton, bApproval && !View.ApprovalLink.IsEmpty());
+    SetVisible(GameplayCancelButton, BaddieCompanion::IsGameplayPairing(View.State));
+    SetVisible(GameplayEnterButton, View.State == EGameplayConnectionState::Authorized);
+    SetVisible(GameplayCancelEntryButton, View.State == EGameplayConnectionState::Entering);
+    SetVisible(GameplayLeaveButton, View.State == EGameplayConnectionState::Joined);
+    SetVisible(GameplayDisconnectButton, BaddieCompanion::CanDisconnectGameplay(View));
+}
+
+void SBaddieCompanionConnectionPanel::ClearGameplayPresentation()
+{
+    GameplayView = {};
+    GameplayRevision = 0;
+    for (const auto& Text : { GameplayTitle, GameplayStatus, GameplayLimits, GameplayDeviceText, GameplayNameError,
+        GameplayCode, GameplayLink, GameplayLifetime, GameplayPresence, GameplayError, GameplayRetry }) SetText(Text, FString());
+    for (const auto& Control : GameplayControls) SetVisible(Control, false);
+    if (GameplayDeviceName.IsValid()) GameplayDeviceName->SetText(FText::FromString(TEXT("Baddie on Windows")));
+}
+
 void SBaddieCompanionConnectionPanel::PresentOffline(
     const BaddieCompanion::FSnapshotSelection* Selection, const FString& Status, bool bCaptured)
 {
     if (!bOffline || bHasSelection != (Selection != nullptr) || (bWasCaptured && !bCaptured)) bFocusDefault = true;
     bOffline = true;
+    ClearGameplayPresentation();
     bWasCaptured = bCaptured;
     bHasSelection = Selection != nullptr;
     SetVisibility(bCaptured ? EVisibility::HitTestInvisible : EVisibility::Visible);
@@ -275,6 +451,7 @@ void SBaddieCompanionConnectionPanel::PresentOffline(
 
 void SBaddieCompanionConnectionPanel::ClearPrivatePresentation()
 {
+    ClearGameplayPresentation();
     ReturnFocus.Reset();
     bHasSelection = false;
     SetText(HomeText, FString());
@@ -303,6 +480,7 @@ void SBaddieCompanionConnectionPanel::DetachOwner()
 void SBaddieCompanionConnectionPanel::ShowConfirmation(
     EBaddieConnectionAction Action, BaddieCompanion::EConnectionScope Scope)
 {
+    ++ConfirmationRevision;
     const bool bRepair = Action == EBaddieConnectionAction::Repair || Action == EBaddieConnectionAction::RepairApartment;
     const bool bApartment = Scope == BaddieCompanion::EConnectionScope::Apartment;
     ReturnFocus = Action == EBaddieConnectionAction::RepairApartment ? RepairApartmentButton
@@ -324,8 +502,26 @@ void SBaddieCompanionConnectionPanel::ShowConfirmation(
     bFocusDefault = false;
 }
 
+void SBaddieCompanionConnectionPanel::ShowGameplayConfirmation(EBaddieGameplayConnectionAction Action)
+{
+    ++ConfirmationRevision;
+    const bool bLeave = Action == EBaddieGameplayConnectionAction::Leave;
+    ReturnFocus = bLeave ? GameplayLeaveButton : GameplayDisconnectButton;
+    bModal = true;
+    MainSurface->SetEnabled(false);
+    SetText(ModalTitle, bLeave ? TEXT("Leave city presence?") : TEXT("Disconnect gameplay entry?"));
+    SetText(ModalBody, bLeave ? TEXT("End this city presence. Gameplay approval remains until it expires.")
+        : TEXT("End this city presence and remove gameplay approval from this device. Home and apartment read access are unchanged."));
+    ConfirmButton->SetContent(SNew(STextBlock).Text(FText::FromString(bLeave ? TEXT("Leave") : TEXT("Disconnect")))
+        .WrapTextAt(this, &SBaddieCompanionConnectionPanel::TextWidth));
+    SetVisible(ModalSurface, true);
+    Focus(KeepButton);
+    bFocusDefault = false;
+}
+
 void SBaddieCompanionConnectionPanel::DismissConfirmation()
 {
+    ++ConfirmationRevision;
     const bool bWasOpen = bModal;
     bModal = false;
     SetVisible(ModalSurface, false);
@@ -352,6 +548,16 @@ bool SBaddieCompanionConnectionPanel::ValidDeviceName() const
 {
     if (!DeviceName.IsValid()) return false;
     return BaddieCompanion::IsValidConnectionDeviceName(DeviceName->GetText().ToString());
+}
+
+bool SBaddieCompanionConnectionPanel::CanUseGameplayControls() const
+{
+    return !bOffline && !bModal && Owner.IsValid() && GameplayRevision != 0;
+}
+
+bool SBaddieCompanionConnectionPanel::ValidGameplayDeviceName() const
+{
+    return GameplayDeviceName.IsValid() && BaddieCompanion::IsValidConnectionDeviceName(GameplayDeviceName->GetText().ToString());
 }
 
 FReply SBaddieCompanionConnectionPanel::InvokeAction(EBaddieConnectionAction Action)
@@ -395,6 +601,10 @@ void SBaddieCompanionConnectionPanel::Focus(const TSharedPtr<SWidget>& Target)
 void SBaddieCompanionConnectionPanel::FocusDefault()
 {
     if (bModal) { Focus(KeepButton); return; }
+    if (bPreferGameplayFocus && !bOffline)
+        for (const auto& Control : GameplayControls)
+            if (IsFocusableControl(Control)) { Focus(Control); bPreferGameplayFocus = false; return; }
+    bPreferGameplayFocus = false;
     for (const auto& Control : Controls)
         if (IsFocusableControl(Control)) { Focus(Control); return; }
     Focus(SharedThis(this));
