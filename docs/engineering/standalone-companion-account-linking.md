@@ -8,7 +8,7 @@ October 10, 2026. Backend and client source contract. Not deployed or exercised 
 
 Creation, preview, approval, exchange and snapshots return `disabled` unless `STANDALONE_COMPANION_ENABLED` is exactly `true`. Its optional declaration is in `convex.config.ts`; the local generated environment type has the matching field. No deployment setting was changed. Enable access only in a separately authorized verification or release pass after client consent and session handling pass acceptance.
 
-The only scope is `companion_home_read`. Pairings and grants store it explicitly. Grant credentials belong to `companionGameGrants`, never `userSessions`, and do not authenticate existing account APIs. The game never receives the approving account's session token.
+The original scope is `companion_home_read`. A separate `companion_apartment_read` consent/projection, Unreal session acceptance and explicit apartment controls are now implemented in source; see `standalone-companion-apartment-access.md`. They do not expand existing Home grants. The game keeps a Home-only connection action and requests apartment access only through the separate apartment action. Pairings and grants store their scope explicitly. Grant credentials belong to `companionGameGrants`, never `userSessions`, and do not authenticate existing account APIs. The game never receives the approving account's session token.
 
 ## Pairing and consent
 
@@ -18,9 +18,9 @@ All operation names below have the `companionGameAccess:` prefix. Arguments mark
 
 | Operation | Caller and input | Result |
 | --- | --- | --- |
-| `begin` | Game: `deviceId`, `deviceName` | `pending`, public `pairingToken`, private `deviceSecret`, comparison `displayCode`, scope, device name, expiry and poll interval. |
+| `begin` | Game: `deviceId`, `deviceName`, optional requested `scope` | `pending`, public `pairingToken`, private `deviceSecret`, comparison `displayCode`, scope, device name, expiry and poll interval. Omitted scope stays Home-only. |
 | `preview` | Baddie: `pairingToken`, account `sessionToken`, approving `deviceId` | Pending device details, scope, saved library revision, Companion ID/name and Home ID/name for the approval sheet. |
-| `approve` | Baddie: preview arguments plus `scope`, `expectedRevision`, `characterId`, `homeRoomId` from that preview | Records consent only if those values still match that account's active saved Companion and Home. Returns `{ ok: true }`. |
+| `approve` | Baddie: preview arguments plus `scope`, `expectedRevision`, `characterId`, `homeRoomId` from that preview | Records consent only if those values still match that account's active saved Companion and Home and the scope matches the pairing. Apartment approval additionally requires the complete displayed `roomIds`; Home approval rejects that field. Returns `{ ok: true }`. |
 | `reject` | Baddie: preview arguments | Cancels a pending request. |
 | `exchange` | Game: private `deviceSecret`, original `deviceId` | `pending` with a poll interval, or `connected` with private `gameToken`, `grantId`, scope and expiry. |
 | `cancel` | Game: private `deviceSecret`, original `deviceId` | Cancels the pairing and revokes its issued grant, if any, while the pairing remains available and unexpired. |
@@ -43,7 +43,7 @@ Timed responses include `serverNow` and `expiresAt`. A client should conservativ
 
 ## Read-only snapshot
 
-`snapshot` requires `gameToken`, `deviceSecret` and the original `deviceId`. It rechecks the grant, approving account session and moderation before reading the current saved library. It returns:
+`snapshot` requires `gameToken`, `deviceSecret` and the original `deviceId`. It rechecks the grant, approving account session and moderation before reading the current saved library. This endpoint accepts only `companion_home_read`. Apartment grants use the separate `apartmentSnapshot` endpoint and cannot change this response's scope or inventory. The Home endpoint returns:
 
 ```text
 status: ready
@@ -97,9 +97,11 @@ The subsystem reads `[BaddieCompanion]` keys `ConvexOrigin` and `bAccountLinking
 
 The gameplay owner calls `BeginPairing`, renders only `GetConnectionView`, and uses `Disconnect` when leaving or switching accounts. `OnConnectionChanged` signals state changes; `CopySnapshot` supplies the scoped saved selection and clears its output when access is unavailable or locally expired. Consumers must remove retained private presentation on that failure. These C++ interfaces expose no game token, proof or full-account credential. A new pairing creates a new device identifier and session generation.
 
-Exchange uses the returned polling interval. Snapshot refresh is limited to once per five seconds; server throttling delays subsequent reads. A throttled begin request blocks another begin for the returned interval and exposes `RetryAfterSeconds` in the public view. Deadline checks use both monotonic and wall clocks and subtract request duration. Snapshot responses may shorten, never extend, the original grant. The client requires exactly one character and Home, case-sensitive selection/grant IDs and nondecreasing revisions. Lost exchange responses retry with the original proof while the pairing remains valid. Sign-out clears local state immediately and makes a separate bounded best-effort cancellation/revocation request.
+Exchange uses the returned polling interval. Snapshot refresh is limited to once per five seconds; server throttling delays subsequent reads. A throttled begin request blocks another begin for the returned interval and exposes `RetryAfterSeconds` in the public view. Deadline checks use both monotonic and wall clocks and subtract request duration. Snapshot responses may shorten, never extend, the original grant. Both scopes require one Companion, case-sensitive selection/grant IDs and nondecreasing revisions. Home scope additionally requires exactly one room and active-equals-Home. Apartment scope requires the complete approved room-ID set and rejects later inventory changes. Lost exchange responses retry with the original proof while the pairing remains valid. Sign-out clears local state immediately and makes a separate bounded best-effort cancellation/revocation request.
 
-`AutomaticRetryAfterSeconds` separately exposes exchange/snapshot transport-error and throttle delays from the existing request scheduler. It is not a second timer and does not gate manual Connect, re-pair or disconnect actions. The value is zero during routine polling, an in-flight request, cleared access, or when the next attempt would not precede local expiry. The Slate panel uses it for an automatic retry countdown while retaining `RetryAfterSeconds` for the manual begin delay. The source update is currently on Mac; guarded transfer and rendered verification remain pending.
+`BeginPairing(DeviceName, Scope)` defaults to `EConnectionScope::Home`. `GetConnectionView().Scope` describes the request being made or retained. The session requires matching response scope and chooses the corresponding snapshot endpoint. Only a validated apartment snapshot sets `FSnapshotSelection::HasCompleteApartmentInventory`; raw or offline JSON never does. The private room-ID set and this marker clear with the rest of the connection. The Slate apartment action now calls this path through the existing controller. Re-pair preserves the current scope; upgrading a connected Home requests fresh apartment approval through a dedicated confirmation. This Mac-only follow-up awaits its Windows delivery.
+
+`AutomaticRetryAfterSeconds` separately exposes exchange/snapshot transport-error and throttle delays from the existing request scheduler. It is not a second timer and does not gate manual Connect, re-pair or disconnect actions. The value is zero during routine polling, an in-flight request, cleared access, or when the next attempt would not precede local expiry. The Slate panel uses it for an automatic retry countdown while retaining `RetryAfterSeconds` for the manual begin delay. The matching source reached Windows at `73d2ed5`; rendered verification remains pending.
 
 Credentials and private snapshots exist only in process memory. Restarting the game requires a new pairing. No credential is written to an INI file, SaveGame, log, analytics event or Blueprint property. Asset mapping and gameplay admission still belong to their separate owners; a readable snapshot does not grant permission to move in a server game.
 

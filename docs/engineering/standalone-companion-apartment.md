@@ -22,7 +22,7 @@ The measured bedroom and studio doorway sources are in `packages/utils/src/compa
 
 ## Current source
 
-Mac source checkpoint: `a377f2ecbcd548a4a0b9cf2e9e755309368378f2`. This patch is implemented and parent-reviewed in source. Windows delivery and independent review are the next handoff steps; the connected environment is not complete.
+The apartment mapping at Mac `a377f2ecbcd548a4a0b9cf2e9e755309368378f2` and support-policy follow-up reached Windows `3162fdf7f0fc07bb69c4b460c074b350cc451dd0`. The returned native source is reviewed and corrected at Mac `3f0318fb8`. Apartment session acceptance and explicit controls now use that native controller, but their combined Windows handoff remains pending. The connected environment is not complete.
 
 `BaddieCompanionLayoutMapping.cpp` extends the existing saved-room plan to Pat's studio, bedroom v01, kitchen, bathroom, legacy studio and terrace. Bedroom v02 keeps its measured mapping. It preserves floor/support anchors, walls/openings, camera references, fixed camera housings, preferred spawn, extension metadata and quarter turns. Legacy rooms retain catalog body dimensions and their original placement envelope. Terrace retains horizontal supports without indoor walls.
 
@@ -30,7 +30,7 @@ Mac source checkpoint: `a377f2ecbcd548a4a0b9cf2e9e755309368378f2`. This patch is
 
 `BaddieCompanionApartment.h/.cpp` adds the required two-way adjacency to that existing plan. Supplied rooms connect to the hallway; the hallway connects to the living room; the living room connects to the exterior landing. A supplied `home-living` is reused as that living-room endpoint. Native doorways, common-space modules, lighting, complete inventory and exterior admission remain unverified, and `IsWalkThroughReady()` returns false. This is connected-apartment data, not a connected rendered environment.
 
-The existing `companion_home_read` grant supplies exactly one pinned Home room. The server projection and Unreal session's one-room check are unchanged. No apartment-wide grant, room writes, extra room entitlement, world admission or live access has been added. Apartment-wide consent/projection is a separate source integration, not permission inferred from this client plan.
+The existing `companion_home_read` grant supplies exactly one pinned Home room. Its server projection and Unreal session's Home-scope one-room check are unchanged. The original apartment plan added no grant or authority. The separate source follow-up in `standalone-companion-apartment-access.md` adds explicit apartment consent, a pinned all-room projection, Unreal session acceptance and controller/Slate controls. Only a validated apartment response marks complete inventory in the existing presentation plan. Combined Windows delivery remains pending. Neither scope adds room writes, extra room entitlements, world admission or enabled live access.
 
 ## Source review
 
@@ -40,7 +40,7 @@ The apartment review covered the requested connection order, reuse of `home-livi
 
 ## Remaining work
 
-1. Define explicit apartment-wide read consent and the corresponding server projection without expanding existing grants. Preserve account, revocation, expiry and entitlement filtering.
+1. Deliver the reviewed native corrections and integrated apartment controls/session source to Windows through the guarded handoff. The session preserves the Home-only grant, validates the complete pinned room set and clears all room data on access loss. The backend, Baddie approval and Unreal client source are recorded in `standalone-companion-apartment-access.md`; live access remains disabled.
 2. Author native hallway, living-room and exterior modules. Bind supplied saved-room content and real doorway openings, preserving furniture and room-local coordinates.
 3. Use the existing Unreal camera, movement and navigation owners for room-to-hallway, hallway-to-living-room and living-room-to-exterior traversal. Bind exterior game admission separately.
 4. During the authorised engine/content pass, inspect connected spaces, doorway clearance, daylight, exterior views and all saved room variants. No installation, import, engine launch, compilation or release is implied by this source patch.

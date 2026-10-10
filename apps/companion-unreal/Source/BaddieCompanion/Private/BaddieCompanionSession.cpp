@@ -12,33 +12,73 @@
 #include "Serialization/JsonWriter.h"
 
 using BaddieCompanion::EConnectionState;
+using BaddieCompanion::EConnectionScope;
 
 namespace
 {
-    constexpr double PairingSeconds = 300.0;
-    constexpr double GrantSeconds = 900.0;
-    constexpr int32 MaxResponseBytes = BaddieCompanion::MaxSnapshotBytes + 16 * 1024;
-    const TCHAR* Scope = TEXT("companion_home_read");
+    constexpr double SessionPairingSeconds = 300.0;
+    constexpr double SessionGrantSeconds = 900.0;
+    constexpr int32 SessionMaxResponseBytes = BaddieCompanion::MaxSnapshotBytes + 16 * 1024;
+    const TCHAR* SessionScopeName(EConnectionScope Scope)
+    {
+        return Scope == EConnectionScope::Apartment ? TEXT("companion_apartment_read") : TEXT("companion_home_read");
+    }
 
-    bool SameText(const FString& Left, const FString& Right)
+    const TCHAR* SessionSnapshotOperation(EConnectionScope Scope)
+    {
+        return Scope == EConnectionScope::Apartment ? TEXT("apartmentSnapshot") : TEXT("snapshot");
+    }
+
+    bool SessionSameText(const FString& Left, const FString& Right)
     {
         return Left.Equals(Right, ESearchCase::CaseSensitive);
     }
 
-    bool ReadText(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, int32 Max, FString& Out)
+    bool SessionReadText(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, int32 Max, FString& Out)
     {
         const auto Value = Object.IsValid() ? Object->TryGetField(Key) : nullptr;
         return Value.IsValid() && Value->Type == EJson::String && Value->TryGetString(Out)
             && !Out.IsEmpty() && Out.Len() <= Max;
     }
 
-    bool ReadNumber(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, double& Out)
+    bool SessionReadNumber(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, double& Out)
     {
         const auto Value = Object.IsValid() ? Object->TryGetField(Key) : nullptr;
         return Value.IsValid() && Value->Type == EJson::Number && Value->TryGetNumber(Out) && FMath::IsFinite(Out);
     }
 
-    bool IsHex(const FString& Text, int32 Length)
+    bool SessionContainsId(const TArray<FString>& Ids, const FString& Id)
+    {
+        return Ids.ContainsByPredicate([&Id](const FString& Existing) { return SessionSameText(Existing, Id); });
+    }
+
+    bool SessionReadApartmentRoomIds(const TSharedPtr<FJsonObject>& Result,
+        const BaddieCompanion::FSnapshotSelection& Selection, TArray<FString>& Out)
+    {
+        Out.Reset();
+        const TArray<TSharedPtr<FJsonValue>>* Values = nullptr;
+        if (!Result->TryGetArrayField(TEXT("roomIds"), Values) || !Values
+            || Values->IsEmpty() || Values->Num() > 12 || Values->Num() != Selection.Rooms.Num()) return false;
+        for (const auto& Value : *Values)
+        {
+            FString Id;
+            if (!Value.IsValid() || Value->Type != EJson::String || !Value->TryGetString(Id)
+                || Id.TrimStartAndEnd().IsEmpty() || Id.Len() > 80 || SessionContainsId(Out, Id)
+                || !Selection.Rooms.ContainsByPredicate([&Id](const BaddieCompanion::FRoomSelection& Room)
+                    { return SessionSameText(Room.Id, Id); })) return false;
+            Out.Add(MoveTemp(Id));
+        }
+        return true;
+    }
+
+    bool SessionSameRoomIds(const TArray<FString>& Left, const TArray<FString>& Right)
+    {
+        if (Left.Num() != Right.Num()) return false;
+        for (const auto& Id : Left) if (!SessionContainsId(Right, Id)) return false;
+        return true;
+    }
+
+    bool SessionIsHex(const FString& Text, int32 Length)
     {
         if (Text.Len() != Length) return false;
         for (const TCHAR Ch : Text)
@@ -46,7 +86,7 @@ namespace
         return true;
     }
 
-    bool IsDeploymentOrigin(const FString& Origin)
+    bool SessionIsDeploymentOrigin(const FString& Origin)
     {
         if (!Origin.StartsWith(TEXT("https://"), ESearchCase::CaseSensitive)
             || !Origin.EndsWith(TEXT(".convex.cloud"), ESearchCase::CaseSensitive)) return false;
@@ -57,12 +97,12 @@ namespace
         return true;
     }
 
-    bool Encode(const TSharedRef<FJsonObject>& Object, FString& Out)
+    bool SessionEncode(const TSharedRef<FJsonObject>& Object, FString& Out)
     {
         return FJsonSerializer::Serialize(Object, TJsonWriterFactory<>::Create(&Out));
     }
 
-    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> MakeRequest(
+    TSharedRef<IHttpRequest, ESPMode::ThreadSafe> SessionMakeRequest(
         const FString& Origin, const FString& Operation, const TSharedRef<FJsonObject>& Args)
     {
         const auto Envelope = MakeShared<FJsonObject>();
@@ -72,7 +112,7 @@ namespace
         Arguments.Add(MakeShared<FJsonValueObject>(Args));
         Envelope->SetArrayField(TEXT("args"), Arguments);
         FString Body;
-        Encode(Envelope, Body);
+        SessionEncode(Envelope, Body);
         const auto Request = FHttpModule::Get().CreateRequest();
         Request->SetURL(Origin + TEXT("/api/mutation"));
         Request->SetVerb(TEXT("POST"));
@@ -85,7 +125,7 @@ namespace
         return Request;
     }
 
-    double Elapsed(double Monotonic, const FDateTime& Wall)
+    double SessionElapsed(double Monotonic, const FDateTime& Wall)
     {
         return FMath::Max(0.0, FMath::Max(FPlatformTime::Seconds() - Monotonic,
             (FDateTime::UtcNow() - Wall).GetTotalSeconds()));
@@ -101,6 +141,7 @@ struct FBaddieCompanionSessionData
     FDateTime WallDeadline;
     BaddieCompanion::FConnectionView View;
     BaddieCompanion::FSnapshotSelection Selection;
+    TArray<FString> ApprovedRoomIds;
     FHttpRequestPtr Request;
 
     double Remaining(double Now = FPlatformTime::Seconds()) const
@@ -112,7 +153,7 @@ struct FBaddieCompanionSessionData
     bool SetLifetime(const TSharedPtr<FJsonObject>& Result, double MaxSeconds, double ElapsedSeconds, bool bShortenOnly)
     {
         double ExpiresAt = 0, ServerNow = 0;
-        if (!ReadNumber(Result, TEXT("expiresAt"), ExpiresAt) || !ReadNumber(Result, TEXT("serverNow"), ServerNow)
+        if (!SessionReadNumber(Result, TEXT("expiresAt"), ExpiresAt) || !SessionReadNumber(Result, TEXT("serverNow"), ServerNow)
             || ServerNow <= 0 || ExpiresAt <= ServerNow || ExpiresAt - ServerNow > MaxSeconds * 1000.0) return false;
         double Seconds = (ExpiresAt - ServerNow) / 1000.0 - ElapsedSeconds;
         if (bShortenOnly) Seconds = FMath::Min(Seconds, Remaining());
@@ -172,6 +213,7 @@ void UBaddieCompanionSession::ClearPrivateState()
     }
     Data->DeviceId.Reset(); Data->DeviceSecret.Reset(); Data->GameToken.Reset(); Data->GrantId.Reset();
     Data->Selection = {}; Data->View = {}; Data->bHasSnapshot = false; Data->bRetryBackoff = false;
+    Data->ApprovedRoomIds.Reset();
     Data->Deadline = 0; Data->WallDeadline = FDateTime(); Data->NextAttempt = 0;
 }
 
@@ -187,28 +229,32 @@ void UBaddieCompanionSession::Configure(const FString& ConvexOrigin, bool bEnabl
 {
     BestEffortDisconnect();
     ClearPrivateState();
-    Data->Origin = IsDeploymentOrigin(ConvexOrigin) ? ConvexOrigin : FString();
+    Data->Origin = SessionIsDeploymentOrigin(ConvexOrigin) ? ConvexOrigin : FString();
     Data->BeginRetryAt = 0;
     Data->bEnabled = bEnabled && !Data->Origin.IsEmpty();
     Data->View.State = Data->bEnabled ? EConnectionState::SignedOut : EConnectionState::Disabled;
     OnConnectionChanged.Broadcast();
 }
 
-void UBaddieCompanionSession::BeginPairing(const FString& DeviceName)
+void UBaddieCompanionSession::BeginPairing(const FString& DeviceName, EConnectionScope Scope)
 {
     if (!Data->bEnabled || FPlatformTime::Seconds() < Data->BeginRetryAt) return;
     BestEffortDisconnect();
     ClearPrivateState();
+    if (Scope != EConnectionScope::Home && Scope != EConnectionScope::Apartment)
+    { Stop(EConnectionState::Unavailable, TEXT("The connection scope was not accepted.")); return; }
     const FString Name = DeviceName.TrimStartAndEnd();
     bool bValidName = !Name.IsEmpty() && Name.Len() <= 80;
     for (const TCHAR Ch : Name) if (Ch < 32 || Ch == 127) bValidName = false;
     if (!bValidName) { Stop(EConnectionState::Unavailable, TEXT("Enter a device name between 1 and 80 characters.")); return; }
     Data->DeviceId = FGuid::NewGuid().ToString(EGuidFormats::Digits);
     Data->View.DeviceName = Name;
+    Data->View.Scope = Scope;
     Data->View.State = EConnectionState::RequestingCode;
     const auto Args = MakeShared<FJsonObject>();
     Args->SetStringField(TEXT("deviceId"), Data->DeviceId);
     Args->SetStringField(TEXT("deviceName"), Name);
+    Args->SetStringField(TEXT("scope"), SessionScopeName(Scope));
     Send(TEXT("begin"), Args);
     OnConnectionChanged.Broadcast();
 }
@@ -219,7 +265,7 @@ void UBaddieCompanionSession::BestEffortDisconnect()
     const auto Args = Data->DeviceArgs();
     const bool bGrant = !Data->GameToken.IsEmpty();
     if (bGrant) Args->SetStringField(TEXT("gameToken"), Data->GameToken);
-    const auto Request = MakeRequest(Data->Origin, bGrant ? TEXT("disconnect") : TEXT("cancel"), Args);
+    const auto Request = SessionMakeRequest(Data->Origin, bGrant ? TEXT("disconnect") : TEXT("cancel"), Args);
     // Detached, bounded cleanup cannot delay local sign-out or restore private state.
     Request->OnProcessRequestComplete().BindLambda([](FHttpRequestPtr, FHttpResponsePtr, bool) {});
     Request->ProcessRequest();
@@ -278,12 +324,12 @@ void UBaddieCompanionSession::RefreshSnapshot()
     if (Data->Remaining() <= 0) { Stop(EConnectionState::Expired, TEXT("Connection expired. Connect again in Baddie.")); return; }
     const auto Args = Data->DeviceArgs();
     Args->SetStringField(TEXT("gameToken"), Data->GameToken);
-    Send(TEXT("snapshot"), Args);
+    Send(SessionSnapshotOperation(Data->View.Scope), Args);
 }
 
 void UBaddieCompanionSession::TransportFailed(const FString& Operation)
 {
-    if (SameText(Operation, TEXT("begin")) || Data->Remaining() <= 0)
+    if (SessionSameText(Operation, TEXT("begin")) || Data->Remaining() <= 0)
     {
         Stop(EConnectionState::Unavailable, TEXT("Couldn't connect. Request a new code and try again."));
         return;
@@ -301,7 +347,7 @@ void UBaddieCompanionSession::Send(const FString& Operation, const TSharedRef<FJ
     const uint64 Generation = Data->Generation;
     const double Started = FPlatformTime::Seconds();
     const FDateTime WallStarted = FDateTime::UtcNow();
-    const auto Request = MakeRequest(Data->Origin, Operation, Args);
+    const auto Request = SessionMakeRequest(Data->Origin, Operation, Args);
     Data->Request = Request;
     Data->bRetryBackoff = false;
     Request->OnProcessRequestComplete().BindWeakLambda(this,
@@ -313,16 +359,16 @@ void UBaddieCompanionSession::Send(const FString& Operation, const TSharedRef<FJ
         const int32 Code = Response->GetResponseCode();
         if (Code == 429 || Code == 500 || Code == 502 || Code == 503 || Code == 504) { TransportFailed(Operation); return; }
         if (Code != 200 || !Response->GetURL().Equals(Data->Origin + TEXT("/api/mutation"), ESearchCase::CaseSensitive)
-            || Response->GetContent().Num() > MaxResponseBytes)
+            || Response->GetContent().Num() > SessionMaxResponseBytes)
         { Stop(EConnectionState::Unavailable, TEXT("The connection response was not accepted.")); return; }
         TSharedPtr<FJsonObject> Envelope;
         const auto Reader = TJsonReaderFactory<>::Create(Response->GetContentAsString());
         FString Status;
         const TSharedPtr<FJsonObject>* Value = nullptr;
-        if (!FJsonSerializer::Deserialize(Reader, Envelope) || !ReadText(Envelope, TEXT("status"), 16, Status)
-            || !SameText(Status, TEXT("success")) || !Envelope->TryGetObjectField(TEXT("value"), Value) || !Value || !Value->IsValid())
+        if (!FJsonSerializer::Deserialize(Reader, Envelope) || !SessionReadText(Envelope, TEXT("status"), 16, Status)
+            || !SessionSameText(Status, TEXT("success")) || !Envelope->TryGetObjectField(TEXT("value"), Value) || !Value || !Value->IsValid())
         { Stop(EConnectionState::Unavailable, TEXT("The connection response was not accepted.")); return; }
-        AcceptResult(Operation, *Value, Elapsed(Started, WallStarted));
+        AcceptResult(Operation, *Value, SessionElapsed(Started, WallStarted));
     });
     if (!Request->ProcessRequest() && Data->Request == Request)
     {
@@ -334,18 +380,18 @@ void UBaddieCompanionSession::Send(const FString& Operation, const TSharedRef<FJ
 void UBaddieCompanionSession::AcceptResult(const FString& Operation, const TSharedPtr<FJsonObject>& Result, double ElapsedSeconds)
 {
     FString Status;
-    if (!ReadText(Result, TEXT("status"), 32, Status))
+    if (!SessionReadText(Result, TEXT("status"), 32, Status))
     { Stop(EConnectionState::Unavailable, TEXT("The connection response was not accepted.")); return; }
-    if (SameText(Status, TEXT("disabled")))
+    if (SessionSameText(Status, TEXT("disabled")))
     { Stop(EConnectionState::Disabled, TEXT("Companion connections are currently unavailable.")); return; }
-    if (SameText(Status, TEXT("expired")))
+    if (SessionSameText(Status, TEXT("expired")))
     { Stop(EConnectionState::Expired, TEXT("Connection expired. Connect again in Baddie.")); return; }
-    if (SameText(Status, TEXT("slow_down")))
+    if (SessionSameText(Status, TEXT("slow_down")))
     {
         double RetryMs = 0;
-        if (!ReadNumber(Result, TEXT("retryAfterMs"), RetryMs) || RetryMs <= 0 || RetryMs > 300000)
+        if (!SessionReadNumber(Result, TEXT("retryAfterMs"), RetryMs) || RetryMs <= 0 || RetryMs > 300000)
         { Stop(EConnectionState::Unavailable, TEXT("Too many requests. Wait before connecting again.")); return; }
-        if (SameText(Operation, TEXT("begin")))
+        if (SessionSameText(Operation, TEXT("begin")))
         {
             ClearPrivateState();
             Data->BeginRetryAt = FPlatformTime::Seconds() + RetryMs / 1000.0;
@@ -361,20 +407,25 @@ void UBaddieCompanionSession::AcceptResult(const FString& Operation, const TShar
         OnConnectionChanged.Broadcast();
         return;
     }
-    if (SameText(Status, TEXT("denied")) || SameText(Status, TEXT("selection_changed")) || SameText(Status, TEXT("unavailable")) || SameText(Status, TEXT("too_many_connections")))
+    if (SessionSameText(Status, TEXT("denied")) || SessionSameText(Status, TEXT("selection_changed")) || SessionSameText(Status, TEXT("unavailable")) || SessionSameText(Status, TEXT("too_many_connections")))
     {
-        Stop(EConnectionState::Unavailable, SameText(Status, TEXT("selection_changed"))
-            ? TEXT("The shared Companion or Home changed. Connect again in Baddie.")
-            : SameText(Status, TEXT("too_many_connections")) ? TEXT("Disconnect another Companion connection in Baddie first.")
+        Stop(EConnectionState::Unavailable, SessionSameText(Status, TEXT("selection_changed"))
+            ? TEXT("The shared Companion or rooms changed. Connect again in Baddie.")
+            : SessionSameText(Status, TEXT("too_many_connections")) ? TEXT("Disconnect another Companion connection in Baddie first.")
             : TEXT("Access is no longer available. Connect again in Baddie."));
         return;
     }
     if (Data->Deadline > 0 && Data->Remaining() <= 0)
     { Stop(EConnectionState::Expired, TEXT("Connection expired. Connect again in Baddie.")); return; }
-    if (SameText(Operation, TEXT("exchange")) && SameText(Status, TEXT("pending")))
+    if (SessionSameText(Operation, TEXT("exchange")) && SessionSameText(Status, TEXT("pending")))
     {
+        // Pending exchange currently omits scope; it cannot change the request's scope.
+        FString PendingScope;
+        if (Result->HasField(TEXT("scope")) && (!SessionReadText(Result, TEXT("scope"), 32, PendingScope)
+            || !SessionSameText(PendingScope, SessionScopeName(Data->View.Scope))))
+        { Stop(EConnectionState::Unavailable, TEXT("The connection scope was not accepted.")); return; }
         double PollMs = 0;
-        if (!ReadNumber(Result, TEXT("pollIntervalMs"), PollMs) || PollMs < 2000 || PollMs > 60000)
+        if (!SessionReadNumber(Result, TEXT("pollIntervalMs"), PollMs) || PollMs < 2000 || PollMs > 60000)
         { Stop(EConnectionState::Unavailable, TEXT("The connection response was not accepted.")); return; }
         Data->NextAttempt = FPlatformTime::Seconds() + PollMs / 1000.0;
         Data->View.Error.Reset();
@@ -382,18 +433,18 @@ void UBaddieCompanionSession::AcceptResult(const FString& Operation, const TShar
         return;
     }
     FString ReturnedScope;
-    if (!ReadText(Result, TEXT("scope"), 32, ReturnedScope) || !SameText(ReturnedScope, Scope))
+    if (!SessionReadText(Result, TEXT("scope"), 32, ReturnedScope) || !SessionSameText(ReturnedScope, SessionScopeName(Data->View.Scope)))
     { Stop(EConnectionState::Unavailable, TEXT("The connection scope was not accepted.")); return; }
-    if (SameText(Operation, TEXT("begin")) && SameText(Status, TEXT("pending")))
+    if (SessionSameText(Operation, TEXT("begin")) && SessionSameText(Status, TEXT("pending")))
     {
         FString PairingToken, Proof, Code, DeviceName;
         double PollMs = 0;
-        if (!ReadText(Result, TEXT("pairingToken"), 64, PairingToken) || !IsHex(PairingToken, 64)
-            || !ReadText(Result, TEXT("deviceSecret"), 64, Proof) || !IsHex(Proof, 64)
-            || !ReadText(Result, TEXT("displayCode"), 8, Code) || !IsHex(Code.ToLower(), 8)
-            || !ReadText(Result, TEXT("deviceName"), 80, DeviceName) || !SameText(DeviceName, Data->View.DeviceName)
-            || !ReadNumber(Result, TEXT("pollIntervalMs"), PollMs) || PollMs < 2000 || PollMs > 60000
-            || !Data->SetLifetime(Result, PairingSeconds, ElapsedSeconds, false))
+        if (!SessionReadText(Result, TEXT("pairingToken"), 64, PairingToken) || !SessionIsHex(PairingToken, 64)
+            || !SessionReadText(Result, TEXT("deviceSecret"), 64, Proof) || !SessionIsHex(Proof, 64)
+            || !SessionReadText(Result, TEXT("displayCode"), 8, Code) || !SessionIsHex(Code.ToLower(), 8)
+            || !SessionReadText(Result, TEXT("deviceName"), 80, DeviceName) || !SessionSameText(DeviceName, Data->View.DeviceName)
+            || !SessionReadNumber(Result, TEXT("pollIntervalMs"), PollMs) || PollMs < 2000 || PollMs > 60000
+            || !Data->SetLifetime(Result, SessionPairingSeconds, ElapsedSeconds, false))
         { Stop(EConnectionState::Unavailable, TEXT("The connection request was not accepted.")); return; }
         Data->DeviceSecret = MoveTemp(Proof);
         Data->View.DisplayCode = MoveTemp(Code);
@@ -401,35 +452,42 @@ void UBaddieCompanionSession::AcceptResult(const FString& Operation, const TShar
         Data->View.State = EConnectionState::AwaitingApproval;
         Data->NextAttempt = FPlatformTime::Seconds() + PollMs / 1000.0;
     }
-    else if (SameText(Operation, TEXT("exchange")) && SameText(Status, TEXT("connected")))
+    else if (SessionSameText(Operation, TEXT("exchange")) && SessionSameText(Status, TEXT("connected")))
     {
         FString Token, GrantId;
-        if (!ReadText(Result, TEXT("gameToken"), 69, Token) || !Token.StartsWith(TEXT("bcg1_"), ESearchCase::CaseSensitive)
-            || !IsHex(Token.Mid(5), 64) || !ReadText(Result, TEXT("grantId"), 128, GrantId)
-            || !Data->SetLifetime(Result, GrantSeconds, ElapsedSeconds, false))
+        if (!SessionReadText(Result, TEXT("gameToken"), 69, Token) || !Token.StartsWith(TEXT("bcg1_"), ESearchCase::CaseSensitive)
+            || !SessionIsHex(Token.Mid(5), 64) || !SessionReadText(Result, TEXT("grantId"), 128, GrantId)
+            || !Data->SetLifetime(Result, SessionGrantSeconds, ElapsedSeconds, false))
         { Stop(EConnectionState::Unavailable, TEXT("The game grant was not accepted.")); return; }
         Data->GameToken = MoveTemp(Token); Data->GrantId = MoveTemp(GrantId);
         Data->View.DisplayCode.Reset(); Data->View.ApprovalLink.Reset();
         Data->View.State = EConnectionState::LoadingHome;
         Data->NextAttempt = FPlatformTime::Seconds();
     }
-    else if (SameText(Operation, TEXT("snapshot")) && SameText(Status, TEXT("ready")))
+    else if (SessionSameText(Operation, SessionSnapshotOperation(Data->View.Scope)) && SessionSameText(Status, TEXT("ready")))
     {
         FString GrantId, Json, Error;
         const TSharedPtr<FJsonObject>* Library = nullptr;
         const TArray<TSharedPtr<FJsonValue>>* Characters = nullptr;
         const TArray<TSharedPtr<FJsonValue>>* Rooms = nullptr;
         BaddieCompanion::FSnapshotSelection Selection;
-        if (!ReadText(Result, TEXT("grantId"), 128, GrantId) || !SameText(GrantId, Data->GrantId)
-            || !Data->SetLifetime(Result, GrantSeconds, ElapsedSeconds, true)
+        TArray<FString> RoomIds;
+        const bool bApartment = Data->View.Scope == EConnectionScope::Apartment;
+        if (!SessionReadText(Result, TEXT("grantId"), 128, GrantId) || !SessionSameText(GrantId, Data->GrantId)
+            || !Data->SetLifetime(Result, SessionGrantSeconds, ElapsedSeconds, true)
             || !Result->TryGetObjectField(TEXT("library"), Library) || !Library || !Library->IsValid()
             || !(*Library)->TryGetArrayField(TEXT("characters"), Characters) || !Characters || Characters->Num() != 1
-            || !(*Library)->TryGetArrayField(TEXT("rooms"), Rooms) || !Rooms || Rooms->Num() != 1
-            || !Encode(Result.ToSharedRef(), Json) || !BaddieCompanion::ReadSnapshotSelection(Json, Selection, Error)
-            || !SameText(Selection.ActiveRoom.Id, Selection.HomeRoom.Id)
-            || (Data->bHasSnapshot && (!SameText(Selection.Character.Id, Data->Selection.Character.Id)
-                || !SameText(Selection.HomeRoom.Id, Data->Selection.HomeRoom.Id) || Selection.Revision < Data->Selection.Revision)))
-        { Stop(EConnectionState::Unavailable, TEXT("The saved Companion or Home is unavailable.")); return; }
+            || !(*Library)->TryGetArrayField(TEXT("rooms"), Rooms) || !Rooms
+            || Rooms->IsEmpty() || Rooms->Num() > 12 || (!bApartment && Rooms->Num() != 1)
+            || !SessionEncode(Result.ToSharedRef(), Json) || !BaddieCompanion::ReadSnapshotSelection(Json, Selection, Error)
+            || (!bApartment && !SessionSameText(Selection.ActiveRoom.Id, Selection.HomeRoom.Id))
+            || (bApartment && (!SessionReadApartmentRoomIds(Result, Selection, RoomIds)
+                || (Data->bHasSnapshot && !SessionSameRoomIds(RoomIds, Data->ApprovedRoomIds))))
+            || (Data->bHasSnapshot && (!SessionSameText(Selection.Character.Id, Data->Selection.Character.Id)
+                || !SessionSameText(Selection.HomeRoom.Id, Data->Selection.HomeRoom.Id) || Selection.Revision < Data->Selection.Revision)))
+        { Stop(EConnectionState::Unavailable, TEXT("The saved Companion or rooms are unavailable. Connect again in Baddie.")); return; }
+        Selection.bCompleteApartmentInventory = bApartment;
+        if (!Data->bHasSnapshot) Data->ApprovedRoomIds = MoveTemp(RoomIds);
         Data->Selection = MoveTemp(Selection); Data->bHasSnapshot = true;
         Data->View.State = EConnectionState::Ready; Data->View.bStale = false;
         Data->NextAttempt = FPlatformTime::Seconds() + 5.0;
