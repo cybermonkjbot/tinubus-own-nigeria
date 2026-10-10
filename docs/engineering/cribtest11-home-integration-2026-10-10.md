@@ -53,3 +53,7 @@ The source milestone includes:
 Source/diff review covered session clearing, delegate and viewport lifetime, offline isolation, input/focus behavior and the unchanged imported subsystem/reader hashes. Diff whitespace checks passed. Tests, compilation, builds, typechecks, lint, code generation, engine launches, new installs, deployment and rendered verification did not run. Account linking remains disabled with no committed live origin.
 
 Saved appearance/Home asset mapping, authoritative gameplay admission and runtime acceptance remain outstanding. The public session interface exposes the begin retry delay only; exchange/snapshot retry deadlines remain private, so the UI shows their public error without inventing a countdown. Those are transport-owner and engine-verification follow-ups, not completed gameplay claims.
+
+## Post-import source review
+
+The specification review of Mac checkpoint `3a021e25f` found no missing requirements for this source milestone. The standards review found repeated expiry copy and two duplicated gameplay checks. We removed the repeated message while retaining the session's public error, and shared device-name validation and pending-state classification between the panel and controller. The imported session subsystem remains unchanged. These are source-only corrections; compilation and rendered verification remain deferred.
