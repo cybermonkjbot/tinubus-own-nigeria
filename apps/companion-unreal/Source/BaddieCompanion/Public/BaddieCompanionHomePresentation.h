@@ -97,6 +97,8 @@ namespace BaddieCompanion
     struct FAttachmentRequirement
     {
         FString SourceNode, SourceRecipe;
+        // Appearance intent only. BestieGlasses also requires current attached-equipment state,
+        // which this snapshot does not supply; this field never establishes final eyewear visibility.
         TOptional<bool> EffectiveVisible;
         // These are source identifiers, never manufactured Unreal socket names.
         EImportStatus AttachmentStatus = EImportStatus::UnverifiedUnavailable;

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Containers/Ticker.h"
 #include "GameFramework/Actor.h"
 #include "BaddieCompanionCharacterMaterials.h"
 #include "BaddieCompanionCharacterActor.generated.h"
@@ -15,6 +16,16 @@ namespace BaddieCompanion
         // Actual component name in the accepted native class, never a saved document field.
         FName MeshComponent;
     };
+    struct FNativeCharacterAccessoryMesh
+    {
+        // Exact source node: AccessoryNecklace or AccessoryChain. Not equipment/eyewear.
+        FString SourceNode;
+        FName MeshComponent;
+        TSoftObjectPtr<UObject> MeshAsset;
+        // Accepted source occurrence visibility with the accessory root enabled. Include
+        // hidden descendants explicitly; UE component visibility is not Three group visibility.
+        TOptional<bool> VisibleWhenEnabled;
+    };
     struct FNativeCharacterContent
     {
         FString SourceAssetKey, SourceSha256;
@@ -22,6 +33,8 @@ namespace BaddieCompanion
         // Root origin/basis match the source runtime rig; room scale is applied by the actor.
         TSoftClassPtr<ABaddieCompanionCharacterActor> ActorClass;
         TArray<FNativeCharacterNamedMaterial> Materials;
+        // Every imported mesh occurrence under both source accessory roots, including hidden ones.
+        TArray<FNativeCharacterAccessoryMesh> Accessories;
     };
 }
 
@@ -51,13 +64,21 @@ private:
         const BaddieCompanion::FNativeCharacterContent& Content,
         const FTransform& LevelToApartment, bool bLevelAlreadyTransformed);
     bool ReconcileLevelTransform();
+    bool PrepareAccessoryVisibility(const BaddieCompanion::FAppearancePlan& Appearance,
+        const TArray<BaddieCompanion::FNativeCharacterAccessoryMesh>& Bindings);
     void SuppressPresentation();
+    bool DestroyPrivateCharacter();
+    void QueueDeferredDisposal();
+    bool FinishDeferredDisposal(float DeltaSeconds);
 
     UPROPERTY(Transient)
     TObjectPtr<UBaddieCompanionCharacterMaterials> Materials;
     TOptional<FTransform> PendingApartmentPose;
+    FTSTicker::FDelegateHandle DeferredDisposal;
     bool bPrepared = false;
-    bool bPreparing = false;
+    bool bChangingPresentation = false;
     bool bDiscarded = false;
     bool bClearing = false;
+    bool bDestroyRequested = false;
+    bool bDisposalBlocked = false;
 };

@@ -50,6 +50,14 @@ The current session interface distinguishes manual begin throttling (`RetryAfter
 
 The Lagos requirement in the main handoff governs future accepted Home/environment art: contemporary, reference-checked Lagos, while preserving the saved Home and Companion. This slice adds no city gameplay, art or shared assets. Unreal asset import and binding, authoritative admission/movement, engine-version compatibility and live pairing acceptance remain outstanding. Typed source plans do not establish rendered parity or completion of the full game port.
 
+## Accessory visibility
+
+`CharacterActor` now applies saved necklace and hip-chain visibility to explicitly bound native mesh occurrences. Each binding supplies the source node, real mesh/component identity and accepted visibility with that accessory enabled. The actor preserves hidden descendants and uses non-propagating Unreal visibility setters. Both accessories are required; duplicate, missing or changed bindings fail hidden preparation. The existing asset-load handle also retains accessory meshes.
+
+Round eyewear remains unresolved. The source hides generated glasses only while the shop pair is actually attached; appearance data alone cannot determine that. Read `../../docs/engineering/unreal-accessory-visibility-reuse-2026-10-10.md` before authoring the accessory manifest or implementing equipment attachment.
+
+The corrected lifetime guard covers material restoration, presentation setters and recursive clearing. Unsafe disposal waits on a weak native core ticker, which checks the guard again before releasing meshes or destroying the discarded actor. The previous actor handoff was held at Mac `bafdbfb9e` for this restoration bug. The corrected accessory/lifetime continuation is pending review and delivery. No native content, compilation or rendered acceptance is established by these changes.
+
 ## Rural expedition source
 
 The expressway-to-bush direction adds Intercept, Extraction and Insurgent Stronghold missions, MOPOL squad support, river crossings and mobile-first interaction/performance requirements. The complete brief is `../../docs/engineering/standalone-companion-rural-expedition.md`; native environment/mobile rendering research is in `../../docs/engineering/unreal-rural-mobile-reuse-2026-10-10.md`.

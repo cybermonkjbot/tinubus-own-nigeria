@@ -155,9 +155,7 @@ void UBaddieCompanionNativeApartment::ClearPrivateContent()
     if (IsValid(PreparedCharacter.Get()))
     {
         const TWeakObjectPtr<ABaddieCompanionCharacterActor> Current(PreparedCharacter.Get());
-        Current->ClearPrivateCharacter();
-        // An in-progress Prepare owns the remaining stack and disposes after its native call returns.
-        if (Current.IsValid() && !Current->bPreparing && !Current->Destroy(false, false)) bCharacterDestroyFailed = true;
+        if (!Current->DestroyPrivateCharacter()) bCharacterDestroyFailed = true;
     }
     PreparedCharacter = nullptr; CharacterContent.Reset();
     if (FurnitureAssetLoad.IsValid())
@@ -333,6 +331,8 @@ bool UBaddieCompanionNativeApartment::PrepareContent(const BaddieCompanion::FHom
         CharacterPaths.AddUnique(Material.MeshAsset.ToSoftObjectPath());
         CharacterPaths.AddUnique(Material.AuthoredMaterial.ToSoftObjectPath());
     }
+    for (const auto& Accessory : Content.Character.Accessories)
+        CharacterPaths.AddUnique(Accessory.MeshAsset.ToSoftObjectPath());
     CharacterAssetLoad = UAssetManager::GetStreamableManager().RequestAsyncLoad(CharacterPaths);
     if (!CharacterAssetLoad.IsValid())
     { ClearPrivateContent(); AddGap(ENativeApartmentGap::CharacterUnavailable); return false; }
@@ -478,8 +478,7 @@ bool UBaddieCompanionNativeApartment::PrepareHomeCharacter(int32 Index)
     if (Generation != ContentGeneration)
     {
         const TWeakObjectPtr<ABaddieCompanionCharacterActor> Current(Actor);
-        Current->ClearPrivateCharacter();
-        if (Current.IsValid() && !Current->Destroy(false, false))
+        if (!Current->DestroyPrivateCharacter())
             AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable);
         return false;
     }
@@ -491,8 +490,7 @@ bool UBaddieCompanionNativeApartment::PrepareHomeCharacter(int32 Index)
     {
         if (Current.IsValid())
         {
-            Current->ClearPrivateCharacter();
-            if (Current.IsValid() && !Current->Destroy(false, false))
+            if (!Current->DestroyPrivateCharacter())
                 AddGap(BaddieCompanion::ENativeApartmentGap::CharacterUnavailable);
         }
         return false;

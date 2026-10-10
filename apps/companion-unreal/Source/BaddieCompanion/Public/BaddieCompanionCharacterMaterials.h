@@ -71,6 +71,8 @@ public:
     bool Apply(const BaddieCompanion::FHomePresentationPlan& Plan,
         const BaddieCompanion::FNativeCharacterMaterialContent& Content);
     void ClearPrivateMaterials();
+    // Game-thread lifetime guard, including restoration from EndPlay/OnUnregister.
+    bool IsChangingMaterials() const { return bChangingMaterials; }
     BaddieCompanion::ENativeCharacterMaterialIssue GetIssue() const { return Issue; }
 protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
