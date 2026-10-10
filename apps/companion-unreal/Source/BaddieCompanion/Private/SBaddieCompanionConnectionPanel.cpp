@@ -1,5 +1,6 @@
 #include "SBaddieCompanionConnectionPanel.h"
 
+#include "BaddieCompanionConnectionUi.h"
 #include "BaddieCompanionSlicePlayerController.h"
 #include "Framework/Application/SlateApplication.h"
 #include "Framework/Text/TextLayout.h"
@@ -193,12 +194,11 @@ void SBaddieCompanionConnectionPanel::PresentConnection(
     case EConnectionState::Ready:
         Status = Selection ? (View.bStale ? TEXT("Connected. Showing the last valid read while retrying.")
             : TEXT("Connected. Read-only Home access.")) : TEXT("Home access is unavailable."); break;
-    case EConnectionState::Expired: Status = TEXT("Connection expired. Pair again to restore access."); break;
+    case EConnectionState::Expired: Status = View.Error.IsEmpty() ? TEXT("Connection expired.") : FString(); break;
     case EConnectionState::Unavailable: Status = TEXT("Connection unavailable."); break;
     }
     SetText(StatusText, Status);
-    const bool bPending = State == EConnectionState::RequestingCode || State == EConnectionState::AwaitingApproval
-        || State == EConnectionState::LoadingHome;
+    const bool bPending = BaddieCompanion::IsConnectionPending(State);
     const bool bReady = State == EConnectionState::Ready && Selection;
     const bool bCanRequest = !bPending && State != EConnectionState::Ready && State != EConnectionState::Disabled;
     SetVisible(DeviceName, bCanRequest);
@@ -321,17 +321,13 @@ bool SBaddieCompanionConnectionPanel::CanConnect() const
 {
     return !bOffline && !bModal && Owner.IsValid() && RetrySeconds <= 0
         && State != EConnectionState::Disabled && State != EConnectionState::Ready
-        && State != EConnectionState::LoadingHome && State != EConnectionState::RequestingCode
-        && State != EConnectionState::AwaitingApproval;
+        && !BaddieCompanion::IsConnectionPending(State);
 }
 
 bool SBaddieCompanionConnectionPanel::ValidDeviceName() const
 {
     if (!DeviceName.IsValid()) return false;
-    const FString Name = DeviceName->GetText().ToString().TrimStartAndEnd();
-    if (Name.IsEmpty() || Name.Len() > 80) return false;
-    for (const TCHAR Ch : Name) if (Ch < 32 || Ch == 127) return false;
-    return true;
+    return BaddieCompanion::IsValidConnectionDeviceName(DeviceName->GetText().ToString());
 }
 
 FReply SBaddieCompanionConnectionPanel::InvokeAction(EBaddieConnectionAction Action)

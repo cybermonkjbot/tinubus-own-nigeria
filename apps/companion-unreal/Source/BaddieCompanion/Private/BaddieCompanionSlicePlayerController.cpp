@@ -1,5 +1,6 @@
 #include "BaddieCompanionSlicePlayerController.h"
 
+#include "BaddieCompanionConnectionUi.h"
 #include "BaddieCompanionSession.h"
 #include "BaddieCompanionSliceCharacter.h"
 #include "BaddieCompanionSliceSession.h"
@@ -13,17 +14,6 @@
 #include "GameFramework/PlayerCameraManager.h"
 #include "HAL/PlatformApplicationMisc.h"
 #include "Widgets/SWeakWidget.h"
-
-namespace
-{
-    bool ValidDeviceName(const FString& DeviceName)
-    {
-        const FString Name = DeviceName.TrimStartAndEnd();
-        if (Name.IsEmpty() || Name.Len() > 80) return false;
-        for (const TCHAR Ch : Name) if (Ch < 32 || Ch == 127) return false;
-        return true;
-    }
-}
 
 void ABaddieCompanionSlicePlayerController::BeginPlay()
 {
@@ -227,8 +217,7 @@ void ABaddieCompanionSlicePlayerController::RequestConnectionAction(
     if (!Session || PendingAction.IsSet()) return;
     const auto View = Session->GetConnectionView();
     using BaddieCompanion::EConnectionState;
-    const bool bPending = View.State == EConnectionState::RequestingCode
-        || View.State == EConnectionState::AwaitingApproval || View.State == EConnectionState::LoadingHome;
+    const bool bPending = BaddieCompanion::IsConnectionPending(View.State);
     const bool bConnected = View.State == EConnectionState::Ready && RetainedSelection.IsSet();
     if (Action == EBaddieConnectionAction::CopyLink)
     {
@@ -244,7 +233,8 @@ void ABaddieCompanionSlicePlayerController::RequestConnectionAction(
         if (ConnectionPanel.IsValid()) ConnectionPanel->ShowConfirmation(Action);
         return;
     }
-    if (Action == EBaddieConnectionAction::Connect && ValidDeviceName(DeviceName) && !bPending && !bConnected
+    if (Action == EBaddieConnectionAction::Connect && BaddieCompanion::IsValidConnectionDeviceName(DeviceName)
+        && !bPending && !bConnected
         && View.State != EConnectionState::Disabled && View.RetryAfterSeconds <= 0)
         StartPairing(DeviceName);
 }
@@ -274,9 +264,7 @@ void ABaddieCompanionSlicePlayerController::HandleConnectionEscape()
     if (auto* Session = ConnectionSession.Get())
     {
         const auto View = Session->GetConnectionView();
-        if (View.State == BaddieCompanion::EConnectionState::RequestingCode
-            || View.State == BaddieCompanion::EConnectionState::AwaitingApproval
-            || View.State == BaddieCompanion::EConnectionState::LoadingHome)
+        if (BaddieCompanion::IsConnectionPending(View.State))
             StopConnection();
     }
 }
