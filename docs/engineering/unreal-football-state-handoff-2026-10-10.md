@@ -1,16 +1,16 @@
 # Unreal Football read-state handoff
 
-October 10, 2026. Source implementation and source/diff inspection only. Independent Standards and Spec acceptance, Windows delivery, compilation, in-game verification and release remain separate.
+October 10, 2026. The original Football implementation passed independent review and was delivered unchanged at Windows `fe46e4d53`. The parent array-reader integration below awaits separate independent correction review and delivery. Compilation, in-game verification and release remain unverified.
 
-Source commit: `8fe2ae49cf07604d6ec666dd8ff40bd0631ee046`.
+Original source commit: `8fe2ae49cf07604d6ec666dd8ff40bd0631ee046`.
 
-Owned files, relative to the repository root:
+Original implementation paths, relative to the repository root:
 
 - `apps/companion-unreal/Source/BaddieCompanion/Public/BaddieCompanionFootballState.h`
 - `apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionFootballState.cpp`
 - `docs/engineering/unreal-football-state-handoff-2026-10-10.md`
 
-The source commit changes only the header and implementation. This handoff is a separate documentation checkpoint. Earlier accepted slices, shared JSON helpers, production renderer inputs and admission/readiness gates are unchanged. The parent owns acceptance and the port tracker; the coordinator owns Windows delivery. This slice completes no gameplay inventory category.
+The original source commit changes only the header and implementation. This follow-up changes only this handoff; source integration is parent-owned. Production renderer inputs and admission/readiness gates are unchanged. The parent owns acceptance and the port tracker; the coordinator owns Windows delivery. This slice completes no gameplay inventory category.
 
 ## Canonical dependencies
 
@@ -27,21 +27,43 @@ Canonical pin: `2a97459b581c9da4fe78171cfc2a12dd2afacd7c`. Working bytes matched
 
 The additional `chatCallSpaceModel.ts` reference supplies `SPACE_MEMBER_LIMIT = 50`, which bounds the entry query's participant reads. It does not change the match's 12-player limit or transfer call ownership.
 
-Shared dependency pin: `bc6e288621f97054c06368a9e7434835c7ce0ede`, byte-identical at the canonical pin. Paths below are relative to `apps/companion-unreal/Source/BaddieCompanion/`.
+Original delivered shared dependency pin: `bc6e288621f97054c06368a9e7434835c7ce0ede`, byte-identical at the canonical pin. Paths below are relative to `apps/companion-unreal/Source/BaddieCompanion/`.
 
 | File | SHA-256 |
 | --- | --- |
 | `Private/BaddieCompanionStateJson.h` | `fa20d7b05543229ec99caf20904cc68ab0a88b86f910efa777de6f791fc43040` |
 | `Private/BaddieCompanionStateJson.cpp` | `df02a8dbf13c9f23ce11f57d0584c96c6a31c2cbe682926ae10be5bb6f3021ce` |
 
-Football source outputs at source commit `8fe2ae49cf07604d6ec666dd8ff40bd0631ee046`. Paths use the same source directory above.
+Original delivered Football source outputs at source commit `8fe2ae49cf07604d6ec666dd8ff40bd0631ee046`. Paths use the same source directory above.
 
 | File | SHA-256 |
 | --- | --- |
 | `Public/BaddieCompanionFootballState.h` | `09143c0fd911dabd6c1362b95c0950fface589ad244ab457a4f043f986100a7a` |
 | `Private/BaddieCompanionFootballState.cpp` | `c4fb599b240ab86b0311bc8836165452304f2a8e2d0993ecfbb45e52b9a3303b` |
 
-The implementation reuses shared `Parse`, `Only`, `Field`, `Object`, `String`, finite `Number`, `Boolean`, `Nullable`, `Same` and `EnumValue`. Both endpoint roots require objects, so neither uses `ParseNull`. No shared helper addition is needed.
+The original implementation reused shared `Parse`, `Only`, `Field`, `Object`, `String`, finite `Number`, `Boolean`, `Nullable`, `Same` and `EnumValue`. Both endpoint roots require objects, so neither uses `ParseNull`.
+
+## Parent array-reader integration
+
+Current source/dependency checkpoint: `b4bc1b7d7dbc9552ad1451062a404fc872a13224`, against base `62c1e91854f194828ef096c56d776c6b1020352f`. This parent-owned correction changes only `Private/BaddieCompanionStateJson.h`, `Private/BaddieCompanionPlayState.cpp` and `Private/BaddieCompanionFootballState.cpp`. It extracts the equivalent local array readers into shared `StateJsonPrivate::ReadBoundedArray` and updates their callers. It does not replace the original acceptance or Windows delivery record.
+
+Current shared dependency files at `b4bc1b7d7dbc9552ad1451062a404fc872a13224`:
+
+| File | SHA-256 |
+| --- | --- |
+| `Private/BaddieCompanionStateJson.h` | `13ceb1b13bee4b0793ddb117e03559bfb8ea77f8bdb8dc81baa1ffa8e70bb618` |
+| `Private/BaddieCompanionStateJson.cpp` | `df02a8dbf13c9f23ce11f57d0584c96c6a31c2cbe682926ae10be5bb6f3021ce` |
+
+Current Football source outputs at `b4bc1b7d7dbc9552ad1451062a404fc872a13224`:
+
+| File | SHA-256 |
+| --- | --- |
+| `Public/BaddieCompanionFootballState.h` | `09143c0fd911dabd6c1362b95c0950fface589ad244ab457a4f043f986100a7a` |
+| `Private/BaddieCompanionFootballState.cpp` | `92a8d5cca6a4c45a86d6e8b78e4d867c8374249ebdee0ca0d31741e67382edc5` |
+
+Football no longer owns the generic array traversal. Its match-player and entry-player calls use `ReadBoundedArray` with the unchanged limits of 12 and 50 and the unchanged `Player` and `EntryPlayer` readers. The shared helper rejects missing/non-array values and excess length, then appends decoded elements in source order. It may leave a partial candidate on failure; the enclosing snapshot/roster decoder still owns atomic publication and discards that candidate. No element predicate, public header, parse limit, nullable rule, observation lifetime or publication behavior changed. StateJson.cpp is unchanged. The updated Football implementation requires the new StateJson header and must not be paired with the original dependency header.
+
+This documentation follow-up inspected the complete three-path correction and confirmed those working files match the integration pin. The handoff preimage matched `05d38bb536cd516a55ffc5100d6bea1a3a42dd0e`. Hashes above were read from the pinned Git blobs. Source inspection confirmed equivalent traversal and unchanged call arguments; it does not substitute for the parent's pending independent correction reviews or the coordinator's later delivery. This follow-up edits no source or Racing record.
 
 ## Typed reads and bounds
 
@@ -110,8 +132,8 @@ Only canonical pulse replies update the client's server-clock offset. This slice
 
 ## Inspection record and completion limits
 
-Source review covered every typed field against the pinned type and backend validators, nullable/absent handling, finite-number behavior, resource bounds, all three ordered match guards, retained-state failure/reload behavior, independent entry generations, same-ID session replacement and disposal. The exact two-file staged diff was inspected before the source commit. Canonical and shared dependency diffs were empty; hashes above identify the reviewed bytes.
+Original source review covered every typed field against the pinned type and backend validators, nullable/absent handling, finite-number behavior, resource bounds, all three ordered match guards, retained-state failure/reload behavior, independent entry generations, same-ID session replacement and disposal. The exact two-file staged diff was inspected before the original source commit. Canonical and original shared dependency diffs were empty; the original hashes above identify those reviewed bytes. The parent integration has its separate inspection record and hashes above.
 
 Boundary cases traced in source included a lower epoch with a changed player, lower revision with a changed player, higher revision with older server time, equal revisions with older server time, both-null matches, missing advancement after retained advancement, initial negative action time, expired entry phase with retained epoch, match unsubscribe while entry observation continues and one entry unsubscribe while another continues. These were source walkthroughs, not executed tests.
 
-No tests, typechecks, lint, compilation, builds, code generation, imports, conversion, engine/server launches, installs, remote writes or live configuration changes ran. Hooks were disabled for the exact-path checkpoint. Unrelated staged and unstaged work was preserved. No mobile behavior or production renderer input changed, so this patch has no What's New or renderer-packaging update. Unreal compile/runtime compatibility and rendered behavior remain unverified. Independent acceptance, content delivery and release are pending their assigned owners.
+Neither the original implementation work nor this documentation follow-up ran tests, typechecks, lint, compilation, builds, code generation, imports, conversion, engine/server launches, installs, remote writes or live configuration changes. Hooks were disabled for exact-path checkpoints. Unrelated staged and unstaged work was preserved. No mobile behavior or production renderer input changed, so these patches have no What's New or renderer-packaging update. The original source delivery is complete; independent acceptance and delivery of the parent array-reader integration remain pending. Unreal compile/runtime compatibility, rendered behavior and release remain unverified.

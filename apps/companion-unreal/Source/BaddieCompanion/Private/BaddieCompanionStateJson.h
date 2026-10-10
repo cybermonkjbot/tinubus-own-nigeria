@@ -53,6 +53,23 @@ namespace BaddieCompanion
             return false;
         }
 
+        // Decode into a caller-owned fresh candidate. Appends in source order and
+        // leaves partial output on failure; the enclosing decoder owns atomic publication.
+        template <typename T, typename F> bool ReadBoundedArray(const FValue& Value,
+            TArray<T>& Out, int32 Maximum, F Read)
+        {
+            if (!Value.IsValid() || Value->Type != EJson::Array) return false;
+            const auto& Values = Value->AsArray();
+            if (Values.Num() > Maximum) return false;
+            for (const auto& Item : Values)
+            {
+                T Next;
+                if (!Read(Item, Next)) return false;
+                Out.Add(MoveTemp(Next));
+            }
+            return true;
+        }
+
         // Required nullable value into a fresh candidate. Missing fails; null succeeds
         // without assigning. Optional-field presence and null policy are not handled here.
         template <typename T, typename F> bool Nullable(const FValue& Value, TOptional<T>& Out, F Read)
