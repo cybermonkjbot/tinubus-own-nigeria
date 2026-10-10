@@ -1,0 +1,365 @@
+{
+  "schemaVersion": 1,
+  "owner": "cribtest11-world-generation-20261010",
+  "recordedAt": "2026-10-10T18:56:23.4685929Z",
+  "host": "Cribtest11",
+  "workspace": "C:/dev/cribtest-game",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "windowsDispatchHead": "cdc7dcc03596365cdfbdc8d5a0c62d3f258f66ee",
+  "windowsHeadBeforeCheckpoint": "3447941be06fac930f175b6828a9ec8f0625cf8c",
+  "windowsCheckpoint": "Recorded after commit in .git/operations/world-generation-20261010/worker/checkpoint.json",
+  "exclusiveWritePaths": [
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/",
+    "apps/companion-unreal/Scripts/WorldGeneration/",
+    "output/cribtest11-world-generation/"
+  ],
+  "actualWrittenPaths": [
+    "apps/companion-unreal/Scripts/WorldGeneration/",
+    "output/cribtest11-world-generation/"
+  ],
+  "referenceEvidence": {
+    "manifestSha256": "800e29a26cb897a10e50657b3cd3dced1b9f385342560fae73d96efe53b00447",
+    "dispatchAndReceiptManifestSha256": "15c73b4c06e57b6cc7088d26bd439e9c7345e22c5d93445bf7034399c0771d91",
+    "manifestEvidenceState": "unresolved byte-hash discrepancy; direct human reconciliation required before engine execution",
+    "individualFileReauditAt": "2026-10-10T18:54:03.2960693Z",
+    "receiptSha256": "620a06dad3de0514612e0b27d3fa5a3293e42e5a643b1dfa7a3fe3915db60c8a",
+    "protectedBeforeSha256": "c22f74fe68283a6572efffdd9e0d3fbd66bbb69820c73e3bd913f6bda5d54c5d",
+    "filesVerified": 250,
+    "bytesVerified": 7744086,
+    "hashMismatches": 0,
+    "citySha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "state": {
+    "preparation": "executable-source-and-source-derived-inventory-prepared",
+    "sourceReview": "completed; guards/coordinates/identity/engine declarations reviewed; no execution validation",
+    "engineExecution": "not-authorized-not-performed",
+    "nativeAssets": "not-generated",
+    "nativeMaps": "not-generated",
+    "compilation": "not-performed; current gameplay source uncompiled",
+    "renderedInspection": "not-performed",
+    "playableAcceptance": "not-established",
+    "packaging": "not-performed",
+    "delivery": "not-performed",
+    "release": "not-performed",
+    "wholeWorldComplete": false
+  },
+  "coverage": {
+    "districts": 7,
+    "parcels": 806,
+    "roads": 264,
+    "greenSpaces": 44,
+    "amenities": 697,
+    "beaches": 2,
+    "bridges": 2,
+    "pointsOfInterest": 4,
+    "signatureBuildings": 19,
+    "destinations": 40,
+    "baseDestinations": 11,
+    "expansionDestinations": 17,
+    "waterfrontDestinations": 12,
+    "homeRecipes": 49,
+    "ruralBriefAreas": 5,
+    "jobCount": 135,
+    "preparedDirectRecipeJobs": 34,
+    "blockedInputJobs": 101
+  },
+  "generated": {
+    "packageCount": 0,
+    "mapCount": 0,
+    "packagePaths": []
+  },
+  "editor": {
+    "state": "stopped",
+    "observedPids": []
+  },
+  "operationsActuallyPerformed": [
+    "Read workspace/root instructions and nested instruction locations",
+    "Read pinned canonical sources/reference records/docs and existing bridge source",
+    "Read and hash installed UE 5.8.3 API/plugin source; no native API invocation",
+    "Read-only SHA256 source/reference/protected-file audits",
+    "Prepared namespaced native geometry/recipe/asset-map authoring/bridge-request source using apply_patch",
+    "Wrote coverage and missing-asset manifests and source-level handoff",
+    "Inspected Git status/history/hooks and owned source/diff; no hooks invoke validation",
+    "Owned-path checkpoint follows this preparation record; evidence appended after commit"
+  ],
+  "operationsNotPerformed": [
+    "editor launch/restart",
+    "source transfer",
+    "bridge execution or coordination messages",
+    "engine mutations/generation",
+    "asset download/conversion/import",
+    "tests/lint/typechecks/codegen validation",
+    "compilation/build/project generation",
+    "UI automation",
+    "Azure guest-agent/run-command",
+    "installation/deployment/services/config changes",
+    "new workers/chats/servers",
+    "push"
+  ],
+  "blockers": [
+    {
+      "id": "reference-manifest-evidence",
+      "missing": "Human reconciliation of on-disk manifest 800e29a... versus dispatch/receipt 15c73b4...; all 250 individual file hashes match"
+    },
+    {
+      "id": "human-engine-authorization",
+      "missing": "Direct authorization to launch existing editor and run named native import/material/mesh generation/save jobs"
+    },
+    {
+      "id": "resolved-layouts",
+      "missing": "Hash-approved resolved pinned layout JSON, entrances/spawns/navigation/seed/asset and generator revisions, native scenery geometry"
+    },
+    {
+      "id": "home-shells",
+      "missing": "Exact registered reusable shell/fixed-fixture geometry and base layouts; sourceFloorYMetres; real native openings for unmeasured rooms and common spaces; no saved furniture or account snapshot"
+    },
+    {
+      "id": "rural-metric-authoring",
+      "missing": "Approved metric terrain/route/heightfield, named travel endpoints, collision/slopes/cover and initialized real native Landscape templates; composition PNG is not terrain data"
+    },
+    {
+      "id": "derived-city-content",
+      "missing": "Resolved derivative recipes for terrain/beaches/bridges, near architecture, parks/amenities, street detail, frontages/utilities, Theatre grounds, refinery, circuit and retained square"
+    },
+    {
+      "id": "native-navigation-lighting",
+      "missing": "Approved initialized non-externalized native templates with real brush/navigation/lighting data; bake/nav generation remain separately authorized"
+    },
+    {
+      "id": "lagos-art-reference",
+      "missing": "Chosen named neighborhood and dated approved reference set for each canonical area; full registered assets, material finishes and mobile-ready vegetation LODs"
+    },
+    {
+      "id": "runtime-bindings",
+      "missing": "Read-only source integration review by existing runtime owners and accepted real actor/package bindings; no generation step can grant account/world/movement/mission/utility authority"
+    }
+  ],
+  "sourceReviewFindings": {
+    "corrected": [
+      "Required exact closed authority/provenance for handoffs",
+      "Preserved absent Home design versus turn-0 variant and extension-before-turn",
+      "Preserved source floor Y for measured Home doors; unmeasured opening remains blocked",
+      "Required independent Home shell/opening/navigation/runtime-revision contracts",
+      "Added native map/material/mesh sidecar and recursive saved-dependency hash guards",
+      "Namespaced modules and loaded-generator/source identity guard",
+      "Preserved part array indices and source rectangular-beam roll",
+      "Required initialized templates for native lighting/navigation and saved children for composition"
+    ],
+    "remaining": [
+      "Python/MCP API behavior is source-reviewed, not engine-proven",
+      "Fallback/signature geometry is not full registered art",
+      "Plain materials omit facade/transparent-glass/water/ripple/practical fidelity; default collision disabled",
+      "Template actor/dependency and layout fidelity still need authorized native acceptance",
+      "No rural metric terrain/native initialized Landscape supplied",
+      "No private saved-account snapshot; runtime personal arrangements are deliberately excluded"
+    ]
+  },
+  "incomingWork": {
+    "preservedCommits": [
+      "6787772722856b63ad114ec6896dcc93e054a31b",
+      "4c720729f16e20ffce403a7b0237e45451db51ea",
+      "b5328413395816c48520616dafe6764cac04489e",
+      "3447941be06fac930f175b6828a9ec8f0625cf8c"
+    ],
+    "protectedChangesAttributableToIncomingCommits": [
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionCharacterActor.cpp",
+        "before": "dd5fd1beaa1ce2d8299eec57ae6e8edfd04e213ae014bf607dcc98b85c525810",
+        "after": "544628025ce160fd2a2f87e57a7870054a4bc42c1d02762007e1efb793fd2192"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionCharacterAppearance.cpp",
+        "before": "c18887182692d41319c28b374a5dec9120064c1687b9fb97d4d469f79af159c6",
+        "after": "5bd4fa53faf5b0c20f3ce8a43c54edbc94334ecd2f67fd72c78146aafffa192e"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionConnectionUi.h",
+        "before": "6bfc6c3f88dc21223198bfaa9b5fe86f04b3ff89e98874b77629aef7501c8f55",
+        "after": "c23943e48cd8aae549f374ed06ebbae87e825ab83c2e7b836d2d5cd0ede7ab75"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionFurnitureActor.cpp",
+        "before": "f8d43a307c2c6dbcb9e1b904303296707baa4517d9b5b0b5a7fd6c78241b5fdd",
+        "after": "05eede39f889d421d9b83f9239d38da68f76f70bc72d7cc7e0ee4d05a57dba6a"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionGameplaySession.cpp",
+        "before": null,
+        "after": "e19723ec0ed5c238c3268975c38aa7d168a5a931d4b3583c4eb6bee8ecc7c3d3"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionNativeApartment.cpp",
+        "before": "99e28b4768443d424bca57d21fa832a9c414556892231b92809c9f25cd6ca9b3",
+        "after": "e80de8b4ea4884fda61eb0bb99452a9a2a7a66d617536814abbf9482efa241a3"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionScenePower.cpp",
+        "before": null,
+        "after": "652e60731e507a3240318a07298dc0057b9f52a825df433614f8e835e0a9349d"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionSession.cpp",
+        "before": "d8a6af9892bd5a87390245809cc4e4d762bc5720fbd9c9a13fb2576964db5ee8",
+        "after": "840dc4de204eb61c2d0a7f95068c893ffcb546b2936eb42c5f1c0f7b4a6a91ff"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionSlicePlayerController.cpp",
+        "before": "bf5f276e8e79a8f6a784e9ffc25847d15630dc1aee16f832462bd523313eccc8",
+        "after": "97d294b4a93bc2e2417297ec9878aaeff72a6313fe1f0ee5c5513a45f0ba67d4"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/SBaddieCompanionConnectionPanel.cpp",
+        "before": "aa7b10891f6fd78a7691e790b277aa7298fa96844a8cae32508dde4b8a877692",
+        "after": "9f3dfaf608e41e6dbf0db5147b718c28289717861d6f660822714545de18154b"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/SBaddieCompanionConnectionPanel.h",
+        "before": "f1a03d2c95cd50ab677796bac28fdd657ea48e9d55ed38e78ce57f2548c1529d",
+        "after": "18473296957e106b46d627b1e9597cbc3eeeda9dbcde560c44ff63b9ca80cc4d"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Public/BaddieCompanionCharacterActor.h",
+        "before": "65c7d20bcb3233b4ec2d7d0faafa4a3e390aae894134fff618701ac29b224108",
+        "after": "c222c1e1410a1d58d8bee9d85ffd1af95eb5b7907645ad59b88b106b7048eb1a"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Public/BaddieCompanionCharacterAppearance.h",
+        "before": "0ee8644fd95d41acbafa63c2dab5e36fbe6ceeaaa6552fc0e5b433e823bee5bd",
+        "after": "55cdbdb8aa44231cf74b09f4effb8205c59ee11629de9a0e727cfac13773c7cf"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Public/BaddieCompanionFurnitureActor.h",
+        "before": "a9c6452efdc8de5640167235158ab4687b1ac7fd19adaab69fba95e3c3a9350d",
+        "after": "736fcd01a5dcd2bd6ed779ef47a005f37de2e578213496cf63554b3824c3d557"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Public/BaddieCompanionGameplaySession.h",
+        "before": null,
+        "after": "d527ddda7f1884e01eefe54b35956adbbeb42e530f8710a3a7895c9b970e1495"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Public/BaddieCompanionNativeApartment.h",
+        "before": "8e45fd7c813aa011300e7c5c114cf53d40ee40f13d500dd6404d8a93a252eacc",
+        "after": "86f32fc776bcc056a4756388984634ec1090ae23b4ce4c79047afc9328400371"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Public/BaddieCompanionScenePower.h",
+        "before": null,
+        "after": "44024a15478022a094164e57fa953da32ad19b685c3266371dcbd14c499327b1"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Public/BaddieCompanionSlicePlayerController.h",
+        "before": "4ccdf71e5ea937a376c038325bed0fd8bf9ef33b9e840a7c5e1ca1a982c54ee7",
+        "after": "7d79c394cc11770b10375bc825856eb1ff5cb6400c2eed36074d97a1ead4793d"
+      },
+      {
+        "path": "docs/engineering/standalone-companion-account-linking.md",
+        "before": "dd329efe5a6423a5f5b35f42b6499ee86bd5d608df4118ebb5dddb3337b2ab46",
+        "after": "8f5a4f02497282216c7d3b35b7f68d4579a59c345fc6ab9905f1d6ae63502f31"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Public/BaddieCompanionWorldPlayer.h",
+        "before": "4c3b841e63c2c40d543a6590e1cc635b8e48f1c6e8fe028297be757b9ce9a67a",
+        "after": "90d230cf0233458c46324fd87d6f077c6f54bd7dd691030ba5a2a89e8607a17d"
+      },
+      {
+        "path": "apps/companion-unreal/Source/BaddieCompanion/Private/BaddieCompanionWorldPlayer.cpp",
+        "before": "e41c22d685191189f07bfd6d050f24bedc113b9b642bef1916288c47311dcb1d",
+        "after": "210d5cca522903cebb3aadcabf9206123cd067fead033bf3791b39c16833b416"
+      },
+      {
+        "path": "docs/engineering/unreal-world-player-handoff-2026-10-10.md",
+        "before": "9618891b5aef03c0e444bf8c4b54d2c18a1d78d5622ca3891c6072c76224caed",
+        "after": "59efe0b9cb4cabc478b85f0fa2197576a60d190eef009b72d7a69e4687bce4ce"
+      }
+    ],
+    "advancedPinnedCounterparts": [
+      {
+        "path": "docs/engineering/standalone-companion-account-linking.md",
+        "workingTreeSha256": "8f5a4f02497282216c7d3b35b7f68d4579a59c345fc6ab9905f1d6ae63502f31",
+        "pinnedSha256": "51716265a98875916c48516e28e7c1761efb318c0d7303e9d07c921f5c1349e4"
+      },
+      {
+        "path": "docs/engineering/standalone-companion-unreal-port.md",
+        "workingTreeSha256": "66c6b8b25204306b76d77790fa0fad0031e6a980c37060c980ae1e6281942122",
+        "pinnedSha256": "5f1bb15e8afd62814759942e6b5e0e2d7f6542464d5a262a00f1929a70f83610"
+      }
+    ],
+    "action": "Preserved incoming files; did not reconcile/replay transfer; runtime integration requires existing owners' review",
+    "protectedAuditAt": "2026-10-10T18:56:23.4685929Z",
+    "protectedFilesAudited": 117,
+    "protectedChangesCount": 22,
+    "unattributedProtectedChanges": 0,
+    "latestIncomingReview": "3447941 bounds native HTTP response handling and changes related handoff docs; no owned-path conflict; current gameplay remains uncompiled"
+  },
+  "protectedConfig": [
+    {
+      "sha256": "c33a2850f6c472091fc84e5cb1b2724de18aa9ab20939ed299a54cd193cc3f75",
+      "path": "apps/companion-unreal/Config/DefaultEngine.ini"
+    },
+    {
+      "sha256": "999e020cafbfdbb270f11b64461cd572423912d2ab8c0ab877b1ad7dcf3a22ca",
+      "path": "apps/companion-unreal/Config/DefaultInput.ini"
+    }
+  ],
+  "collectionsAndDevelopers": "untouched",
+  "gates": {
+    "accountAccess": false,
+    "movementAdmission": false,
+    "missionReadiness": false,
+    "utilityAuthority": false
+  },
+  "nextAuthorization": {
+    "required": "Joshua directly authorizes existing editor launch, named native geometry imports/material shader/mesh derived-data processing, generation and saves inside owned namespace",
+    "initialBatch": [
+      "city/districts/town-centre",
+      "city/districts/palm-courts",
+      "city/districts/garden-quarter",
+      "city/districts/south-market",
+      "city/districts/marina",
+      "city/districts/skyline",
+      "city/districts/lagoon-gardens",
+      "city/signatures/library-lane-3",
+      "city/signatures/college-lane-16",
+      "city/signatures/palm-crescent-9",
+      "city/signatures/old-orchard-lane-12",
+      "city/signatures/botanic-road-12",
+      "city/signatures/east-lagoon-drive-14",
+      "city/signatures/market-crescent-13",
+      "city/signatures/southern-ring-11",
+      "city/signatures/marina-drive-1",
+      "city/signatures/financial-avenue-7",
+      "city/signatures/harbour-crescent-4",
+      "city/signatures/dock-street-8",
+      "city/signatures/coast-road-14",
+      "city/signatures/estate-crescent-10",
+      "city/signatures/north-ridge-road-37",
+      "city/signatures/civic-boulevard-13",
+      "city/signatures/skyline-arc-20",
+      "city/signatures/garden-ridge-16",
+      "city/signatures/garden-avenue-3",
+      "city/dance-again-exterior",
+      "city/civic-terrace-exterior",
+      "city/road-ribbons",
+      "city/landmarks",
+      "city/national-theatre",
+      "places/civic-reception",
+      "places/civic-terrace-lounge",
+      "places/pool-courtyard"
+    ],
+    "conditional": [
+      "native initialized template delivery/duplication",
+      "native level composition of journaled saved children",
+      "approved native-ready original asset preparation/import delivery",
+      "approved rural metric terrain/heightfield/travel/nav input"
+    ],
+    "excluded": [
+      "compilation/builds/tests/checks",
+      "lighting baking/navigation generation",
+      "rendered or playable acceptance",
+      "downloads/installs/deployment/release",
+      "Config or runtime source changes"
+    ]
+  },
+  "handoff": "output/cribtest11-world-generation/HANDOFF.md"
+}

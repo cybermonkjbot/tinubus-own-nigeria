@@ -1,0 +1,1561 @@
+{
+  "schemaVersion": 1,
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "referenceManifestSha256": "800e29a26cb897a10e50657b3cd3dced1b9f385342560fae73d96efe53b00447",
+  "dispatchManifestSha256": "15c73b4c06e57b6cc7088d26bd439e9c7345e22c5d93445bf7034399c0771d91",
+  "referenceEvidenceState": "manifest byte hash differs from dispatch/receipt; 250 individual file hashes match; human reconciliation required before engine execution",
+  "referenceReceiptSha256": "620a06dad3de0514612e0b27d3fa5a3293e42e5a643b1dfa7a3fe3915db60c8a",
+  "files": [
+    {
+      "path": "apps/backend/convex/lib/companionWorldModel.ts",
+      "sha256": "008f54db546c7c644feb22d99903cce881c717a480b02b0db2dbc80199271005",
+      "bytes": 14848
+    },
+    {
+      "path": "apps/backend/convex/lib/companionWorldSchema.ts",
+      "sha256": "70fcc775e4c5508172448cd71c2e9cea609d1e3c8812e006113b236063f208c1",
+      "bytes": 582
+    },
+    {
+      "path": "CONTEXT.md",
+      "sha256": "4d8455c0c76e08d7243670e6c97f277e083dd13daf8c9ac59b30d55d1250912d",
+      "bytes": 8526
+    },
+    {
+      "path": "docs/engineering/cribtest11-python-mcp-2026-10-10.md",
+      "sha256": "3248bfe77156baf6f22e5493849bba1bce9573b46e6129abe918bc064b95d183",
+      "bytes": 8375
+    },
+    {
+      "path": "docs/engineering/cribtest11-unreal-importer-2026-10-10.md",
+      "sha256": "1f19e279f2db261146ae3c059afc55803eb20d056bcf01140e81d6d65bfdeaef",
+      "bytes": 9839
+    },
+    {
+      "path": "docs/engineering/standalone-companion-account-linking.md",
+      "sha256": "51716265a98875916c48516e28e7c1761efb318c0d7303e9d07c921f5c1349e4",
+      "bytes": 18387
+    },
+    {
+      "path": "docs/engineering/standalone-companion-apartment.md",
+      "sha256": "7fa8e7e493e02f7a236ec3e0ae33aeeb2e0c05612ecf91b68b08ccb4f6031354",
+      "bytes": 14770
+    },
+    {
+      "path": "docs/engineering/standalone-companion-gameplay-access.md",
+      "sha256": "fcf380674c447a9c3ce5829be4ac16a5743e7f8f1b3e27be8d821c455468599e",
+      "bytes": 8623
+    },
+    {
+      "path": "docs/engineering/standalone-companion-rural-expedition.md",
+      "sha256": "8a70cca37d448eb192d94ce413e8cff8ce3cbe2e5318c047bdef9707d242ff4d",
+      "bytes": 23215
+    },
+    {
+      "path": "docs/engineering/standalone-companion-unreal-assets.md",
+      "sha256": "861d572a5b1e5157d4787a7b0546865c0ff4cc555b36a24a20ae56bfbd327964",
+      "bytes": 15443
+    },
+    {
+      "path": "docs/engineering/standalone-companion-unreal-port.md",
+      "sha256": "5f1bb15e8afd62814759942e6b5e0e2d7f6542464d5a262a00f1929a70f83610",
+      "bytes": 44192
+    },
+    {
+      "path": "docs/engineering/standalone-companion-unreal.md",
+      "sha256": "e11c569c762cd86a54bf98cbd38f964f0b76e6456c858a1b2a99cdf67cb9a31e",
+      "bytes": 25955
+    },
+    {
+      "path": "docs/engineering/unreal-rural-mobile-reuse-2026-10-10.md",
+      "sha256": "9d53754e4141a713967191de8e59bab6857f50b5bc1dbd7f570ce3656949b87e",
+      "bytes": 8181
+    },
+    {
+      "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+      "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62",
+      "bytes": 52437
+    },
+    {
+      "path": "packages/assets/city/lagos-billboards-v1.json",
+      "sha256": "e1d475f0de7f9c70c40a40ad8e2c590f4796d0c21eb3a24f1a4842018c64a737",
+      "bytes": 3990
+    },
+    {
+      "path": "packages/assets/city/lagos-city-v3.json",
+      "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+      "bytes": 910334
+    },
+    {
+      "path": "packages/assets/city/lagos-connected-transit-v1.json",
+      "sha256": "21be37b211cd5c5e02044a62c9c498704567da712c3df3f0023e621e88c031df",
+      "bytes": 1308635
+    },
+    {
+      "path": "packages/assets/city/lagos-national-theatre-geometry-v1.json",
+      "sha256": "c9f9bca85966812fa667ec6b23ac1cdd2f6d69e2983b68882791f453579ac0ad",
+      "bytes": 292858
+    },
+    {
+      "path": "packages/assets/city/lagos-national-theatre-v1.json",
+      "sha256": "069767150a658eee73924b1429662389d526e83ef3726a45b19917343c310f2d",
+      "bytes": 17313
+    },
+    {
+      "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+      "bytes": 1326133
+    },
+    {
+      "path": "packages/assets/venues/civic-interiors-v1.json",
+      "sha256": "682a8a8c70aa397f2c926be0159f68d32d06b431c865c4f7e6c6f6377fdcfdb5",
+      "bytes": 323993
+    },
+    {
+      "path": "packages/assets/venues/civic-terrace-v1.json",
+      "sha256": "60a5d3b2db5fc8e22ebeb7b248dffd320a0e508245846a660e1e23b5f1c817f4",
+      "bytes": 167840
+    },
+    {
+      "path": "packages/assets/venues/dance-again-v1.json",
+      "sha256": "6d59e93aff2c3dcdc486192b913772ec462550f909ace04a733f3a18db74f956",
+      "bytes": 1135
+    },
+    {
+      "path": "packages/assets/venues/pool-courtyard-v1.json",
+      "sha256": "5e2bcfd8e195ab52b352efe4aca6b9644c8ca3f28f1504219863ba4f20cfd510",
+      "bytes": 729615
+    },
+    {
+      "path": "packages/character-runtime/src/geometryLease.ts",
+      "sha256": "ce25fbc75f7164718ef942901ad2712d5748036f13196c85d7c3161781170f29",
+      "bytes": 1207
+    },
+    {
+      "path": "packages/character-runtime/src/sceneAsset.ts",
+      "sha256": "8a8a118ed4b9b380b3478a92ee48e1287265177d5a53213cf13104e0af8645b3",
+      "bytes": 3329
+    },
+    {
+      "path": "packages/character-runtime/src/skeletonSharing.ts",
+      "sha256": "dfca938dd1c22d9949e47778f5ee868a169a5d7f8d7f7b3ef0b5b096d5787f61",
+      "bytes": 1276
+    },
+    {
+      "path": "packages/character-runtime/src/spatialGeometry.ts",
+      "sha256": "d10749ca47720bce480d37221746618126dade0936358b7ed523afd02446a896",
+      "bytes": 9578
+    },
+    {
+      "path": "packages/companion-scene/src/ai/TrafficAI.ts",
+      "sha256": "c9fcef1e4114d73192066067ccaeb098dd8eb5badad0231d79b36d2a957b1194",
+      "bytes": 6463
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/appearance/assetPreparation.ts",
+      "sha256": "ec840f5e55c2289931572c2bd841f8f669f4ecb9166889219c5fb5e16bdc3db3",
+      "bytes": 343
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/appearance/CompanionAssets.tsx",
+      "sha256": "188453469d07cf40be5386e2a0f0edff62d91c329e40c01c2880174f0ae60232",
+      "bytes": 888
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/appearance/embeddedGlb.ts",
+      "sha256": "596b9402806c122651cb7a3cbd7ecb472c7f6456d03b78d5c002820aca70e698",
+      "bytes": 5308
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/appearance/gltfAssets.ts",
+      "sha256": "20f7877de314075d09ffa6bbdb97c41be38cc14637dd510796a47240edac7da6",
+      "bytes": 16296
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/appearance/gpuTextureDelivery.ts",
+      "sha256": "b48fdee0b3e539ab6f5e43a47b3755f0d4113a98b95646e81a700785f16b0339",
+      "bytes": 4320
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/appearance/imagePreparation.ts",
+      "sha256": "d2b1d7e6d2b795145ddad724b1b812bbfa50ff1bed7a73f141198e68a4a214a6",
+      "bytes": 6833
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/appearance/meshoptPreparation.ts",
+      "sha256": "8c23c2a4ed2e9c0f982448f1a8382a6fb75ed3c1be6e937cbad737647bab38c0",
+      "bytes": 7320
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/appearance/optionalSceneryModel.ts",
+      "sha256": "348c7713346e0a23218f2d6cf6f22250f994a81542b603d2c15597905c2f47e8",
+      "bytes": 5193
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/appearance/ResourceDownloadState.tsx",
+      "sha256": "6b1df5afc844ff1b1a4c0d54e5e680afa4d5f1130f498d27117616a9ac6ffa13",
+      "bytes": 2279
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/asset-review/townSquareLife.ts",
+      "sha256": "bcfa386aa36c3fe8a43a53ad9ee37f09b877346afcf4adfe981846d71b427b12",
+      "bytes": 49329
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/asset-review/townSquareNpcs.ts",
+      "sha256": "5a8170ab98abe7d9fc2c3e06cecc7f375af2e72cdadd950b73efb2b056ca365b",
+      "bytes": 46611
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/audio/radioStations.json",
+      "sha256": "5a6705dd0353554aec0a07891d5dc4921f7791529f11ae1971978dde595f84c2",
+      "bytes": 800
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/audio/worldRadio.ts",
+      "sha256": "7e1dcc1ad48abdf0d24bae909bb21fa1bb8009d1bd1f13d2a74f7e9758ef5422",
+      "bytes": 4346
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts",
+      "sha256": "fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa",
+      "bytes": 25698
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityAtmosphere.ts",
+      "sha256": "a694415e114d1e12dfb3deaeaf80bfe5d139ec63ad76d56403e29ddabf9b8bdc",
+      "bytes": 2873
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityBillboardAds.ts",
+      "sha256": "df3357515a71d9995e2277f23d83b228906efaf75a86e3005bb3a239ef4c1b89",
+      "bytes": 9796
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityBillboards.ts",
+      "sha256": "90e110aea46231c5b3ed8fcbb0ea85928dc9af2e55148e5c15af369830c462b8",
+      "bytes": 2540
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityDistrictAsset.ts",
+      "sha256": "29cb7c0d5cf1b413f971f9a7ba92c5db4239ea6e5cfc0b435d8c6d258754c19d",
+      "bytes": 3563
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityFrontages.ts",
+      "sha256": "cd0dc002413d717ddac86b3d92e513ba51a7aa8cb2264cb1c89355d2dd277cb1",
+      "bytes": 9142
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityLandscapeDetails.ts",
+      "sha256": "7454025cf87a4a85caf22711fc438129f4f01b1758e04e8e3e4345ae7d33ded6",
+      "bytes": 26933
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/CityMap.tsx",
+      "sha256": "7b9fdd21e7a688ac856cc54e5626faaa2a206fe9f89d48b95b091a4ad5078d4a",
+      "bytes": 13522
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/CityMapDrawing.tsx",
+      "sha256": "8071b190b69f39b39a626e218820a2e533a8752534350671105d2183cc82591d",
+      "bytes": 19313
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/CityMapOverlay.tsx",
+      "sha256": "15af4bd96d0a405ba348c7d64d6056ec159ed4c05f9a799fd78a93a18144c07a",
+      "bytes": 1549
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityMiniParks.ts",
+      "sha256": "24916a56bfb556c2ed721b32f8c0852fb7a9ea7ac20e28a702bd14380f8c9829",
+      "bytes": 18630
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityParkDetails.ts",
+      "sha256": "80ec9d8d5b3cf75cd2f3dfd9313b7bc384310f5456d8889466cfcb9711852eca",
+      "bytes": 3577
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityParkWalkers.ts",
+      "sha256": "9b4e1f93e40e24bfd8f26cf3e9370ebd10d8026feebc801c0619d6746f3f3eb4",
+      "bytes": 8881
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityRefinery.ts",
+      "sha256": "7eb2a931e26c7c23356e000c4cf95875cd9977cc408cb54b20995c83f512de21",
+      "bytes": 3746
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityRoadTreatments.ts",
+      "sha256": "23664a8416f6bc79069de8780a167a7b72967e846e88574cef1271c1bdd1c29a",
+      "bytes": 13076
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityScene.ts",
+      "sha256": "8b9697d59ec162ac8e657a1cc812ba19e66d4705a7938e2a7c3ce367fa0fa3c6",
+      "bytes": 16091
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/citySlot.ts",
+      "sha256": "5b8a80701f1869453b12592b104fe6477e421cf4bfa70a36c90969bfa1bd074b",
+      "bytes": 17350
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityStreetDetails.ts",
+      "sha256": "14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8",
+      "bytes": 48744
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityStreetFinish.ts",
+      "sha256": "c2e2939cbb85a044cbfdecfc5bb0663683e39f6f66d29febed39516183bc87ec",
+      "bytes": 3615
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityStreets.ts",
+      "sha256": "3110f4892663555e302dd9d766ea37c190ee25292ce8db08dfd24fa09fab35bf",
+      "bytes": 10606
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityTerrain.ts",
+      "sha256": "e03081cc6bb9c4ceb2834d5303c4edefdd001f99a028d509e296046de6a41d8f",
+      "bytes": 14165
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityTheatre.ts",
+      "sha256": "dab20517053947b48992ff4e735977fa71650dea8949257a3ae0d19517490df8",
+      "bytes": 10942
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityTraffic.ts",
+      "sha256": "bbbca02c34a23d853e6744e860709649366509f02d2f304ba1d11790970fee27",
+      "bytes": 23018
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityTransit.ts",
+      "sha256": "d5041dbce0f3213a3d8db91e56286d2746830cec71ec29d760a16e1821d78b16",
+      "bytes": 27305
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityWater.ts",
+      "sha256": "58c0f2d0ba1e3c6803862c021465c46df0cc68d7862027e58e667a09493a956f",
+      "bytes": 10931
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityWaterfront.ts",
+      "sha256": "3409e3a33d7b65f791ad366f0e41e704496abd8db8b617a42c5cd13ea49356bd",
+      "bytes": 4406
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityWaypoint.ts",
+      "sha256": "2fc3a741d952075f91056d5163be2f3b68b32044add6d63214cd6ffe729068c2",
+      "bytes": 985
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/civicTerrace.ts",
+      "sha256": "3c1d60e2adc8b48bf48a1a0f6a56ea8e5907131f045532be3aa0bea5bf380159",
+      "bytes": 5003
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/danceAgainExterior.ts",
+      "sha256": "57e1bfa4d1870ce8f918cb7a2ff7b1b5f091837f5e7284fcb84d018e06f261e8",
+      "bytes": 4482
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/hostedArchitecture.ts",
+      "sha256": "a393266e3f1887213b8a65761d6088513597b13b587cec413f0839549fee493f",
+      "bytes": 10026
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/signatureBuildings.ts",
+      "sha256": "bd995dbe6df9ad3eadd956ae3f7e2c66c5a2bcbec8f2336ba77c50f436eb6f92",
+      "bytes": 6702
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/TransitActions.tsx",
+      "sha256": "dfc0f492af00b4ab69123968320b486b59db1a1f702022417131b3f29cbb607d",
+      "bytes": 4346
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/TransitFareDialog.tsx",
+      "sha256": "f18aced5128f4e6b346148058227bd561d1afd7d59a92d9f77d7d08eee792c38",
+      "bytes": 7163
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/useCityMapPosition.ts",
+      "sha256": "15bdb3c7651f72d91f616b36bbe5b0393abc9dd82ee4a94babeca244816cf643",
+      "bytes": 3694
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/waterfrontWater.ts",
+      "sha256": "70d84c4a3a66defeec837985a399bdca3dbe2d4876c54bfd32bf3554c46bafa7",
+      "bytes": 2933
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/worldWaypoint.ts",
+      "sha256": "23bd7bd638c080c79afaf361b7f782e3d7a276109b30ee2d07416dabbe598348",
+      "bytes": 5170
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/combat/combatBrowserInput.ts",
+      "sha256": "5c6ca3178de3a5f3c84741aa1abab523079d2afda592702d6689e8065bc7952f",
+      "bytes": 9523
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/combat/mountCompanionAgbero.ts",
+      "sha256": "2b2bcbed2dfd78ddd1336e3ad00100c458e30a4c87911738c670717db0a511ea",
+      "bytes": 4442
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/combat/mountCompanionCombat.ts",
+      "sha256": "e7c1dec9e3fa600aa682f1ad00e0067376b3d3949cd2d2879dfde044e35dbf3e",
+      "bytes": 16315
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/assetParts.ts",
+      "sha256": "1e29071931056cfb91406de7fe54af34f3b8e0cd17d9d13215fb323be275362d",
+      "bytes": 10147
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/civicInteriorGeometry.ts",
+      "sha256": "41ce0df4320becd6e67a4dcd7899359e3930ec984d9afbdb513a90922ba1683d",
+      "bytes": 4484
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/geometry.ts",
+      "sha256": "da5283130b94c422caba7e4d1078fb0856bda5e37010ec01711ce6b788374992",
+      "bytes": 13933
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/loungeGeometry.ts",
+      "sha256": "43249280ea16641acb65774807bf4cd1830831091d24e2f0cab00f4af17efe1e",
+      "bytes": 3915
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/nightclubAudio.ts",
+      "sha256": "092f75d5fd3a5be1ad2de7f185b2b7e596b1351c0794740c8364fe8e93232edb",
+      "bytes": 3925
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/nightclubCrowd.ts",
+      "sha256": "d35bc7192313acfa160399cc7b02f68b51cb9ce4a499a56f7a3d857835a5a073",
+      "bytes": 28265
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/nightclubGeometry.ts",
+      "sha256": "a25de2f543b7b08305f744435b2a6868ea178d4f1ad7617a670e8ae1d7fb79cc",
+      "bytes": 33105
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/npcEscapeMotion.ts",
+      "sha256": "172e7a309de8275bfaf35d884b352c55797ca82231050afc5d0675b74b5aa0ee",
+      "bytes": 2275
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/npcWalk.ts",
+      "sha256": "154f2dc551404f7e8ffd8873b0fb5a2eb24f02c8b4b839b47384050675177956",
+      "bytes": 11237
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/poolCourtyardGeometry.ts",
+      "sha256": "5317f4b5c674bd8b2ec2552869df3d9f757aa1bed23b1866475aea262bc8b73a",
+      "bytes": 6913
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/roadsideEnvironment.ts",
+      "sha256": "4107e71fb5c2dd6ddcc4a269aae41e59c080dacb91186b3fd507357868a2f384",
+      "bytes": 1546
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/scene.ts",
+      "sha256": "5f06acfa399e86e226c74cfa6fa161dafcea1e09b25ffb80868169fefe97a45d",
+      "bytes": 40727
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/waterfrontGeometry.ts",
+      "sha256": "ca63d8aea63645f6b72e74fafdae5805063d912de1a8221c26403a3e3cd8241e",
+      "bytes": 33885
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/worldEnvironmentSlot.ts",
+      "sha256": "1eee92e6ab5035cfe738297f478c26ab79b4a168bb27b82976c5d76b98044567",
+      "bytes": 7156
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/racing/circuitGeometry.ts",
+      "sha256": "3f36e80de1f543de9d4b0f560620cd8fcc012defe675f2ba4aa5bebe71c8fe3d",
+      "bytes": 12598
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/room/placement.ts",
+      "sha256": "33adc31f19486c6d89b7e490b529fbe3c1c42ec96656db6f77f8376c32cdd785",
+      "bytes": 70
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/room/shopGeometry.ts",
+      "sha256": "436cb18e5e70739e23c45fe00f40e991564277240eecef51f7847d8a339b89d2",
+      "bytes": 8948
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/room/studioGeometry.ts",
+      "sha256": "1a9d3a1a6de9aca081851088f53ff27dcf5292c53b2200fc4fead8135f74d43f",
+      "bytes": 7277
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/room/types.ts",
+      "sha256": "127e8c2a19141d8b6e40bc3c2bbcef904ecb2911705fb5c6a77887da8ecffaf0",
+      "bytes": 2041
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/scenes/environments.ts",
+      "sha256": "e2bc2536bc4ced34fcae440092a97fa65f1a7216ed6eb19cdda33ba5da852dac",
+      "bytes": 7743
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/scenes/navigation.ts",
+      "sha256": "270b3031bf9af0b1a1fc32d322f4854bce4b95bee3ff3f0af1a5517afce9ba0d",
+      "bytes": 152
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/scenes/objectTransformSnapshot.ts",
+      "sha256": "e16f91a80e5e7bb6a6f765064c98f3cee33e7f53b62ddcdc208186d10ff7e47f",
+      "bytes": 3382
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/scenes/roomPowerBindings.ts",
+      "sha256": "8667eeb84ccdd56843a4d578664da50813bb10541b7773fff686225ea760f424",
+      "bytes": 3663
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/scenes/scenePower.ts",
+      "sha256": "0217f15d95c3954e3eeb58494228e1cbd826679837ad7ffe524113329ffd86cc",
+      "bytes": 5075
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/scenes/terraceGeometry.ts",
+      "sha256": "bc990d8887f6ece593f9f4706383cae841628eaa39a900fc071771f4d6f81dc9",
+      "bytes": 13597
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/scenes/townSquareRuntime.ts",
+      "sha256": "3b4a9bb1759419b759a3d456f0c1dd6c47147ef113c7782140c52933920cc354",
+      "bytes": 19814
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/scenes/utilityScopeKey.ts",
+      "sha256": "8a1ebcb95027235a9387e78b8b585257ee65607f5e42fb29d1091d2717f510fb",
+      "bytes": 936
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/assets.ts",
+      "sha256": "d40cb8e5390fd2b54618266e7694e40349006dfe480f65d60559316ca8c9c234",
+      "bytes": 232
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/BottomSheet.tsx",
+      "sha256": "f9c376dc78b8b5feb1c8752aa23414993ab66013d11e81b2ebb8342c570032ac",
+      "bytes": 4316
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/Carousel.tsx",
+      "sha256": "242f4a7488e18c35e9b43651c9d5877288655a6f9f1734e03e56108f17526bf7",
+      "bytes": 10162
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/components.tsx",
+      "sha256": "20b02f6c6de4cfd08aa6a49bf9bc261c0ea000864b37e1001afdcd892afe4bc8",
+      "bytes": 2691
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/Device.tsx",
+      "sha256": "867de9c65220f2ac7202f895d2b10a64c747f211a4b22cd8f81a1a1d66e52fc2",
+      "bytes": 3537
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/FlowStack.tsx",
+      "sha256": "1e85744c5f1c1138dd5e8b7b27fbb6c05139d5aac93d94c45084a018eddd4ebc",
+      "bytes": 7244
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/geometry.ts",
+      "sha256": "f1382e5d6cc9adfd7ac142304f2f9a5a2330db1d74b3f0848adbaf311676bf16",
+      "bytes": 1244
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/index.ts",
+      "sha256": "ee69d9341571db5dee84dd2d7452a62eef09085a84a85f198a3edc48047e0412",
+      "bytes": 802
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/Keyboard.tsx",
+      "sha256": "862587264375499846385ce817ea1b813db8f118140cdb6da163f989a6946cac",
+      "bytes": 6831
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/MobileCursor.tsx",
+      "sha256": "be2353205e05d823bc23ecae88179d712781ee9ede8fa317057c194c7c23ee7d",
+      "bytes": 2171
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/MobileRuntime.tsx",
+      "sha256": "1ffe80a9582460005d66f10fc73deaff08b81431785a506887cc0d8320be747f",
+      "bytes": 1338
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/MobileScroll.tsx",
+      "sha256": "ea3e3691f587ea13753162b9e64c1981263e5b9beddebea21a6a1551dce76430",
+      "bytes": 14325
+    },
+    {
+      "path": "packages/companion-scene/src/mobile/PhoneFrame.tsx",
+      "sha256": "73015590b468acbb4b58e3f6fe5eef99c5f68f67722caffd8f00d271ba00a91d",
+      "bytes": 4448
+    },
+    {
+      "path": "packages/companion-scene/src/physics/VehicleController.ts",
+      "sha256": "4928dcfd708d07a01557ced9fac35264563ab80cbddd9e257ff690d097e8e732",
+      "bytes": 12116
+    },
+    {
+      "path": "packages/companion-scene/src/world/LagosScatter.ts",
+      "sha256": "76bf20c106c462a0bef46216f5ad0c348c0865f335b56d1643b1aee03c79b076",
+      "bytes": 16895
+    },
+    {
+      "path": "packages/companion-scene/src/world/townSquareRoadSurfaces.ts",
+      "sha256": "05b0edfb9228d08a03042d75a59b0d978e92876bf85f4e8d155141e656aea781",
+      "bytes": 3994
+    },
+    {
+      "path": "packages/utils/src/asset-storage.ts",
+      "sha256": "dc6225642b6aceb39bf9252da67407f0304d60a595c30573cf9cace7347b6e6a",
+      "bytes": 2824
+    },
+    {
+      "path": "packages/utils/src/companion.ts",
+      "sha256": "8bba23bf9d6e79d10d802fd82a02f320bd46c22f69cd0a930a714ff22bb51475",
+      "bytes": 8882
+    },
+    {
+      "path": "packages/utils/src/companionActivityKinds.ts",
+      "sha256": "80f615c7cd627fafe60588ea93f7c725bda581ae3944737e8127db848ee2c95a",
+      "bytes": 1215
+    },
+    {
+      "path": "packages/utils/src/companionArchitectureAssets.ts",
+      "sha256": "75c32c30302bfc604a0c47972d867c6899cd7760eee5062adc5dccce675090eb",
+      "bytes": 6770
+    },
+    {
+      "path": "packages/utils/src/companionAssetPreparation.ts",
+      "sha256": "3538e4ffd17a7674f6c663033256a421b4077a031564513f16401d2c2f219756",
+      "bytes": 1896
+    },
+    {
+      "path": "packages/utils/src/companionAssets.ts",
+      "sha256": "8fc247281c6a84ec3455dafd184c3a93954deb0a4f41276a986ac6dfc73d8a8a",
+      "bytes": 9381
+    },
+    {
+      "path": "packages/utils/src/companionAssetStreams.ts",
+      "sha256": "c628da93f65bff1a48f51e68bc18fd43db4eea7def0dfcc7f4282ddc9212396c",
+      "bytes": 3429
+    },
+    {
+      "path": "packages/utils/src/companionBillboardAds.ts",
+      "sha256": "37dc4398ca4a395394acc7d978670d1d59104e4c3797c42fc3bed14baee523d6",
+      "bytes": 2315
+    },
+    {
+      "path": "packages/utils/src/companionBillboardAssets.ts",
+      "sha256": "787b7f55e8890c585cfc90b6de9aec8bede74154d4a7efb3f6d22926e41577f1",
+      "bytes": 1751
+    },
+    {
+      "path": "packages/utils/src/companionBoatAssets.ts",
+      "sha256": "1634fe929de5332b935dcdde4fb96e03d104df7d74c969991f3220897a84e176",
+      "bytes": 7455
+    },
+    {
+      "path": "packages/utils/src/companionCall.ts",
+      "sha256": "564d96a85bc381760292a3e686240b85a3da9b7bd40df881acf04a095e71a308",
+      "bytes": 5649
+    },
+    {
+      "path": "packages/utils/src/companionCallExpression.ts",
+      "sha256": "b8651cf5034189cb5f1cb3cae61969799230536aaf2775ddb3431e6f3ecef89e",
+      "bytes": 2073
+    },
+    {
+      "path": "packages/utils/src/companionCity.ts",
+      "sha256": "b27fe215e09903b61c9173db2ceb2d36e7d346de1d3f341aea1f169f23e14665",
+      "bytes": 21003
+    },
+    {
+      "path": "packages/utils/src/companionCityArchitectureDetails.ts",
+      "sha256": "52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857",
+      "bytes": 33380
+    },
+    {
+      "path": "packages/utils/src/companionCityData.ts",
+      "sha256": "ef0483319d09e5262742d0767b6f77854dcc1d3791aff9e5e5f1eb917cb6c52c",
+      "bytes": 453
+    },
+    {
+      "path": "packages/utils/src/companionCityFootballFrontages.ts",
+      "sha256": "d1251992ef78507f56c07d5112cbdbcb513fc305c85522f6481db5eb80885f13",
+      "bytes": 992
+    },
+    {
+      "path": "packages/utils/src/companionCityFrontages.ts",
+      "sha256": "31fa84281ceb45916f3b714d4d897b5a747b50dde7249c0ca5dd8a2d307347a0",
+      "bytes": 12948
+    },
+    {
+      "path": "packages/utils/src/companionCityHousing.ts",
+      "sha256": "0ec5c8a213ee436ccb99bf21c16d506be347bc76c5a55eda9aca5106d8ab9541",
+      "bytes": 1147
+    },
+    {
+      "path": "packages/utils/src/companionCityLandscapeDetails.ts",
+      "sha256": "5aa4f628054c239106eb3a7544ce1b3dd64d9d3f287470869ae02500a4283d4a",
+      "bytes": 3668
+    },
+    {
+      "path": "packages/utils/src/companionCityLighting.ts",
+      "sha256": "95967a75c10a74f820cda5a8cdef434c6bcac946dd3eea47f889d5bc44525780",
+      "bytes": 4652
+    },
+    {
+      "path": "packages/utils/src/companionCityMap.ts",
+      "sha256": "6dbd248c0613e2965a004c91020d755d11b2cc875da2dc8bdd4e5fc02882bb45",
+      "bytes": 17349
+    },
+    {
+      "path": "packages/utils/src/companionCityMiniParks.ts",
+      "sha256": "7dbeadf7b18b39b38aa4707de4913e1461cfc15c7a874453a2d976c50d82118d",
+      "bytes": 9494
+    },
+    {
+      "path": "packages/utils/src/companionCityNeighbourhoods.ts",
+      "sha256": "75515a7e42d296895eb970bacdbe498537172c32a6bd54932661c6ae9b92d682",
+      "bytes": 9795
+    },
+    {
+      "path": "packages/utils/src/companionCityParking.ts",
+      "sha256": "c5866b23c79f187ae420d92de8d2a57c2e640acbf4cc17ed2994da9e506547bf",
+      "bytes": 11303
+    },
+    {
+      "path": "packages/utils/src/companionCityParks.ts",
+      "sha256": "2367391ce82e5716261beef673c58253d0866ca167c0d28940b99fa6cac91934",
+      "bytes": 11828
+    },
+    {
+      "path": "packages/utils/src/companionCityRefinery.ts",
+      "sha256": "9d601c9bedbbf40f0513db56f4aa5b5cb3afdd41ea471239602f9758aab097d9",
+      "bytes": 3261
+    },
+    {
+      "path": "packages/utils/src/companionCityResidentialUtilities.ts",
+      "sha256": "149bd4e81fee1f5d3c7e8572128a6e2c2383f1fd8e3e2cca9035b279c43073dc",
+      "bytes": 9026
+    },
+    {
+      "path": "packages/utils/src/companionCityRoadTreatments.ts",
+      "sha256": "2bb3e73f47121500b1038b717820e33255e4d42ccb0d4e49797fa3cb23cd7851",
+      "bytes": 7827
+    },
+    {
+      "path": "packages/utils/src/companionCitySpatialInfill.ts",
+      "sha256": "3d67ebe2894cf627b46b2fd489be829d9186374823dc83b62621172c18c5671c",
+      "bytes": 22775
+    },
+    {
+      "path": "packages/utils/src/companionCityStreetDetails.ts",
+      "sha256": "39ccf3d8e4947ed58ee3bb8fe54b3f57843e2be5c596ef1455b3816f20fa1bb4",
+      "bytes": 22651
+    },
+    {
+      "path": "packages/utils/src/companionCityTheatre.ts",
+      "sha256": "330478f010677d0fc90baea4d766109a84e8e939cb6b49707fd0d31e0b48406b",
+      "bytes": 5158
+    },
+    {
+      "path": "packages/utils/src/companionCityTransit.ts",
+      "sha256": "00400e99da7cd084184bff5e1dc06b2a1d1e360923f4c1046dd2ea98ded56ec0",
+      "bytes": 29461
+    },
+    {
+      "path": "packages/utils/src/companionCityTransitNetwork.ts",
+      "sha256": "c554f2395e8f5575583ce212ffec90167b8f4c7811834c91db99d57364caf020",
+      "bytes": 6027
+    },
+    {
+      "path": "packages/utils/src/companionCityUtilityPoles.ts",
+      "sha256": "c3c5daf7d593e075079b8c613874b735bd7a83e77268d803c6aff61ef0d8526b",
+      "bytes": 7187
+    },
+    {
+      "path": "packages/utils/src/companionCivilianVoices.ts",
+      "sha256": "b30f2d5fc266c89de7930e62337dac04b34dca38cb7b3cb9977e6372e3d97995",
+      "bytes": 7650
+    },
+    {
+      "path": "packages/utils/src/companionCombat.ts",
+      "sha256": "56da7b73be7622d6d0d7954c6ada30ffc7cf10d04bb3ddbfbb29559b4839078d",
+      "bytes": 20158
+    },
+    {
+      "path": "packages/utils/src/companionCombatAgbero.ts",
+      "sha256": "554e69ef4a9f44b1e56f50af5801b5f0be40fa0104f1067cca4f28ff0d4ae081",
+      "bytes": 541
+    },
+    {
+      "path": "packages/utils/src/companionCombatEquipment.ts",
+      "sha256": "a3f2f01f9d50da5e7fbf271c2b94bee45104c89620684b497ac2f7ccdaf92325",
+      "bytes": 4285
+    },
+    {
+      "path": "packages/utils/src/companionCombatInput.ts",
+      "sha256": "0d6f433d3a8a8f2d2943ec4b810b367deefda5c9b4a553ac9ef244da751f7ffe",
+      "bytes": 13295
+    },
+    {
+      "path": "packages/utils/src/companionCombatRobbery.ts",
+      "sha256": "5eaef9a7e59850a61ce887e3fe96ee0b66d6824e409376813898597d78fe3c32",
+      "bytes": 3971
+    },
+    {
+      "path": "packages/utils/src/companionCourierCatalog.ts",
+      "sha256": "0c50b8d45f930694222b3590785fd7105c72bcdb75f9600718dbc6083ad54914",
+      "bytes": 5679
+    },
+    {
+      "path": "packages/utils/src/companionDistrictAssets.ts",
+      "sha256": "5f04bb7ea5c62b5c8a3cf9f37e1e226484335f08e8fe70c8a466eadf250ffc37",
+      "bytes": 1023
+    },
+    {
+      "path": "packages/utils/src/companionEmotes.ts",
+      "sha256": "32a184e58c20ea6022f66b01d88e831a14511a8a59c90e6cbc949b7f1b633a04",
+      "bytes": 1114
+    },
+    {
+      "path": "packages/utils/src/companionExpression.ts",
+      "sha256": "434d71085d6ce3bd7c5a8c85683766ae45978227fdc926d2a35070690796348c",
+      "bytes": 3653
+    },
+    {
+      "path": "packages/utils/src/companionFood.ts",
+      "sha256": "2738d6ad02570b0e5fe086e9fa09f05734679658def1409aa045bdef4f5b7127",
+      "bytes": 8914
+    },
+    {
+      "path": "packages/utils/src/companionFootball.ts",
+      "sha256": "979b865a71525b4602c3e486ad9b6175f14221d26da05953a407b58c0e4a033f",
+      "bytes": 4918
+    },
+    {
+      "path": "packages/utils/src/companionFootballEngine.ts",
+      "sha256": "5c4852ab1f1547f380ec6f475e049b65186a9d57443c1a97a3c9251c203fdde4",
+      "bytes": 23335
+    },
+    {
+      "path": "packages/utils/src/companionFootballNpcs.ts",
+      "sha256": "9b930929488f251b983c3854269c70ea764d7ffe285ca12698a70785e09892aa",
+      "bytes": 11579
+    },
+    {
+      "path": "packages/utils/src/companionFootballPlaces.ts",
+      "sha256": "3fc38ffc998d264c40f08748440d30605cdd901c7533e44d67330a1e8a5ce5ac",
+      "bytes": 1502
+    },
+    {
+      "path": "packages/utils/src/companionFrontageAssets.ts",
+      "sha256": "1ce377a4c575294a0a1fc82b68cbeb5222dae416f08c91ea5c6008950a45861f",
+      "bytes": 441
+    },
+    {
+      "path": "packages/utils/src/companionGameEconomy.ts",
+      "sha256": "85ff223aad8814d11b99eefe5c6df19b4ba19a3ee9d3235cf83aef6e522a9e62",
+      "bytes": 12725
+    },
+    {
+      "path": "packages/utils/src/companionGunfire.ts",
+      "sha256": "3476fcb21ba9a4dff96bbcf3b81d3d8b1b309cfaa5ce1d1c025892666d2b3d2e",
+      "bytes": 13115
+    },
+    {
+      "path": "packages/utils/src/companionHaul.ts",
+      "sha256": "2e729e6abeba8e28c7b7d328f985451162d8ba036174da86636adac0c9f02ab4",
+      "bytes": 3316
+    },
+    {
+      "path": "packages/utils/src/companionHaulDrops.ts",
+      "sha256": "970c5464f60c09f55c4e3ab3419ac4fe88ca933d4a156d6a18f05f765adb15a1",
+      "bytes": 498
+    },
+    {
+      "path": "packages/utils/src/companionHome.ts",
+      "sha256": "5590012aac30c8f1d75ebbcb0b7e698f78946035355b7d7bf5a035dafb3e2803",
+      "bytes": 6017
+    },
+    {
+      "path": "packages/utils/src/companionHomeDesign.ts",
+      "sha256": "2a2309d984d9ffc36d264f386c413fc6a2fa6695c6e0459dd30ebcd7dace7d67",
+      "bytes": 4281
+    },
+    {
+      "path": "packages/utils/src/companionHomeDoor.ts",
+      "sha256": "9915bbaf9fe79bb9d5acaace0baff37141b8a41a0e1bf3830ec64b7fcd5189c7",
+      "bytes": 1721
+    },
+    {
+      "path": "packages/utils/src/companionJobs.ts",
+      "sha256": "9fb5f4f6ba25202b133a0dccf0452e39c2a920a10f057233c7470b69341cc408",
+      "bytes": 6299
+    },
+    {
+      "path": "packages/utils/src/companionJourney.ts",
+      "sha256": "6c989a2b70ba19a412df7112f3fa35970cf56aeacaddc3c9b88ec3f61df71838",
+      "bytes": 11466
+    },
+    {
+      "path": "packages/utils/src/companionKitchenObjects.ts",
+      "sha256": "abea7e73ebf220bc3092724577faa5fcef53f329b641c96a112d6a85eefd046f",
+      "bytes": 2772
+    },
+    {
+      "path": "packages/utils/src/companionLife.ts",
+      "sha256": "b628e8415be3f064096b05e6878e1176f238635bd641f965582e68fa9e66ecf9",
+      "bytes": 14159
+    },
+    {
+      "path": "packages/utils/src/companionMissionContacts.ts",
+      "sha256": "61371b5d2214fe165e7d349248fcdac1238a923282b3e660a56260455849fb90",
+      "bytes": 1001
+    },
+    {
+      "path": "packages/utils/src/companionMissionExpansion.ts",
+      "sha256": "b8363e7e6d81254e6f6bca63d1989b2acc72b0f4b5ac33107b8fb864efbacfd8",
+      "bytes": 43272
+    },
+    {
+      "path": "packages/utils/src/companionMissions.ts",
+      "sha256": "5801b3926f513dde0fb3aaa12744667451c90dc74bff61033bebaded54366d54",
+      "bytes": 10166
+    },
+    {
+      "path": "packages/utils/src/companionMovement.ts",
+      "sha256": "0e4a96725023f7d1d6c33e18c7774dca9c7e560cfe293b827d486e05eac85809",
+      "bytes": 9243
+    },
+    {
+      "path": "packages/utils/src/companionMovingHawkers.ts",
+      "sha256": "f929b0037e76c4d0c2dd1c5e39a4e6ad2285d6284185fc9dece370e13b0d3b16",
+      "bytes": 13126
+    },
+    {
+      "path": "packages/utils/src/companionNavigation.ts",
+      "sha256": "4a29decf12e26f5d3acf091c141e50f6e537dfb7a0460d808cb0963e8c3dc551",
+      "bytes": 13299
+    },
+    {
+      "path": "packages/utils/src/companionNightclub.ts",
+      "sha256": "d5443f87b78d65091057b44bc141738acff53fcf2d7cf6a2446974c4655a1c8f",
+      "bytes": 14836
+    },
+    {
+      "path": "packages/utils/src/companionNpcs.ts",
+      "sha256": "d4348d48ef440071711e6eae2c8f852445f87797099aa64102ec2309739f3ac9",
+      "bytes": 21618
+    },
+    {
+      "path": "packages/utils/src/companionNpcVoices.ts",
+      "sha256": "2dd9712d8816967f7788e913d1d3cdb7928b1ceda1ff7c16ddd2ed843468e58b",
+      "bytes": 54083
+    },
+    {
+      "path": "packages/utils/src/companionPickupAssets.ts",
+      "sha256": "ea2024b5a5120ea1c5308c0559c460eead095f5da2b678f71c687f91c144dc24",
+      "bytes": 701
+    },
+    {
+      "path": "packages/utils/src/companionPlacement.ts",
+      "sha256": "97ad507f2dd8111508778ecb4e53cc35894a6ed8c483bbc7ec21eef795b20641",
+      "bytes": 20221
+    },
+    {
+      "path": "packages/utils/src/companionPlaces.ts",
+      "sha256": "7c65c2f30a11a6f8fff893a1bf29073d1c52219e3503b9d65455da59a3d01370",
+      "bytes": 4747
+    },
+    {
+      "path": "packages/utils/src/companionPlacesAudio.ts",
+      "sha256": "ea37ba09b83171000e51ca2a9d8a0bcc231a2c5073c77b2f4b6cd95a19727281",
+      "bytes": 4154
+    },
+    {
+      "path": "packages/utils/src/companionPlacesCivicInteriors.ts",
+      "sha256": "c4b0ca3fb268ab7114dc5871a5cbc246aeebe2b121238a50f5fff3dbe3eb0ee6",
+      "bytes": 2749
+    },
+    {
+      "path": "packages/utils/src/companionPlacesExpansion.ts",
+      "sha256": "83f5f7ae488e10892ef72e8de196ec102a367c737ae330b34bca3e5975adff2b",
+      "bytes": 4919
+    },
+    {
+      "path": "packages/utils/src/companionPlacesExpansionLayouts.ts",
+      "sha256": "e49a93fb2f7f74c5f31aa872f2957a99137e86da75b56778d099d413d289eece",
+      "bytes": 12603
+    },
+    {
+      "path": "packages/utils/src/companionPlacesInteractions.ts",
+      "sha256": "46447816dacfaa821eef5cd947ee12aafff9213914f7d0c6892363c296c7f738",
+      "bytes": 45130
+    },
+    {
+      "path": "packages/utils/src/companionPlacesLayouts.ts",
+      "sha256": "29c0bdbd4bb21a72801b99e56d23517d895f5307ede5fb52d5d1d8624e431541",
+      "bytes": 37731
+    },
+    {
+      "path": "packages/utils/src/companionPlacesPoolCourtyard.ts",
+      "sha256": "196fcab1f9881b6e7b117eacdf068bc51787d22201d4f0c31d19da7c2d88fe25",
+      "bytes": 2594
+    },
+    {
+      "path": "packages/utils/src/companionPlacesTownSquare.ts",
+      "sha256": "1fc10bf5b15480dceb984988e7226b37d4b69292829b9a4f2002c53265545129",
+      "bytes": 12733
+    },
+    {
+      "path": "packages/utils/src/companionPlay.ts",
+      "sha256": "f002e398719f911596fd8c6308445711006be92e8d23fd827431b5784f984952",
+      "bytes": 29839
+    },
+    {
+      "path": "packages/utils/src/companionPlayerDriving.ts",
+      "sha256": "2e268765a20956c92c09f7677af35238407629225396456a594046166a9f31f6",
+      "bytes": 4481
+    },
+    {
+      "path": "packages/utils/src/companionPlayerDrivingControls.ts",
+      "sha256": "bc96a57c2e9e4f6555890e42532e6567553ec7111c8a309eb1153008dae3fe29",
+      "bytes": 9519
+    },
+    {
+      "path": "packages/utils/src/companionPlayerDrivingMotion.ts",
+      "sha256": "483ba984b92abcc58e8c396b7e881633c6e62983964b70dbfed2cffc8b0edd2f",
+      "bytes": 22538
+    },
+    {
+      "path": "packages/utils/src/companionPlayerVehicles.ts",
+      "sha256": "477c8c849f555251faa46fbe224b985da7250dc488387eee852e79d9aa6a83df",
+      "bytes": 17051
+    },
+    {
+      "path": "packages/utils/src/companionPolicing.ts",
+      "sha256": "b1f6e06d26feb906cf5c5e1d5591311d868929f512a70e4bf4ed3c56781d3719",
+      "bytes": 11549
+    },
+    {
+      "path": "packages/utils/src/companionPolicingDistricts.ts",
+      "sha256": "f18398357a2686cc1c44db09941d72fc804869d853f67d63e0c88c12db1f0805",
+      "bytes": 3095
+    },
+    {
+      "path": "packages/utils/src/companionPolicingPatrol.ts",
+      "sha256": "eb0656900dbb11f8942f70d14a24dbce938a0555a6992b80a89f71a698001ea5",
+      "bytes": 2369
+    },
+    {
+      "path": "packages/utils/src/companionProximityAudio.ts",
+      "sha256": "00b030863fe872a5488b7bcfc5ad12c159217555ab9c7edd8d6ab9a937291a8d",
+      "bytes": 18372
+    },
+    {
+      "path": "packages/utils/src/companionRacing.ts",
+      "sha256": "0ead5eb2164aa4ab89d226e479d60460a37812bb8c8962fb334bcd9cbdea26b3",
+      "bytes": 14361
+    },
+    {
+      "path": "packages/utils/src/companionResidents.ts",
+      "sha256": "bd3a8ee3cda5e1af3f7b87d7004b3204e2b060756564acfe2302e62f1a6885ba",
+      "bytes": 17398
+    },
+    {
+      "path": "packages/utils/src/companionResidentSimulation.ts",
+      "sha256": "1bf871eb744c0ac6e3864ec374ef1c151e04168ae4afcf8b56ece8abf4d1c2e7",
+      "bytes": 23804
+    },
+    {
+      "path": "packages/utils/src/companionRoadAssets.ts",
+      "sha256": "bb72b6f6d458d5bb0d6f3bbd60e6715706d66e805a7502efd09dc6fdd0bae5d9",
+      "bytes": 442
+    },
+    {
+      "path": "packages/utils/src/companionRoadMechanics.ts",
+      "sha256": "11d0978f105ccd1fdd85f4db71cfe57996d3f04f069637d74430778b8e84b361",
+      "bytes": 22653
+    },
+    {
+      "path": "packages/utils/src/companionRoadside.ts",
+      "sha256": "e57c1742b37c9b71a1e01e2338f9aca049696b64667417007652330ab9950521",
+      "bytes": 6984
+    },
+    {
+      "path": "packages/utils/src/companionRoomItems.ts",
+      "sha256": "e384593cb48434e7681dd1f2c0a3f7ceb75a1e02e1aa187177c19ccac942c1d3",
+      "bytes": 7021
+    },
+    {
+      "path": "packages/utils/src/companionRoomLayouts.ts",
+      "sha256": "9d3a5cd46d9a5c13b54cf3a1402a6e62f166cb5c2a74679c41b889bba83e9c2e",
+      "bytes": 11842
+    },
+    {
+      "path": "packages/utils/src/companionRoomNames.ts",
+      "sha256": "dd7519a60bc057938e4ceda70ba08d0a67c36da06957bc238934605161271b80",
+      "bytes": 497
+    },
+    {
+      "path": "packages/utils/src/companionRoomStyle.ts",
+      "sha256": "885be516c068f732f56ea93cdcfed1b9230b87ae7aebafd2d047455ec27e1a4b",
+      "bytes": 3083
+    },
+    {
+      "path": "packages/utils/src/companionSkills.ts",
+      "sha256": "b87c1927a96fb1806d63ca3fd3ada1bf9686659ba2d8ec2255d4737f2df61066",
+      "bytes": 4582
+    },
+    {
+      "path": "packages/utils/src/companionStreetCrashes.ts",
+      "sha256": "6e17b155a3ba839c53c8dab7881f2ba4aedba4af2d797cd13958e2503b8c1164",
+      "bytes": 31608
+    },
+    {
+      "path": "packages/utils/src/companionStreetCrashTraffic.ts",
+      "sha256": "89f590e3b59629cb1cc96f6cd0ebe3f09c8b4e2791e9938d67a9c02c151510ce",
+      "bytes": 30325
+    },
+    {
+      "path": "packages/utils/src/companionStreetFactions.ts",
+      "sha256": "2a209409509a4ca0dd62754bc602d83d8f724f63e3d7767406ad7881c53cf6a1",
+      "bytes": 13957
+    },
+    {
+      "path": "packages/utils/src/companionStreetPedestrians.ts",
+      "sha256": "9c742eb86c70c1c9a5c68f5e4b28e4646f58282e324df1cf85061739840289af",
+      "bytes": 35144
+    },
+    {
+      "path": "packages/utils/src/companionStreetRouting.ts",
+      "sha256": "279ec8785bc12ac9e455098d64fd0b8938a7d4a05da85d2ad0660394dd26f48a",
+      "bytes": 5642
+    },
+    {
+      "path": "packages/utils/src/companionTasks.ts",
+      "sha256": "878b249b0ef1629d78e78c6fc2856205930030dd3ba3cb161c3225afe6ff1619",
+      "bytes": 3692
+    },
+    {
+      "path": "packages/utils/src/companionTownSquare.ts",
+      "sha256": "1e32ba830f60b492ac85eeec063e127ea3bb5ef197ff9c50dbea5d23297092a1",
+      "bytes": 11251
+    },
+    {
+      "path": "packages/utils/src/companionTownSquareResidentBodies.ts",
+      "sha256": "5ebd67ce8e205abae569ce3219b91248546135e36e0c480bf9175e32b2b3268b",
+      "bytes": 9194
+    },
+    {
+      "path": "packages/utils/src/companionTransitAuthority.ts",
+      "sha256": "51a63f45ab57b001be9095d593e5186112b5ddb15906d52141f7d2401bdfcc10",
+      "bytes": 17735
+    },
+    {
+      "path": "packages/utils/src/companionTransitFares.ts",
+      "sha256": "bff670aac905962ca625ac3fb2be3f9ffd5209e09c27074d0eadfdf91add4e68",
+      "bytes": 1197
+    },
+    {
+      "path": "packages/utils/src/companionVehicleAssets.ts",
+      "sha256": "2a1e0051bc72c638dcaf6653203662af6e61e067e17b0039fd9469b10d8f245a",
+      "bytes": 2997
+    },
+    {
+      "path": "packages/utils/src/companionVehicleDynamics.ts",
+      "sha256": "e1b2a9c7e9daf33cc298011a435e92c218e5c7efeedcb2d4ed3bb0a9b90ca778",
+      "bytes": 24560
+    },
+    {
+      "path": "packages/utils/src/companionVehicles.ts",
+      "sha256": "464192ed6375a3c47c292109aedd109b579f18dd19abaaa16f61803def2168f2",
+      "bytes": 26505
+    },
+    {
+      "path": "packages/utils/src/companionVehicleStops.ts",
+      "sha256": "2116701f767c66beb20524ea468fa4fd10888804cb36ce4bb0f45ef9c11a5950",
+      "bytes": 37836
+    },
+    {
+      "path": "packages/utils/src/companionVehicleStrain.ts",
+      "sha256": "f55ac3a7fde628c55fcabe2d5e56f3bfcf68d43c4ec8b7a8edc38ffaa4c5d011",
+      "bytes": 16150
+    },
+    {
+      "path": "packages/utils/src/companionWalkingNavigation.ts",
+      "sha256": "b56e075fa0b92eb84d3e67dec6f03837d1aca01b5df5e56ccd05a7f8b4d311ea",
+      "bytes": 2609
+    },
+    {
+      "path": "packages/utils/src/companionWardrobe.ts",
+      "sha256": "a99f4c6c746bf32e14b4b08610a51c043aaa76d8a477d2ca4d0b4d2d83468df8",
+      "bytes": 3421
+    },
+    {
+      "path": "packages/utils/src/companionWaterfront.ts",
+      "sha256": "e392c67ed7698cfb3265f34c3097bfd745762d7656912a9e3f9b374a36006e7e",
+      "bytes": 8196
+    },
+    {
+      "path": "packages/utils/src/companionWaterfrontLayouts.ts",
+      "sha256": "801063ea4cf4fc1e3d66ea0af8d0d70b52e3d0225e9015ee9749986d693e952c",
+      "bytes": 15144
+    },
+    {
+      "path": "packages/utils/src/companionWaterTraversal.ts",
+      "sha256": "af9c8bcdeb150b7d7be576f4913f5e874e15359872764416c8d0f88aafdb7a3b",
+      "bytes": 26496
+    },
+    {
+      "path": "packages/utils/src/companionWorld.ts",
+      "sha256": "05b2d4f854ff8e54a8233af45b87f159cd8e90efbd552cbe5a98029b7076e1ba",
+      "bytes": 18905
+    },
+    {
+      "path": "packages/utils/src/companionWorldClock.ts",
+      "sha256": "75c8f91d25054af64a205e9cf65c3cb96c51891193946637f56aa4f3bd304dcb",
+      "bytes": 5091
+    },
+    {
+      "path": "packages/utils/src/companionWorldInteraction.ts",
+      "sha256": "bd96390d67dc6dd5d1f03f71e204ef5b3d300a3330ce27c10031d1b4eae05fab",
+      "bytes": 3986
+    },
+    {
+      "path": "packages/utils/src/companionWorldUtilities.ts",
+      "sha256": "1a27ac9f3cbfbbcc14b5e77cfdea3ba24dbd960362b3e3ddbc13a1f3d01d6c97",
+      "bytes": 14788
+    },
+    {
+      "path": "packages/utils/src/domain-config.ts",
+      "sha256": "72f4bd84bcc7415b4540adf82c262ab831cb51d349739e39ba292544b7ebf81c",
+      "bytes": 6910
+    }
+  ],
+  "unresolvedRelativeImports": [
+    {
+      "source": "packages/companion-scene/src/interactions/city/CityMap.tsx",
+      "import": "./city-map.css",
+      "resolved": "packages/companion-scene/src/interactions/city/city-map.css"
+    },
+    {
+      "source": "packages/companion-scene/src/interactions/city/TransitActions.tsx",
+      "import": "./transit.css",
+      "resolved": "packages/companion-scene/src/interactions/city/transit.css"
+    },
+    {
+      "source": "packages/companion-scene/src/interactions/city/TransitFareDialog.tsx",
+      "import": "./transit.css",
+      "resolved": "packages/companion-scene/src/interactions/city/transit.css"
+    },
+    {
+      "source": "packages/companion-scene/src/interactions/city/worldWaypoint.ts",
+      "import": "./world-waypoint.css",
+      "resolved": "packages/companion-scene/src/interactions/city/world-waypoint.css"
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "../_generated/server",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "../_generated/dataModel",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionHaulModel",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "../companionFootball",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionNightclubModel",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionHaulDropsModel",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionTraffic",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionCombatEquipmentModel",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionCityHousingModel",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionResidentVehiclesSchema",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionPlayerVehicleTripInterruption",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionRoadsideSchema",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionKitchenWorldLifecycle",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionStreetCombatSchema",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionPolicingModel",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldTransitSchema",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldTransit",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldJson",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldTransitFareSchema",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionPlayerDrivingSchema",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldDriving",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldWaterSchema",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldWater",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldStreetMechanicsSchema",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldStreetMechanics",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionMovingHawkerFood",
+      "resolved": null
+    },
+    {
+      "source": "apps/backend/convex/lib/companionWorldModel.ts",
+      "import": "./companionWorldTransit",
+      "resolved": null
+    },
+    {
+      "source": "packages/companion-scene/src/interactions/appearance/meshoptPreparation.ts",
+      "import": "./meshoptDecoderFactory.js",
+      "resolved": "packages/companion-scene/src/interactions/appearance/meshoptDecoderFactory.js"
+    }
+  ],
+  "advancedCounterparts": [
+    {
+      "path": "docs/engineering/standalone-companion-account-linking.md",
+      "workingTreeSha256": "dd329efe5a6423a5f5b35f42b6499ee86bd5d608df4118ebb5dddb3337b2ab46",
+      "pinnedSha256": "51716265a98875916c48516e28e7c1761efb318c0d7303e9d07c921f5c1349e4"
+    },
+    {
+      "path": "docs/engineering/standalone-companion-unreal-port.md",
+      "workingTreeSha256": "66c6b8b25204306b76d77790fa0fad0031e6a980c37060c980ae1e6281942122",
+      "pinnedSha256": "5f1bb15e8afd62814759942e6b5e0e2d7f6542464d5a262a00f1929a70f83610"
+    }
+  ],
+  "engineRoot": "C:/Program Files/Epic Games/UE_5.8/Engine",
+  "engineVersion": "5.8.3",
+  "engineEvidence": [
+    {
+      "sha256": "eab58750e84719489f3ee0d42d05a533ceb357eb3ee511777e9408d27a85f43c",
+      "path": "Build/Build.version"
+    },
+    {
+      "sha256": "09cd33498a832669ba3e66c35ca2e2c7b5ad402a3dcc74f4d2cba26c46c3f9a7",
+      "path": "Source/Editor/LevelEditor/Public/LevelEditorSubsystem.h"
+    },
+    {
+      "sha256": "3d5b1c76f7061444cdcedccb4a756cbdc2f25f18785fe536538ab2797c41a7f0",
+      "path": "Source/Editor/UnrealEd/Public/Subsystems/EditorActorSubsystem.h"
+    },
+    {
+      "sha256": "dd312842f330126160d5398fe6c0b565ac1abd9c70cf85fa14b53517c3131f56",
+      "path": "Source/Editor/UnrealEd/Public/Subsystems/EditorAssetSubsystem.h"
+    },
+    {
+      "sha256": "cf4d8927594f745559fbbb2716c92dd5b97a7e7473f234c562b8e369b1656ef7",
+      "path": "Source/Editor/SubobjectDataInterface/Public/SubobjectDataSubsystem.h"
+    },
+    {
+      "sha256": "3271912f9129bb82c78aae17b6873ee85465e121af5b845d4f4b326cf141731d",
+      "path": "Source/Editor/SubobjectDataInterface/Public/SubobjectDataBlueprintFunctionLibrary.h"
+    },
+    {
+      "sha256": "1cb4301e0373ac7cfd407652a4f3e404af514a8b3ac6c1ddac84a93ad1b57568",
+      "path": "Source/Runtime/Engine/Classes/Components/InstancedStaticMeshComponent.h"
+    },
+    {
+      "sha256": "759c87fdf905f557509e68b7c1c9aca88a6b32755aa608d15068a0a140a0bd2a",
+      "path": "Source/Runtime/Engine/Classes/Components/HierarchicalInstancedStaticMeshComponent.h"
+    },
+    {
+      "sha256": "5201a2be4ed754246bca79d115626dd3b59471989366f87cd7110a206047375f",
+      "path": "Source/Editor/MaterialEditor/Public/MaterialEditingLibrary.h"
+    },
+    {
+      "sha256": "1e9453185b07c65988672224536ad8a312848f0b434eca8407556d043aeeff65",
+      "path": "Source/Editor/UnrealEd/Private/Fbx/FbxFactory.cpp"
+    },
+    {
+      "sha256": "dce34633e25e367ce4cd64f2f41131095378f11471cb5d16c0e563c634135463",
+      "path": "Source/Editor/UnrealEd/Public/AssetImportTask.h"
+    },
+    {
+      "sha256": "5f04527c99d62e01fc5609f56e55aca2c0b5c6d4dadab2d1f4b584239d6eb9c2",
+      "path": "Source/Editor/UnrealEd/Public/EditorLevelUtils.h"
+    },
+    {
+      "sha256": "09ff51b3b097c21d908e854ebd48a6fa242f61d24dc79c2712c4497c2b64d2a8",
+      "path": "Source/Runtime/Landscape/Classes/LandscapeProxy.h"
+    },
+    {
+      "sha256": "e343dfe3665cf823e3e55cef546615e7b28a3f58989fa15fe0c160660b2d5129",
+      "path": "Source/Runtime/NavigationSystem/Public/NavMesh/NavMeshBoundsVolume.h"
+    },
+    {
+      "sha256": "b4f110a7231bbec02ee58c94cb4c269b75bb1d54ee9089fa2b49b8dad883628c",
+      "path": "Plugins/Runtime/GeometryScripting/GeometryScripting.uplugin"
+    },
+    {
+      "sha256": "242c07fbee26b3841ecd192cb9c54815e1a588dafe838cd4e1aeaf970e7a1d86",
+      "path": "Plugins/Runtime/GeometryScripting/Source/GeometryScriptingCore/Public/GeometryScript/MeshBasicEditFunctions.h"
+    },
+    {
+      "sha256": "a57d0aebb8356e491c7d292a4c268c2c27d00978dd15b6ec13baf0f38120d1a1",
+      "path": "Plugins/Runtime/GeometryScripting/Source/GeometryScriptingCore/Public/GeometryScript/MeshPrimitiveFunctions.h"
+    },
+    {
+      "sha256": "e5e95f4a5dacc633b86c897c85add6c38311a2ce95b8990e95e64ba7577ae9b9",
+      "path": "Plugins/Runtime/GeometryScripting/Source/GeometryScriptingEditor/Public/GeometryScript/CreateNewAssetUtilityFunctions.h"
+    },
+    {
+      "sha256": "e94e824796d608def25021b339a3796438379f80d0885ac96607b549b38c964b",
+      "path": "Source/Editor/UnrealEd/Public/FileHelpers.h"
+    },
+    {
+      "sha256": "e96af266a819fd61b94f637253c409b98312b13b24e32b1e873cb4ab45481fb2",
+      "path": "Source/Editor/UnrealEd/Private/Fbx/FbxUtilsImport.cpp"
+    },
+    {
+      "sha256": "1ed1aaec5eb7421eee0671c446895cda6b88f0ed9a4c87fe57b93cccf18a392d",
+      "path": "Source/Editor/UnrealEd/Classes/Factories/FbxStaticMeshImportData.h"
+    },
+    {
+      "sha256": "22eefa96c8ead70de69ccb5083159ceb83e843cfccf889ccc6bc4d8fd38d5748",
+      "path": "Source/Editor/UnrealEd/Classes/Factories/FbxMeshImportData.h"
+    },
+    {
+      "sha256": "9fed2ca45cc0f6310becb69bef68ef74ce04433076f0a34444c2392211c8b8ac",
+      "path": "Source/Editor/UnrealEd/Classes/Factories/FbxImportUI.h"
+    },
+    {
+      "sha256": "3c41b7d67bb0709d35f8c47a953f1b73b5c29ad59f1860f76dea6950c0d3d15e",
+      "path": "Source/Editor/UnrealEd/Public/Subsystems/UnrealEditorSubsystem.h"
+    },
+    {
+      "sha256": "8effdddd5ef30d453a6cd8bde93efd8c27b6677eec907fc510503e0e701ceb9e",
+      "path": "Source/Runtime/Engine/Classes/Engine/StaticMesh.h"
+    },
+    {
+      "sha256": "c3f82e44bdaca02da0e88249c3294033ae341819c0eb35bbbd6d0413503aaa99",
+      "path": "Source/Runtime/Engine/Classes/Engine/LevelStreaming.h"
+    },
+    {
+      "sha256": "d6e42f80894f87e580dd72fc2ee7f9a46e312dde1ab006f18f01a068408523c6",
+      "path": "Source/Editor/UnrealEd/Private/Fbx/FbxStaticMeshImport.cpp"
+    },
+    {
+      "sha256": "6be580698e38c36003c98d9c6044d192fc2df1a06a88345492a0c5753cfbae14",
+      "path": "Source/Runtime/StaticMeshDescription/Private/StaticMeshOperations.cpp"
+    }
+  ],
+  "protectedConfig": [
+    {
+      "sha256": "c33a2850f6c472091fc84e5cb1b2724de18aa9ab20939ed299a54cd193cc3f75",
+      "path": "apps/companion-unreal/Config/DefaultEngine.ini"
+    },
+    {
+      "sha256": "999e020cafbfdbb270f11b64461cd572423912d2ab8c0ab877b1ad7dcf3a22ca",
+      "path": "apps/companion-unreal/Config/DefaultInput.ini"
+    }
+  ]
+}
