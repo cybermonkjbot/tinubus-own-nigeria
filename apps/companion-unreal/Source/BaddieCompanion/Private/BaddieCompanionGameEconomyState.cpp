@@ -525,7 +525,7 @@ namespace BaddieCompanion
     }
     void FGameEconomyReadState::ReleaseCommand()
     {
-        ActiveRequest.Invalidate(); ActiveDispatch = {};
+        ActiveRequest.Invalidate(); ActiveCompletion.Invalidate(); ActiveDispatch = {};
         bCommandDispatched = false; bCommandCompleting = false; View.bBusy = false;
     }
     bool FGameEconomyReadState::AbandonPreparedCommand(const FGameEconomyCommandReceipt& R)
@@ -538,7 +538,13 @@ namespace BaddieCompanion
     {
         Out = {};
         if (!CurrentCommand(R) || !bCommandDispatched || bCommandCompleting) return false;
-        bCommandCompleting = true; Out.Id = R.Id; Out.AccountGeneration = R.AccountGeneration; return true;
+        bCommandCompleting = true; ActiveCompletion = FGuid::NewGuid();
+        Out.Receipt = R; Out.Generation = ActiveCompletion; return true;
+    }
+    bool FGameEconomyReadState::CurrentCompletion(const FGameEconomyCommandCompletion& Completion) const
+    {
+        return CurrentCommand(Completion.Receipt) && bCommandCompleting && bCommandDispatched
+            && Completion.Generation.IsValid() && Completion.Generation == ActiveCompletion;
     }
     bool FGameEconomyReadState::ObserveCommand(const FGameEconomyCommandReceipt& R, const FString& Json, FGameEconomyCommandCompletion& Out)
     {
@@ -583,11 +589,27 @@ namespace BaddieCompanion
         if (CommandRelevant(R)) { View.Error = GameEconomyStatePrivate::PublicError(PublicMessage); Out.bNotifyBeforeFinish = true; }
         return true;
     }
+    bool FGameEconomyReadState::ObserveCommandCompletionFailure(const FGameEconomyCommandCompletion& Completion, const FString& PublicMessage,
+        FGameEconomyCommandCompletion& Out)
+    {
+        if (!CurrentCompletion(Completion) || !Completion.Result.IsSet()) { Out = {}; return false; }
+        FGameEconomyCommandCompletion Failed;
+        Failed.Receipt = Completion.Receipt;
+        // Old success copies cannot finalize after catch, even if selection changes again.
+        ActiveCompletion = FGuid::NewGuid(); Failed.Generation = ActiveCompletion;
+        if (CommandRelevant(Failed.Receipt))
+        {
+            View.Error = GameEconomyStatePrivate::PublicError(PublicMessage);
+            Failed.bNotifyBeforeFinish = true;
+        }
+        // Applied/read-delivered quotes and cleared vendor packets survive failure in caller work.
+        // The new completion has no result or reconnect obligation, including after a view change.
+        Out = MoveTemp(Failed); return true;
+    }
     bool FGameEconomyReadState::FinalizeCommand(const FGameEconomyCommandCompletion& Completion, TOptional<FGameEconomyQuote>& Out)
     {
         Out.Reset();
-        if (bDisposed || !bCommandCompleting || !bCommandDispatched || !Completion.Id.IsValid()
-            || Completion.Id != ActiveRequest || Completion.AccountGeneration != AccountGeneration) return false;
+        if (!CurrentCompletion(Completion)) return false;
         // Display/read changes during caller notifications do not rewrite the raw result.
         Out = Completion.Result; ReleaseCommand(); return true;
     }

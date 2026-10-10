@@ -164,7 +164,8 @@ namespace BaddieCompanion
         bool ShouldRestartQuoteRead() const { return bRestartQuoteRead; }
         bool ShouldNotifyBeforeFinish() const { return bNotifyBeforeFinish; }
     private:
-        FGuid Id, AccountGeneration;
+        FGameEconomyCommandReceipt Receipt;
+        FGuid Generation;
         TOptional<FGameEconomyQuote> Result;
         bool bRestartQuoteRead = false, bNotifyBeforeFinish = false;
     };
@@ -214,8 +215,13 @@ namespace BaddieCompanion
         // True consumes one callback and leaves busy held. False rejects receipt without state changes.
         bool ObserveCommand(const FGameEconomyCommandReceipt& Receipt, const FString& Json, FGameEconomyCommandCompletion& Out);
         bool ObserveCommandFailure(const FGameEconomyCommandReceipt& Receipt, const FString& PublicMessage, FGameEconomyCommandCompletion& Out);
-        // Reconcile the selected quote read and notify as flagged, then finalize once and emit.
-        // Out is the detached raw response, not a newer retained display. Account clear invalidates it.
+        // Catch caller-owned reconnect or success-notification failure before finalization.
+        // Consumes a successful completion once and invalidates every prior copy. Public text only.
+        // Retains applied quote/pending state; Out requests relevant error notification, never a read restart.
+        bool ObserveCommandCompletionFailure(const FGameEconomyCommandCompletion& Completion, const FString& PublicMessage,
+            FGameEconomyCommandCompletion& Out);
+        // Reconcile/notify in try, transition on failure in catch, then finalize the current completion in finally.
+        // Out is the detached raw success or unset after failure. Account clear invalidates completion.
         bool FinalizeCommand(const FGameEconomyCommandCompletion& Completion, TOptional<FGameEconomyQuote>& Out);
     private:
         struct FReadSlot
@@ -236,6 +242,7 @@ namespace BaddieCompanion
             EGameEconomySelectorKind SelectorKind, FGameEconomyCommandReceipt& Out);
         bool CurrentCommand(const FGameEconomyCommandReceipt& Receipt) const;
         bool CommandRelevant(const FGameEconomyCommandReceipt& Receipt) const;
+        bool CurrentCompletion(const FGameEconomyCommandCompletion& Completion) const;
         bool BeginCompletion(const FGameEconomyCommandReceipt& Receipt, FGameEconomyCommandCompletion& Out);
         void ReleaseCommand();
         struct FPendingVendor
@@ -251,6 +258,7 @@ namespace BaddieCompanion
         FGameEconomyReadView View;
         FGuid AccountGeneration = FGuid::NewGuid();
         FGuid ViewGeneration = FGuid::NewGuid(), VendorViewGeneration = FGuid::NewGuid(), ActiveRequest;
+        FGuid ActiveCompletion;
         TOptional<FGameEconomyVendorScope> LastVendorScope;
         TOptional<FPendingVendor> PendingVendor;
         // Independent of PendingVendor so a changed visit cannot retarget a prepared dispatch.
