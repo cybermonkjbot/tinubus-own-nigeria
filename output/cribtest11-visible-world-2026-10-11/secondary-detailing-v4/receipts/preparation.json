@@ -1,0 +1,139 @@
+{
+  "saved_library": {
+    "scenes": [
+      "LagosWaterfrontLightsV4"
+    ],
+    "objects": 63,
+    "materials": [
+      "M_LagosWaterfront_Opaque"
+    ],
+    "images": [
+      "LagosWaterfrontLightsV4_T_DetailAtlas_ORM",
+      "LagosWaterfrontLightsV4_T_DetailAtlas_BC"
+    ]
+  },
+  "input_hashes_match": true,
+  "fbx_ids_match": true,
+  "author_hash_match": true,
+  "blend_hash_match": true,
+  "workbench": {
+    "scene": "BaddieAssetWorkbench",
+    "file": "C:\\dev\\baddie-assets\\Blender\\LagosWorkbench.blend"
+  },
+  "native_import": "not-run",
+  "geometry_render": "not-run",
+  "light_output": "not-integrated",
+  "batch_counts": {
+    "fishing-work": 4,
+    "landing-accessories": 5,
+    "light-fixtures": 7,
+    "waterfront-boats": 5
+  },
+  "lod_triangles": {
+    "SM_MakokoCanoe_Timber_A": [
+      728,
+      344,
+      200
+    ],
+    "SM_MakokoCanoe_Painted_A": [
+      728,
+      344,
+      200
+    ],
+    "SM_CanoePaddle_A": [
+      152,
+      40,
+      32
+    ],
+    "SM_CanoePushPole_A": [
+      28,
+      20,
+      12
+    ],
+    "SM_CanoeBailer_A": [
+      472,
+      136,
+      88
+    ],
+    "SM_MooringPost_A": [
+      328,
+      88,
+      56
+    ],
+    "SM_MooringRopeCoil_A": [
+      1440,
+      432,
+      192
+    ],
+    "SM_TireFender_A": [
+      696,
+      232,
+      104
+    ],
+    "SM_LandingBoards_A": [
+      220,
+      60,
+      60
+    ],
+    "SM_RepairTimberStack_A": [
+      176,
+      48,
+      48
+    ],
+    "SM_FishDryingRack_Empty_A": [
+      812,
+      196,
+      156
+    ],
+    "SM_FishingNetBundle_A": [
+      1208,
+      520,
+      168
+    ],
+    "SM_FishingFloatLine_A": [
+      336,
+      244,
+      152
+    ],
+    "SM_FishHandlingTray_Empty_A": [
+      92,
+      28,
+      28
+    ],
+    "SM_RoadLampHead_LED_A": [
+      496,
+      76,
+      68
+    ],
+    "SM_RoadLampHead_Worn_A": [
+      496,
+      76,
+      68
+    ],
+    "SM_SolarLampHead_A": [
+      944,
+      136,
+      120
+    ],
+    "SM_WallBulkheadLight_A": [
+      596,
+      140,
+      100
+    ],
+    "SM_ShopFloodlight_A": [
+      268,
+      76,
+      76
+    ],
+    "SM_LampWallBracket_A": [
+      228,
+      52,
+      36
+    ],
+    "SM_LampMast5m_A": [
+      416,
+      100,
+      68
+    ]
+  }
+}

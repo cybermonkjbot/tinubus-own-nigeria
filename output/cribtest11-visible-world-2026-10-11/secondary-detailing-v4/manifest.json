@@ -1,0 +1,1113 @@
+{
+  "schema_version": 1,
+  "kit": "LagosWaterfrontLightsV4",
+  "status": "exported-unplaced-native-visual-acceptance-pending",
+  "pid": 3224,
+  "blender_version": "5.2.2 LTS",
+  "blend": "LagosWaterfrontLightsV4.blend",
+  "blend_sha256": "54a031e700f7cf17c76316ea664520b1a9fde0b1a665504dbebce6d59aa35646",
+  "author_script_sha256": "82461fbb2709709bc70fb555296fd6e5ba2cb3d5138bf8b162d179116951a794",
+  "geometry_helper_sha256": "4bc47f01cb4ea1ec749cc07bead1ed859ce997002288c7c25c5a1962292c30e4",
+  "assets": [
+    {
+      "id": "SM_MakokoCanoe_Timber_A",
+      "batch": "waterfront-boats",
+      "kind": "canoe",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_MakokoCanoe_Timber_A.fbx",
+          "sha256": "e6b13b92f2895668124222b79b9f568df20bde467d5453f9f66ea551621e4cbe",
+          "bytes": 33228,
+          "triangles": 728,
+          "dimensions_metres": [
+            0.97,
+            4.25,
+            0.74
+          ]
+        },
+        {
+          "file": "fbx/SM_MakokoCanoe_Timber_A_LOD1.fbx",
+          "sha256": "a8f77ffc35acca1a83c829608549d7959648441aa9f896f1b61c4463f88c1876",
+          "bytes": 25484,
+          "triangles": 344,
+          "dimensions_metres": [
+            0.97,
+            4.25,
+            0.74
+          ]
+        },
+        {
+          "file": "fbx/SM_MakokoCanoe_Timber_A_LOD2.fbx",
+          "sha256": "0a33dc0071688962ccd08e036be359109b997a878cded94c6737109dab610a33",
+          "bytes": 22604,
+          "triangles": 200,
+          "dimensions_metres": [
+            0.97,
+            4.25,
+            0.74
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_MakokoCanoe_Painted_A",
+      "batch": "waterfront-boats",
+      "kind": "canoepainted",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_MakokoCanoe_Painted_A.fbx",
+          "sha256": "f021794fd7613a201e2a89bac98a8a6fb69148539a62538f8407c99100d54348",
+          "bytes": 33020,
+          "triangles": 728,
+          "dimensions_metres": [
+            0.97,
+            4.25,
+            0.74
+          ]
+        },
+        {
+          "file": "fbx/SM_MakokoCanoe_Painted_A_LOD1.fbx",
+          "sha256": "1c935cc8633133b46ce41a5d2a9ae8f1f2de2e70b8896c984408f6a521087322",
+          "bytes": 25404,
+          "triangles": 344,
+          "dimensions_metres": [
+            0.97,
+            4.25,
+            0.74
+          ]
+        },
+        {
+          "file": "fbx/SM_MakokoCanoe_Painted_A_LOD2.fbx",
+          "sha256": "0659b86daf923f77609e6e198471acab32d3ef8dfbd5125fec2be117480d6ce9",
+          "bytes": 22524,
+          "triangles": 200,
+          "dimensions_metres": [
+            0.97,
+            4.25,
+            0.74
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_CanoePaddle_A",
+      "batch": "waterfront-boats",
+      "kind": "paddle",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_CanoePaddle_A.fbx",
+          "sha256": "ebf8c36baf430dcf7fc206d5d98bc689cb734519fa94af60322c2220a7fee3f2",
+          "bytes": 21932,
+          "triangles": 152,
+          "dimensions_metres": [
+            0.18,
+            0.02723,
+            1.4
+          ]
+        },
+        {
+          "file": "fbx/SM_CanoePaddle_A_LOD1.fbx",
+          "sha256": "4142588bf0737e4fee585fb0513653b7f7121b8f7fc7bb44fbe8383e383ea7ea",
+          "bytes": 19404,
+          "triangles": 40,
+          "dimensions_metres": [
+            0.18,
+            0.02425,
+            1.4
+          ]
+        },
+        {
+          "file": "fbx/SM_CanoePaddle_A_LOD2.fbx",
+          "sha256": "bda18d9340ef61776f2208c7fe5970a3f820e4b6e8a89ee7ca7f9d56ec7ff82f",
+          "bytes": 19324,
+          "triangles": 32,
+          "dimensions_metres": [
+            0.18,
+            0.028,
+            1.4
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_CanoePushPole_A",
+      "batch": "waterfront-boats",
+      "kind": "pushpole",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_CanoePushPole_A.fbx",
+          "sha256": "167671bc1a4720ed6c0a2f0dac6465dd47183c7e822d05388a09e6f78981dd2e",
+          "bytes": 19132,
+          "triangles": 28,
+          "dimensions_metres": [
+            0.036,
+            0.036,
+            2.35
+          ]
+        },
+        {
+          "file": "fbx/SM_CanoePushPole_A_LOD1.fbx",
+          "sha256": "df9d79d32502603c045b63cdb43fe4b7c03a5170c04961f327e561d455e03227",
+          "bytes": 19020,
+          "triangles": 20,
+          "dimensions_metres": [
+            0.036,
+            0.03118,
+            2.35
+          ]
+        },
+        {
+          "file": "fbx/SM_CanoePushPole_A_LOD2.fbx",
+          "sha256": "607480378a857bbf2bec696784f7da2492327858361868c8dd1570d811f7dfba",
+          "bytes": 19020,
+          "triangles": 12,
+          "dimensions_metres": [
+            0.036,
+            0.036,
+            2.35
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_CanoeBailer_A",
+      "batch": "waterfront-boats",
+      "kind": "bailer",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_CanoeBailer_A.fbx",
+          "sha256": "68deea461bb7cbfb385062d0c822f04e3811356bb87ba5f04b85bb865f46162c",
+          "bytes": 28316,
+          "triangles": 472,
+          "dimensions_metres": [
+            0.23899,
+            0.15,
+            0.11917
+          ]
+        },
+        {
+          "file": "fbx/SM_CanoeBailer_A_LOD1.fbx",
+          "sha256": "20442c5cd20eb60fc10ee9d04e5fb2d72874e4dfe94ce4cd15b6a62b55e7d6f8",
+          "bytes": 21100,
+          "triangles": 136,
+          "dimensions_metres": [
+            0.23887,
+            0.15,
+            0.12
+          ]
+        },
+        {
+          "file": "fbx/SM_CanoeBailer_A_LOD2.fbx",
+          "sha256": "a04b7ef9f5da400c83130c4c3666197ac4f2d39e44ad07bb936c24d61e5380ac",
+          "bytes": 20300,
+          "triangles": 88,
+          "dimensions_metres": [
+            0.23947,
+            0.15,
+            0.12
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_MooringPost_A",
+      "batch": "landing-accessories",
+      "kind": "mooringpost",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_MooringPost_A.fbx",
+          "sha256": "091582975d5d49a2c4477f01a8bc228fd788a4df66d930447b24d7cbbaf79f9f",
+          "bytes": 25180,
+          "triangles": 328,
+          "dimensions_metres": [
+            0.28,
+            0.14797,
+            0.83
+          ]
+        },
+        {
+          "file": "fbx/SM_MooringPost_A_LOD1.fbx",
+          "sha256": "2d71678fbd728d160d82b8b7b55d82853308462cf85fa0e222c7c4ce0aa7d6ce",
+          "bytes": 20316,
+          "triangles": 88,
+          "dimensions_metres": [
+            0.28,
+            0.148,
+            0.83
+          ]
+        },
+        {
+          "file": "fbx/SM_MooringPost_A_LOD2.fbx",
+          "sha256": "d58ba8fb8e0124db1d09d6f349bcad2d11482c9cd386975a89e3b94bc4399c2a",
+          "bytes": 19740,
+          "triangles": 56,
+          "dimensions_metres": [
+            0.28,
+            0.148,
+            0.83
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_MooringRopeCoil_A",
+      "batch": "landing-accessories",
+      "kind": "rope",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_MooringRopeCoil_A.fbx",
+          "sha256": "833f896babb266aa868473ed5af67bfa527551db9c0897810a9b7ed83900b38c",
+          "bytes": 43932,
+          "triangles": 1440,
+          "dimensions_metres": [
+            0.3039,
+            0.3039,
+            0.06
+          ]
+        },
+        {
+          "file": "fbx/SM_MooringRopeCoil_A_LOD1.fbx",
+          "sha256": "ee1d40c7304df31d5817cc106c5fcc7b91412f6dc3c3c16aff6d71c072ee3476",
+          "bytes": 26284,
+          "triangles": 432,
+          "dimensions_metres": [
+            0.28759,
+            0.28759,
+            0.036
+          ]
+        },
+        {
+          "file": "fbx/SM_MooringRopeCoil_A_LOD2.fbx",
+          "sha256": "b153070c41001a18db1d1420f5cb95f5fbc42945580e65ae46b6985161ba1eaa",
+          "bytes": 22172,
+          "triangles": 192,
+          "dimensions_metres": [
+            0.27909,
+            0.27909,
+            0.024
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_TireFender_A",
+      "batch": "landing-accessories",
+      "kind": "fender",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_TireFender_A.fbx",
+          "sha256": "fe12eaa57e9f997f7911cedc0ae1ffc57d34d7197f4bc0820e2f114c60dc0276",
+          "bytes": 31996,
+          "triangles": 696,
+          "dimensions_metres": [
+            0.52,
+            0.11413,
+            0.66
+          ]
+        },
+        {
+          "file": "fbx/SM_TireFender_A_LOD1.fbx",
+          "sha256": "ebb3342d5f9df3eb5f7a54f4dc3e550c593f140cce8403db05a6d23e6eff63e2",
+          "bytes": 22780,
+          "triangles": 232,
+          "dimensions_metres": [
+            0.52,
+            0.10392,
+            0.66
+          ]
+        },
+        {
+          "file": "fbx/SM_TireFender_A_LOD2.fbx",
+          "sha256": "0a5e385249edb97c42ce4372a673d53ab3b31f23e179b53efc716b70e54b5c86",
+          "bytes": 20652,
+          "triangles": 104,
+          "dimensions_metres": [
+            0.52,
+            0.12,
+            0.64727
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_LandingBoards_A",
+      "batch": "landing-accessories",
+      "kind": "landingboards",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_LandingBoards_A.fbx",
+          "sha256": "6ec54e0bfc5932c3840ab4a62fcf25e5298a251dfe32a28f2dd499d734e43773",
+          "bytes": 22492,
+          "triangles": 220,
+          "dimensions_metres": [
+            0.7,
+            1.3,
+            0.13
+          ]
+        },
+        {
+          "file": "fbx/SM_LandingBoards_A_LOD1.fbx",
+          "sha256": "6980c523263a751ddb57697e57eadee9c4cc0787d65437c5f793a8b27fb10d73",
+          "bytes": 19452,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.7,
+            1.3,
+            0.13
+          ]
+        },
+        {
+          "file": "fbx/SM_LandingBoards_A_LOD2.fbx",
+          "sha256": "7622cb1b87a1f37d07bc50eae10c488c8ac41024c4a6412e2798a689441b0108",
+          "bytes": 19452,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.7,
+            1.3,
+            0.13
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_RepairTimberStack_A",
+      "batch": "landing-accessories",
+      "kind": "repairtimber",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_RepairTimberStack_A.fbx",
+          "sha256": "15442af25ad276ebaaf66e301dca81a892198d85125129a97df7d808646dc961",
+          "bytes": 22060,
+          "triangles": 176,
+          "dimensions_metres": [
+            0.495,
+            1.18,
+            0.062
+          ]
+        },
+        {
+          "file": "fbx/SM_RepairTimberStack_A_LOD1.fbx",
+          "sha256": "d7422e71977ad7cc16274db534f0d32ebf8c89b03811b511d309c41a9fe22cf3",
+          "bytes": 19404,
+          "triangles": 48,
+          "dimensions_metres": [
+            0.495,
+            1.18,
+            0.062
+          ]
+        },
+        {
+          "file": "fbx/SM_RepairTimberStack_A_LOD2.fbx",
+          "sha256": "afcdf70043a3f2e099cff7966bfa7af83efa627187850c5c5724749dcdcd3e61",
+          "bytes": 19404,
+          "triangles": 48,
+          "dimensions_metres": [
+            0.495,
+            1.18,
+            0.062
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_FishDryingRack_Empty_A",
+      "batch": "fishing-work",
+      "kind": "fishrack",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_FishDryingRack_Empty_A.fbx",
+          "sha256": "442015dc6c4286b997e5190e2a2b3754e458121d45af30cdae59b9df49bc187f",
+          "bytes": 32460,
+          "triangles": 812,
+          "dimensions_metres": [
+            0.88,
+            0.54,
+            0.72
+          ]
+        },
+        {
+          "file": "fbx/SM_FishDryingRack_Empty_A_LOD1.fbx",
+          "sha256": "f12f8554af369f6120f9bfa131aafac406b526ce752b1c1ce46ae6de004445ad",
+          "bytes": 21276,
+          "triangles": 196,
+          "dimensions_metres": [
+            0.88,
+            0.54,
+            0.72
+          ]
+        },
+        {
+          "file": "fbx/SM_FishDryingRack_Empty_A_LOD2.fbx",
+          "sha256": "1ebfca2887fe1c94f3e7af81da26c08c6f75de3eae2582905bb81a1c109d0b00",
+          "bytes": 20764,
+          "triangles": 156,
+          "dimensions_metres": [
+            0.88,
+            0.54,
+            0.72
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_FishingNetBundle_A",
+      "batch": "fishing-work",
+      "kind": "netbundle",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_FishingNetBundle_A.fbx",
+          "sha256": "b118a61ee34e4f85f99d760ef9f7bd0a102126c5cdc38bcaaa77c309a5cb95e6",
+          "bytes": 40012,
+          "triangles": 1208,
+          "dimensions_metres": [
+            0.35765,
+            0.35765,
+            0.128
+          ]
+        },
+        {
+          "file": "fbx/SM_FishingNetBundle_A_LOD1.fbx",
+          "sha256": "61767adcc1b6142788c464634f5c20a75904210ec1098af84044a3a0a6f0e627",
+          "bytes": 27516,
+          "triangles": 520,
+          "dimensions_metres": [
+            0.30912,
+            0.34266,
+            0.11002
+          ]
+        },
+        {
+          "file": "fbx/SM_FishingNetBundle_A_LOD2.fbx",
+          "sha256": "4843cff4e05c0931dee78157bc0aa6486034f63b027e45906dc3903be7ec8450",
+          "bytes": 21724,
+          "triangles": 168,
+          "dimensions_metres": [
+            0.25959,
+            0.34307,
+            0.1108
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_FishingFloatLine_A",
+      "batch": "fishing-work",
+      "kind": "floatline",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_FishingFloatLine_A.fbx",
+          "sha256": "e2937ca023061d1f50f8f29492d844b9b4e48ba9935881cfe80fccffd751a223",
+          "bytes": 23180,
+          "triangles": 336,
+          "dimensions_metres": [
+            0.96,
+            0.068,
+            0.068
+          ]
+        },
+        {
+          "file": "fbx/SM_FishingFloatLine_A_LOD1.fbx",
+          "sha256": "35b0712b9f2a68060815a3b8b0d29937ec2024c6f51bacd3872ba766b955ad66",
+          "bytes": 21964,
+          "triangles": 244,
+          "dimensions_metres": [
+            0.96,
+            0.068,
+            0.05889
+          ]
+        },
+        {
+          "file": "fbx/SM_FishingFloatLine_A_LOD2.fbx",
+          "sha256": "434a874cbf93a03a1486d1c8c590ea4aa44939074de9e60ec6c1e774dc93eeaf",
+          "bytes": 20972,
+          "triangles": 152,
+          "dimensions_metres": [
+            0.96,
+            0.068,
+            0.068
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_FishHandlingTray_Empty_A",
+      "batch": "fishing-work",
+      "kind": "fishtray",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_FishHandlingTray_Empty_A.fbx",
+          "sha256": "3be5dde8ffd0636c463c60ece73b3527144c177fe3ee6614d4e64146d82d2818",
+          "bytes": 21148,
+          "triangles": 92,
+          "dimensions_metres": [
+            0.47848,
+            0.31861,
+            0.055
+          ]
+        },
+        {
+          "file": "fbx/SM_FishHandlingTray_Empty_A_LOD1.fbx",
+          "sha256": "ff69a04c53d77277ccabe24a0992f979a49cbb8aff95e55f1f94ca728242fe64",
+          "bytes": 19260,
+          "triangles": 28,
+          "dimensions_metres": [
+            0.48,
+            0.32,
+            0.055
+          ]
+        },
+        {
+          "file": "fbx/SM_FishHandlingTray_Empty_A_LOD2.fbx",
+          "sha256": "09e95324f34b21c5a8537635e095f028bb36eb8092320163ab4db3da3e42f357",
+          "bytes": 19260,
+          "triangles": 28,
+          "dimensions_metres": [
+            0.48,
+            0.32,
+            0.055
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_RoadLampHead_LED_A",
+      "batch": "light-fixtures",
+      "kind": "lamphead",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_RoadLampHead_LED_A.fbx",
+          "sha256": "28762c1b71a484d46ef4503d4c048ef46aebe725adc51d794a4516d2fd54cb77",
+          "bytes": 28172,
+          "triangles": 496,
+          "dimensions_metres": [
+            0.21,
+            0.78,
+            0.171
+          ]
+        },
+        {
+          "file": "fbx/SM_RoadLampHead_LED_A_LOD1.fbx",
+          "sha256": "60421a852d968a2c46154359b4feba2a416f3511565ddf5d6c56eab2cb89c0aa",
+          "bytes": 19852,
+          "triangles": 76,
+          "dimensions_metres": [
+            0.21,
+            0.78,
+            0.154
+          ]
+        },
+        {
+          "file": "fbx/SM_RoadLampHead_LED_A_LOD2.fbx",
+          "sha256": "b3de9d17e7c3ba9df94ff875f77d52effe7f1ea8bd21b1f5afc913d6cf5720c0",
+          "bytes": 19740,
+          "triangles": 68,
+          "dimensions_metres": [
+            0.21,
+            0.78,
+            0.154
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_RoadLampHead_Worn_A",
+      "batch": "light-fixtures",
+      "kind": "oldlamp",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_RoadLampHead_Worn_A.fbx",
+          "sha256": "12e87b4c7e3066e9c86b5368c9da7f0702b1b1ea9ac6cf2f31ea94ab2f2671f7",
+          "bytes": 28220,
+          "triangles": 496,
+          "dimensions_metres": [
+            0.21,
+            0.78,
+            0.171
+          ]
+        },
+        {
+          "file": "fbx/SM_RoadLampHead_Worn_A_LOD1.fbx",
+          "sha256": "bc8e91c36e7816b47c4eb1116cfb70f38e2a51163a1157bf1dbfe6a7b04467f5",
+          "bytes": 19868,
+          "triangles": 76,
+          "dimensions_metres": [
+            0.21,
+            0.78,
+            0.154
+          ]
+        },
+        {
+          "file": "fbx/SM_RoadLampHead_Worn_A_LOD2.fbx",
+          "sha256": "f88cf6025ccf5e8fb8ce8abd42b7c340aab2bc2157e1b114236f52d925b27e4d",
+          "bytes": 19756,
+          "triangles": 68,
+          "dimensions_metres": [
+            0.21,
+            0.78,
+            0.154
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_SolarLampHead_A",
+      "batch": "light-fixtures",
+      "kind": "solarhead",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_SolarLampHead_A.fbx",
+          "sha256": "3394931bb49174be08fd94a69fb159df61fa67a3cde1102edca9a4c835ee9c12",
+          "bytes": 36140,
+          "triangles": 944,
+          "dimensions_metres": [
+            0.57,
+            0.78,
+            0.3945
+          ]
+        },
+        {
+          "file": "fbx/SM_SolarLampHead_A_LOD1.fbx",
+          "sha256": "e61bc800a6e2f2b49b275d23ae7868290db86afb2333addbe06fe925cc5eac9c",
+          "bytes": 20700,
+          "triangles": 136,
+          "dimensions_metres": [
+            0.57,
+            0.78,
+            0.393
+          ]
+        },
+        {
+          "file": "fbx/SM_SolarLampHead_A_LOD2.fbx",
+          "sha256": "d5af6e10a0de2acb8d209e3d43d3f310f183e16216eba4237c482084a5bb9d9a",
+          "bytes": 20508,
+          "triangles": 120,
+          "dimensions_metres": [
+            0.57,
+            0.78,
+            0.393
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_WallBulkheadLight_A",
+      "batch": "light-fixtures",
+      "kind": "walllight",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_WallBulkheadLight_A.fbx",
+          "sha256": "3a68070ae2fa4ed869c30e23e093c7f9c48505839a498b4160016ae156c6de64",
+          "bytes": 29884,
+          "triangles": 596,
+          "dimensions_metres": [
+            0.18,
+            0.10912,
+            0.3
+          ]
+        },
+        {
+          "file": "fbx/SM_WallBulkheadLight_A_LOD1.fbx",
+          "sha256": "f3fb209ca9ead4ac6781e512a7dac942a43a603a253636f097f3ca1669f2d60e",
+          "bytes": 20540,
+          "triangles": 140,
+          "dimensions_metres": [
+            0.18,
+            0.1095,
+            0.3
+          ]
+        },
+        {
+          "file": "fbx/SM_WallBulkheadLight_A_LOD2.fbx",
+          "sha256": "4a1a38823eef9e8542edb1b9ca7c6b67ab7e53b1594c4b4a63976e3f7bc1a6f3",
+          "bytes": 20140,
+          "triangles": 100,
+          "dimensions_metres": [
+            0.18,
+            0.1095,
+            0.3
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_ShopFloodlight_A",
+      "batch": "light-fixtures",
+      "kind": "floodlight",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_ShopFloodlight_A.fbx",
+          "sha256": "0f52a8d79a6de19e68506daa9c34c4bd071c6a991abc786c36692df862ad4268",
+          "bytes": 23916,
+          "triangles": 268,
+          "dimensions_metres": [
+            0.345,
+            0.091,
+            0.255
+          ]
+        },
+        {
+          "file": "fbx/SM_ShopFloodlight_A_LOD1.fbx",
+          "sha256": "b3560b29a41415fb26ecc953e6528e8edcc2b86aabc6e0229c44308a7550037e",
+          "bytes": 19692,
+          "triangles": 76,
+          "dimensions_metres": [
+            0.345,
+            0.091,
+            0.255
+          ]
+        },
+        {
+          "file": "fbx/SM_ShopFloodlight_A_LOD2.fbx",
+          "sha256": "74f45b669d58d9e347cd1b12ed529409f1f43f02ba7998b5fb3ef0b3a1296298",
+          "bytes": 19692,
+          "triangles": 76,
+          "dimensions_metres": [
+            0.345,
+            0.091,
+            0.255
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_LampWallBracket_A",
+      "batch": "light-fixtures",
+      "kind": "polebracket",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_LampWallBracket_A.fbx",
+          "sha256": "2614dc9e192d8934f0a3105700e76ec924f9da4f96d43ef6f9903b65df818c1a",
+          "bytes": 24540,
+          "triangles": 228,
+          "dimensions_metres": [
+            0.12,
+            0.71049,
+            0.29149
+          ]
+        },
+        {
+          "file": "fbx/SM_LampWallBracket_A_LOD1.fbx",
+          "sha256": "f75cd5dcfedbf167d10f8d3cf0dd138cb6fdbfa2c1cb3ed2881533754b7af567",
+          "bytes": 19628,
+          "triangles": 52,
+          "dimensions_metres": [
+            0.12,
+            0.71036,
+            0.289
+          ]
+        },
+        {
+          "file": "fbx/SM_LampWallBracket_A_LOD2.fbx",
+          "sha256": "3b8151fb1cfa74ee69a73ce4cf891cb59e01af52cb511c550ae934b5c70a2fa1",
+          "bytes": 19484,
+          "triangles": 36,
+          "dimensions_metres": [
+            0.12,
+            0.71057,
+            0.29194
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    },
+    {
+      "id": "SM_LampMast5m_A",
+      "batch": "light-fixtures",
+      "kind": "lampmast",
+      "material": "M_LagosWaterfront_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_LampMast5m_A.fbx",
+          "sha256": "8394f3cc31706b0ea7c70e9f442eb6828dc75d51186f23c6d5b2cb49a8af2551",
+          "bytes": 27244,
+          "triangles": 416,
+          "dimensions_metres": [
+            0.29,
+            1.05315,
+            5.51232
+          ]
+        },
+        {
+          "file": "fbx/SM_LampMast5m_A_LOD1.fbx",
+          "sha256": "15afe357f7578359dc8be3d9a5d71dceaf5d72d6a90083bf0515c2e28e40d69e",
+          "bytes": 20428,
+          "triangles": 100,
+          "dimensions_metres": [
+            0.29,
+            1.05229,
+            5.50853
+          ]
+        },
+        {
+          "file": "fbx/SM_LampMast5m_A_LOD2.fbx",
+          "sha256": "f8063668b6fe88f0c63aeb9fecc84690a3d64717efe4a0a23978d7ee9b809864",
+          "bytes": 19852,
+          "triangles": 68,
+          "dimensions_metres": [
+            0.29,
+            1.05342,
+            5.51294
+          ]
+        }
+      ],
+      "pivot": "local contact/attachment origin; metres; Z up",
+      "runtime_behavior": "static unplaced prop"
+    }
+  ],
+  "textures": [
+    {
+      "file": "textures/T_DetailAtlas_BC.png",
+      "sha256": "8d020ae94816a9322161c5991a62e0ceb62fd385721bb11b33f2f0a26d894234",
+      "bytes": 6085369,
+      "srgb": true
+    },
+    {
+      "file": "textures/T_DetailAtlas_ORM.png",
+      "sha256": "70ae19b55ed3d800fca0b148297c67f79fec20a601cf3931be6c504dad5b428a",
+      "bytes": 4285676,
+      "srgb": false
+    }
+  ],
+  "provenance": {
+    "id": "wood_planks_grey",
+    "license": "CC0-1.0",
+    "authors": {
+      "Rob Tuytel": "All"
+    },
+    "maps": [
+      {
+        "role": "Diffuse",
+        "file": "wood_planks_grey/wood_planks_grey_diff_2k.jpg",
+        "sha256": "31bdd475c6f1520fccc34a6823bfab8ba61ce5fd6dd97a3d1d868c21295e1000"
+      },
+      {
+        "role": "Rough",
+        "file": "wood_planks_grey/wood_planks_grey_rough_2k.png",
+        "sha256": "0e76025babe056bfdcd750a8f186df92d359fa804273fceb0f23d4884b9f5520"
+      }
+    ],
+    "source_manifest_sha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46"
+  },
+  "workbench_restored": true,
+  "performance": {
+    "materials": 1,
+    "atlas_size": 2048,
+    "boat_buoyancy": false,
+    "niagara": false,
+    "runtime_lights_created": 0,
+    "measured_fps": null
+  },
+  "acceptance": {
+    "unreal_import": "not-run",
+    "rendered_geometry": "not-run",
+    "texture_review": "Atlas directly inspected; no geometry shading or water/nighttime acceptance",
+    "light_output": "none; fittings only",
+    "world_placement": "none"
+  }
+}
