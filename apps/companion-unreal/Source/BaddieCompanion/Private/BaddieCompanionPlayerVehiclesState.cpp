@@ -111,9 +111,11 @@ namespace BaddieCompanion
         bool Parked(const FValue& Value, FPlayerVehicleParked& Out)
         {
             const auto O = Object(Value);
-            return BoundedObject(O, 240) && Only(O, {TEXT("navigationRevision"), TEXT("pose"), TEXT("fuelMetres"), TEXT("instanceId")})
-                && Text(Field(O, TEXT("navigationRevision")), Out.NavigationRevision, 240)
-                && Text(Field(O, TEXT("instanceId")), Out.InstanceId, 240)
+            // Legacy parked strings may be empty. The enclosing bound limits allocation;
+            // neither string establishes a current route or control identity.
+            return BoundedObject(O, 160000) && Only(O, {TEXT("navigationRevision"), TEXT("pose"), TEXT("fuelMetres"), TEXT("instanceId")})
+                && String(Field(O, TEXT("navigationRevision")), Out.NavigationRevision)
+                && String(Field(O, TEXT("instanceId")), Out.InstanceId)
                 && Number(O, TEXT("fuelMetres"), Out.FuelMetres) && Out.FuelMetres >= 0
                 && MovementProtocolPrivate::ReadDrivingPose(Object(Field(O, TEXT("pose"))), Out.Pose);
         }
@@ -141,7 +143,9 @@ namespace BaddieCompanion
             }
             Out.bHasDrivingField = O->HasField(TEXT("driving"));
             if (Out.bHasDrivingField && !Nullable(Field(O, TEXT("driving")), Out.Driving,
-                [](const FValue& V, FWorldDrivingControl& D) { const auto Obj = Object(V); return BoundedObject(Obj, 240)
+                // Shared reader owns Identity versus Control semantics. Bound all
+                // strings without narrowing navigationRevision to a control ID.
+                [](const FValue& V, FWorldDrivingControl& D) { const auto Obj = Object(V); return BoundedObject(Obj, 160000)
                     && MovementProtocolPrivate::ReadDrivingControl(Obj, D); })) return false;
             Out.bHasDrivingParkedField = O->HasField(TEXT("drivingParked"));
             if (Out.bHasDrivingParkedField && !Nullable(Field(O, TEXT("drivingParked")), Out.DrivingParked, Parked)) return false;
