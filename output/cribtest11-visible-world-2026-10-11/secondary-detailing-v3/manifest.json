@@ -1,0 +1,1239 @@
+{
+  "schema_version": 1,
+  "kit": "LagosShopWorkV3",
+  "status": "exported-unplaced-native-visual-acceptance-pending",
+  "blender_version": "5.2.2 LTS",
+  "pid": 3224,
+  "blend": "LagosShopWorkV3.blend",
+  "blend_sha256": "26ca6c5c3c3a3d828338f49f81a33ae7378243c407ee0db96ebd566e89379326",
+  "author_script_sha256": "5d0c43667430ce0859d57db5ba54ff45d6d861541a0209c6da01122b0689dede",
+  "geometry_helper_sha256": "4bc47f01cb4ea1ec749cc07bead1ed859ce997002288c7c25c5a1962292c30e4",
+  "assets": [
+    {
+      "id": "SM_BarberChair_A",
+      "batch": "barber",
+      "kind": "barberchair",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_BarberChair_A.fbx",
+          "sha256": "513dad39d3f6f68c2df864dbb90df452f76b5ad4634ab7fb942762c4b647ffd9",
+          "bytes": 41180,
+          "triangles": 1108,
+          "dimensions_metres": [
+            0.6,
+            0.775,
+            1.01
+          ]
+        },
+        {
+          "file": "fbx/SM_BarberChair_A_LOD1.fbx",
+          "sha256": "83b88ca653aa3f530f61ef7d98eadcdbf75d001095f025c87bc7218609ad1a38",
+          "bytes": 23004,
+          "triangles": 292,
+          "dimensions_metres": [
+            0.6,
+            0.775,
+            1.01
+          ]
+        },
+        {
+          "file": "fbx/SM_BarberChair_A_LOD2.fbx",
+          "sha256": "9df4723d275913db468a5e06b330a3f48677f2d7b994444e32ef2d5f14efb118",
+          "bytes": 22220,
+          "triangles": 228,
+          "dimensions_metres": [
+            0.6,
+            0.775,
+            1.01
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_MirrorFrameBacking_A",
+      "batch": "barber",
+      "kind": "mirrorframe",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_MirrorFrameBacking_A.fbx",
+          "sha256": "01326f09248d7dee3a69d7a6f4b332dc55dd14e6c9e631a71b3189638254f86f",
+          "bytes": 22796,
+          "triangles": 220,
+          "dimensions_metres": [
+            0.55,
+            0.0515,
+            0.86
+          ]
+        },
+        {
+          "file": "fbx/SM_MirrorFrameBacking_A_LOD1.fbx",
+          "sha256": "400f1095eb80484763a9ad92f02212b2ad1757b213c5bb3c86d6d0c457c3ae2c",
+          "bytes": 19452,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.55,
+            0.0515,
+            0.86
+          ]
+        },
+        {
+          "file": "fbx/SM_MirrorFrameBacking_A_LOD2.fbx",
+          "sha256": "0261614a3a300525aa1e156d826a6c7908db3c46226d077dc2302a71c1b65086",
+          "bytes": 19452,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.55,
+            0.0515,
+            0.86
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_HairClipper_A",
+      "batch": "barber",
+      "kind": "clipper",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_HairClipper_A.fbx",
+          "sha256": "82d539a4ec4c39d660ccb34c24ba87c8bb882fbb276c33cc43b4dc51939a466e",
+          "bytes": 27324,
+          "triangles": 532,
+          "dimensions_metres": [
+            0.05,
+            0.1655,
+            0.032
+          ]
+        },
+        {
+          "file": "fbx/SM_HairClipper_A_LOD1.fbx",
+          "sha256": "2c2bbc7970ef721c55b1c6e819e4fdf3701d00b75cbbdfa44feb8d7a23b0fa59",
+          "bytes": 19196,
+          "triangles": 40,
+          "dimensions_metres": [
+            0.05,
+            0.161,
+            0.032
+          ]
+        },
+        {
+          "file": "fbx/SM_HairClipper_A_LOD2.fbx",
+          "sha256": "381be429ef476c421035822042c975eb908ceb64d3c2a9e7a5c8d4acc2e29ea4",
+          "bytes": 19196,
+          "triangles": 40,
+          "dimensions_metres": [
+            0.05,
+            0.161,
+            0.032
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_BarberComb_A",
+      "batch": "barber",
+      "kind": "comb",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_BarberComb_A.fbx",
+          "sha256": "eecad5b0d88702c142456858a622a3202d29505f4867db39bc90f836fd4ceb88",
+          "bytes": 32588,
+          "triangles": 1012,
+          "dimensions_metres": [
+            0.06,
+            0.18,
+            0.014
+          ]
+        },
+        {
+          "file": "fbx/SM_BarberComb_A_LOD1.fbx",
+          "sha256": "2cbea9f17157927ef2da72d10e2f1f8157ffea0c8a71160c6d182799f2a93885",
+          "bytes": 20316,
+          "triangles": 156,
+          "dimensions_metres": [
+            0.06,
+            0.18,
+            0.014
+          ]
+        },
+        {
+          "file": "fbx/SM_BarberComb_A_LOD2.fbx",
+          "sha256": "cdec379aeac04727f9061dfc1da1f7b7f76f02a0d7569c055ab9cd67940ac4fd",
+          "bytes": 19676,
+          "triangles": 96,
+          "dimensions_metres": [
+            0.06,
+            0.18,
+            0.014
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_SprayBottle_A",
+      "batch": "barber",
+      "kind": "spray",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_SprayBottle_A.fbx",
+          "sha256": "eb515ac4b25f5da91d277e3954c4fb4c6f83d8c4f573de88229348d625841219",
+          "bytes": 27404,
+          "triangles": 468,
+          "dimensions_metres": [
+            0.07,
+            0.086,
+            0.18
+          ]
+        },
+        {
+          "file": "fbx/SM_SprayBottle_A_LOD1.fbx",
+          "sha256": "c85fa77cd0f9d568bb40491ba49f1a6820c3e68f2bfbc93990391360137449a6",
+          "bytes": 20780,
+          "triangles": 132,
+          "dimensions_metres": [
+            0.07,
+            0.086,
+            0.18
+          ]
+        },
+        {
+          "file": "fbx/SM_SprayBottle_A_LOD2.fbx",
+          "sha256": "8e3a12ff3ffb1d25586951b0b9c71b1a86651e8de202ba05276554debd99dd27",
+          "bytes": 20252,
+          "triangles": 100,
+          "dimensions_metres": [
+            0.07,
+            0.086,
+            0.18
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_HairProductBottles_A",
+      "batch": "barber",
+      "kind": "hairbottles",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_HairProductBottles_A.fbx",
+          "sha256": "be3acb8a8c97bb2f79bbbf70ecae4c38d2f4588ed1f1518b2b7fc0e3c050d5cf",
+          "bytes": 32300,
+          "triangles": 752,
+          "dimensions_metres": [
+            0.14,
+            0.05,
+            0.16
+          ]
+        },
+        {
+          "file": "fbx/SM_HairProductBottles_A_LOD1.fbx",
+          "sha256": "a51e34b9ee54c64423729165c1eeae8d82650528e958817fb9556fcb0ed2db49",
+          "bytes": 21452,
+          "triangles": 176,
+          "dimensions_metres": [
+            0.14,
+            0.05,
+            0.16
+          ]
+        },
+        {
+          "file": "fbx/SM_HairProductBottles_A_LOD2.fbx",
+          "sha256": "f367c9c7f3b4eed1bff39a2508fc489838ecf9acb9ed2ffac3bc3a9ad45b6ed8",
+          "bytes": 20428,
+          "triangles": 112,
+          "dimensions_metres": [
+            0.14,
+            0.05,
+            0.16
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_SewingMachine_A",
+      "batch": "tailoring",
+      "kind": "sewingmachine",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_SewingMachine_A.fbx",
+          "sha256": "3a8d8e4c9a60d1b267542663d43b8379d96a357f71fe893f8f277ddd6b8b14a0",
+          "bytes": 33388,
+          "triangles": 740,
+          "dimensions_metres": [
+            0.384,
+            0.17,
+            0.38
+          ]
+        },
+        {
+          "file": "fbx/SM_SewingMachine_A_LOD1.fbx",
+          "sha256": "e53e36a187075c94026609780f3f6c4d88b4f8638db25b4727e0d60ae5c58f4f",
+          "bytes": 21164,
+          "triangles": 176,
+          "dimensions_metres": [
+            0.384,
+            0.17,
+            0.3425
+          ]
+        },
+        {
+          "file": "fbx/SM_SewingMachine_A_LOD2.fbx",
+          "sha256": "22f039a91dae36e29ce82b06072cf4d9922467abd7a0a9b9161aa6c4fd0cf47c",
+          "bytes": 20828,
+          "triangles": 152,
+          "dimensions_metres": [
+            0.384,
+            0.17,
+            0.3425
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_ThreadSpools_A",
+      "batch": "tailoring",
+      "kind": "thread",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_ThreadSpools_A.fbx",
+          "sha256": "e1f82a785514b6790d823afba79a3304b0b8c482e83c3b31bb824b6aeaac5aa5",
+          "bytes": 31004,
+          "triangles": 852,
+          "dimensions_metres": [
+            0.138,
+            0.038,
+            0.056
+          ]
+        },
+        {
+          "file": "fbx/SM_ThreadSpools_A_LOD1.fbx",
+          "sha256": "3d32b6714a2f933f4475ae570dacd8333ac68b6a28d0b04ab1fabbbe9af42195",
+          "bytes": 24700,
+          "triangles": 420,
+          "dimensions_metres": [
+            0.138,
+            0.038,
+            0.056
+          ]
+        },
+        {
+          "file": "fbx/SM_ThreadSpools_A_LOD2.fbx",
+          "sha256": "015dd3412025deab1be3b661eb119615dd25da6453c3512f96f27b4200f512cf",
+          "bytes": 22556,
+          "triangles": 276,
+          "dimensions_metres": [
+            0.138,
+            0.038,
+            0.056
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_TailorScissors_A",
+      "batch": "tailoring",
+      "kind": "scissors",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_TailorScissors_A.fbx",
+          "sha256": "45e2390efd6c018295f41dd71f0f41aae507af33784bab379b121942313da84a",
+          "bytes": 45628,
+          "triangles": 1240,
+          "dimensions_metres": [
+            0.07191,
+            0.13696,
+            0.00923
+          ]
+        },
+        {
+          "file": "fbx/SM_TailorScissors_A_LOD1.fbx",
+          "sha256": "fa58c338a22f5eea29754eece982a8997a9ec884e372ace07b7c2205a5cd7220",
+          "bytes": 22748,
+          "triangles": 232,
+          "dimensions_metres": [
+            0.07354,
+            0.13814,
+            0.00893
+          ]
+        },
+        {
+          "file": "fbx/SM_TailorScissors_A_LOD2.fbx",
+          "sha256": "c74baad51dbb1c38b0de2a38a243f4d296cd1775a0f45a3f159b18695882130e",
+          "bytes": 21548,
+          "triangles": 168,
+          "dimensions_metres": [
+            0.0732,
+            0.1365,
+            0.01
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_PressingIron_A",
+      "batch": "tailoring",
+      "kind": "iron",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_PressingIron_A.fbx",
+          "sha256": "a99845425a3f0124b8634096b15a971b5a22b31ef9daa902746cfc7ecf0bfbb0",
+          "bytes": 22940,
+          "triangles": 188,
+          "dimensions_metres": [
+            0.12907,
+            0.23783,
+            0.1115
+          ]
+        },
+        {
+          "file": "fbx/SM_PressingIron_A_LOD1.fbx",
+          "sha256": "5ec9318e1d761ee9f2d61867b171c47ea409204902708d701c7cbe9ad540a8f6",
+          "bytes": 19468,
+          "triangles": 52,
+          "dimensions_metres": [
+            0.13,
+            0.24,
+            0.1115
+          ]
+        },
+        {
+          "file": "fbx/SM_PressingIron_A_LOD2.fbx",
+          "sha256": "c625966eda8aac6c9ad1cedda7c7aa497aa249889d7c52cb42cb10c0205a2a79",
+          "bytes": 19468,
+          "triangles": 52,
+          "dimensions_metres": [
+            0.13,
+            0.24,
+            0.1115
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_FabricRolls_A",
+      "batch": "tailoring",
+      "kind": "fabricrolls",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_FabricRolls_A.fbx",
+          "sha256": "25a08ea40533d81f44ba1fdb3b42eaa8fa2a31e53236ed39b3c45f3dc4818128",
+          "bytes": 22252,
+          "triangles": 276,
+          "dimensions_metres": [
+            0.25,
+            0.56,
+            0.08
+          ]
+        },
+        {
+          "file": "fbx/SM_FabricRolls_A_LOD1.fbx",
+          "sha256": "31a43a62b27b61ad7475d031970e0c7d4a893506d09426b9300ec282eebba2da",
+          "bytes": 20428,
+          "triangles": 132,
+          "dimensions_metres": [
+            0.25,
+            0.56,
+            0.08
+          ]
+        },
+        {
+          "file": "fbx/SM_FabricRolls_A_LOD2.fbx",
+          "sha256": "0ac09506582becb4df8b8f342daa854adba3097d1f6ac102960924a50c8145fe",
+          "bytes": 19836,
+          "triangles": 84,
+          "dimensions_metres": [
+            0.25,
+            0.56,
+            0.08
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_FoldedFabric_A",
+      "batch": "tailoring",
+      "kind": "foldedfabric",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_FoldedFabric_A.fbx",
+          "sha256": "e6990d252663f54f3efec2901c21921851b52a51c4cc48cfb5668e9926438477",
+          "bytes": 24348,
+          "triangles": 276,
+          "dimensions_metres": [
+            0.3,
+            0.24,
+            0.077
+          ]
+        },
+        {
+          "file": "fbx/SM_FoldedFabric_A_LOD1.fbx",
+          "sha256": "21df6f61adbd5221739f488d66416d74c8cd629b3d13d9d0c60f6dcebad8bec2",
+          "bytes": 19820,
+          "triangles": 84,
+          "dimensions_metres": [
+            0.3,
+            0.24,
+            0.077
+          ]
+        },
+        {
+          "file": "fbx/SM_FoldedFabric_A_LOD2.fbx",
+          "sha256": "e7aae381050ad71e1f78baef700aca9ef8823de60514abd325f64d0f2a8e750c",
+          "bytes": 19820,
+          "triangles": 84,
+          "dimensions_metres": [
+            0.3,
+            0.24,
+            0.077
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_HangingTowel_A",
+      "batch": "courtyard-laundry",
+      "kind": "towel",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_HangingTowel_A.fbx",
+          "sha256": "1d729b5678a08aeaa73b9a066dfad9da133efa1a04088927d5abe39c94b0b499",
+          "bytes": 28412,
+          "triangles": 672,
+          "dimensions_metres": [
+            0.42,
+            0.02525,
+            0.63
+          ]
+        },
+        {
+          "file": "fbx/SM_HangingTowel_A_LOD1.fbx",
+          "sha256": "e260c1fdb89fdb45fe1bac257f2738de2251f71687c4e8cfa5c69132b70fe3fd",
+          "bytes": 21708,
+          "triangles": 192,
+          "dimensions_metres": [
+            0.42,
+            0.02525,
+            0.63
+          ]
+        },
+        {
+          "file": "fbx/SM_HangingTowel_A_LOD2.fbx",
+          "sha256": "db9d430e7bb08270b46a283136a1070be86f8c81e9bd52d8404bf05a1780a50a",
+          "bytes": 19100,
+          "triangles": 32,
+          "dimensions_metres": [
+            0.42,
+            0.001,
+            0.63
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_HangingSheet_A",
+      "batch": "courtyard-laundry",
+      "kind": "laundrysheet",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_HangingSheet_A.fbx",
+          "sha256": "e7767161296e0de41e5a8e44931eefe614d7847a4bee059399735e062c68dd1b",
+          "bytes": 28476,
+          "triangles": 672,
+          "dimensions_metres": [
+            0.95,
+            0.02525,
+            1.1
+          ]
+        },
+        {
+          "file": "fbx/SM_HangingSheet_A_LOD1.fbx",
+          "sha256": "c07bcf63d7a81e5c512ff1b8e5682b399b28a2995f793b108feaee39c6199f17",
+          "bytes": 21692,
+          "triangles": 192,
+          "dimensions_metres": [
+            0.95,
+            0.02525,
+            1.1
+          ]
+        },
+        {
+          "file": "fbx/SM_HangingSheet_A_LOD2.fbx",
+          "sha256": "df41badeebe2e9d3afe7f92a1c5229d21f3f37b277b34004b9a722e13e9fbc22",
+          "bytes": 19084,
+          "triangles": 32,
+          "dimensions_metres": [
+            0.95,
+            0.001,
+            1.1
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_HangingShirt_A",
+      "batch": "courtyard-laundry",
+      "kind": "shirt",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_HangingShirt_A.fbx",
+          "sha256": "909e09afd408aa5c8b2fc9d317abb96004bc9f23489ee008414e9c70e471da0e",
+          "bytes": 19836,
+          "triangles": 72,
+          "dimensions_metres": [
+            0.74,
+            0.015,
+            0.6
+          ]
+        },
+        {
+          "file": "fbx/SM_HangingShirt_A_LOD1.fbx",
+          "sha256": "f83c556165581b1751af2cdb12cb81a1a6d79c8dc9299d7cf39ac2201b227d83",
+          "bytes": 19356,
+          "triangles": 48,
+          "dimensions_metres": [
+            0.74,
+            0.002,
+            0.6
+          ]
+        },
+        {
+          "file": "fbx/SM_HangingShirt_A_LOD2.fbx",
+          "sha256": "5ae6f8b1914cfbbd11180e583ffe6d239c5b7733e702892ec090852384fb1738",
+          "bytes": 19356,
+          "triangles": 48,
+          "dimensions_metres": [
+            0.74,
+            0.002,
+            0.6
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_ClothesPegs_A",
+      "batch": "courtyard-laundry",
+      "kind": "pegs",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_ClothesPegs_A.fbx",
+          "sha256": "94b8583301daa42a39d6dd84a32f34faaa138186620ea971ecd475356cada235",
+          "bytes": 20028,
+          "triangles": 120,
+          "dimensions_metres": [
+            0.1,
+            0.06,
+            0.027
+          ]
+        },
+        {
+          "file": "fbx/SM_ClothesPegs_A_LOD1.fbx",
+          "sha256": "2cb57731e3990dcb012198c51ca8c4f408425aabbf5cc25a23d7eabb85f17d6c",
+          "bytes": 20044,
+          "triangles": 120,
+          "dimensions_metres": [
+            0.1,
+            0.06,
+            0.027
+          ]
+        },
+        {
+          "file": "fbx/SM_ClothesPegs_A_LOD2.fbx",
+          "sha256": "ac6d2dbd49615b8d50d558fac518cbd0331fc69e8ceb881f94b8e9323d03a5c6",
+          "bytes": 20044,
+          "triangles": 120,
+          "dimensions_metres": [
+            0.1,
+            0.06,
+            0.027
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_DryingRack_A",
+      "batch": "courtyard-laundry",
+      "kind": "dryingrack",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_DryingRack_A.fbx",
+          "sha256": "7ab91aee17ea287b90d35766fc315b550ce4e1c58072b72c2786a134149e68d2",
+          "bytes": 34444,
+          "triangles": 828,
+          "dimensions_metres": [
+            0.89923,
+            0.59536,
+            0.85931
+          ]
+        },
+        {
+          "file": "fbx/SM_DryingRack_A_LOD1.fbx",
+          "sha256": "edc9fbdff98827a0bb82bd242e2b91a83fdc623fc004877bb27c8c3fb6273f58",
+          "bytes": 21068,
+          "triangles": 180,
+          "dimensions_metres": [
+            0.9,
+            0.59477,
+            0.85904
+          ]
+        },
+        {
+          "file": "fbx/SM_DryingRack_A_LOD2.fbx",
+          "sha256": "eb3df868507916e42f72d4d96032681f82fccdaa3b74e22bb7b7aff5b0f3bed0",
+          "bytes": 20252,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.9,
+            0.59706,
+            0.86044
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_CookingPot_A",
+      "batch": "food-preparation",
+      "kind": "pot",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_CookingPot_A.fbx",
+          "sha256": "3033155551176b3cd7dbbf442513b7a3744a74796fae0fc771844469c1bd1119",
+          "bytes": 56156,
+          "triangles": 1948,
+          "dimensions_metres": [
+            0.49659,
+            0.41,
+            0.2452
+          ]
+        },
+        {
+          "file": "fbx/SM_CookingPot_A_LOD1.fbx",
+          "sha256": "5067e9094ecf9b9f108afba85672a11721b9e48b49ec758dab1c46289faa460a",
+          "bytes": 25292,
+          "triangles": 412,
+          "dimensions_metres": [
+            0.498,
+            0.41,
+            0.246
+          ]
+        },
+        {
+          "file": "fbx/SM_CookingPot_A_LOD2.fbx",
+          "sha256": "57bfd7aedefd87f8a73c6f5cd6383ef4fea348ca260f0fe4d0127f96b2235026",
+          "bytes": 23164,
+          "triangles": 284,
+          "dimensions_metres": [
+            0.498,
+            0.41,
+            0.246
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_PotLid_A",
+      "batch": "food-preparation",
+      "kind": "lid",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_PotLid_A.fbx",
+          "sha256": "65c2eebe99240aae1f0b72fd110ba24e852b9a48f34e3342cdfb53baf73d6f6a",
+          "bytes": 25772,
+          "triangles": 376,
+          "dimensions_metres": [
+            0.42,
+            0.42,
+            0.065
+          ]
+        },
+        {
+          "file": "fbx/SM_PotLid_A_LOD1.fbx",
+          "sha256": "1a009dbecf8c2a7d9ea1ce240bea56748582f4238f1bbc9dce9f6edf212d9d2f",
+          "bytes": 20588,
+          "triangles": 112,
+          "dimensions_metres": [
+            0.42,
+            0.42,
+            0.065
+          ]
+        },
+        {
+          "file": "fbx/SM_PotLid_A_LOD2.fbx",
+          "sha256": "4575cad55210a5a50a9aa32c8d388b16e6867f5066fa616e3f6471b9af188516",
+          "bytes": 19948,
+          "triangles": 72,
+          "dimensions_metres": [
+            0.42,
+            0.42,
+            0.065
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_ServingLadle_A",
+      "batch": "food-preparation",
+      "kind": "ladle",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_ServingLadle_A.fbx",
+          "sha256": "28569b4621981957b632b78daa9142a366182fdb5525974f9cd6c4969a2fa7e5",
+          "bytes": 29452,
+          "triangles": 472,
+          "dimensions_metres": [
+            0.09951,
+            0.39983,
+            0.0336
+          ]
+        },
+        {
+          "file": "fbx/SM_ServingLadle_A_LOD1.fbx",
+          "sha256": "1b8387f5b6d6575ec999ecbeac107fce4e0eb2a688ec25bda84b3264f0e5a373",
+          "bytes": 20876,
+          "triangles": 112,
+          "dimensions_metres": [
+            0.1,
+            0.40008,
+            0.0332
+          ]
+        },
+        {
+          "file": "fbx/SM_ServingLadle_A_LOD2.fbx",
+          "sha256": "feadf3b06ea39b864b9575c728a33d3e592f7731feaff658d1d054545ac0a812",
+          "bytes": 20140,
+          "triangles": 72,
+          "dimensions_metres": [
+            0.1,
+            0.40009,
+            0.034
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_MetalFoodTray_A",
+      "batch": "food-preparation",
+      "kind": "foodtray",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_MetalFoodTray_A.fbx",
+          "sha256": "57e401a58c2483410a4dd69f86b291d9efbee3922746ee90410efe9961a70cd6",
+          "bytes": 21068,
+          "triangles": 92,
+          "dimensions_metres": [
+            0.45856,
+            0.33863,
+            0.06
+          ]
+        },
+        {
+          "file": "fbx/SM_MetalFoodTray_A_LOD1.fbx",
+          "sha256": "8b980fbc63423270d163154552f3affb0372faeb1baad99aa44e11f91f19291b",
+          "bytes": 19180,
+          "triangles": 28,
+          "dimensions_metres": [
+            0.46,
+            0.34,
+            0.06
+          ]
+        },
+        {
+          "file": "fbx/SM_MetalFoodTray_A_LOD2.fbx",
+          "sha256": "fec4ecd7432e7c7831c52d92733ec179cbcc8be07035253c42fb17a8d431a005",
+          "bytes": 19180,
+          "triangles": 28,
+          "dimensions_metres": [
+            0.46,
+            0.34,
+            0.06
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_CharcoalStove_Cold_A",
+      "batch": "food-preparation",
+      "kind": "charcoalstove",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_CharcoalStove_Cold_A.fbx",
+          "sha256": "5984e9b4a813512b623e2b481d2646e681dce30b273cbe59300dd6cd6799cf77",
+          "bytes": 35292,
+          "triangles": 844,
+          "dimensions_metres": [
+            0.36,
+            0.36,
+            0.28
+          ]
+        },
+        {
+          "file": "fbx/SM_CharcoalStove_Cold_A_LOD1.fbx",
+          "sha256": "482c322f952a5edd0a458b469009d9d7f58a3aec924dd6c0db2738b3e34f3e44",
+          "bytes": 22092,
+          "triangles": 200,
+          "dimensions_metres": [
+            0.36,
+            0.36,
+            0.28
+          ]
+        },
+        {
+          "file": "fbx/SM_CharcoalStove_Cold_A_LOD2.fbx",
+          "sha256": "e8434f83ee57828c5df03ce9bc3aea35ab577c4d05c6ca1b91aad5cb3571004e",
+          "bytes": 20764,
+          "triangles": 128,
+          "dimensions_metres": [
+            0.36,
+            0.36,
+            0.28
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_BreadBasket_Empty_A",
+      "batch": "food-preparation",
+      "kind": "breadbasket",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_BreadBasket_Empty_A.fbx",
+          "sha256": "335f2706b2e0d8d96925abd63e0985cb155c564887a8e5b181d651e074ae98b3",
+          "bytes": 22332,
+          "triangles": 220,
+          "dimensions_metres": [
+            0.4,
+            0.272,
+            0.105
+          ]
+        },
+        {
+          "file": "fbx/SM_BreadBasket_Empty_A_LOD1.fbx",
+          "sha256": "babedc239060aba2c58433d1b02a8b0ce50af0af3851ae9cc9cce813a5234fb5",
+          "bytes": 19324,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.4,
+            0.272,
+            0.105
+          ]
+        },
+        {
+          "file": "fbx/SM_BreadBasket_Empty_A_LOD2.fbx",
+          "sha256": "5b5e1500ae265bc2d2e0f43056f1909d5613f44f3b4c93a1a3a618ff72568f45",
+          "bytes": 19324,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.4,
+            0.272,
+            0.105
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    },
+    {
+      "id": "SM_StackedCups_A",
+      "batch": "food-preparation",
+      "kind": "cupstack",
+      "material": "M_LagosShopWork_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_StackedCups_A.fbx",
+          "sha256": "cab9b105f343ba18645d3946421b521ed8e5afff81bc132a4f094525a6138d58",
+          "bytes": 31692,
+          "triangles": 944,
+          "dimensions_metres": [
+            0.07,
+            0.07,
+            0.155
+          ]
+        },
+        {
+          "file": "fbx/SM_StackedCups_A_LOD1.fbx",
+          "sha256": "39ccc9dae1f6881143a19b02e0d835c4d736929b7e95e94f9aba73761b6192f4",
+          "bytes": 25260,
+          "triangles": 464,
+          "dimensions_metres": [
+            0.07,
+            0.07,
+            0.155
+          ]
+        },
+        {
+          "file": "fbx/SM_StackedCups_A_LOD2.fbx",
+          "sha256": "702cba6cfaf0d02d69cb0207c1c7ff4f2f007ff70e925836f1ce277e9d9f4834",
+          "bytes": 22908,
+          "triangles": 304,
+          "dimensions_metres": [
+            0.07,
+            0.07,
+            0.155
+          ]
+        }
+      ],
+      "pivot": "local contact or attachment origin, metres, Z up"
+    }
+  ],
+  "textures": [
+    {
+      "file": "textures/T_DetailAtlas_BC.png",
+      "sha256": "8d020ae94816a9322161c5991a62e0ceb62fd385721bb11b33f2f0a26d894234",
+      "bytes": 6085369,
+      "srgb": true
+    },
+    {
+      "file": "textures/T_DetailAtlas_ORM.png",
+      "sha256": "70ae19b55ed3d800fca0b148297c67f79fec20a601cf3931be6c504dad5b428a",
+      "bytes": 4285676,
+      "srgb": false
+    }
+  ],
+  "provenance": {
+    "id": "wood_planks_grey",
+    "license": "CC0-1.0",
+    "authors": {
+      "Rob Tuytel": "All"
+    },
+    "maps": [
+      {
+        "role": "Diffuse",
+        "file": "wood_planks_grey/wood_planks_grey_diff_2k.jpg",
+        "sha256": "31bdd475c6f1520fccc34a6823bfab8ba61ce5fd6dd97a3d1d868c21295e1000"
+      },
+      {
+        "role": "Rough",
+        "file": "wood_planks_grey/wood_planks_grey_rough_2k.png",
+        "sha256": "0e76025babe056bfdcd750a8f186df92d359fa804273fceb0f23d4884b9f5520"
+      }
+    ],
+    "source_manifest_sha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46"
+  },
+  "performance": {
+    "master_materials": 1,
+    "texture_resolution": 2048,
+    "cloth_simulation": false,
+    "tick": false,
+    "reflection_capture": false,
+    "measured_fps": null
+  },
+  "acceptance": {
+    "fbx_ids": "inspected",
+    "texture": "Atlas directly inspected; no scene shading acceptance",
+    "rendered_geometry": "not-run",
+    "unreal_import": "not-run",
+    "world_placement": "none"
+  },
+  "workbench_restored": true
+}

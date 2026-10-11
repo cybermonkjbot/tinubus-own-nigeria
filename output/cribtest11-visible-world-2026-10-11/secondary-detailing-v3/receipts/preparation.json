@@ -1,0 +1,143 @@
+{
+  "saved_library": {
+    "scenes": [
+      "LagosShopWorkV3"
+    ],
+    "objects": 72,
+    "materials": [
+      "M_LagosShopWork_Opaque"
+    ],
+    "images": [
+      "LagosShopWorkV3_T_DetailAtlas_ORM",
+      "LagosShopWorkV3_T_DetailAtlas_BC"
+    ]
+  },
+  "hashes_match": true,
+  "fbx_ids_match": true,
+  "workbench_scene": "BaddieAssetWorkbench",
+  "workbench_file": "C:\\dev\\baddie-assets\\Blender\\LagosWorkbench.blend",
+  "native_import": "not-run",
+  "rendered_geometry": "not-run",
+  "lod_counts": {
+    "SM_BarberChair_A": [
+      1108,
+      292,
+      228
+    ],
+    "SM_MirrorFrameBacking_A": [
+      220,
+      60,
+      60
+    ],
+    "SM_HairClipper_A": [
+      532,
+      40,
+      40
+    ],
+    "SM_BarberComb_A": [
+      1012,
+      156,
+      96
+    ],
+    "SM_SprayBottle_A": [
+      468,
+      132,
+      100
+    ],
+    "SM_HairProductBottles_A": [
+      752,
+      176,
+      112
+    ],
+    "SM_SewingMachine_A": [
+      740,
+      176,
+      152
+    ],
+    "SM_ThreadSpools_A": [
+      852,
+      420,
+      276
+    ],
+    "SM_TailorScissors_A": [
+      1240,
+      232,
+      168
+    ],
+    "SM_PressingIron_A": [
+      188,
+      52,
+      52
+    ],
+    "SM_FabricRolls_A": [
+      276,
+      132,
+      84
+    ],
+    "SM_FoldedFabric_A": [
+      276,
+      84,
+      84
+    ],
+    "SM_HangingTowel_A": [
+      672,
+      192,
+      32
+    ],
+    "SM_HangingSheet_A": [
+      672,
+      192,
+      32
+    ],
+    "SM_HangingShirt_A": [
+      72,
+      48,
+      48
+    ],
+    "SM_ClothesPegs_A": [
+      120,
+      120,
+      120
+    ],
+    "SM_DryingRack_A": [
+      828,
+      180,
+      108
+    ],
+    "SM_CookingPot_A": [
+      1948,
+      412,
+      284
+    ],
+    "SM_PotLid_A": [
+      376,
+      112,
+      72
+    ],
+    "SM_ServingLadle_A": [
+      472,
+      112,
+      72
+    ],
+    "SM_MetalFoodTray_A": [
+      92,
+      28,
+      28
+    ],
+    "SM_CharcoalStove_Cold_A": [
+      844,
+      200,
+      128
+    ],
+    "SM_BreadBasket_Empty_A": [
+      220,
+      60,
+      60
+    ],
+    "SM_StackedCups_A": [
+      944,
+      464,
+      304
+    ]
+  }
+}
