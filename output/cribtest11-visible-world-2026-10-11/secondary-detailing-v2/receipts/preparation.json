@@ -1,0 +1,232 @@
+{
+  "saved_library": {
+    "scenes": [
+      "LagosEverydayLifeV2"
+    ],
+    "objects": 120,
+    "materials": [
+      "M_LagosEveryday_Opaque.001"
+    ],
+    "images": [
+      "LagosEverydayLifeV2_T_DetailAtlas_ORM.001",
+      "LagosEverydayLifeV2_T_DetailAtlas_BC.001"
+    ]
+  },
+  "input_hashes_match": true,
+  "fbx_object_ids_match": true,
+  "batch_counts": {
+    "household-utilities": 12,
+    "shop-life": 16,
+    "street-work": 12
+  },
+  "author_script_hash_match": true,
+  "blend_hash_match": true,
+  "scene": "BaddieAssetWorkbench",
+  "file": "C:\\dev\\baddie-assets\\Blender\\LagosWorkbench.blend",
+  "native_visual": "pending",
+  "geometry_render": "not-run",
+  "unreal_import": "not-run",
+  "material_atlas_review": "directly inspected",
+  "budget_not_fps": {
+    "SM_PlasticChair_Maintained": [
+      904,
+      192,
+      144
+    ],
+    "SM_PlasticChair_Worn": [
+      904,
+      192,
+      144
+    ],
+    "SM_PlasticStool_A": [
+      412,
+      92,
+      60
+    ],
+    "SM_BeverageCrate_A": [
+      1012,
+      252,
+      204
+    ],
+    "SM_BeverageCrate_B": [
+      1012,
+      252,
+      204
+    ],
+    "SM_CoolerBox_A": [
+      364,
+      80,
+      80
+    ],
+    "SM_ProduceTray_A": [
+      220,
+      60,
+      60
+    ],
+    "SM_ProduceTomatoes_A": [
+      520,
+      300,
+      220
+    ],
+    "SM_ProduceOnions_A": [
+      460,
+      300,
+      220
+    ],
+    "SM_CounterScale_A": [
+      308,
+      36,
+      36
+    ],
+    "SM_MarketTable_A": [
+      308,
+      84,
+      84
+    ],
+    "SM_WovenBasket_A": [
+      528,
+      264,
+      176
+    ],
+    "SM_TailorMannequin_A": [
+      748,
+      196,
+      124
+    ],
+    "SM_ClothesRail_A": [
+      856,
+      100,
+      60
+    ],
+    "SM_Jerrycan20L_A": [
+      584,
+      112,
+      104
+    ],
+    "SM_WaterDrum_A": [
+      1572,
+      496,
+      88
+    ],
+    "SM_WaterTank_A": [
+      2100,
+      496,
+      88
+    ],
+    "SM_HandledBucket_A": [
+      2188,
+      236,
+      148
+    ],
+    "SM_WashBasin_A": [
+      1484,
+      116,
+      76
+    ],
+    "SM_WindowAC_A": [
+      1012,
+      108,
+      72
+    ],
+    "SM_MeterBox_A": [
+      316,
+      76,
+      60
+    ],
+    "SM_SatelliteDish_A": [
+      416,
+      136,
+      96
+    ],
+    "SM_WheeledBin_A": [
+      364,
+      84,
+      60
+    ],
+    "SM_Broom_A": [
+      208,
+      128,
+      84
+    ],
+    "SM_Dustpan_A": [
+      224,
+      56,
+      48
+    ],
+    "SM_Pallet_A": [
+      624,
+      96,
+      96
+    ],
+    "SM_SandSack_A": [
+      248,
+      128,
+      88
+    ],
+    "SM_AirCompressor_A": [
+      980,
+      156,
+      108
+    ],
+    "SM_FootPump_A": [
+      936,
+      168,
+      108
+    ],
+    "SM_ToolTray_A": [
+      488,
+      108,
+      108
+    ],
+    "SM_CableCoil_A": [
+      1152,
+      432,
+      192
+    ],
+    "SM_Handcart_A": [
+      696,
+      160,
+      104
+    ],
+    "SM_Wheelbarrow_A": [
+      648,
+      152,
+      104
+    ],
+    "SM_Shovel_A": [
+      136,
+      32,
+      24
+    ],
+    "SM_AwningRoll_A": [
+      892,
+      188,
+      124
+    ],
+    "SM_Padlock_A": [
+      1024,
+      188,
+      124
+    ],
+    "SM_WindowSecurityGrille_A": [
+      820,
+      188,
+      132
+    ],
+    "SM_InverterBattery_A": [
+      456,
+      96,
+      80
+    ],
+    "SM_PedestalFan_A": [
+      3512,
+      552,
+      356
+    ],
+    "SM_StackedStools_A": [
+      1236,
+      276,
+      180
+    ]
+  }
+}

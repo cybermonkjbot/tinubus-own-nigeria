@@ -157,11 +157,12 @@ def make_weather_decal(name, channel, tint, destination, textures, receipt):
 
 
 def import_batch(batch, destination=DEFAULT_DESTINATION, include_close_plastic=False):
-    if batch not in ('litter','infrastructure','decals'):
-        raise ValueError('Choose litter, infrastructure or decals')
+    manifest=json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'))
+    available=sorted({asset['batch'] for asset in manifest['assets']})
+    if batch not in available:
+        raise ValueError('Choose one of: '+', '.join(available))
     if not re.fullmatch(r'/Game/[A-Za-z0-9_/]+', destination) or '..' in destination:
         raise ValueError('Destination must be an explicit /Game content folder')
-    manifest=json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'))
     assets=[a for a in manifest['assets'] if a['batch']==batch]
     receipt={'batch':batch,'destination':destination,'engine':unreal.SystemLibrary.get_engine_version(),
              'manifest_sha256':sha(ROOT/'manifest.json'),'created':[],'meshes':[],

@@ -1,0 +1,2069 @@
+{
+  "schema_version": 1,
+  "kit": "LagosEverydayLifeV2",
+  "status": "exported-unplaced-native-visual-acceptance-pending",
+  "blender_version": "5.2.2 LTS",
+  "pid": 3224,
+  "blend": "LagosEverydayLifeV2.blend",
+  "blend_sha256": "44a270c65589608981f03e9ae43ae71a8462938101653fb1e8a1118e0e1146a9",
+  "author_script_sha256": "4bc47f01cb4ea1ec749cc07bead1ed859ce997002288c7c25c5a1962292c30e4",
+  "assets": [
+    {
+      "id": "SM_PlasticChair_Maintained",
+      "batch": "shop-life",
+      "kind": "chair",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_PlasticChair_Maintained.fbx",
+          "sha256": "b00cf7c6c87ed5675f2e3aa77851d37f8af3423483350381e5adfc5fbc4fdd89",
+          "bytes": 37708,
+          "triangles": 904,
+          "dimensions_metres": [
+            0.44574,
+            0.41776,
+            0.83724
+          ]
+        },
+        {
+          "file": "fbx/SM_PlasticChair_Maintained_LOD1.fbx",
+          "sha256": "994fcbc2a0d3c2dee7d6bd5da2bdac4d1806c3f0d6e16568ffd6f3a07445429a",
+          "bytes": 21804,
+          "triangles": 192,
+          "dimensions_metres": [
+            0.44592,
+            0.41629,
+            0.83709
+          ]
+        },
+        {
+          "file": "fbx/SM_PlasticChair_Maintained_LOD2.fbx",
+          "sha256": "d32eddc2939abe270cef8b5ca34802c2c5e65e1e3010acf702fc6ab9fb34b34d",
+          "bytes": 21100,
+          "triangles": 144,
+          "dimensions_metres": [
+            0.43525,
+            0.41327,
+            0.83742
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_PlasticChair_Worn",
+      "batch": "shop-life",
+      "kind": "chair",
+      "maintenance": "worn",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_PlasticChair_Worn.fbx",
+          "sha256": "e316c0c6c58bfee3978d0b77f325e0220d74a63dc8807cb83bf11e8d8d2181fe",
+          "bytes": 38012,
+          "triangles": 904,
+          "dimensions_metres": [
+            0.44574,
+            0.41776,
+            0.83724
+          ]
+        },
+        {
+          "file": "fbx/SM_PlasticChair_Worn_LOD1.fbx",
+          "sha256": "ba3def91f648742813ee486ea7a3586f54003d87d9e61980a39db35519aa3462",
+          "bytes": 21788,
+          "triangles": 192,
+          "dimensions_metres": [
+            0.44592,
+            0.41629,
+            0.83709
+          ]
+        },
+        {
+          "file": "fbx/SM_PlasticChair_Worn_LOD2.fbx",
+          "sha256": "09607660479f917e7eb75ba8747cd671be34e7f8394a538888e1fbb7403805a8",
+          "bytes": 21100,
+          "triangles": 144,
+          "dimensions_metres": [
+            0.43525,
+            0.41327,
+            0.83742
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_PlasticStool_A",
+      "batch": "shop-life",
+      "kind": "stool",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_PlasticStool_A.fbx",
+          "sha256": "4d1d8e53b694be5479397533a2b8ffc0cb4dc8fbfbb05d6e1eaaad385a9be62d",
+          "bytes": 27980,
+          "triangles": 412,
+          "dimensions_metres": [
+            0.34985,
+            0.33068,
+            0.43572
+          ]
+        },
+        {
+          "file": "fbx/SM_PlasticStool_A_LOD1.fbx",
+          "sha256": "2b20f50e3d63b7aba8359a6d2f8df631b56868b45cc7bbcad8499925702e1d9d",
+          "bytes": 20348,
+          "triangles": 92,
+          "dimensions_metres": [
+            0.34995,
+            0.33002,
+            0.43561
+          ]
+        },
+        {
+          "file": "fbx/SM_PlasticStool_A_LOD2.fbx",
+          "sha256": "c0e978934245926329f3b552bd3fa54e5fd1200401c5a52bebd3df4b3e7e77fd",
+          "bytes": 19852,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.33919,
+            0.3201,
+            0.43585
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_BeverageCrate_A",
+      "batch": "shop-life",
+      "kind": "crate",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_BeverageCrate_A.fbx",
+          "sha256": "91082bd6112f393c63c5b3db2e40a82e3c656cda4fc97c249069738a25fbf326",
+          "bytes": 34444,
+          "triangles": 1012,
+          "dimensions_metres": [
+            0.4,
+            0.308,
+            0.28
+          ]
+        },
+        {
+          "file": "fbx/SM_BeverageCrate_A_LOD1.fbx",
+          "sha256": "1bf6983626d7c49f54c4fd35959ab785f1263f52b1ab5d091d462202adc06db2",
+          "bytes": 21484,
+          "triangles": 252,
+          "dimensions_metres": [
+            0.4,
+            0.308,
+            0.28
+          ]
+        },
+        {
+          "file": "fbx/SM_BeverageCrate_A_LOD2.fbx",
+          "sha256": "0c4b94d2ee560f5ada5063209bd58d8008ce7de531248cc67eb58ed8319e0807",
+          "bytes": 20956,
+          "triangles": 204,
+          "dimensions_metres": [
+            0.4,
+            0.308,
+            0.28
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_BeverageCrate_B",
+      "batch": "shop-life",
+      "kind": "crate",
+      "maintenance": "worn",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_BeverageCrate_B.fbx",
+          "sha256": "dc43acc8a13436b90425e3bbc41ac444db50fa60d966d856ad55692a635c944c",
+          "bytes": 34556,
+          "triangles": 1012,
+          "dimensions_metres": [
+            0.4,
+            0.308,
+            0.28
+          ]
+        },
+        {
+          "file": "fbx/SM_BeverageCrate_B_LOD1.fbx",
+          "sha256": "e8817178ab6ef91d48974abfadc66eaa8dcb33bb854bdd20ba03ff6caa99996d",
+          "bytes": 21468,
+          "triangles": 252,
+          "dimensions_metres": [
+            0.4,
+            0.308,
+            0.28
+          ]
+        },
+        {
+          "file": "fbx/SM_BeverageCrate_B_LOD2.fbx",
+          "sha256": "91ce982c52bd004a689bcabb4af13d31fb427396ec7d44d94abc2d60d2b06496",
+          "bytes": 20956,
+          "triangles": 204,
+          "dimensions_metres": [
+            0.4,
+            0.308,
+            0.28
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_CoolerBox_A",
+      "batch": "shop-life",
+      "kind": "cooler",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_CoolerBox_A.fbx",
+          "sha256": "8acc62853a9145aa26c83633930145e8fc101793ea3a44d1db728f88cade045e",
+          "bytes": 26060,
+          "triangles": 364,
+          "dimensions_metres": [
+            0.64,
+            0.4,
+            0.5025
+          ]
+        },
+        {
+          "file": "fbx/SM_CoolerBox_A_LOD1.fbx",
+          "sha256": "bc341da210268f0454167e92032c9c973795cc34e0a41e1854b2aa47fdfcbb66",
+          "bytes": 19772,
+          "triangles": 80,
+          "dimensions_metres": [
+            0.64,
+            0.4,
+            0.5025
+          ]
+        },
+        {
+          "file": "fbx/SM_CoolerBox_A_LOD2.fbx",
+          "sha256": "bfd6ed76cc9fd6c42ba92ba68a62d3a807ba42dfa148970aea2020e407229051",
+          "bytes": 19772,
+          "triangles": 80,
+          "dimensions_metres": [
+            0.64,
+            0.4,
+            0.5025
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_ProduceTray_A",
+      "batch": "shop-life",
+      "kind": "tray",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_ProduceTray_A.fbx",
+          "sha256": "870a139e78e9c2bf50ab51cfb4c70cd0c440519b9a15dd9ea1dd0dbb716e0017",
+          "bytes": 22380,
+          "triangles": 220,
+          "dimensions_metres": [
+            0.44,
+            0.318,
+            0.125
+          ]
+        },
+        {
+          "file": "fbx/SM_ProduceTray_A_LOD1.fbx",
+          "sha256": "8ced6b6fa8e8b79b3f22bf1709c9ebf5c6fdf70883d916094b82562c84fa47f1",
+          "bytes": 19468,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.44,
+            0.318,
+            0.125
+          ]
+        },
+        {
+          "file": "fbx/SM_ProduceTray_A_LOD2.fbx",
+          "sha256": "e7b0226ff5cd5e8030d05b82325050002fc4a8e3b5e26d36dfb68564d3f69968",
+          "bytes": 19468,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.44,
+            0.318,
+            0.125
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_ProduceTomatoes_A",
+      "batch": "shop-life",
+      "kind": "tomatoes",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_ProduceTomatoes_A.fbx",
+          "sha256": "f6f5eec576326e17fc964e9c0259035270a8011ae826ebd9a1b0866d92f34882",
+          "bytes": 27068,
+          "triangles": 520,
+          "dimensions_metres": [
+            0.334,
+            0.204,
+            0.0735
+          ]
+        },
+        {
+          "file": "fbx/SM_ProduceTomatoes_A_LOD1.fbx",
+          "sha256": "469dcd1218da7d86aa9e465d94cc1ebd7ebefae7a014d6bdf0dcabb0c449b123",
+          "bytes": 23628,
+          "triangles": 300,
+          "dimensions_metres": [
+            0.334,
+            0.204,
+            0.07
+          ]
+        },
+        {
+          "file": "fbx/SM_ProduceTomatoes_A_LOD2.fbx",
+          "sha256": "ee9c836a80965895ee0a33af2ce5e211f3ecf45972d5f6b411831d2d8d4f66a1",
+          "bytes": 22284,
+          "triangles": 220,
+          "dimensions_metres": [
+            0.334,
+            0.19141,
+            0.07
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_ProduceOnions_A",
+      "batch": "shop-life",
+      "kind": "onions",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_ProduceOnions_A.fbx",
+          "sha256": "8bf54af26781d0aa4c7f2d4fd2a7aa8a60fe0ced06bb8f6037bbf3f163f3eb5c",
+          "bytes": 26508,
+          "triangles": 460,
+          "dimensions_metres": [
+            0.322,
+            0.192,
+            0.07
+          ]
+        },
+        {
+          "file": "fbx/SM_ProduceOnions_A_LOD1.fbx",
+          "sha256": "6a1101ab623a1ad789546050463588493086bb6fb68d8bac22063ab422d0da2a",
+          "bytes": 23804,
+          "triangles": 300,
+          "dimensions_metres": [
+            0.322,
+            0.192,
+            0.07
+          ]
+        },
+        {
+          "file": "fbx/SM_ProduceOnions_A_LOD2.fbx",
+          "sha256": "9c1512e05a3eab43f83ebc8c654112b8387375cabb9b3670569e3f2e1e8934ab",
+          "bytes": 22444,
+          "triangles": 220,
+          "dimensions_metres": [
+            0.322,
+            0.18101,
+            0.07
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_CounterScale_A",
+      "batch": "shop-life",
+      "kind": "scale",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_CounterScale_A.fbx",
+          "sha256": "b85b181eba8d1c091a57f9ef1112528c07803e606a4e607e2acd925aca514a32",
+          "bytes": 24076,
+          "triangles": 308,
+          "dimensions_metres": [
+            0.27,
+            0.29,
+            0.177
+          ]
+        },
+        {
+          "file": "fbx/SM_CounterScale_A_LOD1.fbx",
+          "sha256": "dc0e60eb1088589359164435a85f74f9dc38e7135ff9d64f2e62021e57a32dd4",
+          "bytes": 19132,
+          "triangles": 36,
+          "dimensions_metres": [
+            0.27,
+            0.29,
+            0.177
+          ]
+        },
+        {
+          "file": "fbx/SM_CounterScale_A_LOD2.fbx",
+          "sha256": "1b0e5c7f4858f6d105f96b235fabab5ec86077515a0017566517c7d1c83f0b14",
+          "bytes": 19132,
+          "triangles": 36,
+          "dimensions_metres": [
+            0.27,
+            0.29,
+            0.177
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_MarketTable_A",
+      "batch": "shop-life",
+      "kind": "table",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_MarketTable_A.fbx",
+          "sha256": "45196d55d87afb7a3f3dff1e5afcc9aada34f4dd05a3d61f5af6804ff0ef3814",
+          "bytes": 23884,
+          "triangles": 308,
+          "dimensions_metres": [
+            1.1,
+            0.6,
+            0.791
+          ]
+        },
+        {
+          "file": "fbx/SM_MarketTable_A_LOD1.fbx",
+          "sha256": "4b3805a5519e91f809a9754a2c0064d8c73b60bdf3c60235436e52a03e95b829",
+          "bytes": 19740,
+          "triangles": 84,
+          "dimensions_metres": [
+            1.1,
+            0.6,
+            0.791
+          ]
+        },
+        {
+          "file": "fbx/SM_MarketTable_A_LOD2.fbx",
+          "sha256": "1dc5eaa68df319bff47d1261728d6a32396e1d5a640270bfb594976f5a002fe2",
+          "bytes": 19740,
+          "triangles": 84,
+          "dimensions_metres": [
+            1.1,
+            0.6,
+            0.791
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_WovenBasket_A",
+      "batch": "shop-life",
+      "kind": "basket",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_WovenBasket_A.fbx",
+          "sha256": "17863f5ee398b94b6df5be516175f26b0ca4db970f5a5157d3b07c8a80ab3e19",
+          "bytes": 28908,
+          "triangles": 528,
+          "dimensions_metres": [
+            0.4,
+            0.4,
+            0.219
+          ]
+        },
+        {
+          "file": "fbx/SM_WovenBasket_A_LOD1.fbx",
+          "sha256": "c3c094478106d61891227be3d94d1bfb38dd6635afba402137bcc7c68753a703",
+          "bytes": 23660,
+          "triangles": 264,
+          "dimensions_metres": [
+            0.4,
+            0.4,
+            0.219
+          ]
+        },
+        {
+          "file": "fbx/SM_WovenBasket_A_LOD2.fbx",
+          "sha256": "3da59ee9002ed70f3312f446479b861d2b32d403bae9602557c71eadfb5527ac",
+          "bytes": 22060,
+          "triangles": 176,
+          "dimensions_metres": [
+            0.4,
+            0.4,
+            0.219
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_TailorMannequin_A",
+      "batch": "shop-life",
+      "kind": "mannequin",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_TailorMannequin_A.fbx",
+          "sha256": "957ba90b117dc1adfe11a5dd7091af474e4daf93a275af655baccc7fc3dfe7c2",
+          "bytes": 35788,
+          "triangles": 748,
+          "dimensions_metres": [
+            0.40044,
+            0.37871,
+            1.22723
+          ]
+        },
+        {
+          "file": "fbx/SM_TailorMannequin_A_LOD1.fbx",
+          "sha256": "4869a3f1b532abb1df0cf134a29890cfc64e89a563819e35390c4a0effd80fee",
+          "bytes": 22620,
+          "triangles": 196,
+          "dimensions_metres": [
+            0.40107,
+            0.38,
+            1.22621
+          ]
+        },
+        {
+          "file": "fbx/SM_TailorMannequin_A_LOD2.fbx",
+          "sha256": "213778f0d9862dcdf31655e4b344f999fcbedb1f6c62b453ad4bf51c70c648e1",
+          "bytes": 21340,
+          "triangles": 124,
+          "dimensions_metres": [
+            0.40123,
+            0.38,
+            1.22794
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_ClothesRail_A",
+      "batch": "shop-life",
+      "kind": "rail",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_ClothesRail_A.fbx",
+          "sha256": "ed5b2471eb53294dea437fbc382e361fdb57983babdb16a3c4e05a52cc1c037b",
+          "bytes": 36684,
+          "triangles": 856,
+          "dimensions_metres": [
+            1.0,
+            0.5,
+            1.48985
+          ]
+        },
+        {
+          "file": "fbx/SM_ClothesRail_A_LOD1.fbx",
+          "sha256": "b7cb9451a5cf95c46d89ce07050a741d48d2f6019628fe6fae67607bb3390b6e",
+          "bytes": 19980,
+          "triangles": 100,
+          "dimensions_metres": [
+            1.0,
+            0.5,
+            1.48618
+          ]
+        },
+        {
+          "file": "fbx/SM_ClothesRail_A_LOD2.fbx",
+          "sha256": "c9f5312fa32debf1b16f8f7e0546f84f5102e4ea5f0f74b4137a63dc9bba7ecf",
+          "bytes": 19532,
+          "triangles": 60,
+          "dimensions_metres": [
+            1.0,
+            0.5,
+            1.491
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_Jerrycan20L_A",
+      "batch": "household-utilities",
+      "kind": "jerrycan",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_Jerrycan20L_A.fbx",
+          "sha256": "0fc6deed7ee9e98c7803c0ea7b0ca3831f1ffdeb280087f30fe50a13d83d86f9",
+          "bytes": 30620,
+          "triangles": 584,
+          "dimensions_metres": [
+            0.28,
+            0.19988,
+            0.5335
+          ]
+        },
+        {
+          "file": "fbx/SM_Jerrycan20L_A_LOD1.fbx",
+          "sha256": "719fa48353a53c35092cc7c42d277d1aa2b1fb90ea63f0b976b64f9321a17195",
+          "bytes": 20252,
+          "triangles": 112,
+          "dimensions_metres": [
+            0.28,
+            0.18,
+            0.5335
+          ]
+        },
+        {
+          "file": "fbx/SM_Jerrycan20L_A_LOD2.fbx",
+          "sha256": "91d60c086785f1c3655a835bff8c63aa76e141d990c79e8838473aac9d421476",
+          "bytes": 20140,
+          "triangles": 104,
+          "dimensions_metres": [
+            0.28,
+            0.18,
+            0.5335
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_WaterDrum_A",
+      "batch": "household-utilities",
+      "kind": "drum",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_WaterDrum_A.fbx",
+          "sha256": "ef1ed2542c1550b7436f92fec5d8648e37843bcc94494b24ab9b168dab838225",
+          "bytes": 44684,
+          "triangles": 1572,
+          "dimensions_metres": [
+            0.61395,
+            0.61395,
+            0.902
+          ]
+        },
+        {
+          "file": "fbx/SM_WaterDrum_A_LOD1.fbx",
+          "sha256": "ac0652a31d5e45e870605d35676f41d8e03c44330260f9ff895550dd1635571c",
+          "bytes": 25964,
+          "triangles": 496,
+          "dimensions_metres": [
+            0.615,
+            0.615,
+            0.902
+          ]
+        },
+        {
+          "file": "fbx/SM_WaterDrum_A_LOD2.fbx",
+          "sha256": "a44ef3bbf8d27efffdec7e6dcc5e3e8ac2e44f4b96d5fd2473f20eff9299e836",
+          "bytes": 20044,
+          "triangles": 88,
+          "dimensions_metres": [
+            0.6,
+            0.6,
+            0.902
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_WaterTank_A",
+      "batch": "household-utilities",
+      "kind": "tank",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_WaterTank_A.fbx",
+          "sha256": "e7a45a698737efcc1633292d123f67d926121cde056e9ed915581732895ccac3",
+          "bytes": 53436,
+          "triangles": 2100,
+          "dimensions_metres": [
+            1.20771,
+            1.20771,
+            1.222
+          ]
+        },
+        {
+          "file": "fbx/SM_WaterTank_A_LOD1.fbx",
+          "sha256": "f9b3f7fd37343a98dab1de6f5c73452dcc76e6eb961156d05ac26ae8fd2328a6",
+          "bytes": 25932,
+          "triangles": 496,
+          "dimensions_metres": [
+            1.2095,
+            1.2095,
+            1.222
+          ]
+        },
+        {
+          "file": "fbx/SM_WaterTank_A_LOD2.fbx",
+          "sha256": "f73359c62f81c6ad659dad5631ce1483bdfb826160eea21abc0d66f97d512c21",
+          "bytes": 20060,
+          "triangles": 88,
+          "dimensions_metres": [
+            1.18,
+            1.18,
+            1.222
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_HandledBucket_A",
+      "batch": "household-utilities",
+      "kind": "bucket",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_HandledBucket_A.fbx",
+          "sha256": "40e9037dff5774942f06d782379c86b9d990fe3a83bd6db04848f7a6cd5da65d",
+          "bytes": 67580,
+          "triangles": 2188,
+          "dimensions_metres": [
+            0.30742,
+            0.30742,
+            0.40028
+          ]
+        },
+        {
+          "file": "fbx/SM_HandledBucket_A_LOD1.fbx",
+          "sha256": "6ef5f7879a237f4adbb92a0c9e445aec8e0a45c353577021bf994e917733b810",
+          "bytes": 23196,
+          "triangles": 236,
+          "dimensions_metres": [
+            0.3,
+            0.3,
+            0.40145
+          ]
+        },
+        {
+          "file": "fbx/SM_HandledBucket_A_LOD2.fbx",
+          "sha256": "ed985e550f66097284c072a4d18b6e20348d196755fb19c7186ad5508b637dc4",
+          "bytes": 21548,
+          "triangles": 148,
+          "dimensions_metres": [
+            0.3,
+            0.3,
+            0.40136
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_WashBasin_A",
+      "batch": "household-utilities",
+      "kind": "basin",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_WashBasin_A.fbx",
+          "sha256": "e0dea99d896c3c7e8025cab0f7d11c196d1770809c208b0362b80aa4639ddc8b",
+          "bytes": 50476,
+          "triangles": 1484,
+          "dimensions_metres": [
+            0.48742,
+            0.48742,
+            0.11188
+          ]
+        },
+        {
+          "file": "fbx/SM_WashBasin_A_LOD1.fbx",
+          "sha256": "a676d9f06af58c5c75ac0f91d260e510235011cb2967d601d2013e5e5eb2d350",
+          "bytes": 20716,
+          "triangles": 116,
+          "dimensions_metres": [
+            0.48,
+            0.48,
+            0.113
+          ]
+        },
+        {
+          "file": "fbx/SM_WashBasin_A_LOD2.fbx",
+          "sha256": "d5701123b5572d204b02d777b714554e25b922c0ed6556713e006638806550f8",
+          "bytes": 19980,
+          "triangles": 76,
+          "dimensions_metres": [
+            0.48,
+            0.48,
+            0.113
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_WindowAC_A",
+      "batch": "household-utilities",
+      "kind": "ac",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_WindowAC_A.fbx",
+          "sha256": "c5b49d547aa1fc5e76e76e5a2ea8c70c75d0fbab4732cae6006ff62b50b9317a",
+          "bytes": 33900,
+          "triangles": 1012,
+          "dimensions_metres": [
+            0.56,
+            0.468,
+            0.38
+          ]
+        },
+        {
+          "file": "fbx/SM_WindowAC_A_LOD1.fbx",
+          "sha256": "f4ca44ade3222b60a0504b7aa9dda870cfc3aa1338717b157a99b7b31b7b5060",
+          "bytes": 19868,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.56,
+            0.454,
+            0.38
+          ]
+        },
+        {
+          "file": "fbx/SM_WindowAC_A_LOD2.fbx",
+          "sha256": "b32b53a255236eb5e87a035abc98b92cd6b5d0316a62985514b574d1e1d3c8af",
+          "bytes": 19500,
+          "triangles": 72,
+          "dimensions_metres": [
+            0.56,
+            0.454,
+            0.38
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_MeterBox_A",
+      "batch": "household-utilities",
+      "kind": "meter",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_MeterBox_A.fbx",
+          "sha256": "efaed6572103438d63797367aef70ce8360a8322b74253525efc79372af740bd",
+          "bytes": 24492,
+          "triangles": 316,
+          "dimensions_metres": [
+            0.24,
+            0.0875,
+            0.38
+          ]
+        },
+        {
+          "file": "fbx/SM_MeterBox_A_LOD1.fbx",
+          "sha256": "c237512d290c5ecef38e4859543b17937d69ae84f28c9a6daceadb688d7962ce",
+          "bytes": 19740,
+          "triangles": 76,
+          "dimensions_metres": [
+            0.24,
+            0.0875,
+            0.38
+          ]
+        },
+        {
+          "file": "fbx/SM_MeterBox_A_LOD2.fbx",
+          "sha256": "8962de666905d824b67ffcd2c0b998d8519bf28166c53658d83646b28191de38",
+          "bytes": 19532,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.24,
+            0.0875,
+            0.38
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_SatelliteDish_A",
+      "batch": "household-utilities",
+      "kind": "dish",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_SatelliteDish_A.fbx",
+          "sha256": "8af741a355a15cf7466c4335a07238bccb7b5204400fb136b01197c88d306228",
+          "bytes": 28940,
+          "triangles": 416,
+          "dimensions_metres": [
+            0.6,
+            0.39,
+            0.78
+          ]
+        },
+        {
+          "file": "fbx/SM_SatelliteDish_A_LOD1.fbx",
+          "sha256": "5411897aafd9dc8c6f740b15c1525cf55a94043c8b28a919cfcfd73ef271ca4e",
+          "bytes": 21532,
+          "triangles": 136,
+          "dimensions_metres": [
+            0.6,
+            0.39,
+            0.78
+          ]
+        },
+        {
+          "file": "fbx/SM_SatelliteDish_A_LOD2.fbx",
+          "sha256": "a9332faccc912170d581223508ceba970ff6dba865a21628dc74f5f150eefb7d",
+          "bytes": 20796,
+          "triangles": 96,
+          "dimensions_metres": [
+            0.6,
+            0.39,
+            0.78
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_WheeledBin_A",
+      "batch": "household-utilities",
+      "kind": "bin",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_WheeledBin_A.fbx",
+          "sha256": "58a9ab8cc5e2d561428293daf4204a093fad97752d5dc7a415873d0b32c2a92f",
+          "bytes": 25724,
+          "triangles": 364,
+          "dimensions_metres": [
+            0.5,
+            0.49,
+            0.86943
+          ]
+        },
+        {
+          "file": "fbx/SM_WheeledBin_A_LOD1.fbx",
+          "sha256": "c48026dc1841d96f07f96895a12e624ca19f758bf6e856d541e00f1891b52040",
+          "bytes": 19852,
+          "triangles": 84,
+          "dimensions_metres": [
+            0.5,
+            0.49,
+            0.86
+          ]
+        },
+        {
+          "file": "fbx/SM_WheeledBin_A_LOD2.fbx",
+          "sha256": "78522f9ec6af6b0708640d22ccb61ca84692a1bf6013b2d5f0b3c245893c8aa8",
+          "bytes": 19564,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.5,
+            0.49,
+            0.87
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_Broom_A",
+      "batch": "street-work",
+      "kind": "broom",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_Broom_A.fbx",
+          "sha256": "766580b52c6834b577aebf8c1217f6d015c6ee3d932660944ec47484223986fe",
+          "bytes": 22748,
+          "triangles": 208,
+          "dimensions_metres": [
+            0.18346,
+            0.028,
+            1.11993
+          ]
+        },
+        {
+          "file": "fbx/SM_Broom_A_LOD1.fbx",
+          "sha256": "4277c076433415636439830928f358045b3e18bdb5db213dbe7b5b99340b8170",
+          "bytes": 21148,
+          "triangles": 128,
+          "dimensions_metres": [
+            0.18346,
+            0.028,
+            1.11993
+          ]
+        },
+        {
+          "file": "fbx/SM_Broom_A_LOD2.fbx",
+          "sha256": "bf17dfeba57f8eb4aa329ba97f0c9f37545b525187867542c426bb01259535c3",
+          "bytes": 20300,
+          "triangles": 84,
+          "dimensions_metres": [
+            0.18346,
+            0.028,
+            1.11993
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_Dustpan_A",
+      "batch": "street-work",
+      "kind": "dustpan",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_Dustpan_A.fbx",
+          "sha256": "adac8370471a87900be1d2e137422d7be4983a89175cf2cb0d31428d3576a19c",
+          "bytes": 23564,
+          "triangles": 224,
+          "dimensions_metres": [
+            0.234,
+            0.40115,
+            0.07119
+          ]
+        },
+        {
+          "file": "fbx/SM_Dustpan_A_LOD1.fbx",
+          "sha256": "bb547ebeab3f060f65ba7ea621dc64a3d3757ea2f93bdf40522f0ca5df9f44cf",
+          "bytes": 19516,
+          "triangles": 56,
+          "dimensions_metres": [
+            0.234,
+            0.40115,
+            0.07033
+          ]
+        },
+        {
+          "file": "fbx/SM_Dustpan_A_LOD2.fbx",
+          "sha256": "f62fb2651062924f37863312410c86d10a8eaf3bb7192f61a344564220af9aa7",
+          "bytes": 19420,
+          "triangles": 48,
+          "dimensions_metres": [
+            0.234,
+            0.40133,
+            0.07193
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_Pallet_A",
+      "batch": "street-work",
+      "kind": "pallet",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_Pallet_A.fbx",
+          "sha256": "42dadabdcf678a41048ea06dc55356ae674362e388e6b54d8763eecf2109109c",
+          "bytes": 28732,
+          "triangles": 624,
+          "dimensions_metres": [
+            0.9,
+            0.77,
+            0.132
+          ]
+        },
+        {
+          "file": "fbx/SM_Pallet_A_LOD1.fbx",
+          "sha256": "a83aced0ba4dd0f81fefd9ecb3649a51f12efa47a899f18da72166efdb313eb3",
+          "bytes": 19868,
+          "triangles": 96,
+          "dimensions_metres": [
+            0.9,
+            0.77,
+            0.13
+          ]
+        },
+        {
+          "file": "fbx/SM_Pallet_A_LOD2.fbx",
+          "sha256": "54fb42d584ce7cbb72f1376e7788336d4af3f6b6f6daed7130f32c178895a7cf",
+          "bytes": 19868,
+          "triangles": 96,
+          "dimensions_metres": [
+            0.9,
+            0.77,
+            0.13
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_SandSack_A",
+      "batch": "street-work",
+      "kind": "sack",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_SandSack_A.fbx",
+          "sha256": "ec086c9859fec7bf553a9bc052519b21491d1e0d0d7b98c60cf2fd2f81c8e70e",
+          "bytes": 23276,
+          "triangles": 248,
+          "dimensions_metres": [
+            0.48,
+            0.48,
+            0.401
+          ]
+        },
+        {
+          "file": "fbx/SM_SandSack_A_LOD1.fbx",
+          "sha256": "b3fdd3da705cabfba796241ced4747f1f0a5040c1f3a85a712bbd8d97f123d18",
+          "bytes": 21068,
+          "triangles": 128,
+          "dimensions_metres": [
+            0.48,
+            0.48,
+            0.401
+          ]
+        },
+        {
+          "file": "fbx/SM_SandSack_A_LOD2.fbx",
+          "sha256": "63815924de7a64be1cbc0faab02dce0daac52cb1e9540aa0c9d9ab5c5f85c733",
+          "bytes": 20300,
+          "triangles": 88,
+          "dimensions_metres": [
+            0.48,
+            0.48,
+            0.401
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_AirCompressor_A",
+      "batch": "street-work",
+      "kind": "compressor",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_AirCompressor_A.fbx",
+          "sha256": "44d10726ec125b833817ad1eb9e463b74611ad040eab142c09a9949b47bd57fe",
+          "bytes": 37692,
+          "triangles": 980,
+          "dimensions_metres": [
+            0.58,
+            0.29143,
+            0.5575
+          ]
+        },
+        {
+          "file": "fbx/SM_AirCompressor_A_LOD1.fbx",
+          "sha256": "0f09f1c787de7be2108c1bba2d992ece4dec3871c1e888b9af9da9d81327e8e6",
+          "bytes": 21292,
+          "triangles": 156,
+          "dimensions_metres": [
+            0.58,
+            0.292,
+            0.54
+          ]
+        },
+        {
+          "file": "fbx/SM_AirCompressor_A_LOD2.fbx",
+          "sha256": "03a6db6cdd2c1f9080ebc0f75162a13f77720c2459d245193c85aadc174402b8",
+          "bytes": 20540,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.58,
+            0.292,
+            0.54
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_FootPump_A",
+      "batch": "street-work",
+      "kind": "pump",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_FootPump_A.fbx",
+          "sha256": "933896c1f6e4a320624d73d9bebb6759801cc4ea03e95eacd62b236ec0a52600",
+          "bytes": 39164,
+          "triangles": 936,
+          "dimensions_metres": [
+            0.26448,
+            0.18293,
+            0.50443
+          ]
+        },
+        {
+          "file": "fbx/SM_FootPump_A_LOD1.fbx",
+          "sha256": "6e6b656b203b02bec5d8f71f4b566d74633b77a730a1cb1297e07cb5b3c51231",
+          "bytes": 21628,
+          "triangles": 168,
+          "dimensions_metres": [
+            0.26554,
+            0.18554,
+            0.50299
+          ]
+        },
+        {
+          "file": "fbx/SM_FootPump_A_LOD2.fbx",
+          "sha256": "e8b886bdd22b65637af6fa933f953cf0c33238f0b073d99645d2dd8c45bb670c",
+          "bytes": 20684,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.26485,
+            0.18179,
+            0.505
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_ToolTray_A",
+      "batch": "street-work",
+      "kind": "tooltray",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_ToolTray_A.fbx",
+          "sha256": "67664cf1a0838f697c1c03858bed83211cfa05f2d152ad2bdf6572fa02b73f83",
+          "bytes": 27756,
+          "triangles": 488,
+          "dimensions_metres": [
+            0.36,
+            0.23,
+            0.052
+          ]
+        },
+        {
+          "file": "fbx/SM_ToolTray_A_LOD1.fbx",
+          "sha256": "1193acae19e14de5eb17bc083b647f72de6b710f63a7583364cbea0c80d7dc8b",
+          "bytes": 19916,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.36,
+            0.23,
+            0.052
+          ]
+        },
+        {
+          "file": "fbx/SM_ToolTray_A_LOD2.fbx",
+          "sha256": "4a8ebf4ba9aa22729340fa2ac196c7f5623a517aca22524c51ff20fad1a2ae4c",
+          "bytes": 19916,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.36,
+            0.23,
+            0.052
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_CableCoil_A",
+      "batch": "street-work",
+      "kind": "coil",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_CableCoil_A.fbx",
+          "sha256": "d9758cbff7bbf125d30a640313e238f7ba7f43e4264ed18359affc4b3e8c5485",
+          "bytes": 38636,
+          "triangles": 1152,
+          "dimensions_metres": [
+            0.24388,
+            0.24388,
+            0.05
+          ]
+        },
+        {
+          "file": "fbx/SM_CableCoil_A_LOD1.fbx",
+          "sha256": "73892fd46bf155039420687294df88c98fec11c766ccbd563e64815c7e9d7880",
+          "bytes": 26172,
+          "triangles": 432,
+          "dimensions_metres": [
+            0.23352,
+            0.23352,
+            0.038
+          ]
+        },
+        {
+          "file": "fbx/SM_CableCoil_A_LOD2.fbx",
+          "sha256": "082ee713788d326f1258b9b4b039835ebcc223ffdb58afd359165bf7441eba17",
+          "bytes": 22140,
+          "triangles": 192,
+          "dimensions_metres": [
+            0.22293,
+            0.22293,
+            0.026
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_Handcart_A",
+      "batch": "street-work",
+      "kind": "cart",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_Handcart_A.fbx",
+          "sha256": "b58d1fe09f5951ac212c6d785556d611fc8ca33ef97aeb9fdabfcca430ce9cc9",
+          "bytes": 31100,
+          "triangles": 696,
+          "dimensions_metres": [
+            0.704,
+            1.22443,
+            0.70943
+          ]
+        },
+        {
+          "file": "fbx/SM_Handcart_A_LOD1.fbx",
+          "sha256": "1d4394e92571228a976d81ce665626df92715fb4a4ff23fa359f67463dbcf231",
+          "bytes": 20988,
+          "triangles": 160,
+          "dimensions_metres": [
+            0.704,
+            1.225,
+            0.70742
+          ]
+        },
+        {
+          "file": "fbx/SM_Handcart_A_LOD2.fbx",
+          "sha256": "77379da5977eaaaf859d7c6eb9209900286a810faeba9e2091221b24b1ad6b24",
+          "bytes": 20332,
+          "triangles": 104,
+          "dimensions_metres": [
+            0.704,
+            1.225,
+            0.71011
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_Wheelbarrow_A",
+      "batch": "street-work",
+      "kind": "barrow",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_Wheelbarrow_A.fbx",
+          "sha256": "3ad5d4f71b1799938d19787ad3b678691f57b04def1ca524f55b2b2b12154882",
+          "bytes": 32620,
+          "triangles": 648,
+          "dimensions_metres": [
+            0.52899,
+            1.13842,
+            0.63
+          ]
+        },
+        {
+          "file": "fbx/SM_Wheelbarrow_A_LOD1.fbx",
+          "sha256": "255e8eeafe3ef66c5da6189be656f178c236715d738a533e7ab6db55b7f19ea3",
+          "bytes": 21260,
+          "triangles": 152,
+          "dimensions_metres": [
+            0.53,
+            1.13787,
+            0.63
+          ]
+        },
+        {
+          "file": "fbx/SM_Wheelbarrow_A_LOD2.fbx",
+          "sha256": "8cf47f7625a468bd4694196e11f200acc6d8535f668979ee2ce8ea1e98de61f4",
+          "bytes": 20668,
+          "triangles": 104,
+          "dimensions_metres": [
+            0.53,
+            1.13909,
+            0.63
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_Shovel_A",
+      "batch": "street-work",
+      "kind": "shovel",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_Shovel_A.fbx",
+          "sha256": "6ce4dce81dc114138bf27f853e2a026ab025aa6ec80765aa8293fbb4e23e7d50",
+          "bytes": 21372,
+          "triangles": 136,
+          "dimensions_metres": [
+            0.19,
+            0.02285,
+            1.13
+          ]
+        },
+        {
+          "file": "fbx/SM_Shovel_A_LOD1.fbx",
+          "sha256": "63196e23f96e6f9959e4ddcb000ad0b1339d2a4ed3c2995294b779e2b83ab76c",
+          "bytes": 19212,
+          "triangles": 32,
+          "dimensions_metres": [
+            0.19,
+            0.02078,
+            1.13
+          ]
+        },
+        {
+          "file": "fbx/SM_Shovel_A_LOD2.fbx",
+          "sha256": "b5199380dacf657050eb0afe2986ecd8369c89788d92fda48f8d87412d398ba3",
+          "bytes": 19084,
+          "triangles": 24,
+          "dimensions_metres": [
+            0.19,
+            0.024,
+            1.13
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_AwningRoll_A",
+      "batch": "street-work",
+      "kind": "awning",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_AwningRoll_A.fbx",
+          "sha256": "61f9e2e5cfbd175353af43e96d6774d760231a944a532b8313508cf38c81f720",
+          "bytes": 36220,
+          "triangles": 892,
+          "dimensions_metres": [
+            1.4,
+            0.17752,
+            0.17752
+          ]
+        },
+        {
+          "file": "fbx/SM_AwningRoll_A_LOD1.fbx",
+          "sha256": "3c7d6dab633015907371c2d7e99ec2821add14a92106054431db6133d57eb6cb",
+          "bytes": 21644,
+          "triangles": 188,
+          "dimensions_metres": [
+            1.4,
+            0.17959,
+            0.16003
+          ]
+        },
+        {
+          "file": "fbx/SM_AwningRoll_A_LOD2.fbx",
+          "sha256": "4dda547680833ee2c745b49739da28ea8a4567a29b8464f463700eaa23c3583c",
+          "bytes": 20668,
+          "triangles": 124,
+          "dimensions_metres": [
+            1.4,
+            0.17673,
+            0.17673
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_Padlock_A",
+      "batch": "household-utilities",
+      "kind": "padlock",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_Padlock_A.fbx",
+          "sha256": "bb60475ecabd768fb2e40eed78c9c5cccc3ee06724f117c0f933501108d65d53",
+          "bytes": 42268,
+          "triangles": 1024,
+          "dimensions_metres": [
+            0.062,
+            0.0295,
+            0.09518
+          ]
+        },
+        {
+          "file": "fbx/SM_Padlock_A_LOD1.fbx",
+          "sha256": "5754581bf3ade06ff0b2ce9a735dfca223bbdc47e539dee60ee4031d05ec0ba9",
+          "bytes": 22108,
+          "triangles": 188,
+          "dimensions_metres": [
+            0.062,
+            0.027,
+            0.09595
+          ]
+        },
+        {
+          "file": "fbx/SM_Padlock_A_LOD2.fbx",
+          "sha256": "0b385d6fc03fa3e4399c60340e405be425a8e04f3868ebede1c6a1fe5c664cbf",
+          "bytes": 20844,
+          "triangles": 124,
+          "dimensions_metres": [
+            0.062,
+            0.027,
+            0.09586
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_WindowSecurityGrille_A",
+      "batch": "household-utilities",
+      "kind": "grille",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_WindowSecurityGrille_A.fbx",
+          "sha256": "881d2a0916689836057e25a87909ddb270f9fe3caf496c25b6ed99d67805c63f",
+          "bytes": 33788,
+          "triangles": 820,
+          "dimensions_metres": [
+            0.763,
+            0.03,
+            1.04
+          ]
+        },
+        {
+          "file": "fbx/SM_WindowSecurityGrille_A_LOD1.fbx",
+          "sha256": "ca53bb6e33c1fe0bfb40739afbb70b7add8efb65b2e0b92ebceed57a894b45a0",
+          "bytes": 21132,
+          "triangles": 188,
+          "dimensions_metres": [
+            0.763,
+            0.03,
+            1.04
+          ]
+        },
+        {
+          "file": "fbx/SM_WindowSecurityGrille_A_LOD2.fbx",
+          "sha256": "eeb051434e3e468ba0ae279987ee36e7825019680d19c9c4122e7987717ba15e",
+          "bytes": 20444,
+          "triangles": 132,
+          "dimensions_metres": [
+            0.763,
+            0.03,
+            1.04
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_InverterBattery_A",
+      "batch": "household-utilities",
+      "kind": "battery",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_InverterBattery_A.fbx",
+          "sha256": "8ef7eaa8d834065b2a92d4692f85f0dd946ec1318fdd3065d90c2714dc77321f",
+          "bytes": 27644,
+          "triangles": 456,
+          "dimensions_metres": [
+            0.34,
+            0.19,
+            0.3635
+          ]
+        },
+        {
+          "file": "fbx/SM_InverterBattery_A_LOD1.fbx",
+          "sha256": "24b8ed98da6dba8a5ae85cdaf3cf574fc285f1cded135c691bbe685d9e2c9f1b",
+          "bytes": 20012,
+          "triangles": 96,
+          "dimensions_metres": [
+            0.34,
+            0.19,
+            0.355
+          ]
+        },
+        {
+          "file": "fbx/SM_InverterBattery_A_LOD2.fbx",
+          "sha256": "0333bd57a965cf2894a2e2201cf69fd1287af4f7de3c263a60eb31e9972bb0b7",
+          "bytes": 19868,
+          "triangles": 80,
+          "dimensions_metres": [
+            0.34,
+            0.19,
+            0.355
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_PedestalFan_A",
+      "batch": "shop-life",
+      "kind": "fan",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_PedestalFan_A.fbx",
+          "sha256": "c6b36dd80c350752c09f86edc382887930c38298f7a2154a63d43375eeed3648",
+          "bytes": 97900,
+          "triangles": 3512,
+          "dimensions_metres": [
+            0.44742,
+            0.36,
+            1.36371
+          ]
+        },
+        {
+          "file": "fbx/SM_PedestalFan_A_LOD1.fbx",
+          "sha256": "1bdfd93c91711268ad24102c54a0b000ccdd661e93e7d3a994a895121a4a76b0",
+          "bytes": 27724,
+          "triangles": 552,
+          "dimensions_metres": [
+            0.44966,
+            0.36,
+            1.36483
+          ]
+        },
+        {
+          "file": "fbx/SM_PedestalFan_A_LOD2.fbx",
+          "sha256": "4555fecb4a0c5ae60c4e35e6ccefdfd8d366eef542bb02756decbbdaca21d88b",
+          "bytes": 25036,
+          "triangles": 356,
+          "dimensions_metres": [
+            0.44924,
+            0.36,
+            1.36462
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    },
+    {
+      "id": "SM_StackedStools_A",
+      "batch": "shop-life",
+      "kind": "stoolstack",
+      "maintenance": "usable-maintained-or-neutral",
+      "material": "M_LagosEveryday_Opaque",
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "lods": [
+        {
+          "file": "fbx/SM_StackedStools_A.fbx",
+          "sha256": "15d77170ba846a7691a464b1eae4775d86d877af552e08ee16f1b74ceb43bc10",
+          "bytes": 44140,
+          "triangles": 1236,
+          "dimensions_metres": [
+            0.32,
+            0.3,
+            0.49586
+          ]
+        },
+        {
+          "file": "fbx/SM_StackedStools_A_LOD1.fbx",
+          "sha256": "5fe02a3745ab8a252315ee5898cb6e7da979519799e6a881b5f4391b0ee430a0",
+          "bytes": 22828,
+          "triangles": 276,
+          "dimensions_metres": [
+            0.32043,
+            0.3,
+            0.49583
+          ]
+        },
+        {
+          "file": "fbx/SM_StackedStools_A_LOD2.fbx",
+          "sha256": "6efed89c315195c996c6b2d845628c594884fb2b8a67207716880266f2ca0f62",
+          "bytes": 21836,
+          "triangles": 180,
+          "dimensions_metres": [
+            0.32,
+            0.3,
+            0.49596
+          ]
+        }
+      ],
+      "pivot": "local attachment/contact origin; Z up; metres"
+    }
+  ],
+  "textures": [
+    {
+      "file": "textures/T_DetailAtlas_BC.png",
+      "sha256": "8d020ae94816a9322161c5991a62e0ceb62fd385721bb11b33f2f0a26d894234",
+      "bytes": 6085369,
+      "srgb": true
+    },
+    {
+      "file": "textures/T_DetailAtlas_ORM.png",
+      "sha256": "70ae19b55ed3d800fca0b148297c67f79fec20a601cf3931be6c504dad5b428a",
+      "bytes": 4285676,
+      "srgb": false
+    }
+  ],
+  "provenance": {
+    "id": "wood_planks_grey",
+    "license": "CC0-1.0",
+    "authors": {
+      "Rob Tuytel": "All"
+    },
+    "maps": [
+      {
+        "role": "Diffuse",
+        "file": "wood_planks_grey/wood_planks_grey_diff_2k.jpg",
+        "sha256": "31bdd475c6f1520fccc34a6823bfab8ba61ce5fd6dd97a3d1d868c21295e1000"
+      },
+      {
+        "role": "Rough",
+        "file": "wood_planks_grey/wood_planks_grey_rough_2k.png",
+        "sha256": "0e76025babe056bfdcd750a8f186df92d359fa804273fceb0f23d4884b9f5520"
+      }
+    ],
+    "source_manifest_sha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46"
+  },
+  "coordinate_contract": {
+    "units": "metres",
+    "axis_forward": "-Y",
+    "axis_up": "Z",
+    "unreal_convert_scene": true,
+    "unreal_convert_scene_unit": true
+  },
+  "workbench_unchanged": true,
+  "performance": {
+    "shared_master_materials": 1,
+    "atlas_resolution": 2048,
+    "tick": false,
+    "simulation": false,
+    "measured_frame_time": null
+  },
+  "acceptance": {
+    "source_export": "object IDs and hashes inspected",
+    "rendered_geometry": "not-run",
+    "unreal_import": "not-run",
+    "texture_review": "Color atlas inspected directly; no scene shading acceptance",
+    "scene_placement": "none"
+  },
+  "revision": "r2; tapered barrow and rounded container silhouettes, container bottoms, additional occupied-frontage accessories; reduced distant bevels"
+}
