@@ -165,7 +165,6 @@ namespace BaddieCompanion
         }
         struct FVendorRule { const TCHAR* Key; int64 Amount, Stock; };
         // Read validation only, matching companionWeaponVendorRules.items at the canonical pin.
-        // The client still caps each vendor response at THREE rows despite these eleven rules.
         constexpr FVendorRule VendorRules[] = {
             {TEXT("street-weapon:bat"), 120, 24}, {TEXT("street-weapon:pistol"), 600, 12}, {TEXT("street-ammo:pistol"), 60, 100},
             {TEXT("street-weapon:revolver"), 750, 10}, {TEXT("street-ammo:revolver"), 60, 100},
@@ -186,7 +185,7 @@ namespace BaddieCompanion
         bool Vendor(const FObject& O, FGameEconomyVendor& Out)
         {
             const auto Error = Field(O, TEXT("error"));
-            return Array(Field(O, TEXT("services")), Out.Services, 3, VendorItem)
+            return Array(Field(O, TEXT("services")), Out.Services, UE_ARRAY_COUNT(VendorRules), VendorItem)
                 && Boolean(Field(O, TEXT("ready")), Out.bReady) && Boolean(Field(O, TEXT("busy")), Out.bBusy)
                 && Error.IsValid() && Error->Type == EJson::Null;
         }
