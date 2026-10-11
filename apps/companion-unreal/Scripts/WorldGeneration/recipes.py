@@ -18,6 +18,19 @@ def job(identifier, sources, parts=None, meshes=None, blockers=None, category="c
             "authority":{"access":False,"movementAdmission":False,"missionReadiness":False,"utilityPower":False}}
 
 
+def inspect_content(value):
+    for name in ("meshes","parts"):
+        records=value.get(name,[])
+        if (not isinstance(records,list)
+                or any(not isinstance(record,dict) or not isinstance(record.get("id"),str) or not record["id"] for record in records)):
+            raise ValueError("Native handoff needs arrays of identified meshes/parts")
+    template=value.get("template")
+    if template is not None and (not isinstance(template,dict) or not template):
+        raise ValueError("An explicit template needs complete initialized native input evidence")
+    if not (value.get("meshes") or value.get("parts") or template):
+        raise ValueError("Empty native handoff content")
+
+
 def explicit(identifier, vertices, faces, material, collision="none"):
     return {"id":identifier,"vertices":vertices,"faces":faces,"material":material,"collision":collision}
 
@@ -115,7 +128,7 @@ def prepare_home_handoff(identifier,incoming,refs):
                 or contract["layoutRevision"]!="runtime-authoritative"
                 or not contract["entrances"] or not contract["navigation"]):
             raise ValueError("Independent Home shell needs exact layout/navigation/opening and runtime ownership contracts")
-        if any(mesh.get("role")!="shell" for mesh in incoming.get("meshes",[])):
+        if any(item.get("role")!="shell" for item in incoming.get("meshes",[])+incoming.get("parts",[])):
             raise ValueError("Independent Home shells cannot bake private saved furniture")
         return incoming
     layout=segments[1]
@@ -330,10 +343,11 @@ def build_jobs(refs, handoffs=None):
                 raise ValueError("Incoming handoff conflicts with an implemented canonical job")
             if incoming.get("authority") != value["authority"]:
                 raise ValueError("Scene handoff cannot grant runtime authority")
+            inspect_content(incoming)
             if value["category"]=="Home":
                 incoming=prepare_home_handoff(value["id"],incoming,refs)
-            if not incoming.get("sources") or not (incoming.get("meshes") or incoming.get("template")):
-                raise ValueError("Empty or unprovenanced native handoff")
+            if not incoming.get("sources"):
+                raise ValueError("Unprovenanced native handoff")
             if incoming["id"]!=value["id"] or incoming.get("category",value["category"])!=value["category"]:
                 raise ValueError("Incoming canonical job identity changed")
             incoming_fields={key:incoming[key] for key in ("meshes","parts","template","contract","sources") if key in incoming}

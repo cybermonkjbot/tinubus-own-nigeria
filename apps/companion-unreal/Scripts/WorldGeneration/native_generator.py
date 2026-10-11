@@ -8,6 +8,7 @@ set startup maps, open admission gates, or manufacture incomplete-area maps.
 from collections import defaultdict
 from contextlib import contextmanager
 from copy import deepcopy
+import hashlib
 import json
 import math
 import os
@@ -18,7 +19,7 @@ import time
 from .canonical import (NAMESPACE, OUTPUT, OWNER, REPO, SCRIPT_DIR, SOURCE_COMMIT,
                        References, digest, file_hash, inspect_place_contract, require_handoff)
 from .geometry import obj_text, shape_mesh, ue_point
-from .recipes import build_jobs
+from .recipes import build_jobs, inspect_content
 
 
 def owned_output(relative):
@@ -41,10 +42,10 @@ def atomic_json(path, value):
     os.replace(temp,path)
 
 
-def save_completed_batch(path,value):
+def save_immutable_completion(path,value):
     path=Path(path).resolve()
     if not path.is_relative_to(OUTPUT.resolve()):
-        raise ValueError("Completed batch must stay in worker output")
+        raise ValueError("Completion evidence must stay in worker output")
     path.parent.mkdir(parents=True,exist_ok=True)
     # Never replace completion evidence. A crash during this exclusive write
     # leaves a partial receipt that the next attempt holds for recovery review.
@@ -52,6 +53,64 @@ def save_completed_batch(path,value):
         json.dump(value,stream,indent=2,allow_nan=False)
         stream.write("\n")
         stream.flush();os.fsync(stream.fileno())
+
+
+def read_completion(path,expected_sha256=None):
+    try:
+        raw=path.read_bytes()
+        if expected_sha256 is not None and hashlib.sha256(raw).hexdigest()!=expected_sha256:
+            raise ValueError("Completion bytes changed")
+        value=json.loads(raw.decode("utf-8"))
+        if not isinstance(value,dict):
+            raise ValueError("Completion is not an object")
+        return value
+    except (OSError,UnicodeError,ValueError) as error:
+        raise RuntimeError("Missing or invalid completion evidence; explicit recovery review required") from error
+
+
+def batch_identity(value):
+    return digest({key:value[key] for key in ("owner","sourceCommit","authorizationSha256","generatorIdentity","jobIdentities")})
+
+
+def world_completion_path(identity):
+    if not isinstance(identity,str) or not re.fullmatch(r"[a-f0-9]{64}",identity):
+        raise ValueError("Malformed world completion identity")
+    return owned_output("execution/completed-worlds/"+identity+".json")
+
+
+def completed_world(identity):
+    # Locate the original immutable batch independently of the mutable journal.
+    reference=read_completion(world_completion_path(identity))
+    try:
+        if (set(reference)!={"schemaVersion","owner","sourceCommit","identity","batchIdentity","batchSha256"}
+                or type(reference["schemaVersion"]) is not int or reference["schemaVersion"]!=1 or reference["owner"]!=OWNER
+                or reference["sourceCommit"]!=SOURCE_COMMIT or reference["identity"]!=identity
+                or not re.fullmatch(r"[a-f0-9]{64}",reference["batchIdentity"])
+                or not re.fullmatch(r"[a-f0-9]{64}",reference["batchSha256"])):
+            raise ValueError("Conflicting world completion reference")
+        batch=read_completion(owned_output("execution/batch-"+reference["batchIdentity"]+".json"),reference["batchSha256"])
+        if (batch_identity(batch)!=reference["batchIdentity"] or batch["owner"]!=OWNER
+                or batch["sourceCommit"]!=SOURCE_COMMIT or batch.get("state")!="authorized-partial-batch-saved"
+                or batch.get("wholeWorldComplete") is not False or batch.get("compilation")!="not-performed"
+                or batch.get("renderedInspection")!="not-performed" or batch.get("playableAcceptance")!="not-established"
+                or batch.get("startupMapRegistration")!="unchanged"
+                or not re.fullmatch(r"[a-f0-9]{64}",batch["authorizationSha256"])
+                or not re.fullmatch(r"[a-f0-9]{64}",batch["generatorIdentity"])
+                or not isinstance(batch.get("jobs"),list) or not batch["jobs"]
+                or not isinstance(batch["jobIdentities"],list) or len(batch["jobs"])!=len(batch["jobIdentities"])):
+            raise ValueError("Incomplete or conflicting completion batch")
+        identities=[]
+        for item,record in zip(batch["jobIdentities"],batch["jobs"]):
+            if (not isinstance(record,dict) or record.get("state")!="saved"
+                    or item!={"job":record["job"],"identity":record["identity"]}
+                    or record["provenance"]["generatorIdentity"]!=batch["generatorIdentity"]):
+                raise ValueError("Incomplete completed job inventory")
+            identities.append(record["identity"])
+        if len(set(identities))!=len(identities) or identities.count(identity)!=1:
+            raise ValueError("Missing or ambiguous completed world")
+        return batch["jobs"][identities.index(identity)]
+    except (KeyError,TypeError,ValueError) as error:
+        raise RuntimeError("Invalid world completion evidence; explicit recovery review required") from error
 
 
 @contextmanager
@@ -106,8 +165,7 @@ def package_files(package,is_map=False):
 
 def inspect_recipe(value,refs):
     """Execution-time fail-closed contracts; not run during preparation."""
-    if value.get("template") is not None and (not isinstance(value["template"],dict) or not value["template"]):
-        raise ValueError("An explicit template needs complete initialized native input evidence")
+    inspect_content(value)
     for source in value["sources"]:
         if source.get("sha256")!=refs.entries[source["path"]]["sha256"]:
             raise ValueError("Job source identity differs from pinned reference")
@@ -123,6 +181,8 @@ def inspect_recipe(value,refs):
         if mesh.get("collision","none") not in ("none","convex"):
             raise ValueError("Unsupported native collision contract")
     for part in value.get("parts",[]):
+        if part.get("collision","none") not in ("none","convex"):
+            raise ValueError("Unsupported native part collision contract")
         ue_point(part["position"])
         if (len(part["size"])!=3 or any(not math.isfinite(v) or v<=0 for v in part["size"])
                 or len(part.get("rotation",[0,0,0]))!=3
@@ -157,6 +217,7 @@ class NativeAuthor:
         self.subobjects=unreal.get_engine_subsystem(unreal.SubobjectDataSubsystem)
         self.generator_hash=generator_identity()
         self.packages=[]
+        self.pending_worlds=[]
 
     def clean_editor(self):
         dirty=list(self.u.EditorLoadingAndSavingUtils.get_dirty_map_packages())
@@ -206,6 +267,19 @@ class NativeAuthor:
                     {"owner":OWNER,"identity":identity,"package":path,"sha256":file_hash(package_file),"files":package_files(path)})
         return asset
 
+    def generated_dependency_inventory(self,packages):
+        inventory={}
+        for package in sorted(packages):
+            dependency=self.assets.load_asset(self.owned_package(package))
+            if dependency is None or isinstance(dependency,self.u.World):
+                raise ValueError("Unexpected saved mesh/material dependency "+package)
+            identity=self.assets.get_metadata_tag(dependency,"Baddie.WorldGeneration.Identity")
+            if not re.fullmatch(r"[a-f0-9]{64}",identity or ""):
+                raise ValueError("Malformed generated dependency identity "+package)
+            self.existing(package,identity)
+            inventory[package]={"identity":identity,"files":package_files(package)}
+        return inventory
+
     def verify_saved_world(self,path,identity,visiting=None):
         if not re.fullmatch(r"[a-f0-9]{64}",identity or ""):
             raise ValueError("Malformed saved-world recipe identity")
@@ -222,6 +296,9 @@ class NativeAuthor:
                 or receipt.get("identity")!=identity or receipt.get("mapPackage")!=path
                 or receipt.get("state")!="saved" or receipt.get("files")!=package_files(path,True)):
             raise ValueError("Unsaved, conflicting or changed world dependency "+path)
+        completion=completed_world(identity)
+        if digest(receipt)!=digest(completion):
+            raise ValueError("World journal differs from immutable completion; explicit recovery review required "+path)
         provenance=receipt.get("provenance")
         if (not isinstance(provenance,dict)
                 or set(provenance)!={"schemaVersion","job","generatorIdentity","recipeSha256","sources","template","contract"}
@@ -237,13 +314,10 @@ class NativeAuthor:
             raise ValueError("Saved world differs from its bound provenance "+path)
         if provenance["template"] is not None:
             self.verify_template(provenance["template"])
-        for package in receipt["packages"]:
-            if package==path:
-                continue
-            dependency=self.assets.load_asset(self.owned_package(package))
-            if dependency is None or isinstance(dependency,self.u.World):
-                raise ValueError("Unexpected saved mesh/material dependency "+package)
-            self.existing(package,self.assets.get_metadata_tag(dependency,"Baddie.WorldGeneration.Identity"))
+        dependencies=completion.get("generatedDependencies")
+        if (not isinstance(dependencies,dict) or completion.get("packages")!=sorted([path,*dependencies])
+                or self.generated_dependency_inventory(dependencies)!=dependencies):
+            raise ValueError("Incomplete or changed generated dependencies; explicit recovery review required "+path)
         for child in receipt.get("streamingLevels",[]):
             self.verify_saved_world(child["package"],child["identity"],visiting)
         visiting.remove(path)
@@ -418,9 +492,8 @@ class NativeAuthor:
             mappings.append({"actor":actor.get_name(),"mesh":asset.get_path_name(),"features":features})
         return mappings
 
-    def create_level(self,value):
-        provenance=world_provenance(value,self.generator_hash)
-        identity=digest(provenance)
+    def existing_level(self,value):
+        identity=digest(world_provenance(value,self.generator_hash))
         path=world_package(value["id"],identity)
         journal_path=owned_output("execution/jobs/"+identity+".json")
         # A missing map does not erase evidence of an earlier attempt.
@@ -435,6 +508,19 @@ class NativeAuthor:
             raise RuntimeError("Unjournaled or interrupted map; inspect before any recovery")
         if self.existing(path,identity):
             raise RuntimeError("Unjournaled or interrupted map; inspect before any recovery")
+        completion_path=world_completion_path(identity)
+        if completion_path.exists() or completion_path.is_symlink():
+            raise RuntimeError("Orphaned world completion; explicit recovery review required")
+        return None
+
+    def create_level(self,value):
+        previous=self.existing_level(value)
+        if previous is not None:
+            return previous
+        provenance=world_provenance(value,self.generator_hash)
+        identity=digest(provenance)
+        path=world_package(value["id"],identity)
+        journal_path=owned_output("execution/jobs/"+identity+".json")
         self.clean_editor()
         record={"owner":OWNER,"sourceCommit":SOURCE_COMMIT,"job":value["id"],"identity":identity,
                 "state":"preparing","mapPackage":path,"sources":value["sources"],"provenance":provenance,"startedAt":time.time()}
@@ -476,13 +562,29 @@ class NativeAuthor:
                 raise RuntimeError("Native .umap save failed")
             map_file=REPO/"apps/companion-unreal/Content"/(path.removeprefix("/Game/")+".umap")
             record.update(state="saved",mapFileSha256=file_hash(map_file),files=package_files(path,True),packages=sorted(set(self.packages+[path])),
+                          generatedDependencies=self.generated_dependency_inventory(set(self.packages)),
                           savedAt=time.time(),runtimeAdmission=False,renderedInspection="not-performed",playableAcceptance="not-established")
-            atomic_json(journal_path,record)
+            # Keep the disk journal non-saved until the batch and this world's
+            # immutable reference are durable. Interrupted publication holds.
+            self.pending_worlds.append(record)
             return record
         except Exception as error:
             record.update(state="failed",error=str(error),packages=sorted(set(self.packages)),failedAt=time.time())
             atomic_json(journal_path,record)
             raise
+
+    def complete_batch(self,path,result):
+        save_immutable_completion(path,result)
+        reference={"schemaVersion":1,"owner":OWNER,"sourceCommit":SOURCE_COMMIT,
+                   "batchIdentity":batch_identity(result),"batchSha256":file_hash(path)}
+        for record in self.pending_worlds:
+            save_immutable_completion(world_completion_path(record["identity"]),{**reference,"identity":record["identity"]})
+        for record in self.pending_worlds:
+            atomic_json(owned_output("execution/jobs/"+record["identity"]+".json"),record)
+        # Reused worlds keep their original immutable reference, including
+        # when a new authorization or another parent includes them in a batch.
+        for record in result["jobs"]:
+            self.verify_saved_world(record["mapPackage"],record["identity"])
 
     def verify_template(self,template):
         if not isinstance(template,dict):
@@ -573,15 +675,12 @@ def execute(authorization_path,authorization_sha256,expected_pid,selected_jobs):
         batch={"owner":OWNER,"sourceCommit":SOURCE_COMMIT,"authorizationSha256":authorization_sha256,
                "generatorIdentity":author.generator_hash,
                "jobIdentities":[{"job":value["id"],"identity":digest(world_provenance(value,author.generator_hash))} for value in chosen]}
-        batch_path=owned_output("execution/batch-"+digest(batch)+".json")
+        batch_path=owned_output("execution/batch-"+batch_identity(batch)+".json")
         result={**batch,"state":"authorized-partial-batch-saved",
                 "wholeWorldComplete":False,"compilation":"not-performed","renderedInspection":"not-performed",
                 "playableAcceptance":"not-established","startupMapRegistration":"unchanged"}
         if batch_path.exists() or batch_path.is_symlink():
-            try:
-                previous=json.loads(batch_path.read_text(encoding="utf-8"))
-            except (OSError,UnicodeError,json.JSONDecodeError) as error:
-                raise RuntimeError("Invalid completed batch; explicit recovery review required") from error
+            previous=read_completion(batch_path)
             if (not isinstance(previous,dict) or any(previous.get(key)!=item for key,item in result.items())
                     or not isinstance(previous.get("jobs"),list) or len(previous["jobs"])!=len(chosen)):
                 raise RuntimeError("Conflicting or partial completed batch; explicit recovery review required")
@@ -592,6 +691,7 @@ def execute(authorization_path,authorization_sha256,expected_pid,selected_jobs):
             print(json.dumps(previous))
             return previous
         for value in chosen:
+            author.existing_level(value)
             if value.get("template"):
                 author.verify_template(value["template"])
             children=value.get("contract",{}).get("streamingLevels",[])
@@ -604,6 +704,6 @@ def execute(authorization_path,authorization_sha256,expected_pid,selected_jobs):
             author.packages=[]
             records.append(author.create_level(value))
         result["jobs"]=records
-        save_completed_batch(batch_path,result)
+        author.complete_batch(batch_path,result)
         print(json.dumps(result))
         return result
