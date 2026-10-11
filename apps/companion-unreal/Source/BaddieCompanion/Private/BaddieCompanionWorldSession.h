@@ -56,7 +56,10 @@ namespace BaddieCompanion
 
         bool Live() const;
         bool Current(const FWorldDispatch& Dispatch) const;
-        bool BeginCapture(EWorldRequest Operation);
+        bool BeginCapture(EWorldRequest Operation, bool bContinueAttempt = false);
+        bool RecoverResult(double Earliest);
+        void AcceptTicket(const TSharedPtr<FJsonObject>& Ticket, bool bReplacement);
+        void InvalidateContent();
         void Unavailable(EWorldReadStatus Status);
         void ProcessBody();
         void AdvancePages();
@@ -83,15 +86,21 @@ namespace BaddieCompanion
         TSharedPtr<const FWorldTransportRead> Transport;
         FWorldDispatch Request;
         EWorldRequest Next = EWorldRequest::None, CaptureOperation = EWorldRequest::None;
+        // Replacement preparation changes CaptureOperation, never this request's identity/kind.
+        EWorldRequest RequestedOperation = EWorldRequest::None;
         FString RequestId, Capture, Preparation, VisitId, LifeId;
         FString Body;
         TSharedPtr<FJsonObject> DecodedBody;
         uint64 RequestSequence = 0, DispatchSerial = 0, OperationSequence = 0;
         int64 RevisionHighWater = -1, MoveHighWater = -1;
+        int64 HealthHighWater = -1, SavedHighWater = -1;
         int64 ReceiptExpiresAt = 0;
         double TicketArrival = 0, CandidateDeadline = 0, NextAt = 0, SentAt = 0, ReceivedAt = 0;
         bool bAttached = false, bInFlight = false, bLostTicket = false, bPageRetried = false;
         bool bBindingValidated = false;
+        bool bFinalBindComplete = false, bManifestBodyPending = false;
         bool bObserveAfterRetirement = false;
+        bool bAttemptActive = false, bReplacementUsed = false;
+        uint8 ResultLookups = 0;
     };
 }

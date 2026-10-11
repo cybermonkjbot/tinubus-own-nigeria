@@ -13,16 +13,19 @@ namespace BaddieCompanion
         using namespace WorldObservationPrivate;
         using namespace StateJsonPrivate;
         constexpr uint64 MaxCounter = 9007199254740991ULL;
+        constexpr uint8 MaxResultLookups = 3;
         bool Exact(const FObject& O, std::initializer_list<const TCHAR*> Names)
-        { return O.IsValid() && O->Values.Num() == static_cast<int32>(Names.size()) && Only(O, Names); }
+        {
+            if (!O || O->Values.Num() != static_cast<int32>(Names.size())) return false;
+            for (const auto& Pair : O->Values) if (Pair.Key.Len() > 32) return false;
+            return Only(O, Names);
+        }
         bool Hex(const FString& S, int32 Count)
         {
             if (S.Len() != Count) return false;
             for (TCHAR C : S) if (!(C >= '0' && C <= '9') && !(C >= 'a' && C <= 'f')) return false;
             return true;
         }
-        bool Text(const FObject& O, const TCHAR* Key, FString& S)
-        { return String(Field(O, Key), S); }
         const TCHAR* Kind(EWorldRequest Operation)
         {
             switch (Operation)
@@ -40,6 +43,36 @@ namespace BaddieCompanion
         {
             return O == EWorldRequest::Enter || O == EWorldRequest::Move
                 || O == EWorldRequest::Ready || O == EWorldRequest::PresentationFailed;
+        }
+        bool ShortText(const FObject& O, const TCHAR* Key, FString& Out, int32 Limit = 64)
+        {
+            const auto V = Field(O, Key);
+            if (!V || V->Type != EJson::String || V->AsString().Len() > Limit) return false;
+            Out = V->AsString(); return true;
+        }
+        bool ReadTicket(const FObject& O, EWorldRequest Expected, const FString& RequestId,
+            uint64 RequestSequence, FString& Alias, int64& RetryMs)
+        {
+            FString Status, Generation, Id, CaptureKind; int64 V = 0, Seq = 0;
+            return Exact(O, {TEXT("v"), TEXT("generation"), TEXT("capture"), TEXT("status"), TEXT("kind"),
+                    TEXT("requestId"), TEXT("requestSequence"), TEXT("retryAfterMs")})
+                && Integer(Field(O, TEXT("v")), V) && V == 1
+                && ShortText(O, TEXT("generation"), Generation) && Same(Generation, ProtocolGeneration)
+                && ShortText(O, TEXT("capture"), Alias, 32) && Hex(Alias, 32)
+                && ShortText(O, TEXT("status"), Status) && (Same(Status, TEXT("pending")) || Same(Status, TEXT("captured")))
+                && ShortText(O, TEXT("requestId"), Id, 32) && Hex(Id, 32) && Same(Id, RequestId)
+                && Integer(Field(O, TEXT("requestSequence")), Seq, 1) && static_cast<uint64>(Seq) == RequestSequence
+                && ShortText(O, TEXT("kind"), CaptureKind) && Same(CaptureKind, Kind(Expected))
+                && Integer(Field(O, TEXT("retryAfterMs")), RetryMs, 0) && RetryMs <= 900000;
+        }
+        bool FixedFailure(const FString& Status)
+        {
+            for (const TCHAR* Code : {TEXT("disabled"), TEXT("denied"), TEXT("selection_changed"), TEXT("entry_lost"),
+                TEXT("world_lost"), TEXT("invalid_request"), TEXT("not_found"), TEXT("request_conflict"), TEXT("result_expired"),
+                TEXT("cancelled_capture"), TEXT("content_changed"), TEXT("observation_stale"), TEXT("resource_unavailable"),
+                TEXT("unsupported_value"), TEXT("capture_failed"), TEXT("operation_rejected"), TEXT("busy")})
+                if (Same(Status, Code)) return true;
+            return false;
         }
     }
 
@@ -994,7 +1027,7 @@ namespace BaddieCompanion
         State.Observation = {}; State.bHasObservation = State.bWalkingAvailable = false;
         if (State.Generation != MAX_uint64) ++State.Generation;
         State.Status = Status;
-        bInFlight = false; Request = {}; Next = CaptureOperation = EWorldRequest::None;
+        bInFlight = false; Request = {}; Next = CaptureOperation = RequestedOperation = EWorldRequest::None;
         Body.Reset(); DecodedBody.Reset();
         CancelSemantics();
         if (Pages) Retire(Pages->Cancel());
@@ -1003,9 +1036,13 @@ namespace BaddieCompanion
         if (Accepted) Retire(MoveTemp(Accepted));
         Entry = {}; VisitId.Reset(); LifeId.Reset(); Preparation.Reset(); Capture.Reset(); RequestId.Reset();
         RevisionHighWater = MoveHighWater = -1;
+        HealthHighWater = SavedHighWater = -1;
         TicketArrival = CandidateDeadline = NextAt = 0;
         ReceiptExpiresAt = 0; bBindingValidated = false;
         bObserveAfterRetirement = false;
+        bAttemptActive = bReplacementUsed = bLostTicket = bPageRetried = false; ResultLookups = 0;
+        bManifestBodyPending = false;
+        if (Budget) Budget->ReleasePage();
         // Outward health notification is last. Reentry sees no readable world.
         Recovery.Clear();
     }
@@ -1018,49 +1055,71 @@ namespace BaddieCompanion
     }
     void FWorldSession::Retry()
     {
-        if (!Live() || bInFlight || Next != EWorldRequest::None || HasRetirement() || Candidate) return;
-        // No mutation replay after an ambiguous completion. Only its retained result
-        // may resolve the original operation until that lifetime is retired.
-        if (bLostTicket && Command(CaptureOperation))
-        { Next = EWorldRequest::Result; NextAt = FPlatformTime::Seconds(); return; }
+        if (!Live() || bAttemptActive || bInFlight || !Body.IsEmpty() || DecodedBody
+            || Next != EWorldRequest::None || HasRetirement() || Candidate) return;
+        // Explicit reload starts new read work only after the previous request is
+        // terminal. It cannot replay an enter/control operation or revive its lookup.
         if (!VisitId.IsEmpty()) BeginCapture(EWorldRequest::Prepare);
     }
-    bool FWorldSession::BeginCapture(EWorldRequest Operation)
+    bool FWorldSession::BeginCapture(EWorldRequest Operation, bool bContinueAttempt)
     {
         // Movement/presentation request argument ownership is not implemented yet.
         // Never construct an incomplete command if another prerequisite is enabled.
         if (Operation != EWorldRequest::Enter && Operation != EWorldRequest::Prepare
             && Operation != EWorldRequest::Observe) return false;
-        if (!Live() || HasRetirement() || Candidate || bInFlight || RequestSequence >= MaxCounter
+        const double Now = FPlatformTime::Seconds();
+        if (!Live() || HasRetirement() || Candidate || bInFlight || !Body.IsEmpty() || DecodedBody
+            || Next != EWorldRequest::None || RequestSequence >= MaxCounter
             || (Command(Operation) && OperationSequence >= MaxCounter)) return false;
+        if (bContinueAttempt)
+        {
+            if (!bAttemptActive || Operation != EWorldRequest::Observe || CaptureOperation != EWorldRequest::Prepare
+                || Preparation.IsEmpty() || VisitId.IsEmpty() || LifeId.IsEmpty() || !Budget || Budget->bExhausted
+                || !std::isfinite(CandidateDeadline) || Now >= CandidateDeadline) return false;
+        }
+        else if (bAttemptActive) return false;
         if (!WorldObservationPrivate::FPages::ResourcesQualified())
         { State.Status = EWorldReadStatus::ResourceUnavailable; return false; }
         if (!Budget) Budget = MakeShared<WorldObservationPrivate::FBudget>();
-        Budget->CandidateWork = 0; Budget->bExhausted = false;
+        if (!bContinueAttempt)
+        {
+            Budget->CandidateWork = 0; Budget->bExhausted = false;
+            CandidateDeadline = FMath::Min(Entry.Deadline, Now + 900);
+            bReplacementUsed = false;
+        }
         Pages = MakeUnique<WorldObservationPrivate::FPages>(Budget.ToSharedRef());
         ++RequestSequence;
         if (Command(Operation)) ++OperationSequence;
         RequestId = FGuid::NewGuid().ToString(EGuidFormats::Digits);
-        Capture.Reset(); CaptureOperation = Operation; Next = Operation;
-        TicketArrival = 0; CandidateDeadline = Entry.Deadline;
-        bLostTicket = bPageRetried = bBindingValidated = false;
-        NextAt = FPlatformTime::Seconds();
+        Capture.Reset(); RequestedOperation = CaptureOperation = Operation; Next = Operation;
+        TicketArrival = 0; ResultLookups = 0; ReceiptExpiresAt = 0; bAttemptActive = true;
+        bLostTicket = bPageRetried = bBindingValidated = bFinalBindComplete = false;
+        NextAt = Now;
         State.Status = Operation == EWorldRequest::Prepare ? EWorldReadStatus::Preparing : EWorldReadStatus::Capturing;
         return true;
     }
     bool FWorldSession::Current(const FWorldDispatch& Dispatch) const
     {
-        return Live() && bInFlight && Dispatch.Lifetime == State.Generation
+        return Live() && bAttemptActive && FPlatformTime::Seconds() < CandidateDeadline
+            && bInFlight && Dispatch.Lifetime == State.Generation
             && Dispatch.Serial == Request.Serial && Dispatch.Operation == Request.Operation;
     }
     bool FWorldSession::TakeDispatch(FWorldDispatch& Out)
     {
         Out = {};
-        if (!Live() || bInFlight || !Body.IsEmpty() || DecodedBody || Next == EWorldRequest::None
+        if (!Live() || !bAttemptActive || bInFlight || !Body.IsEmpty() || DecodedBody || Next == EWorldRequest::None
             || FPlatformTime::Seconds() < NextAt || DispatchSerial == MAX_uint64) return false;
+        if (FPlatformTime::Seconds() >= CandidateDeadline)
+        { Unavailable(EWorldReadStatus::Expired); return false; }
+        if (Next == EWorldRequest::Result)
+        {
+            if (!bLostTicket || ResultLookups >= MaxResultLookups)
+            { Unavailable(EWorldReadStatus::Unavailable); return false; }
+            ++ResultLookups;
+        }
         const auto Args = MakeShared<FJsonObject>();
         Args->SetNumberField(TEXT("entrySequence"), Entry.EntrySequence);
-        if (Next == CaptureOperation || Next == EWorldRequest::Result)
+        if (Next == RequestedOperation || Next == EWorldRequest::Result)
         {
             Args->SetStringField(TEXT("requestId"), RequestId);
             Args->SetNumberField(TEXT("requestSequence"), static_cast<double>(RequestSequence));
@@ -1101,10 +1160,11 @@ namespace BaddieCompanion
         if (!Current(Dispatch)) return;
         bInFlight = false;
         if (bTransportUnavailable) { Unavailable(EWorldReadStatus::Unavailable); return; }
-        if (Command(Dispatch.Operation))
+        if (Dispatch.Operation == EWorldRequest::Result
+            || (Dispatch.Operation == RequestedOperation && (Command(RequestedOperation) || RequestedOperation == EWorldRequest::Observe)))
         {
             bLostTicket = true;
-            Next = EWorldRequest::Result; NextAt = FPlatformTime::Seconds() + 1;
+            RecoverResult(FPlatformTime::Seconds() + 1);
         }
         else if (Dispatch.Operation == EWorldRequest::Page && !bPageRetried)
         {
@@ -1113,14 +1173,42 @@ namespace BaddieCompanion
         }
         else Unavailable(EWorldReadStatus::Unavailable);
     }
+    bool FWorldSession::RecoverResult(double Earliest)
+    {
+        if (!bAttemptActive || !bLostTicket || (!Command(RequestedOperation) && RequestedOperation != EWorldRequest::Observe)
+            || ResultLookups >= MaxResultLookups || !Live() || !std::isfinite(Earliest) || Earliest >= CandidateDeadline)
+        { Unavailable(EWorldReadStatus::Unavailable); return false; }
+        Next = EWorldRequest::Result; NextAt = Earliest; return true;
+    }
+    void FWorldSession::InvalidateContent()
+    {
+        // Keep entry/visit and request identity, but remove stale render/clock access
+        // before retiring its storage. No outward notification can see the old view.
+        if (Access) Access->Revoke();
+        Access.Reset(); Transport.Reset(); Preparation.Reset();
+        State.Observation = {}; State.bHasObservation = State.bWalkingAvailable = false;
+        if (Accepted)
+        {
+            // Retiring content must not erase accepted ordering within this visit.
+            if (Accepted->PlayerRevision > RevisionHighWater)
+            { RevisionHighWater = Accepted->PlayerRevision; MoveHighWater = Accepted->MoveSequence; }
+            else if (Accepted->PlayerRevision == RevisionHighWater)
+                MoveHighWater = FMath::Max(MoveHighWater, Accepted->MoveSequence);
+            HealthHighWater = FMath::Max(HealthHighWater, Accepted->HealthRevision);
+            SavedHighWater = FMath::Max(SavedHighWater, Accepted->SavedRevision);
+            Retire(MoveTemp(Accepted));
+        }
+    }
     void FWorldSession::Unavailable(EWorldReadStatus Status)
     {
         bInFlight = false; Next = EWorldRequest::None;
-        bObserveAfterRetirement = false;
+        bObserveAfterRetirement = bAttemptActive = bLostTicket = false;
+        bManifestBodyPending = false;
         Body.Reset(); DecodedBody.Reset();
         CancelSemantics();
         if (Pages) Retire(Pages->Cancel());
         Pages.Reset();
+        if (Budget) Budget->ReleasePage();
         if (Candidate) Retire(MoveTemp(Candidate));
         State.Status = Status;
         if (!Live() || !Access || !Access->Current())
@@ -1144,23 +1232,79 @@ namespace BaddieCompanion
             if (Entry.CredentialGeneration) Clear(EWorldReadStatus::Expired);
             return;
         }
+        const double Now = FPlatformTime::Seconds();
+        if (bAttemptActive && (!std::isfinite(Now) || Now >= CandidateDeadline))
+        { Unavailable(EWorldReadStatus::Expired); return; }
         if (bObserveAfterRetirement && !HasRetirement())
         {
+            if (!Budget || !Budget->Spend(512))
+            {
+                if (!Budget || Budget->bExhausted) Unavailable(EWorldReadStatus::ResourceUnavailable);
+                return;
+            }
             bObserveAfterRetirement = false;
-            BeginCapture(EWorldRequest::Observe);
+            if (!BeginCapture(EWorldRequest::Observe, true)) Unavailable(EWorldReadStatus::Unavailable);
         }
-        const double Now = FPlatformTime::Seconds();
-        if (CandidateDeadline > 0 && (!std::isfinite(Now) || Now >= CandidateDeadline))
-        { Unavailable(EWorldReadStatus::Expired); return; }
         if (!Body.IsEmpty() || DecodedBody) ProcessBody();
-        else if (Candidate && !bInFlight && Next == EWorldRequest::None) AdvanceSemantics();
-        else if (Pages && !bInFlight && Next == EWorldRequest::None) AdvancePages();
+        else if (Candidate && !bFinalBindComplete && !bInFlight && Next == EWorldRequest::None) AdvanceSemantics();
+        else if (!Candidate && Pages && !bInFlight && Next == EWorldRequest::None) AdvancePages();
+    }
+    void FWorldSession::AcceptTicket(const TSharedPtr<FJsonObject>& Ticket, bool bReplacement)
+    {
+        using namespace StateJsonPrivate;
+        const bool bOrigin = Request.Operation == RequestedOperation
+            || (Request.Operation == EWorldRequest::Result && bLostTicket);
+        const bool bPolling = !Capture.IsEmpty() && (Request.Operation == EWorldRequest::Manifest
+            || Request.Operation == EWorldRequest::Page || Request.Operation == EWorldRequest::Bind);
+        FString Alias; int64 RetryMs = 0;
+        const auto Expected = bReplacement ? EWorldRequest::Prepare : CaptureOperation;
+        if (!bAttemptActive || !ReadTicket(Ticket, Expected, RequestId, RequestSequence, Alias, RetryMs)
+            || (!Capture.IsEmpty() && !Same(Capture, Alias))
+            || (bReplacement && (!bOrigin || RequestedOperation != EWorldRequest::Observe))
+            || (!bReplacement && ((!bOrigin && !bPolling) || (bOrigin && CaptureOperation != RequestedOperation))))
+        { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+        if (bReplacement && CaptureOperation != EWorldRequest::Prepare)
+        {
+            // A committed ordinary ticket cannot later change kind. Only the
+            // original Observe outcome can establish a replacement static capture.
+            if (!Capture.IsEmpty() || Candidate || Semantic || TicketArrival > 0)
+            { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+            InvalidateContent();
+            if (bReplacementUsed)
+            { Unavailable(EWorldReadStatus::ContentUnavailable); return; }
+            bReplacementUsed = true; CaptureOperation = EWorldRequest::Prepare;
+            State.Status = EWorldReadStatus::Preparing;
+        }
+        Capture = MoveTemp(Alias);
+        // Only the successful original Observe completion, including pending,
+        // anchors time. A lookup resolves identity but cannot recover its arrival.
+        if (!bReplacement && Request.Operation == EWorldRequest::Observe
+            && CaptureOperation == EWorldRequest::Observe && !bLostTicket)
+        {
+            TicketArrival = TicketArrival > 0 ? FMath::Min(TicketArrival, ReceivedAt) : ReceivedAt;
+            CandidateDeadline = FMath::Min(CandidateDeadline, TicketArrival + 60);
+        }
+        // Page/bind polling must not restart an already assembled manifest/tree.
+        Next = bPolling ? Request.Operation : EWorldRequest::Manifest;
+        NextAt = ReceivedAt + static_cast<double>(RetryMs) / 1000;
+        DecodedBody.Reset(); Budget->ReleasePage();
     }
     void FWorldSession::ProcessBody()
     {
         using namespace StateJsonPrivate;
         using namespace WorldObservationPrivate;
         if (!Budget) { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+        if (bManifestBodyPending)
+        {
+            // Begin precharges a full tick. The outer header was checked on the
+            // preceding slice, so it cannot starve this unchanged parser admission.
+            const EStep Step = Pages ? Pages->Begin(DecodedBody, Capture, Kind(CaptureOperation)) : EStep::Invalid;
+            if (Step == EStep::Invalid || Step == EStep::ResourceUnavailable)
+            { Unavailable(Step == EStep::Invalid ? EWorldReadStatus::InvalidResponse : EWorldReadStatus::ResourceUnavailable); return; }
+            if (Pages->Manifest())
+            { bManifestBodyPending = false; DecodedBody.Reset(); State.Status = EWorldReadStatus::Receiving; }
+            return;
+        }
         if (!DecodedBody)
         {
             if (!Budget->ReservePage()) return;
@@ -1168,52 +1312,47 @@ namespace BaddieCompanion
             { Unavailable(Budget->bExhausted ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse); return; }
             Body.Reset();
         }
+        // Fixed reply fields are length-bounded before copying. Charge their
+        // comparisons and state transitions separately from bounded JSON decoding.
+        if (!Budget->Spend(4096))
+        {
+            if (Budget->bExhausted) Unavailable(EWorldReadStatus::ResourceUnavailable);
+            return;
+        }
         const auto O = Object(Field(DecodedBody, TEXT("value")));
         FString Status, Outer;
-        if (!Exact(DecodedBody, {TEXT("status"), TEXT("value")}) || !Text(DecodedBody, TEXT("status"), Outer)
-            || !Same(Outer, TEXT("success")) || !Text(O, TEXT("status"), Status))
+        if (!Exact(DecodedBody, {TEXT("status"), TEXT("value")}) || !ShortText(DecodedBody, TEXT("status"), Outer)
+            || !Same(Outer, TEXT("success")) || !ShortText(O, TEXT("status"), Status))
         { Unavailable(EWorldReadStatus::InvalidResponse); return; }
         if (Same(Status, TEXT("slow_down")))
         {
             int64 Delay = 0;
             if (!Exact(O, {TEXT("status"), TEXT("retryAfterMs")}) || !Integer(Field(O, TEXT("retryAfterMs")), Delay)
                 || Delay <= 0 || Delay > 900000) { Unavailable(EWorldReadStatus::InvalidResponse); return; }
-            // Mutations are resolved by original identity even after throttling.
-            Next = Command(Request.Operation) ? EWorldRequest::Result : Request.Operation;
-            NextAt = ReceivedAt + static_cast<double>(Delay) / 1000;
+            const double Earliest = ReceivedAt + static_cast<double>(Delay) / 1000;
+            // A throttled command is looked up, never replayed. A throttled
+            // original read retains all its arguments and request identity.
+            if (Command(Request.Operation) || Request.Operation == EWorldRequest::Result)
+            {
+                bLostTicket = true;
+                if (!RecoverResult(Earliest)) return;
+            }
+            else { Next = Request.Operation; NextAt = Earliest; }
             DecodedBody.Reset(); Budget->ReleasePage(); return;
+        }
+        if (Same(Status, TEXT("content_changed")) && O->Values.Num() != 1)
+        {
+            if (!Exact(O, {TEXT("status"), TEXT("preparation")}))
+            { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+            AcceptTicket(Object(Field(O, TEXT("preparation"))), true); return;
         }
         if (Same(Status, TEXT("pending")) || Same(Status, TEXT("captured")))
         {
-            FString Alias, Generation, Id, CaptureKind; int64 V = 0, Seq = 0, RetryMs = 0;
-            if (!Exact(O, {TEXT("v"), TEXT("generation"), TEXT("capture"), TEXT("status"), TEXT("kind"),
-                    TEXT("requestId"), TEXT("requestSequence"), TEXT("retryAfterMs")})
-                || !Integer(Field(O, TEXT("v")), V) || V != 1 || !Text(O, TEXT("generation"), Generation)
-                || !Same(Generation, ProtocolGeneration) || !Text(O, TEXT("capture"), Alias) || !Hex(Alias, 32)
-                || !Text(O, TEXT("requestId"), Id) || !Same(Id, RequestId)
-                || !Integer(Field(O, TEXT("requestSequence")), Seq) || static_cast<uint64>(Seq) != RequestSequence
-                || !Text(O, TEXT("kind"), CaptureKind) || !Same(CaptureKind, Kind(CaptureOperation))
-                || !Integer(Field(O, TEXT("retryAfterMs")), RetryMs) || RetryMs > 900000
-                || (!Capture.IsEmpty() && !Same(Capture, Alias)))
-            { Unavailable(EWorldReadStatus::InvalidResponse); return; }
-            Capture = MoveTemp(Alias);
-            // Only the original capture-producing completion anchors its serverNow.
-            // Manifest polling and retained-result lookup never fill this field.
-            if (Request.Operation == CaptureOperation && !bLostTicket)
-                TicketArrival = TicketArrival > 0 ? FMath::Min(TicketArrival, ReceivedAt) : ReceivedAt;
-            if (TicketArrival > 0 && CaptureOperation != EWorldRequest::Prepare)
-                CandidateDeadline = FMath::Min(CandidateDeadline, TicketArrival + 60);
-            Next = EWorldRequest::Manifest;
-            NextAt = ReceivedAt + static_cast<double>(RetryMs) / 1000;
-            DecodedBody.Reset(); Budget->ReleasePage(); return;
+            AcceptTicket(O, false); return;
         }
         if (Request.Operation == EWorldRequest::Manifest && Same(Status, TEXT("manifest")))
         {
-            const EStep Step = Pages ? Pages->Begin(DecodedBody, Capture, Kind(CaptureOperation)) : EStep::Invalid;
-            if (Step == EStep::Invalid || Step == EStep::ResourceUnavailable)
-            { Unavailable(Step == EStep::Invalid ? EWorldReadStatus::InvalidResponse : EWorldReadStatus::ResourceUnavailable); return; }
-            if (Pages->Manifest()) { DecodedBody.Reset(); State.Status = EWorldReadStatus::Receiving; }
-            return;
+            bManifestBodyPending = true; return;
         }
         if (Request.Operation == EWorldRequest::Page && Same(Status, TEXT("page")))
         {
@@ -1229,14 +1368,38 @@ namespace BaddieCompanion
             const bool bAccepted = AcceptBinding(O);
             DecodedBody.Reset(); Budget->ReleasePage();
             if (!bAccepted) Unavailable(EWorldReadStatus::InvalidResponse);
+            else bFinalBindComplete = true;
             return;
         }
-        // Denial/loss is not a transient read error and cannot keep an old visit.
-        if (Same(Status, TEXT("denied")) || Same(Status, TEXT("entry_lost"))
+        if (Same(Status, TEXT("cancelled")))
+        {
+            FString Alias, Generation; int64 V = 0;
+            if (!Exact(O, {TEXT("v"), TEXT("generation"), TEXT("capture"), TEXT("status")})
+                || !Integer(Field(O, TEXT("v")), V) || V != 1
+                || !ShortText(O, TEXT("generation"), Generation) || !Same(Generation, ProtocolGeneration)
+                || !ShortText(O, TEXT("capture"), Alias, 32) || !Hex(Alias, 32)
+                || Capture.IsEmpty() || !Same(Alias, Capture))
+            { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+            Unavailable(EWorldReadStatus::Unavailable); return;
+        }
+        if (!Exact(O, {TEXT("status")}) || !FixedFailure(Status))
+        { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+        // Validate failure framing before allowing it to clear ownership.
+        if (Same(Status, TEXT("disabled")) || Same(Status, TEXT("denied")) || Same(Status, TEXT("entry_lost"))
             || Same(Status, TEXT("world_lost")) || Same(Status, TEXT("selection_changed")))
         { Clear(); return; }
-        Unavailable(Same(Status, TEXT("resource_unavailable"))
-            ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse);
+        if (Same(Status, TEXT("content_changed")))
+        {
+            CancelSemantics(); InvalidateContent();
+            Unavailable(EWorldReadStatus::ContentUnavailable); return;
+        }
+        // A failed original Observe/lookup can conceal a failed replacement.
+        // Do not retain content/readiness whose unchanged state is now unknown.
+        if (RequestedOperation == EWorldRequest::Observe && Capture.IsEmpty()) InvalidateContent();
+        const auto Failure = Same(Status, TEXT("resource_unavailable")) ? EWorldReadStatus::ResourceUnavailable
+            : Same(Status, TEXT("result_expired")) || Same(Status, TEXT("observation_stale")) ? EWorldReadStatus::Expired
+            : EWorldReadStatus::Unavailable;
+        Unavailable(Failure);
     }
     void FWorldSession::AdvancePages()
     {
@@ -1252,7 +1415,7 @@ namespace BaddieCompanion
     }
     void FWorldSession::CancelSemantics()
     {
-        bBindingValidated = false;
+        bBindingValidated = bFinalBindComplete = false;
         if (Semantic)
         {
             Semantic->bCancelled = true;
@@ -1285,6 +1448,7 @@ namespace BaddieCompanion
             Preparation = Capture;
             CancelSemantics();
             Retire(MoveTemp(Candidate));
+            Pages.Reset();
             // Exactly one fresh dynamic capture follows this preparation. Failure
             // requires explicit reload; static bytes never create a clock sample.
             bObserveAfterRetirement = true;
@@ -1326,6 +1490,7 @@ namespace BaddieCompanion
             const double Revision = B.Number(BindingRevision), Sequence = B.Number(BindingSequence);
             // Keep each sequence paired with the revision that established it.
             return (Revision > RevisionHighWater || (Revision == RevisionHighWater && Sequence >= MoveHighWater))
+                && B.Number(BindingHealthRevision) >= HealthHighWater && B.Number(BindingSavedRevision) >= SavedHighWater
                 && (!Accepted || ((Revision > Accepted->PlayerRevision
                     || (Revision == Accepted->PlayerRevision && Sequence >= Accepted->MoveSequence))
                     && B.Number(BindingHealthRevision) >= Accepted->HealthRevision
@@ -1627,9 +1792,9 @@ namespace BaddieCompanion
         FString Alias, Digest, Generation; int64 V = 0, At = 0, Permission = 0, Publish = 0, Checked = 0;
         if (!Exact(O, {TEXT("v"), TEXT("generation"), TEXT("capture"), TEXT("status"), TEXT("directoryDigest"),
                 TEXT("capturedAt"), TEXT("permissionDeadline"), TEXT("publishBy"), TEXT("checkedAt")})
-            || !Integer(Field(O, TEXT("v")), V) || V != 1 || !Text(O, TEXT("generation"), Generation)
-            || !Same(Generation, ProtocolGeneration) || !Text(O, TEXT("capture"), Alias) || !Same(Alias, M.Capture)
-            || !Text(O, TEXT("directoryDigest"), Digest) || !Same(Digest, M.Digest)
+            || !Integer(Field(O, TEXT("v")), V) || V != 1 || !ShortText(O, TEXT("generation"), Generation)
+            || !Same(Generation, ProtocolGeneration) || !ShortText(O, TEXT("capture"), Alias, 32) || !Same(Alias, M.Capture)
+            || !ShortText(O, TEXT("directoryDigest"), Digest) || !Same(Digest, M.Digest)
             || !Integer(Field(O, TEXT("capturedAt")), At) || At != M.CapturedAt
             || !Integer(Field(O, TEXT("permissionDeadline")), Permission) || Permission != M.PermissionDeadline
             || !Integer(Field(O, TEXT("publishBy")), Publish) || !M.PublishBy.IsSet() || Publish != M.PublishBy.GetValue()

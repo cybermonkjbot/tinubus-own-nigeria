@@ -14,7 +14,7 @@ namespace BaddieCompanion::WorldObservationPrivate
     // The pinned headers do not bound allocator slack, JSON DOM or crypto Pimpl
     // storage. Reject before candidate allocation until those bounds are qualified.
     constexpr bool bNativeAllocationAccountingQualified = false;
-    constexpr const TCHAR* ProtocolGeneration = TEXT("8958fe9754c82aa72cf0a987d6ae742327667ad882eb086341b954a2f979351a");
+    constexpr const TCHAR* ProtocolGeneration = TEXT("80ab8251f1f8fc0d3ca780dd1ef61aed88db5d7fe5dd2c49cb70130d05662768");
     enum class EStep : uint8 { Pending, Complete, Invalid, ResourceUnavailable };
 
     struct FBudget
