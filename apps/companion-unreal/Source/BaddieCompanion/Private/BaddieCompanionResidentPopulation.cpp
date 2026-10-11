@@ -395,7 +395,8 @@ namespace BaddieCompanion
         {
             Data->Retired = MoveTemp(Data->Population); Data->RetiredCharge = Data->CurrentCharge; Data->CurrentCharge = 0;
             Data->Population = MoveTemp(Data->Candidate); Data->CurrentCharge = Data->CandidateCharge; Data->CandidateCharge = 0;
-            if (Pending.Change == EChange::Read && (Pending.DeadlineMs != Data->DeadlineMs || Pending.Presence == EPresence::KnownNull))
+            // Read failure removes availability, not the attempted deadline history.
+            if (Pending.Change == EChange::Read && (Pending.DeadlineMs != Data->AttemptedMs || Pending.Presence == EPresence::KnownNull))
             { Data->AttemptedMs.Reset(); Data->AttemptedSerial = 0; }
             Data->DeadlineMs = Pending.DeadlineMs;
         }
