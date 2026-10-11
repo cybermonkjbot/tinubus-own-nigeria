@@ -1,4 +1,5 @@
 #include "BaddieCompanionMovementProtocol.h"
+#include "BaddieCompanionMovementProtocolRead.h"
 #include "BaddieCompanionWorldPlayerRead.h"
 
 #include "Dom/JsonObject.h"
