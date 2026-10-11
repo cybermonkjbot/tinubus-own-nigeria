@@ -132,14 +132,42 @@ namespace BaddieCompanion
             return Id(Field(O, TEXT("roomId")), Out.RoomId) && Id(Field(O, TEXT("threadId")), Out.ThreadId)
                 && Number(Field(O, TEXT("startedAt")), Out.StartedAtMs);
         }
+        bool EcmaTrimWhitespace(uint32 C)
+        {
+            // ECMAScript WhiteSpace and LineTerminator, not native whitespace classification.
+            return (C >= 0x0009 && C <= 0x000D) || C == 0x0020 || C == 0x00A0 || C == 0x1680
+                || (C >= 0x2000 && C <= 0x200A) || C == 0x2028 || C == 0x2029 || C == 0x202F
+                || C == 0x205F || C == 0x3000 || C == 0xFEFF;
+        }
+        bool ReservationGeneration(const FValue& V, TOptional<FString>& Out)
+        {
+            if (!V.IsValid()) return true;
+            FString Next;
+            if (!StateJsonPrivate::String(V, Next)) return false;
+            int32 Utf16Units = 0;
+            bool bHasContent = false;
+            for (const TCHAR C : Next)
+            {
+                const uint32 Unit = sizeof(TCHAR) == 2 ? static_cast<uint16>(C) : static_cast<uint32>(C);
+                // Surrogate halves count once; a scalar in a wider TCHAR counts twice.
+                Utf16Units += Unit > 0xFFFF ? 2 : 1;
+                if (Utf16Units > 128) return false;
+                bHasContent |= !EcmaTrimWhitespace(Unit);
+            }
+            if (!bHasContent) return false;
+            Out = MoveTemp(Next);
+            return true;
+        }
         bool Admission(const FValue& V, FTeamAdmission& Out)
         {
-            const auto O = Object(V, 6);
+            const auto Generation = Field(StateJsonPrivate::Object(V), TEXT("reservationGeneration"));
+            const auto O = Object(V, Generation.IsValid() ? 7 : 6);
             return Id(Field(O, TEXT("roomId")), Out.RoomId) && Id(Field(O, TEXT("threadId")), Out.ThreadId)
                 && Nullable(Field(O, TEXT("callSessionId")), Out.CallSessionId, Id)
                 && Number(Field(O, TEXT("startedAt")), Out.StartedAtMs)
                 && Number(Field(O, TEXT("expiresAt")), Out.ExpiresAtMs)
-                && Boolean(Field(O, TEXT("startMuted")), Out.bStartMuted) && Out.bStartMuted;
+                && Boolean(Field(O, TEXT("startMuted")), Out.bStartMuted) && Out.bStartMuted
+                && ReservationGeneration(Generation, Out.ReservationGeneration);
         }
         bool InviteResult(const FValue& V, FTeamInviteResult& Out)
         {
@@ -294,7 +322,7 @@ namespace BaddieCompanion
         }
         void CleanupFailed(FTeamsCommandWork& Work, FString Message)
         {
-            // Failure of the disposal-path leave enters catch, which makes one final cleanup.
+            // Failure of the disposal-path release enters catch, which makes one final cleanup.
             // Failure of that catch cleanup is swallowed; there is no retry loop.
             if (Work.bCleanupInCatch) Work.Stage = ETeamsCommandStage::Finally;
             else Catch(Work, MoveTemp(Message));
@@ -628,11 +656,17 @@ namespace BaddieCompanion
             break;
         case ETeamsCommandStage::CleanupReady:
             {
+                if (!Work.Admission->ReservationGeneration.IsSet())
+                {
+                    Work.Stage = ETeamsCommandStage::Finally;
+                    return ETeamsAdvanceResult::Advanced;
+                }
                 const auto Args = MakeShared<FJsonObject>();
                 Args->SetStringField(TEXT("roomId"), Work.Admission->RoomId);
                 Args->SetNumberField(TEXT("startedAt"), Work.Admission->StartedAtMs);
+                Args->SetStringField(TEXT("reservationGeneration"), Work.Admission->ReservationGeneration.GetValue());
                 if (!EncodeObject(Args.ToSharedRef(), Next.ArgumentsJson)) return ETeamsAdvanceResult::Rejected;
-                Next.Kind = ETeamsActionKind::CleanupLeave; Next.Operation = TEXT("companionGameTeams:leave");
+                Next.Kind = ETeamsActionKind::ReleaseReservation; Next.Operation = TEXT("companionGameTeams:releaseReservation");
                 SentStage = ETeamsCommandStage::CleanupSent;
                 break;
             }

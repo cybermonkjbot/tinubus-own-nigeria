@@ -73,6 +73,8 @@ namespace BaddieCompanion
         TTeamField<FString> CallSessionId;
         double StartedAtMs = 0, ExpiresAtMs = 0;
         bool bStartMuted = false;
+        // Absent on legacy admissions. Retain the exact value for reservation-only cleanup.
+        TOptional<FString> ReservationGeneration;
     };
     struct FTeamInviteResult
     {
@@ -165,7 +167,7 @@ namespace BaddieCompanion
         CheckJoinedCall, AttachmentReturned, CheckLeavingCall, LeaveCallSent,
         CleanupReady, CleanupSent, Finally, Finished
     };
-    enum class ETeamsActionKind : uint8 { Mutation, JoinMutedCall, LeaveMatchingCall, CleanupLeave };
+    enum class ETeamsActionKind : uint8 { Mutation, JoinMutedCall, LeaveMatchingCall, ReleaseReservation };
     struct FTeamsAction
     {
         ETeamsActionKind Kind = ETeamsActionKind::Mutation;
