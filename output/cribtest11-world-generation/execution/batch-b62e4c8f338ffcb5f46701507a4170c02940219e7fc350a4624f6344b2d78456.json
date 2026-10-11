@@ -1,0 +1,316 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "authorizationSha256": "995c4f844185553a031aad32bbda2f7fb64122e93f1c5bb40af4ff7745c0af87",
+  "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "jobIdentities": [
+    {
+      "job": "city/theatre-grounds",
+      "identity": "0cbe78a195c4949e51337ec551d8feb613c5a312111373e8334cd82bf7655668"
+    }
+  ],
+  "state": "authorized-partial-batch-saved",
+  "wholeWorldComplete": false,
+  "compilation": "not-performed",
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established",
+  "startupMapRegistration": "unchanged",
+  "jobs": [
+    {
+      "owner": "cribtest11-world-generation-20261010",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "job": "city/theatre-grounds",
+      "identity": "0cbe78a195c4949e51337ec551d8feb613c5a312111373e8334cd82bf7655668",
+      "state": "saved",
+      "mapPackage": "/Game/BaddieGeneratedWorld/R_0cbe78a195c4949e51337ec5/Maps/L_city_theatre_grounds_69a6242670",
+      "sources": [
+        {
+          "path": "packages/assets/city/lagos-city-v3.json",
+          "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": ""
+        },
+        {
+          "path": "packages/assets/city/lagos-national-theatre-geometry-v1.json",
+          "sha256": "c9f9bca85966812fa667ec6b23ac1cdd2f6d69e2983b68882791f453579ac0ad",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": ""
+        },
+        {
+          "path": "packages/assets/city/lagos-national-theatre-v1.json",
+          "sha256": "069767150a658eee73924b1429662389d526e83ef3726a45b19917343c310f2d",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": ""
+        },
+        {
+          "path": "packages/companion-scene/src/interactions/city/cityTheatre.ts",
+          "sha256": "dab20517053947b48992ff4e735977fa71650dea8949257a3ae0d19517490df8",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": "createCityTheatre"
+        },
+        {
+          "path": "packages/companion-scene/src/interactions/city/cityTerrain.ts",
+          "sha256": "e03081cc6bb9c4ceb2834d5303c4edefdd001f99a028d509e296046de6a41d8f",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": "createCityTerrain/Theatre Gardens"
+        },
+        {
+          "path": "packages/utils/src/companionCityTheatre.ts",
+          "sha256": "330478f010677d0fc90baea4d766109a84e8e939cb6b49707fd0d31e0b48406b",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": ""
+        },
+        {
+          "path": "packages/utils/src/companionCity.ts",
+          "sha256": "b27fe215e09903b61c9173db2ceb2d36e7d346de1d3f341aea1f169f23e14665",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": "companionCityCameraObstacles/national-theatre"
+        },
+        {
+          "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+          "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": "navigation"
+        },
+        {
+          "path": "packages/assets/city/lagos-connected-transit-v1.json",
+          "sha256": "21be37b211cd5c5e02044a62c9c498704567da712c3df3f0023e621e88c031df",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": "transit"
+        },
+        {
+          "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+          "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": "buildings"
+        }
+      ],
+      "provenance": {
+        "schemaVersion": 1,
+        "job": "city/theatre-grounds",
+        "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+        "recipeSha256": "a85d7320fa37140f19458c149ad88965c6af6229b3b6f61521b4243eb63ed376",
+        "sources": [
+          {
+            "path": "packages/assets/city/lagos-city-v3.json",
+            "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": ""
+          },
+          {
+            "path": "packages/assets/city/lagos-national-theatre-geometry-v1.json",
+            "sha256": "c9f9bca85966812fa667ec6b23ac1cdd2f6d69e2983b68882791f453579ac0ad",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": ""
+          },
+          {
+            "path": "packages/assets/city/lagos-national-theatre-v1.json",
+            "sha256": "069767150a658eee73924b1429662389d526e83ef3726a45b19917343c310f2d",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": ""
+          },
+          {
+            "path": "packages/companion-scene/src/interactions/city/cityTheatre.ts",
+            "sha256": "dab20517053947b48992ff4e735977fa71650dea8949257a3ae0d19517490df8",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": "createCityTheatre"
+          },
+          {
+            "path": "packages/companion-scene/src/interactions/city/cityTerrain.ts",
+            "sha256": "e03081cc6bb9c4ceb2834d5303c4edefdd001f99a028d509e296046de6a41d8f",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": "createCityTerrain/Theatre Gardens"
+          },
+          {
+            "path": "packages/utils/src/companionCityTheatre.ts",
+            "sha256": "330478f010677d0fc90baea4d766109a84e8e939cb6b49707fd0d31e0b48406b",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": ""
+          },
+          {
+            "path": "packages/utils/src/companionCity.ts",
+            "sha256": "b27fe215e09903b61c9173db2ceb2d36e7d346de1d3f341aea1f169f23e14665",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": "companionCityCameraObstacles/national-theatre"
+          },
+          {
+            "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+            "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": "navigation"
+          },
+          {
+            "path": "packages/assets/city/lagos-connected-transit-v1.json",
+            "sha256": "21be37b211cd5c5e02044a62c9c498704567da712c3df3f0023e621e88c031df",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": "transit"
+          },
+          {
+            "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+            "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": "buildings"
+          }
+        ],
+        "template": null,
+        "contract": {
+          "scope": "canonical-core-garden-and-south-promenade-only",
+          "wholeTheatreGroundsComplete": false,
+          "sourceRevision": "lagos-city-v3:theatre-v1",
+          "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+          "fictionalMetricPlan": true,
+          "sourceSelectors": [
+            {
+              "path": "packages/assets/city/lagos-national-theatre-v1.json",
+              "pointer": "grounds",
+              "retainedVertexIndices": "0..63",
+              "floorYMetres": -0.021
+            },
+            {
+              "path": "packages/assets/city/lagos-national-theatre-v1.json",
+              "pointer": "paths/6",
+              "id": "theatre-south-promenade",
+              "widthMetres": 8,
+              "floorYMetres": -0.008
+            }
+          ],
+          "triangulation": "Garden polygon is convex. Fan from original vertex 0, reversing XZ order for source +Y normals. Promenade follows geometry.ribbon exactly. Native import reverses winding separately.",
+          "navigationSource": {
+            "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+            "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": "navigation"
+          },
+          "navigationRevision": "lagos-city-v3:street-density-v1",
+          "navigationAdmission": "unchanged-runtime-authoritative-closed",
+          "excluded": [
+            "surrounding north-bank land",
+            "theatre-ring-drive",
+            "theatre-marina-approach",
+            "six radial garden paths",
+            "53 source trees",
+            "three source basins",
+            "transit shelters and vehicles",
+            "sign lettering",
+            "native collision",
+            "native navigation",
+            "native outdoor lighting"
+          ],
+          "materialFidelity": "Exact base colours and source surface heights; shader grain, transparent glazing and water effects not reproduced."
+        }
+      },
+      "startedAt": 1791710595.4596353,
+      "instances": [],
+      "meshes": [
+        {
+          "actor": "StaticMeshActor_0",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a86e9bf96ddd5dafb1425b01.SM_a86e9bf96ddd5dafb1425b01",
+          "features": [
+            {
+              "canonicalId": "Theatre Gardens",
+              "firstTriangle": 0,
+              "triangleCount": 62
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_1",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_da2d2749e9c669d0d5ba34a9.SM_da2d2749e9c669d0d5ba34a9",
+          "features": [
+            {
+              "canonicalId": "theatre-south-promenade:surface",
+              "firstTriangle": 0,
+              "triangleCount": 4
+            }
+          ]
+        }
+      ],
+      "contract": {
+        "scope": "canonical-core-garden-and-south-promenade-only",
+        "wholeTheatreGroundsComplete": false,
+        "sourceRevision": "lagos-city-v3:theatre-v1",
+        "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+        "fictionalMetricPlan": true,
+        "sourceSelectors": [
+          {
+            "path": "packages/assets/city/lagos-national-theatre-v1.json",
+            "pointer": "grounds",
+            "retainedVertexIndices": "0..63",
+            "floorYMetres": -0.021
+          },
+          {
+            "path": "packages/assets/city/lagos-national-theatre-v1.json",
+            "pointer": "paths/6",
+            "id": "theatre-south-promenade",
+            "widthMetres": 8,
+            "floorYMetres": -0.008
+          }
+        ],
+        "triangulation": "Garden polygon is convex. Fan from original vertex 0, reversing XZ order for source +Y normals. Promenade follows geometry.ribbon exactly. Native import reverses winding separately.",
+        "navigationSource": {
+          "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+          "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": "navigation"
+        },
+        "navigationRevision": "lagos-city-v3:street-density-v1",
+        "navigationAdmission": "unchanged-runtime-authoritative-closed",
+        "excluded": [
+          "surrounding north-bank land",
+          "theatre-ring-drive",
+          "theatre-marina-approach",
+          "six radial garden paths",
+          "53 source trees",
+          "three source basins",
+          "transit shelters and vehicles",
+          "sign lettering",
+          "native collision",
+          "native navigation",
+          "native outdoor lighting"
+        ],
+        "materialFidelity": "Exact base colours and source surface heights; shader grain, transparent glazing and water effects not reproduced."
+      },
+      "mapFileSha256": "bcdccfe9f8e090bf6af2deb83d560dfb8c7aab2c65ce50fa819d5d248548d741",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/R_0cbe78a195c4949e51337ec5/Maps/L_city_theatre_grounds_69a6242670.umap": "bcdccfe9f8e090bf6af2deb83d560dfb8c7aab2c65ce50fa819d5d248548d741"
+      },
+      "packages": [
+        "/Game/BaddieGeneratedWorld/Materials/M_3b25b8cba3010c8a52e37ed6",
+        "/Game/BaddieGeneratedWorld/Materials/M_c8f413d39f20e9a45c33dd21",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_a86e9bf96ddd5dafb1425b01",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_da2d2749e9c669d0d5ba34a9",
+        "/Game/BaddieGeneratedWorld/R_0cbe78a195c4949e51337ec5/Maps/L_city_theatre_grounds_69a6242670"
+      ],
+      "generatedDependencies": {
+        "/Game/BaddieGeneratedWorld/Materials/M_3b25b8cba3010c8a52e37ed6": {
+          "identity": "3b25b8cba3010c8a52e37ed620b9c7b2c9ccfb31dcaee19f186c80373a6e919f",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_3b25b8cba3010c8a52e37ed6.uasset": "dc82c497a2bb707f7ec9f4fcd86e62eeb1e5c8813743507592439046f174281d"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Materials/M_c8f413d39f20e9a45c33dd21": {
+          "identity": "c8f413d39f20e9a45c33dd219618c3068850c7252afc96c6c274d437d6e5102c",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_c8f413d39f20e9a45c33dd21.uasset": "aafa911303003543fd736e3fd1a08596504267fe9e2099d49ac1c2fe6691a220"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_a86e9bf96ddd5dafb1425b01": {
+          "identity": "a86e9bf96ddd5dafb1425b01cf8894453fa2e10cd4763a65e08f2384f554d66f",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a86e9bf96ddd5dafb1425b01.uasset": "8cd66e63b623aa09395e44a13f0bc380b9b0bc93b88784659f04b3647489db89"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_da2d2749e9c669d0d5ba34a9": {
+          "identity": "da2d2749e9c669d0d5ba34a90e36f5d7cab696602b18cc871d7bfc69fb6b1d44",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_da2d2749e9c669d0d5ba34a9.uasset": "55bdcf93ed132a7371511b0090a8bee482e79bcc2783fe9db5625f93cb0aef20"
+          }
+        }
+      },
+      "savedAt": 1791710605.7035663,
+      "runtimeAdmission": false,
+      "renderedInspection": "not-performed",
+      "playableAcceptance": "not-established"
+    }
+  ]
+}

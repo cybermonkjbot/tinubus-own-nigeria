@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-10-11T09:29:59.889382+00:00",
+  "pid": 13096,
+  "camera": "elevated-overview",
+  "imagePath": "output\\cribtest11-visible-world-2026-10-11\\theatre-elevated-overview.png",
+  "imageSha256": "a62ad1c7c8770316649ef1dfdd25b436bc1c61209c9aa2fef9beef155e0873b1",
+  "width": 705,
+  "height": 486,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": 171000,
+      "y": -244000,
+      "z": 19000
+    },
+    "cameraRotation": {
+      "pitch": -21.6795597076416,
+      "yaw": 146.3099365234375,
+      "roll": 4.186843217061586e-07
+    },
+    "cameraFOV": 65,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRhi": false,
+  "parentVisualAcceptance": "pending",
+  "scriptSha256": "5f912fb3ca6405e8a179af285af2df774b1c9458c25789abfe72748d88d65848"
+}

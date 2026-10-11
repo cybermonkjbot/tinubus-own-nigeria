@@ -1,0 +1,121 @@
+{
+  "schemaVersion": 1,
+  "owner": "cribtest11-world-generation-20261010",
+  "threadId": "01a126ff-0796-7001-a3e7-95203249dbc6",
+  "recordedAt": "2026-10-11T09:18:34.8967713Z",
+  "workspace": "C:/dev/cribtest-game",
+  "currentStep": "executing-parent-approved-national-theatre-pilot",
+  "windowsHeadAtInspection": "4df773087e44de07117f5cc7f9bc0cee1c7482a8",
+  "acceptedPreparationWindowsCommit": "5bc324adeaddbab1085d9d33db5a18359b492941",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "pid": 13096,
+  "editorProject": "C:/dev/cribtest-game/apps/companion-unreal/",
+  "engineVersion": "5.8.3-58210709+++UE5+Release-5.8",
+  "editorLaunch": {
+    "task": "Baddie-Unreal-Editor-desktop",
+    "headless": false,
+    "startedAt": "2026-10-11T09:14:43.6949772Z",
+    "receipt": "apps/companion-unreal/Saved/Bridge/launch-20261011-021443.json",
+    "log": "apps/companion-unreal/Saved/Bridge/editor-20261011-021443.log"
+  },
+  "rendering": {
+    "rhi": "D3D11",
+    "adapter": "Microsoft Basic Render Driver",
+    "software": true,
+    "nullRhi": false
+  },
+  "capabilityInspection": {
+    "nativePython": "verified project/PID; clean editor; no PIE",
+    "nativeMcp": "52 toolsets discovered; EditorAppToolset CaptureViewport schema inspected",
+    "mcpListener": "127.0.0.1:8000 owned by PID 13096",
+    "capture": "PNG base64 with pose via CaptureViewport; no Slate/UI automation"
+  },
+  "sourceAudit": {
+    "recordedAt": "2026-10-11T09:17:22.1530007Z",
+    "files": 250,
+    "bytes": 7744086,
+    "mismatches": [],
+    "engineFiles": 28,
+    "engineMismatches": [],
+    "manifestSha256": "800e29a26cb897a10e50657b3cd3dced1b9f385342560fae73d96efe53b00447",
+    "receiptSha256": "620a06dad3de0514612e0b27d3fa5a3293e42e5a643b1dfa7a3fe3915db60c8a",
+    "sourceLockSha256": "36fb0cc6adee250e04743f71faebef9acff2bf7a2047ead74c1fe8ac6abbf874",
+    "scripts": [
+      {
+        "name": "__init__.py",
+        "sha256": "bc90e43b52d63f95fbbf1fba01ea5a26aaf2cb8c39ec7e6f72c56493cb3e502d"
+      },
+      {
+        "name": "bridge_request.py",
+        "sha256": "3adba130b142ec2e173017bad06fa8ccc68cf19b77df8d48f4e2b05cf9bf0704"
+      },
+      {
+        "name": "canonical.py",
+        "sha256": "543b562d3da7dc2dbd2ee8ec252f6eb58a177eaa82c84827abb356d02a285e1f"
+      },
+      {
+        "name": "geometry.py",
+        "sha256": "b825f0622252c9282ff7f6b1555d6d93df42cc329dde4949a844e3e6b3c629a6"
+      },
+      {
+        "name": "native_generator.py",
+        "sha256": "e5d87c6115b121abb47f5363ed72829b05cb87af63463d34dc99bd9b4498d745"
+      },
+      {
+        "name": "recipes.py",
+        "sha256": "30cb1c80d22d9e29010a0938cf9823800e3568a2433cc6f5643cf91805ab8321"
+      }
+    ]
+  },
+  "reconciliation": {
+    "state": "coordinator-verified-serialization-reconciliation-read-and-hash-matched",
+    "path": "output/cribtest11-visible-world-2026-10-11/MAC-RECOVERY-2026-10-10.md",
+    "sha256": "bf6f28b763ccfde1f72036914d927cc59e93b5ac1e5749e739e4113c932853ad",
+    "manualJoshuaDigestReviewEstablished": false,
+    "historicalReports": "preserved unchanged; checkpoint-era hold is not the current blocker"
+  },
+  "proposedJobs": [
+    "city/national-theatre"
+  ],
+  "authorization": {
+    "path": "output/cribtest11-visible-world-2026-10-11/national-theatre-pilot-authorization.json",
+    "sha256": "58c97f305ced46b28096038ec23a947058b5f06787a9b32631614f3ca9fd670f",
+    "parentApproved": true
+  },
+  "request": {
+    "path": "output/cribtest11-visible-world-2026-10-11/national-theatre-pilot-request.json",
+    "sent": true
+  },
+  "generated": {
+    "packageCount": 0,
+    "mapCount": 0,
+    "packagePaths": []
+  },
+  "captures": [],
+  "blockers": [
+    "Full first-block selection and props follow the direct Theatre pilot"
+  ],
+  "states": {
+    "editor": "running-visible",
+    "authoring": "parent-approved-pilot-in-progress",
+    "compilation": "not-performed; existing checkpoint binaries",
+    "renderedDeliverable": "not-captured",
+    "playability": "not-established",
+    "wholeWorldComplete": false
+  },
+  "preserved": {
+    "configByteHashes": {
+      "DefaultEngine": "c33a2850f6c472091fc84e5cb1b2724de18aa9ab20939ed299a54cd193cc3f75",
+      "DefaultInput": "999e020cafbfdbb270f11b64461cd572423912d2ab8c0ab877b1ad7dcf3a22ca"
+    },
+    "uprojectByteHash": "7086e6b8239d3ae22ce1ef7de45fe2e4e64da7104b30aea8f2449436aff7002b",
+    "streetProps": "parent-owned handoff directory; untouched"
+  },
+  "gates": {
+    "accountAccess": false,
+    "movementAdmission": false,
+    "missionReadiness": false,
+    "utilityAuthority": false
+  }
+}

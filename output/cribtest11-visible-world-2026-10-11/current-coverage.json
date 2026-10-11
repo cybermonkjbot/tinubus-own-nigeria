@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T09:33:40.9471513Z",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "originalInventory": {
+    "path": "output/cribtest11-world-generation/coverage.json",
+    "sha256": "3de73dc08d62ef068ecce8214855087266e244d60f8e557ae9c47f4ae3cddc0c",
+    "preserved": true,
+    "jobs": 135,
+    "preparedDirectJobs": 34
+  },
+  "currentExecution": {
+    "generatedJobs": [
+      "city/national-theatre",
+      "city/theatre-grounds"
+    ],
+    "newPresentationMaps": 1,
+    "wholeWorldComplete": false
+  },
+  "areas": {
+    "city": {
+      "state": "two bounded jobs saved, not full city",
+      "theatre": {
+        "canonicalFeatures": 253,
+        "meshGroups": 10,
+        "coordinates": "UE(X,Y,Z)=100*source(Z,X,Y)",
+        "centreUE": [
+          135000,
+          -220000,
+          0
+        ],
+        "zoneId": null,
+        "parcelId": null,
+        "map": "/Game/BaddieGeneratedWorld/R_067bae887353d8b0d131ca62/Maps/L_city_national_theatre_fbff642fa0"
+      },
+      "grounds": {
+        "state": "canonical garden plane and south promenade only",
+        "map": "/Game/BaddieGeneratedWorld/R_0cbe78a195c4949e51337ec5/Maps/L_city_theatre_grounds_69a6242670"
+      },
+      "remainingCity": "not-generated; no invented omitted zones"
+    },
+    "places": {
+      "state": "not-generated",
+      "inventorySource": "original coverage destinations"
+    },
+    "interiors": {
+      "state": "not-generated",
+      "inventorySource": "original coverage interiors"
+    },
+    "Home": {
+      "state": "49 reusable shell/layout recipes inventoried; none generated",
+      "privateSavedAccountSnapshot": false,
+      "personalFurnitureFabricated": false,
+      "runtimeAuthority": "saved item IDs/transforms, appearance, room selection, revision unchanged"
+    },
+    "waterfront": {
+      "state": "not-generated; 12 destinations inventoried"
+    },
+    "rural": {
+      "state": "not-generated; 5 brief areas inventoried"
+    }
+  },
+  "excludedGrounds": [
+    "ring drive and marina approach surface",
+    "six radial paths",
+    "53 source trees",
+    "three basins",
+    "transit shelters/service actors",
+    "sign lettering",
+    "native navigation/collision"
+  ],
+  "props": {
+    "state": "danfo+kiosk and15materials saved; not placed due to presentation GC crash",
+    "remainingKit": "not imported",
+    "runtimeRegisteredVehicleSubstitution": false
+  },
+  "visual": {
+    "baselineWhiteFrame": "parent rejected; preserved",
+    "repairedDiagnostic": "parent confirmed theatre geometry visible; bare area only",
+    "fourFinalFrames": "locally inspected; parent acceptance pending",
+    "finishedLagosScene": false
+  }
+}

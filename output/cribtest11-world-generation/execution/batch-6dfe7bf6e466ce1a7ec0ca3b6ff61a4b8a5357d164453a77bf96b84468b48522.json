@@ -1,0 +1,1527 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "authorizationSha256": "58c97f305ced46b28096038ec23a947058b5f06787a9b32631614f3ca9fd670f",
+  "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "jobIdentities": [
+    {
+      "job": "city/national-theatre",
+      "identity": "067bae887353d8b0d131ca62d49e19b2a0b025252a3b3ca2a2001d6683e8d4e1"
+    }
+  ],
+  "state": "authorized-partial-batch-saved",
+  "wholeWorldComplete": false,
+  "compilation": "not-performed",
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established",
+  "startupMapRegistration": "unchanged",
+  "jobs": [
+    {
+      "owner": "cribtest11-world-generation-20261010",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "job": "city/national-theatre",
+      "identity": "067bae887353d8b0d131ca62d49e19b2a0b025252a3b3ca2a2001d6683e8d4e1",
+      "state": "saved",
+      "mapPackage": "/Game/BaddieGeneratedWorld/R_067bae887353d8b0d131ca62/Maps/L_city_national_theatre_fbff642fa0",
+      "sources": [
+        {
+          "path": "packages/assets/city/lagos-national-theatre-geometry-v1.json",
+          "sha256": "c9f9bca85966812fa667ec6b23ac1cdd2f6d69e2983b68882791f453579ac0ad",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": ""
+        }
+      ],
+      "provenance": {
+        "schemaVersion": 1,
+        "job": "city/national-theatre",
+        "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+        "recipeSha256": "8deb73d02d712a9ea5bacc46e623f1a6fde09c26de85a74e65a229be853a2a15",
+        "sources": [
+          {
+            "path": "packages/assets/city/lagos-national-theatre-geometry-v1.json",
+            "sha256": "c9f9bca85966812fa667ec6b23ac1cdd2f6d69e2983b68882791f453579ac0ad",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": ""
+          }
+        ],
+        "template": null,
+        "contract": {
+          "navigationSource": {
+            "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+            "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": "navigation"
+          },
+          "navigationRevision": "lagos-city-v3:street-density-v1",
+          "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+          "fictionalMetricPlan": true
+        }
+      },
+      "startedAt": 1791710422.6057763,
+      "instances": [],
+      "meshes": [
+        {
+          "actor": "StaticMeshActor_0",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_8ce266c76443d09ef52b2485.SM_8ce266c76443d09ef52b2485",
+          "features": [
+            {
+              "canonicalId": "Podium roof:part:2",
+              "firstTriangle": 0,
+              "triangleCount": 960
+            },
+            {
+              "canonicalId": "Auditorium gallery band 5.3:part:4",
+              "firstTriangle": 960,
+              "triangleCount": 960
+            },
+            {
+              "canonicalId": "Auditorium gallery band 11:part:5",
+              "firstTriangle": 1920,
+              "triangleCount": 960
+            },
+            {
+              "canonicalId": "Auditorium gallery band 17:part:6",
+              "firstTriangle": 2880,
+              "triangleCount": 960
+            },
+            {
+              "canonicalId": "Auditorium gallery band 23:part:7",
+              "firstTriangle": 3840,
+              "triangleCount": 960
+            },
+            {
+              "canonicalId": "Swept upper eave:part:8",
+              "firstTriangle": 4800,
+              "triangleCount": 960
+            },
+            {
+              "canonicalId": "Projecting structural rib 7:beam:21",
+              "firstTriangle": 5760,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 8:beam:24",
+              "firstTriangle": 5772,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 8:beam:25",
+              "firstTriangle": 5784,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 9:beam:27",
+              "firstTriangle": 5796,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 10:beam:30",
+              "firstTriangle": 5808,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 11:beam:33",
+              "firstTriangle": 5820,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 12:beam:36",
+              "firstTriangle": 5832,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 12:beam:37",
+              "firstTriangle": 5844,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 13:beam:39",
+              "firstTriangle": 5856,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 13:beam:40",
+              "firstTriangle": 5868,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 14:beam:42",
+              "firstTriangle": 5880,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 14:beam:43",
+              "firstTriangle": 5892,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 15:beam:45",
+              "firstTriangle": 5904,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 15:beam:46",
+              "firstTriangle": 5916,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 16:beam:48",
+              "firstTriangle": 5928,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 16:beam:49",
+              "firstTriangle": 5940,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 17:beam:51",
+              "firstTriangle": 5952,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 17:beam:52",
+              "firstTriangle": 5964,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 18:beam:54",
+              "firstTriangle": 5976,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 18:beam:55",
+              "firstTriangle": 5988,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 19:beam:57",
+              "firstTriangle": 6000,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 19:beam:58",
+              "firstTriangle": 6012,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 20:beam:60",
+              "firstTriangle": 6024,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 20:beam:61",
+              "firstTriangle": 6036,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 21:beam:63",
+              "firstTriangle": 6048,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 21:beam:64",
+              "firstTriangle": 6060,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 22:beam:66",
+              "firstTriangle": 6072,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 22:beam:67",
+              "firstTriangle": 6084,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 23:beam:69",
+              "firstTriangle": 6096,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 23:beam:70",
+              "firstTriangle": 6108,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 24:beam:72",
+              "firstTriangle": 6120,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 24:beam:73",
+              "firstTriangle": 6132,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 25:beam:75",
+              "firstTriangle": 6144,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 25:beam:76",
+              "firstTriangle": 6156,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 26:beam:78",
+              "firstTriangle": 6168,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 26:beam:79",
+              "firstTriangle": 6180,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 27:beam:81",
+              "firstTriangle": 6192,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 27:beam:82",
+              "firstTriangle": 6204,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 28:beam:84",
+              "firstTriangle": 6216,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 28:beam:85",
+              "firstTriangle": 6228,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 29:beam:87",
+              "firstTriangle": 6240,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 29:beam:88",
+              "firstTriangle": 6252,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 30:beam:90",
+              "firstTriangle": 6264,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 30:beam:91",
+              "firstTriangle": 6276,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 31:beam:93",
+              "firstTriangle": 6288,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 31:beam:94",
+              "firstTriangle": 6300,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 32:beam:96",
+              "firstTriangle": 6312,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 32:beam:97",
+              "firstTriangle": 6324,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 33:beam:99",
+              "firstTriangle": 6336,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_1",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_407522bad689ee63c1dcf5c9.SM_407522bad689ee63c1dcf5c9",
+          "features": [
+            {
+              "canonicalId": "South entrance canopy:box:0",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 9:beam:28",
+              "firstTriangle": 12,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 10:beam:31",
+              "firstTriangle": 24,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 11:beam:34",
+              "firstTriangle": 36,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_2",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_581365944ce35e3673deefc1.SM_581365944ce35e3673deefc1",
+          "features": [
+            {
+              "canonicalId": "Projecting structural rib 0:beam:0",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 0:beam:1",
+              "firstTriangle": 12,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 1:beam:3",
+              "firstTriangle": 24,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 1:beam:4",
+              "firstTriangle": 36,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 2:beam:6",
+              "firstTriangle": 48,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 2:beam:7",
+              "firstTriangle": 60,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 3:beam:9",
+              "firstTriangle": 72,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 3:beam:10",
+              "firstTriangle": 84,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 4:beam:12",
+              "firstTriangle": 96,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 4:beam:13",
+              "firstTriangle": 108,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 5:beam:15",
+              "firstTriangle": 120,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 5:beam:16",
+              "firstTriangle": 132,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 6:beam:18",
+              "firstTriangle": 144,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 6:beam:19",
+              "firstTriangle": 156,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 7:beam:22",
+              "firstTriangle": 168,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 33:beam:100",
+              "firstTriangle": 180,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 34:beam:102",
+              "firstTriangle": 192,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 34:beam:103",
+              "firstTriangle": 204,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 35:beam:105",
+              "firstTriangle": 216,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 35:beam:106",
+              "firstTriangle": 228,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 36:beam:108",
+              "firstTriangle": 240,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 36:beam:109",
+              "firstTriangle": 252,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 37:beam:111",
+              "firstTriangle": 264,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 37:beam:112",
+              "firstTriangle": 276,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 38:beam:114",
+              "firstTriangle": 288,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 38:beam:115",
+              "firstTriangle": 300,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Projecting structural rib 39:beam:117",
+              "firstTriangle": 312,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Annex facade pier 39:beam:118",
+              "firstTriangle": 324,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_3",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_64f74596f427b64df6b33a04.SM_64f74596f427b64df6b33a04",
+          "features": [
+            {
+              "canonicalId": "Low annex glazing:part:1",
+              "firstTriangle": 0,
+              "triangleCount": 240
+            },
+            {
+              "canonicalId": "Auditorium glazing:part:3",
+              "firstTriangle": 240,
+              "triangleCount": 240
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_4",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_efb862476fdc3907a4545b00.SM_efb862476fdc3907a4545b00",
+          "features": [
+            {
+              "canonicalId": "South entrance doors:box:1",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_5",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5f1a11be2ec3d8a47a9195e6.SM_5f1a11be2ec3d8a47a9195e6",
+          "features": [
+            {
+              "canonicalId": "Podium radial roof joint 7:beam:23",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 8:beam:26",
+              "firstTriangle": 12,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 9:beam:29",
+              "firstTriangle": 24,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 10:beam:32",
+              "firstTriangle": 36,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 11:beam:35",
+              "firstTriangle": 48,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 12:beam:38",
+              "firstTriangle": 60,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 13:beam:41",
+              "firstTriangle": 72,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 14:beam:44",
+              "firstTriangle": 84,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 15:beam:47",
+              "firstTriangle": 96,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 16:beam:50",
+              "firstTriangle": 108,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 17:beam:53",
+              "firstTriangle": 120,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 18:beam:56",
+              "firstTriangle": 132,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 19:beam:59",
+              "firstTriangle": 144,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 20:beam:62",
+              "firstTriangle": 156,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 21:beam:65",
+              "firstTriangle": 168,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 22:beam:68",
+              "firstTriangle": 180,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 23:beam:71",
+              "firstTriangle": 192,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 24:beam:74",
+              "firstTriangle": 204,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 25:beam:77",
+              "firstTriangle": 216,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 26:beam:80",
+              "firstTriangle": 228,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 27:beam:83",
+              "firstTriangle": 240,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 28:beam:86",
+              "firstTriangle": 252,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 29:beam:89",
+              "firstTriangle": 264,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 30:beam:92",
+              "firstTriangle": 276,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 31:beam:95",
+              "firstTriangle": 288,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 32:beam:98",
+              "firstTriangle": 300,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 33:beam:101",
+              "firstTriangle": 312,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 17:beam:137",
+              "firstTriangle": 324,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 18:beam:138",
+              "firstTriangle": 336,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 19:beam:139",
+              "firstTriangle": 348,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 20:beam:140",
+              "firstTriangle": 360,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 21:beam:141",
+              "firstTriangle": 372,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 22:beam:142",
+              "firstTriangle": 384,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 23:beam:143",
+              "firstTriangle": 396,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 24:beam:144",
+              "firstTriangle": 408,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 25:beam:145",
+              "firstTriangle": 420,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 26:beam:146",
+              "firstTriangle": 432,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 27:beam:147",
+              "firstTriangle": 444,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 28:beam:148",
+              "firstTriangle": 456,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 29:beam:149",
+              "firstTriangle": 468,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 30:beam:150",
+              "firstTriangle": 480,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 31:beam:151",
+              "firstTriangle": 492,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 32:beam:152",
+              "firstTriangle": 504,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 33:beam:153",
+              "firstTriangle": 516,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 34:beam:154",
+              "firstTriangle": 528,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 35:beam:155",
+              "firstTriangle": 540,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 36:beam:156",
+              "firstTriangle": 552,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 37:beam:157",
+              "firstTriangle": 564,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 38:beam:158",
+              "firstTriangle": 576,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 39:beam:159",
+              "firstTriangle": 588,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 40:beam:160",
+              "firstTriangle": 600,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 41:beam:161",
+              "firstTriangle": 612,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 42:beam:162",
+              "firstTriangle": 624,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 43:beam:163",
+              "firstTriangle": 636,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 44:beam:164",
+              "firstTriangle": 648,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 45:beam:165",
+              "firstTriangle": 660,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 46:beam:166",
+              "firstTriangle": 672,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 47:beam:167",
+              "firstTriangle": 684,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 48:beam:168",
+              "firstTriangle": 696,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 49:beam:169",
+              "firstTriangle": 708,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 50:beam:170",
+              "firstTriangle": 720,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 51:beam:171",
+              "firstTriangle": 732,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 52:beam:172",
+              "firstTriangle": 744,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 53:beam:173",
+              "firstTriangle": 756,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 54:beam:174",
+              "firstTriangle": 768,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 55:beam:175",
+              "firstTriangle": 780,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 56:beam:176",
+              "firstTriangle": 792,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 57:beam:177",
+              "firstTriangle": 804,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 58:beam:178",
+              "firstTriangle": 816,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 59:beam:179",
+              "firstTriangle": 828,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 60:beam:180",
+              "firstTriangle": 840,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 61:beam:181",
+              "firstTriangle": 852,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 62:beam:182",
+              "firstTriangle": 864,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 63:beam:183",
+              "firstTriangle": 876,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 64:beam:184",
+              "firstTriangle": 888,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 65:beam:185",
+              "firstTriangle": 900,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 66:beam:186",
+              "firstTriangle": 912,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 67:beam:187",
+              "firstTriangle": 924,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 68:beam:188",
+              "firstTriangle": 936,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 69:beam:189",
+              "firstTriangle": 948,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 70:beam:190",
+              "firstTriangle": 960,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 71:beam:191",
+              "firstTriangle": 972,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 72:beam:192",
+              "firstTriangle": 984,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 73:beam:193",
+              "firstTriangle": 996,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 74:beam:194",
+              "firstTriangle": 1008,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 75:beam:195",
+              "firstTriangle": 1020,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 76:beam:196",
+              "firstTriangle": 1032,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 77:beam:197",
+              "firstTriangle": 1044,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 78:beam:198",
+              "firstTriangle": 1056,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 79:beam:199",
+              "firstTriangle": 1068,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 80:beam:200",
+              "firstTriangle": 1080,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 81:beam:201",
+              "firstTriangle": 1092,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 82:beam:202",
+              "firstTriangle": 1104,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 83:beam:203",
+              "firstTriangle": 1116,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 84:beam:204",
+              "firstTriangle": 1128,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 85:beam:205",
+              "firstTriangle": 1140,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 86:beam:206",
+              "firstTriangle": 1152,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 87:beam:207",
+              "firstTriangle": 1164,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 88:beam:208",
+              "firstTriangle": 1176,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 89:beam:209",
+              "firstTriangle": 1188,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 90:beam:210",
+              "firstTriangle": 1200,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 91:beam:211",
+              "firstTriangle": 1212,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 92:beam:212",
+              "firstTriangle": 1224,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 93:beam:213",
+              "firstTriangle": 1236,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 94:beam:214",
+              "firstTriangle": 1248,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 95:beam:215",
+              "firstTriangle": 1260,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 96:beam:216",
+              "firstTriangle": 1272,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 97:beam:217",
+              "firstTriangle": 1284,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 98:beam:218",
+              "firstTriangle": 1296,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 99:beam:219",
+              "firstTriangle": 1308,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 100:beam:220",
+              "firstTriangle": 1320,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 101:beam:221",
+              "firstTriangle": 1332,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 102:beam:222",
+              "firstTriangle": 1344,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 103:beam:223",
+              "firstTriangle": 1356,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_6",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_87e0d70bead5eef417176101.SM_87e0d70bead5eef417176101",
+          "features": [
+            {
+              "canonicalId": "Podium radial roof joint 0:beam:2",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 1:beam:5",
+              "firstTriangle": 12,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 2:beam:8",
+              "firstTriangle": 24,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 3:beam:11",
+              "firstTriangle": 36,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 4:beam:14",
+              "firstTriangle": 48,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 5:beam:17",
+              "firstTriangle": 60,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 6:beam:20",
+              "firstTriangle": 72,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 34:beam:104",
+              "firstTriangle": 84,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 35:beam:107",
+              "firstTriangle": 96,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 36:beam:110",
+              "firstTriangle": 108,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 37:beam:113",
+              "firstTriangle": 120,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 38:beam:116",
+              "firstTriangle": 132,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Podium radial roof joint 39:beam:119",
+              "firstTriangle": 144,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 0:beam:120",
+              "firstTriangle": 156,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 1:beam:121",
+              "firstTriangle": 168,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 2:beam:122",
+              "firstTriangle": 180,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 3:beam:123",
+              "firstTriangle": 192,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 4:beam:124",
+              "firstTriangle": 204,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 5:beam:125",
+              "firstTriangle": 216,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 6:beam:126",
+              "firstTriangle": 228,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 7:beam:127",
+              "firstTriangle": 240,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 8:beam:128",
+              "firstTriangle": 252,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 9:beam:129",
+              "firstTriangle": 264,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 10:beam:130",
+              "firstTriangle": 276,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 11:beam:131",
+              "firstTriangle": 288,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 12:beam:132",
+              "firstTriangle": 300,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 13:beam:133",
+              "firstTriangle": 312,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 14:beam:134",
+              "firstTriangle": 324,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 15:beam:135",
+              "firstTriangle": 336,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 16:beam:136",
+              "firstTriangle": 348,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 104:beam:224",
+              "firstTriangle": 360,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 105:beam:225",
+              "firstTriangle": 372,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 106:beam:226",
+              "firstTriangle": 384,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 107:beam:227",
+              "firstTriangle": 396,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 108:beam:228",
+              "firstTriangle": 408,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 109:beam:229",
+              "firstTriangle": 420,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 110:beam:230",
+              "firstTriangle": 432,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 111:beam:231",
+              "firstTriangle": 444,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 112:beam:232",
+              "firstTriangle": 456,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 113:beam:233",
+              "firstTriangle": 468,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 114:beam:234",
+              "firstTriangle": 480,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 115:beam:235",
+              "firstTriangle": 492,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 116:beam:236",
+              "firstTriangle": 504,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 117:beam:237",
+              "firstTriangle": 516,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 118:beam:238",
+              "firstTriangle": 528,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "Window mullion 119:beam:239",
+              "firstTriangle": 540,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_7",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a9704c4126ec48fff27b571c.SM_a9704c4126ec48fff27b571c",
+          "features": [
+            {
+              "canonicalId": "Podium foundation:part:0",
+              "firstTriangle": 0,
+              "triangleCount": 960
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_8",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_7b101e96a494bc230a41e7ba.SM_7b101e96a494bc230a41e7ba",
+          "features": [
+            {
+              "canonicalId": "Entrance sign:box:2",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_9",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_1e147251d0de25d3b56b4698.SM_1e147251d0de25d3b56b4698",
+          "features": [
+            {
+              "canonicalId": "Saddle roof shell:part:9",
+              "firstTriangle": 0,
+              "triangleCount": 3720
+            }
+          ]
+        }
+      ],
+      "contract": {
+        "navigationSource": {
+          "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+          "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": "navigation"
+        },
+        "navigationRevision": "lagos-city-v3:street-density-v1",
+        "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+        "fictionalMetricPlan": true
+      },
+      "mapFileSha256": "e8626b0fcbc0e66a3537dacebb881a75f4db90e5ef2728ba9bac5a3e4e6f25ad",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/R_067bae887353d8b0d131ca62/Maps/L_city_national_theatre_fbff642fa0.umap": "e8626b0fcbc0e66a3537dacebb881a75f4db90e5ef2728ba9bac5a3e4e6f25ad"
+      },
+      "packages": [
+        "/Game/BaddieGeneratedWorld/Materials/M_2c4b683f3c842154f0b8ca26",
+        "/Game/BaddieGeneratedWorld/Materials/M_47bb4ddb04b833054cf92f69",
+        "/Game/BaddieGeneratedWorld/Materials/M_65aa7ca933d620c652c48e4f",
+        "/Game/BaddieGeneratedWorld/Materials/M_7fa2013401e4a0b80d3f6f09",
+        "/Game/BaddieGeneratedWorld/Materials/M_ce5733a447380cb0dae3fe48",
+        "/Game/BaddieGeneratedWorld/Materials/M_d94480d5b472eaa9e774c43c",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_1e147251d0de25d3b56b4698",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_407522bad689ee63c1dcf5c9",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_581365944ce35e3673deefc1",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_5f1a11be2ec3d8a47a9195e6",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_64f74596f427b64df6b33a04",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_7b101e96a494bc230a41e7ba",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_87e0d70bead5eef417176101",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_8ce266c76443d09ef52b2485",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_a9704c4126ec48fff27b571c",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_efb862476fdc3907a4545b00",
+        "/Game/BaddieGeneratedWorld/R_067bae887353d8b0d131ca62/Maps/L_city_national_theatre_fbff642fa0"
+      ],
+      "generatedDependencies": {
+        "/Game/BaddieGeneratedWorld/Materials/M_2c4b683f3c842154f0b8ca26": {
+          "identity": "2c4b683f3c842154f0b8ca26aaf0b024356a9f9f16a777a200f6b68d7907eb90",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_2c4b683f3c842154f0b8ca26.uasset": "d1bd882ebca8acb8565ab9fa25b5cd18e8405cd676538239211cdc0fe4c850ed"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Materials/M_47bb4ddb04b833054cf92f69": {
+          "identity": "47bb4ddb04b833054cf92f69aad2b2ec084becd497e020c2d86a748cf3ed9073",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_47bb4ddb04b833054cf92f69.uasset": "f4183f4a81c6d96f2920cb28438bcd85df82af411a3d1ee449a16e92f59eec15"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Materials/M_65aa7ca933d620c652c48e4f": {
+          "identity": "65aa7ca933d620c652c48e4fa8dc60ac6c6213fe6b5b2e1142d5e651502d65d9",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_65aa7ca933d620c652c48e4f.uasset": "c903e6bf46e83369de6eef96828416370877f7d157c28be666762ef25166c470"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Materials/M_7fa2013401e4a0b80d3f6f09": {
+          "identity": "7fa2013401e4a0b80d3f6f095fa727119d815ca0a025b9122b8d103251a0501b",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_7fa2013401e4a0b80d3f6f09.uasset": "c0048d65afcfda8fd451b3c6a8f8fbec19effa2191540a7602ab14ca00c3c677"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Materials/M_ce5733a447380cb0dae3fe48": {
+          "identity": "ce5733a447380cb0dae3fe48f9f78c0f5b9da1a257da68ec26dbcc34ddf880b8",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_ce5733a447380cb0dae3fe48.uasset": "f331200cb9e422cec361a03eafbbba1039d86e8f8e6769ac1ea332d427330500"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Materials/M_d94480d5b472eaa9e774c43c": {
+          "identity": "d94480d5b472eaa9e774c43c770a5dc542383a82e7bd1c6c4b9e7cf6f708c454",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_d94480d5b472eaa9e774c43c.uasset": "f13de88e09e21eb923dcad3ced153ca23c6bef543ddd9cccd6309b3f44219c21"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_1e147251d0de25d3b56b4698": {
+          "identity": "1e147251d0de25d3b56b4698defc35d37502971740ef517fcf76a5951b468b8a",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_1e147251d0de25d3b56b4698.uasset": "cd55e4408df5134c1b452dc2ffb9dbe077f65cc9e20e3d0e0c836d593f58f4f6"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_407522bad689ee63c1dcf5c9": {
+          "identity": "407522bad689ee63c1dcf5c99b343faea0d3d8abaf9e396bc22c3d2d47d0062e",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_407522bad689ee63c1dcf5c9.uasset": "22cd1e1aa3f3b42bd46f9cdccec779ed0fbda53d645cc4d7e9046ae0ea43ee99"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_581365944ce35e3673deefc1": {
+          "identity": "581365944ce35e3673deefc1d11152d941d691b0972b0fed9c96ece9f8e22ffa",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_581365944ce35e3673deefc1.uasset": "db865c489262d97b0e1fc0fdd04a2c9d41c9cf51006ccbcd2895637188402d4d"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_5f1a11be2ec3d8a47a9195e6": {
+          "identity": "5f1a11be2ec3d8a47a9195e6f806bc3e654ec68dd8e390fc00427001fc371df2",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5f1a11be2ec3d8a47a9195e6.uasset": "d5440eadf7a62ec4be451b1ab9e2fedc6c20c59918d84758154a6b67e2ff1ac9"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_64f74596f427b64df6b33a04": {
+          "identity": "64f74596f427b64df6b33a049e509edb7efd560603563675eeef6bcf97706041",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_64f74596f427b64df6b33a04.uasset": "8f426afb077c052fe39e23a17ac64537f855694a43d16a50aecf011a1c629505"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_7b101e96a494bc230a41e7ba": {
+          "identity": "7b101e96a494bc230a41e7baab375245ec221bc6934158f30ff03b732f57b885",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_7b101e96a494bc230a41e7ba.uasset": "e32ff3b7077338f944df977779255cf8f22b97248b2b303c6caf1d1d420184dd"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_87e0d70bead5eef417176101": {
+          "identity": "87e0d70bead5eef417176101e038d9e9e1b234a208ee6a08f2f63cda2a35499d",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_87e0d70bead5eef417176101.uasset": "095cfa7a3764c792e213c3207aa0cf76dd005e5494a45c75b341d1e2f48dab0d"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_8ce266c76443d09ef52b2485": {
+          "identity": "8ce266c76443d09ef52b24859b3852adc55871c31adcea0618a11a932e21ab6f",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_8ce266c76443d09ef52b2485.uasset": "33585e5dd8e5ca1d22c542d64f9ba6930741bc2863bad2a535a962f5e58fa696"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_a9704c4126ec48fff27b571c": {
+          "identity": "a9704c4126ec48fff27b571ca057687af81016bad6c6ba2cc55d4f32944e670e",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a9704c4126ec48fff27b571c.uasset": "90af63171bfb465bce3c6c870fc8592f2b0e9ca62d02a98f8404abbbc68f47b5"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_efb862476fdc3907a4545b00": {
+          "identity": "efb862476fdc3907a4545b00f45f41d1cdf04bf341ae30c5c85bd0015eec6e96",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_efb862476fdc3907a4545b00.uasset": "3accad94bd0b187bcc56f9f58a5ab24e823791147e1638cb669ae050147b7f13"
+          }
+        }
+      },
+      "savedAt": 1791710457.106983,
+      "runtimeAdmission": false,
+      "renderedInspection": "not-performed",
+      "playableAcceptance": "not-established"
+    }
+  ]
+}

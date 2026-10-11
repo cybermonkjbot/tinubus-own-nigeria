@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-10-11T09:29:51.503122+00:00",
+  "pid": 13096,
+  "camera": "south-promenade-middle",
+  "imagePath": "output\\cribtest11-visible-world-2026-10-11\\theatre-south-promenade-middle.png",
+  "imageSha256": "f9b69e2c99d9eea394602b4974c232a135a7fb9c5b40b578f2953cc7f1467cad",
+  "width": 705,
+  "height": 486,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": 151100,
+      "y": -220000,
+      "z": 170
+    },
+    "cameraRotation": {
+      "pitch": 6.484670639038085,
+      "yaw": 180,
+      "roll": 1.3326983503440019e-31
+    },
+    "cameraFOV": 75,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRhi": false,
+  "parentVisualAcceptance": "pending",
+  "scriptSha256": "5f912fb3ca6405e8a179af285af2df774b1c9458c25789abfe72748d88d65848"
+}

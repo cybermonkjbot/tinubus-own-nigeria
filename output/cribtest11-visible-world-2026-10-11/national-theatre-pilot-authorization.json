@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "owner": "cribtest11-world-generation-20261010",
+  "operation": "national-theatre-visible-pilot-2026-10-11",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "humanAuthorizationEvidence": {
+    "date": "2026-10-11",
+    "threadId": "01a126ff-0796-7001-a3e7-95203249dbc6",
+    "request": "First visible Lagos world",
+    "joshuaRequest": "i need tasks sent out to talk to the models and codex on windows and start world building, i have built alot about the game with no world yet and nothing to show",
+    "scope": "Current assignment authorizes visible editor launch, bounded native world authoring, imports, normal material/mesh processing, saves and engine rendering; parent selected EXACT jobs [city/national-theatre] at inspected PID 13096. Execution waits for parent's independent approval of these receipt bytes and SHA-256.",
+    "gameplayAuthorization": false
+  },
+  "expectedPid": 13096,
+  "expectedProject": "C:/dev/cribtest-game/apps/companion-unreal/",
+  "expectedEngineVersion": "5.8.3-58210709+++UE5+Release-5.8",
+  "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "jobs": [
+    "city/national-theatre"
+  ],
+  "engineGeneration": true,
+  "nativeMeshImport": true,
+  "nativeMaterialShaderProcessing": true,
+  "saveNativePackages": true,
+  "nativeTemplateDuplication": false,
+  "nativeLevelComposition": false,
+  "sources": [
+    {
+      "path": "packages/assets/city/lagos-national-theatre-geometry-v1.json",
+      "sha256": "c9f9bca85966812fa667ec6b23ac1cdd2f6d69e2983b68882791f453579ac0ad"
+    },
+    {
+      "path": "packages/assets/city/lagos-national-theatre-v1.json",
+      "sha256": "069767150a658eee73924b1429662389d526e83ef3726a45b19917343c310f2d"
+    },
+    {
+      "path": "packages/assets/city/lagos-city-v3.json",
+      "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+    },
+    {
+      "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4"
+    }
+  ],
+  "generatorSourceHashes": {
+    "__init__.py": "bc90e43b52d63f95fbbf1fba01ea5a26aaf2cb8c39ec7e6f72c56493cb3e502d",
+    "bridge_request.py": "3adba130b142ec2e173017bad06fa8ccc68cf19b77df8d48f4e2b05cf9bf0704",
+    "canonical.py": "543b562d3da7dc2dbd2ee8ec252f6eb58a177eaa82c84827abb356d02a285e1f",
+    "geometry.py": "b825f0622252c9282ff7f6b1555d6d93df42cc329dde4949a844e3e6b3c629a6",
+    "native_generator.py": "e5d87c6115b121abb47f5363ed72829b05cb87af63463d34dc99bd9b4498d745",
+    "recipes.py": "30cb1c80d22d9e29010a0938cf9823800e3568a2433cc6f5643cf91805ab8321"
+  },
+  "referenceManifestReview": {
+    "observedSha256": "800e29a26cb897a10e50657b3cd3dced1b9f385342560fae73d96efe53b00447",
+    "dispatchSha256": "15c73b4c06e57b6cc7088d26bd439e9c7345e22c5d93445bf7034399c0771d91",
+    "humanReviewEvidence": {
+      "humanAuthorization": "Current October 11, 2026 First visible Lagos world assignment authorizes world authoring; parent directs use of the verified serialization reconciliation and independent receipt hash review.",
+      "coordinatorReconciliation": "Parent delivered and directed this worker to read the accepted MAC-RECOVERY evidence. Raw manifest byte digest and compact JSON.stringify digest differ only by serialization; all 250 individual pinned source hashes match.",
+      "evidencePath": "output/cribtest11-visible-world-2026-10-11/MAC-RECOVERY-2026-10-10.md",
+      "evidenceSha256": "bf6f28b763ccfde1f72036914d927cc59e93b5ac1e5749e739e4113c932853ad",
+      "manualJoshuaDigestReviewEstablished": false
+    }
+  },
+  "canonicalPlacement": {
+    "sourceCenterYUpMetres": [
+      -2200,
+      0,
+      1350
+    ],
+    "mapping": "UE(X,Y,Z)=100*source(Z,X,Y)",
+    "recenter": false,
+    "geometryRevision": "lagos-city-v3:theatre-v1"
+  },
+  "handoffs": [],
+  "gates": {
+    "accountAccess": false,
+    "movementAdmission": false,
+    "missionReadiness": false,
+    "utilityAuthority": false
+  },
+  "excluded": [
+    "C++ compilation",
+    "tests/lint/typechecks/full builds",
+    "app packaging/releases",
+    "downloads/installs/new services",
+    "Config/project/startup changes",
+    "account or gameplay activation"
+  ],
+  "parentApprovalRequiredBeforeExecution": true
+}

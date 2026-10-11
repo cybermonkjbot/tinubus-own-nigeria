@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-10-11T09:29:37.717548+00:00",
+  "pid": 13096,
+  "camera": "south-promenade-wide",
+  "imagePath": "output\\cribtest11-visible-world-2026-10-11\\theatre-south-promenade-wide.png",
+  "imageSha256": "4bb66064cd85912efbdd631898a37fa2f5f920b63f48f289fc7e5a0a7b469a4b",
+  "width": 705,
+  "height": 486,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": 155700,
+      "y": -220000,
+      "z": 170
+    },
+    "cameraRotation": {
+      "pitch": 5.052144527435301,
+      "yaw": 180,
+      "roll": -4.431121356722099e-32
+    },
+    "cameraFOV": 70,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRhi": false,
+  "parentVisualAcceptance": "pending",
+  "scriptSha256": "5f912fb3ca6405e8a179af285af2df774b1c9458c25789abfe72748d88d65848"
+}

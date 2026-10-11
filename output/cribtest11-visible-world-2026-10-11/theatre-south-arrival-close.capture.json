@@ -1,0 +1,32 @@
+{
+  "recordedAt": "2026-10-11T09:29:55.821982+00:00",
+  "pid": 13096,
+  "camera": "south-arrival-close",
+  "imagePath": "output\\cribtest11-visible-world-2026-10-11\\theatre-south-arrival-close.png",
+  "imageSha256": "09088ea5c6bbc1e32fa6a2eef4853344bc110fc1a7e44f6ac877464a9c79ca73",
+  "width": 705,
+  "height": 486,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": 145800,
+      "y": -220000,
+      "z": 170
+    },
+    "cameraRotation": {
+      "pitch": 8.833415031433102,
+      "yaw": 180,
+      "roll": 8.933776189665889e-32
+    },
+    "cameraFOV": 80,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRhi": false,
+  "parentVisualAcceptance": "pending",
+  "scriptSha256": "5f912fb3ca6405e8a179af285af2df774b1c9458c25789abfe72748d88d65848"
+}

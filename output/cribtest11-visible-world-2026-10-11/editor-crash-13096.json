@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T09:33:40.9471513Z",
+  "formerPid": 13096,
+  "currentEditorPids": [],
+  "operation": "import_props succeeded; assemble_stop failed at duplicate_asset(BASE,MAP) then load_level(MAP)",
+  "executedScript": {
+    "path": "output/cribtest11-visible-world-2026-10-11/executed-source/street_presentation-pid13096.py",
+    "sha256": "4de141cdf0afe17c330d79203f747cb6db57eaf0c0ade38022658fe606096eee",
+    "byteMatchedToImportReceipt": true
+  },
+  "exactCause": "Python local variable duplicated retained the destination World wrapper. FPyReferenceCollector held that World during LoadLevel GC; EditorServer.cpp line 2544 raised World Memory Leaks: 2 leaks objects and packages.",
+  "evidence": {
+    "context": "apps/companion-unreal/Saved/Crashes/UECC-Windows-A353A7834889DA28B475E6911659970F_0001/CrashContext.runtime-xml",
+    "contextSha256": "291f252064e8d0f8a3f264b63a22920ded43b87e96393894773a05f736db799a",
+    "log": "apps/companion-unreal/Saved/Bridge/editor-20261011-021443.log",
+    "logSha256": "5c37bd4be7d55f28a41992314e7ccbc2145e0c6e4f806a5a0e173bd09d43e207"
+  },
+  "savedBeforeCrash": {
+    "nativePackageCount": 40,
+    "mapCount": 3,
+    "canonicalGeneratorPackages": 22,
+    "presentationMapCount": 1,
+    "propMeshes": 2,
+    "propMaterials": 15,
+    "finalCaptures": 4
+  },
+  "unsaved": {
+    "mapPackage": "/Game/BaddieGeneratedWorld/Presentation/Theatre_20261011/L_Theatre_Stop_Dressing_v1",
+    "mapFileExists": false,
+    "placedProps": 0,
+    "propIntegrationCaptures": 0
+  },
+  "repairPrepared": "Recovery helper now creates new level and reinstantiates documented canonical actors; does not duplicate or retain a UWorld across LoadLevel.",
+  "repairExecution": "not-performed",
+  "sourceMapsAndDependencies": "all hashes match immutable batches after crash",
+  "noRetryOrRestartPerformed": true,
+  "nextAuthorization": "Approve one recovery editor launch via existing desktop task, inspect/bind fresh PID and execute only saved-prop presentation assembly/captures. No canonical generator re-execution or source transfer."
+}

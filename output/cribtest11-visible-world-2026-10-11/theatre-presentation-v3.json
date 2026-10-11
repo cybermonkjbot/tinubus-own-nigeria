@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "pid": 13096,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Presentation/Theatre_20261011/L_Theatre_Promenade_v1",
+  "mapFile": "apps\\companion-unreal\\Content\\BaddieGeneratedWorld\\Presentation\\Theatre_20261011\\L_Theatre_Promenade_v1.umap",
+  "previousMapSha256": "503ff7e8ecfb6eea1c2ff5da1a22bc7d18cd2d62baeb541c0e5efee69fe17fbb",
+  "mapSha256": "a5043afa6462f7e3c1dde32fca805defc62beaf84386f1249df37db55e92828c",
+  "correction": "Use named pitch/yaw/roll arguments; installed Python positional Rotator order differed",
+  "scriptSha256": "153af432059efec78c4a02b68c0fcd7a9b0203a2f5b0060b28ad7f75801966ce",
+  "cameras": [
+    {
+      "id": "south-promenade-wide",
+      "location": [
+        155700.0,
+        -220000.0,
+        170.0
+      ],
+      "rotation": {
+        "pitch": 5.052144527435301,
+        "yaw": 180.0,
+        "roll": -4.431121356722099e-32
+      },
+      "fov": 70.0
+    },
+    {
+      "id": "south-promenade-middle",
+      "location": [
+        151100.0,
+        -220000.0,
+        170.0
+      ],
+      "rotation": {
+        "pitch": 6.484670639038085,
+        "yaw": 180.0,
+        "roll": 1.3326983503440019e-31
+      },
+      "fov": 75.0
+    },
+    {
+      "id": "south-arrival-close",
+      "location": [
+        145800.0,
+        -220000.0,
+        170.0
+      ],
+      "rotation": {
+        "pitch": 8.833415031433102,
+        "yaw": 180.0,
+        "roll": 8.933776189665889e-32
+      },
+      "fov": 80.0
+    },
+    {
+      "id": "elevated-overview",
+      "location": [
+        171000.0,
+        -244000.0,
+        19000.0
+      ],
+      "rotation": {
+        "pitch": -21.6795597076416,
+        "yaw": 146.3099365234375,
+        "roll": 4.186843217061586e-07
+      },
+      "fov": 65.0
+    }
+  ],
+  "sunRotation": {
+    "pitch": -40.00000000000001,
+    "yaw": -34.99999999999999,
+    "roll": -0.0
+  },
+  "sourceMaps": "not-modified",
+  "recordedAt": "2026-10-11T09:29:36.611722+00:00",
+  "exposure": {
+    "method": "manual",
+    "applyPhysicalCameraExposure": false,
+    "bias": -12.0,
+    "sunLux": 50000
+  },
+  "repair": "Whiteout under non-extended default exposure range with 50000 lux sun. Explicit manual exposure now renders visible geometry. Native game view removes grid/axes; CaptureViewport bShowUI only disables selection/widgets.",
+  "failedCapturesPreserved": [
+    "theatre-south-promenade-wide-baseline.png",
+    "theatre-wide-gameview-diagnostic.png"
+  ],
+  "visibleDiagnostic": "theatre-wide-exposure-diagnostic.png"
+}

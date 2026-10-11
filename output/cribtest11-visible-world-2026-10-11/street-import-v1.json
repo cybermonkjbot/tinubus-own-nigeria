@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "pid": 13096,
+  "recordedAt": "2026-10-11T09:32:28.777329+00:00",
+  "scriptSha256": "4de141cdf0afe17c330d79203f747cb6db57eaf0c0ade38022658fe606096eee",
+  "manifestSha256": "e43da0ae2cccf1385445caa90ea862afb4634d4cff6a6ebcf4fd930876aff723",
+  "sourceInspectionSha256": "d51eca4791a38c23e7420122ae0ec226d09cb6feb935d898b9ee87d510e49c6d",
+  "imports": [
+    {
+      "asset": "Danfo",
+      "package": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/SM_Danfo",
+      "sourceFBXSha256": "c1f5a730988c21760ba805ea0953ba3aaf5d7925e24391dbed49e6e33bd3a969",
+      "boundsCentimetres": [
+        [
+          -228.5500030517578,
+          -115.99999237060547,
+          0.0
+        ],
+        [
+          226.5500030517578,
+          115.50001525878906,
+          215.84999084472656
+        ]
+      ],
+      "dimensionsCentimetres": [
+        455.1000061035156,
+        231.50000762939453,
+        215.84999084472656
+      ],
+      "nativeFront": "-X",
+      "scale": 1.0,
+      "groundContact": "local Z=0 verified within 0.5 cm",
+      "materials": [
+        {
+          "slot": 0,
+          "sourceMaterial": "StripeBlack",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_StripeBlack.M_StripeBlack"
+        },
+        {
+          "slot": 1,
+          "sourceMaterial": "YellowFaded",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_YellowFaded.M_YellowFaded"
+        },
+        {
+          "slot": 2,
+          "sourceMaterial": "DanfoYellow",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_DanfoYellow.M_DanfoYellow"
+        },
+        {
+          "slot": 3,
+          "sourceMaterial": "Rubber",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Rubber.M_Rubber"
+        },
+        {
+          "slot": 4,
+          "sourceMaterial": "GlassDark",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_GlassDark.M_GlassDark"
+        },
+        {
+          "slot": 5,
+          "sourceMaterial": "Steel",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Steel.M_Steel"
+        },
+        {
+          "slot": 6,
+          "sourceMaterial": "LampIvory",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_LampIvory.M_LampIvory"
+        },
+        {
+          "slot": 7,
+          "sourceMaterial": "LampAmber",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_LampAmber.M_LampAmber"
+        },
+        {
+          "slot": 8,
+          "sourceMaterial": "IvoryPaint",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_IvoryPaint.M_IvoryPaint"
+        },
+        {
+          "slot": 9,
+          "sourceMaterial": "LampRed",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_LampRed.M_LampRed"
+        },
+        {
+          "slot": 10,
+          "sourceMaterial": "Seat",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Seat.M_Seat"
+        }
+      ],
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/SM_Danfo.uasset": "5a2f413c249bdb85da48a3b4aa22624b95bbf787b711e976c9a06b36e2346faa"
+      }
+    },
+    {
+      "asset": "Kiosk",
+      "package": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/SM_Kiosk",
+      "sourceFBXSha256": "20154f3695fe2bafbced262815a1406656ef28531f3a99671776eeefe0bb37f1",
+      "boundsCentimetres": [
+        [
+          -186.90000915527344,
+          -155.61106872558594,
+          0.0
+        ],
+        [
+          127.095703125,
+          155.61106872558594,
+          282.4599914550781
+        ]
+      ],
+      "dimensionsCentimetres": [
+        313.99571228027344,
+        311.2221374511719,
+        282.4599914550781
+      ],
+      "nativeFront": "-X",
+      "scale": 1.0,
+      "groundContact": "local Z=0 verified within 0.5 cm",
+      "materials": [
+        {
+          "slot": 0,
+          "sourceMaterial": "Concrete",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Concrete.M_Concrete"
+        },
+        {
+          "slot": 1,
+          "sourceMaterial": "Steel",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Steel.M_Steel"
+        },
+        {
+          "slot": 2,
+          "sourceMaterial": "ShopTeal",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_ShopTeal.M_ShopTeal"
+        },
+        {
+          "slot": 3,
+          "sourceMaterial": "RoofMetal",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_RoofMetal.M_RoofMetal"
+        },
+        {
+          "slot": 4,
+          "sourceMaterial": "Timber",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Timber.M_Timber"
+        },
+        {
+          "slot": 5,
+          "sourceMaterial": "IvoryPaint",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_IvoryPaint.M_IvoryPaint"
+        },
+        {
+          "slot": 6,
+          "sourceMaterial": "DanfoYellow",
+          "nativeMaterial": "/Game/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_DanfoYellow.M_DanfoYellow"
+        }
+      ],
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/SM_Kiosk.uasset": "d1b69ba689e29a66fa6dcb220b5d531b7b6fdda83c476b17e5173ee2b2576dbf"
+      }
+    }
+  ],
+  "role": "Original derivative editor-only dressing; no registered runtime asset substitution",
+  "nativeImport": "FbxFactory convert_scene/units and force_front_x_axis; exact native bounds verified",
+  "uvLimit": "Frozen merged source FBX has no UV layers; palette-only native materials, no textures/emission"
+}

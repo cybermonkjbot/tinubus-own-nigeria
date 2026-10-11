@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-11",
+  "receiptSha256": "995c4f844185553a031aad32bbda2f7fb64122e93f1c5bb40af4ff7745c0af87",
+  "handoffSha256": "fceaabb096a959fb2fce1de4679c40e865d7dd2860e5c19662036adba86c327a",
+  "jobs": ["city/theatre-grounds"],
+  "pid": 13096,
+  "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "authority": "Parent independently read and approved exact receipt and handoff hashes in this chat. Execute serially. Parent explicitly approves a separate editor-only presentation level with saved Theatre and grounds mesh actors, lights, cameras and native CaptureViewport images; no immutable source-map changes, compilation or gameplay activation."
+}

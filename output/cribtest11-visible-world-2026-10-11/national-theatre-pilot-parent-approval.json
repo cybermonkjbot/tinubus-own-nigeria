@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-11",
+  "threadId": "01a126ff-0796-7001-a3e7-95203249dbc6",
+  "receipt": "output/cribtest11-visible-world-2026-10-11/national-theatre-pilot-authorization.json",
+  "approvedReceiptSha256": "58c97f305ced46b28096038ec23a947058b5f06787a9b32631614f3ca9fd670f",
+  "jobs": ["city/national-theatre"],
+  "pid": 13096,
+  "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "authority": "Parent independently read Windows receipt bytes and explicitly approved this exact hash in this chat. Parent directs execution through the existing PID-bound bridge, then a separate bounded presentation level with lighting/cameras and actual captures. Preserve immutable source map and corrected generator; no compilation or gameplay activation."
+}

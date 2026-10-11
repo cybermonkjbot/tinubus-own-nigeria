@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T09:33:40.9471513Z",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "acceptedGeneratorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "nativePackageCount": 40,
+  "nativeMapCount": 3,
+  "files": [
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_2c4b683f3c842154f0b8ca26.uasset",
+      "sha256": "d1bd882ebca8acb8565ab9fa25b5cd18e8405cd676538239211cdc0fe4c850ed",
+      "bytes": 10004
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_3b25b8cba3010c8a52e37ed6.uasset",
+      "sha256": "dc82c497a2bb707f7ec9f4fcd86e62eeb1e5c8813743507592439046f174281d",
+      "bytes": 10402
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_47bb4ddb04b833054cf92f69.uasset",
+      "sha256": "f4183f4a81c6d96f2920cb28438bcd85df82af411a3d1ee449a16e92f59eec15",
+      "bytes": 10445
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_65aa7ca933d620c652c48e4f.uasset",
+      "sha256": "c903e6bf46e83369de6eef96828416370877f7d157c28be666762ef25166c470",
+      "bytes": 9661
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_7fa2013401e4a0b80d3f6f09.uasset",
+      "sha256": "c0048d65afcfda8fd451b3c6a8f8fbec19effa2191540a7602ab14ca00c3c677",
+      "bytes": 9406
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_c8f413d39f20e9a45c33dd21.uasset",
+      "sha256": "aafa911303003543fd736e3fd1a08596504267fe9e2099d49ac1c2fe6691a220",
+      "bytes": 10605
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_ce5733a447380cb0dae3fe48.uasset",
+      "sha256": "f331200cb9e422cec361a03eafbbba1039d86e8f8e6769ac1ea332d427330500",
+      "bytes": 10023
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_d94480d5b472eaa9e774c43c.uasset",
+      "sha256": "f13de88e09e21eb923dcad3ced153ca23c6bef543ddd9cccd6309b3f44219c21",
+      "bytes": 10402
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_1e147251d0de25d3b56b4698.uasset",
+      "sha256": "cd55e4408df5134c1b452dc2ffb9dbe077f65cc9e20e3d0e0c836d593f58f4f6",
+      "bytes": 60339
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_407522bad689ee63c1dcf5c9.uasset",
+      "sha256": "22cd1e1aa3f3b42bd46f9cdccec779ed0fbda53d645cc4d7e9046ae0ea43ee99",
+      "bytes": 15490
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_581365944ce35e3673deefc1.uasset",
+      "sha256": "db865c489262d97b0e1fc0fdd04a2c9d41c9cf51006ccbcd2895637188402d4d",
+      "bytes": 20007
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5f1a11be2ec3d8a47a9195e6.uasset",
+      "sha256": "d5440eadf7a62ec4be451b1ab9e2fedc6c20c59918d84758154a6b67e2ff1ac9",
+      "bytes": 24026
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_64f74596f427b64df6b33a04.uasset",
+      "sha256": "8f426afb077c052fe39e23a17ac64537f855694a43d16a50aecf011a1c629505",
+      "bytes": 20865
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_7b101e96a494bc230a41e7ba.uasset",
+      "sha256": "e32ff3b7077338f944df977779255cf8f22b97248b2b303c6caf1d1d420184dd",
+      "bytes": 15094
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_87e0d70bead5eef417176101.uasset",
+      "sha256": "095cfa7a3764c792e213c3207aa0cf76dd005e5494a45c75b341d1e2f48dab0d",
+      "bytes": 21453
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_8ce266c76443d09ef52b2485.uasset",
+      "sha256": "33585e5dd8e5ca1d22c542d64f9ba6930741bc2863bad2a535a962f5e58fa696",
+      "bytes": 83653
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a86e9bf96ddd5dafb1425b01.uasset",
+      "sha256": "8cd66e63b623aa09395e44a13f0bc380b9b0bc93b88784659f04b3647489db89",
+      "bytes": 15837
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a9704c4126ec48fff27b571c.uasset",
+      "sha256": "90af63171bfb465bce3c6c870fc8592f2b0e9ca62d02a98f8404abbbc68f47b5",
+      "bytes": 20535
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_da2d2749e9c669d0d5ba34a9.uasset",
+      "sha256": "55bdcf93ed132a7371511b0090a8bee482e79bcc2783fe9db5625f93cb0aef20",
+      "bytes": 14967
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_efb862476fdc3907a4545b00.uasset",
+      "sha256": "3accad94bd0b187bcc56f9f58a5ab24e823791147e1638cb669ae050147b7f13",
+      "bytes": 15101
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/SM_Danfo.uasset",
+      "sha256": "5a2f413c249bdb85da48a3b4aa22624b95bbf787b711e976c9a06b36e2346faa",
+      "bytes": 216892
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/SM_Kiosk.uasset",
+      "sha256": "d1b69ba689e29a66fa6dcb220b5d531b7b6fdda83c476b17e5173ee2b2576dbf",
+      "bytes": 149651
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Concrete.uasset",
+      "sha256": "bf791acc34a1d1b4dc4a737a0eb198cb293a14ead3151bbfeac80a0739ecc145",
+      "bytes": 10381
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_DanfoYellow.uasset",
+      "sha256": "71258de7cf9a39a4787d6c3576777c2fe2a25e7638e48332fbcf9b16f843a1ed",
+      "bytes": 10941
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_GlassDark.uasset",
+      "sha256": "61c0753b92786347f4aa6d3e7236c7a191b9d3aaecfa1a7f693f8f9a8f1e3028",
+      "bytes": 10489
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_IvoryPaint.uasset",
+      "sha256": "fc901c087c7da60530f62a058b88433354a50130408d9e3f8f594854ae80d419",
+      "bytes": 10481
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_LampAmber.uasset",
+      "sha256": "d515e310b2e9bc49a6d4f5c04ee9e6a413d4fb299f32b2cae4f102639927a811",
+      "bytes": 10881
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_LampIvory.uasset",
+      "sha256": "20a46353c10695e8bcc63d17dc7b1c95ed6dd9262f21c6c13376820c10946c90",
+      "bytes": 10515
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_LampRed.uasset",
+      "sha256": "d4bd38ce8233893ecc58060043d2aeccadd196985e86732e0604d602e1c5979b",
+      "bytes": 10245
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_RoofMetal.uasset",
+      "sha256": "97e88f33d1f814e764c6830096d7b12626546ce243f1b0da909f93851f7c6934",
+      "bytes": 10387
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Rubber.uasset",
+      "sha256": "4233f84c978ec802189d96cf969063f6b590047d9a85b1c847060359e2fd662b",
+      "bytes": 9212
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Seat.uasset",
+      "sha256": "f72d1cbbaaab26789e9fac824dfb51245a5c4993cb4f49fdfed86919d043d14c",
+      "bytes": 9921
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_ShopTeal.uasset",
+      "sha256": "9d923fe869c0660899559d8445fd9bd5216b090a0a8329258fceba4a0c223e41",
+      "bytes": 10365
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Steel.uasset",
+      "sha256": "139f28e5fd13dad2f65e125ae04d837184c12127b307219991a4210344b91bd8",
+      "bytes": 10157
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_StripeBlack.uasset",
+      "sha256": "966e4795211c7923e0ed6046fab6ae3a185c8c8a17c77102c004fa9ea2a2c163",
+      "bytes": 9253
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Timber.uasset",
+      "sha256": "dc3e056aa6bb349228dfc640f9d48323e6cddb9b529aa59b4936b6e61a988a50",
+      "bytes": 10174
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_YellowFaded.uasset",
+      "sha256": "56062fa4117c9e95475d7cc99eb533c8b9d4d83978a753e50864f627e77d030f",
+      "bytes": 10768
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/Theatre_20261011/L_Theatre_Promenade_v1.umap",
+      "sha256": "a5043afa6462f7e3c1dde32fca805defc62beaf84386f1249df37db55e92828c",
+      "bytes": 58076
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/R_067bae887353d8b0d131ca62/Maps/L_city_national_theatre_fbff642fa0.umap",
+      "sha256": "e8626b0fcbc0e66a3537dacebb881a75f4db90e5ef2728ba9bac5a3e4e6f25ad",
+      "bytes": 32150
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/R_0cbe78a195c4949e51337ec5/Maps/L_city_theatre_grounds_69a6242670.umap",
+      "sha256": "bcdccfe9f8e090bf6af2deb83d560dfb8c7aab2c65ce50fa819d5d248548d741",
+      "bytes": 14420
+    }
+  ],
+  "immutableMismatches": [],
+  "worldReceipts": [
+    {
+      "mapFiles": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/R_067bae887353d8b0d131ca62/Maps/L_city_national_theatre_fbff642fa0.umap": "e8626b0fcbc0e66a3537dacebb881a75f4db90e5ef2728ba9bac5a3e4e6f25ad"
+      },
+      "mapPackage": "/Game/BaddieGeneratedWorld/R_067bae887353d8b0d131ca62/Maps/L_city_national_theatre_fbff642fa0",
+      "identity": "067bae887353d8b0d131ca62d49e19b2a0b025252a3b3ca2a2001d6683e8d4e1",
+      "batchPath": "output/cribtest11-world-generation/execution/batch-6dfe7bf6e466ce1a7ec0ca3b6ff61a4b8a5357d164453a77bf96b84468b48522.json",
+      "batchSha256": "dfd4db236dbf2d75dea4558b72680b17f92c5ac96cd596ab8fe6aa97f0c0ea9e",
+      "job": "city/national-theatre"
+    },
+    {
+      "mapFiles": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/R_0cbe78a195c4949e51337ec5/Maps/L_city_theatre_grounds_69a6242670.umap": "bcdccfe9f8e090bf6af2deb83d560dfb8c7aab2c65ce50fa819d5d248548d741"
+      },
+      "mapPackage": "/Game/BaddieGeneratedWorld/R_0cbe78a195c4949e51337ec5/Maps/L_city_theatre_grounds_69a6242670",
+      "identity": "0cbe78a195c4949e51337ec551d8feb613c5a312111373e8334cd82bf7655668",
+      "batchPath": "output/cribtest11-world-generation/execution/batch-b62e4c8f338ffcb5f46701507a4170c02940219e7fc350a4624f6344b2d78456.json",
+      "batchSha256": "e9e9e3c5d6cdf0cc30dd8a9e9c0c09f63b7817199ac97c1339843b72d8d99fa0",
+      "job": "city/theatre-grounds"
+    }
+  ],
+  "receiptHashes": {
+    "street-import-v1.json": "3c7cc2ebc0eff5b91f0fcdb18edc3bb6c0fb11eb212d12ac8a7e47656539b931",
+    "theatre-grounds-authorization.json": "995c4f844185553a031aad32bbda2f7fb64122e93f1c5bb40af4ff7745c0af87",
+    "national-theatre-pilot-authorization.json": "58c97f305ced46b28096038ec23a947058b5f06787a9b32631614f3ca9fd670f",
+    "theatre-presentation-v3.json": "4a92f36d27b7af1f9c703df48edc02cb109212315166a85257069bbc24b729f3"
+  },
+  "compilation": "not-performed",
+  "wholeWorldComplete": false
+}

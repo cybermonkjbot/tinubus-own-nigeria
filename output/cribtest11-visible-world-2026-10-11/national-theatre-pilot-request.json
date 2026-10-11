@@ -1,0 +1,4 @@
+{
+  "expected_pid": 13096,
+  "code": "import sys\n_baddie_generator_bytecode_setting = sys.dont_write_bytecode\nsys.dont_write_bytecode = True\nsys.path.insert(0, 'C:\\\\dev\\\\cribtest-game\\\\apps\\\\companion-unreal\\\\Scripts')\ntry:\n    from WorldGeneration import native_generator\n    native_generator.execute(\"C:\\\\dev\\\\cribtest-game\\\\output\\\\cribtest11-visible-world-2026-10-11\\\\national-theatre-pilot-authorization.json\", '58c97f305ced46b28096038ec23a947058b5f06787a9b32631614f3ca9fd670f', 13096, ['city/national-theatre'])\nfinally:\n    sys.path.pop(0)\n    sys.dont_write_bytecode = _baddie_generator_bytecode_setting\n    del _baddie_generator_bytecode_setting\n"
+}
