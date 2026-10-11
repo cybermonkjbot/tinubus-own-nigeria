@@ -809,10 +809,11 @@ namespace BaddieCompanion
     }
     bool FFootballReadState::Playing() const
     {
-        const auto* Player = FootballPrivate::CurrentPlayer(View);
         return View.bReady && (!View.Error.IsSet() || View.Error->IsEmpty()) && !View.bBusy && View.Match.IsSet()
             && (View.Match->Phase == EFootballPhase::Playing || View.Match->Phase == EFootballPhase::Restart)
-            && Player && Player->bConnected;
+            && View.PlayerId.IsSet() && View.Match->Players.ContainsByPredicate([&](const FFootballPlayer& Player) {
+                return Player.bConnected && FootballPrivate::Same(Player.Id, View.PlayerId.GetValue());
+            });
     }
     void FFootballReadState::SyncPump()
     {
