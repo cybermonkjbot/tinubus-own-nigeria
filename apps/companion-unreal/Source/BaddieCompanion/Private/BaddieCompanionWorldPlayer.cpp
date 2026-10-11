@@ -264,6 +264,7 @@ namespace BaddieCompanion
                 static const auto S = RecordDomain(R, C); return S;
             }
             default:
+                if (Domain >= EDomain::Selection && Domain <= EDomain::Rooms) return SelectionDomainSchema(Domain);
                 if (Domain >= EDomain::RaceInput && Domain <= EDomain::Racing) return RacingDomainSchema(Domain);
                 return MovementDomainSchema(Domain);
             }

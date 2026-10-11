@@ -13,6 +13,18 @@ namespace BaddieCompanion::WorldReadPrivate
 {
     using namespace WorldObservationPrivate;
 
+    EStep FPlayerResult::Retire(FBudget& Budget)
+    {
+        if (!bPinned) return EStep::Complete;
+        while (RetireField < 29)
+        {
+            if (!Budget.Spend(8, false)) return EStep::Pending;
+            if (FStorage::ReleaseRoot(Reference(RetireField).Owner, Budget) != EStep::Complete) return EStep::Pending;
+            ++RetireField;
+        }
+        return EStep::Complete;
+    }
+
     bool TextValue(const FString& Value, const FTextRule& Rule)
     {
         const uint64 Count = static_cast<uint64>(Value.Len());
@@ -48,10 +60,16 @@ namespace BaddieCompanion::WorldReadPrivate
     {
         Begin(A, {}); Right = B; bCompare = true;
     }
+    void FTextRead::Compare(FValueRef A, const FStorage& Previous, FValueRef B)
+    {
+        Compare(A, B); OtherOwner = &Previous;
+    }
     void FTextRead::ComparePrefixed(FValueRef A, FValueRef B, const TCHAR* Prefix, uint64 PrefixLength)
     {
         Compare(A, B); Literal = Prefix; LiteralCount = PrefixLength;
     }
+    void FTextRead::StartsWith(FValueRef A, const TCHAR* Prefix, uint64 Length)
+    { Compare(A, Prefix, Length); bPrefixOnly = true; }
     void FTextRead::Compare(FValueRef A, const FString& B)
     {
         Compare(A, *B, static_cast<uint64>(B.Len()));
@@ -65,12 +83,13 @@ namespace BaddieCompanion::WorldReadPrivate
         if (Owner && Owner != &Storage) return Status = EStep::Invalid;
         Owner = &Storage;
         if (!Readable(Storage)) return Status = EStep::Invalid;
+        if (OtherOwner && (!Readable(*OtherOwner) || OtherOwner->Budget != Storage.Budget)) return Status = EStep::Invalid;
         if (Status != EStep::Pending) return Status;
         if (!bStarted)
         {
             // Each Get includes root and node-page index access plus descriptor reads.
             if (!Storage.Budget->Spend(16)) return Yield(Storage);
-            const auto* A = Storage.Get(Left.Root, Left.Node);
+            const auto* A = Resolve(Storage, Left);
             if (!A || A->Kind != EWorldValueKind::String || !Rule.Length(A->Count))
                 return Status = EStep::Invalid;
             Count = A->Count; LeftBlock = A->Text;
@@ -79,12 +98,13 @@ namespace BaddieCompanion::WorldReadPrivate
                 uint64 OtherCount = LiteralCount;
                 if (Right.IsSet())
                 {
-                    const auto* B = Storage.Get(Right.Root, Right.Node);
+                    const auto* B = Resolve(OtherOwner ? *OtherOwner : Storage, Right);
                     if (!B || B->Kind != EWorldValueKind::String) return Status = EStep::Invalid;
                     if (LiteralCount > MAX_uint64 - B->Count) return Status = EStep::Invalid;
                     OtherCount = B->Count + LiteralCount; RightBlock = B->Text;
                 }
                 else if (!Literal) return Status = EStep::Invalid;
+                if (bPrefixOnly && Count >= OtherCount) Count = OtherCount;
                 if (Count != OtherCount) { bEqual = false; return Status = EStep::Complete; }
             }
             bStarted = true;
@@ -116,7 +136,7 @@ namespace BaddieCompanion::WorldReadPrivate
             ++Offset;
             if (LeftOffset == LeftBlock->Used) { LeftBlock = LeftBlock->Next; LeftOffset = 0; }
         }
-        if (LeftBlock || (Right.IsSet() && RightBlock) || (Rule.bHasNonWhitespace && !bNonWhitespace))
+        if ((!bPrefixOnly && LeftBlock) || (Right.IsSet() && RightBlock) || (Rule.bHasNonWhitespace && !bNonWhitespace))
             return Status = EStep::Invalid;
         return Status = EStep::Complete;
     }
@@ -134,14 +154,14 @@ namespace BaddieCompanion::WorldReadPrivate
         if (!Slots && Count) return Status = EStep::Invalid;
         while (Cleared < Count)
         {
-            if (!Storage.Budget->Spend(4)) return Yield(Storage);
+            if (!Storage.Budget->Spend(sizeof(FValueRef) + 8)) return Yield(Storage);
             if (!Slots[Cleared].Name || !Slots[Cleared].NameLength) return Status = EStep::Invalid;
             Slots[Cleared++].Value = {};
         }
         if (!bStarted)
         {
             if (!Storage.Budget->Spend(8)) return Yield(Storage);
-            const auto* O = Storage.Get(Object.Root, Object.Node);
+            const auto* O = Resolve(Storage, Object);
             if (!O || O->Kind != EWorldValueKind::Object) return Status = EStep::Invalid;
             Key = O->FirstChild; bStarted = true;
         }
@@ -150,7 +170,7 @@ namespace BaddieCompanion::WorldReadPrivate
             if (bAdvancing)
             {
                 if (!Storage.Budget->Spend(8)) return Yield(Storage);
-                const auto* V = Storage.Get(Object.Root, Value);
+                const auto* V = Resolve(Storage, Object.Child(Value));
                 if (!V) return Status = EStep::Invalid;
                 Key = V->NextSibling; Value = 0; Slot = 0; bComparing = false;
                 bAdvancing = false; ++Seen;
@@ -159,8 +179,8 @@ namespace BaddieCompanion::WorldReadPrivate
             if (!Value)
             {
                 if (!Storage.Budget->Spend(16)) return Yield(Storage);
-                const auto* K = Storage.Get(Object.Root, Key);
-                const auto* V = K ? Storage.Get(Object.Root, K->NextSibling) : nullptr;
+                const auto* K = Resolve(Storage, Object.Child(Key));
+                const auto* V = K ? Resolve(Storage, Object.Child(K->NextSibling)) : nullptr;
                 if (!K || K->Kind != EWorldValueKind::String || K->Role != 1 || K->Parent != Object.Node
                     || !V || V->Role != 2 || V->Parent != Object.Node || V->Slot != Seen || K->Slot != Seen)
                     return Status = EStep::Invalid;
@@ -171,19 +191,19 @@ namespace BaddieCompanion::WorldReadPrivate
             {
                 if (!bComparing)
                 {
-                    if (!Storage.Budget->Spend(4)) return Yield(Storage);
-                    Comparison.Compare({Key, Object.Root}, Slots[Slot].Name, Slots[Slot].NameLength);
+                    if (!Storage.Budget->Spend(2 * sizeof(FTextRead) + 64)) return Yield(Storage);
+                    Comparison.Compare(Object.Child(Key), Slots[Slot].Name, Slots[Slot].NameLength);
                     bComparing = true;
                 }
                 const auto Result = Comparison.Advance(Storage);
                 if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
                 if (Comparison.Equal())
                 {
-                    if (!Storage.Budget->Spend(4)) return Yield(Storage);
+                    if (!Storage.Budget->Spend(2 * sizeof(FValueRef) + 8)) return Yield(Storage);
                     // Structural assembly rejects duplicates too; do not permit a
                     // second recognized field to replace the first in this adapter.
                     if (Slots[Slot].Value.IsSet()) return Status = EStep::Invalid;
-                    Slots[Slot].Value = {Value, Object.Root}; bFound = true; break;
+                    Slots[Slot].Value = Object.Child(Value); bFound = true; break;
                 }
                 ++Slot; bComparing = false;
             }
@@ -197,7 +217,7 @@ namespace BaddieCompanion::WorldReadPrivate
             if (S.bRequired && !S.Value.IsSet()) return Status = EStep::Invalid;
         }
         if (!Storage.Budget->Spend(8)) return Yield(Storage);
-        const auto* O = Storage.Get(Object.Root, Object.Node);
+        const auto* O = Resolve(Storage, Object);
         return Status = O && Seen == O->Count ? EStep::Complete : EStep::Invalid;
     }
 
@@ -205,7 +225,7 @@ namespace BaddieCompanion::WorldReadPrivate
     {
         if (!Readable(Storage)) return EStep::Invalid;
         if (!Storage.Budget->Spend(8 + sizeof(double))) return Yield(Storage);
-        const auto* N = Storage.Get(Value.Root, Value.Node);
+        const auto* N = Resolve(Storage, Value);
         if (!N || N->Kind != EWorldValueKind::Number) return EStep::Invalid;
         double Number = 0;
         FMemory::Memcpy(&Number, &N->NumberBits, sizeof(Number));
@@ -217,7 +237,7 @@ namespace BaddieCompanion::WorldReadPrivate
     {
         if (!Readable(Storage)) return EStep::Invalid;
         if (!Storage.Budget->Spend(8)) return Yield(Storage);
-        const auto* N = Storage.Get(Value.Root, Value.Node);
+        const auto* N = Resolve(Storage, Value);
         if (!N) return EStep::Invalid;
         Out = N->Kind;
         return EStep::Complete;
@@ -334,6 +354,7 @@ namespace BaddieCompanion::WorldReadPrivate
                     Facts.Numbers[Initialized] = 0; Facts.Choices[Initialized] = -1; Facts.Counts[Initialized] = 0;
                     Facts.Presences[Initialized++] = EWorldFieldPresence::Missing;
                 }
+                if (!Storage.Budget->Spend(2 * sizeof(FObjectRead) + 64)) return Yield(Storage);
                 Fields.Begin(Object, Slots, Schema->Count, Schema->bRejectUnknown); Phase = EPhase::Fields;
             }
             if (Phase == EPhase::Fields)
@@ -353,7 +374,7 @@ namespace BaddieCompanion::WorldReadPrivate
             const auto& Rule = Schema->Fields[Index];
             if (Phase == EPhase::Kind)
             {
-                if (!Storage.Budget->Spend(24)) return Yield(Storage);
+                if (!Storage.Budget->Spend(2 * sizeof(FTextRead) + 128)) return Yield(Storage);
                 if (Rule.ConditionField != MAX_uint32)
                 {
                     if (Rule.ConditionField >= Index) return Status = EStep::Invalid;
@@ -364,7 +385,7 @@ namespace BaddieCompanion::WorldReadPrivate
                 if (!Value.IsSet()) { Phase = EPhase::Advance; }
                 else
                 {
-                    const auto* Node = Storage.Get(Value.Root, Value.Node);
+                    const auto* Node = Resolve(Storage, Value);
                     if (!Node) return Status = EStep::Invalid;
                     if (Node->Kind == EWorldValueKind::Null)
                     {
@@ -400,7 +421,7 @@ namespace BaddieCompanion::WorldReadPrivate
                 if (ChoiceIndex == Rule.ChoiceCount) return Status = EStep::Invalid;
                 if (!bTextStarted)
                 {
-                    if (!Storage.Budget->Spend(4)) return Yield(Storage);
+                    if (!Storage.Budget->Spend(2 * sizeof(FTextRead) + 64)) return Yield(Storage);
                     Text.Compare(Slots[Index].Value, Rule.Choices[ChoiceIndex].Text, Rule.Choices[ChoiceIndex].Count);
                     bTextStarted = true;
                 }
@@ -501,12 +522,14 @@ namespace BaddieCompanion::WorldReadPrivate
         {
             const auto Result = BindingRecord.Advance(Storage);
             if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+            if (!Storage.Budget->Spend(FRecordRead::BeginWork())) return Yield(Storage);
             ReceiptRecord.Begin(BindingRecord.Field(BindingReceipt), ReceiptSchema()); Phase = 1;
         }
         if (Phase == 1)
         {
             const auto Result = ReceiptRecord.Advance(Storage);
             if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+            if (!Storage.Budget->Spend(FRecordRead::BeginWork())) return Yield(Storage);
             VisitRecord.Begin(ReceiptRecord.Field(ReceiptVisit), VisitSchema()); Phase = 2;
         }
         if (Phase == 2)
@@ -514,6 +537,7 @@ namespace BaddieCompanion::WorldReadPrivate
             const auto Result = VisitRecord.Advance(Storage);
             if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
             if (BindingRecord.Presence(BindingPendingHome) == EWorldFieldPresence::Null) return Status = EStep::Complete;
+            if (!Storage.Budget->Spend(FRecordRead::BeginWork())) return Yield(Storage);
             PendingRecord.Begin(BindingRecord.Field(BindingPendingHome), PendingHomeSchema()); Phase = 3;
         }
         const auto Result = PendingRecord.Advance(Storage);
@@ -527,11 +551,12 @@ namespace BaddieCompanion::WorldReadPrivate
         // the active depth; reinitialization clears used fields under the budget.
         Depth = 0; Status = EStep::Invalid;
         RacingInstance = {}; RacingUpdatedAt = 0;
+        SelectedLibrary = SelectedCharacter = SelectedHome = SelectedActiveRoom = {};
     }
     void FDomainRead::Begin(FValueRef Value, EDomain Domain)
     {
-        Cancel(); Frames[0].Value = Value; Frames[0].Domain = Domain;
-        Frames[0].Phase = 0; Status = EStep::Pending;
+        Cancel(); StartValue = Value; StartDomain = Domain;
+        bBegin = true; Status = EStep::Pending;
     }
     EStep FDomainRead::Advance(const FStorage& Storage)
     {
@@ -540,15 +565,26 @@ namespace BaddieCompanion::WorldReadPrivate
         while (true)
         {
             if (!Storage.Budget->Spend(4)) return Yield(Storage);
-            auto& Frame = Frames[Depth];
+            if (!InitializedFrames)
+            {
+                if (!Storage.Budget->Spend(sizeof(FFrame))) return Yield(Storage);
+                new (Frames[0].Bytes) FFrame; ++InitializedFrames;
+            }
+            if (bBegin)
+            {
+                FrameAt(0).Value = StartValue; FrameAt(0).Domain = StartDomain;
+                FrameAt(0).Phase = 0; bBegin = false;
+            }
+            auto& Frame = FrameAt(Depth);
             const auto& Schema = DomainSchema(Frame.Domain);
             if (Frame.Phase == 0)
             {
-                if (!Storage.Budget->Spend(80)) return Yield(Storage);
-                const auto* Node = Storage.Get(Frame.Value.Root, Frame.Value.Node);
+                if (!Storage.Budget->Spend(80 + (Schema.Record ? FRecordRead::BeginWork() : 0))) return Yield(Storage);
+                const auto* Node = Resolve(Storage, Frame.Value);
                 if (!Node || Node->Kind != Schema.Kind) return Status = EStep::Invalid;
                 Frame.Child = 0; Frame.Index = 0; Frame.Next = Node->FirstChild; Frame.Count = Node->Count;
                 Frame.Relation = 0; Frame.bComparing = false; Frame.Lanes = 0; Frame.MovementPointCount = 0;
+                Frame.Selected = 0;
                 if (Schema.Kind == EWorldValueKind::Number)
                 {
                     double N = 0;
@@ -575,6 +611,12 @@ namespace BaddieCompanion::WorldReadPrivate
             }
             if (Frame.Phase == 2)
             {
+                // Admit a possible child frame before advancing any parent cursor.
+                if (Depth + 1 < FrameCount && InitializedFrames <= Depth + 1)
+                {
+                    if (!Storage.Budget->Spend(sizeof(FFrame))) return Yield(Storage);
+                    new (Frames[InitializedFrames].Bytes) FFrame; ++InitializedFrames;
+                }
                 FValueRef Child;
                 EDomain ChildDomain = EDomain::Number;
                 uint32 ParentField = MAX_uint32;
@@ -588,10 +630,10 @@ namespace BaddieCompanion::WorldReadPrivate
                     else
                     {
                         if (!Storage.Budget->Spend(16)) return Yield(Storage);
-                        const auto* Node = Storage.Get(Frame.Value.Root, Frame.Next);
+                        const auto* Node = Resolve(Storage, Frame.Value.Child(Frame.Next));
                         if (!Node || Node->Role != 3 || Node->Parent != Frame.Value.Node || Node->Slot != Frame.Index)
                             return Status = EStep::Invalid;
-                        Child = {Node->Id, Frame.Value.Root}; ChildDomain = Schema.Element;
+                        Child = Frame.Value.Child(Node->Id); ChildDomain = Schema.Element;
                         Frame.Next = Node->NextSibling; ++Frame.Index;
                     }
                 }
@@ -607,7 +649,7 @@ namespace BaddieCompanion::WorldReadPrivate
                 if (Child.IsSet())
                 {
                     if (Depth + 1 >= FrameCount) return Status = EStep::Invalid;
-                    auto& Next = Frames[++Depth];
+                    auto& Next = FrameAt(++Depth);
                     Next.Value = Child; Next.Domain = ChildDomain; Next.Phase = 0;
                     Next.ParentField = ParentField;
                     continue;
@@ -623,7 +665,7 @@ namespace BaddieCompanion::WorldReadPrivate
             {
                 if (!Storage.Budget->Spend(32)) return Yield(Storage);
                 if (!Depth) return Status = EStep::Complete;
-                auto& Parent = Frames[Depth - 1];
+                auto& Parent = FrameAt(Depth - 1);
                 if (Schema.Kind == EWorldValueKind::Number && Parent.Index > 0 && Parent.Index <= 3
                     && (Parent.Domain == EDomain::ScenePoint || Parent.Domain == EDomain::Vertex
                         || Parent.Domain == EDomain::Edge || Parent.Domain == EDomain::WaterVelocity))
@@ -637,19 +679,20 @@ namespace BaddieCompanion::WorldReadPrivate
     {
         // All ancestor searches below are over the static grammar stack.
         if (!Storage.Budget->Spend(FrameCount * 8 + 32)) return Yield(Storage);
-        auto& Frame = Frames[Depth];
+        auto& Frame = FrameAt(Depth);
         auto& R = Frame.Record;
         auto Ancestor = [&](EDomain Domain) -> FFrame*
         {
-            for (uint32 I = Depth; I > 0; --I) if (Frames[I - 1].Domain == Domain) return &Frames[I - 1];
+            for (uint32 I = Depth; I > 0; --I) if (FrameAt(I - 1).Domain == Domain) return &FrameAt(I - 1);
             return nullptr;
         };
-        auto* Parent = Depth ? &Frames[Depth - 1] : nullptr;
+        auto* Parent = Depth ? &FrameAt(Depth - 1) : nullptr;
         auto* Player = Ancestor(EDomain::Player);
         auto Match = [&](FValueRef A, FValueRef B, const TCHAR* Prefix = nullptr, uint64 PrefixCount = 0) -> EStep
         {
             if (!Frame.bComparing)
             {
+                if (!Storage.Budget->Spend(2 * sizeof(FTextRead) + 64)) return Yield(Storage);
                 if (Prefix) Frame.Comparison.ComparePrefixed(A, B, Prefix, PrefixCount);
                 else Frame.Comparison.Compare(A, B);
                 Frame.bComparing = true;
@@ -692,7 +735,10 @@ namespace BaddieCompanion::WorldReadPrivate
             if (!Player) return EStep::Complete;
             if (Player->Record.Choice(10) != 0 || R.Number(1) != Player->Record.Number(6)) return EStep::Invalid;
             if (!Frame.bComparing)
-            { Frame.Comparison.Compare(Player->Record.Field(3), TEXT("nightclub"), 9); Frame.bComparing = true; }
+            {
+                if (!Storage.Budget->Spend(2 * sizeof(FTextRead) + 64)) return Yield(Storage);
+                Frame.Comparison.Compare(Player->Record.Field(3), TEXT("nightclub"), 9); Frame.bComparing = true;
+            }
             const auto Result = Frame.Comparison.Advance(Storage);
             return Result == EStep::Complete && !Frame.Comparison.Equal() ? EStep::Invalid : Result;
         }
@@ -767,7 +813,10 @@ namespace BaddieCompanion::WorldReadPrivate
             while (Frame.Relation < PriorCount)
             {
                 if (!Frame.bComparing)
-                { Frame.Comparison.Compare(R.Field(0), Parent->SeenUsers[Frame.Relation]); Frame.bComparing = true; }
+                {
+                    if (!Storage.Budget->Spend(2 * sizeof(FTextRead) + 64)) return Yield(Storage);
+                    Frame.Comparison.Compare(R.Field(0), Parent->SeenUsers[Frame.Relation]); Frame.bComparing = true;
+                }
                 const auto Result = Frame.Comparison.Advance(Storage);
                 if (Result != EStep::Complete) return Result;
                 if (Frame.Comparison.Equal()) return EStep::Invalid;
@@ -778,6 +827,40 @@ namespace BaddieCompanion::WorldReadPrivate
         }
         case EDomain::Race:
             RacingInstance = R.Field(1); RacingUpdatedAt = static_cast<int64>(R.Number(6)); return EStep::Complete;
+        case EDomain::SavedCharacter:
+        case EDomain::SavedRoom:
+        {
+            auto* LibraryFrame = Ancestor(EDomain::Library);
+            if (!Parent || !LibraryFrame || Parent->Index < 1 || Parent->Index > 12) return EStep::Invalid;
+            const bool bCharacter = Frame.Domain == EDomain::SavedCharacter;
+            const uint32 PriorCount = static_cast<uint32>(Parent->Index - 1);
+            const uint32 Comparisons = PriorCount + (bCharacter ? 1 : 2);
+            while (Frame.Relation < Comparisons)
+            {
+                const bool bDuplicate = Frame.Relation < PriorCount;
+                const auto Against = bDuplicate ? Parent->SeenUsers[Frame.Relation]
+                    : LibraryFrame->Record.Field(bCharacter ? 1 : Frame.Relation == PriorCount ? 2 : 3);
+                if (!Frame.bComparing)
+                {
+                    if (!Storage.Budget->Spend(2 * sizeof(FTextRead) + 64)) return Yield(Storage);
+                    Frame.Comparison.Compare(R.Field(0), Against); Frame.bComparing = true;
+                }
+                const auto Result = Frame.Comparison.Advance(Storage);
+                if (Result != EStep::Complete) return Result;
+                if (Frame.Comparison.Equal())
+                {
+                    if (bDuplicate) return EStep::Invalid;
+                    if (bCharacter) { LibraryFrame->Selected |= 1; SelectedCharacter = Frame.Value; }
+                    else if (Frame.Relation == PriorCount) { LibraryFrame->Selected |= 2; SelectedActiveRoom = Frame.Value; }
+                    else { LibraryFrame->Selected |= 4; SelectedHome = Frame.Value; }
+                }
+                ++Frame.Relation; Frame.bComparing = false;
+            }
+            Parent->SeenUsers[PriorCount] = R.Field(0);
+            return EStep::Complete;
+        }
+        case EDomain::Library:
+            SelectedLibrary = Frame.Value; return Frame.Selected == 7 ? EStep::Complete : EStep::Invalid;
         default: return EStep::Complete;
         }
     }
@@ -832,48 +915,58 @@ namespace BaddieCompanion::WorldObservationPrivate
         // Every owner moves storage to RetireDetached before dropping its last reference.
         // No recursive tree deletion is permitted here.
         ensureMsgf(RetireRoot == RootLimit, TEXT("World observation storage was not retired."));
+        ensureMsgf(!Players && !RacingOwner, TEXT("World semantic projections were not retired."));
         Budget->Release(ChargedBytes);
     }
     FNode* FStorage::Get(uint8 Root, uint64 Id) const
     {
         return Root < RootLimit && Roots[Root] ? Roots[Root]->Get(Id) : nullptr;
     }
+    EStep FStorage::ReleaseRoot(FRoot*& Root, FBudget& Budget)
+    {
+        if (!Root) return EStep::Complete;
+        if (!Budget.Spend(8, false)) return EStep::Pending;
+        if (Root->Owners > 1) { --Root->Owners; Root = nullptr; return EStep::Complete; }
+        while (Root->RetireNode <= Root->Nodes)
+        {
+            if (!Budget.Spend(8, false)) return EStep::Pending;
+            auto* Node = Root->Get(Root->RetireNode);
+            if (Node && Node->Text)
+            {
+                if (!Budget.Spend(sizeof(FStringBlock), false)) return EStep::Pending;
+                auto* Block = Node->Text; Node->Text = Block->Next;
+                delete Block; Budget.Release(sizeof(FStringBlock) * 2 + 64);
+                continue;
+            }
+            if (Root->RetireNode % 64 == 0 || Root->RetireNode == Root->Nodes)
+            {
+                if (!Budget.Spend(sizeof(FNodePage), false)) return EStep::Pending;
+                const uint64 Index = (Root->RetireNode - 1) / 64;
+                delete Root->Index[Index]; Root->Index[Index] = nullptr;
+                Budget.Release(sizeof(FNodePage) * 2 + 64);
+            }
+            ++Root->RetireNode;
+        }
+        if (!Budget.Spend(256, false)) return EStep::Pending;
+        delete Root; Root = nullptr; Budget.Release(sizeof(FRoot) * 2 + 64);
+        return EStep::Complete;
+    }
     EStep FStorage::Retire()
     {
-        bRetiring = true; bComplete = false;
+        bRetiring = true; bComplete = bSemanticsComplete = false;
+        while (Players)
+        {
+            if (Players->Retire(*Budget) != EStep::Complete) return EStep::Pending;
+            if (!Budget->Spend(sizeof(WorldReadPrivate::FPlayerResult), false)) return EStep::Pending;
+            auto* Old = Players; Players = Old->Next; delete Old;
+            Budget->Release(WorldReadPrivate::QualifiedSemanticPeerBytes);
+        }
+        if (ReleaseRoot(RacingOwner, *Budget) != EStep::Complete) return EStep::Pending;
         while (RetireRoot < RootLimit)
         {
             if (!Budget->Spend(1, false)) return EStep::Pending;
-            auto*& Root = Roots[RetireRoot];
-            if (!Root) { ++RetireRoot; RetireNode = 1; continue; }
-            if (RetireNode <= Root->Nodes)
-            {
-                auto* Node = Root->Get(RetireNode);
-                if (Node && Node->Text)
-                {
-                    if (!Budget->Spend(sizeof(FStringBlock), false)) return EStep::Pending;
-                    auto* Block = Node->Text;
-                    Node->Text = Block->Next;
-                    delete Block;
-                    Budget->Release(sizeof(FStringBlock) * 2 + 64);
-                    continue;
-                }
-                // Release a node page only after its last live node has been retired.
-                if (RetireNode % 64 == 0 || RetireNode == Root->Nodes)
-                {
-                    if (!Budget->Spend(sizeof(FNodePage), false)) return EStep::Pending;
-                    const uint64 Index = (RetireNode - 1) / 64;
-                    delete Root->Index[Index]; Root->Index[Index] = nullptr;
-                    Budget->Release(sizeof(FNodePage) * 2 + 64);
-                }
-                ++RetireNode;
-                continue;
-            }
-            // Pointer index storage is trivial and has no owned element destructors.
-            if (!Budget->Spend(256, false)) return EStep::Pending;
-            delete Root; Root = nullptr;
-            Budget->Release(sizeof(FRoot) * 2 + 64);
-            ++RetireRoot; RetireNode = 1;
+            if (ReleaseRoot(Roots[RetireRoot], *Budget) != EStep::Complete) return EStep::Pending;
+            ++RetireRoot;
         }
         return EStep::Complete;
     }

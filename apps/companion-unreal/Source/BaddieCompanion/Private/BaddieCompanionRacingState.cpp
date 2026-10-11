@@ -266,8 +266,8 @@ namespace BaddieCompanion
             if (!Same(Next.Race->InstanceId, ExpectedInstanceId)) return ERacingReadResult::InstanceMismatch;
             // Validate all incoming fields first. Retain the COMPLETE prior snapshot,
             // including its selected car and eligibility, even across different race IDs.
-            if (Previous.IsValid() && Previous->Race.IsSet() && Same(Previous->Race->InstanceId, ExpectedInstanceId)
-                && Previous->Race->UpdatedAtMs > Next.Race->UpdatedAtMs)
+            if (Previous.IsValid() && Previous->Race.IsSet() && WorldReadPrivate::RetainRacing(
+                Same(Previous->Race->InstanceId, ExpectedInstanceId), Next.Race->UpdatedAtMs, Previous->Race->UpdatedAtMs))
             {
                 Out = MoveTemp(Previous);
                 OutError.Reset();

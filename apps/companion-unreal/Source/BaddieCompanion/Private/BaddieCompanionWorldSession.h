@@ -26,13 +26,14 @@ namespace BaddieCompanion
         int32 EntrySequence = 0;
         FString GrantId, UserId, CharacterId, HomeRoomId, GameRoomId;
         FString ParticipantId, CallSessionId, ExpressionSessionId;
+        FString ApprovingSessionId, ReservationGeneration;
         double Deadline = 0;
     };
 
     class FWorldSession
     {
     public:
-        FWorldSession() = default;
+        FWorldSession();
         ~FWorldSession();
         FWorldSession(const FWorldSession&) = delete;
         FWorldSession& operator=(const FWorldSession&) = delete;
@@ -59,6 +60,9 @@ namespace BaddieCompanion
         void Unavailable(EWorldReadStatus Status);
         void ProcessBody();
         void AdvancePages();
+        void AdvanceSemantics();
+        void CancelSemantics();
+        bool RetireSemantics();
         WorldObservationPrivate::EStep ValidateCandidate();
         bool AcceptBinding(const TSharedPtr<FJsonObject>& Reply);
         void Retire(TSharedPtr<WorldObservationPrivate::FStorage> Storage);
@@ -68,6 +72,8 @@ namespace BaddieCompanion
         TSharedPtr<WorldObservationPrivate::FBudget> Budget;
         TUniquePtr<WorldObservationPrivate::FPages> Pages;
         TSharedPtr<WorldObservationPrivate::FStorage> Candidate, Accepted;
+        struct FSemanticData;
+        TUniquePtr<FSemanticData> Semantic;
         // One retirement owner, with fixed slots for a prior retirement and the
         // accepted/candidate pair revoked together. It drains only one at a time.
         TSharedPtr<WorldObservationPrivate::FStorage> Retiring[3];

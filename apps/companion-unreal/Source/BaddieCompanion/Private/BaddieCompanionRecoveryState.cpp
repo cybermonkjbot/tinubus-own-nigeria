@@ -53,6 +53,7 @@ namespace BaddieCompanion
                 const auto Result = ReadKind(Storage, Root, Kind);
                 if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
                 if (Kind == EWorldValueKind::Null) { bNull = true; return Status = EStep::Complete; }
+                if (!Storage.Budget->Spend(FRecordRead::BeginWork())) return Storage.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
                 Health.Begin(Root, HealthSchema()); Phase = 1;
             }
             if (Phase == 1)
@@ -60,6 +61,7 @@ namespace BaddieCompanion
                 const auto Result = Health.Advance(Storage);
                 if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
                 if (Health.Presence(7) == EWorldFieldPresence::Null) return Status = EStep::Complete;
+                if (!Storage.Budget->Spend(FRecordRead::BeginWork())) return Storage.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
                 Destination.Begin(Health.Field(7), RecoveryDestinationSchema()); Phase = 2;
             }
             if (Phase == 2)
@@ -72,7 +74,7 @@ namespace BaddieCompanion
             {
                 if (!Storage.Budget->Spend(8)) return Storage.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
                 const auto Ref = Destination.Field(2);
-                const auto* Array = Storage.Get(Ref.Root, Ref.Node);
+                const auto* Array = Resolve(Storage, Ref);
                 if (!Array) return Status = EStep::Invalid;
                 Position = Array->FirstChild; Phase = 4;
             }
@@ -81,7 +83,7 @@ namespace BaddieCompanion
                 // Coordinate and sibling are one atomic step, so a tick yield
                 // cannot skip a value or reread it without charging.
                 if (!Storage.Budget->Spend(24)) return Storage.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
-                const auto* Node = Storage.Get(Root.Root, Position);
+                const auto* Node = Resolve(Storage, Root.Child(Position));
                 if (!Node || Node->Kind != EWorldValueKind::Number) return Status = EStep::Invalid;
                 double N = 0;
                 FMemory::Memcpy(&N, &Node->NumberBits, sizeof(N));

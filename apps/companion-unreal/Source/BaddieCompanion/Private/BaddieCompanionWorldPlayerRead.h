@@ -7,6 +7,7 @@
 
 #include <cmath>
 #include <cfloat>
+#include <type_traits>
 
 class FJsonObject;
 class FJsonValue;
@@ -36,6 +37,20 @@ namespace BaddieCompanion
         inline bool DanceBeat(int64 Beat, uint64 Lanes) { return Beat >= 0 && static_cast<uint64>(Beat) < Lanes; }
         inline bool MovementScope(int64 Sequence, int64 Revision, int64 PlayerSequence, int64 PlayerRevision)
         { return Sequence == PlayerSequence && Revision == PlayerRevision; }
+        inline bool RetainDriving(bool SameIdentity, int64 Revision, int64 Sequence, int64 At,
+            int64 PriorRevision, int64 PriorSequence, int64 PriorAt)
+        { return SameIdentity && (Revision < PriorRevision || Sequence < PriorSequence || At < PriorAt); }
+        inline bool RetainWater(bool SameScope, int64 Sequence, int64 Revision, int64 At,
+            int64 PriorSequence, int64 PriorRevision, int64 PriorAt)
+        { return SameScope && (Sequence < PriorSequence || Revision < PriorRevision || At < PriorAt); }
+        inline bool ConflictingTransport(bool Driving, bool ActiveWater, bool Movement, bool Transit, bool TravelingJourney)
+        { return (Driving && ActiveWater) || ((Driving || ActiveWater) && (Movement || Transit || TravelingJourney)); }
+        inline bool RetainRacing(bool SameInstance, int64 UpdatedAt, int64 PriorUpdatedAt)
+        { return SameInstance && UpdatedAt < PriorUpdatedAt; }
+        inline bool DrivingSpeed(double Speed) { return FiniteNumber(Speed) && Speed >= -7 && Speed <= 7; }
+        inline bool WaterRevision(int64 Revision) { return Revision >= 0 && Revision < MaxSafeInteger - 1; }
+        inline bool WaterTiming(int64 Started, int64 Input, int64 Simulated, int64 Expires, int64 Ends)
+        { return Started <= Simulated && Input <= Simulated && Expires <= Ends; }
 
         struct FTextRule
         {
@@ -57,9 +72,33 @@ namespace BaddieCompanion
         {
             uint64 Node = 0;
             uint8 Root = 0;
+            WorldObservationPrivate::FRoot* Owner = nullptr;
             bool IsSet() const { return Node != 0; }
-            bool operator==(const FValueRef& Other) const { return Node == Other.Node && Root == Other.Root; }
+            bool operator==(const FValueRef& Other) const { return Node == Other.Node && Root == Other.Root && Owner == Other.Owner; }
             bool operator!=(const FValueRef& Other) const { return !(*this == Other); }
+            FValueRef Child(uint64 Id) const { return {Id, Root, Owner}; }
+        };
+        inline const WorldObservationPrivate::FNode* Resolve(const WorldObservationPrivate::FStorage& Storage, FValueRef Value)
+        { return Value.Owner ? Value.Owner->Get(Value.Node) : Storage.Get(Value.Root, Value.Node); }
+        constexpr uint64 QualifiedSemanticPeerBytes = 0;
+        struct FOrigin { FValueRef Ref; bool Previous = false; };
+        struct FPlayerResult
+        {
+            FPlayerResult* Next = nullptr;
+            FValueRef Raw;
+            FOrigin Position, Driving, Water, Weapon, DanceInputs[24];
+            uint32 DanceCount = 0, RetireField = 0;
+            bool bPeer = false, bIncluded = true, bDanceMerged = false, bControlUnavailable = true, bPinned = false;
+            FValueRef& Reference(uint32 Index)
+            {
+                if (!Index) return Raw;
+                if (Index == 1) return Position.Ref;
+                if (Index == 2) return Driving.Ref;
+                if (Index == 3) return Water.Ref;
+                if (Index == 4) return Weapon.Ref;
+                return DanceInputs[Index - 5].Ref;
+            }
+            WorldObservationPrivate::EStep Retire(WorldObservationPrivate::FBudget& Budget);
         };
         struct FFieldSlot
         {
@@ -79,7 +118,9 @@ namespace BaddieCompanion
         public:
             void Begin(FValueRef Value, FTextRule Rule);
             void Compare(FValueRef Left, FValueRef Right);
+            void Compare(FValueRef Left, const WorldObservationPrivate::FStorage& Previous, FValueRef Right);
             void ComparePrefixed(FValueRef Left, FValueRef Right, const TCHAR* Prefix, uint64 PrefixLength);
+            void StartsWith(FValueRef Left, const TCHAR* Prefix, uint64 Length);
             void Compare(FValueRef Left, const FString& Right);
             void Compare(FValueRef Left, const TCHAR* Right, uint64 Length);
             WorldObservationPrivate::EStep Advance(const WorldObservationPrivate::FStorage& Storage);
@@ -88,13 +129,14 @@ namespace BaddieCompanion
         private:
             FValueRef Left, Right;
             const WorldObservationPrivate::FStorage* Owner = nullptr;
+            const WorldObservationPrivate::FStorage* OtherOwner = nullptr;
             FTextRule Rule;
             const TCHAR* Literal = nullptr;
             const WorldObservationPrivate::FStringBlock* LeftBlock = nullptr;
             const WorldObservationPrivate::FStringBlock* RightBlock = nullptr;
             uint64 Offset = 0, Count = 0, LiteralCount = 0;
             uint16 LeftOffset = 0, RightOffset = 0;
-            bool bStarted = false, bCompare = false, bEqual = true, bNonWhitespace = false;
+            bool bStarted = false, bCompare = false, bEqual = true, bNonWhitespace = false, bPrefixOnly = false;
             WorldObservationPrivate::EStep Status = WorldObservationPrivate::EStep::Invalid;
         };
         class FObjectRead
@@ -182,15 +224,16 @@ namespace BaddieCompanion
         {
         public:
             static constexpr uint32 Capacity = 32;
+            static uint64 BeginWork() { return 2 * (sizeof(FObjectRead) + sizeof(FTextRead)) + 128; }
             void Begin(FValueRef Object, const FRecordSchema& Schema);
             WorldObservationPrivate::EStep Advance(const WorldObservationPrivate::FStorage& Storage);
             void Cancel();
-            FValueRef Field(uint32 Index) const { return Index < Capacity ? Slots[Index].Value : FValueRef{}; }
-            double Number(uint32 Index) const { return Index < Capacity ? Facts.Numbers[Index] : 0; }
-            int32 Choice(uint32 Index) const { return Index < Capacity ? Facts.Choices[Index] : -1; }
-            uint64 Count(uint32 Index) const { return Index < Capacity ? Facts.Counts[Index] : 0; }
+            FValueRef Field(uint32 Index) const { return Schema && Index < Schema->Count ? Slots[Index].Value : FValueRef{}; }
+            double Number(uint32 Index) const { return Schema && Index < Schema->Count ? Facts.Numbers[Index] : 0; }
+            int32 Choice(uint32 Index) const { return Schema && Index < Schema->Count ? Facts.Choices[Index] : -1; }
+            uint64 Count(uint32 Index) const { return Schema && Index < Schema->Count ? Facts.Counts[Index] : 0; }
             EWorldFieldPresence Presence(uint32 Index) const
-            { return Index < Capacity ? Facts.Presences[Index] : EWorldFieldPresence::Missing; }
+            { return Schema && Index < Schema->Count ? Facts.Presences[Index] : EWorldFieldPresence::Missing; }
         private:
             FValueRef Object;
             const FRecordSchema* Schema = nullptr;
@@ -266,6 +309,7 @@ namespace BaddieCompanion
             VehicleVector, VehicleOrientation, VehicleWheel, VehicleWheels, VehicleDynamics,
             Water, WaterScope, WaterInput, WaterSnag, WaterVelocity,
             RaceInput, RaceCar, RaceCars, Race, SelectedCar, Racing,
+            Selection, Library, SavedCharacter, Appearance, SavedRoom, Characters, Rooms,
             Count
         };
         struct FChildRule { uint32 Field; EDomain Domain; };
@@ -283,6 +327,7 @@ namespace BaddieCompanion
         const FDomainSchema& DomainSchema(EDomain Domain);
         const FDomainSchema& MovementDomainSchema(EDomain Domain);
         const FDomainSchema& RacingDomainSchema(EDomain Domain);
+        const FDomainSchema& SelectionDomainSchema(EDomain Domain);
 
         // The calling owner must pin the same storage from Begin through completion
         // or Cancel. None of these readers retains ownership or grants publication.
@@ -291,12 +336,18 @@ namespace BaddieCompanion
         class FDomainRead
         {
         public:
+            FDomainRead() {}
+            static uint64 DeferredBytes() { return sizeof(Frames); }
             void Begin(FValueRef Value, EDomain Domain);
             WorldObservationPrivate::EStep Advance(const WorldObservationPrivate::FStorage& Storage);
             void Cancel();
-            const FRecordRead& RootRecord() const { return Frames[0].Record; }
+            const FRecordRead& RootRecord() const { return FrameAt(0).Record; }
             FValueRef RaceInstance() const { return RacingInstance; }
             int64 RaceUpdatedAt() const { return RacingUpdatedAt; }
+            FValueRef Library() const { return SelectedLibrary; }
+            FValueRef Character() const { return SelectedCharacter; }
+            FValueRef Home() const { return SelectedHome; }
+            FValueRef ActiveRoom() const { return SelectedActiveRoom; }
         private:
             struct FFrame
             {
@@ -305,7 +356,8 @@ namespace BaddieCompanion
                 FRecordRead Record;
                 uint64 Next = 0, Count = 0, Index = 0;
                 double Scalar = 0, Tuple[3]{};
-                FValueRef SeenUsers[8];
+                FValueRef SeenUsers[12];
+                uint8 Selected = 0;
                 uint64 Lanes = 0;
                 FTextRead Comparison;
                 uint32 Relation = 0, ParentField = MAX_uint32;
@@ -317,10 +369,19 @@ namespace BaddieCompanion
                 uint8 Phase = 0;
             };
             static constexpr uint32 FrameCount = 12;
-            FFrame Frames[FrameCount];
+            static_assert(std::is_trivially_destructible_v<FFrame>, "Deferred frames must not own resources.");
+            struct FFrameSlot { alignas(FFrame) uint8 Bytes[sizeof(FFrame)]; };
+            FFrameSlot Frames[FrameCount];
+            FFrame& FrameAt(uint32 Index) { return *reinterpret_cast<FFrame*>(Frames[Index].Bytes); }
+            const FFrame& FrameAt(uint32 Index) const { return *reinterpret_cast<const FFrame*>(Frames[Index].Bytes); }
+            uint32 InitializedFrames = 0;
+            FValueRef StartValue;
+            EDomain StartDomain = EDomain::Number;
+            bool bBegin = false;
             uint32 Depth = 0;
             FValueRef RacingInstance;
             int64 RacingUpdatedAt = 0;
+            FValueRef SelectedLibrary, SelectedCharacter, SelectedHome, SelectedActiveRoom;
             WorldObservationPrivate::EStep Status = WorldObservationPrivate::EStep::Invalid;
             WorldObservationPrivate::EStep Relations(const WorldObservationPrivate::FStorage& Storage);
         };

@@ -4,6 +4,8 @@
 #include "Dom/JsonObject.h"
 #include "Templates/PimplPtr.h"
 
+namespace BaddieCompanion::WorldReadPrivate { struct FPlayerResult; }
+
 namespace BaddieCompanion::WorldObservationPrivate
 {
     constexpr uint64 RetainedLimit = 67108864, CandidateWorkLimit = 67108864;
@@ -68,6 +70,7 @@ namespace BaddieCompanion::WorldObservationPrivate
         uint64 Parent = 0, OpenString = 0, StringOffset = 0;
         FString RecordHash, PageHash;
         bool bClosed = false;
+        uint64 Owners = 1, RetireNode = 1;
         FNode* Get(uint64 Id) const;
     };
     struct FStorage
@@ -80,9 +83,16 @@ namespace BaddieCompanion::WorldObservationPrivate
         FManifest Manifest;
         FRoot* Roots[RootLimit]{};
         uint8 RetireRoot = 0;
-        uint64 RetireNode = 1;
         bool bComplete = false, bRetiring = false;
         uint64 ChargedBytes = 0;
+        WorldReadPrivate::FPlayerResult* Players = nullptr;
+        FRoot* RacingOwner = nullptr;
+        uint64 RacingNode = 0, RaceInstanceNode = 0;
+        int64 RaceTick = 0;
+        uint64 SemanticGeneration = 0;
+        int64 PlayerRevision = -1, MoveSequence = -1, HealthRevision = -1, SavedRevision = -1;
+        bool bSemanticsComplete = false;
+        static EStep ReleaseRoot(FRoot*& Root, FBudget& Budget);
         EStep Retire();
         FNode* Get(uint8 Root, uint64 Id) const;
     };
