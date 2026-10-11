@@ -7,6 +7,70 @@
 
 namespace BaddieCompanion
 {
+    namespace WorldReadPrivate
+    {
+        const FDomainSchema& RacingDomainSchema(EDomain Domain)
+        {
+            using K = EWorldValueKind;
+            switch (Domain)
+            {
+            case EDomain::RaceInput:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("throttle"), K::Number).WithNumber(0, 1),
+                    FFieldRule(TEXT("brake"), K::Number).WithNumber(0, 1), FFieldRule(TEXT("steering"), K::Number).WithNumber(-1, 1),
+                    FFieldRule(TEXT("handbrake"), K::Boolean), FFieldRule(TEXT("gear"), K::Number).WithNumber(1, 6, true)};
+                static constexpr FRecordSchema R(F); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::RaceCar:
+            {
+                static constexpr FTextChoice Transmissions[] = {TEXT("automatic"), TEXT("manual")};
+                static constexpr FTextChoice Statuses[] = {TEXT("ready"), TEXT("racing"), TEXT("finished"), TEXT("withdrawn")};
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("userId"), K::String), FFieldRule(TEXT("name"), K::String).WithText({0, 60}),
+                    FFieldRule(TEXT("vehicleId"), K::String), FFieldRule(TEXT("transmission"), K::String).WithChoices(Transmissions),
+                    FFieldRule(TEXT("x"), K::Number).WithNumber(-155, 155), FFieldRule(TEXT("z"), K::Number).WithNumber(-95, 95),
+                    FFieldRule(TEXT("yaw"), K::Number), FFieldRule(TEXT("speed"), K::Number).WithNumber(0, 36), FFieldRule(TEXT("gear"), K::Number),
+                    FFieldRule(TEXT("sequence"), K::Number), FFieldRule(TEXT("input"), K::Object), FFieldRule(TEXT("inputAt"), K::Number),
+                    FFieldRule(TEXT("simulatedAt"), K::Number), FFieldRule(TEXT("recoveredAt"), K::Number, false).WithNumber(-MaxSafeInteger, MaxSafeInteger, true),
+                    FFieldRule(TEXT("distance"), K::Number), FFieldRule(TEXT("progress"), K::Number), FFieldRule(TEXT("nextCheckpoint"), K::Number).WithNumber(0, 7, true),
+                    FFieldRule(TEXT("laps"), K::Number).WithNumber(0, 3, true), FFieldRule(TEXT("lapStartedAt"), K::Number),
+                    FFieldRule(TEXT("lastLapMs"), K::Number, true, true), FFieldRule(TEXT("bestLapMs"), K::Number, true, true),
+                    FFieldRule(TEXT("finishedAt"), K::Number, true, true), FFieldRule(TEXT("status"), K::String).WithChoices(Statuses)};
+                static constexpr FRecordSchema R(F); static constexpr FChildRule C[] = {{10, EDomain::RaceInput}};
+                static const FDomainSchema S{&R, C, UE_ARRAY_COUNT(C)}; return S;
+            }
+            case EDomain::RaceCars:
+            { static const FDomainSchema S{nullptr, nullptr, 0, K::Array, EDomain::RaceCar, 0, 8}; return S; }
+            case EDomain::Race:
+            {
+                static constexpr FTextChoice Phases[] = {TEXT("lobby"), TEXT("countdown"), TEXT("racing"), TEXT("finished"), TEXT("cancelled")};
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("id"), K::String).WithText({0, 300}), FFieldRule(TEXT("instanceId"), K::String),
+                    FFieldRule(TEXT("hostId"), K::String), FFieldRule(TEXT("phase"), K::String).WithChoices(Phases),
+                    FFieldRule(TEXT("startsAt"), K::Number, true, true).WithNumber(-MaxSafeInteger, MaxSafeInteger, true),
+                    FFieldRule(TEXT("endsAt"), K::Number, true, true).WithNumber(-MaxSafeInteger, MaxSafeInteger, true),
+                    FFieldRule(TEXT("updatedAt"), K::Number).WithNumber(-MaxSafeInteger, MaxSafeInteger, true),
+                    FFieldRule(TEXT("cars"), K::Array).WithCount(0, 8)};
+                static constexpr FRecordSchema R(F); static constexpr FChildRule C[] = {{7, EDomain::RaceCars}};
+                static const FDomainSchema S{&R, C, UE_ARRAY_COUNT(C)}; return S;
+            }
+            case EDomain::SelectedCar:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("vehicleId"), K::String).WithText({0, 240}), FFieldRule(TEXT("revision"), K::Number),
+                    FFieldRule(TEXT("fuelUnits"), K::Number), FFieldRule(TEXT("condition"), K::Number), FFieldRule(TEXT("here"), K::Boolean)};
+                static constexpr FRecordSchema R(F); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::Racing:
+            {
+                static constexpr FTextChoice Eligibility[] = {TEXT("eligible"), TEXT("no-car"), TEXT("car-away"), TEXT("car-busy"), TEXT("no-fuel"), TEXT("damaged")};
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("race"), K::Object, true, true), FFieldRule(TEXT("car"), K::Object, true, true),
+                    FFieldRule(TEXT("eligibility"), K::String).WithChoices(Eligibility)};
+                static constexpr FRecordSchema R(F); static constexpr FChildRule C[] = {{0, EDomain::Race}, {1, EDomain::SelectedCar}};
+                static const FDomainSchema S{&R, C, UE_ARRAY_COUNT(C)}; return S;
+            }
+            default: { static const FDomainSchema Invalid{nullptr, nullptr, 0, K::StringBlock}; return Invalid; }
+            }
+        }
+    }
+
     namespace RacingPrivate
     {
         using namespace StateJsonPrivate;
@@ -44,7 +108,7 @@ namespace BaddieCompanion
         bool Input(const FValue& V, FRaceInput& Out)
         {
             const auto O = Object(V);
-            return Only(O, { TEXT("throttle"), TEXT("brake"), TEXT("steering"), TEXT("handbrake"), TEXT("gear") })
+            return WorldReadPrivate::ReadRecord(O, *WorldReadPrivate::DomainSchema(WorldReadPrivate::EDomain::RaceInput).Record)
                 && Number(O, TEXT("throttle"), Out.Throttle)
                 && Number(O, TEXT("brake"), Out.Brake)
                 && Number(O, TEXT("steering"), Out.Steering)
@@ -54,10 +118,7 @@ namespace BaddieCompanion
         bool Car(const FValue& V, FRaceCar& Out)
         {
             const auto O = Object(V);
-            if (!Only(O, { TEXT("userId"), TEXT("name"), TEXT("vehicleId"), TEXT("transmission"), TEXT("x"), TEXT("z"),
-                    TEXT("yaw"), TEXT("speed"), TEXT("gear"), TEXT("sequence"), TEXT("input"), TEXT("inputAt"),
-                    TEXT("simulatedAt"), TEXT("recoveredAt"), TEXT("distance"), TEXT("progress"), TEXT("nextCheckpoint"),
-                    TEXT("laps"), TEXT("lapStartedAt"), TEXT("lastLapMs"), TEXT("bestLapMs"), TEXT("finishedAt"), TEXT("status") })
+            if (!WorldReadPrivate::ReadRecord(O, *WorldReadPrivate::DomainSchema(WorldReadPrivate::EDomain::RaceCar).Record)
                 || !Text(Field(O, TEXT("userId")), Out.UserId) || !BoundedText(Field(O, TEXT("name")), Out.Name, 60)
                 || !Text(Field(O, TEXT("vehicleId")), Out.VehicleId)
                 || !EnumValue(Field(O, TEXT("transmission")), Out.Transmission, {
@@ -90,8 +151,7 @@ namespace BaddieCompanion
         bool Race(const FValue& V, FRaceState& Out)
         {
             const auto O = Object(V);
-            if (!Only(O, { TEXT("id"), TEXT("instanceId"), TEXT("hostId"), TEXT("phase"), TEXT("startsAt"),
-                    TEXT("endsAt"), TEXT("updatedAt"), TEXT("cars") })
+            if (!WorldReadPrivate::ReadRecord(O, *WorldReadPrivate::DomainSchema(WorldReadPrivate::EDomain::Race).Record)
                 || !BoundedText(Field(O, TEXT("id")), Out.Id, 300) || !Text(Field(O, TEXT("instanceId")), Out.InstanceId)
                 || !Text(Field(O, TEXT("hostId")), Out.HostId)
                 || !EnumValue(Field(O, TEXT("phase")), Out.Phase, { { TEXT("lobby"), ERacePhase::Lobby },
@@ -114,14 +174,14 @@ namespace BaddieCompanion
         bool SelectedCar(const FValue& V, FRacingSelectedCar& Out)
         {
             const auto O = Object(V);
-            return Only(O, { TEXT("vehicleId"), TEXT("revision"), TEXT("fuelUnits"), TEXT("condition"), TEXT("here") })
+            return WorldReadPrivate::ReadRecord(O, *WorldReadPrivate::DomainSchema(WorldReadPrivate::EDomain::SelectedCar).Record)
                 && BoundedText(Field(O, TEXT("vehicleId")), Out.VehicleId, 240)
                 && Number(O, TEXT("revision"), Out.Revision) && Number(O, TEXT("fuelUnits"), Out.FuelUnits)
                 && Number(O, TEXT("condition"), Out.Condition) && Boolean(Field(O, TEXT("here")), Out.bHere);
         }
         bool Snapshot(const FObject& O, FRacingSnapshot& Out)
         {
-            return Only(O, { TEXT("race"), TEXT("car"), TEXT("eligibility") })
+            return WorldReadPrivate::ReadRecord(O, *WorldReadPrivate::DomainSchema(WorldReadPrivate::EDomain::Racing).Record)
                 && Nullable(Field(O, TEXT("race")), Out.Race, Race)
                 && Nullable(Field(O, TEXT("car")), Out.Car, SelectedCar)
                 && EnumValue(Field(O, TEXT("eligibility")), Out.Eligibility, { { TEXT("eligible"), ERacingEligibility::Eligible },

@@ -1,11 +1,787 @@
 #include "BaddieCompanionWorldObservation.h"
 #include "BaddieCompanionWorldObservationPages.h"
+#include "BaddieCompanionWorldPlayerRead.h"
 #include "BaddieCompanionSnapshot.h"
+#include "Dom/JsonValue.h"
 #include "Containers/Ticker.h"
 #include "CoreGlobals.h"
 #include "HAL/PlatformTime.h"
 
 #include <cmath>
+
+namespace BaddieCompanion::WorldReadPrivate
+{
+    using namespace WorldObservationPrivate;
+
+    bool TextValue(const FString& Value, const FTextRule& Rule)
+    {
+        const uint64 Count = static_cast<uint64>(Value.Len());
+        if (!Rule.Length(Count)) return false;
+        bool bNonWhitespace = false;
+        for (uint64 I = 0; I < Count; ++I)
+        {
+            const auto Unit = static_cast<uint16>(Value[static_cast<int32>(I)]);
+            if (!Rule.Unit(Unit, I, Count)) return false;
+            bNonWhitespace |= !FChar::IsWhitespace(static_cast<TCHAR>(Unit));
+        }
+        return !Rule.bHasNonWhitespace || bNonWhitespace;
+    }
+
+    namespace
+    {
+        EStep Yield(const FStorage& Storage)
+        {
+            return Storage.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+        }
+        bool Readable(const FStorage& Storage)
+        {
+            return Storage.bComplete && !Storage.bRetiring;
+        }
+    }
+
+    void FTextRead::Cancel() { *this = FTextRead(); }
+    void FTextRead::Begin(FValueRef Value, FTextRule InRule)
+    {
+        Cancel(); Left = Value; Rule = InRule; Status = EStep::Pending;
+    }
+    void FTextRead::Compare(FValueRef A, FValueRef B)
+    {
+        Begin(A, {}); Right = B; bCompare = true;
+    }
+    void FTextRead::ComparePrefixed(FValueRef A, FValueRef B, const TCHAR* Prefix, uint64 PrefixLength)
+    {
+        Compare(A, B); Literal = Prefix; LiteralCount = PrefixLength;
+    }
+    void FTextRead::Compare(FValueRef A, const FString& B)
+    {
+        Compare(A, *B, static_cast<uint64>(B.Len()));
+    }
+    void FTextRead::Compare(FValueRef A, const TCHAR* B, uint64 Length)
+    {
+        Begin(A, {}); Literal = B; LiteralCount = Length; bCompare = true;
+    }
+    EStep FTextRead::Advance(const FStorage& Storage)
+    {
+        if (Owner && Owner != &Storage) return Status = EStep::Invalid;
+        Owner = &Storage;
+        if (!Readable(Storage)) return Status = EStep::Invalid;
+        if (Status != EStep::Pending) return Status;
+        if (!bStarted)
+        {
+            // Each Get includes root and node-page index access plus descriptor reads.
+            if (!Storage.Budget->Spend(16)) return Yield(Storage);
+            const auto* A = Storage.Get(Left.Root, Left.Node);
+            if (!A || A->Kind != EWorldValueKind::String || !Rule.Length(A->Count))
+                return Status = EStep::Invalid;
+            Count = A->Count; LeftBlock = A->Text;
+            if (bCompare)
+            {
+                uint64 OtherCount = LiteralCount;
+                if (Right.IsSet())
+                {
+                    const auto* B = Storage.Get(Right.Root, Right.Node);
+                    if (!B || B->Kind != EWorldValueKind::String) return Status = EStep::Invalid;
+                    if (LiteralCount > MAX_uint64 - B->Count) return Status = EStep::Invalid;
+                    OtherCount = B->Count + LiteralCount; RightBlock = B->Text;
+                }
+                else if (!Literal) return Status = EStep::Invalid;
+                if (Count != OtherCount) { bEqual = false; return Status = EStep::Complete; }
+            }
+            bStarted = true;
+        }
+        while (Offset < Count)
+        {
+            // Includes both unit reads, comparison/classification and block links.
+            if (!Storage.Budget->Spend(8)) return Yield(Storage);
+            if (!LeftBlock || LeftOffset >= LeftBlock->Used) return Status = EStep::Invalid;
+            const uint16 A = LeftBlock->Units[LeftOffset++];
+            if (!Rule.Unit(A, Offset, Count)) return Status = EStep::Invalid;
+            bNonWhitespace |= !FChar::IsWhitespace(static_cast<TCHAR>(A));
+            if (bCompare)
+            {
+                uint16 B = 0;
+                if (Right.IsSet())
+                {
+                    if (Literal && Offset < LiteralCount) B = static_cast<uint16>(Literal[Offset]);
+                    else
+                    {
+                        if (!RightBlock || RightOffset >= RightBlock->Used) return Status = EStep::Invalid;
+                        B = RightBlock->Units[RightOffset++];
+                        if (RightOffset == RightBlock->Used) { RightBlock = RightBlock->Next; RightOffset = 0; }
+                    }
+                }
+                else B = static_cast<uint16>(Literal[Offset]);
+                if (A != B) { bEqual = false; return Status = EStep::Complete; }
+            }
+            ++Offset;
+            if (LeftOffset == LeftBlock->Used) { LeftBlock = LeftBlock->Next; LeftOffset = 0; }
+        }
+        if (LeftBlock || (Right.IsSet() && RightBlock) || (Rule.bHasNonWhitespace && !bNonWhitespace))
+            return Status = EStep::Invalid;
+        return Status = EStep::Complete;
+    }
+
+    void FObjectRead::Cancel() { *this = FObjectRead(); }
+    void FObjectRead::Begin(FValueRef InObject, FFieldSlot* InSlots, uint32 InCount, bool bInRejectUnknown)
+    {
+        Cancel(); Object = InObject; Slots = InSlots; Count = InCount;
+        bRejectUnknown = bInRejectUnknown; Status = EStep::Pending;
+    }
+    EStep FObjectRead::Advance(const FStorage& Storage)
+    {
+        if (!Readable(Storage)) return Status = EStep::Invalid;
+        if (Status != EStep::Pending) return Status;
+        if (!Slots && Count) return Status = EStep::Invalid;
+        while (Cleared < Count)
+        {
+            if (!Storage.Budget->Spend(4)) return Yield(Storage);
+            if (!Slots[Cleared].Name || !Slots[Cleared].NameLength) return Status = EStep::Invalid;
+            Slots[Cleared++].Value = {};
+        }
+        if (!bStarted)
+        {
+            if (!Storage.Budget->Spend(8)) return Yield(Storage);
+            const auto* O = Storage.Get(Object.Root, Object.Node);
+            if (!O || O->Kind != EWorldValueKind::Object) return Status = EStep::Invalid;
+            Key = O->FirstChild; bStarted = true;
+        }
+        while (Key)
+        {
+            if (bAdvancing)
+            {
+                if (!Storage.Budget->Spend(8)) return Yield(Storage);
+                const auto* V = Storage.Get(Object.Root, Value);
+                if (!V) return Status = EStep::Invalid;
+                Key = V->NextSibling; Value = 0; Slot = 0; bComparing = false;
+                bAdvancing = false; ++Seen;
+                continue;
+            }
+            if (!Value)
+            {
+                if (!Storage.Budget->Spend(16)) return Yield(Storage);
+                const auto* K = Storage.Get(Object.Root, Key);
+                const auto* V = K ? Storage.Get(Object.Root, K->NextSibling) : nullptr;
+                if (!K || K->Kind != EWorldValueKind::String || K->Role != 1 || K->Parent != Object.Node
+                    || !V || V->Role != 2 || V->Parent != Object.Node || V->Slot != Seen || K->Slot != Seen)
+                    return Status = EStep::Invalid;
+                Value = V->Id;
+            }
+            bool bFound = false;
+            while (Slot < Count)
+            {
+                if (!bComparing)
+                {
+                    if (!Storage.Budget->Spend(4)) return Yield(Storage);
+                    Comparison.Compare({Key, Object.Root}, Slots[Slot].Name, Slots[Slot].NameLength);
+                    bComparing = true;
+                }
+                const auto Result = Comparison.Advance(Storage);
+                if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+                if (Comparison.Equal())
+                {
+                    if (!Storage.Budget->Spend(4)) return Yield(Storage);
+                    // Structural assembly rejects duplicates too; do not permit a
+                    // second recognized field to replace the first in this adapter.
+                    if (Slots[Slot].Value.IsSet()) return Status = EStep::Invalid;
+                    Slots[Slot].Value = {Value, Object.Root}; bFound = true; break;
+                }
+                ++Slot; bComparing = false;
+            }
+            if (!bFound && bRejectUnknown) return Status = EStep::Invalid;
+            bAdvancing = true;
+        }
+        while (Required < Count)
+        {
+            if (!Storage.Budget->Spend(3)) return Yield(Storage);
+            const auto& S = Slots[Required++];
+            if (S.bRequired && !S.Value.IsSet()) return Status = EStep::Invalid;
+        }
+        if (!Storage.Budget->Spend(8)) return Yield(Storage);
+        const auto* O = Storage.Get(Object.Root, Object.Node);
+        return Status = O && Seen == O->Count ? EStep::Complete : EStep::Invalid;
+    }
+
+    EStep ReadNumber(const FStorage& Storage, FValueRef Value, double& Out)
+    {
+        if (!Readable(Storage)) return EStep::Invalid;
+        if (!Storage.Budget->Spend(8 + sizeof(double))) return Yield(Storage);
+        const auto* N = Storage.Get(Value.Root, Value.Node);
+        if (!N || N->Kind != EWorldValueKind::Number) return EStep::Invalid;
+        double Number = 0;
+        FMemory::Memcpy(&Number, &N->NumberBits, sizeof(Number));
+        if (!FiniteNumber(Number)) return EStep::Invalid;
+        Out = Number;
+        return EStep::Complete;
+    }
+    EStep ReadKind(const FStorage& Storage, FValueRef Value, EWorldValueKind& Out)
+    {
+        if (!Readable(Storage)) return EStep::Invalid;
+        if (!Storage.Budget->Spend(8)) return Yield(Storage);
+        const auto* N = Storage.Get(Value.Root, Value.Node);
+        if (!N) return EStep::Invalid;
+        Out = N->Kind;
+        return EStep::Complete;
+    }
+
+    bool ReadRecord(const TSharedPtr<FJsonObject>& Object, const FRecordSchema& Schema)
+    {
+        if (!Object || Schema.Count > FRecordFacts::Capacity) return false;
+        FRecordFacts Facts;
+        if (Schema.bRejectUnknown)
+        {
+            for (const auto& Pair : Object->Values)
+            {
+                bool bKnown = false;
+                for (uint32 I = 0; I < Schema.Count; ++I)
+                {
+                    const auto& Rule = Schema.Fields[I];
+                    if (Pair.Key.Len() == Rule.NameLength
+                        && FCString::Strncmp(*Pair.Key, Rule.Name, Rule.NameLength) == 0)
+                    { bKnown = true; break; }
+                }
+                if (!bKnown) return false;
+            }
+        }
+        for (uint32 I = 0; I < Schema.Count; ++I)
+        {
+            const auto& Rule = Schema.Fields[I];
+            Facts.Choices[I] = -1;
+            if (Rule.ConditionField != MAX_uint32)
+            {
+                if (Rule.ConditionField >= I) return false;
+                if (Facts.Choices[Rule.ConditionField] != Rule.ConditionChoice) continue;
+            }
+            const auto Value = Object->TryGetField(Rule.Name);
+            if (!Value) { if (Rule.bRequired) return false; continue; }
+            if (Value->Type == EJson::Null)
+            {
+                if (!Rule.bNullable) return false;
+                Facts.Presences[I] = EWorldFieldPresence::Null;
+                continue;
+            }
+            Facts.Presences[I] = EWorldFieldPresence::Value;
+            switch (Rule.Kind)
+            {
+            case EWorldValueKind::Object:
+                if (Value->Type != EJson::Object || !Value->AsObject()) return false;
+                break;
+            case EWorldValueKind::Array:
+                if (Value->Type != EJson::Array || static_cast<uint64>(Value->AsArray().Num()) < Rule.MinCount
+                    || static_cast<uint64>(Value->AsArray().Num()) > Rule.MaxCount) return false;
+                Facts.Counts[I] = Value->AsArray().Num();
+                break;
+            case EWorldValueKind::Number:
+            {
+                double N = 0;
+                if (Value->Type != EJson::Number || !Value->TryGetNumber(N) || !Rule.Number(N)) return false;
+                Facts.Numbers[I] = N;
+                break;
+            }
+            case EWorldValueKind::String:
+            {
+                FString S;
+                if (Value->Type != EJson::String || !Value->TryGetString(S) || !TextValue(S, Rule.Text)) return false;
+                Facts.Counts[I] = S.Len();
+                if (Rule.ChoiceCount)
+                {
+                    bool bKnown = false;
+                    for (uint32 C = 0; C < Rule.ChoiceCount; ++C)
+                        if (S.Len() == Rule.Choices[C].Count
+                            && FCString::Strncmp(*S, Rule.Choices[C].Text, S.Len()) == 0)
+                        { Facts.Choices[I] = C; bKnown = true; break; }
+                    if (!bKnown) return false;
+                }
+                break;
+            }
+            case EWorldValueKind::Boolean:
+                if (Value->Type != EJson::Boolean) return false;
+                Facts.Numbers[I] = Value->AsBool() ? 1 : 0;
+                break;
+            default: return false;
+            }
+        }
+        return !Schema.Check || Schema.Check(Facts);
+    }
+
+    void FRecordRead::Cancel()
+    {
+        // No owning values. Old slots are cleared incrementally by Initialize.
+        Fields.Cancel(); Text.Cancel(); Schema = nullptr; Object = {};
+        Initialized = Index = ChoiceIndex = 0; bTextStarted = false;
+        Phase = EPhase::Done; Status = EStep::Invalid;
+    }
+    void FRecordRead::Begin(FValueRef InObject, const FRecordSchema& InSchema)
+    {
+        Cancel(); Object = InObject; Schema = &InSchema;
+        Phase = EPhase::Initialize; Status = EStep::Pending;
+    }
+    EStep FRecordRead::Advance(const FStorage& Storage)
+    {
+        if (!Readable(Storage)) return Status = EStep::Invalid;
+        if (Status != EStep::Pending) return Status;
+        if (!Schema || Schema->Count > Capacity) return Status = EStep::Invalid;
+        while (true)
+        {
+            if (Phase == EPhase::Initialize)
+            {
+                while (Initialized < Schema->Count)
+                {
+                    if (!Storage.Budget->Spend(sizeof(FFieldSlot) + sizeof(double) + sizeof(uint64) + sizeof(int32) + 1)) return Yield(Storage);
+                    const auto& Rule = Schema->Fields[Initialized];
+                    auto& Slot = Slots[Initialized];
+                    Slot.Name = Rule.Name; Slot.NameLength = Rule.NameLength;
+                    Slot.bRequired = Rule.bRequired; Slot.Value = {};
+                    Facts.Numbers[Initialized] = 0; Facts.Choices[Initialized] = -1; Facts.Counts[Initialized] = 0;
+                    Facts.Presences[Initialized++] = EWorldFieldPresence::Missing;
+                }
+                Fields.Begin(Object, Slots, Schema->Count, Schema->bRejectUnknown); Phase = EPhase::Fields;
+            }
+            if (Phase == EPhase::Fields)
+            {
+                const auto Result = Fields.Advance(Storage);
+                if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+                Phase = EPhase::Kind;
+            }
+            if (Index == Schema->Count)
+            {
+                // Schema callbacks inspect only this fixed set of scalar facts.
+                // They cannot walk fields, compare strings or allocate projections.
+                if (!Storage.Budget->Spend(Capacity * 8)) return Yield(Storage);
+                Phase = EPhase::Done;
+                return Status = !Schema->Check || Schema->Check(Facts) ? EStep::Complete : EStep::Invalid;
+            }
+            const auto& Rule = Schema->Fields[Index];
+            if (Phase == EPhase::Kind)
+            {
+                if (!Storage.Budget->Spend(24)) return Yield(Storage);
+                if (Rule.ConditionField != MAX_uint32)
+                {
+                    if (Rule.ConditionField >= Index) return Status = EStep::Invalid;
+                    if (Facts.Choices[Rule.ConditionField] != Rule.ConditionChoice)
+                    { Phase = EPhase::Advance; continue; }
+                }
+                const auto Value = Slots[Index].Value;
+                if (!Value.IsSet()) { Phase = EPhase::Advance; }
+                else
+                {
+                    const auto* Node = Storage.Get(Value.Root, Value.Node);
+                    if (!Node) return Status = EStep::Invalid;
+                    if (Node->Kind == EWorldValueKind::Null)
+                    {
+                        if (!Rule.bNullable) return Status = EStep::Invalid;
+                        Facts.Presences[Index] = EWorldFieldPresence::Null; Phase = EPhase::Advance;
+                    }
+                    else
+                    {
+                        if (Node->Kind != Rule.Kind) return Status = EStep::Invalid;
+                        Facts.Presences[Index] = EWorldFieldPresence::Value; Phase = EPhase::Advance;
+                        Facts.Counts[Index] = Node->Count;
+                        if (Rule.Kind == EWorldValueKind::Number)
+                        {
+                            FMemory::Memcpy(&Facts.Numbers[Index], &Node->NumberBits, sizeof(double));
+                            if (!Rule.Number(Facts.Numbers[Index])) return Status = EStep::Invalid;
+                        }
+                        else if (Rule.Kind == EWorldValueKind::Boolean) Facts.Numbers[Index] = Node->Count;
+                        else if (Rule.Kind == EWorldValueKind::Array
+                            && (Node->Count < Rule.MinCount || Node->Count > Rule.MaxCount)) return Status = EStep::Invalid;
+                        else if (Rule.Kind == EWorldValueKind::String)
+                        { Text.Begin(Value, Rule.Text); Phase = EPhase::Text; }
+                    }
+                }
+            }
+            if (Phase == EPhase::Text)
+            {
+                const auto Result = Text.Advance(Storage);
+                if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+                Phase = Rule.ChoiceCount ? EPhase::Choices : EPhase::Advance;
+            }
+            if (Phase == EPhase::Choices)
+            {
+                if (ChoiceIndex == Rule.ChoiceCount) return Status = EStep::Invalid;
+                if (!bTextStarted)
+                {
+                    if (!Storage.Budget->Spend(4)) return Yield(Storage);
+                    Text.Compare(Slots[Index].Value, Rule.Choices[ChoiceIndex].Text, Rule.Choices[ChoiceIndex].Count);
+                    bTextStarted = true;
+                }
+                const auto Result = Text.Advance(Storage);
+                if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+                if (Text.Equal()) { Facts.Choices[Index] = ChoiceIndex; Phase = EPhase::Advance; }
+                else { ++ChoiceIndex; bTextStarted = false; continue; }
+            }
+            if (Phase == EPhase::Advance)
+            {
+                if (!Storage.Budget->Spend(1)) return Yield(Storage);
+                ++Index; ChoiceIndex = 0; bTextStarted = false; Phase = EPhase::Kind;
+            }
+        }
+    }
+
+    namespace
+    {
+        const FRecordSchema& BindingSchema()
+        {
+            using K = EWorldValueKind;
+            static constexpr FFieldRule Rules[] = {
+                FFieldRule(TEXT("receipt"), K::Object), FFieldRule(TEXT("userId"), K::String).WithText({1}),
+                FFieldRule(TEXT("approvingSessionId"), K::String).WithText({1}),
+                FFieldRule(TEXT("participantId"), K::String).WithText({1}),
+                FFieldRule(TEXT("callSessionId"), K::String).WithText({1}),
+                FFieldRule(TEXT("expressionSessionId"), K::String).WithText({1}),
+                FFieldRule(TEXT("reservationGeneration"), K::String).WithText({1}),
+                FFieldRule(TEXT("characterId"), K::String).WithText({1}),
+                FFieldRule(TEXT("homeRoomId"), K::String).WithText({1}),
+                FFieldRule(TEXT("gameRoomId"), K::String).WithText({1}),
+                FFieldRule(TEXT("savedRevision"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                FFieldRule(TEXT("instanceId"), K::String).WithText({1}),
+                FFieldRule(TEXT("playerRevision"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                FFieldRule(TEXT("moveSequence"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                FFieldRule(TEXT("healthRevision"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                FFieldRule(TEXT("presentationInstanceId"), K::String).WithText({1}),
+                FFieldRule(TEXT("readyInstanceId"), K::String, true, true).WithText({1}),
+                FFieldRule(TEXT("pendingHomeArrival"), K::Object, true, true),
+                FFieldRule(TEXT("capturedAt"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                FFieldRule(TEXT("permissionDeadline"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                FFieldRule(TEXT("publishBy"), K::Number, true, true).WithNumber(0, MaxSafeInteger, true)
+            };
+            static constexpr FRecordSchema Schema(Rules);
+            return Schema;
+        }
+        const FRecordSchema& ReceiptSchema()
+        {
+            using K = EWorldValueKind;
+            static constexpr FTextChoice Scopes[] = {TEXT("companion_world_control")};
+            static constexpr FFieldRule Rules[] = {
+                FFieldRule(TEXT("scope"), K::String).WithChoices(Scopes),
+                FFieldRule(TEXT("grantId"), K::String).WithText({1}),
+                FFieldRule(TEXT("entrySequence"), K::Number).WithNumber(1, MaxSafeInteger, true),
+                FFieldRule(TEXT("visit"), K::Object),
+                FFieldRule(TEXT("expiresAt"), K::Number).WithNumber(1, MaxSafeInteger, true),
+                FFieldRule(TEXT("serverNow"), K::Number).WithNumber(1, MaxSafeInteger, true)
+            };
+            static constexpr FRecordSchema Schema(Rules);
+            return Schema;
+        }
+        const FRecordSchema& VisitSchema()
+        {
+            using K = EWorldValueKind;
+            static constexpr FFieldRule Rules[] = {
+                FFieldRule(TEXT("id"), K::String).WithText({1}), FFieldRule(TEXT("lifeId"), K::String).WithText({1}),
+                FFieldRule(TEXT("instanceId"), K::String).WithText({1}),
+                FFieldRule(TEXT("revision"), K::Number).WithNumber(0, MaxSafeInteger, true)
+            };
+            static constexpr FRecordSchema Schema(Rules);
+            return Schema;
+        }
+        const FRecordSchema& PendingHomeSchema()
+        {
+            using K = EWorldValueKind;
+            static constexpr FFieldRule Rules[] = {
+                FFieldRule(TEXT("instanceId"), K::String).WithText({1}), FFieldRule(TEXT("eventKey"), K::String).WithText({1}),
+                FFieldRule(TEXT("revision"), K::Number).WithNumber(0, MaxSafeInteger, true)
+            };
+            static constexpr FRecordSchema Schema(Rules);
+            return Schema;
+        }
+    }
+    void FBindingRead::Cancel()
+    {
+        BindingRecord.Cancel(); ReceiptRecord.Cancel(); VisitRecord.Cancel(); PendingRecord.Cancel();
+        Phase = 0; Status = EStep::Invalid;
+    }
+    void FBindingRead::Begin(FValueRef Value)
+    {
+        Cancel(); BindingRecord.Begin(Value, BindingSchema()); Status = EStep::Pending;
+    }
+    EStep FBindingRead::Advance(const FStorage& Storage)
+    {
+        if (!Readable(Storage)) return Status = EStep::Invalid;
+        if (Status != EStep::Pending) return Status;
+        if (Phase == 0)
+        {
+            const auto Result = BindingRecord.Advance(Storage);
+            if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+            ReceiptRecord.Begin(BindingRecord.Field(BindingReceipt), ReceiptSchema()); Phase = 1;
+        }
+        if (Phase == 1)
+        {
+            const auto Result = ReceiptRecord.Advance(Storage);
+            if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+            VisitRecord.Begin(ReceiptRecord.Field(ReceiptVisit), VisitSchema()); Phase = 2;
+        }
+        if (Phase == 2)
+        {
+            const auto Result = VisitRecord.Advance(Storage);
+            if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+            if (BindingRecord.Presence(BindingPendingHome) == EWorldFieldPresence::Null) return Status = EStep::Complete;
+            PendingRecord.Begin(BindingRecord.Field(BindingPendingHome), PendingHomeSchema()); Phase = 3;
+        }
+        const auto Result = PendingRecord.Advance(Storage);
+        if (Result != EStep::Pending) Status = Result;
+        return Result;
+    }
+
+    void FDomainRead::Cancel()
+    {
+        // Frames borrow immutable nodes and static schemas. Revocation only drops
+        // the active depth; reinitialization clears used fields under the budget.
+        Depth = 0; Status = EStep::Invalid;
+        RacingInstance = {}; RacingUpdatedAt = 0;
+    }
+    void FDomainRead::Begin(FValueRef Value, EDomain Domain)
+    {
+        Cancel(); Frames[0].Value = Value; Frames[0].Domain = Domain;
+        Frames[0].Phase = 0; Status = EStep::Pending;
+    }
+    EStep FDomainRead::Advance(const FStorage& Storage)
+    {
+        if (!Readable(Storage)) return Status = EStep::Invalid;
+        if (Status != EStep::Pending) return Status;
+        while (true)
+        {
+            if (!Storage.Budget->Spend(4)) return Yield(Storage);
+            auto& Frame = Frames[Depth];
+            const auto& Schema = DomainSchema(Frame.Domain);
+            if (Frame.Phase == 0)
+            {
+                if (!Storage.Budget->Spend(80)) return Yield(Storage);
+                const auto* Node = Storage.Get(Frame.Value.Root, Frame.Value.Node);
+                if (!Node || Node->Kind != Schema.Kind) return Status = EStep::Invalid;
+                Frame.Child = 0; Frame.Index = 0; Frame.Next = Node->FirstChild; Frame.Count = Node->Count;
+                Frame.Relation = 0; Frame.bComparing = false; Frame.Lanes = 0; Frame.MovementPointCount = 0;
+                if (Schema.Kind == EWorldValueKind::Number)
+                {
+                    double N = 0;
+                    FMemory::Memcpy(&N, &Node->NumberBits, sizeof(N));
+                    if (Schema.bInteger ? !IntegerNumber(N, Schema.Minimum, Schema.Maximum)
+                        : !FiniteNumber(N) || N < Schema.Minimum || N > Schema.Maximum) return Status = EStep::Invalid;
+                    Frame.Scalar = N;
+                    Frame.Phase = 3;
+                }
+                else if (Schema.Kind == EWorldValueKind::Array)
+                {
+                    if (Node->Count < Schema.MinCount || Node->Count > Schema.MaxCount) return Status = EStep::Invalid;
+                    Frame.Phase = 2;
+                }
+                else if (Schema.Kind == EWorldValueKind::Object && Schema.Record)
+                { Frame.Record.Begin(Frame.Value, *Schema.Record); Frame.Phase = 1; }
+                else return Status = EStep::Invalid;
+            }
+            if (Frame.Phase == 1)
+            {
+                const auto Result = Frame.Record.Advance(Storage);
+                if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+                Frame.Phase = 2;
+            }
+            if (Frame.Phase == 2)
+            {
+                FValueRef Child;
+                EDomain ChildDomain = EDomain::Number;
+                uint32 ParentField = MAX_uint32;
+                if (Schema.Kind == EWorldValueKind::Array)
+                {
+                    if (Frame.Index == Frame.Count)
+                    {
+                        if (Frame.Next) return Status = EStep::Invalid;
+                        Frame.Phase = 3;
+                    }
+                    else
+                    {
+                        if (!Storage.Budget->Spend(16)) return Yield(Storage);
+                        const auto* Node = Storage.Get(Frame.Value.Root, Frame.Next);
+                        if (!Node || Node->Role != 3 || Node->Parent != Frame.Value.Node || Node->Slot != Frame.Index)
+                            return Status = EStep::Invalid;
+                        Child = {Node->Id, Frame.Value.Root}; ChildDomain = Schema.Element;
+                        Frame.Next = Node->NextSibling; ++Frame.Index;
+                    }
+                }
+                else if (Frame.Child == Schema.ChildCount) Frame.Phase = 3;
+                else
+                {
+                    if (!Storage.Budget->Spend(8)) return Yield(Storage);
+                    const auto& Rule = Schema.Children[Frame.Child++];
+                    if (Frame.Record.Presence(Rule.Field) != EWorldFieldPresence::Value) continue;
+                    Child = Frame.Record.Field(Rule.Field); ChildDomain = Rule.Domain;
+                    ParentField = Rule.Field;
+                }
+                if (Child.IsSet())
+                {
+                    if (Depth + 1 >= FrameCount) return Status = EStep::Invalid;
+                    auto& Next = Frames[++Depth];
+                    Next.Value = Child; Next.Domain = ChildDomain; Next.Phase = 0;
+                    Next.ParentField = ParentField;
+                    continue;
+                }
+            }
+            if (Frame.Phase == 3)
+            {
+                const auto Result = Relations(Storage);
+                if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+                Frame.Phase = 4;
+            }
+            if (Frame.Phase == 4)
+            {
+                if (!Storage.Budget->Spend(32)) return Yield(Storage);
+                if (!Depth) return Status = EStep::Complete;
+                auto& Parent = Frames[Depth - 1];
+                if (Schema.Kind == EWorldValueKind::Number && Parent.Index > 0 && Parent.Index <= 3
+                    && (Parent.Domain == EDomain::ScenePoint || Parent.Domain == EDomain::Vertex
+                        || Parent.Domain == EDomain::Edge || Parent.Domain == EDomain::WaterVelocity))
+                    Parent.Tuple[Parent.Index - 1] = Frame.Scalar;
+                --Depth;
+            }
+        }
+    }
+
+    EStep FDomainRead::Relations(const FStorage& Storage)
+    {
+        // All ancestor searches below are over the static grammar stack.
+        if (!Storage.Budget->Spend(FrameCount * 8 + 32)) return Yield(Storage);
+        auto& Frame = Frames[Depth];
+        auto& R = Frame.Record;
+        auto Ancestor = [&](EDomain Domain) -> FFrame*
+        {
+            for (uint32 I = Depth; I > 0; --I) if (Frames[I - 1].Domain == Domain) return &Frames[I - 1];
+            return nullptr;
+        };
+        auto* Parent = Depth ? &Frames[Depth - 1] : nullptr;
+        auto* Player = Ancestor(EDomain::Player);
+        auto Match = [&](FValueRef A, FValueRef B, const TCHAR* Prefix = nullptr, uint64 PrefixCount = 0) -> EStep
+        {
+            if (!Frame.bComparing)
+            {
+                if (Prefix) Frame.Comparison.ComparePrefixed(A, B, Prefix, PrefixCount);
+                else Frame.Comparison.Compare(A, B);
+                Frame.bComparing = true;
+            }
+            const auto Result = Frame.Comparison.Advance(Storage);
+            if (Result != EStep::Complete) return Result;
+            if (!Frame.Comparison.Equal()) return EStep::Invalid;
+            Frame.bComparing = false; ++Frame.Relation;
+            return EStep::Complete;
+        };
+        switch (Frame.Domain)
+        {
+        case EDomain::Edge:
+        {
+            const auto* Graph = Ancestor(EDomain::StreetGraph);
+            return Graph && GraphEdge(Frame.Tuple[0], Frame.Tuple[1], Graph->Record.Count(0)) ? EStep::Complete : EStep::Invalid;
+        }
+        case EDomain::Vertex:
+        {
+            const auto* Obstacle = Ancestor(EDomain::NavigationObstacle);
+            return Obstacle && NavigationVertex(Frame.Tuple[0], Frame.Tuple[1], Obstacle->Record.Number(0),
+                Obstacle->Record.Number(1), Obstacle->Record.Number(2), Obstacle->Record.Number(3)) ? EStep::Complete : EStep::Invalid;
+        }
+        case EDomain::Endpoint:
+        {
+            if (Parent && Parent->Domain == EDomain::Roadside && R.Choice(0) != 1) return EStep::Invalid;
+            if (Parent && Parent->Domain == EDomain::Journey && Frame.Relation == 0)
+            {
+                const auto Expected = Parent->Record.Field(Frame.ParentField == 11 ? 2 : 3);
+                return R.Choice(0) == 1 ? Match(Expected, R.Field(1), TEXT("roadside:"), 9) : Match(Expected, R.Field(1));
+            }
+            return EStep::Complete;
+        }
+        case EDomain::Journey:
+            return !Player || Player->Record.Choice(10) != 1 || R.Choice(5) == 0 ? EStep::Complete : EStep::Invalid;
+        case EDomain::TransitRide:
+            return !Player || (Player->Record.Choice(10) == 0 && R.Number(3) == Player->Record.Number(6)) ? EStep::Complete : EStep::Invalid;
+        case EDomain::Nightclub:
+        {
+            if (!Player) return EStep::Complete;
+            if (Player->Record.Choice(10) != 0 || R.Number(1) != Player->Record.Number(6)) return EStep::Invalid;
+            if (!Frame.bComparing)
+            { Frame.Comparison.Compare(Player->Record.Field(3), TEXT("nightclub"), 9); Frame.bComparing = true; }
+            const auto Result = Frame.Comparison.Advance(Storage);
+            return Result == EStep::Complete && !Frame.Comparison.Equal() ? EStep::Invalid : Result;
+        }
+        case EDomain::DanceRound:
+        {
+            if (!Parent || Parent->Domain != EDomain::Nightclub) return EStep::Invalid;
+            if (Frame.Relation == 0)
+            {
+                const auto Result = Match(R.Field(0), Parent->Record.Field(0));
+                if (Result != EStep::Complete) return Result;
+            }
+            if (Player && Frame.Relation == 1)
+            {
+                const auto Result = Match(R.Field(1), Player->Record.Field(4));
+                if (Result != EStep::Complete) return Result;
+            }
+            Parent->Lanes = R.Count(7);
+            return EStep::Complete;
+        }
+        case EDomain::DanceInput:
+        {
+            const auto* Activity = Ancestor(EDomain::Nightclub);
+            return Activity && DanceBeat(static_cast<int64>(R.Number(1)), Activity->Lanes) ? EStep::Complete : EStep::Invalid;
+        }
+        case EDomain::Pose:
+            if (Parent && Parent->Domain == EDomain::Movement)
+                Parent->MovementFrom = {R.Number(0), R.Number(1), R.Number(2)};
+            return EStep::Complete;
+        case EDomain::MovementPoint:
+        {
+            auto* Movement = Ancestor(EDomain::Movement);
+            if (!Movement || Movement->MovementPointCount >= 32) return EStep::Invalid;
+            Movement->MovementPoints[Movement->MovementPointCount++] = {R.Number(0), R.Number(1)};
+            return EStep::Complete;
+        }
+        case EDomain::Movement:
+        {
+            if (Player && !MovementScope(static_cast<int64>(R.Number(1)), static_cast<int64>(R.Number(2)),
+                static_cast<int64>(Player->Record.Number(7)), static_cast<int64>(Player->Record.Number(6)))) return EStep::Invalid;
+            if (Frame.MovementPointCount != R.Count(8)) return EStep::Invalid;
+            // MovementEndsAt is the legacy decoder's actual gameplay predicate.
+            // Its temporary TArray and private prepared-segment allocations have
+            // no qualified allocator bound yet. Keep that prerequisite explicit.
+            constexpr uint64 QualifiedMovementTemporaryBytes = 0;
+            constexpr uint32 QualifiedMovementTemporaryWork = 0;
+            if (!QualifiedMovementTemporaryBytes || !QualifiedMovementTemporaryWork) return EStep::ResourceUnavailable;
+            if (!Storage.Budget->Spend(QualifiedMovementTemporaryWork)) return Yield(Storage);
+            if (!Storage.Budget->Reserve(QualifiedMovementTemporaryBytes)) return EStep::ResourceUnavailable;
+            bool bValid = false;
+            {
+                FMovementRoute Route;
+                Route.Sequence = static_cast<int64>(R.Number(1)); Route.RoomRevision = static_cast<int64>(R.Number(2));
+                Route.StartedAtMs = R.Number(3); Route.From = Frame.MovementFrom; Route.YawRadians = R.Number(5);
+                if (R.Presence(6) == EWorldFieldPresence::Value) Route.InitialSpeedMps = R.Number(6);
+                if (R.Presence(7) == EWorldFieldPresence::Value) Route.Pace = static_cast<EMovementPace>(R.Choice(7) + 1);
+                Route.Path.Reserve(Frame.MovementPointCount);
+                for (uint32 I = 0; I < Frame.MovementPointCount; ++I) Route.Path.Add(Frame.MovementPoints[I]);
+                double EndsAt = 0;
+                bValid = MovementEndsAt(Route, EndsAt);
+            }
+            // The bounded temporary and sampler storage are destroyed before the
+            // reservation is released. No typed route is published by this check.
+            Storage.Budget->Release(QualifiedMovementTemporaryBytes);
+            return bValid ? EStep::Complete : EStep::Invalid;
+        }
+        case EDomain::Player:
+            return R.Choice(10) != 1 || R.Presence(12) == EWorldFieldPresence::Value ? EStep::Complete : EStep::Invalid;
+        case EDomain::RaceCar:
+        {
+            if (!Parent || Parent->Domain != EDomain::RaceCars || Parent->Index < 1 || Parent->Index > 8) return EStep::Invalid;
+            const uint32 PriorCount = static_cast<uint32>(Parent->Index - 1);
+            while (Frame.Relation < PriorCount)
+            {
+                if (!Frame.bComparing)
+                { Frame.Comparison.Compare(R.Field(0), Parent->SeenUsers[Frame.Relation]); Frame.bComparing = true; }
+                const auto Result = Frame.Comparison.Advance(Storage);
+                if (Result != EStep::Complete) return Result;
+                if (Frame.Comparison.Equal()) return EStep::Invalid;
+                ++Frame.Relation; Frame.bComparing = false;
+            }
+            Parent->SeenUsers[PriorCount] = R.Field(0);
+            return EStep::Complete;
+        }
+        case EDomain::Race:
+            RacingInstance = R.Field(1); RacingUpdatedAt = static_cast<int64>(R.Number(6)); return EStep::Complete;
+        default: return EStep::Complete;
+        }
+    }
+}
 
 namespace BaddieCompanion::WorldObservationPrivate
 {

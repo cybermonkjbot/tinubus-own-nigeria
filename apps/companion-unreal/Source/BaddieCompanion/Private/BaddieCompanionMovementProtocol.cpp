@@ -1,4 +1,5 @@
 #include "BaddieCompanionMovementProtocol.h"
+#include "BaddieCompanionWorldPlayerRead.h"
 
 #include "Dom/JsonObject.h"
 #include "Dom/JsonValue.h"
@@ -10,12 +11,171 @@
 
 namespace BaddieCompanion
 {
+    namespace WorldReadPrivate
+    {
+        const FDomainSchema& MovementDomainSchema(EDomain Domain)
+        {
+            using K = EWorldValueKind;
+            // Decoder identities and control identities deliberately differ. The
+            // former preserve surrounding whitespace if some content is nonblank.
+            constexpr FTextRule Identity{1, MAX_uint64, false, false, true};
+            constexpr FTextRule Control{1, 240, true, false, true};
+            switch (Domain)
+            {
+            case EDomain::MovementPoint:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("x"), K::Number), FFieldRule(TEXT("z"), K::Number)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::MovementPoints:
+            { static const FDomainSchema S{nullptr, nullptr, 0, K::Array, EDomain::MovementPoint, 0, 32}; return S; }
+            case EDomain::Movement:
+            {
+                static constexpr FTextChoice Paces[] = {TEXT("walk"), TEXT("run"), TEXT("fast")};
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("version"), K::Number).WithNumber(1, 1),
+                    FFieldRule(TEXT("sequence"), K::Number).WithNumber(1, 1000000000, true),
+                    FFieldRule(TEXT("roomRevision"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                    FFieldRule(TEXT("startedAt"), K::Number), FFieldRule(TEXT("from"), K::Object), FFieldRule(TEXT("yaw"), K::Number),
+                    FFieldRule(TEXT("initialSpeed"), K::Number, false), FFieldRule(TEXT("pace"), K::String, false).WithChoices(Paces),
+                    FFieldRule(TEXT("path"), K::Array).WithCount(0, 32)};
+                static constexpr FRecordSchema R(F, false); static constexpr FChildRule C[] = {{4, EDomain::Pose}, {8, EDomain::MovementPoints}};
+                static const FDomainSchema S{&R, C, UE_ARRAY_COUNT(C)}; return S;
+            }
+            case EDomain::DrivingInput:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("throttle"), K::Number).WithNumber(0, 1),
+                    FFieldRule(TEXT("brake"), K::Number).WithNumber(0, 1), FFieldRule(TEXT("steering"), K::Number).WithNumber(-1, 1)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::DrivingPose:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("x"), K::Number), FFieldRule(TEXT("y"), K::Number),
+                    FFieldRule(TEXT("z"), K::Number), FFieldRule(TEXT("yaw"), K::Number)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::DrivingOccupant:
+            {
+                static constexpr FTextChoice Roles[] = {TEXT("driver")};
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("userId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("characterId"), K::String).WithText(Control), FFieldRule(TEXT("lifeId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("role"), K::String).WithChoices(Roles), FFieldRule(TEXT("seat"), K::Number).WithNumber(0, 0)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::DrivingOccupants:
+            { static const FDomainSchema S{nullptr, nullptr, 0, K::Array, EDomain::DrivingOccupant, 1, 1}; return S; }
+            case EDomain::DrivingContact:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("id"), K::String).WithText(Control), FFieldRule(TEXT("bodyId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("at"), K::Number).WithNumber(0, MaxSafeInteger, true), FFieldRule(TEXT("speed"), K::Number), FFieldRule(TEXT("pose"), K::Object)};
+                static constexpr FRecordSchema R(F, false); static constexpr FChildRule C[] = {{4, EDomain::DrivingPose}};
+                static const FDomainSchema S{&R, C, UE_ARRAY_COUNT(C)}; return S;
+            }
+            case EDomain::VehicleVector:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("x"), K::Number), FFieldRule(TEXT("y"), K::Number), FFieldRule(TEXT("z"), K::Number)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::VehicleOrientation:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("x"), K::Number), FFieldRule(TEXT("y"), K::Number),
+                    FFieldRule(TEXT("z"), K::Number), FFieldRule(TEXT("w"), K::Number)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::VehicleWheel:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("angularVelocity"), K::Number), FFieldRule(TEXT("angle"), K::Number),
+                    FFieldRule(TEXT("steering"), K::Number), FFieldRule(TEXT("compression"), K::Number), FFieldRule(TEXT("normalLoad"), K::Number),
+                    FFieldRule(TEXT("slipRatio"), K::Number), FFieldRule(TEXT("slipAngle"), K::Number), FFieldRule(TEXT("longitudinalForce"), K::Number),
+                    FFieldRule(TEXT("lateralForce"), K::Number), FFieldRule(TEXT("grounded"), K::Boolean)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::VehicleWheels:
+            { static const FDomainSchema S{nullptr, nullptr, 0, K::Array, EDomain::VehicleWheel, 3, 3}; return S; }
+            case EDomain::VehicleDynamics:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("version"), K::Number).WithNumber(1, 1), FFieldRule(TEXT("position"), K::Object),
+                    FFieldRule(TEXT("velocity"), K::Object), FFieldRule(TEXT("angularVelocity"), K::Object), FFieldRule(TEXT("orientation"), K::Object),
+                    FFieldRule(TEXT("steering"), K::Number), FFieldRule(TEXT("engineOmega"), K::Number), FFieldRule(TEXT("shiftRemaining"), K::Number),
+                    FFieldRule(TEXT("gear"), K::Number).WithNumber(0, MaxSafeInteger, true), FFieldRule(TEXT("wheels"), K::Array).WithCount(3, 3)};
+                static constexpr FRecordSchema R(F, false); static constexpr FChildRule C[] = {{1, EDomain::VehicleVector}, {2, EDomain::VehicleVector},
+                    {3, EDomain::VehicleVector}, {4, EDomain::VehicleOrientation}, {9, EDomain::VehicleWheels}};
+                static const FDomainSchema S{&R, C, UE_ARRAY_COUNT(C)}; return S;
+            }
+            case EDomain::Driving:
+            {
+                static constexpr FTextChoice Modes[] = {TEXT("driving"), TEXT("stopped"), TEXT("pulled-over"), TEXT("suspended")};
+                static constexpr FTextChoice Surfaces[] = {TEXT("clean_asphalt"), TEXT("laterite_mud"), TEXT("pothole"), TEXT("gutter_wood")};
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("id"), K::String).WithText(Control), FFieldRule(TEXT("vehicleId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("gameRoomId"), K::String).WithText(Control), FFieldRule(TEXT("instanceId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("navigationRevision"), K::String).WithText(Identity), FFieldRule(TEXT("routeId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("vehicleRevision"), K::Number).WithNumber(0, MaxSafeInteger, true), FFieldRule(TEXT("revision"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                    FFieldRule(TEXT("sequence"), K::Number).WithNumber(0, MaxSafeInteger, true), FFieldRule(TEXT("acceptedAt"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                    FFieldRule(TEXT("inputExpiresAt"), K::Number).WithNumber(0, MaxSafeInteger, true), FFieldRule(TEXT("driver"), K::Object),
+                    FFieldRule(TEXT("pose"), K::Object), FFieldRule(TEXT("speed"), K::Number), FFieldRule(TEXT("drivenMetres"), K::Number).WithNumber(0, DBL_MAX),
+                    FFieldRule(TEXT("fuelMetres"), K::Number).WithNumber(0, DBL_MAX), FFieldRule(TEXT("input"), K::Object),
+                    FFieldRule(TEXT("occupants"), K::Array).WithCount(1, 1), FFieldRule(TEXT("mode"), K::String).WithChoices(Modes),
+                    FFieldRule(TEXT("surface"), K::String).WithChoices(Surfaces), FFieldRule(TEXT("contact"), K::Object, true, true), FFieldRule(TEXT("dynamics"), K::Object, false)};
+                static constexpr FRecordSchema R(F, false); static constexpr FChildRule C[] = {{11, EDomain::DrivingOccupant}, {12, EDomain::DrivingPose},
+                    {16, EDomain::DrivingInput}, {17, EDomain::DrivingOccupants}, {20, EDomain::DrivingContact}, {21, EDomain::VehicleDynamics}};
+                static const FDomainSchema S{&R, C, UE_ARRAY_COUNT(C)}; return S;
+            }
+            case EDomain::WaterScope:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("gameRoomId"), K::String).WithText(Control), FFieldRule(TEXT("instanceId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("placeId"), K::String).WithText(Control), FFieldRule(TEXT("layoutId"), K::String).WithText({1, 160000, true, false, true}),
+                    FFieldRule(TEXT("layoutRevision"), K::String).WithText({1, 160000, true, false, true}), FFieldRule(TEXT("userId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("characterId"), K::String).WithText(Control), FFieldRule(TEXT("lifeId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("revision"), K::Number).WithNumber(0, MaxSafeInteger, true)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::WaterInput:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("throttle"), K::Number).WithNumber(-1, 1),
+                    FFieldRule(TEXT("steer"), K::Number).WithNumber(-1, 1), FFieldRule(TEXT("brake"), K::Boolean)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::WaterSnag:
+            {
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("zoneId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("exposureMs"), K::Number).WithNumber(0, DBL_MAX), FFieldRule(TEXT("clearMs"), K::Number).WithNumber(0, DBL_MAX), FFieldRule(TEXT("held"), K::Boolean)};
+                static constexpr FRecordSchema R(F, false); static const FDomainSchema S{&R}; return S;
+            }
+            case EDomain::WaterVelocity:
+            { static const FDomainSchema S{nullptr, nullptr, 0, K::Array, EDomain::Number, 2, 2}; return S; }
+            case EDomain::Water:
+            {
+                static constexpr FTextChoice Phases[] = {TEXT("active"), TEXT("landed")};
+                static constexpr FTextChoice Feedback[] = {TEXT("clear"), TEXT("hyacinth"), TEXT("snagged"), TEXT("blocked")};
+                static constexpr FFieldRule F[] = {FFieldRule(TEXT("id"), K::String).WithText(Control), FFieldRule(TEXT("craftId"), K::String).WithText(Control),
+                    FFieldRule(TEXT("domainId"), K::String).WithText(Identity), FFieldRule(TEXT("scope"), K::Object),
+                    FFieldRule(TEXT("craftRevision"), K::Number).WithNumber(0, MaxSafeInteger, true), FFieldRule(TEXT("sequence"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                    FFieldRule(TEXT("simulatedAt"), K::Number).WithNumber(0, MaxSafeInteger, true), FFieldRule(TEXT("startedAt"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                    FFieldRule(TEXT("expiresAt"), K::Number).WithNumber(0, MaxSafeInteger, true), FFieldRule(TEXT("endsAt"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                    FFieldRule(TEXT("lastInputAt"), K::Number).WithNumber(0, MaxSafeInteger, true), FFieldRule(TEXT("point"), K::Array).WithCount(3, 3),
+                    FFieldRule(TEXT("velocity"), K::Array).WithCount(2, 2), FFieldRule(TEXT("yaw"), K::Number), FFieldRule(TEXT("input"), K::Object),
+                    FFieldRule(TEXT("phase"), K::String).WithChoices(Phases), FFieldRule(TEXT("feedback"), K::String).WithChoices(Feedback), FFieldRule(TEXT("snag"), K::Object, true, true),
+                    FFieldRule(TEXT("sessionId"), K::Null, false), FFieldRule(TEXT("landingReceipt"), K::Null, false)};
+                static constexpr FRecordSchema R(F, false); static constexpr FChildRule C[] = {{3, EDomain::WaterScope}, {11, EDomain::ScenePoint},
+                    {12, EDomain::WaterVelocity}, {14, EDomain::WaterInput}, {17, EDomain::WaterSnag}};
+                static const FDomainSchema S{&R, C, UE_ARRAY_COUNT(C)}; return S;
+            }
+            default:
+            {
+                // Invalid static grammar selection fails as a type mismatch.
+                static const FDomainSchema Invalid{nullptr, nullptr, 0, K::StringBlock}; return Invalid;
+            }
+            }
+        }
+    }
+
     namespace MovementProtocolPrivate
     {
         constexpr int64 MaxSequence = 1000000000;
         constexpr int64 MaxRevision = 9007199254740991LL;
         constexpr int32 MaxPathPoints = 32;
         constexpr double Pi = 3.14159265358979323846;
+        bool Fields(const TSharedPtr<FJsonObject>& Object, WorldReadPrivate::EDomain Domain)
+        { return WorldReadPrivate::ReadRecord(Object, *WorldReadPrivate::DomainSchema(Domain).Record); }
 
         bool ValidPosition(const FMovementPose& Position)
         {
@@ -107,15 +267,14 @@ namespace BaddieCompanion
         {
             const auto Value = Object.IsValid() ? Object->TryGetField(Key) : nullptr;
             return Value.IsValid() && Value->Type == EJson::Number
-                && Value->TryGetNumber(Out) && std::isfinite(Out);
+                && Value->TryGetNumber(Out) && WorldReadPrivate::FiniteNumber(Out);
         }
 
         bool ReadNonnegativeInteger(const TSharedPtr<FJsonObject>& Object,
             const TCHAR* Key, int64 Maximum, int64& Out)
         {
             double Number = 0;
-            if (!ReadNumber(Object, Key, Number) || Number < 0 || Number > Maximum
-                || std::floor(Number) != Number) return false;
+            if (!ReadNumber(Object, Key, Number) || !WorldReadPrivate::IntegerNumber(Number, 0, Maximum)) return false;
             Out = static_cast<int64>(Number);
             return true;
         }
@@ -124,7 +283,7 @@ namespace BaddieCompanion
         {
             const auto Value = Object.IsValid() ? Object->TryGetField(Key) : nullptr;
             return Value.IsValid() && Value->Type == EJson::String && Value->TryGetString(Out)
-                && !Out.TrimStartAndEnd().IsEmpty();
+                && WorldReadPrivate::TextValue(Out, {1, MAX_uint64, false, false, true});
         }
 
         bool NullableObjectField(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, bool bRequired)
@@ -138,8 +297,8 @@ namespace BaddieCompanion
         bool ReadControlIdentity(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key,
             FString& Out, int32 MaximumLength = 240)
         {
-            return ReadIdentity(Object, Key, Out) && Out.Len() <= MaximumLength
-                && Out.Equals(Out.TrimStartAndEnd(), ESearchCase::CaseSensitive);
+            return ReadIdentity(Object, Key, Out)
+                && WorldReadPrivate::TextValue(Out, {1, static_cast<uint64>(MaximumLength), true, false, true});
         }
 
         bool ReadBoolean(const TSharedPtr<FJsonObject>& Object, const TCHAR* Key, bool& Out)
@@ -165,17 +324,20 @@ namespace BaddieCompanion
 
         bool ReadVehicleVector(const TSharedPtr<FJsonObject>& Object, FWorldVehicleVector& Out)
         {
-            return ReadNumber(Object, TEXT("x"), Out.X) && ReadNumber(Object, TEXT("y"), Out.Y)
+            return Fields(Object, WorldReadPrivate::EDomain::VehicleVector)
+                && ReadNumber(Object, TEXT("x"), Out.X) && ReadNumber(Object, TEXT("y"), Out.Y)
                 && ReadNumber(Object, TEXT("z"), Out.Z);
         }
 
         bool ReadDrivingPose(const TSharedPtr<FJsonObject>& Object, FWorldDrivingPose& Out)
         {
-            return ReadVehicleVector(Object, Out.Position) && ReadNumber(Object, TEXT("yaw"), Out.YawRadians);
+            return Fields(Object, WorldReadPrivate::EDomain::DrivingPose)
+                && ReadVehicleVector(Object, Out.Position) && ReadNumber(Object, TEXT("yaw"), Out.YawRadians);
         }
 
         bool ReadDrivingOccupant(const TSharedPtr<FJsonObject>& Object, FWorldDrivingOccupant& Out)
         {
+            if (!Fields(Object, WorldReadPrivate::EDomain::DrivingOccupant)) return false;
             FString Role;
             double Seat = 0;
             return ReadControlIdentity(Object, TEXT("userId"), Out.UserId)
@@ -187,7 +349,7 @@ namespace BaddieCompanion
 
         bool ReadVehicleDynamics(const TSharedPtr<FJsonObject>& Object, FWorldVehicleDynamics& Out)
         {
-            if (!Object.IsValid()) return false;
+            if (!Fields(Object, WorldReadPrivate::EDomain::VehicleDynamics)) return false;
             double Version = 0;
             const TSharedPtr<FJsonObject>* Position = nullptr;
             const TSharedPtr<FJsonObject>* Velocity = nullptr;
@@ -215,6 +377,7 @@ namespace BaddieCompanion
             {
                 if (!Item.IsValid() || Item->Type != EJson::Object || !Item->AsObject().IsValid()) return false;
                 const auto Wheel = Item->AsObject();
+                if (!Fields(Wheel, WorldReadPrivate::EDomain::VehicleWheel)) return false;
                 FWorldVehicleWheel Value;
                 if (!ReadNumber(Wheel, TEXT("angularVelocity"), Value.AngularVelocity)
                     || !ReadNumber(Wheel, TEXT("angle"), Value.Angle)
@@ -233,7 +396,7 @@ namespace BaddieCompanion
 
         bool ReadDrivingControl(const TSharedPtr<FJsonObject>& Object, FWorldDrivingControl& Out)
         {
-            if (!Object.IsValid()) return false;
+            if (!Fields(Object, WorldReadPrivate::EDomain::Driving)) return false;
             const TSharedPtr<FJsonObject>* Driver = nullptr;
             const TSharedPtr<FJsonObject>* Pose = nullptr;
             const TSharedPtr<FJsonObject>* Input = nullptr;
@@ -288,6 +451,7 @@ namespace BaddieCompanion
             {
                 if (Contact->Type != EJson::Object || !Contact->AsObject().IsValid()) return false;
                 const auto ContactObject = Contact->AsObject();
+                if (!Fields(ContactObject, WorldReadPrivate::EDomain::DrivingContact)) return false;
                 const TSharedPtr<FJsonObject>* ContactPose = nullptr;
                 FWorldDrivingContact Value;
                 if (!ReadControlIdentity(ContactObject, TEXT("id"), Value.Id)
@@ -314,12 +478,13 @@ namespace BaddieCompanion
         {
             // worldWaterPublicControl excludes these fields. Do not retain a stored control
             // accidentally sent in place of its public projection, even when a field is null.
-            if (!Object.IsValid() || Object->HasField(TEXT("sessionId"))
+            if (!Fields(Object, WorldReadPrivate::EDomain::Water) || Object->HasField(TEXT("sessionId"))
                 || Object->HasField(TEXT("landingReceipt"))) return false;
             const TSharedPtr<FJsonObject>* Scope = nullptr;
             const TSharedPtr<FJsonObject>* Input = nullptr;
             if (!Object->TryGetObjectField(TEXT("scope"), Scope) || !Scope || !Scope->IsValid()
                 || !Object->TryGetObjectField(TEXT("input"), Input) || !Input || !Input->IsValid()) return false;
+            if (!Fields(*Scope, WorldReadPrivate::EDomain::WaterScope) || !Fields(*Input, WorldReadPrivate::EDomain::WaterInput)) return false;
             auto& S = Out.Scope;
             if (!ReadControlIdentity(Object, TEXT("id"), Out.Id)
                 || !ReadControlIdentity(Object, TEXT("craftId"), Out.CraftId)
@@ -364,6 +529,7 @@ namespace BaddieCompanion
             if (Snag->Type != EJson::Null)
             {
                 if (Snag->Type != EJson::Object || !Snag->AsObject().IsValid()) return false;
+                if (!Fields(Snag->AsObject(), WorldReadPrivate::EDomain::WaterSnag)) return false;
                 FWorldWaterSnag Value;
                 if (!ReadControlIdentity(Snag->AsObject(), TEXT("zoneId"), Value.ZoneId)
                     || !ReadNumber(Snag->AsObject(), TEXT("exposureMs"), Value.ExposureMs) || Value.ExposureMs < 0
