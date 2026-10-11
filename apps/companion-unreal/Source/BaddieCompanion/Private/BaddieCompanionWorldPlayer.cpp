@@ -1,4 +1,5 @@
 #include "BaddieCompanionWorldPlayer.h"
+#include "BaddieCompanionWorldPlayerRead.h"
 
 #include "Dom/JsonObject.h"
 #include "Dom/JsonValue.h"
@@ -541,7 +542,17 @@ namespace BaddieCompanion
         Out.Reset();
         OutError = TEXT("World player document is invalid or exceeds the decoder bounds.");
         FObject Player;
-        if (ServerNowMs < 1 || ServerNowMs > MaxInteger || !Parse(PlayerDocumentJson, Player) || !PlayerFields(Player)) return false;
+        if (ServerNowMs < 1 || ServerNowMs > MaxInteger || !Parse(PlayerDocumentJson, Player)) return false;
+        return ReadWorldPlayerObject(Player, ServerNowMs, Out, OutError);
+    }
+
+    bool ReadWorldPlayerObject(const TSharedPtr<FJsonObject>& Player, int64 ServerNowMs,
+        TSharedPtr<const FWorldPlayerView>& Out, FString& OutError)
+    {
+        using namespace WorldPlayerPrivate;
+        Out.Reset();
+        OutError = TEXT("World player document is invalid or exceeds the decoder bounds.");
+        if (ServerNowMs < 1 || ServerNowMs > MaxInteger || !Player.IsValid() || !PlayerFields(Player)) return false;
         const auto Envelope = MakeShared<FJsonObject>();
         Envelope->SetObjectField(TEXT("player"), Player);
         Envelope->SetNumberField(TEXT("serverNow"), ServerNowMs);
@@ -583,6 +594,16 @@ namespace BaddieCompanion
         OutError = TEXT("World instance identity is invalid or exceeds the decoder bounds.");
         FObject O;
         if (!Parse(InstanceDocumentJson, O)) return false;
+        return ReadWorldInstanceObject(O, Player, Out, OutError);
+    }
+
+    bool ReadWorldInstanceObject(const TSharedPtr<FJsonObject>& O, const FWorldPlayerView& Player,
+        TSharedPtr<const FWorldCurrentInstanceIdentity>& Out, FString& OutError)
+    {
+        using namespace WorldPlayerPrivate;
+        Out.Reset();
+        OutError = TEXT("World instance identity is invalid or exceeds the decoder bounds.");
+        if (!O.IsValid()) return false;
         auto Next = MakeShared<FWorldCurrentInstanceIdentity>();
         if (!Key(O, TEXT("id"), Next->Id) || !Key(O, TEXT("placeId"), Next->PlaceId)
             || !Key(O, TEXT("seed"), Next->Seed) || !Key(O, TEXT("generatorVersion"), Next->GeneratorVersion)

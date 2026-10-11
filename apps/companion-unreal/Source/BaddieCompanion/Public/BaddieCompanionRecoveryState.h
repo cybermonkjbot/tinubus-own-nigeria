@@ -3,6 +3,8 @@
 #include "BaddieCompanionWorldPlayer.h"
 #include "Misc/Guid.h"
 
+class FJsonValue;
+
 namespace BaddieCompanion
 {
     DECLARE_MULTICAST_DELEGATE(FRecoveryReadChanged);
@@ -36,6 +38,8 @@ namespace BaddieCompanion
         double GetServerTimeMs() const { return ServerTimeMs; }
     private:
         friend bool DecodeRecoveryResponse(const FString&, ERecoveryResponseKind, FRecoveryDecodedResponse&, FString&);
+        friend bool ReadWorldRecoveryValue(const TSharedPtr<FJsonValue>&, ERecoveryResponseKind,
+            FRecoveryDecodedResponse&, FString&);
         bool bValid = false;
         bool bHasHealth = false;
         ERecoveryResponseKind Kind = ERecoveryResponseKind::Subscription;

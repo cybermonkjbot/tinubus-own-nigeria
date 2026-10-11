@@ -1,5 +1,7 @@
 #include "BaddieCompanionGameplaySession.h"
 #include "BaddieCompanionHttpResponse.h"
+#include "BaddieCompanionWorldSession.h"
+#include "GameFramework/PlayerController.h"
 
 #include "Dom/JsonObject.h"
 #include "Dom/JsonValue.h"
@@ -278,6 +280,8 @@ struct FBaddieCompanionGameplaySessionData
     BaddieGameplaySessionPrivate::FDeadline Pairing, Grant, Presence;
     BaddieGameplaySessionPrivate::FPresenceIdentity Identity;
     BaddieCompanion::FGameplayConnectionView View;
+    BaddieCompanion::FWorldSession World;
+    TWeakObjectPtr<APlayerController> WorldConsumer;
     FString GrantId, CrewThreadId, ApprovedUserId, ApprovedCharacterId, ApprovedHomeRoomId, LeaveMessage;
     FHttpRequestPtr Request;
     uint64 Generation = 0;
@@ -373,6 +377,7 @@ void UBaddieCompanionGameplaySession::RetireRequest()
 
 void UBaddieCompanionGameplaySession::ClearPrivateState()
 {
+    Data->World.Clear();
     RetireRequest();
     Data->Credentials.DeviceId.Reset();
     Data->Credentials.Proof.Reset();
@@ -436,6 +441,18 @@ void UBaddieCompanionGameplaySession::BeginPairing(const FString& DeviceName)
     OnConnectionChanged.Broadcast();
 }
 
+void UBaddieCompanionGameplaySession::BeginWorldPairing(const FString&)
+{
+    if (Data->bEnding || !IsForeground() || !Data->Credentials.DeviceId.IsEmpty()) return;
+    // World consent/public registration and enforced credential-safe transport are
+    // absent. Never fall back to beginGameplay or upgrade an entry-only grant.
+    Data->World.Clear();
+    Data->View.Scope = BaddieCompanion::EGameplayScope::World;
+    Data->View.State = EGameplayState::Unavailable;
+    Data->View.Error = TEXT("World access is unavailable.");
+    OnConnectionChanged.Broadcast();
+}
+
 void UBaddieCompanionGameplaySession::Enter(const FString& CrewThreadId)
 {
     if (!CheckLifetimes() || Data->View.State != EGameplayState::Authorized || Data->Request.IsValid()
@@ -459,6 +476,7 @@ void UBaddieCompanionGameplaySession::Leave()
 void UBaddieCompanionGameplaySession::BeginLeave(const TCHAR* Message)
 {
     if (!Data->bEntryOpen || Data->Credentials.Token.IsEmpty()) return;
+    Data->World.Clear();
     RetireRequest();
     Data->Identity = {};
     Data->Presence = {};
@@ -479,6 +497,9 @@ void UBaddieCompanionGameplaySession::Disconnect()
 BaddieCompanion::FGameplayConnectionView UBaddieCompanionGameplaySession::GetConnectionView() const
 {
     auto View = Data->View;
+    const auto World = Data->World.View();
+    View.WorldGeneration = World.Generation;
+    View.WorldStatus = World.Status;
     View.GrantOrPairingRemainingSeconds = Data->Grant.IsSet() ? Data->Grant.Remaining() : Data->Pairing.Remaining();
     View.PresenceRemainingSeconds = Data->Presence.Remaining();
     const double RetryAt = Data->View.Error.IsEmpty() ? Data->BeginRetryAt : FMath::Max(Data->BeginRetryAt, Data->NextAttempt);
@@ -495,6 +516,67 @@ BaddieCompanion::FGameplayConnectionView UBaddieCompanionGameplaySession::GetCon
         View.bStale = true;
     }
     return View;
+}
+
+BaddieCompanion::FWorldSessionView UBaddieCompanionGameplaySession::GetWorldView() const
+{
+    if (!IsForeground() || Data->View.Scope != BaddieCompanion::EGameplayScope::World
+        || Data->View.State != EGameplayState::Joined || Data->Grant.Remaining() <= 0
+        || Data->Presence.Remaining() <= 0 || !Data->WorldConsumer.IsValid())
+    {
+        auto View = Data->World.View();
+        View.Observation = {}; View.bHasObservation = View.bWalkingAvailable = false;
+        return View;
+    }
+    return Data->World.View();
+}
+
+void UBaddieCompanionGameplaySession::AttachWorldConsumer(APlayerController* Consumer)
+{
+    if (Data->bEnding || !IsValid(Consumer) || !Consumer->IsLocalController()
+        || Consumer->GetGameInstance() != GetGameInstance()) return;
+    if (Data->WorldConsumer.Get() == Consumer) return;
+    Data->World.Detach(); Data->WorldConsumer = Consumer; Data->World.Attach();
+}
+
+void UBaddieCompanionGameplaySession::DetachWorldConsumer(APlayerController* Consumer)
+{
+    if (Data->WorldConsumer.Get() != Consumer) return;
+    Data->WorldConsumer.Reset(); Data->World.Detach();
+}
+
+void UBaddieCompanionGameplaySession::ReloadWorld(APlayerController* Consumer)
+{
+    if (Data->WorldConsumer.Get() != Consumer || !CheckLifetimes()
+        || Data->View.Scope != BaddieCompanion::EGameplayScope::World) return;
+    Data->World.Retry();
+    TickWorld();
+}
+
+bool UBaddieCompanionGameplaySession::RequestWorldWalk(APlayerController* Consumer,
+    const BaddieCompanion::FMovementPoint& Target, BaddieCompanion::EMovementPace Pace)
+{
+    if (Data->WorldConsumer.Get() != Consumer || !GetWorldView().bWalkingAvailable) return false;
+    return Data->World.Walk(Target, Pace);
+}
+
+void UBaddieCompanionGameplaySession::StopWorldWalk(APlayerController* Consumer)
+{
+    if (Data->WorldConsumer.Get() == Consumer) Data->World.StopWalking();
+}
+
+void UBaddieCompanionGameplaySession::WorldContentLost(APlayerController* Consumer, uint64 Generation)
+{
+    if (Data->WorldConsumer.Get() == Consumer) Data->World.ContentLost(Generation);
+}
+
+void UBaddieCompanionGameplaySession::TickWorld()
+{
+    Data->World.Tick();
+    // No callable public world adapter or enforced engine transport exists. Fail
+    // before reading device credentials or constructing an HTTP world request.
+    if (Data->World.Next != BaddieCompanion::EWorldRequest::None)
+        Data->World.Unavailable(BaddieCompanion::EWorldReadStatus::Unavailable);
 }
 
 bool UBaddieCompanionGameplaySession::CheckLifetimes()
@@ -521,6 +603,7 @@ bool UBaddieCompanionGameplaySession::CheckLifetimes()
 bool UBaddieCompanionGameplaySession::TickSession(float)
 {
     AttachSlateLifecycle();
+    TickWorld();
     if (!CheckLifetimes() || Data->Request.IsValid() || Data->NextOperation == EGameplayRequest::None
         || FPlatformTime::Seconds() < Data->NextAttempt) return true;
     Send(Data->NextOperation);
@@ -552,6 +635,7 @@ void UBaddieCompanionGameplaySession::Send(EGameplayRequest Operation)
 {
     using namespace BaddieGameplaySessionPrivate;
     if (Data->Request.IsValid() || !Data->bEnabled || !IsForeground() || Operation == EGameplayRequest::None) return;
+    if (Data->View.Scope != BaddieCompanion::EGameplayScope::EntryOnly) return;
     const auto Credentials = Data->Credentials;
     if (Credentials.DeviceId.IsEmpty() || (Operation != EGameplayRequest::Begin && Credentials.Proof.IsEmpty())) return;
     const bool bGrant = Operation == EGameplayRequest::Enter || Operation == EGameplayRequest::Heartbeat || Operation == EGameplayRequest::Leave;

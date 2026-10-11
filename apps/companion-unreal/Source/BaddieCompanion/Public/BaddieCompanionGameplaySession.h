@@ -4,13 +4,16 @@
 #include "Containers/Ticker.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "Templates/PimplPtr.h"
+#include "BaddieCompanionWorldObservation.h"
 #include "BaddieCompanionGameplaySession.generated.h"
 
 class FJsonObject;
+class APlayerController;
 struct FBaddieCompanionGameplaySessionData;
 
 namespace BaddieCompanion
 {
+    enum class EGameplayScope : uint8 { EntryOnly, World };
     enum class EGameplayConnectionState : uint8
     {
         Disabled, SignedOut, RequestingCode, AwaitingApproval, Authorized,
@@ -26,6 +29,9 @@ namespace BaddieCompanion
         double PresenceRemainingSeconds = 0;
         double RetryAfterSeconds = 0;
         bool bStale = false;
+        EGameplayScope Scope = EGameplayScope::EntryOnly;
+        uint64 WorldGeneration = 0;
+        EWorldReadStatus WorldStatus = EWorldReadStatus::Unavailable;
     };
 
     enum class EGameplayRequest : uint8 { None, Begin, Exchange, Enter, Heartbeat, Leave };
@@ -49,10 +55,19 @@ public:
     // This source adds no caller and defaults to disabled.
     void Configure(const FString& ConvexOrigin, bool bEnabled);
     void BeginPairing(const FString& DeviceName);
+    void BeginWorldPairing(const FString& DeviceName);
     void Enter(const FString& CrewThreadId = FString());
     void Leave();
     void Disconnect();
     BaddieCompanion::FGameplayConnectionView GetConnectionView() const;
+    BaddieCompanion::FWorldSessionView GetWorldView() const;
+    void AttachWorldConsumer(APlayerController* Consumer);
+    void DetachWorldConsumer(APlayerController* Consumer);
+    void ReloadWorld(APlayerController* Consumer);
+    bool RequestWorldWalk(APlayerController* Consumer, const BaddieCompanion::FMovementPoint& Target,
+        BaddieCompanion::EMovementPace Pace);
+    void StopWorldWalk(APlayerController* Consumer);
+    void WorldContentLost(APlayerController* Consumer, uint64 ObservationGeneration);
     FBaddieCompanionGameplayConnectionChanged OnConnectionChanged;
 
 private:
@@ -61,6 +76,7 @@ private:
     FDelegateHandle DeactivateHandle, ReactivateHandle, BackgroundHandle, ForegroundHandle, SlateActivationHandle;
 
     bool TickSession(float DeltaSeconds);
+    void TickWorld();
     bool IsForeground() const;
     void AttachSlateLifecycle();
     void ApplicationDeactivated();

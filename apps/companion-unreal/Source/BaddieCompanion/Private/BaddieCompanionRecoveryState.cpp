@@ -1,4 +1,5 @@
 #include "BaddieCompanionRecoveryState.h"
+#include "BaddieCompanionWorldPlayerRead.h"
 #include "BaddieCompanionStateJson.h"
 #include "Serialization/JsonSerializer.h"
 #include "Serialization/JsonWriter.h"
@@ -56,13 +57,26 @@ namespace BaddieCompanion
         Out = {}; OutError = TEXT("Recovery response is unsupported or malformed.");
         if (Json.IsEmpty() || Json.Len() > ParseLimits.Characters
             || (Kind != ERecoveryResponseKind::Subscription && Kind != ERecoveryResponseKind::Mutation)) return false;
-        FRecoveryDecodedResponse Next; Next.Kind = Kind;
         if (Kind == ERecoveryResponseKind::Subscription && Same(Json.TrimStartAndEnd(), TEXT("null")))
+            return ReadWorldRecoveryValue(MakeShared<FJsonValueNull>(), Kind, Out, OutError);
+        FObject O;
+        if (!Parse(Json, O, ParseLimits)) return false;
+        return ReadWorldRecoveryValue(MakeShared<FJsonValueObject>(O), Kind, Out, OutError);
+    }
+
+    bool ReadWorldRecoveryValue(const TSharedPtr<FJsonValue>& Value, ERecoveryResponseKind Kind,
+        FRecoveryDecodedResponse& Out, FString& OutError)
+    {
+        using namespace RecoveryStatePrivate;
+        Out = {}; OutError = TEXT("Recovery response is unsupported or malformed.");
+        if (!Value.IsValid() || (Kind != ERecoveryResponseKind::Subscription
+            && Kind != ERecoveryResponseKind::Mutation)) return false;
+        FRecoveryDecodedResponse Next; Next.Kind = Kind;
+        if (Kind == ERecoveryResponseKind::Subscription && Value->Type == EJson::Null)
         {
             Next.bValid = true; Out = MoveTemp(Next); OutError.Reset(); return true;
         }
-        FObject O;
-        if (!Parse(Json, O, ParseLimits)) return false;
+        const auto O = Object(Value);
         FObject HealthObject = O;
         if (Kind == ERecoveryResponseKind::Mutation)
         {

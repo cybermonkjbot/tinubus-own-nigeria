@@ -34,7 +34,8 @@ namespace BaddieCompanion
 
     inline bool CanEnterGameplay(const FGameplayConnectionView& View)
     {
-        return View.State == EGameplayConnectionState::Authorized && View.GrantOrPairingRemainingSeconds > 0
+        return View.Scope == EGameplayScope::EntryOnly
+            && View.State == EGameplayConnectionState::Authorized && View.GrantOrPairingRemainingSeconds > 0
             && View.RetryAfterSeconds <= 0 && !View.bStale;
     }
 
@@ -47,7 +48,8 @@ namespace BaddieCompanion
 
     inline bool SameGameplayControls(const FGameplayConnectionView& A, const FGameplayConnectionView& B)
     {
-        return A.State == B.State && A.DeviceName == B.DeviceName && A.DisplayCode == B.DisplayCode
+        return A.State == B.State && A.Scope == B.Scope && A.WorldGeneration == B.WorldGeneration
+            && A.WorldStatus == B.WorldStatus && A.DeviceName == B.DeviceName && A.DisplayCode == B.DisplayCode
             && A.ApprovalLink == B.ApprovalLink && A.Error == B.Error && A.bStale == B.bStale
             && (A.GrantOrPairingRemainingSeconds > 0) == (B.GrantOrPairingRemainingSeconds > 0)
             && (A.PresenceRemainingSeconds > 0) == (B.PresenceRemainingSeconds > 0)

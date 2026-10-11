@@ -38,6 +38,7 @@ protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
 private:
     friend class UBaddieCompanionNativeApartment;
+    friend class UBaddieCompanionWorldPresentation;
     static bool AcceptsBinding(const BaddieCompanion::FFurniturePlan& Item,
         const BaddieCompanion::FNativeFurnitureAsset& Asset);
     bool Configure(const BaddieCompanion::FRoomPlan& Room, const BaddieCompanion::FFurniturePlan& Item,

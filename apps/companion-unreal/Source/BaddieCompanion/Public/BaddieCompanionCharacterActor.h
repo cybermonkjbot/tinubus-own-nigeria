@@ -61,13 +61,17 @@ protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
 private:
     friend class UBaddieCompanionNativeApartment;
+    friend class UBaddieCompanionWorldPresentation;
     static bool HasInertDefaults(UClass* Class);
     bool Prepare(const BaddieCompanion::FHomePresentationPlan& Plan,
         const BaddieCompanion::FNativeCharacterContent& Content,
         const FTransform& LevelToApartment, bool bLevelAlreadyTransformed);
     bool PrepareBindings(const BaddieCompanion::FHomePresentationPlan& Plan,
         const BaddieCompanion::FNativeCharacterContent& Content,
-        const FTransform& LevelToApartment, bool bLevelAlreadyTransformed);
+        const FTransform& LevelToApartment, bool bLevelAlreadyTransformed,
+        const FTransform* WorldPose = nullptr);
+    bool PrepareWorld(const BaddieCompanion::FHomePresentationPlan& Plan,
+        const BaddieCompanion::FNativeCharacterContent& Content, const FTransform& WorldPose);
     bool ReconcileLevelTransform();
     bool HasCurrentMaterials() const;
     BaddieCompanion::ECharacterEquipmentIssue ObserveEquipment(

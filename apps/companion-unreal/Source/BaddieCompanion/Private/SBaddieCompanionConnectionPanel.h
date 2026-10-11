@@ -75,6 +75,7 @@ private:
         GameplayCode, GameplayLink, GameplayLifetime, GameplayPresence, GameplayError, GameplayRetry;
     TSharedPtr<SButton> GameplayPairButton, GameplayCopyButton, GameplayCancelButton, GameplayEnterButton,
         GameplayCancelEntryButton, GameplayLeaveButton, GameplayDisconnectButton;
+    TSharedPtr<SButton> WorldPairButton, WorldReloadButton;
     BaddieCompanion::FGameplayConnectionView GameplayView;
     uint64 GameplayRevision = 0, ConfirmationRevision = 0;
     TWeakPtr<SWidget> ReturnFocus;

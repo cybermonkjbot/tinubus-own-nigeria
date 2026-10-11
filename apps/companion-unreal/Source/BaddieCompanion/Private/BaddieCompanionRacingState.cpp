@@ -1,4 +1,5 @@
 #include "BaddieCompanionRacingState.h"
+#include "BaddieCompanionWorldPlayerRead.h"
 #include "BaddieCompanionStateJson.h"
 #include "Serialization/JsonSerializer.h"
 #include "Serialization/JsonWriter.h"
@@ -179,9 +180,27 @@ namespace BaddieCompanion
             return ERacingReadResult::NullDocument;
         }
         FObject Root;
-        FRacingSnapshot Next;
-        if (!Parse(Json, Root, RacingPrivate::Limits) || !RacingPrivate::Snapshot(Root, Next))
+        if (!Parse(Json, Root, RacingPrivate::Limits))
             return ERacingReadResult::InvalidDocument;
+        return ReadWorldRacingValue(EWorldFieldPresence::Value, MakeShared<FJsonValueObject>(Root),
+            MoveTemp(ExpectedInstanceId), MoveTemp(Previous), Out, OutError);
+    }
+
+    ERacingReadResult ReadWorldRacingValue(EWorldFieldPresence Presence, TSharedPtr<FJsonValue> Value,
+        FString ExpectedInstanceId, TSharedPtr<const FRacingSnapshot> Previous,
+        TSharedPtr<const FRacingSnapshot>& Out, FString& OutError)
+    {
+        using namespace StateJsonPrivate;
+        Out.Reset(); OutError.Reset();
+        if (Presence == EWorldFieldPresence::Missing) return ERacingReadResult::Absent;
+        if (Presence == EWorldFieldPresence::Null) return ERacingReadResult::NullField;
+        OutError = RacingPrivate::InvalidRead;
+        if (Presence != EWorldFieldPresence::Value) return ERacingReadResult::InvalidField;
+        if (ExpectedInstanceId.IsEmpty()) return ERacingReadResult::InvalidInstance;
+        if (Value.IsValid() && Value->Type == EJson::Null)
+        { OutError.Reset(); return ERacingReadResult::NullDocument; }
+        FRacingSnapshot Next;
+        if (!RacingPrivate::Snapshot(Object(Value), Next)) return ERacingReadResult::InvalidDocument;
         if (Next.Race.IsSet())
         {
             if (!Same(Next.Race->InstanceId, ExpectedInstanceId)) return ERacingReadResult::InstanceMismatch;

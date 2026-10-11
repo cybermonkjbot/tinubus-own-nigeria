@@ -139,7 +139,7 @@ bool ABaddieCompanionCharacterActor::Prepare(const BaddieCompanion::FHomePresent
 
 bool ABaddieCompanionCharacterActor::PrepareBindings(const BaddieCompanion::FHomePresentationPlan& Plan,
     const BaddieCompanion::FNativeCharacterContent& Content,
-    const FTransform& LevelToApartment, bool bLevelAlreadyTransformed)
+    const FTransform& LevelToApartment, bool bLevelAlreadyTransformed, const FTransform* WorldPose)
 {
     SuppressPresentation();
     if (bDiscarded || IsActorBeingDestroyed() || !GetWorld() || !GetWorld()->IsGameWorld()
@@ -157,11 +157,22 @@ bool ABaddieCompanionCharacterActor::PrepareBindings(const BaddieCompanion::FHom
     if (!ChildActors.IsEmpty()) return false; // This owner's material slots belong to this actor only.
 
     const auto& Shell = Plan.Home.Shell.GetValue();
-    const auto& Spawn = Shell.PreferredSpawn;
-    if (!FMath::IsFinite(Shell.CharacterScale) || Shell.CharacterScale <= 0
-        || Spawn.UnrealCentimetres.ContainsNaN() || !FMath::IsFinite(Spawn.UnrealYawDegrees)) return false;
-    const FTransform LocalPose(FRotator(0, Spawn.UnrealYawDegrees, 0),
-        Spawn.UnrealCentimetres, FVector(Shell.CharacterScale));
+    if (!FMath::IsFinite(Shell.CharacterScale) || Shell.CharacterScale <= 0) return false;
+    FTransform LocalPose;
+    if (WorldPose)
+    {
+        if (WorldPose->ContainsNaN() || !WorldPose->GetRotation().IsNormalized()
+            || !WorldPose->GetScale3D().Equals(FVector::OneVector, 1.e-6)) return false;
+        LocalPose = *WorldPose;
+        LocalPose.SetScale3D(FVector(Shell.CharacterScale));
+    }
+    else
+    {
+        const auto& Spawn = Shell.PreferredSpawn;
+        if (Spawn.UnrealCentimetres.ContainsNaN() || !FMath::IsFinite(Spawn.UnrealYawDegrees)) return false;
+        LocalPose = FTransform(FRotator(0, Spawn.UnrealYawDegrees, 0),
+            Spawn.UnrealCentimetres, FVector(Shell.CharacterScale));
+    }
     const FTransform ApartmentPose = LocalPose * LevelToApartment;
     if (ApartmentPose.ContainsNaN()
         || !SetActorTransform(bLevelAlreadyTransformed ? ApartmentPose : LocalPose, false,
@@ -203,6 +214,21 @@ bool ABaddieCompanionCharacterActor::PrepareBindings(const BaddieCompanion::FHom
         Plan.Appearance.Eyewear.Effective.GetValue() == BaddieCompanion::EEyewear::Round)) return false;
     if (!bLevelAlreadyTransformed) PendingApartmentPose = ApartmentPose;
     return true; // Hidden face/material/accessory preparation, not complete appearance or movement readiness.
+}
+
+bool ABaddieCompanionCharacterActor::PrepareWorld(const BaddieCompanion::FHomePresentationPlan& Plan,
+    const BaddieCompanion::FNativeCharacterContent& Content, const FTransform& WorldPose)
+{
+    check(IsInGameThread());
+    if (bChangingPresentation || bPrepared || bDiscarded) return false;
+    bool bSuccess = false;
+    {
+        TGuardValue<bool> Changing(bChangingPresentation, true);
+        bSuccess = PrepareBindings(Plan, Content, FTransform::Identity, true, &WorldPose);
+    }
+    if (!bSuccess || bDiscarded || IsActorBeingDestroyed()) { ClearPrivateCharacter(); return false; }
+    bPrepared = true;
+    return true;
 }
 
 bool ABaddieCompanionCharacterActor::PrepareAccessoryVisibility(const BaddieCompanion::FAppearancePlan& Appearance,

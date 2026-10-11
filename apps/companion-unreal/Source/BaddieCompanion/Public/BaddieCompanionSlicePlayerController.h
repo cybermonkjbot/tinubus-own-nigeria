@@ -8,12 +8,14 @@
 #include "BaddieCompanionSnapshot.h"
 #include "BaddieCompanionNativeApartment.h"
 #include "BaddieCompanionMissionPresentation.h"
+#include "BaddieCompanionWorldPresentation.h"
 #include "BaddieCompanionSlicePlayerController.generated.h"
 
 class SBaddieCompanionConnectionPanel;
 class SWidget;
 class UBaddieCompanionSession;
 class UBaddieCompanionSliceSession;
+class ABaddieCompanionWorldCharacter;
 
 enum class EBaddieConnectionAction : uint8
 {
@@ -22,7 +24,7 @@ enum class EBaddieConnectionAction : uint8
 
 enum class EBaddieGameplayConnectionAction : uint8
 {
-    Pair, CopyLink, CancelPairing, Enter, CancelEntry, Leave, Disconnect
+    Pair, PairWorld, ReloadWorld, CopyLink, CancelPairing, Enter, CancelEntry, Leave, Disconnect
 };
 
 UCLASS(NotBlueprintable)
@@ -46,6 +48,9 @@ public:
     bool CopyNativeApartmentStatus(BaddieCompanion::FNativeApartmentStatus& Out);
     // Trusted native content setup only. Currently blocked by missing presentation/admission.
     bool PrepareNativeApartment(const BaddieCompanion::FNativeApartmentContent& Content);
+    bool PrepareWorldContent(const BaddieCompanion::FNativeWorldContent& Content);
+    bool RequestWorldWalk(const BaddieCompanion::FMovementPoint& Target, BaddieCompanion::EMovementPace Pace);
+    void StopWorldWalk();
     bool CopyNativeRoomCamera(const FString& RoomId, BaddieCompanion::FNativeRoomCamera& Out);
     bool CopyNativeDoorwayApproach(int32 ConnectionIndex, bool bFromEndpoint, FVector& Out);
     bool IsInspectionPointerCaptured() const { return bPointerCaptured; }
@@ -92,6 +97,9 @@ private:
     void TogglePointerCapture();
     void ApplyPointerCapture();
     void ClearPrivatePresentation();
+    void ClearReadPresentation();
+    void RefreshWorldPresentation();
+    void ClearWorldPresentation();
     void ConnectionChanged();
     void GameplayConnectionChanged();
     void InvalidateGameplayControls();
@@ -121,6 +129,10 @@ private:
     BaddieCompanion::FHomePresentationCache HomePresentation;
     UPROPERTY(Transient)
     TObjectPtr<UBaddieCompanionNativeApartment> NativeApartment;
+    UPROPERTY(Transient)
+    TObjectPtr<UBaddieCompanionWorldPresentation> WorldPresentation;
+    BaddieCompanion::FWorldObservation WorldObservation;
+    bool bRefreshingWorld = false, bClearingWorld = false;
     TOptional<EBaddieConnectionAction> PendingAction;
     TOptional<EBaddieGameplayConnectionAction> PendingGameplayAction;
     TOptional<BaddieCompanion::FGameplayConnectionView> LastGameplayView;
