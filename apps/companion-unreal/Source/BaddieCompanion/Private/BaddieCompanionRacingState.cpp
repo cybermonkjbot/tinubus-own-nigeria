@@ -1,5 +1,8 @@
 #include "BaddieCompanionRacingState.h"
 #include "BaddieCompanionStateJson.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
+#include <cmath>
 
 namespace BaddieCompanion
 {
@@ -9,8 +12,12 @@ namespace BaddieCompanion
         // Character/car limits are canonical. Depth/separator limits bound UE JSON
         // allocation; the accepted typed object tree fits within both native limits.
         constexpr FParseLimits Limits { 32768, 16, 2048 };
+        // Allow six-character JSON escaping of every character in a full racing document.
+        constexpr FParseLimits CommandResponseLimits { 256 * 1024, 4, 16 };
         constexpr int32 MaxCars = 8;
         const TCHAR* InvalidRead = TEXT("Racing data couldn't load. Reload the world to try again.");
+        const TCHAR* InvalidCommand = TEXT("The race command couldn't be prepared.");
+        const TCHAR* InvalidCommandResponse = TEXT("The race response couldn't be read.");
 
         bool Text(const FValue& V, FString& Out) { return String(V, Out); }
         bool BoundedText(const FValue& V, FString& Out, int32 Maximum)
@@ -26,15 +33,22 @@ namespace BaddieCompanion
             Out = static_cast<int32>(N);
             return true;
         }
+        bool ValidInput(const FRaceInput& Value)
+        {
+            return std::isfinite(Value.Throttle) && Value.Throttle >= 0 && Value.Throttle <= 1
+                && std::isfinite(Value.Brake) && Value.Brake >= 0 && Value.Brake <= 1
+                && std::isfinite(Value.Steering) && Value.Steering >= -1 && Value.Steering <= 1
+                && Value.Gear >= 1 && Value.Gear <= 6;
+        }
         bool Input(const FValue& V, FRaceInput& Out)
         {
             const auto O = Object(V);
             return Only(O, { TEXT("throttle"), TEXT("brake"), TEXT("steering"), TEXT("handbrake"), TEXT("gear") })
-                && Number(O, TEXT("throttle"), Out.Throttle) && Out.Throttle >= 0 && Out.Throttle <= 1
-                && Number(O, TEXT("brake"), Out.Brake) && Out.Brake >= 0 && Out.Brake <= 1
-                && Number(O, TEXT("steering"), Out.Steering) && Out.Steering >= -1 && Out.Steering <= 1
+                && Number(O, TEXT("throttle"), Out.Throttle)
+                && Number(O, TEXT("brake"), Out.Brake)
+                && Number(O, TEXT("steering"), Out.Steering)
                 && Boolean(Field(O, TEXT("handbrake")), Out.bHandbrake)
-                && SmallInteger(Field(O, TEXT("gear")), Out.Gear, 1, 6);
+                && SmallInteger(Field(O, TEXT("gear")), Out.Gear, 1, 6) && ValidInput(Out);
         }
         bool Car(const FValue& V, FRaceCar& Out)
         {
@@ -114,6 +128,35 @@ namespace BaddieCompanion
                     { TEXT("car-busy"), ERacingEligibility::CarBusy }, { TEXT("no-fuel"), ERacingEligibility::NoFuel },
                     { TEXT("damaged"), ERacingEligibility::Damaged } });
         }
+        bool CommandKey(const FString& Value, int32 Maximum = 300)
+        {
+            return !Value.IsEmpty() && Value.Len() <= Maximum;
+        }
+        bool Revision(int64 Value) { return Value >= 0 && Value <= MaxInteger; }
+        bool Sequence(int64 Value) { return Value >= 1 && Value <= 1000000; }
+        bool Encode(const FRacingCommandScope& Scope, const TSharedRef<FJsonObject>& Command,
+            FRacingCommandPacket& Out, FString& OutError)
+        {
+            // gameRoomId's 240-character limit is native resource policy, not an ID parser.
+            if (!CommandKey(Scope.GameRoomId, 240) || !CommandKey(Scope.InstanceId, 240) || !Revision(Scope.Revision)) return false;
+            const auto Args = MakeShared<FJsonObject>();
+            Args->SetStringField(TEXT("gameRoomId"), Scope.GameRoomId);
+            Args->SetStringField(TEXT("instanceId"), Scope.InstanceId);
+            Args->SetNumberField(TEXT("revision"), static_cast<double>(Scope.Revision));
+            Args->SetObjectField(TEXT("command"), Command);
+            FRacingCommandPacket Next;
+            const auto Writer = TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Next.ArgumentsJson);
+            if (!FJsonSerializer::Serialize(Args, Writer)) return false;
+            Next.Endpoint = TEXT("companionRacing:command");
+            Out = MoveTemp(Next); OutError.Reset(); return true;
+        }
+        TSharedRef<FJsonObject> RaceCommand(const TCHAR* Action, const FString& RaceId)
+        {
+            const auto Command = MakeShared<FJsonObject>();
+            Command->SetStringField(TEXT("action"), Action);
+            Command->SetStringField(TEXT("raceId"), RaceId);
+            return Command;
+        }
     }
 
     ERacingReadResult ReadRacingSnapshot(TSharedPtr<FJsonValue> RacingJson, FString ExpectedInstanceId,
@@ -155,5 +198,84 @@ namespace BaddieCompanion
         Out = MakeShared<FRacingSnapshot>(MoveTemp(Next));
         OutError.Reset();
         return ERacingReadResult::Accepted;
+    }
+
+    bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingJoinCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError)
+    {
+        using namespace RacingPrivate;
+        Out = {}; OutError = InvalidCommand;
+        if (!CommandKey(Command.VehicleId, 240) || !Revision(Command.VehicleRevision)) return false;
+        const TCHAR* Transmission = nullptr;
+        switch (Command.Transmission)
+        {
+        case ERaceTransmission::Automatic: Transmission = TEXT("automatic"); break;
+        case ERaceTransmission::Manual: Transmission = TEXT("manual"); break;
+        default: return false;
+        }
+        const auto Value = MakeShared<FJsonObject>();
+        Value->SetStringField(TEXT("action"), TEXT("join"));
+        Value->SetStringField(TEXT("vehicleId"), Command.VehicleId);
+        Value->SetNumberField(TEXT("vehicleRevision"), static_cast<double>(Command.VehicleRevision));
+        Value->SetStringField(TEXT("transmission"), Transmission);
+        return Encode(Scope, Value, Out, OutError);
+    }
+    bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingStartCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError)
+    {
+        using namespace RacingPrivate;
+        Out = {}; OutError = InvalidCommand;
+        return CommandKey(Command.RaceId) && Encode(Scope, RaceCommand(TEXT("start"), Command.RaceId), Out, OutError);
+    }
+    bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingLeaveCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError)
+    {
+        using namespace RacingPrivate;
+        Out = {}; OutError = InvalidCommand;
+        return CommandKey(Command.RaceId) && Encode(Scope, RaceCommand(TEXT("leave"), Command.RaceId), Out, OutError);
+    }
+    bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingRecoverCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError)
+    {
+        using namespace RacingPrivate;
+        Out = {}; OutError = InvalidCommand;
+        if (!CommandKey(Command.RaceId) || !Sequence(Command.Sequence)) return false;
+        const auto Value = RaceCommand(TEXT("recover"), Command.RaceId);
+        Value->SetNumberField(TEXT("sequence"), static_cast<double>(Command.Sequence));
+        return Encode(Scope, Value, Out, OutError);
+    }
+    bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingInputCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError)
+    {
+        using namespace RacingPrivate;
+        Out = {}; OutError = InvalidCommand;
+        if (!CommandKey(Command.RaceId) || !Sequence(Command.Sequence) || !ValidInput(Command.Input)) return false;
+        const auto Value = RaceCommand(TEXT("input"), Command.RaceId);
+        Value->SetNumberField(TEXT("sequence"), static_cast<double>(Command.Sequence));
+        const auto InputValue = MakeShared<FJsonObject>();
+        InputValue->SetNumberField(TEXT("throttle"), Command.Input.Throttle);
+        InputValue->SetNumberField(TEXT("brake"), Command.Input.Brake);
+        InputValue->SetNumberField(TEXT("steering"), Command.Input.Steering);
+        InputValue->SetBoolField(TEXT("handbrake"), Command.Input.bHandbrake);
+        InputValue->SetNumberField(TEXT("gear"), Command.Input.Gear);
+        Value->SetObjectField(TEXT("input"), InputValue);
+        return Encode(Scope, Value, Out, OutError);
+    }
+    bool DecodeRacingCommandResponse(const FString& Json, FRacingCommandResponse& Out, FString& OutError)
+    {
+        using namespace StateJsonPrivate;
+        FObject Root;
+        FRacingCommandResponse Next;
+        if (Parse(Json, Root, RacingPrivate::CommandResponseLimits) && Only(Root, { TEXT("racingJson"), TEXT("serverNow") })
+            && Number(Root, TEXT("serverNow"), Next.ServerNowMs))
+        {
+            const auto RacingJson = Field(Root, TEXT("racingJson"));
+            if (RacingJson.IsValid() && (RacingJson->Type == EJson::String || RacingJson->Type == EJson::Null))
+            {
+                Next.RacingJson = RacingJson;
+                Out = MoveTemp(Next); OutError.Reset(); return true;
+            }
+        }
+        Out = {}; OutError = RacingPrivate::InvalidCommandResponse; return false;
     }
 }

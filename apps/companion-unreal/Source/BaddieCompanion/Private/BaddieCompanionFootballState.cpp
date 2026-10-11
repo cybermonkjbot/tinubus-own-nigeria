@@ -1,5 +1,7 @@
 #include "BaddieCompanionFootballState.h"
 #include "BaddieCompanionStateJson.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 
 namespace BaddieCompanion
 {
@@ -14,6 +16,7 @@ namespace BaddieCompanion
         const TCHAR* InvalidMatch = TEXT("Football data couldn't load. Reconnect to continue.");
         const TCHAR* InvalidEntry = TEXT("Football players couldn't load. Reopen the roster to try again.");
         const TCHAR* Disconnected = TEXT("Football disconnected. Reconnect to continue.");
+        const TCHAR* CommandFailed = TEXT("Couldn't update the match. Try again.");
 
         bool Text(const FValue& V, FString& Out) { return String(V, Out) && Out.Len() <= MaxText; }
         bool Numeric(const FValue& V, double& Out) { return Number(V, Out); }
@@ -164,6 +167,11 @@ namespace BaddieCompanion
         {
             return Same(A.AccountId, B.AccountId) && Same(A.SessionIncarnation, B.SessionIncarnation) && Same(A.RoomId, B.RoomId);
         }
+        bool ValidScope(const FFootballReadScope& Scope)
+        {
+            return !Scope.AccountId.IsEmpty() && !Scope.SessionIncarnation.IsEmpty() && !Scope.RoomId.IsEmpty()
+                && Scope.AccountId.Len() <= MaxText && Scope.SessionIncarnation.Len() <= MaxText && Scope.RoomId.Len() <= MaxText;
+        }
         bool SamePlayerScope(const TOptional<FString>& A, const TOptional<FString>& B)
         {
             // The client uses playerId ?? "". Preserve null/empty equivalence for ordering
@@ -215,6 +223,8 @@ namespace BaddieCompanion
         // Copy first: callers may pass GetSelection().
         const FFootballReadScope Next = Scope;
         EndMatchObservation();
+        RetireCommand();
+        SessionGeneration = FGuid::NewGuid();
         EntryGenerations.Reset();
         Selection = Next;
         View = FFootballSnapshot{};
@@ -224,9 +234,8 @@ namespace BaddieCompanion
     }
     bool FFootballReadState::CanObserve(int64 CapturedNowMs) const
     {
-        return !bDisposed && !Selection.AccountId.IsEmpty() && !Selection.SessionIncarnation.IsEmpty() && !Selection.RoomId.IsEmpty()
-            && Selection.AccountId.Len() <= FootballPrivate::MaxText && Selection.SessionIncarnation.Len() <= FootballPrivate::MaxText
-            && Selection.RoomId.Len() <= FootballPrivate::MaxText && CapturedNowMs >= 0 && CapturedNowMs <= FootballPrivate::MaxCapturedNowMs;
+        return !bDisposed && FootballPrivate::ValidScope(Selection)
+            && CapturedNowMs >= 0 && CapturedNowMs <= FootballPrivate::MaxCapturedNowMs;
     }
     bool FFootballReadState::BeginMatchObservation(int64 CapturedNowMs, FFootballReadReceipt& Out)
     {
@@ -241,6 +250,7 @@ namespace BaddieCompanion
     }
     void FFootballReadState::EndMatchObservation()
     {
+        // Canonical generation replacement does not clear command busy, even in flight.
         MatchGeneration = FGuid::NewGuid();
         bMatchObserved = false;
     }
@@ -282,7 +292,10 @@ namespace BaddieCompanion
             FailMatch(Error);
             return EFootballReadResult::InvalidResponse;
         }
-        auto& Next = Decoded.GetValue();
+        return ApplyMatch(MoveTemp(Decoded.GetValue()));
+    }
+    EFootballReadResult FFootballReadState::ApplyMatch(FFootballSnapshot Next)
+    {
         if (View.Match.IsSet() && Next.Match.IsSet() && StateJsonPrivate::Same(View.Match->Id, Next.Match->Id)
             && Next.Match->Epoch < View.Match->Epoch) return EFootballReadResult::OlderEpoch;
         const bool bSameScope = bHasApplied && FootballPrivate::SameMatchScope(View, Next);
@@ -290,9 +303,8 @@ namespace BaddieCompanion
             return EFootballReadResult::OlderRevision;
         if (bSameScope && FootballPrivate::SameRevision(View, Next) && View.Advancement.IsSet() && Next.Advancement.IsSet()
             && Next.Advancement->ServerNowMs < View.Advancement->ServerNowMs) return EFootballReadResult::OlderAdvancement;
-        // apply preserves the command-owned busy latch and clears error. This owner has
-        // no commands, so busy stays false. Raw decoders still expose both wire fields.
-        Next.bBusy = false;
+        // Neither query nor command wire data may take ownership of the local busy latch.
+        Next.bBusy = View.bBusy;
         Next.Error.Reset();
         View = MoveTemp(Next);
         bHasApplied = true;
@@ -303,6 +315,131 @@ namespace BaddieCompanion
     {
         if (!CurrentMatch(Receipt)) return false;
         FailMatch(Failure.Message.IsSet() ? Failure.Message.GetValue() : FString(FootballPrivate::Disconnected));
+        return true;
+    }
+    TOptional<FFootballCommandRequest> FFootballReadState::PrepareCommand(const FFootballCommand& Command)
+    {
+        using namespace FootballPrivate;
+        if (bDisposed || View.bBusy || !View.Match.IsSet() || !ValidScope(Selection)) return {};
+        // Read epochs stay finite doubles. Only this outbound boundary needs a safe integer,
+        // and assertEpoch permits negative and zero values when authoritative state agrees.
+        int64 Epoch = 0;
+        if (!Integer(MakeShared<FJsonValueNumber>(View.Match->Epoch), Epoch, -9007199254740991LL)) return {};
+        const auto Value = MakeShared<FJsonObject>();
+        switch (Command.Type)
+        {
+        case EFootballCommandType::Ready:
+            Value->SetStringField(TEXT("type"), TEXT("ready")); Value->SetBoolField(TEXT("ready"), Command.bReady); break;
+        case EFootballCommandType::Side:
+            if (Command.Side != EFootballSide::Home && Command.Side != EFootballSide::Away) return {};
+            Value->SetStringField(TEXT("type"), TEXT("side"));
+            Value->SetStringField(TEXT("side"), Command.Side == EFootballSide::Home ? TEXT("home") : TEXT("away")); break;
+        case EFootballCommandType::Start: Value->SetStringField(TEXT("type"), TEXT("start")); break;
+        case EFootballCommandType::Retry: Value->SetStringField(TEXT("type"), TEXT("retry")); break;
+        case EFootballCommandType::Rejoin: Value->SetStringField(TEXT("type"), TEXT("rejoin")); break;
+        case EFootballCommandType::Leave: Value->SetStringField(TEXT("type"), TEXT("leave")); break;
+        case EFootballCommandType::End: Value->SetStringField(TEXT("type"), TEXT("end")); break;
+        default: return {};
+        }
+        FFootballCommandRequest Request;
+        Request.Type = Command.Type;
+        Request.Receipt.QueryGeneration = MatchGeneration;
+        Request.Receipt.SessionGeneration = SessionGeneration;
+        Request.Receipt.RequestId = FGuid::NewGuid(); Request.Receipt.Scope = Selection;
+        const auto Args = MakeShared<FJsonObject>();
+        Args->SetStringField(TEXT("roomId"), Request.Receipt.Scope.RoomId);
+        Args->SetNumberField(TEXT("epoch"), static_cast<double>(Epoch)); Args->SetObjectField(TEXT("command"), Value);
+        if (!FJsonSerializer::Serialize(Args, TJsonWriterFactory<>::Create(&Request.ArgumentsJson))) return {};
+        PendingCommand = Request; CommandStage = ECommandStage::Prepared;
+        View.bBusy = true; View.Error.Reset(); Changed.Broadcast();
+        // A query change intentionally leaves busy set. Its unsent receipt remains available
+        // through GetPendingCommand; a replaced session must expose none of its old work.
+        return CurrentCommand(Request.Receipt) ? TOptional<FFootballCommandRequest>(Request) : TOptional<FFootballCommandRequest>();
+    }
+    bool FFootballReadState::OwnsCommand(const FFootballCommandReceipt& Receipt) const
+    {
+        return !bDisposed && PendingCommand.IsSet() && Receipt.RequestId.IsValid()
+            && Receipt.RequestId == PendingCommand->Receipt.RequestId && Receipt.SessionGeneration == SessionGeneration
+            && Receipt.QueryGeneration == PendingCommand->Receipt.QueryGeneration
+            && FootballPrivate::SameScope(Receipt.Scope, Selection);
+    }
+    bool FFootballReadState::CurrentCommand(const FFootballCommandReceipt& Receipt) const
+    {
+        // No bMatchObserved check: canonical send remains available without query listeners.
+        return OwnsCommand(Receipt) && Receipt.QueryGeneration == MatchGeneration;
+    }
+    TOptional<FFootballCommandRequest> FFootballReadState::DispatchCommand(const FFootballCommandReceipt& Receipt)
+    {
+        if (!CurrentCommand(Receipt) || CommandStage != ECommandStage::Prepared) return {};
+        CommandStage = ECommandStage::Dispatched;
+        return PendingCommand.GetValue();
+    }
+    TOptional<FFootballCommandReceipt> FFootballReadState::GetPendingCommand() const
+    {
+        return PendingCommand.IsSet() ? TOptional<FFootballCommandReceipt>(PendingCommand->Receipt) : TOptional<FFootballCommandReceipt>();
+    }
+    bool FFootballReadState::AbandonCommand(const FFootballCommandReceipt& Receipt)
+    {
+        if (!OwnsCommand(Receipt) || CommandStage != ECommandStage::Prepared) return false;
+        RetireCommand(); View.bBusy = false; Changed.Broadcast();
+        return true;
+    }
+    void FFootballReadState::RetireCommand()
+    {
+        PendingCommand.Reset(); CommandStage = ECommandStage::Prepared;
+    }
+    bool FFootballReadState::CanCompleteCommand(const FFootballCommandReceipt& Receipt) const
+    {
+        return OwnsCommand(Receipt) && CommandStage == ECommandStage::Dispatched;
+    }
+    void FFootballReadState::FinishCommand(const FFootballCommandReceipt& Receipt)
+    {
+        // The apply/error notification may replace query generation, session or command.
+        if (!OwnsCommand(Receipt)) return;
+        const bool bCurrent = CurrentCommand(Receipt);
+        RetireCommand();
+        if (bCurrent) { View.bBusy = false; Changed.Broadcast(); }
+    }
+    TOptional<FFootballCommandSuccess> FFootballReadState::BeginCommandSuccess(const FFootballCommandReceipt& Receipt, const FString& Json)
+    {
+        // Notifications may overwrite the caller's receipt with replacement work.
+        const FFootballCommandReceipt CompletionReceipt = Receipt;
+        if (!CanCompleteCommand(CompletionReceipt)) return {};
+        CommandStage = ECommandStage::Completing;
+        if (!CurrentCommand(CompletionReceipt)) { FinishCommand(CompletionReceipt); return {}; }
+        FFootballCommandSuccess Success;
+        FString Error;
+        if (!DecodeFootballSnapshot(Json, Success.Snapshot, Error))
+        {
+            FailMatch(Error); FinishCommand(CompletionReceipt); return {};
+        }
+        Success.Receipt = CompletionReceipt;
+        Success.bDeactivateInput = PendingCommand->Type == EFootballCommandType::Leave || PendingCommand->Type == EFootballCommandType::End;
+        return Success;
+    }
+    bool FFootballReadState::IsCommandSuccessCurrent(const FFootballCommandSuccess& Success) const
+    {
+        return Success.Snapshot.IsSet() && CommandStage == ECommandStage::Completing && CurrentCommand(Success.Receipt);
+    }
+    EFootballReadResult FFootballReadState::AcceptCommandSuccess(const FFootballCommandSuccess& Success)
+    {
+        const FFootballCommandReceipt CompletionReceipt = Success.Receipt;
+        if (!Success.Snapshot.IsSet() || !OwnsCommand(CompletionReceipt) || CommandStage != ECommandStage::Completing)
+            return EFootballReadResult::StaleReceipt;
+        if (!CurrentCommand(CompletionReceipt)) { FinishCommand(CompletionReceipt); return EFootballReadResult::StaleReceipt; }
+        CommandStage = ECommandStage::Applying;
+        const auto Result = ApplyMatch(Success.Snapshot.GetValue());
+        FinishCommand(CompletionReceipt);
+        return Result;
+    }
+    bool FFootballReadState::AcceptCommandFailure(const FFootballCommandReceipt& Receipt, const FFootballPublicReadFailure& Failure)
+    {
+        const FFootballCommandReceipt CompletionReceipt = Receipt;
+        if (!CanCompleteCommand(CompletionReceipt)) return false;
+        CommandStage = ECommandStage::Completing;
+        if (!CurrentCommand(CompletionReceipt)) { FinishCommand(CompletionReceipt); return false; }
+        FailMatch(Failure.Message.IsSet() ? Failure.Message.GetValue() : FString(FootballPrivate::CommandFailed));
+        FinishCommand(CompletionReceipt);
         return true;
     }
     bool FFootballReadState::BeginEntryObservation(int64 CapturedNowMs, FFootballReadReceipt& Out)
@@ -346,6 +483,7 @@ namespace BaddieCompanion
         if (bDisposed) return;
         bDisposed = true;
         EndMatchObservation();
+        RetireCommand(); SessionGeneration.Invalidate();
         EntryGenerations.Reset();
         Selection = FFootballReadScope{};
         View = FFootballSnapshot{};

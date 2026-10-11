@@ -130,10 +130,51 @@ namespace BaddieCompanion
         // Unset requests the fallback; a present empty message stays empty.
         TOptional<FString> Message;
     };
+    enum class EFootballCommandType : uint8 { Ready, Side, Start, Retry, Rejoin, Leave, End };
+    struct FFootballCommand
+    {
+        EFootballCommandType Type = EFootballCommandType::Ready;
+        // Only the field belonging to Type is serialized.
+        bool bReady = false;
+        EFootballSide Side = EFootballSide::Home;
+    };
+    class FFootballCommandReceipt
+    {
+    public:
+        const FFootballReadScope& GetScope() const { return Scope; }
+    private:
+        friend class FFootballReadState;
+        FGuid QueryGeneration, SessionGeneration, RequestId;
+        FFootballReadScope Scope;
+    };
+    class FFootballCommandRequest
+    {
+    public:
+        const TCHAR* GetEndpoint() const { return TEXT("companionFootball:command"); }
+        const FString& GetArgumentsJson() const { return ArgumentsJson; }
+        const FFootballCommandReceipt& GetReceipt() const { return Receipt; }
+    private:
+        friend class FFootballReadState;
+        FFootballCommandReceipt Receipt;
+        EFootballCommandType Type = EFootballCommandType::Ready;
+        FString ArgumentsJson;
+    };
+    class FFootballCommandSuccess
+    {
+    public:
+        // Required consumer effect, not an executed input operation. Check currentness
+        // immediately before the effect, then call AcceptCommandSuccess even if stale.
+        bool RequiresInputDeactivation() const { return bDeactivateInput; }
+    private:
+        friend class FFootballReadState;
+        FFootballCommandReceipt Receipt;
+        TOptional<FFootballSnapshot> Snapshot;
+        bool bDeactivateInput = false;
+    };
     DECLARE_MULTICAST_DELEGATE(FFootballReadChanged);
 
-    // Single-threaded read ownership only. The caller starts/stops actual queries and
-    // tracks listener counts. Binding OnChanged does not start observation or transport.
+    // Single-threaded read/command ownership. The caller owns transport and listener
+    // counts. No input, pump, opening, simulation or native permission is implemented.
     class BADDIECOMPANION_API FFootballReadState
     {
     public:
@@ -142,8 +183,7 @@ namespace BaddieCompanion
         FFootballReadState& operator=(const FFootballReadState&) = delete;
         FFootballReadState(FFootballReadState&&) = delete;
         FFootballReadState& operator=(FFootballReadState&&) = delete;
-        // Owner view uses local read Error and keeps bBusy false. Wire busy/error decode
-        // fully, but never become an invented command latch or an accepted read failure.
+        // Local commands own busy. Wire busy/error decode fully but never own this latch.
         const FFootballSnapshot& GetView() const { return View; }
         const FFootballReadScope& GetSelection() const { return Selection; }
         FFootballReadChanged& OnChanged() { return Changed; }
@@ -158,6 +198,21 @@ namespace BaddieCompanion
         bool ReloadMatch(int64 CapturedNowMs, FFootballReadReceipt& Out);
         EFootballReadResult AcceptMatch(const FFootballReadReceipt& Receipt, const FString& Json);
         bool AcceptMatchFailure(const FFootballReadReceipt& Receipt, const FFootballPublicReadFailure& Failure);
+        // No observer, ready, phase, foreground, connection or host prerequisite.
+        // The future input owner must reset input and stop its pump at command begin.
+        TOptional<FFootballCommandRequest> PrepareCommand(const FFootballCommand& Command);
+        // Send immediately after a successful mark, without a yield or notification.
+        TOptional<FFootballCommandRequest> DispatchCommand(const FFootballCommandReceipt& Receipt);
+        // Also exposes an unsent request whose preparation notification changed query
+        // generation. Only explicit unsent abandonment may release that busy latch.
+        TOptional<FFootballCommandReceipt> GetPendingCommand() const;
+        bool AbandonCommand(const FFootballCommandReceipt& Receipt);
+        // Decodes and claims one terminal success. Malformed replies publish a fixed
+        // failure and finish; valid replies await the required pre-apply consumer effect.
+        TOptional<FFootballCommandSuccess> BeginCommandSuccess(const FFootballCommandReceipt& Receipt, const FString& Json);
+        bool IsCommandSuccessCurrent(const FFootballCommandSuccess& Success) const;
+        EFootballReadResult AcceptCommandSuccess(const FFootballCommandSuccess& Success);
+        bool AcceptCommandFailure(const FFootballCommandReceipt& Receipt, const FFootballPublicReadFailure& Failure);
         // Each entry observer gets its own receipt. There is no shared roster or ordering
         // reducer. Route Out/Error only to the matching observer; stale callbacks clear Out.
         bool BeginEntryObservation(int64 CapturedNowMs, FFootballReadReceipt& Out);
@@ -172,10 +227,20 @@ namespace BaddieCompanion
         bool CurrentMatch(const FFootballReadReceipt& Receipt) const;
         bool CurrentEntry(const FFootballReadReceipt& Receipt) const;
         bool CanObserve(int64 CapturedNowMs) const;
+        EFootballReadResult ApplyMatch(FFootballSnapshot Next);
         void FailMatch(const FString& Message);
+        bool OwnsCommand(const FFootballCommandReceipt& Receipt) const;
+        bool CurrentCommand(const FFootballCommandReceipt& Receipt) const;
+        bool CanCompleteCommand(const FFootballCommandReceipt& Receipt) const;
+        void RetireCommand();
+        void FinishCommand(const FFootballCommandReceipt& Receipt);
         FFootballReadScope Selection;
         FFootballSnapshot View;
         FGuid MatchGeneration;
+        FGuid SessionGeneration = FGuid::NewGuid();
+        TOptional<FFootballCommandRequest> PendingCommand;
+        enum class ECommandStage : uint8 { Prepared, Dispatched, Completing, Applying };
+        ECommandStage CommandStage = ECommandStage::Prepared;
         TSet<FGuid> EntryGenerations;
         bool bMatchObserved = false, bHasApplied = false, bDisposed = false;
         FFootballReadChanged Changed;

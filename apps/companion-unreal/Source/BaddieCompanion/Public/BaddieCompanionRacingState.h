@@ -10,7 +10,7 @@ namespace BaddieCompanion
     enum class ERaceCarStatus : uint8 { Ready, Racing, Finished, Withdrawn };
     enum class ERacingEligibility : uint8 { Eligible, NoCar, CarAway, CarBusy, NoFuel, Damaged };
 
-    // Received input only. These fields do not provide a native command or control grant.
+    // Received or caller-supplied input. These fields provide no control grant.
     struct FRaceInput
     {
         double Throttle = 0, Brake = 0, Steering = 0;
@@ -90,4 +90,61 @@ namespace BaddieCompanion
         TSharedPtr<FJsonValue> RacingJson, FString ExpectedInstanceId,
         TSharedPtr<const FRacingSnapshot> Previous,
         TSharedPtr<const FRacingSnapshot>& Out, FString& OutError);
+
+    struct FRacingCommandScope
+    {
+        // Structural bounds only, not Convex ID validation or accepted-visit identity.
+        FString GameRoomId, InstanceId;
+        int64 Revision = 0;
+    };
+    struct FRacingJoinCommand
+    {
+        FString VehicleId;
+        int64 VehicleRevision = 0;
+        ERaceTransmission Transmission = ERaceTransmission::Automatic;
+    };
+    struct FRacingStartCommand { FString RaceId; };
+    struct FRacingLeaveCommand { FString RaceId; };
+    struct FRacingRecoverCommand
+    {
+        FString RaceId;
+        int64 Sequence = 0;
+    };
+    struct FRacingInputCommand
+    {
+        FString RaceId;
+        int64 Sequence = 0;
+        FRaceInput Input;
+    };
+    struct FRacingCommandPacket
+    {
+        FString Endpoint, ArgumentsJson;
+        // Adapter policy, not wire fields or dispatch permission.
+        bool bRetry = false, bInvalidateQueryCache = false;
+    };
+    // Pure codecs. Strings retain case/whitespace. No credentials, admission or sequence allocation.
+    // Failure clears the packet and returns fixed public text. Success clears OutError.
+    BADDIECOMPANION_API bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingJoinCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError);
+    BADDIECOMPANION_API bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingStartCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError);
+    BADDIECOMPANION_API bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingLeaveCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError);
+    BADDIECOMPANION_API bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingRecoverCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError);
+    BADDIECOMPANION_API bool EncodeRacingCommand(const FRacingCommandScope& Scope, const FRacingInputCommand& Command,
+        FRacingCommandPacket& Out, FString& OutError);
+
+    struct FRacingCommandResponse
+    {
+        // On success, exactly a raw string or explicit JSON null. Never a parsed snapshot.
+        // Pass to ReadRacingSnapshot only after the real world owner accepts the callback.
+        TSharedPtr<FJsonValue> RacingJson;
+        double ServerNowMs = 0;
+    };
+    // Endpoint object only, not an HTTP/Convex transport envelope. Requires exactly racingJson/serverNow.
+    // Outer limits: 262,144 characters, depth 4, 16 separators. Inner content is not validated here.
+    // serverNow accepts any finite wire number; this function never applies a clock or publishes state.
+    // Failure clears Out and returns fixed public text. Success clears OutError.
+    BADDIECOMPANION_API bool DecodeRacingCommandResponse(const FString& Json, FRacingCommandResponse& Out, FString& OutError);
 }
