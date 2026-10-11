@@ -5,6 +5,63 @@
 namespace BaddieCompanion::WorldObservationPrivate
 {
     using namespace WorldReadPrivate;
+    void FDescriptorComparison::Begin(FValueRef Before, FValueRef After)
+    {
+        Cancel(); Left = Before; Right = After; LeftNode = Before.Node; RightNode = After.Node;
+    }
+    void FDescriptorComparison::Cancel()
+    { Left = {}; Right = {}; Text.Cancel(); LeftNode = RightNode = 0; AdvancePhase = 0;
+      bText = bDone = false; bEqual = true; }
+    EStep FDescriptorComparison::Advance(const FStorage& Before, const FStorage& After)
+    {
+        constexpr uint64 QualifiedDescriptorComparisonWork = 0;
+        if (!QualifiedDescriptorComparisonWork || QualifiedDescriptorComparisonWork > TickWorkLimit)
+            return EStep::ResourceUnavailable;
+        if (!Before.bComplete || Before.bRetiring || !After.bComplete || After.bRetiring
+            || Before.Budget != After.Budget || !Left.IsSet() || !Right.IsSet()) return EStep::Invalid;
+        while (!bDone)
+        {
+            if (!After.Budget->Spend(QualifiedDescriptorComparisonWork))
+                return After.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+            const auto* A = Resolve(Before, {LeftNode, Left.Root, Left.Owner});
+            const auto* B = Resolve(After, {RightNode, Right.Root, Right.Owner});
+            if (!A || !B) return EStep::Invalid;
+            if (AdvancePhase)
+            {
+                // One parent edge per admitted slice. Deep unknown descriptors
+                // cannot hide an unbounded climb inside a single work charge.
+                if (A->Id == Left.Node || B->Id == Right.Node)
+                { bEqual = A->Id == Left.Node && B->Id == Right.Node; bDone = true; continue; }
+                if (static_cast<bool>(A->NextSibling) != static_cast<bool>(B->NextSibling))
+                { bEqual = false; bDone = true; continue; }
+                if (A->NextSibling)
+                { LeftNode = A->NextSibling; RightNode = B->NextSibling; AdvancePhase = 0; }
+                else { LeftNode = A->Parent; RightNode = B->Parent; }
+                continue;
+            }
+            const bool bSelectedRoot = A->Id == Left.Node && B->Id == Right.Node;
+            if (A->Kind != B->Kind || A->Count != B->Count
+                || (!bSelectedRoot && (A->Role != B->Role || A->Slot != B->Slot))
+                || A->NumberBits != B->NumberBits
+                || static_cast<bool>(A->FirstChild) != static_cast<bool>(B->FirstChild))
+            { bEqual = false; bDone = true; break; }
+            if (A->Kind == EWorldValueKind::String)
+            {
+                if (!bText)
+                {
+                    Text.Compare({RightNode, Right.Root, Right.Owner}, Before, {LeftNode, Left.Root, Left.Owner});
+                    bText = true;
+                }
+                const auto Step = Text.Advance(After);
+                if (Step != EStep::Complete) return Step;
+                bText = false;
+                if (!Text.Equal()) { bEqual = false; bDone = true; break; }
+            }
+            if (A->FirstChild) { LeftNode = A->FirstChild; RightNode = B->FirstChild; }
+            else AdvancePhase = 1;
+        }
+        return EStep::Complete;
+    }
 
     const FRecordSchema* ReadSchema(EWorldReadDomain Domain)
     {
@@ -803,6 +860,7 @@ namespace BaddieCompanion::WorldObservationPrivate
             Movement.Reset();
         }
         Budget.Release(NativeCharge); NativeCharge = 0;
+        Budget.Release(MovementCharge); MovementCharge = 0;
         bComplete = false; return EStep::Complete;
     }
     EStep FPublicationPreparation::Begin(FStorage& Storage)
@@ -827,6 +885,8 @@ namespace BaddieCompanion::WorldObservationPrivate
         Storage.Publication->Local = Local; LocalRaw = Local->Raw; Position = Local->Position.Ref;
         Instance = {1, 2, Storage.Roots[2]}; Selection = {1, 16, Storage.Roots[16]};
         Storage.Publication->InstanceRoot = Instance; Storage.Publication->Selection = Selection;
+        Storage.Publication->CharacterDescriptor = SelectedCharacter;
+        Storage.Publication->RoomDescriptor = SelectedRoom;
         Storage.Publication->Health = {1, 15, Storage.Roots[15]};
         Storage.Publication->Player = Local->Header;
         Storage.Publication->HomeRoom = InstanceHome;
@@ -933,7 +993,7 @@ namespace BaddieCompanion::WorldObservationPrivate
                         || QualifiedMovementRouteInitializationWork > TickWorkLimit) return EStep::ResourceUnavailable;
                     if (!Storage.Budget->Spend(QualifiedMovementRouteInitializationWork)) return Yield();
                     if (!Storage.Budget->Reserve(QualifiedMovementWindowBytes)) return EStep::ResourceUnavailable;
-                    Payload.NativeCharge += QualifiedMovementWindowBytes;
+                    Payload.MovementCharge += QualifiedMovementWindowBytes;
                     Payload.Movement.Emplace(); Payload.Movement->Path.Reserve(32);
                 }
             }
@@ -946,6 +1006,8 @@ namespace BaddieCompanion::WorldObservationPrivate
                 Route.Version = static_cast<int32>(Record.Number(0)); Route.Sequence = static_cast<int64>(Record.Number(1));
                 Route.RoomRevision = static_cast<int64>(Record.Number(2)); Route.StartedAtMs = Record.Number(3);
                 Route.YawRadians = Record.Number(5);
+                Payload.MovementInitialSpeed = Record.Presence(6);
+                Payload.MovementPace = Record.Presence(7);
                 if (Record.Presence(6) == EWorldFieldPresence::Value) Route.InitialSpeedMps = Record.Number(6);
                 Route.Pace = Record.Presence(7) == EWorldFieldPresence::Value
                     ? static_cast<EMovementPace>(Record.Choice(7) + 1) : EMovementPace::Unpaced;
@@ -1101,6 +1163,8 @@ namespace BaddieCompanion::WorldObservationPrivate
     EStep FPublicationPreparation::Retire(FStorage& Storage)
     {
         bCancelled = true;
+        Compatibility.Cancel(); PreviousInstance.Cancel(); NextInstance.Cancel();
+        bNativeReinspected = bNativeReinspectionRequested = false;
         if (!bOwnPreparation && !bHomeStarted) return EStep::Complete;
         if (bHomeStarted)
         {
@@ -1456,6 +1520,18 @@ namespace BaddieCompanion
         if (!Storage->Budget->Spend(QualifiedNativeContentObservationWork, false)) return Pending(*Storage);
         return EWorldReadResult::Ready;
     }
+    EWorldReadResult FWorldObservation::AdmitNativeMovementWork(bool bTarget) const
+    {
+        constexpr uint64 QualifiedNativeTargetWork = 0;
+        constexpr uint64 QualifiedNativeSweepWork = 0;
+        const uint64 Work = bTarget ? QualifiedNativeTargetWork : QualifiedNativeSweepWork;
+        if (!Work || Work > TickWorkLimit) return EWorldReadResult::Unavailable;
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready) return Admission;
+        const auto Cell = Access.Pin(); const auto Storage = Cell->Storage.Pin();
+        if (!Storage->Budget->Spend(Work, false)) return Pending(*Storage);
+        return IsCurrent() ? EWorldReadResult::Ready : EWorldReadResult::Unavailable;
+    }
     EWorldReadResult FWorldObservation::BorrowHome(FHomeBorrow& Out) const
     {
         if (Out.Storage) return EWorldReadResult::Unavailable;
@@ -1591,5 +1667,60 @@ namespace BaddieCompanion
         Storage->Budget->Release(QualifiedMovementWindowBytes);
         if (!bValid || !IsCurrent()) { Count = 0; return EWorldReadResult::Unavailable; }
         return EWorldReadResult::Ready;
+    }
+    bool WorldObservationPrivate::FMovementIdentity::Same(const FMovementIdentity& Other) const
+    {
+        if (Version != Other.Version || Sequence != Other.Sequence || Revision != Other.Revision
+            || StartedAtMs != Other.StartedAtMs || InitialSpeed != Other.InitialSpeed
+            || InitialSpeedMps != Other.InitialSpeedMps || PacePresence != Other.PacePresence
+            || Pace != Other.Pace || YawRadians != Other.YawRadians || Count != Other.Count
+            || From.X != Other.From.X || From.Z != Other.From.Z || From.YawRadians != Other.From.YawRadians
+            || Count > 32) return false;
+        for (uint32 I = 0; I < Count; ++I)
+            if (Path[I].X != Other.Path[I].X || Path[I].Z != Other.Path[I].Z) return false;
+        return true;
+    }
+    EWorldReadResult FWorldObservation::ReadMovementIdentity(WorldObservationPrivate::FMovementIdentity& Out) const
+    {
+        Out = {};
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready) return Admission;
+        constexpr uint64 QualifiedMovementIdentityWork = 0;
+        if (!QualifiedMovementIdentityWork || QualifiedMovementIdentityWork > TickWorkLimit)
+            return EWorldReadResult::Unavailable;
+        const auto Cell = Access.Pin(); const auto Storage = Cell->Storage.Pin();
+        if (!Storage->Publication || !Storage->Publication->Movement.IsSet()) return EWorldReadResult::Unavailable;
+        if (!Storage->Budget->Spend(QualifiedMovementIdentityWork, false)) return Pending(*Storage);
+        const auto& Payload = *Storage->Publication;
+        const auto& Route = Payload.Movement.GetValue();
+        if (Route.Path.Num() > 32) return EWorldReadResult::Unavailable;
+        Out.Version = Route.Version; Out.Sequence = Route.Sequence; Out.Revision = Route.RoomRevision;
+        Out.StartedAtMs = Route.StartedAtMs; Out.From = Route.From; Out.Pace = Route.Pace;
+        Out.InitialSpeed = Payload.MovementInitialSpeed; Out.PacePresence = Payload.MovementPace;
+        Out.InitialSpeedMps = Route.InitialSpeedMps.IsSet() ? Route.InitialSpeedMps.GetValue() : 0;
+        Out.YawRadians = Route.YawRadians;
+        Out.Count = static_cast<uint32>(Route.Path.Num());
+        for (uint32 I = 0; I < Out.Count; ++I) Out.Path[I] = Route.Path[I];
+        if (!IsCurrent()) { Out = {}; return EWorldReadResult::Unavailable; }
+        return EWorldReadResult::Ready;
+    }
+    EWorldReadResult FWorldObservation::ReadCollisionStop(const WorldObservationPrivate::FMovementIdentity& Route,
+        double CommittedAtMs, double NowMs, FMovementCollisionStop& Receipt, FMovementPose& Origin) const
+    {
+        Receipt = {}; Origin = {};
+        WorldObservationPrivate::FMovementIdentity CurrentRoute;
+        const auto Read = ReadMovementIdentity(CurrentRoute);
+        if (Read != EWorldReadResult::Ready) return Read;
+        constexpr uint64 QualifiedCollisionReceiptWork = 0;
+        if (!QualifiedCollisionReceiptWork || QualifiedCollisionReceiptWork > TickWorkLimit
+            || !CurrentRoute.Same(Route) || !std::isfinite(CommittedAtMs) || !std::isfinite(NowMs)
+            || CommittedAtMs < Route.StartedAtMs || NowMs < CommittedAtMs) return EWorldReadResult::Unavailable;
+        const auto Cell = Access.Pin(); const auto Storage = Cell->Storage.Pin();
+        if (!Storage->Budget->Spend(QualifiedCollisionReceiptWork, false)) return Pending(*Storage);
+        const FMovementCollisionStop Captured{Route.Sequence, FMath::Max(0.0, CommittedAtMs - Route.StartedAtMs)};
+        FMovementPose Corrected;
+        if (!MovementCollisionStopPosition(Storage->Publication->Movement.GetValue(), Captured, NowMs, Corrected)
+            || !IsCurrent()) return EWorldReadResult::Unavailable;
+        Receipt = Captured; Origin = Corrected; return EWorldReadResult::Ready;
     }
 }

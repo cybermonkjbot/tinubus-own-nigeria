@@ -1,5 +1,8 @@
 #include "BaddieCompanionSlicePlayerController.h"
 #include "BaddieCompanionWorldCharacter.h"
+#include "BaddieCompanionWorldCommandLifecycle.h"
+#include "NavigationSystem.h"
+#include "NavigationData.h"
 
 #include "BaddieCompanionConnectionUi.h"
 #include "BaddieCompanionSession.h"
@@ -131,6 +134,7 @@ void ABaddieCompanionSlicePlayerController::Tick(float DeltaSeconds)
     Super::Tick(DeltaSeconds);
     if (IsLocalController() && !bEndingPlay) RefreshConnectionPresentation();
     if (IsLocalController() && !bEndingPlay) RefreshWorldPresentation();
+    if (IsLocalController() && !bEndingPlay) UpdateWorldInput();
     if (IsLocalController() && !bEndingPlay) RefreshMissionPresentation();
 }
 
@@ -341,18 +345,27 @@ void ABaddieCompanionSlicePlayerController::RefreshWorldPresentation()
     { ClearWorldPresentation(); return; }
     if (WorldObservation.Token() != View.Observation.Token())
     {
-        ClearWorldPresentation();
+        const bool bTransfer = Session->WorldTransferCurrent(this, WorldObservation.Token(), View.Observation.Token());
+        if (bTransfer)
+        {
+            bWorldTargetHeld = false;
+            if (!WorldPresentation->AdoptCompatible(View.Observation))
+            { Session->WorldContentLost(this, View.Observation.Token()); ClearWorldPresentation(); return; }
+        }
+        else ClearWorldPresentation();
         if (bEndingPlay || !View.Observation.IsCurrent()
             || Session->GetWorldView().Observation.Token() != View.Observation.Token()) return;
         WorldObservation = View.Observation;
     }
     WorldPresentation->Observe(WorldObservation);
     WorldPresentation->Reconcile();
+    BaddieCompanion::FWorldNativeEvidence Evidence;
+    if (WorldPresentation->InspectNative(Evidence)) Session->ObserveWorldNative(this, Evidence);
     if (!WorldObservation.IsCurrent()) { ClearWorldPresentation(); return; }
     // Initial unavailable imports are not loss of an accepted native generation.
     if (auto* Character = Cast<ABaddieCompanionWorldCharacter>(GetPawn()))
     {
-        if (!View.bWalkingAvailable || !WorldPresentation->IsReady()
+        if (!View.bWalkingAvailable || !WorldPresentation->CurrentCycle()
             || PendingAction.IsSet() || PendingGameplayAction.IsSet()) Character->ClearWorldMovement();
         else Character->FollowAccepted(*Session);
     }
@@ -364,6 +377,7 @@ void ABaddieCompanionSlicePlayerController::ClearWorldPresentation()
     TGuardValue<bool> Guard(bClearingWorld, true);
     const bool bHadWorld = WorldObservation.IsCurrent() || Cast<ABaddieCompanionWorldCharacter>(GetPawn());
     WorldObservation = {};
+    bWorldReleaseRequired = true; bWorldTargetHeld = false;
     StopWorldWalk();
     if (auto* Character = Cast<ABaddieCompanionWorldCharacter>(GetPawn()))
     {
@@ -403,12 +417,72 @@ bool ABaddieCompanionSlicePlayerController::RequestWorldWalk(
     return !bEndingPlay && IsLocalController() && WorldObservation.IsCurrent() && Session
         && !PendingAction.IsSet() && !PendingGameplayAction.IsSet() && !MissionToken.IsSet()
         && FSlateApplication::IsInitialized() && FSlateApplication::Get().IsActive()
-        && WorldPresentation && WorldPresentation->IsReady() && Session->RequestWorldWalk(this, Target, Pace);
+        && WorldPresentation && WorldPresentation->CurrentCycle() && Session->RequestWorldWalk(this, Target, Pace);
 }
 
 void ABaddieCompanionSlicePlayerController::StopWorldWalk()
 {
     if (auto* Session = GameplaySession.Get()) Session->StopWorldWalk(this);
+}
+void ABaddieCompanionSlicePlayerController::WorldMoveForward(float Value)
+{ WorldAxis.X = FMath::IsFinite(Value) ? Value : 0; }
+void ABaddieCompanionSlicePlayerController::WorldMoveRight(float Value)
+{ WorldAxis.Y = FMath::IsFinite(Value) ? Value : 0; }
+void ABaddieCompanionSlicePlayerController::UpdateWorldInput()
+{
+    using namespace BaddieCompanion;
+    if (WorldAxis.Size() <= .1)
+    {
+        if (bWorldTargetHeld) StopWorldWalk();
+        if (auto* Session = GameplaySession.Get()) Session->ReleaseWorldInput(this);
+        bWorldTargetHeld = false; bWorldReleaseRequired = false; return;
+    }
+    auto* Session = GameplaySession.Get();
+    if (!Session || Session->WorldInputReleaseRequired(this) || !WorldObservation.IsCurrent()
+        || !WorldPresentation || !WorldPresentation->CurrentCycle()
+        || !Cast<ABaddieCompanionWorldCharacter>(GetPawn()) || bOfflineInspection || MissionToken.IsSet()
+        || PendingAction.IsSet() || PendingGameplayAction.IsSet() || !IsLocalController()
+        || !FSlateApplication::IsInitialized() || !FSlateApplication::Get().IsActive())
+    {
+        if (bWorldTargetHeld) StopWorldWalk();
+        bWorldTargetHeld = false; bWorldReleaseRequired = true; return;
+    }
+    if (bWorldReleaseRequired) return;
+    FWorldPlayerRead Read; FWorldPlayerHeader Player;
+    const auto Token = WorldObservation.Token();
+    if (WorldObservation.ReadPlayer(Read) != EWorldReadResult::Ready || Read.Header(Player) != EWorldReadResult::Ready) return;
+    constexpr bool bQualifiedTrustedStreetNavigation = false;
+    if (!bQualifiedTrustedStreetNavigation || WorldObservation.AdmitNativeMovementWork(true) != EWorldReadResult::Ready
+        || !WorldPresentation->StreetNavigation.IsValid()
+        || WorldPresentation->StreetNavigationGeneration != WorldPresentation->BindingGeneration) return;
+    auto* StreetNavigation = WorldPresentation->StreetNavigation.Get();
+    if (StreetNavigation->GetWorld() != GetWorld() || StreetNavigation->IsActorBeingDestroyed()) return;
+    const FRotator Camera(0, GetControlRotation().Yaw, 0);
+    FVector Direction = Camera.Vector() * WorldAxis.X + FRotationMatrix(Camera).GetUnitAxis(EAxis::Y) * WorldAxis.Y;
+    Direction.Z = 0;
+    if (!Direction.Normalize()) return;
+    // Inverse of the existing source-metres/UE-centimetres basis.
+    const FVector SourceDirection(Direction.Y / 100, Direction.Z / 100, Direction.X / 100);
+    FVector2D Source(SourceDirection.X, SourceDirection.Z);
+    if (!Source.Normalize()) return;
+    if (bWorldTargetHeld && FVector2D::Distance(Source, WorldLastDirection) < .1
+        && FMath::Square(Player.Position.X - WorldLastOrigin.X) + FMath::Square(Player.Position.Z - WorldLastOrigin.Z) < .25) return;
+    FWorldInstanceRead InstanceRead; FWorldInstanceHeader Instance;
+    if (WorldObservation.ReadInstance(InstanceRead) != EWorldReadResult::Ready
+        || InstanceRead.Header(Instance) != EWorldReadResult::Ready) return;
+    const FVector Candidate = SourceToUnreal(FVector(Player.Position.X + Source.X * 2, Instance.FloorY, Player.Position.Z + Source.Y * 2));
+    auto* Navigation = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+    FNavLocation Projected;
+    if (!Navigation || !Navigation->ProjectPointToNavigation(Candidate, Projected, FVector(200, 200, 200), StreetNavigation)) return;
+    const FVector Target(Projected.Location.Y / 100, Projected.Location.Z / 100, Projected.Location.X / 100);
+    if (!FMath::IsFinite(Target.X) || !FMath::IsFinite(Target.Z)
+        || FMath::Square(Target.X - Player.Position.X) + FMath::Square(Target.Z - Player.Position.Z) > 4
+        || WorldObservation.Token() != Token || !WorldObservation.IsCurrent()) return;
+    if (bEndingPlay || GameplaySession.Get() != Session || !WorldPresentation->CurrentCycle()
+        || WorldPresentation->StreetNavigation.Get() != StreetNavigation
+        || WorldPresentation->StreetNavigationGeneration != WorldPresentation->BindingGeneration) return;
+    if (RequestWorldWalk({Target.X, Target.Z}, EMovementPace::Walk))
+    { WorldLastDirection = Source; WorldLastOrigin = {Player.Position.X, Player.Position.Z}; bWorldTargetHeld = true; }
 }
 
 bool ABaddieCompanionSlicePlayerController::CopyNativeApartmentStatus(BaddieCompanion::FNativeApartmentStatus& Out)
@@ -640,6 +714,8 @@ void ABaddieCompanionSlicePlayerController::SetupInputComponent()
     Super::SetupInputComponent();
     InputComponent->BindAction(TEXT("ReleasePointer"), IE_Pressed,
         this, &ABaddieCompanionSlicePlayerController::HandleConnectionEscape);
+    InputComponent->BindAxis(TEXT("MoveForward"), this, &ABaddieCompanionSlicePlayerController::WorldMoveForward);
+    InputComponent->BindAxis(TEXT("MoveRight"), this, &ABaddieCompanionSlicePlayerController::WorldMoveRight);
 }
 
 void ABaddieCompanionSlicePlayerController::TogglePointerCapture()
@@ -655,7 +731,7 @@ void ABaddieCompanionSlicePlayerController::ApplyPointerCapture()
     {
         const auto* Session = GameplaySession.Get();
         const bool bWalking = Session && Session->GetWorldView().bWalkingAvailable
-            && WorldPresentation && WorldPresentation->IsReady()
+            && WorldPresentation && WorldPresentation->CurrentCycle()
             && !PendingAction.IsSet() && !PendingGameplayAction.IsSet();
         bPointerCaptured = bWalking; bShowMouseCursor = !bWalking;
         ResetIgnoreMoveInput(); ResetIgnoreLookInput();

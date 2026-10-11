@@ -30,4 +30,7 @@ private:
     BaddieCompanion::FWorldObservation Observation;
     double LastSampleMs = 0;
     int64 LastRouteSequence = -1;
+    BaddieCompanion::WorldObservationPrivate::FMovementIdentity RouteIdentity;
+    BaddieCompanion::FMovementPose LastCommittedPose;
+    bool bHasRouteIdentity = false;
 };

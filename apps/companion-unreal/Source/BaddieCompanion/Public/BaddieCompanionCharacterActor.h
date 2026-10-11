@@ -76,6 +76,9 @@ private:
         const BaddieCompanion::FNativeCharacterContent& Content, const FTransform& WorldPose);
     bool ReconcileLevelTransform();
     bool HasCurrentMaterials() const;
+    bool InspectCurrent(const BaddieCompanion::FHomePresentationData& Plan,
+        const BaddieCompanion::FNativeCharacterContent& Content, const UWorld* World,
+        const AActor* Owner, uint64 MaterialGeneration) const;
     BaddieCompanion::ECharacterEquipmentIssue ObserveEquipment(
         const BaddieCompanion::FCharacterEquipmentObservation& Observation, bool bRetryFailed);
     bool PollEquipment();

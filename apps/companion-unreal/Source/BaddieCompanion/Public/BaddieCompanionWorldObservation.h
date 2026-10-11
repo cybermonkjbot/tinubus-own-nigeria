@@ -6,6 +6,7 @@
 
 class UBaddieCompanionWorldPresentation;
 class ABaddieCompanionWorldCharacter;
+class ABaddieCompanionSlicePlayerController;
 
 namespace BaddieCompanion
 {
@@ -56,6 +57,23 @@ namespace BaddieCompanion
         { return Lifetime == Other.Lifetime && Publication == Other.Publication; }
         bool operator!=(const FWorldObservationToken& Other) const { return !(*this == Other); }
     };
+    namespace WorldObservationPrivate
+    {
+        // Fixed sample identity only. It owns no route allocation or graph.
+        struct FMovementIdentity
+        {
+            int32 Version = 0;
+            int64 Sequence = 0, Revision = 0;
+            double StartedAtMs = 0, InitialSpeedMps = 0, YawRadians = 0;
+            FMovementPose From;
+            FMovementPoint Path[32]{};
+            uint32 Count = 0;
+            EMovementPace Pace = EMovementPace::Unpaced;
+            EWorldFieldPresence InitialSpeed = EWorldFieldPresence::Missing;
+            EWorldFieldPresence PacePresence = EWorldFieldPresence::Missing;
+            bool Same(const FMovementIdentity& Other) const;
+        };
+    }
     enum class EWorldReadStatus : uint8
     {
         Unavailable, Preparing, Capturing, Receiving, Binding, Accepted,
@@ -112,11 +130,16 @@ namespace BaddieCompanion
     private:
         friend class ::UBaddieCompanionWorldPresentation;
         friend class ::ABaddieCompanionWorldCharacter;
+        friend class ::ABaddieCompanionSlicePlayerController;
         EWorldReadResult AdmitRead() const;
         EWorldReadResult BorrowHome(WorldObservationPrivate::FHomeBorrow& Out) const;
         EWorldReadResult AdmitNativeContentObservation() const;
+        EWorldReadResult AdmitNativeMovementWork(bool bTarget) const;
         EWorldReadResult ReadMovementWindow(double FromMs, double ToMs,
             FMovementPose (&Out)[34], uint32& Count) const;
+        EWorldReadResult ReadMovementIdentity(WorldObservationPrivate::FMovementIdentity& Out) const;
+        EWorldReadResult ReadCollisionStop(const WorldObservationPrivate::FMovementIdentity& Route,
+            double CommittedAtMs, double NowMs, FMovementCollisionStop& Receipt, FMovementPose& Origin) const;
         friend class FWorldSession;
         friend class FWorldValueRead;
         friend class FWorldPlayerRead;

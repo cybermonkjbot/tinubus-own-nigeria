@@ -105,6 +105,7 @@ namespace BaddieCompanion
         void Cancel(); // Immediate cancellation only; retains borrowed setter storage until Clear.
         void Clear(ABaddieCompanionCharacterActor& Actor);
         FCharacterEquipmentStatus Status() const;
+        bool InspectCurrent(const ABaddieCompanionCharacterActor& Actor) const;
 
         struct FMeshState
         {

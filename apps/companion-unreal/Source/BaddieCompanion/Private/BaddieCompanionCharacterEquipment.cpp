@@ -432,6 +432,54 @@ void BaddieCompanion::FNativeCharacterEquipment::Clear(ABaddieCompanionCharacter
     FramesIssue = ECharacterEquipmentIssue::ObservationUnknown;
 }
 
+bool BaddieCompanion::FNativeCharacterEquipment::InspectCurrent(const ABaddieCompanionCharacterActor& Actor) const
+{
+    // The caller reserves the complete native scan, temporary topology/material
+    // arrays and their destruction. No target getter/allocation cost is qualified.
+    constexpr uint64 QualifiedEquipmentInspectionWork = 0;
+    if (!QualifiedEquipmentInspectionWork) return false;
+    using namespace CharacterEquipment;
+    if (!bInitialized || bCancelled || !bObserved || !IsValid(&Actor)
+        || Actor.IsActorBeingDestroyed() || Groups.Num() > 6) return false;
+    for (int32 I = 0; I < 4; ++I)
+    {
+        const auto& Slot = Slots[I];
+        if (!Slot.Requested.IsSet() || Slot.Issue != ECharacterEquipmentIssue::None
+            || Slot.Load.IsValid() || Slot.Pending != INDEX_NONE
+            || (Slot.Attached != INDEX_NONE && !Groups.IsValidIndex(Slot.Attached))) return false;
+        if (Slot.Requested->IsEmpty())
+        { if (Slot.Attached != INDEX_NONE) return false; }
+        else
+        {
+            const auto* Item = Find(*Slot.Requested);
+            if (!Item || Item->Slot != I || Slot.Attached == INDEX_NONE
+                || !Groups[Slot.Attached].ItemId.Equals(*Slot.Requested, ESearchCase::CaseSensitive)
+                || !Groups[Slot.Attached].bAtAnchor) return false;
+        }
+    }
+    for (int32 I = 0; I < Groups.Num(); ++I)
+    {
+        const auto& Group = Groups[I];
+        const auto* Item = Find(Group.ItemId);
+        if (!Item || Group.bGenerated || !Matches(Actor, Group)) return false;
+        const bool bAttached = Slots[Item->Slot].Attached == I;
+        if (Group.bAtAnchor != bAttached
+            || !Group.Pose.Equals(bAttached ? Group.Target : FTransform::Identity, 1.e-6)) return false;
+        for (const auto& Mesh : Group.Meshes)
+            if (Mesh.bAssigned != bAttached || Mesh.bVisible != bAttached) return false;
+    }
+    const bool bAttachedRound = Slots[1].Attached != INDEX_NONE
+        && Groups[Slots[1].Attached].ItemId.Equals(TEXT("round-glasses"), ESearchCase::CaseSensitive);
+    const bool bExpectedFrames = bRoundFrames && !bAttachedRound;
+    if (!Frames.IsSet())
+        return !bExpectedFrames && FramesIssue == ECharacterEquipmentIssue::GeneratedEyewearUnavailable;
+    if (FramesIssue != ECharacterEquipmentIssue::None || !Frames->bGenerated || !Frames->bAtAnchor
+        || !Matches(Actor, *Frames)) return false;
+    for (const auto& Mesh : Frames->Meshes)
+        if (!Mesh.bAssigned || Mesh.bVisible != bExpectedFrames) return false;
+    return bInitialized && !bCancelled && bObserved && !Actor.IsActorBeingDestroyed();
+}
+
 BaddieCompanion::FCharacterEquipmentStatus BaddieCompanion::FNativeCharacterEquipment::Status() const
 {
     FCharacterEquipmentStatus Result;

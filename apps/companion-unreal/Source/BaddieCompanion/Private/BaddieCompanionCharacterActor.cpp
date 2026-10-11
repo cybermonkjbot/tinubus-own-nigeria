@@ -303,6 +303,54 @@ bool ABaddieCompanionCharacterActor::HasCurrentMaterials() const
         && Materials->GetAppliedGeneration() == PreparedMaterialGeneration;
 }
 
+bool ABaddieCompanionCharacterActor::InspectCurrent(const BaddieCompanion::FHomePresentationData& Plan,
+    const BaddieCompanion::FNativeCharacterContent& Content, const UWorld* World,
+    const AActor* Owner, uint64 MaterialGeneration) const
+{
+    constexpr uint64 QualifiedCharacterInspectionWork = 0;
+    if (!QualifiedCharacterInspectionWork) return false;
+    const auto Current = [&]()
+    {
+        return IsValid(this) && GetWorld() == World && GetOwner() == Owner && IsValid(Owner)
+            && World && World->IsGameWorld() && World->GetNetMode() == NM_Standalone
+            && bPrepared && !bChangingPresentation && !bDiscarded && !bClearing && !bDestroyRequested
+            && !bDisposalBlocked && !IsActorBeingDestroyed() && !PendingApartmentPose.IsSet()
+            && PreparedMaterialGeneration == MaterialGeneration && HasCurrentMaterials();
+    };
+    if (!Current() || !AcceptsContent(Plan, Content) || Content.ActorClass.Get() != GetClass()
+        || !FaceAppearance.Matches(*this) || !Equipment.InspectCurrent(*this)) return false;
+    BaddieCompanion::FNativeCharacterMaterialContent Resolved;
+    Resolved.SourceAssetKey = Content.SourceAssetKey; Resolved.SourceSha256 = Content.SourceSha256;
+    TInlineComponentArray<UMeshComponent*> Meshes(this);
+    const auto FindMesh = [&](FName Name) -> UMeshComponent*
+    {
+        UMeshComponent* Found = nullptr;
+        for (auto* Mesh : Meshes)
+            if (IsValid(Mesh) && Mesh->GetFName() == Name && Mesh->GetOwner() == this)
+            { if (Found) return nullptr; Found = Mesh; }
+        return Found;
+    };
+    for (const auto& Named : Content.Materials)
+    {
+        auto* Mesh = FindMesh(Named.MeshComponent);
+        if (!Mesh) return false;
+        auto& Binding = Resolved.Bindings.AddDefaulted_GetRef();
+        static_cast<BaddieCompanion::FNativeCharacterMaterialSlot&>(Binding) = Named;
+        Binding.Component = Mesh;
+    }
+    if (!Materials->InspectCurrent(Plan, Resolved, MaterialGeneration)) return false;
+    for (const auto& Binding : Content.Accessories)
+    {
+        const auto Visible = BaddieCompanion::CharacterAccessories::SelectedVisibility(Plan.Appearance, Binding.SourceNode);
+        auto* Mesh = FindMesh(Binding.MeshComponent);
+        if (!Visible.IsSet() || !Binding.VisibleWhenEnabled.IsSet() || !IsValid(Mesh) || !Mesh->IsRegistered()
+            || Mesh->GetWorld() != World || Mesh->bHiddenInGame || !Binding.MeshAsset.IsValid()
+            || BaddieCompanion::CharacterAccessories::MeshAsset(Mesh) != Binding.MeshAsset.Get()
+            || Mesh->GetVisibleFlag() != (Visible.GetValue() && Binding.VisibleWhenEnabled.GetValue())) return false;
+    }
+    return Current() && FaceAppearance.Matches(*this);
+}
+
 BaddieCompanion::ECharacterEquipmentIssue ABaddieCompanionCharacterActor::ObserveEquipment(
     const BaddieCompanion::FCharacterEquipmentObservation& Observation, bool bRetryFailed)
 {

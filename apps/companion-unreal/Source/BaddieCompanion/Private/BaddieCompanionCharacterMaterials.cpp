@@ -272,6 +272,104 @@ bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePrese
     return true; // Material parameters only, never whole-character or gameplay readiness.
 }
 
+bool UBaddieCompanionCharacterMaterials::InspectCurrent(const BaddieCompanion::FHomePresentationData& Plan,
+    const BaddieCompanion::FNativeCharacterMaterialContent& Content, uint64 Generation) const
+{
+    constexpr uint64 QualifiedMaterialInspectionWork = 0;
+    if (!QualifiedMaterialInspectionWork) return false;
+    using namespace BaddieCompanion;
+    using namespace CharacterMaterials;
+    const auto* Owner = GetOwner();
+    const auto* World = GetWorld();
+    const auto Current = [&]()
+    {
+        return Generation && AppliedGeneration == Generation && !bClearRequested && !bChangingMaterials
+            && !bEndingPlay && IsRegistered() && IsValid(Owner) && !Owner->IsActorBeingDestroyed()
+            && World && World == GetWorld() && Owner == GetOwner() && World->IsGameWorld()
+            && World->GetNetMode() == NM_Standalone;
+    };
+    if (!Current() || !Plan.Appearance.bCompleteKnownSelections || Plan.CharacterMaterials.IsEmpty()
+        || Plan.CharacterMaterials.Num() > 64 || Content.Bindings.IsEmpty() || Content.Bindings.Num() > 256
+        || !Content.SourceAssetKey.Equals(Plan.CharacterAsset.Key, ESearchCase::CaseSensitive)
+        || !Content.SourceSha256.Equals(Plan.CharacterAsset.Sha256, ESearchCase::CaseSensitive)) return false;
+    for (int32 I = 0; I < Plan.CharacterMaterials.Num(); ++I)
+    {
+        const auto& Requirement = Plan.CharacterMaterials[I];
+        if (!ValidRequirement(Requirement)) return false;
+        for (int32 J = 0; J < I; ++J)
+            if (Plan.CharacterMaterials[J].SourceMaterialName.Equals(Requirement.SourceMaterialName,
+                ESearchCase::CaseSensitive)) return false;
+        if (!Content.Bindings.ContainsByPredicate([&](const auto& Binding)
+            { return Binding.SourceMaterialName.Equals(Requirement.SourceMaterialName, ESearchCase::CaseSensitive); })) return false;
+    }
+    int32 MatchedOwned = 0;
+    for (int32 I = 0; I < Content.Bindings.Num(); ++I)
+    {
+        const auto& Binding = Content.Bindings[I];
+        const auto* Requirement = Plan.CharacterMaterials.FindByPredicate([&](const auto& Value)
+            { return Value.SourceMaterialName.Equals(Binding.SourceMaterialName, ESearchCase::CaseSensitive); });
+        auto* Component = Binding.Component.Get();
+        if (!Current() || !Requirement || !IsValid(Component) || !Component->IsRegistered()
+            || Component->GetOwner() != Owner || Component->GetWorld() != World
+            || !Binding.MeshAsset.IsValid() || MeshAsset(Component) != Binding.MeshAsset.Get()
+            || !Binding.AuthoredMaterial.IsValid() || Binding.AuthoredMaterial->IsA<UMaterialInstanceDynamic>()
+            || Binding.MaterialSlot.IsNone() || Binding.ColorParameter.IsNone()) return false;
+        const auto Names = Component->GetMaterialSlotNames();
+        int32 Occurrences = 0;
+        for (const FName Name : Names) if (Name == Binding.MaterialSlot) ++Occurrences;
+        const int32 Slot = Component->GetMaterialIndex(Binding.MaterialSlot);
+        if (Occurrences != 1 || !Names.IsValidIndex(Slot) || Names[Slot] != Binding.MaterialSlot
+            || Slot >= Component->GetNumMaterials()) return false;
+        for (int32 J = 0; J < I; ++J)
+            if (Content.Bindings[J].Component == Binding.Component
+                && Content.Bindings[J].MaterialSlot == Binding.MaterialSlot) return false;
+        const bool bIris = Binding.SourceMaterialName.Equals(TEXT("Amber iris"), ESearchCase::CaseSensitive);
+        if (Binding.Recipe != (bIris ? ENativeCharacterColorRecipe::IrisLuminanceTint
+            : ENativeCharacterColorRecipe::BaseColorFactor)
+            || (bIris ? Binding.IrisEnabledParameter.IsNone() : !Binding.IrisEnabledParameter.IsNone())) return false;
+        FLinearColor Authored;
+        if (!Binding.AuthoredMaterial->GetVectorParameterValue(FMaterialParameterInfo(Binding.ColorParameter), Authored)
+            || !FiniteColor(Authored)) return false;
+        if (bIris)
+        {
+            float Enabled = 0;
+            if (!Binding.AuthoredMaterial->GetScalarParameterValue(FMaterialParameterInfo(Binding.IrisEnabledParameter), Enabled)
+                || !FMath::IsFinite(Enabled) || Enabled != 0) return false;
+        }
+        const FBaddieOwnedCharacterMaterial* OwnedSlot = nullptr;
+        for (const auto& Entry : Owned)
+            if (Entry.Component.Get() == Component && Entry.Slot == Slot)
+            { if (OwnedSlot) return false; OwnedSlot = &Entry; }
+        if (!Requirement->TargetHex.IsSet())
+        {
+            // PreserveAuthored creates no owned override. It is still inspected.
+            if (OwnedSlot || Component->GetMaterial(Slot) != Binding.AuthoredMaterial.Get()) return false;
+        }
+        else
+        {
+            if (!OwnedSlot || !IsValid(OwnedSlot->Override.Get()) || OwnedSlot->MeshAsset.Get() != Binding.MeshAsset.Get()
+                || OwnedSlot->SlotName != Binding.MaterialSlot
+                || Component->GetMaterial(Slot) != OwnedSlot->Override.Get()
+                || SlotOverride(Component, Slot) != OwnedSlot->Override.Get()) return false;
+            ++MatchedOwned;
+            FLinearColor Expected, Actual;
+            if (!ReadColor(*Requirement->TargetHex, Expected)) return false;
+            Expected.A = Authored.A;
+            if (!OwnedSlot->Override->GetVectorParameterValue(FMaterialParameterInfo(Binding.ColorParameter), Actual)
+                || !FiniteColor(Actual) || Actual != Expected) return false;
+            if (bIris)
+            {
+                float Enabled = 0;
+                if (!OwnedSlot->Override->GetScalarParameterValue(FMaterialParameterInfo(Binding.IrisEnabledParameter), Enabled)
+                    || !FMath::IsFinite(Enabled) || Enabled != 1.f) return false;
+            }
+        }
+        if (!Current() || !Component->IsRegistered() || Component->GetOwner() != Owner
+            || Component->GetWorld() != World || MeshAsset(Component) != Binding.MeshAsset.Get()) return false;
+    }
+    return Current() && MatchedOwned == Owned.Num();
+}
+
 void UBaddieCompanionCharacterMaterials::EndPlay(const EEndPlayReason::Type Reason)
 {
     bEndingPlay = true;

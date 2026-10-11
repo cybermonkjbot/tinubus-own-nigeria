@@ -285,6 +285,15 @@ struct FBaddieCompanionGameplaySessionData
     TWeakObjectPtr<APlayerController> WorldConsumer;
     FString GrantId, CrewThreadId, ApprovedUserId, ApprovedCharacterId, ApprovedHomeRoomId, LeaveMessage;
     FHttpRequestPtr Request;
+    struct FWorldHttpSlot
+    {
+        FHttpRequestPtr Request;
+        BaddieCompanion::FWorldDispatch Dispatch;
+        BaddieCompanionHttpPrivate::FBoundedResponsePtr Response;
+        uint64 CredentialGeneration = 0, ConsumerSerial = 0;
+        double Started = 0;
+    };
+    FWorldHttpSlot WorldRequests[3];
     uint64 Generation = 0, WorldConsumerSerial = 0;
     int32 EntrySequence = 0;
     double NextAttempt = 0, BeginRetryAt = 0, LastPresenceServerNow = 0;
@@ -379,6 +388,7 @@ void UBaddieCompanionGameplaySession::RetireRequest()
 bool UBaddieCompanionGameplaySession::ClearPrivateState()
 {
     Data->World.Clear();
+    RetireWorldRequests();
     RetireRequest();
     const uint64 Generation = Data->Generation;
     const auto Consumer = Data->WorldConsumer;
@@ -456,6 +466,7 @@ void UBaddieCompanionGameplaySession::BeginWorldPairing(const FString&)
     // World consent/public registration and enforced credential-safe transport are
     // absent. Never fall back to beginGameplay or upgrade an entry-only grant.
     Data->World.Clear();
+    RetireWorldRequests();
     Data->View.Scope = BaddieCompanion::EGameplayScope::World;
     Data->View.State = EGameplayState::Unavailable;
     Data->View.Error = TEXT("World access is unavailable.");
@@ -486,6 +497,7 @@ void UBaddieCompanionGameplaySession::BeginLeave(const TCHAR* Message)
 {
     if (!Data->bEntryOpen || Data->Credentials.Token.IsEmpty()) return;
     Data->World.Clear();
+    RetireWorldRequests();
     RetireRequest();
     const uint64 Generation = Data->Generation;
     const uint64 ConsumerSerial = Data->WorldConsumerSerial;
@@ -576,8 +588,11 @@ void UBaddieCompanionGameplaySession::DetachWorldConsumer(APlayerController* Con
 
 void UBaddieCompanionGameplaySession::ReloadWorld(APlayerController* Consumer)
 {
+    const uint64 Generation = Data->Generation, Serial = Data->WorldConsumerSerial;
     if (Data->WorldConsumer.Get() != Consumer || !CheckLifetimes()
-        || Data->View.Scope != BaddieCompanion::EGameplayScope::World) return;
+        || Data->View.Scope != BaddieCompanion::EGameplayScope::World || Data->bEnding
+        || Generation != Data->Generation || Serial != Data->WorldConsumerSerial
+        || Data->WorldConsumer.Get() != Consumer) return;
     Data->World.Retry();
     TickWorld();
 }
@@ -598,22 +613,62 @@ void UBaddieCompanionGameplaySession::WorldContentLost(APlayerController* Consum
 {
     if (Data->WorldConsumer.Get() == Consumer) Data->World.ContentLost(Token);
 }
+void UBaddieCompanionGameplaySession::WorldCollisionStop(APlayerController* Consumer,
+    BaddieCompanion::FWorldObservationToken Token, const BaddieCompanion::FMovementCollisionStop& Receipt,
+    const BaddieCompanion::FMovementPose& Origin)
+{
+    const uint64 Generation = Data->Generation, Serial = Data->WorldConsumerSerial;
+    if (Data->WorldConsumer.Get() != Consumer || Data->bEnding || !CheckLifetimes()
+        || Generation != Data->Generation || Serial != Data->WorldConsumerSerial
+        || Data->WorldConsumer.Get() != Consumer || Data->bEnding) return;
+    Data->World.CollisionStop(Token, Receipt, Origin);
+}
+void UBaddieCompanionGameplaySession::ObserveWorldNative(APlayerController* Consumer,
+    const BaddieCompanion::FWorldNativeEvidence& Evidence)
+{
+    const uint64 Generation = Data->Generation, Serial = Data->WorldConsumerSerial;
+    if (Data->WorldConsumer.Get() != Consumer || Data->bEnding || !CheckLifetimes()
+        || Generation != Data->Generation || Serial != Data->WorldConsumerSerial
+        || Data->WorldConsumer.Get() != Consumer || Data->bEnding) return;
+    auto Current = Evidence; Current.Consumer = Data->World.ConsumerSerial;
+    Data->World.ObserveNative(Current);
+}
+bool UBaddieCompanionGameplaySession::WorldCycleCurrent(APlayerController* Consumer,
+    BaddieCompanion::FWorldObservationToken Token) const
+{
+    return !Data->bEnding && Data->WorldConsumer.Get() == Consumer && Data->World.CurrentCycle(Token);
+}
+void UBaddieCompanionGameplaySession::ReleaseWorldInput(APlayerController* Consumer)
+{
+    if (!Data->bEnding && Data->WorldConsumer.Get() == Consumer) Data->World.ReleaseInput();
+}
+bool UBaddieCompanionGameplaySession::WorldInputReleaseRequired(APlayerController* Consumer) const
+{
+    return Data->bEnding || Data->WorldConsumer.Get() != Consumer || Data->World.InputReleaseRequired();
+}
+bool UBaddieCompanionGameplaySession::WorldTransferCurrent(APlayerController* Consumer,
+    BaddieCompanion::FWorldObservationToken Before, BaddieCompanion::FWorldObservationToken After) const
+{
+    return !Data->bEnding && Data->WorldConsumer.Get() == Consumer && Data->World.TransferCurrent(Before, After);
+}
 
 void UBaddieCompanionGameplaySession::TickWorld()
 {
-    const bool bLive = !Data->bEnding && CheckLifetimes()
+    const bool bSessionLive = !Data->bEnding && CheckLifetimes()
         && Data->View.Scope == BaddieCompanion::EGameplayScope::World
-        && Data->View.State == EGameplayState::Joined && Data->WorldConsumer.IsValid();
+        && Data->View.State == EGameplayState::Joined;
+    const bool bLive = bSessionLive && Data->WorldConsumer.IsValid();
     const auto Consumer = Data->WorldConsumer;
     const uint64 Generation = Data->Generation;
     const uint64 ConsumerSerial = Data->WorldConsumerSerial;
-    Data->World.Tick(!bLive);
+    Data->World.Tick(!bSessionLive);
+    // The same pre-credential barrier applies to all fixed lanes, including
+    // captured teardown with no attached consumer. No encoder or HTTP is run.
+    if (bSessionLive) SendWorld();
     if (!bLive || Data->bEnding || !CheckLifetimes() || Generation != Data->Generation
         || ConsumerSerial != Data->WorldConsumerSerial || Consumer != Data->WorldConsumer) return;
     // No callable public world adapter or enforced engine transport exists. Fail
     // before reading device credentials or constructing an HTTP world request.
-    if (Data->World.Next != BaddieCompanion::EWorldRequest::None)
-        Data->World.Unavailable(BaddieCompanion::EWorldReadStatus::Unavailable);
     if (auto* Controller = Cast<ABaddieCompanionSlicePlayerController>(Consumer.Get()))
         Controller->RefreshWorldPresentation();
     if (Data->bEnding || Generation != Data->Generation || ConsumerSerial != Data->WorldConsumerSerial
@@ -636,6 +691,78 @@ void UBaddieCompanionGameplaySession::TickWorld()
         || !CheckLifetimes() || !World.State.Observation.IsCurrent()
         || World.State.Observation.Token() != Token) return;
     OnConnectionChanged.Broadcast();
+}
+
+void UBaddieCompanionGameplaySession::RetireWorldRequests()
+{
+    // World.Clear invalidates callbacks first. These fixed records release only
+    // immutable arguments and bounded receive owners, never presence ownership.
+    for (auto& Slot : Data->WorldRequests)
+    {
+        if (Slot.Request.IsValid()) Slot.Request->OnProcessRequestComplete().Unbind();
+        Slot = {};
+    }
+}
+
+void UBaddieCompanionGameplaySession::SendWorld()
+{
+    using namespace BaddieCompanion;
+    constexpr bool bCallableCredentialSafeWorldTransport = false;
+    constexpr uint64 QualifiedWorldHttpWork = 0;
+    auto& World = Data->World;
+    // This barrier precedes credentials, TakeDispatch's encoder and HTTP creation,
+    // including captured consumer-detach teardown. No public adapter exists.
+    if (!bCallableCredentialSafeWorldTransport || !QualifiedWorldHttpWork)
+    {
+        if (World.Next != EWorldRequest::None || World.HasCommandWork()) World.FailDispatchBarrier();
+        return;
+    }
+    if (Data->bEnding || !World.Budget || !World.SessionLive()
+        || QualifiedWorldHttpWork > WorldObservationPrivate::TickWorkLimit
+        || !World.Budget->Spend(QualifiedWorldHttpWork)) return;
+    FWorldDispatch Dispatch;
+    if (!World.TakeDispatch(Dispatch)) return;
+    const uint8 Index = static_cast<uint8>(Dispatch.Lane);
+    if (Index >= UE_ARRAY_COUNT(Data->WorldRequests)) { World.Failed(Dispatch, true); return; }
+    auto& Slot = Data->WorldRequests[Index];
+    if (Slot.Request.IsValid()) { World.Failed(Dispatch, true); return; }
+    // Internal producer identifiers are not callable HTTP paths. A separately
+    // allocated public adapter must supply this mapping and enforced transport.
+    const TCHAR* PublicRoute = nullptr;
+    if (!PublicRoute) { World.Failed(Dispatch, true); return; }
+    const auto Args = Data->Credentials.Args(true);
+    for (const auto& Pair : Dispatch.Arguments->Values) Args->SetField(Pair.Key, Pair.Value);
+    const auto Request = BaddieGameplaySessionPrivate::MakeRequest(Data->Credentials.Origin,
+        PublicRoute, Args, Slot.Response);
+    if (!Request.IsValid()) { World.Failed(Dispatch, true); Slot = {}; return; }
+    Slot.Request = Request; Slot.Dispatch = Dispatch; Slot.CredentialGeneration = Data->Generation;
+    Slot.ConsumerSerial = Data->WorldConsumerSerial; Slot.Started = FPlatformTime::Seconds();
+    const TWeakObjectPtr<UBaddieCompanionGameplaySession> WeakThis(this);
+    const uint64 Generation = Slot.CredentialGeneration;
+    const auto Body = Slot.Response;
+    const double Started = Slot.Started;
+    Request->OnProcessRequestComplete().BindLambda(
+        [WeakThis, Dispatch, Generation, Body, Started, Index]
+        (FHttpRequestPtr Incoming, FHttpResponsePtr Response, bool bSuccess)
+    {
+        auto* Self = WeakThis.Get();
+        if (!Self || Self->Data->bEnding || Self->Data->Generation != Generation) return;
+        auto& Current = Self->Data->WorldRequests[Index];
+        if (Current.Request != Incoming || Current.Dispatch.Lane != Dispatch.Lane
+            || Current.Dispatch.Epoch != Dispatch.Epoch || Current.Dispatch.Serial != Dispatch.Serial
+            || Current.Dispatch.Lifetime != Dispatch.Lifetime) return;
+        const double Received = FPlatformTime::Seconds();
+        // Consume only this exact handle before forwarding. WorldSession checks
+        // immutable visit/life scope, including permitted detached teardown.
+        Current = {};
+        FString Text;
+        if (!bSuccess || !Response.IsValid() || Response->GetResponseCode() != 200
+            || !Body.IsValid() || Body->HasRejectedData() || !Body->ReadCompletedText(Text))
+        { Self->Data->World.Failed(Dispatch); return; }
+        Self->Data->World.Complete(Dispatch, MoveTemp(Text), Started, Received);
+    });
+    if (!Request->ProcessRequest() && Slot.Request == Request && Data->Generation == Generation)
+    { Slot = {}; World.Failed(Dispatch); }
 }
 
 bool UBaddieCompanionGameplaySession::CheckLifetimes()

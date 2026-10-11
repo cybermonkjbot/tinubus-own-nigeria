@@ -103,6 +103,9 @@ private:
     void RefreshWorldPresentation();
     void ClearWorldPresentation();
     void WorldNativeContentLost(BaddieCompanion::FWorldObservationToken Token);
+    void WorldMoveForward(float Value);
+    void WorldMoveRight(float Value);
+    void UpdateWorldInput();
     void ConnectionChanged();
     void GameplayConnectionChanged();
     void InvalidateGameplayControls();
@@ -136,6 +139,9 @@ private:
     TObjectPtr<UBaddieCompanionWorldPresentation> WorldPresentation;
     BaddieCompanion::FWorldObservation WorldObservation;
     bool bRefreshingWorld = false, bClearingWorld = false;
+    FVector2D WorldAxis = FVector2D::ZeroVector, WorldLastDirection = FVector2D::ZeroVector;
+    BaddieCompanion::FMovementPoint WorldLastOrigin;
+    bool bWorldReleaseRequired = true, bWorldTargetHeld = false;
     TOptional<EBaddieConnectionAction> PendingAction;
     TOptional<EBaddieGameplayConnectionAction> PendingGameplayAction;
     TOptional<BaddieCompanion::FGameplayConnectionView> LastGameplayView;

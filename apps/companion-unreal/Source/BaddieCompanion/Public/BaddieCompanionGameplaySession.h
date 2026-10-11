@@ -9,10 +9,14 @@
 
 class FJsonObject;
 class APlayerController;
+class ABaddieCompanionWorldCharacter;
+class ABaddieCompanionSlicePlayerController;
+class UBaddieCompanionWorldPresentation;
 struct FBaddieCompanionGameplaySessionData;
 
 namespace BaddieCompanion
 {
+    struct FWorldNativeEvidence;
     enum class EGameplayScope : uint8 { EntryOnly, World };
     enum class EGameplayConnectionState : uint8
     {
@@ -71,12 +75,25 @@ public:
     FBaddieCompanionGameplayConnectionChanged OnConnectionChanged;
 
 private:
+    friend class ABaddieCompanionWorldCharacter;
+    friend class ABaddieCompanionSlicePlayerController;
+    friend class UBaddieCompanionWorldPresentation;
+    void WorldCollisionStop(APlayerController* Consumer, BaddieCompanion::FWorldObservationToken Token,
+        const BaddieCompanion::FMovementCollisionStop& Receipt, const BaddieCompanion::FMovementPose& Origin);
+    void ObserveWorldNative(APlayerController* Consumer, const BaddieCompanion::FWorldNativeEvidence& Evidence);
+    bool WorldCycleCurrent(APlayerController* Consumer, BaddieCompanion::FWorldObservationToken Token) const;
+    void ReleaseWorldInput(APlayerController* Consumer);
+    bool WorldInputReleaseRequired(APlayerController* Consumer) const;
+    bool WorldTransferCurrent(APlayerController* Consumer, BaddieCompanion::FWorldObservationToken Before,
+        BaddieCompanion::FWorldObservationToken After) const;
     TPimplPtr<FBaddieCompanionGameplaySessionData> Data;
     FTSTicker::FDelegateHandle Ticker;
     FDelegateHandle DeactivateHandle, ReactivateHandle, BackgroundHandle, ForegroundHandle, SlateActivationHandle;
 
     bool TickSession(float DeltaSeconds);
     void TickWorld();
+    void SendWorld();
+    void RetireWorldRequests();
     bool IsForeground() const;
     void AttachSlateLifecycle();
     void ApplicationDeactivated();

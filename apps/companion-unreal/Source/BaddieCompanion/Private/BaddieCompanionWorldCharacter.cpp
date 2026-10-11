@@ -45,25 +45,43 @@ bool ABaddieCompanionWorldCharacter::FollowAccepted(UBaddieCompanionGameplaySess
     { ClearWorldMovement(); return false; }
     if (Observation.Token() != View.Observation.Token())
     {
-        ClearWorldMovement();
+        const bool bTransfer = Session.WorldTransferCurrent(Cast<APlayerController>(GetController()),
+            Observation.Token(), View.Observation.Token());
+        if (!bTransfer) ClearWorldMovement();
         const auto Current = Session.GetWorldView();
         if (!View.Observation.IsCurrent() || Current.Observation.Token() != View.Observation.Token()
-            || !Current.bWalkingAvailable || Observation.Token().IsSet()) return false;
+            || !Current.bWalkingAvailable || (!bTransfer && Observation.Token().IsSet())) return false;
         Observation = View.Observation;
     }
     const auto Token = Observation.Token();
+    if (Observation.AdmitNativeMovementWork(false) != EWorldReadResult::Ready) return false;
     if (Player.Movement != EWorldFieldPresence::Value)
     {
         GetCharacterMovement()->StopMovementImmediately();
         const auto Current = Session.GetWorldView();
         if (!Observation.IsCurrent() || Observation.Token() != Token
             || Current.Observation.Token() != Token || !Current.bWalkingAvailable) return false;
-        LastRouteSequence = -1; return true;
+        LastRouteSequence = -1; bHasRouteIdentity = false; RouteIdentity = {}; return true;
     }
     // Only accepted server-time windows are sampled. No desired-position planner,
     // custom gait, physics simulation or local route prediction is introduced.
-    if (LastRouteSequence != Player.MoveSequence)
-    { LastSampleMs = Time.ServerNowMs; LastRouteSequence = Player.MoveSequence; }
+    WorldObservationPrivate::FMovementIdentity AcceptedRoute;
+    if (Observation.ReadMovementIdentity(AcceptedRoute) != EWorldReadResult::Ready)
+    { ClearWorldMovement(); return false; }
+    if (!bHasRouteIdentity || !RouteIdentity.Same(AcceptedRoute))
+    {
+        RouteIdentity = AcceptedRoute; bHasRouteIdentity = true;
+        LastSampleMs = AcceptedRoute.StartedAtMs; LastCommittedPose = AcceptedRoute.From;
+        LastRouteSequence = AcceptedRoute.Sequence;
+        // A new route starts at its validated origin. Never sweep from an old
+        // route or silently skip its first corner during publication adoption.
+        const FVector Origin = SourceToUnreal(FVector(LastCommittedPose.X, Instance.FloorY, LastCommittedPose.Z))
+            + FVector(0, 0, GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+        SetActorLocationAndRotation(Origin, FRotator(0, SourceYawToUnreal(LastCommittedPose.YawRadians), 0),
+            false, nullptr, ETeleportType::TeleportPhysics);
+        if (!Observation.IsCurrent() || Observation.Token() != Token
+            || Session.GetWorldView().Observation.Token() != Token) return false;
+    }
     FMovementPose Window[34];
     uint32 Count = 0;
     if (Observation.ReadMovementWindow(LastSampleMs, Time.ServerNowMs, Window, Count) != EWorldReadResult::Ready)
@@ -85,23 +103,39 @@ bool ABaddieCompanionWorldCharacter::FollowAccepted(UBaddieCompanionGameplaySess
             || Current.Observation.Token() != Token || !Current.bWalkingAvailable) return false;
         if (Hit.IsValidBlockingHit())
         {
+            FMovementCollisionStop Receipt;
+            FMovementPose Origin;
+            const bool bReceipt = Observation.ReadCollisionStop(RouteIdentity, LastSampleMs,
+                Time.ServerNowMs, Receipt, Origin) == EWorldReadResult::Ready;
+            const FVector Committed = SourceToUnreal(FVector(LastCommittedPose.X, Instance.FloorY, LastCommittedPose.Z))
+                + FVector(0, 0, GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
+            SetActorLocationAndRotation(Committed, FRotator(0, SourceYawToUnreal(LastCommittedPose.YawRadians), 0),
+                false, nullptr, ETeleportType::TeleportPhysics);
+            if (!Observation.IsCurrent() || Observation.Token() != Token
+                || Session.GetWorldView().Observation.Token() != Token) return false;
             GetCharacterMovement()->StopMovementImmediately();
             const auto AfterStop = Session.GetWorldView();
             if (!Observation.IsCurrent() || Observation.Token() != Token
                 || AfterStop.Observation.Token() != Token || !AfterStop.bWalkingAvailable) return false;
-            if (auto* Controller = Cast<APlayerController>(GetController())) Session.StopWorldWalk(Controller);
+            if (auto* Controller = Cast<APlayerController>(GetController()))
+            {
+                if (bReceipt) Session.WorldCollisionStop(Controller, Token, Receipt, Origin);
+                else Session.StopWorldWalk(Controller);
+            }
             return false;
         }
     }
     if (!Observation.IsCurrent() || Observation.Token() != Token
         || Session.GetWorldView().Observation.Token() != Token) return false;
     LastSampleMs = Time.ServerNowMs;
+    if (Count) LastCommittedPose = Window[Count - 1];
     return true;
 }
 
 void ABaddieCompanionWorldCharacter::ClearWorldMovement()
 {
     Observation = {}; LastSampleMs = 0; LastRouteSequence = -1;
+    RouteIdentity = {}; LastCommittedPose = {}; bHasRouteIdentity = false;
     ConsumeMovementInputVector();
     GetCharacterMovement()->StopMovementImmediately(); GetCharacterMovement()->DisableMovement();
     SetActorHiddenInGame(true); SetActorEnableCollision(false);

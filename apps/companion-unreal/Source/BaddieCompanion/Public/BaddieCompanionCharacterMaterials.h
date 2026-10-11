@@ -8,6 +8,7 @@
 class UMaterialInstanceDynamic;
 class UMaterialInterface;
 class UMeshComponent;
+class ABaddieCompanionCharacterActor;
 
 namespace BaddieCompanion
 {
@@ -83,6 +84,9 @@ protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual void OnUnregister() override;
 private:
+    friend class ABaddieCompanionCharacterActor;
+    bool InspectCurrent(const BaddieCompanion::FHomePresentationData& Plan,
+        const BaddieCompanion::FNativeCharacterMaterialContent& Content, uint64 Generation) const;
     void RestoreOwnedMaterials();
     UPROPERTY(Transient)
     TArray<FBaddieOwnedCharacterMaterial> Owned;

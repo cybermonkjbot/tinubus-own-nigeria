@@ -64,6 +64,7 @@ namespace BaddieCompanion::WorldObservationPrivate
         FWorldPlayerHeader Player;
         FWorldInstanceHeader Instance;
         WorldReadPrivate::FValueRef Selection, Health, InstanceRoot, HomeRoom;
+        WorldReadPrivate::FValueRef CharacterDescriptor, RoomDescriptor;
         TSharedPtr<FPublicationClock> Clock;
         TSharedPtr<FPublicationClock> RetiredClock;
         FRecoveryReadView RetiredRecovery;
@@ -73,11 +74,16 @@ namespace BaddieCompanion::WorldObservationPrivate
         HomeMapping::FUnknownRanges HomeUnknown;
         FHomeDataRetirement HomeRetirement;
         TOptional<FMovementRoute> Movement;
+        EWorldFieldPresence MovementInitialSpeed = EWorldFieldPresence::Missing;
+        EWorldFieldPresence MovementPace = EWorldFieldPresence::Missing;
         bool bHomeMapped = false, bComplete = false;
         bool bHomeMappingFinished = false, bHomePreparationStarted = false;
         uint64 Charge = 0;
         uint32 RetirePhase = 0;
         uint64 NativeCharge = 0;
+        // Accepted route allocations retire with this payload, never with a
+        // transferred native presentation reservation.
+        uint64 MovementCharge = 0;
         uint64 HealthCharge = 0;
         uint64 HomeCharge = 0;
         uint32 HealthRetirePhase = 0;
@@ -108,6 +114,21 @@ namespace BaddieCompanion::WorldObservationPrivate
         const void* Semantic = nullptr;
         uint64 SemanticGeneration = 0;
         TCHAR RequestId[33]{}, Capture[33]{}, Directory[65]{};
+        uint64 CommandEpoch = 0;
+    };
+    class FDescriptorComparison
+    {
+    public:
+        void Begin(WorldReadPrivate::FValueRef Before, WorldReadPrivate::FValueRef After);
+        EStep Advance(const FStorage& Before, const FStorage& After);
+        bool Equal() const { return bEqual; }
+        void Cancel();
+    private:
+        WorldReadPrivate::FValueRef Left, Right;
+        WorldReadPrivate::FTextRead Text;
+        uint64 LeftNode = 0, RightNode = 0;
+        uint8 AdvancePhase = 0;
+        bool bText = false, bEqual = true, bDone = false;
     };
 
     // Exact text preparation. Reserve destination capacity before allocation;
@@ -188,6 +209,14 @@ namespace BaddieCompanion::WorldObservationPrivate
     public:
         FPublicationPreparation() {}
         FPublicationEvidence Evidence;
+        FDescriptorComparison Compatibility;
+        bool bCompatibilityStarted = false, bCompatible = false;
+        uint8 CompatibilityRoot = 0;
+        WorldReadPrivate::FRecordRead PreviousInstance, NextInstance;
+        uint8 InstanceComparisonPhase = 0;
+        FWorldObservationToken NativeToken;
+        uint64 NativeConsumer = 0, NativeCycle = 0, NativeContent = 0, NativeBinding = 0;
+        bool bNativeReinspectionRequested = false, bNativeReinspected = false;
         WorldReadPrivate::FValueRef SelectedCharacter, SelectedRoom, InstanceHome;
         WorldReadPrivate::FValueRef OwnerId, HealthLife;
         const FString* ExpectedLife = nullptr;
