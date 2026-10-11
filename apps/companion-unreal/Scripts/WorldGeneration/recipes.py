@@ -5,7 +5,7 @@ from copy import deepcopy
 import math
 from urllib.parse import quote
 
-from .canonical import city_plan, destinations, digest, travel_contract
+from .canonical import city_plan, destinations, digest, inspect_place_contract, travel_contract
 from .geometry import (beam_mesh, home_point, home_shell_point, part_vertices,
                       place_point, ribbon, triangles)
 
@@ -59,6 +59,8 @@ def venue_contract(design, place_id, seed, grid_size, floor_y=0):
                           "outside":local(floor["entrance"]["outside"]),"width":floor["entrance"]["width"],
                           "role":"world","access":"place-membership"}],
             "spawns":[{"point":local(p),"yaw":math.pi} for p in floor["spawns"]],
+            "cameras":{name:{pose:local(floor["cameras"][name][pose]) for pose in ("eye","target")}
+                       for name in ("wide","close")},
             "rooms":floor.get("rooms",[]),"services":[],"npcs":[],"gates":"runtime-authoritative-closed"}
 
 
@@ -173,6 +175,8 @@ def prepare_home_handoff(identifier,incoming,refs):
 def build_jobs(refs, handoffs=None):
     handoffs=handoffs or {}
     plan=city_plan(refs)
+    places=destinations(refs)
+    registrations={place["id"]:place for place in places}
     architecture_path="packages/assets/city/lagos-architecture-delivery-v1.json"
     architecture=refs.json(architecture_path)
     reserved={p["parcelId"] for p in architecture["buildings"]} | {"civic-street-2",architecture["exterior"]["parcelId"]}
@@ -275,22 +279,27 @@ def build_jobs(refs, handoffs=None):
     interior_path="packages/assets/venues/civic-interiors-v1.json"
     interiors=refs.json(interior_path)
     for floor in interiors["floors"]:
-        value=job("places/"+floor["id"],[refs.identity(interior_path),refs.identity("packages/utils/src/companionPlacesCivicInteriors.ts")],meshes=authored_parts(
+        registration=registrations[floor["id"]]
+        value=job("places/"+floor["id"],[registration["source"],refs.identity(interior_path),refs.identity("packages/utils/src/companionPlacesCivicInteriors.ts")],meshes=authored_parts(
             floor["parts"],interiors["materials"],"civic",floor_y=floor["floorY"]),category="interior")
-        value["contract"]=venue_contract(interiors,floor["id"],floor["id"]+"-v1",.25,floor["floorY"])
+        value["contract"]=venue_contract(interiors,floor["id"],registration["seed"],.25,floor["floorY"])
         jobs.append(value)
     pool_path="packages/assets/venues/pool-courtyard-v1.json"
     pool=refs.json(pool_path)
-    meshes=authored_parts([p for p in pool["parts"] if p["shape"]!="water"],pool["materials"],"pool")
-    water={"shape":"water","position":[pool["pool"]["x"],pool["pool"]["waterY"],pool["pool"]["z"]],
-           "size":[pool["pool"]["width"],1,pool["pool"]["depth"]],"rotation":[0,0,0],"material":"water","name":"pool-water"}
-    meshes += authored_parts([water],pool["materials"],"pool")
-    value=job("places/pool-courtyard",[refs.identity(pool_path),refs.identity("packages/utils/src/companionPlacesPoolCourtyard.ts")],meshes=meshes,category="interior")
-    value["contract"]=venue_contract(pool,"pool-courtyard","pool-courtyard-v1",.3)
+    # Replace water in its original slot, retaining its name and every source
+    # array index. The plane has no thickness; its elevation is waterY.
+    parts=[{**part,"position":[pool["pool"]["x"],pool["pool"]["waterY"],pool["pool"]["z"]],
+            "size":[pool["pool"]["width"],part["size"][1],pool["pool"]["depth"]]}
+           if part["shape"]=="water" else part for part in pool["parts"]]
+    meshes=authored_parts(parts,pool["materials"],"pool")
+    registration=registrations["pool-courtyard"]
+    value=job("places/pool-courtyard",[registration["source"],refs.identity(pool_path),refs.identity("packages/utils/src/companionPlacesPoolCourtyard.ts"),
+              refs.identity("packages/companion-scene/src/interactions/lagos-places/poolCourtyardGeometry.ts")],meshes=meshes,category="interior")
+    value["contract"]=venue_contract(pool,"pool-courtyard",registration["seed"],.3)
     value["contract"]["pool"]=pool["pool"]
     jobs.append(value)
     supplied=set(j["id"] for j in jobs)
-    for destination in destinations(refs):
+    for destination in places:
         identifier="places/"+destination["id"]
         if destination["id"] in ("town-square","own-home") or identifier in supplied:
             continue
@@ -327,7 +336,10 @@ def build_jobs(refs, handoffs=None):
                 raise ValueError("Empty or unprovenanced native handoff")
             if incoming["id"]!=value["id"] or incoming.get("category",value["category"])!=value["category"]:
                 raise ValueError("Incoming canonical job identity changed")
-            value.update({key:incoming[key] for key in ("meshes","parts","template","contract","sources") if key in incoming})
+            incoming_fields={key:incoming[key] for key in ("meshes","parts","template","contract","sources") if key in incoming}
+            if value["category"] in ("place","waterfront","interior"):
+                inspect_place_contract({**value,**incoming_fields},refs)
+            value.update(incoming_fields)
             value["blockers"]=[]
         if value["id"].startswith("city/"):
             value.setdefault("contract",{})["navigationSource"]=refs.identity("packages/assets/city/lagos-street-density-navigation-v1.json","navigation")
