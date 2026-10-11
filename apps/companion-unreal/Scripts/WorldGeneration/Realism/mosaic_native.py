@@ -94,7 +94,7 @@ def author(expected_pid, expected_world):
     common.verify_files(base["files"])
     common.fresh(package, True)
     rows, buildings = mosaic_layout.plan(base, config)
-    from WorldGeneration.Realism import mosaic_audio, mosaic_navigation, mosaic_routines
+    from WorldGeneration.Realism import mosaic_activity, mosaic_audio, mosaic_navigation, mosaic_routines
     navigation = mosaic_navigation.build_navigation(config)
     routines = mosaic_routines.build_routines(config, navigation["destinations"])
     emitters = mosaic_audio.build_emitters(config, navigation["destinations"])
@@ -127,9 +127,12 @@ def author(expected_pid, expected_world):
               "researchDocumentSha256": config["researchDocumentSha256"],
               "meshes": base["meshes"], "placements": journal, "batches": batches,
               "navigation": navigation, "routines": routines, "audioEmitters": emitters,
+              "activityPolicy": mosaic_activity.build_policy(navigation["destinations"]),
+              "activityInitialState": mosaic_activity.initial_state(navigation, routines),
               "events": mosaic_navigation.build_events(navigation["destinations"]),
               "authoringSystemHashes": {"navigation": sha(mosaic_navigation.__file__),
-                                       "routines": sha(mosaic_routines.__file__), "audio": sha(mosaic_audio.__file__)},
+                                       "routines": sha(mosaic_routines.__file__), "audio": sha(mosaic_audio.__file__),
+                                       "activity": sha(mosaic_activity.__file__)},
               "materialUsageDerivatives": materials, "buildingRuns": buildings,
               "cameras": config["cameras"], "mainStreetLengthMetres": 120,
               "sideStreetSurfaceLengthMetres": config["sideRoadSections"] * 10,

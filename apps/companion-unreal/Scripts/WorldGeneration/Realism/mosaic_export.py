@@ -4,7 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 
-from WorldGeneration.Realism import mosaic_audio, mosaic_layout, mosaic_navigation, mosaic_native, mosaic_routines
+from WorldGeneration.Realism import mosaic_activity, mosaic_audio, mosaic_layout, mosaic_navigation, mosaic_native, mosaic_routines
 
 
 ROOT = Path(__file__).resolve().parents[5]
@@ -24,11 +24,14 @@ def build_packet():
             "navigationSha256": mosaic_native.sha(mosaic_navigation.__file__),
             "routinesSha256": mosaic_native.sha(mosaic_routines.__file__),
             "audioSha256": mosaic_native.sha(mosaic_audio.__file__),
+            "activitySha256": mosaic_native.sha(mosaic_activity.__file__),
             "sourceReceiptSha256": config["baseReceiptSha256"],
             "geography": config["geography"], "placements": placements, "buildings": buildings,
             "materialUsageDerivatives": base["materialUsageDerivatives"],
             "navigation": navigation, "events": mosaic_navigation.build_events(navigation["destinations"]),
             "routines": routines, "audioEmitters": emitters,
+            "activityPolicy": mosaic_activity.build_policy(navigation["destinations"]),
+            "activityInitialState": mosaic_activity.initial_state(navigation, routines),
             "pendingAssets": config["pendingAssets"], "gates": config["gates"]}
 
 
