@@ -64,23 +64,6 @@ namespace BaddieCompanion::HomeMapping
             return Out;
         }
 
-        double FloorHeight(const FFurniturePlan& Item, const FRoomShellPlan& Shell, double Base, double Radius)
-        {
-            double Height = Base;
-            bool bDepression = false;
-            for (const auto& Patch : Shell.FloorPatches)
-            {
-                const auto& Centre = Patch.BottomCentreMetres;
-                const auto& Size = Patch.DimensionsMetres;
-                const double DX = FMath::Max(0.0, FMath::Abs(Item.X - Centre.X) - Size.X / 2);
-                const double DZ = FMath::Max(0.0, FMath::Abs(Item.Z - Centre.Z) - Size.Z / 2);
-                if (DX * DX + DZ * DZ > Radius * Radius) continue;
-                if (Centre.Y < Base) { Height = FMath::Min(Height, Centre.Y); bDepression = true; }
-                else if (!bDepression) Height = FMath::Max(Height, Centre.Y);
-            }
-            return Height;
-        }
-
         bool FitsSupport(const FFurniturePlan& Item, const FItemDimensions& Body,
             const FSupportPlan& Support, const FRoomShellPlan& Shell)
         {
@@ -102,76 +85,214 @@ namespace BaddieCompanion::HomeMapping
                 && Body.HeightMetres <= Space.DimensionsMetres.Y;
         }
 
-        bool MapWall(FFurniturePlan& Item, const FItemDimensions& Body, const FWallPlan& Wall)
+        bool WallFits(const FFurniturePlan& Item, const FItemDimensions& Body, const FWallPlan& Wall, double& U)
         {
             if (Body.Placement != EPlacement::Wall || !Item.Y.IsSet()) return false;
             const double C = FMath::Cos(Wall.Anchor.YawRadians), S = FMath::Sin(Wall.Anchor.YawRadians);
-            const double U = (Item.X - Wall.Anchor.Metres.X) * C - (Item.Z - Wall.Anchor.Metres.Z) * S;
+            U = (Item.X - Wall.Anchor.Metres.X) * C - (Item.Z - Wall.Anchor.Metres.Z) * S;
             const double DX = Item.X - (Wall.Anchor.Metres.X + C * U);
             const double DZ = Item.Z - (Wall.Anchor.Metres.Z - S * U);
             const double Angle = Item.Rotation - Wall.Anchor.YawRadians;
-            const double Width = Body.WallWidthMetres.GetValue(), Depth = Body.WallDepthMetres.GetValue();
+            const double Width = Body.WallWidthMetres.GetValue();
             const double Y = Item.Y.GetValue();
             if (DX * DX + DZ * DZ > .001 * .001
                 || FMath::Abs(FMath::Atan2(FMath::Sin(Angle), FMath::Cos(Angle))) > .001
                 || FMath::Abs(U) + Width / 2 > Wall.Width / 2 || Y < Wall.MinY || Y + Body.HeightMetres > Wall.MaxY)
                 return false;
-            for (const auto& Opening : Wall.Openings)
-                if (FMath::Abs(U - Opening.U) < (Width + Opening.Width) / 2 + .02
-                    && Y < Opening.BottomY + Opening.Height && Y + Body.HeightMetres > Opening.BottomY) return false;
+            return true;
+        }
+        void PlaceWall(FFurniturePlan& Item, const FItemDimensions& Body, const FWallPlan& Wall, double U)
+        {
+            const double C = FMath::Cos(Wall.Anchor.YawRadians), S = FMath::Sin(Wall.Anchor.YawRadians);
+            const double Width = Body.WallWidthMetres.GetValue(), Depth = Body.WallDepthMetres.GetValue();
+            const double Y = Item.Y.GetValue();
             Item.Pivot = EItemPivot::BottomWallAnchor;
             Item.WallLocalU = U;
             Item.PlacementPose = Pose(FVector(Item.X, Y, Item.Z), Item.Rotation);
             Item.Volume = Box(FVector(Item.X + S * Depth / 2, Y, Item.Z + C * Depth / 2),
                 FVector(Width * FMath::Abs(C) + Depth * FMath::Abs(S), Body.HeightMetres,
                     Width * FMath::Abs(S) + Depth * FMath::Abs(C)));
-            return true;
         }
     }
 
     void MapFurniture(FRoomPlan& Room, const FString& Path, TArray<FHomeMappingIssue>& Issues)
     {
-        if (!Room.Shell.IsSet()) return;
-        const auto& Shell = Room.Shell.GetValue();
-        for (int32 Index = 0; Index < Room.Items.Num(); ++Index)
+        FLegacyMappingWork Work;
+        FFurnitureMapping Mapping;
+        Mapping.Begin(Room, Path, Issues);
+        Mapping.Advance(Work);
+        Mapping.Retire(Work);
+    }
+
+    EMappingStep FFurnitureMapping::Retire(FMappingWork& Work)
+    {
+        const auto Result = Work.ReleaseText(ItemPath);
+        if (Result != EMappingStep::Complete) return Result;
+        Output = nullptr; SourcePath = nullptr; OutputIssues = nullptr;
+        Wall = nullptr; Support = nullptr;
+        return EMappingStep::Complete;
+    }
+    void FFurnitureMapping::Begin(FRoomPlan& Room, const FString& Path, TArray<FHomeMappingIssue>& Issues)
+    {
+        Output = &Room; SourcePath = &Path; OutputIssues = &Issues;
+        Phase = Index = Search = 0; Wall = nullptr; Support = nullptr;
+    }
+
+    EMappingStep FFurnitureMapping::Advance(FMappingWork& Work)
+    {
+        if (!Output || !SourcePath || !OutputIssues) return EMappingStep::Invalid;
+        if (!Output->Shell.IsSet()) return EMappingStep::Complete;
+        const auto& Shell = Output->Shell.GetValue();
+        while (Index < static_cast<uint32>(Output->Items.Num()))
         {
-            auto& Item = Room.Items[Index];
-            const FString ItemPath = FString::Printf(TEXT("%s.items[%d]"), *Path, Index);
-            if (!Item.Kind.Effective.IsSet()) continue;
+            auto& Item = Output->Items[Index];
+            if (!Item.Kind.Effective.IsSet())
+            {
+                const auto Admission = Work.Admit(32);
+                if (Admission != EMappingStep::Complete) return Admission;
+                ++Index; Phase = Search = 0; continue;
+            }
             const auto Kind = Item.Kind.Effective.GetValue();
-            const FCatalogItem* Definition = nullptr;
-            for (const auto& Entry : Catalog) if (Entry.Kind == Kind) { Definition = &Entry; break; }
-            if (!Definition) { Issue(Issues, EHomeIssue::MissingReference, ItemPath + TEXT(".kind")); continue; }
-            const auto Body = Dimensions(*Definition, Shell);
-            Item.Dimensions = Body;
-            Item.SourceGeometryRecipe = TEXT("studioGeometry.makeRoomObject:") + Item.Kind.Saved.GetValue();
-            Issue(Issues, EHomeIssue::PropRecipeUnported, ItemPath + TEXT(".geometry"));
-            if (!Item.Surface.Effective.IsSet()) continue;
-            if (!Item.Surface.Saved.IsSet() && Kind != EItemKind::Lamp && Kind != EItemKind::Stool && Kind != EItemKind::Plant)
+            if (Phase == 0)
             {
-                Issue(Issues, EHomeIssue::MissingSurface, ItemPath + TEXT(".surface"));
-                continue;
+                const auto Admission = Work.Admit(64 + 4 * static_cast<uint64>(SourcePath->Len()),
+                    (SourcePath->Len() + 24) * sizeof(TCHAR));
+                if (Admission != EMappingStep::Complete) return Admission;
+                ItemPath = FString::Printf(TEXT("%s.items[%d]"), **SourcePath, Index);
+                Wall = nullptr; Support = nullptr; bAllowedKind = bDepression = false;
+                Search = 0; Phase = 1;
             }
-            const auto SurfaceId = Item.Surface.Effective.GetValue();
-            const auto* Wall = Shell.Walls.FindByPredicate([SurfaceId](const FWallPlan& Value) { return Value.Id == SurfaceId; });
-            const auto* Support = Shell.Supports.FindByPredicate([SurfaceId](const FSupportPlan& Value) { return Value.Id == SurfaceId; });
-            if (!Wall && !Support) { Issue(Issues, EHomeIssue::MissingSurface, ItemPath + TEXT(".surface")); continue; }
-            if (Wall)
+            if (Phase == 1)
             {
-                if (!MapWall(Item, Body, *Wall)) Issue(Issues, EHomeIssue::InvalidPlacement, ItemPath);
-                continue;
+                while (Search < UE_ARRAY_COUNT(Catalog))
+                {
+                    const auto Admission = Work.Admit(64);
+                    if (Admission != EMappingStep::Complete) return Admission;
+                    if (Catalog[Search].Kind == Kind) { Body = Dimensions(Catalog[Search], Shell); break; }
+                    ++Search;
+                }
+                Phase = Search == UE_ARRAY_COUNT(Catalog) ? 20 : 2;
+                Search = 0;
             }
-            if (Body.Placement == EPlacement::Wall || Item.Y.IsSet() || !Support->AllowedKinds.Contains(Kind)
-                || !FitsSupport(Item, Body, *Support, Shell))
+            if (Phase == 2)
             {
-                Issue(Issues, EHomeIssue::InvalidPlacement, ItemPath);
-                continue;
+                const auto Admission = Work.Admit(128 + 2 * static_cast<uint64>(Item.Kind.Saved.GetValue().Len()),
+                    (Item.Kind.Saved.GetValue().Len() + 32) * sizeof(TCHAR));
+                if (Admission != EMappingStep::Complete) return Admission;
+                Item.Dimensions = Body;
+                Item.SourceGeometryRecipe = TEXT("studioGeometry.makeRoomObject:") + Item.Kind.Saved.GetValue();
+                Phase = 21;
             }
-            const double Base = Support->Top.BottomCentreMetres.Y;
-            const double Y = SurfaceId == ESurface::Floor ? FloorHeight(Item, Shell, Base, Body.SupportRadiusMetres) : Base;
-            // Saved furniture already follows the saved shell's coordinates. Never turn or snap it again.
-            Item.PlacementPose = Pose(FVector(Item.X, Y, Item.Z), Item.Rotation);
-            Item.Volume = Box(FVector(Item.X, Y, Item.Z), FVector(Body.RadiusMetres * 2, Body.HeightMetres, Body.RadiusMetres * 2));
+            if (Phase >= 20 && Phase <= 23)
+            {
+                const auto Admission = Work.Admit(128 + 4 * static_cast<uint64>(ItemPath.Len()),
+                    (OutputIssues->Num() + 1) * sizeof(FHomeMappingIssue) + (ItemPath.Len() + 16) * sizeof(TCHAR));
+                if (Admission != EMappingStep::Complete) return Admission;
+                if (Phase == 20) Issue(*OutputIssues, EHomeIssue::MissingReference, ItemPath + TEXT(".kind"));
+                if (Phase == 21) Issue(*OutputIssues, EHomeIssue::PropRecipeUnported, ItemPath + TEXT(".geometry"));
+                if (Phase == 22) Issue(*OutputIssues, EHomeIssue::MissingSurface, ItemPath + TEXT(".surface"));
+                if (Phase == 23) Issue(*OutputIssues, EHomeIssue::InvalidPlacement, ItemPath);
+                Phase = Phase == 21 ? 3 : 24;
+            }
+            if (Phase == 3)
+            {
+                const auto Admission = Work.Admit(32);
+                if (Admission != EMappingStep::Complete) return Admission;
+                if (!Item.Surface.Effective.IsSet()) Phase = 24;
+                else if (!Item.Surface.Saved.IsSet() && Kind != EItemKind::Lamp && Kind != EItemKind::Stool && Kind != EItemKind::Plant) Phase = 22;
+                else Phase = 4;
+            }
+            if (Phase == 4)
+            {
+                while (Search < static_cast<uint32>(Shell.Walls.Num()))
+                {
+                    const auto Admission = Work.Admit(32);
+                    if (Admission != EMappingStep::Complete) return Admission;
+                    const auto& Value = Shell.Walls[Search++];
+                    if (Value.Id == Item.Surface.Effective.GetValue()) { Wall = &Value; break; }
+                }
+                Phase = 5; Search = 0;
+            }
+            if (Phase == 5)
+            {
+                while (Search < static_cast<uint32>(Shell.Supports.Num()))
+                {
+                    const auto Admission = Work.Admit(32);
+                    if (Admission != EMappingStep::Complete) return Admission;
+                    const auto& Value = Shell.Supports[Search++];
+                    if (Value.Id == Item.Surface.Effective.GetValue()) { Support = &Value; break; }
+                }
+                Phase = Wall ? 6 : Support ? 9 : 22; Search = 0;
+            }
+            if (Phase == 6)
+            {
+                const auto Admission = Work.Admit(256);
+                if (Admission != EMappingStep::Complete) return Admission;
+                Phase = WallFits(Item, Body, *Wall, WallU) ? 7 : 23;
+            }
+            if (Phase == 7)
+            {
+                while (Search < static_cast<uint32>(Wall->Openings.Num()))
+                {
+                    const auto Admission = Work.Admit(64);
+                    if (Admission != EMappingStep::Complete) return Admission;
+                    const auto& Opening = Wall->Openings[Search++];
+                    if (FMath::Abs(WallU - Opening.U) < (Body.WallWidthMetres.GetValue() + Opening.Width) / 2 + .02
+                        && Item.Y.GetValue() < Opening.BottomY + Opening.Height
+                        && Item.Y.GetValue() + Body.HeightMetres > Opening.BottomY) { Phase = 23; break; }
+                }
+                if (Phase == 7) Phase = 8;
+            }
+            if (Phase == 8)
+            {
+                const auto Admission = Work.Admit(256);
+                if (Admission != EMappingStep::Complete) return Admission;
+                PlaceWall(Item, Body, *Wall, WallU); Phase = 24;
+            }
+            if (Phase == 9)
+            {
+                while (Search < static_cast<uint32>(Support->AllowedKinds.Num()))
+                {
+                    const auto Admission = Work.Admit(16);
+                    if (Admission != EMappingStep::Complete) return Admission;
+                    if (Support->AllowedKinds[Search++] == Kind) { bAllowedKind = true; break; }
+                }
+                Phase = 10; Search = 0;
+            }
+            if (Phase == 10)
+            {
+                const auto Admission = Work.Admit(256);
+                if (Admission != EMappingStep::Complete) return Admission;
+                if (Body.Placement == EPlacement::Wall || Item.Y.IsSet() || !bAllowedKind || !FitsSupport(Item, Body, *Support, Shell)) Phase = 23;
+                else { FloorY = FloorBase = Support->Top.BottomCentreMetres.Y; Phase = 11; }
+            }
+            if (Phase == 11)
+            {
+                if (Item.Surface.Effective.GetValue() == ESurface::Floor)
+                    while (Search < static_cast<uint32>(Shell.FloorPatches.Num()))
+                    {
+                        const auto Admission = Work.Admit(128);
+                        if (Admission != EMappingStep::Complete) return Admission;
+                        const auto& Patch = Shell.FloorPatches[Search++];
+                        const auto& Centre = Patch.BottomCentreMetres; const auto& Size = Patch.DimensionsMetres;
+                        const double DX = FMath::Max(0.0, FMath::Abs(Item.X - Centre.X) - Size.X / 2);
+                        const double DZ = FMath::Max(0.0, FMath::Abs(Item.Z - Centre.Z) - Size.Z / 2);
+                        if (DX * DX + DZ * DZ > Body.SupportRadiusMetres * Body.SupportRadiusMetres) continue;
+                        if (Centre.Y < FloorBase) { FloorY = FMath::Min(FloorY, Centre.Y); bDepression = true; }
+                        else if (!bDepression) FloorY = FMath::Max(FloorY, Centre.Y);
+                    }
+                Phase = 12;
+            }
+            if (Phase == 12)
+            {
+                const auto Admission = Work.Admit(256);
+                if (Admission != EMappingStep::Complete) return Admission;
+                Item.PlacementPose = Pose(FVector(Item.X, FloorY, Item.Z), Item.Rotation);
+                Item.Volume = Box(FVector(Item.X, FloorY, Item.Z), FVector(Body.RadiusMetres * 2, Body.HeightMetres, Body.RadiusMetres * 2));
+                Phase = 24;
+            }
+            if (Phase == 24) { ++Index; Phase = Search = 0; }
         }
+        return EMappingStep::Complete;
     }
 }

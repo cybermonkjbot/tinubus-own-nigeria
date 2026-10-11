@@ -45,6 +45,32 @@ namespace BaddieCompanion
         { return SameScope && (Sequence < PriorSequence || Revision < PriorRevision || At < PriorAt); }
         inline bool ConflictingTransport(bool Driving, bool ActiveWater, bool Movement, bool Transit, bool TravelingJourney)
         { return (Driving && ActiveWater) || ((Driving || ActiveWater) && (Movement || Transit || TravelingJourney)); }
+        struct FControlFacts
+        {
+            EWorldPlayerStatus Status = EWorldPlayerStatus::Present;
+            double Health = 0;
+            bool bJourneyTraveling = false, bDriving = false, bActiveWater = false;
+            bool bTransit = false, bDance = false, bLoungeSeat = false, bMovement = false;
+            bool bTransportIdentityMismatch = false;
+            EWorldFieldPresence Driving = EWorldFieldPresence::Missing, Water = EWorldFieldPresence::Missing;
+            EWorldFieldPresence Transit = EWorldFieldPresence::Missing, Nightclub = EWorldFieldPresence::Missing;
+        };
+        inline FWorldPlayerControlObservations ControlObservations(const FControlFacts& Facts)
+        {
+            FWorldPlayerControlObservations Out;
+            Out.bRecovering = Facts.Status == EWorldPlayerStatus::Recovering;
+            Out.bHealthDepleted = Facts.Health <= 0;
+            Out.bTraveling = Facts.Status == EWorldPlayerStatus::Traveling || Facts.bJourneyTraveling;
+            Out.bDriving = Facts.bDriving; Out.bActiveWater = Facts.bActiveWater;
+            Out.bTransit = Facts.bTransit; Out.bDanceActivity = Facts.bDance; Out.bLoungeSeat = Facts.bLoungeSeat;
+            Out.bMissingControlFields = Facts.Driving == EWorldFieldPresence::Missing
+                || Facts.Water == EWorldFieldPresence::Missing || Facts.Transit == EWorldFieldPresence::Missing
+                || Facts.Nightclub == EWorldFieldPresence::Missing;
+            Out.bConflictingTransport = ConflictingTransport(Out.bDriving, Out.bActiveWater,
+                Facts.bMovement, Out.bTransit, Out.bTraveling);
+            Out.bTransportIdentityMismatch = Facts.bTransportIdentityMismatch;
+            return Out;
+        }
         inline bool RetainRacing(bool SameInstance, int64 UpdatedAt, int64 PriorUpdatedAt)
         { return SameInstance && UpdatedAt < PriorUpdatedAt; }
         inline bool DrivingSpeed(double Speed) { return FiniteNumber(Speed) && Speed >= -7 && Speed <= 7; }
@@ -88,6 +114,9 @@ namespace BaddieCompanion
             FValueRef Raw;
             FOrigin Position, Driving, Water, Weapon, DanceInputs[24];
             uint32 DanceCount = 0, RetireField = 0;
+            FWorldPlayerHeader Header;
+            EWorldFieldPresence SuppliedDriving = EWorldFieldPresence::Missing;
+            EWorldFieldPresence SuppliedWater = EWorldFieldPresence::Missing;
             bool bPeer = false, bIncluded = true, bDanceMerged = false, bControlUnavailable = true, bPinned = false;
             FValueRef& Reference(uint32 Index)
             {

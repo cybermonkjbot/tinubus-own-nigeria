@@ -3,6 +3,7 @@
 #include "BaddieCompanionWorldObservationPages.h"
 #include "BaddieCompanionRecoveryState.h"
 #include "BaddieCompanionWorldControls.h"
+#include "BaddieCompanionWorldPublication.h"
 
 class UBaddieCompanionGameplaySession;
 
@@ -12,11 +13,28 @@ namespace BaddieCompanion
     enum class EWorldRequest : uint8
     { None, Enter, Prepare, Observe, Move, Ready, PresentationFailed, Result, Manifest, Page, Bind };
 
+    struct FWorldDispatchArgumentsOwner;
+    class FWorldDispatchArguments
+    {
+    public:
+        FWorldDispatchArguments() = default;
+        explicit FWorldDispatchArguments(FWorldDispatchArgumentsOwner* InOwner);
+        FWorldDispatchArguments(const FWorldDispatchArguments& Other);
+        FWorldDispatchArguments(FWorldDispatchArguments&& Other) noexcept;
+        FWorldDispatchArguments& operator=(const FWorldDispatchArguments& Other);
+        FWorldDispatchArguments& operator=(FWorldDispatchArguments&& Other) noexcept;
+        ~FWorldDispatchArguments();
+        explicit operator bool() const { return Owner != nullptr; }
+        FJsonObject* operator->() const;
+    private:
+        FWorldDispatchArgumentsOwner* Owner = nullptr;
+        void Reset();
+    };
     struct FWorldDispatch
     {
         EWorldRequest Operation = EWorldRequest::None;
         uint64 Lifetime = 0, Serial = 0;
-        TSharedPtr<FJsonObject> Arguments;
+        FWorldDispatchArguments Arguments;
     };
 
     // No device proof or token is copied into this subordinate lifetime.
@@ -46,13 +64,13 @@ namespace BaddieCompanion
         void Clear(EWorldReadStatus Status = EWorldReadStatus::Unavailable);
         void BeginEntry(const FWorldEntryIdentity& Identity);
         void Retry();
-        void Tick();
+        void Tick(bool bRetirementOnly = false);
         bool TakeDispatch(FWorldDispatch& Out);
-        void Complete(const FWorldDispatch& Dispatch, FString Body, double SentAt, double ReceivedAt);
+        void Complete(const FWorldDispatch& Dispatch, FString&& Body, double SentAt, double ReceivedAt);
         void Failed(const FWorldDispatch& Dispatch, bool bTransportUnavailable = false);
         bool Walk(const FMovementPoint& Target, EMovementPace Pace);
         void StopWalking();
-        void ContentLost(uint64 ObservationGeneration);
+        void ContentLost(FWorldObservationToken ObservationToken);
 
         bool Live() const;
         bool Current(const FWorldDispatch& Dispatch) const;
@@ -69,11 +87,20 @@ namespace BaddieCompanion
         void ProcessBody();
         void AdvancePages();
         void AdvanceSemantics();
+        void AdvancePublication();
+        bool RetirePublication();
+        bool RestartPublication();
+        void NotifyRecovery(FWorldObservationToken Token);
         void CancelSemantics();
         bool RetireSemantics();
         WorldObservationPrivate::EStep ValidateCandidate();
         bool AcceptBinding(const TSharedPtr<FJsonObject>& Reply);
         void Retire(TSharedPtr<WorldObservationPrivate::FStorage> Storage);
+        bool InitializeRetirement();
+        void RetireBody();
+        void RetireDecodedBody();
+        void RetireRequest();
+        void RetireAttemptText(bool bEntry);
 
         FWorldEntryIdentity Entry;
         FWorldSessionView State;
@@ -81,7 +108,11 @@ namespace BaddieCompanion
         TUniquePtr<WorldObservationPrivate::FPages> Pages;
         TSharedPtr<WorldObservationPrivate::FStorage> Candidate, Accepted;
         struct FSemanticData;
+        struct FSessionRetirement;
+        TUniquePtr<FSessionRetirement> Retirement;
+        int32 RetirementSlot = INDEX_NONE;
         TUniquePtr<FSemanticData> Semantic;
+        TUniquePtr<WorldObservationPrivate::FPublicationPreparation> Publication;
         struct FVisitIdentity;
         TUniquePtr<FVisitIdentity> Visit, RetiringVisit;
         TUniquePtr<WorldObservationPrivate::FStaticRoots> Static, RetiringStatic;
@@ -89,8 +120,16 @@ namespace BaddieCompanion
         // accepted/candidate pair revoked together. It drains only one at a time.
         TSharedPtr<WorldObservationPrivate::FStorage> Retiring[3];
         bool HasRetirement() const;
-        TSharedPtr<WorldObservationPrivate::FAccess> Access;
+        TUniquePtr<WorldObservationPrivate::FAccess> Access;
         FRecoveryReadState Recovery;
+        FWorldRecoveryReceipt RecoveryReceipt;
+        TSharedPtr<WorldObservationPrivate::FPublicationClock> ClockBaseline;
+        TSharedPtr<WorldObservationPrivate::FPublicationClock> RetiringClock;
+        uint64 PublicationSerial = 0, OrderingVersion = 0;
+        FWorldObservationToken PendingNotification;
+        bool bInNotification = false;
+        bool bRestartPublication = false;
+        uint8 PublicationRestartPhase = 0;
         TSharedPtr<const FWorldTransportRead> Transport;
         FWorldDispatch Request;
         EWorldRequest Next = EWorldRequest::None, CaptureOperation = EWorldRequest::None;
@@ -99,9 +138,17 @@ namespace BaddieCompanion
         FString RequestId, Capture, Preparation;
         FString Body;
         TSharedPtr<FJsonObject> DecodedBody;
+        uint64 BodyCharge = 0;
+        bool bOwnBodyPage = false;
+        uint64 RequestIdentityCharge = 0;
+        uint64 CaptureCharge = 0, PreparationCharge = 0;
         uint64 RequestSequence = 0, DispatchSerial = 0, OperationSequence = 0;
         int64 RevisionHighWater = -1, MoveHighWater = -1;
         int64 HealthHighWater = -1, SavedHighWater = -1;
+        // Terminal metadata preserves supplied absence/null without publishing a
+        // synthetic health record or retaining the invalid candidate's payload.
+        EWorldFieldPresence LostHealthPresence = EWorldFieldPresence::Missing;
+        bool bLostHealthDecodedNull = false;
         int64 ReceiptExpiresAt = 0;
         // Fixed operation evidence survives payload retirement, never publishes.
         EWorldRequest SettledOperation = EWorldRequest::None;

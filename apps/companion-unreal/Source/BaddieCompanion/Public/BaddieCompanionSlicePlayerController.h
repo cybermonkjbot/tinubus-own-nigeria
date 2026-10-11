@@ -94,12 +94,15 @@ protected:
     virtual void SetupInputComponent() override;
 
 private:
+    friend class UBaddieCompanionGameplaySession;
+    friend class UBaddieCompanionWorldPresentation;
     void TogglePointerCapture();
     void ApplyPointerCapture();
     void ClearPrivatePresentation();
     void ClearReadPresentation();
     void RefreshWorldPresentation();
     void ClearWorldPresentation();
+    void WorldNativeContentLost(BaddieCompanion::FWorldObservationToken Token);
     void ConnectionChanged();
     void GameplayConnectionChanged();
     void InvalidateGameplayControls();

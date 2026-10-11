@@ -7,6 +7,15 @@ class FJsonValue;
 
 namespace BaddieCompanion
 {
+    class FWorldSession;
+    namespace WorldObservationPrivate { class FPublicationPreparation; }
+    struct FWorldRecoveryReceipt
+    {
+    private:
+        friend class FRecoveryReadState;
+        FGuid Generation;
+        uint64 Lifetime = 0;
+    };
     DECLARE_MULTICAST_DELEGATE(FRecoveryReadChanged);
     enum class ECompanionHealthStatus : uint8 { Active, Hospital, Detained };
     struct FCompanionRecoveryDestination
@@ -107,6 +116,14 @@ namespace BaddieCompanion
         void Clear();
         void Dispose();
     private:
+        friend class FWorldSession;
+        friend class WorldObservationPrivate::FPublicationPreparation;
+        bool BeginWorldSubscription(uint64 Lifetime, FWorldRecoveryReceipt& Out);
+        bool StageWorldSubscription(const FWorldRecoveryReceipt& Receipt, FRecoveryReadView& Next) const;
+        bool CurrentWorldSubscription(const FWorldRecoveryReceipt& Receipt) const;
+        void CommitWorldSubscription(const FWorldRecoveryReceipt& Receipt, FRecoveryReadView&& Next, FRecoveryReadView& Retired);
+        void ClearWorldSubscription(FRecoveryReadView& Retired, bool bEndLifetime = true);
+        void NotifyWorldSubscription(const FWorldRecoveryReceipt& Receipt);
         bool Current(const FRecoveryReceipt& Receipt) const;
         bool CanComplete(const FRecoveryReceipt& Receipt) const;
         TOptional<FRecoveryReceipt> CaptureRecoveryInternal(double BeganAtMs, const TOptional<FString>& ServiceId);
@@ -116,6 +133,7 @@ namespace BaddieCompanion
         TOptional<FRecoveryReceipt> PreparedRecovery;
         bool bRecoveryDispatched = false;
         bool bSubscribed = false, bDisposed = false;
+        uint64 WorldLifetime = 0;
         FRecoveryReadChanged Changed;
     };
 }

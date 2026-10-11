@@ -54,6 +54,8 @@ public:
     ABaddieCompanionCharacterActor();
     static bool AcceptsContent(const BaddieCompanion::FHomePresentationPlan& Plan,
         const BaddieCompanion::FNativeCharacterContent& Content);
+    static bool AcceptsContent(const BaddieCompanion::FHomePresentationData& Plan,
+        const BaddieCompanion::FNativeCharacterContent& Content);
     void ClearPrivateCharacter();
 protected:
     virtual void PostInitializeComponents() override;
@@ -63,14 +65,14 @@ private:
     friend class UBaddieCompanionNativeApartment;
     friend class UBaddieCompanionWorldPresentation;
     static bool HasInertDefaults(UClass* Class);
-    bool Prepare(const BaddieCompanion::FHomePresentationPlan& Plan,
+    bool Prepare(const BaddieCompanion::FHomePresentationData& Plan,
         const BaddieCompanion::FNativeCharacterContent& Content,
         const FTransform& LevelToApartment, bool bLevelAlreadyTransformed);
-    bool PrepareBindings(const BaddieCompanion::FHomePresentationPlan& Plan,
+    bool PrepareBindings(const BaddieCompanion::FHomePresentationData& Plan,
         const BaddieCompanion::FNativeCharacterContent& Content,
         const FTransform& LevelToApartment, bool bLevelAlreadyTransformed,
         const FTransform* WorldPose = nullptr);
-    bool PrepareWorld(const BaddieCompanion::FHomePresentationPlan& Plan,
+    bool PrepareWorld(const BaddieCompanion::FHomePresentationData& Plan,
         const BaddieCompanion::FNativeCharacterContent& Content, const FTransform& WorldPose);
     bool ReconcileLevelTransform();
     bool HasCurrentMaterials() const;

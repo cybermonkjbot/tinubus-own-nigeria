@@ -143,14 +143,237 @@ namespace BaddieCompanion
 
 namespace BaddieCompanion::HomeMapping
 {
-    TArray<EItemKind> SupportKinds(ESurface Surface)
+    const WorldReadPrivate::FRecordSchema& AppearanceFields()
     {
-        TArray<EItemKind> Out = { EItemKind::Lamp, EItemKind::Plant, EItemKind::DeskFan,
+        using namespace WorldReadPrivate;
+        using K = EWorldValueKind;
+        static constexpr FTextChoice Garments[] = { TEXT("bomber"), TEXT("t-shirt"), TEXT("shirt"),
+            TEXT("a-line-dress"), TEXT("pleated-dress"), TEXT("wrap-dress"), TEXT("evening-gown") };
+        static constexpr FTextChoice Fabrics[] = { TEXT("cotton"), TEXT("linen"), TEXT("knit"), TEXT("denim"), TEXT("satin"), TEXT("velvet") };
+        static constexpr FTextChoice Patterns[] = { TEXT("plain"), TEXT("stripes"), TEXT("gingham"), TEXT("dots") };
+        static constexpr FTextChoice Eyes[] = { TEXT("classic"), TEXT("round"), TEXT("almond"), TEXT("sleepy") };
+        static constexpr FTextChoice Brows[] = { TEXT("classic"), TEXT("soft"), TEXT("bold"), TEXT("curious") };
+        static constexpr FTextChoice Noses[] = { TEXT("classic"), TEXT("button"), TEXT("wide") };
+        static constexpr FTextChoice Mouths[] = { TEXT("classic"), TEXT("small"), TEXT("wide") };
+        static constexpr FTextChoice Cheeks[] = { TEXT("none"), TEXT("blush"), TEXT("freckles") };
+        static constexpr FTextChoice Markings[] = { TEXT("none"), TEXT("muzzle"), TEXT("mask"), TEXT("stripes") };
+        static constexpr FTextChoice Eyewear[] = { TEXT("none"), TEXT("round") };
+        static const FFieldRule Fields[] = {
+            SelectionDomainSchema(EDomain::Appearance).Record->Fields[0],
+            SelectionDomainSchema(EDomain::Appearance).Record->Fields[1],
+            FFieldRule(TEXT("bodyColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("topColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("trousersColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("footwearColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("eyeColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("noseColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("markingColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("patternColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("accessoryVisible"), K::Boolean, false),
+            FFieldRule(TEXT("necklaceVisible"), K::Boolean, false),
+            FFieldRule(TEXT("hipChainVisible"), K::Boolean, false),
+            FFieldRule(TEXT("garmentStyle"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Garments),
+            FFieldRule(TEXT("fabricTexture"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Fabrics),
+            FFieldRule(TEXT("clothingPattern"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Patterns),
+            FFieldRule(TEXT("eyeShape"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Eyes),
+            FFieldRule(TEXT("browStyle"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Brows),
+            FFieldRule(TEXT("noseShape"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Noses),
+            FFieldRule(TEXT("mouthShape"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Mouths),
+            FFieldRule(TEXT("cheekStyle"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Cheeks),
+            FFieldRule(TEXT("markingStyle"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Markings),
+            FFieldRule(TEXT("eyewear"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Eyewear)
+        };
+        static const FRecordSchema Schema(Fields, false);
+        return Schema;
+    }
+    const WorldReadPrivate::FRecordSchema& RoomFields()
+    {
+        using namespace WorldReadPrivate;
+        using K = EWorldValueKind;
+        static constexpr FTextChoice Environments[] = { TEXT("studio"), TEXT("terrace") };
+        static constexpr FTextChoice Layouts[] = { TEXT("pat-studio-v01"), TEXT("pink-bedroom-v01"),
+            TEXT("pink-bedroom-v02"), TEXT("modern-kitchen-v01"), TEXT("bathroom-v01") };
+        static constexpr FTextChoice Palettes[] = { TEXT("rose"), TEXT("sage"), TEXT("midnight") };
+        static constexpr FTextChoice Lights[] = { TEXT("daylight"), TEXT("golden"), TEXT("evening") };
+        static constexpr FTextChoice Sharing[] = { TEXT("private"), TEXT("host"), TEXT("collaborative") };
+        static constexpr FFieldRule Fields[] = {
+            FFieldRule(TEXT("id"), K::String).WithText({1, 80, false, false, true}),
+            FFieldRule(TEXT("name"), K::String).WithText({1, 32, false, false, true}),
+            FFieldRule(TEXT("environmentId"), K::String).WithText({1, 80, false, false, true}).WithChoices(Environments),
+            FFieldRule(TEXT("layoutId"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Layouts),
+            FFieldRule(TEXT("homeDesign"), K::Object, false),
+            FFieldRule(TEXT("palette"), K::String).WithText({1, 80, false, false, true}).WithChoices(Palettes),
+            FFieldRule(TEXT("light"), K::String).WithText({1, 80, false, false, true}).WithChoices(Lights),
+            FFieldRule(TEXT("sharing"), K::String).WithText({1, 80, false, false, true}).WithChoices(Sharing),
+            FFieldRule(TEXT("items"), K::Array).WithCount(0, 8),
+            FFieldRule(TEXT("wallColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("floorColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("upholsteryColor"), K::String, false).WithText({7, 7}),
+            FFieldRule(TEXT("rugColor"), K::String, false).WithText({7, 7})
+        };
+        static constexpr FRecordSchema Schema(Fields, false);
+        return Schema;
+    }
+    const WorldReadPrivate::FRecordSchema& DesignFields()
+    {
+        using namespace WorldReadPrivate;
+        using K = EWorldValueKind;
+        static constexpr FFieldRule Fields[] = {
+            FFieldRule(TEXT("version"), K::Number).WithNumber(1, 1),
+            FFieldRule(TEXT("turns"), K::Number).WithNumber(0, 3, true),
+            FFieldRule(TEXT("extension"), K::Number).WithNumber(0, 1.2)
+        };
+        static constexpr FRecordSchema Schema(Fields, false);
+        return Schema;
+    }
+    const WorldReadPrivate::FRecordSchema& ItemFields()
+    {
+        using namespace WorldReadPrivate;
+        using K = EWorldValueKind;
+        static constexpr FTextChoice Kinds[] = { TEXT("lamp"), TEXT("stool"), TEXT("plant"), TEXT("botanical-painting"),
+            TEXT("abstract-painting"), TEXT("landscape-painting"), TEXT("wall-clock"), TEXT("wall-mirror"),
+            TEXT("standing-fan"), TEXT("tower-fan"), TEXT("desk-fan"), TEXT("floor-lamp"), TEXT("desk-lamp"),
+            TEXT("armchair"), TEXT("loveseat"), TEXT("ottoman"), TEXT("coffee-table"), TEXT("side-table"),
+            TEXT("bookcase"), TEXT("storage-basket"), TEXT("book-stack"), TEXT("candle"), TEXT("succulent") };
+        static constexpr FTextChoice Surfaces[] = { TEXT("floor"), TEXT("console"), TEXT("shelf"), TEXT("wall-back"),
+            TEXT("wall-left"), TEXT("wall-right"), TEXT("wall-front") };
+        static constexpr FFieldRule Fields[] = {
+            FFieldRule(TEXT("id"), K::String).WithText({1, 80, false, false, true}),
+            FFieldRule(TEXT("kind"), K::String).WithText({1, 80, false, false, true}).WithChoices(Kinds),
+            FFieldRule(TEXT("x"), K::Number).WithNumber(-4, 4),
+            FFieldRule(TEXT("z"), K::Number).WithNumber(-4, 4),
+            FFieldRule(TEXT("rotation"), K::Number).WithNumber(-10000, 10000),
+            FFieldRule(TEXT("surface"), K::String, false).WithText({1, 80, false, false, true}).WithChoices(Surfaces),
+            FFieldRule(TEXT("y"), K::Number, false).WithNumber(0, 4),
+            FFieldRule(TEXT("lit"), K::Boolean, false)
+        };
+        static constexpr FRecordSchema Schema(Fields, false);
+        return Schema;
+    }
+    void UnknownFields(const FMappingObject& Object, const WorldReadPrivate::FRecordSchema& Fields,
+        const FString& Path, TArray<FHomeMappingIssue>& Issues)
+    {
+        if (!Object.Known)
+        {
+            if (!Object.Json) return;
+            for (const auto& Pair : Object.Json->Values)
+            {
+                bool bKnown = false;
+                for (uint32 I = 0; I < Fields.Count; ++I)
+                    if (MakeStringView(Pair.Key).Equals(Fields.Fields[I].Name, ESearchCase::CaseSensitive))
+                    { bKnown = true; break; }
+                if (!bKnown) Issue(Issues, EHomeIssue::UnknownField, Path);
+            }
+        }
+        else if (Object.Unknown && Object.Source.IsSet())
+        {
+            check(Object.Unknown->Count < UE_ARRAY_COUNT(Object.Unknown->Values));
+            check(Path.Len() < 96);
+            auto& Range = Object.Unknown->Values[Object.Unknown->Count++];
+            Range.Object = Object.Source; Range.Schema = &Fields;
+            Range.Count = Fields.Count; Range.BeforeIssue = static_cast<uint32>(Issues.Num());
+            for (int32 I = 0; I < Path.Len(); ++I) Range.Path[I] = Path[I];
+            Range.Path[Path.Len()] = 0;
+        }
+    }
+    const FKnownField* FKnownObject::Find(const TCHAR* Name) const
+    {
+        for (uint32 I = 0; I < Count; ++I)
+            if (Fields[I].Name && FCString::Strcmp(Fields[I].Name, Name) == 0) return &Fields[I];
+        return nullptr;
+    }
+    bool FMappingObject::HasField(const TCHAR* Name) const
+    {
+        if (!Known) return Json && Json->HasField(Name);
+        const auto* Field = Known->Find(Name);
+        return Field && Field->Presence != EWorldFieldPresence::Missing;
+    }
+    bool Text(const FMappingObject& Object, const TCHAR* Field, int32 Max, FString& Out)
+    {
+        if (!Object.Known) return Text(Object.Json, Field, Max, Out);
+        const auto* Value = Object.Known->Find(Field);
+        if (!Value || Value->Presence != EWorldFieldPresence::Value || Value->Kind != EWorldValueKind::String
+            || Value->Text.Len() > Max || Value->Text.TrimStartAndEnd().IsEmpty()) return false;
+        Out = Value->Text; return true;
+    }
+    bool Number(const FMappingObject& Object, const TCHAR* Field, double& Out)
+    {
+        if (!Object.Known) return Number(Object.Json, Field, Out);
+        const auto* Value = Object.Known->Find(Field);
+        if (!Value || Value->Presence != EWorldFieldPresence::Value || Value->Kind != EWorldValueKind::Number
+            || !FMath::IsFinite(Value->Number)) return false;
+        Out = Value->Number; return true;
+    }
+    bool OptionalNumber(const FMappingObject& Object, const TCHAR* Field, TOptional<double>& Out)
+    {
+        if (!Object.Known) return OptionalNumber(Object.Json, Field, Out);
+        Out.Reset();
+        if (!Object.HasField(Field)) return true;
+        double Value = 0;
+        if (!Number(Object, Field, Value)) return false;
+        Out = Value; return true;
+    }
+    bool OptionalBool(const FMappingObject& Object, const TCHAR* Field, TOptional<bool>& Out)
+    {
+        if (!Object.Known) return OptionalBool(Object.Json, Field, Out);
+        Out.Reset();
+        if (!Object.HasField(Field)) return true;
+        const auto* Value = Object.Known->Find(Field);
+        if (!Value || Value->Presence != EWorldFieldPresence::Value || Value->Kind != EWorldValueKind::Boolean) return false;
+        Out = Value->Boolean; return true;
+    }
+    bool OptionalColor(const FMappingObject& Object, const TCHAR* Field, TOptional<FString>& Out)
+    {
+        if (!Object.Known) return OptionalColor(Object.Json, Field, Out);
+        Out.Reset();
+        if (!Object.HasField(Field)) return true;
+        FString Value;
+        if (!Text(Object, Field, 7, Value) || Value.Len() != 7 || Value[0] != TEXT('#')) return false;
+        for (int32 I = 1; I < 7; ++I)
+        {
+            const TCHAR C = Value[I];
+            if (!(C >= TEXT('0') && C <= TEXT('9')) && !(C >= TEXT('a') && C <= TEXT('f'))
+                && !(C >= TEXT('A') && C <= TEXT('F'))) return false;
+        }
+        Out = MoveTemp(Value); return true;
+    }
+    void UnknownFields(const FMappingObject& Object, std::initializer_list<const TCHAR*> Known,
+        const FString& Path, TArray<FHomeMappingIssue>& Issues)
+    {
+        // World unknown members are enumerated from exact source, not copied into
+        // these bounded slots or multiplied into an owning issue array.
+        if (!Object.Known) UnknownFields(Object.Json, Known, Path, Issues);
+        else if (Object.Unknown && Object.Names && Object.Source.IsSet())
+        {
+            check(Object.Unknown->Count < UE_ARRAY_COUNT(Object.Unknown->Values));
+            check(Path.Len() < 96);
+            auto& Range = Object.Unknown->Values[Object.Unknown->Count++];
+            Range.Object = Object.Source; Range.Names = Object.Names;
+            Range.Count = Object.NameCount; Range.BeforeIssue = static_cast<uint32>(Issues.Num());
+            for (int32 I = 0; I < Path.Len(); ++I) Range.Path[I] = Path[I];
+            Range.Path[Path.Len()] = 0;
+        }
+    }
+
+    bool SupportKindAt(ESurface Surface, uint32 Index, EItemKind& Out)
+    {
+        static constexpr EItemKind Common[] = { EItemKind::Lamp, EItemKind::Plant, EItemKind::DeskFan,
             EItemKind::DeskLamp, EItemKind::BookStack, EItemKind::Candle, EItemKind::Succulent };
-        if (Surface == ESurface::Floor) Out.Append({ EItemKind::Stool, EItemKind::StandingFan,
+        static constexpr EItemKind Floor[] = { EItemKind::Stool, EItemKind::StandingFan,
             EItemKind::TowerFan, EItemKind::FloorLamp, EItemKind::Armchair, EItemKind::Loveseat,
             EItemKind::Ottoman, EItemKind::CoffeeTable, EItemKind::SideTable, EItemKind::Bookcase,
-            EItemKind::StorageBasket });
+            EItemKind::StorageBasket };
+        if (Index < UE_ARRAY_COUNT(Common)) { Out = Common[Index]; return true; }
+        Index -= UE_ARRAY_COUNT(Common);
+        if (Surface == ESurface::Floor && Index < UE_ARRAY_COUNT(Floor))
+        { Out = Floor[Index]; return true; }
+        return false;
+    }
+    TArray<EItemKind> SupportKinds(ESurface Surface)
+    {
+        TArray<EItemKind> Out;
+        EItemKind Kind;
+        for (uint32 Index = 0; SupportKindAt(Surface, Index, Kind); ++Index) Out.Add(Kind);
         return Out;
     }
 

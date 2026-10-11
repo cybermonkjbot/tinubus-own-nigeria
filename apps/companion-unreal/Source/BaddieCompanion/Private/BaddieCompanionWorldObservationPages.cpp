@@ -21,6 +21,19 @@ namespace BaddieCompanion::WorldObservationPrivate
         // that allocation/context/allocator slack is present in the source pins.
         // Zero rejects before provider allocation, not after exceeding the budget.
         constexpr uint64 QualifiedProviderAllocationBytes = 0;
+        constexpr uint64 QualifiedPagesAllocationBytes = 0;
+        constexpr uint64 QualifiedPagesInitializationWork = 0;
+        constexpr uint64 QualifiedPageReleaseWork = 0;
+        constexpr uint64 QualifiedProviderReleaseWork = 0;
+        constexpr uint64 QualifiedDecodeWork = 0, QualifiedDecodeScratchBytes = 0;
+        constexpr uint64 QualifiedDirectoryWork = 0, QualifiedDirectoryScratchBytes = 0;
+        constexpr uint64 QualifiedPageHeaderWork = 0, QualifiedPageHeaderScratchBytes = 0;
+        constexpr uint64 QualifiedProviderCreationWork = 0, QualifiedProviderInitWork = 0;
+        constexpr uint64 QualifiedProviderUpdateWork = 0, QualifiedProviderFinalizeWork = 0;
+        constexpr uint64 QualifiedHashScratchBytes = 0, QualifiedCanonicalRecordWork = 0;
+        constexpr uint64 QualifiedCanonicalScratchBytes = 0, QualifiedRecordScratchWork = 0;
+        constexpr uint64 QualifiedRecordScratchBytes = 0, QualifiedPageCursorWork = 0;
+        constexpr uint64 QualifiedAdvanceScratchWork = 0, QualifiedAdvanceScratchBytes = 0;
 
         bool Same(const FString& A, const FString& B) { return A.Equals(B, ESearchCase::CaseSensitive); }
         bool Hex(const FString& S, int32 Length)
@@ -191,13 +204,17 @@ namespace BaddieCompanion::WorldObservationPrivate
         const FStaticRoots* Reuse = nullptr;
         FStaticContext ReuseContext;
         FObject Page;
+        FObject Envelope;
+        uint64 BodyCharge = 0;
         TUniquePtr<FEncryptionContext> Crypto;
         TOptional<FSHA256Hasher> Hasher;
         EPhase Phase = EPhase::Empty;
         int32 RootIndex = 0, RecordIndex = 0, CanonicalIndex = 0, CanonicalSize = 0;
-        int32 Starts[MaxPageRecords]{}, Ends[MaxPageRecords]{};
-        uint8 Canonical[RecordBytesLimit]{};
-        uint8 Prefix[4096]{};
+        // Only the written record/prefix/canonical ranges are read. Leave these
+        // scratch bytes uninitialized rather than zeroing a whole page at once.
+        int32 Starts[MaxPageRecords], Ends[MaxPageRecords];
+        uint8 Canonical[RecordBytesLimit];
+        uint8 Prefix[4096];
         int32 PrefixSize = 0, HashOffset = 0, HashSize = 0;
         const uint8* HashBytes = nullptr;
         FString PageDigest;
@@ -207,6 +224,10 @@ namespace BaddieCompanion::WorldObservationPrivate
         int32 LeftOffset = 0, RightOffset = 0, UnitOffset = 0;
         bool bHashStarted = false, bPrefixHashed = false, bRecordStarted = false, bLastPage = false;
         EStep Failure = EStep::Invalid;
+        int32 RetirementSlot = INDEX_NONE;
+        uint64 Charge = 0;
+        bool bCancelled = false;
+        bool bOwnPage = false;
 
         void ReleaseCrypto()
         {
@@ -215,16 +236,49 @@ namespace BaddieCompanion::WorldObservationPrivate
             bHashStarted = false; bPrefixHashed = false; HashBytes = nullptr;
         }
         EStep Fail(EStep Why)
-        { Failure = Why; Phase = EPhase::Failed; Reuse = nullptr; ReleaseCrypto(); Page.Reset(); Budget->ReleasePage(); return Why; }
+        { Failure = Why; Phase = EPhase::Failed; Reuse = nullptr; bCancelled = true; return Why; }
+        EStep Retire()
+        {
+            if (Page)
+            {
+                if (!QualifiedPageReleaseWork || QualifiedPageReleaseWork > TickWorkLimit) return EStep::ResourceUnavailable;
+                if (!Budget->Spend(QualifiedPageReleaseWork, false)) return EStep::Pending;
+                Page.Reset();
+            }
+            if (Envelope)
+            {
+                if (!QualifiedPageReleaseWork || QualifiedPageReleaseWork > TickWorkLimit) return EStep::ResourceUnavailable;
+                if (!Budget->Spend(QualifiedPageReleaseWork, false)) return EStep::Pending;
+                Envelope.Reset(); Budget->Release(BodyCharge); BodyCharge = 0;
+            }
+            if (Crypto || Hasher.IsSet())
+            {
+                if (!QualifiedProviderReleaseWork || QualifiedProviderReleaseWork > TickWorkLimit) return EStep::ResourceUnavailable;
+                if (!Budget->Spend(QualifiedProviderReleaseWork, false)) return EStep::Pending;
+                ReleaseCrypto();
+            }
+            if (!PageDigest.GetCharArray().IsEmpty())
+            {
+                if (!QualifiedPageReleaseWork || !Budget->Spend(QualifiedPageReleaseWork, false)) return EStep::Pending;
+                PageDigest.Empty();
+            }
+            if (bOwnPage) { Budget->ReleasePage(); bOwnPage = false; }
+            return EStep::Complete;
+        }
         FRoot* Root() const
         { return Storage.IsValid() && RootIndex < Storage->Manifest.Count ? Storage->Roots[Storage->Manifest.Entries[RootIndex].Slot] : nullptr; }
         void StartHash(const uint8* Bytes, int32 Size, int32 SeedSize)
         { HashBytes = Bytes; HashSize = Size; PrefixSize = SeedSize; HashOffset = 0; bHashStarted = false; bPrefixHashed = false; }
         EStep Hash(FString& Out)
         {
-            if (!QualifiedProviderAllocationBytes) return EStep::ResourceUnavailable;
+            if (!QualifiedProviderAllocationBytes || !QualifiedProviderCreationWork
+                || !QualifiedProviderInitWork || !QualifiedProviderUpdateWork || !QualifiedProviderFinalizeWork
+                || !QualifiedHashScratchBytes || QualifiedProviderCreationWork > TickWorkLimit
+                || QualifiedProviderInitWork > TickWorkLimit || QualifiedProviderUpdateWork > TickWorkLimit
+                || QualifiedProviderFinalizeWork > TickWorkLimit) return EStep::ResourceUnavailable;
             if (!Crypto)
             {
+                if (!Budget->Spend(QualifiedProviderCreationWork)) return EStep::Pending;
                 auto* Provider = FModuleManager::GetModulePtr<IPlatformCrypto>(TEXT("PlatformCrypto"));
                 if (!Provider || !Budget->Reserve(QualifiedProviderAllocationBytes)) return EStep::ResourceUnavailable;
                 Crypto = Provider->CreateContext();
@@ -233,13 +287,13 @@ namespace BaddieCompanion::WorldObservationPrivate
             }
             if (!bHashStarted)
             {
-                if (!Budget->Spend(128)) return EStep::Pending;
+                if (!Budget->Spend(QualifiedProviderInitWork)) return EStep::Pending;
                 if (Hasher->Init() != EPlatformCryptoResult::Success) return EStep::ResourceUnavailable;
                 bHashStarted = true;
             }
             if (!bPrefixHashed)
             {
-                if (!Budget->Spend(PrefixSize)) return EStep::Pending;
+                if (!Budget->Spend(QualifiedProviderUpdateWork)) return EStep::Pending;
                 if (PrefixSize && Hasher->Update(MakeArrayView(static_cast<const uint8*>(Prefix), PrefixSize)) != EPlatformCryptoResult::Success)
                     return EStep::ResourceUnavailable;
                 bPrefixHashed = true;
@@ -247,37 +301,46 @@ namespace BaddieCompanion::WorldObservationPrivate
             while (HashOffset < HashSize)
             {
                 const int32 Count = FMath::Min(1024, HashSize - HashOffset);
-                if (!Budget->Spend(Count)) return EStep::Pending;
+                if (!Budget->Spend(QualifiedProviderUpdateWork)) return EStep::Pending;
                 if (Hasher->Update(MakeArrayView(HashBytes + HashOffset, Count)) != EPlatformCryptoResult::Success)
                     return EStep::ResourceUnavailable;
                 HashOffset += Count;
             }
-            if (!Budget->Spend(256)) return EStep::Pending;
+            // Covers finalization, exact digest text, replacement and temporary
+            // destruction. The destination's capacity belongs to its owner.
+            if (!Budget->Spend(QualifiedProviderFinalizeWork)) return EStep::Pending;
+            if (!Budget->Reserve(QualifiedHashScratchBytes)) return EStep::ResourceUnavailable;
+            FAdmittedScratch Scratch{*Budget, QualifiedHashScratchBytes};
             uint8 Digest[32]{};
             if (Hasher->Finalize(MakeArrayView(Digest)) != EPlatformCryptoResult::Success) return EStep::ResourceUnavailable;
             Out = DigestString(Digest); return EStep::Complete;
         }
-        bool BeginRoot()
+        EStep BeginRoot()
         {
             while (RootIndex < Storage->Manifest.Count)
             {
                 const auto& E = Storage->Manifest.Entries[RootIndex];
                 if (E.Presence == 2 && !Storage->Roots[E.Slot]) break;
-                if (Storage->Roots[E.Slot] && ((E.Slot != 2 && E.Slot != 16) || !Storage->Roots[E.Slot]->bVerified)) return false;
+                if (Storage->Roots[E.Slot] && ((E.Slot != 2 && E.Slot != 16) || !Storage->Roots[E.Slot]->bVerified)) return EStep::Invalid;
                 ++RootIndex;
             }
             if (RootIndex == Storage->Manifest.Count)
             {
                 if (Storage->FetchedPages > Storage->LogicalPages || Storage->ReusedPages != Storage->LogicalPages - Storage->FetchedPages
                     || Storage->FetchedPageBytes > Storage->LogicalPageBytes
-                    || Storage->ReusedPageBytes != Storage->LogicalPageBytes - Storage->FetchedPageBytes) return false;
-                Storage->bComplete = true; Phase = EPhase::Complete; return true;
+                    || Storage->ReusedPageBytes != Storage->LogicalPageBytes - Storage->FetchedPageBytes) return EStep::Invalid;
+                Storage->bComplete = true; Phase = EPhase::Complete; return EStep::Complete;
             }
             const auto& E = Storage->Manifest.Entries[RootIndex];
-            if (!Budget->Reserve(sizeof(FRoot) * 2 + 64)) return false;
+            if (!QualifiedRootBytes || !QualifiedRootInitializationWork
+                || QualifiedRootInitializationWork > TickWorkLimit) return EStep::ResourceUnavailable;
+            if (!Budget->Spend(QualifiedRootInitializationWork))
+                return Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+            if (!Budget->Reserve(QualifiedRootBytes)) return EStep::ResourceUnavailable;
             auto* R = new FRoot; R->Directory = E; Storage->Roots[E.Slot] = R;
             FBytes B{Prefix, sizeof(Prefix)}; B.Literal("baddie-world-records-v1"); B.BE(E.Slot, 4); B.BE(E.Encoding, 4);
-            StartHash(nullptr, 0, B.Used); Phase = EPhase::RootSeed; return B.bValid;
+            StartHash(nullptr, 0, B.Used); Phase = EPhase::RootSeed;
+            return B.bValid ? EStep::Complete : EStep::Invalid;
         }
         EStep CloseNode()
         {
@@ -336,7 +399,11 @@ namespace BaddieCompanion::WorldObservationPrivate
             uint64 Tag = 0, Id = 0; Counter(A[0], Tag); Counter(A[1], Id);
             if (!bRecordStarted)
             {
-                if (!Budget->Spend(512)) return EStep::Pending;
+                if (!QualifiedRecordScratchWork || QualifiedRecordScratchWork > TickWorkLimit
+                    || !QualifiedRecordScratchBytes) return EStep::ResourceUnavailable;
+                if (!Budget->Spend(QualifiedRecordScratchWork)) return EStep::Pending;
+                if (!Budget->Reserve(QualifiedRecordScratchBytes)) return EStep::ResourceUnavailable;
+                FAdmittedScratch Scratch{*Budget, QualifiedRecordScratchBytes};
                 if (Tag == 3)
                 {
                     uint64 Offset = 0; Counter(A[2], Offset);
@@ -358,8 +425,10 @@ namespace BaddieCompanion::WorldObservationPrivate
                     if (Index >= FRoot::IndexCount) return EStep::ResourceUnavailable;
                     if (Index == R->InitializedIndex)
                     {
-                        if (!Budget->Spend(sizeof(FNodePage))) return EStep::Pending;
-                        if (!Budget->Reserve(sizeof(FNodePage) * 2 + 64)) return EStep::ResourceUnavailable;
+                        if (!QualifiedNodePageBytes || !QualifiedNodePageInitializationWork
+                            || QualifiedNodePageInitializationWork > TickWorkLimit) return EStep::ResourceUnavailable;
+                        if (!Budget->Spend(QualifiedNodePageInitializationWork)) return EStep::Pending;
+                        if (!Budget->Reserve(QualifiedNodePageBytes)) return EStep::ResourceUnavailable;
                         R->Index[Index] = new FNodePage; ++R->InitializedIndex;
                     }
                     ++R->Nodes; auto* N = R->Get(Id);
@@ -400,8 +469,10 @@ namespace BaddieCompanion::WorldObservationPrivate
                     if (!Budget->Spend(12)) return EStep::Pending;
                     if (!N->Tail || N->Tail->Used == 256)
                     {
-                        if (!Budget->Spend(sizeof(FStringBlock))) return EStep::Pending;
-                        if (!Budget->Reserve(sizeof(FStringBlock) * 2 + 64)) return EStep::ResourceUnavailable;
+                        if (!QualifiedStringBlockBytes || !QualifiedStringBlockInitializationWork
+                            || QualifiedStringBlockInitializationWork > TickWorkLimit) return EStep::ResourceUnavailable;
+                        if (!Budget->Spend(QualifiedStringBlockInitializationWork)) return EStep::Pending;
+                        if (!Budget->Reserve(QualifiedStringBlockBytes)) return EStep::ResourceUnavailable;
                         auto* Block = new FStringBlock;
                         if (N->Tail) N->Tail->Next = Block; else N->Text = Block;
                         N->Tail = Block;
@@ -420,26 +491,41 @@ namespace BaddieCompanion::WorldObservationPrivate
 
     FPages::FPages(TSharedRef<FBudget> Budget)
     {
-        if (ResourcesQualified()) Data = MakePimpl<FData>(MoveTemp(Budget));
+        if (!ResourcesQualified() || !QualifiedPagesAllocationBytes || !QualifiedPagesInitializationWork
+            || QualifiedPagesInitializationWork > TickWorkLimit || !EnsureRetirementTicket(Budget)) return;
+        const int32 Slot = ReserveRetirementTask(*Budget);
+        if (Slot == INDEX_NONE) return;
+        if (!Budget->Spend(QualifiedPagesInitializationWork) || !Budget->Reserve(QualifiedPagesAllocationBytes))
+        { ReleaseRetirementTask(*Budget, Slot); return; }
+        Data = MakeUnique<FData>(Budget); Data->RetirementSlot = Slot; Data->Charge = QualifiedPagesAllocationBytes;
     }
     FPages::~FPages()
     {
         RetireDetached(Cancel());
+        if (!Data) return;
+        auto* Owner = Data.Release();
+        QueueRetirementTask(*Owner->Budget, Owner->RetirementSlot, {Owner,
+            [](void* Value, FBudget&) { return static_cast<FData*>(Value)->Retire(); },
+            [](void* Value) { delete static_cast<FData*>(Value); }, Owner->Charge});
     }
-    bool FPages::DecodeBody(const FString& Body, FObject& Out, FBudget& Budget)
+    EStep FPages::DecodeBody(const FString& Body, FObject& Out, FBudget& Budget)
     {
         Out.Reset();
-        if (!ResourcesQualified()) { Budget.bExhausted = true; return false; }
+        if (!ResourcesQualified() || !QualifiedDecodeWork || QualifiedDecodeWork > TickWorkLimit
+            || !QualifiedDecodeScratchBytes) return EStep::ResourceUnavailable;
+        if (!Budget.Spend(QualifiedDecodeWork)) return Budget.bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+        if (!Budget.Reserve(QualifiedDecodeScratchBytes)) return EStep::ResourceUnavailable;
+        FAdmittedScratch Scratch{Budget, QualifiedDecodeScratchBytes};
         if (!Budget.bPageReserved || Body.IsEmpty() || Body.Len() > BodyLimit
-            || !StateJsonPrivate::WithinParseLimits(Body, {BodyLimit, 12, BodyLimit})) return false;
-        for (TCHAR C : Body) if (C <= 0 || C > 127) return false;
+            || !StateJsonPrivate::WithinParseLimits(Body, {BodyLimit, 12, BodyLimit})) return EStep::Invalid;
+        for (TCHAR C : Body) if (C <= 0 || C > 127) return EStep::Invalid;
         // Success/value/preparation is the deepest supported reply-object shape.
         // Each object keeps its own bounded key set until that object closes.
         constexpr int32 ReplyObjectLimit = 3;
         using FReplyKeys = TArray<FString, TInlineAllocator<32>>;
         constexpr uint64 KeyScopeBytes = sizeof(FReplyKeys) * ReplyObjectLimit;
         const uint64 Charge = static_cast<uint64>(Body.Len()) * 8 + KeyScopeBytes;
-        if (Charge > CandidateWorkLimit - Budget.CandidateWork) { Budget.bExhausted = true; return false; }
+        if (Charge > CandidateWorkLimit - Budget.CandidateWork) { Budget.bExhausted = true; return EStep::ResourceUnavailable; }
         Budget.CandidateWork += Charge;
         const auto Reader = TJsonReaderFactory<>::Create(Body);
         FReplyKeys Keys[ReplyObjectLimit];
@@ -447,29 +533,35 @@ namespace BaddieCompanion::WorldObservationPrivate
         EJsonNotation Notation;
         while (Reader->ReadNext(Notation))
         {
-            if (!Add(Estimate, 96, PageAllowance)) { Budget.bExhausted = true; return false; }
+            if (!Add(Estimate, 96, PageAllowance)) { Budget.bExhausted = true; return EStep::ResourceUnavailable; }
             const FString& Identifier = Reader->GetIdentifier();
             if (Objects && !Identifier.IsEmpty() && Notation != EJsonNotation::ObjectEnd && Notation != EJsonNotation::ArrayEnd)
             {
                 auto& Scope = Keys[Objects - 1];
-                if (Identifier.Len() > 32 || Scope.Num() >= 32 || Scope.Contains(Identifier)) return false;
+                if (Identifier.Len() > 32 || Scope.Num() >= 32 || Scope.Contains(Identifier)) return EStep::Invalid;
                 Scope.Add(Identifier);
             }
             if (Notation == EJsonNotation::ObjectStart)
-            { if (Objects == ReplyObjectLimit) return false; Keys[Objects++].Reset(); }
-            else if (Notation == EJsonNotation::ObjectEnd) { if (!Objects) return false; --Objects; }
-            else if (Notation == EJsonNotation::String && Reader->GetValueAsString().Len() > 64) return false;
-            else if (Notation == EJsonNotation::Error) return false;
+            { if (Objects == ReplyObjectLimit) return EStep::Invalid; Keys[Objects++].Reset(); }
+            else if (Notation == EJsonNotation::ObjectEnd) { if (!Objects) return EStep::Invalid; --Objects; }
+            else if (Notation == EJsonNotation::String && Reader->GetValueAsString().Len() > 64) return EStep::Invalid;
+            else if (Notation == EJsonNotation::Error) return EStep::Invalid;
         }
-        return Objects == 0 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Body), Out) && Out.IsValid();
+        return Objects == 0 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Body), Out) && Out.IsValid()
+            ? EStep::Complete : EStep::Invalid;
     }
     EStep FPages::Begin(const FObject& Envelope, const FString& Capture, const FString& CaptureKind,
         const FStaticRoots* Reuse, FStaticContext Context, const FString& Preparation)
     {
         if (!Data) return EStep::ResourceUnavailable;
+        if (Data->bCancelled) return Data->Failure;
         // Fixed directory precharge precedes all scans, comparisons and writing.
-        if (!Data->Budget->Spend(TickWorkLimit))
+        if (!QualifiedDirectoryWork || QualifiedDirectoryWork > TickWorkLimit || !QualifiedDirectoryScratchBytes)
+            return Data->Fail(EStep::ResourceUnavailable);
+        if (!Data->Budget->Spend(QualifiedDirectoryWork))
             return Data->Budget->bExhausted ? Data->Fail(EStep::ResourceUnavailable) : EStep::Pending;
+        if (!Data->Budget->Reserve(QualifiedDirectoryScratchBytes)) return Data->Fail(EStep::ResourceUnavailable);
+        FAdmittedScratch Scratch{*Data->Budget, QualifiedDirectoryScratchBytes};
         if (Data->Phase != FData::EPhase::Empty || !Hex(Capture, 32) || !Kind(CaptureKind)) return Data->Fail(EStep::Invalid);
         const auto O = Reply(Envelope); FManifest M; uint64 At = 0, Deadline = 0;
         if (!Fields(O, {TEXT("v"), TEXT("generation"), TEXT("capture"), TEXT("status"), TEXT("kind"),
@@ -505,9 +597,14 @@ namespace BaddieCompanion::WorldObservationPrivate
         for (int32 I = 0; I < M.Count; ++I)
             if ((M.Entries[I].Slot == 17 || M.Entries[I].Slot == 16 || M.Entries[I].Slot >= 18)
                 && M.Entries[I].Presence != 2) return Data->Fail(EStep::Invalid);
-        if (!Data->Budget->Reserve(sizeof(FStorage) * 2 + 64)) return Data->Fail(EStep::ResourceUnavailable);
+        // Includes the complete moved manifest, shared controller and strings.
+        // Directory scratch is not a retained manifest reservation.
+        if (!QualifiedStorageBytes || !QualifiedStorageInitializationWork
+            || QualifiedStorageInitializationWork > TickWorkLimit) return Data->Fail(EStep::ResourceUnavailable);
+        if (!Data->Budget->Spend(QualifiedStorageInitializationWork)) return EStep::Pending;
+        if (!Data->Budget->Reserve(QualifiedStorageBytes)) return Data->Fail(EStep::ResourceUnavailable);
         Data->Storage = MakeShared<FStorage>(Data->Budget);
-        Data->Storage->ChargedBytes = sizeof(FStorage) * 2 + 64;
+        Data->Storage->ChargedBytes = QualifiedStorageBytes;
         Data->Storage->Manifest = MoveTemp(M);
         FBytes B{Data->Canonical, sizeof(Data->Canonical)}; B.Byte('[');
         for (int32 I = 0; I < Data->Storage->Manifest.Count; ++I)
@@ -525,20 +622,32 @@ namespace BaddieCompanion::WorldObservationPrivate
         if (!B.bValid) return Data->Fail(EStep::ResourceUnavailable);
         FBytes Seed{Data->Prefix, sizeof(Data->Prefix)}; Seed.Literal("baddie-world-directory-v1");
         Data->StartHash(Data->Canonical, B.Used, Seed.Used); Data->Phase = FData::EPhase::ManifestHash;
-        Data->Budget->ReleasePage(); return EStep::Pending;
+        return EStep::Pending;
     }
-    bool FPages::Next(FString& Alias, uint64& Ordinal) const
+    EStep FPages::Next(TCHAR (&Alias)[33], uint64& Ordinal) const
     {
-        Alias.Reset(); Ordinal = 0;
-        if (!Data) return false;
-        if (Data->Phase != FData::EPhase::AwaitPage) return false;
-        const auto* R = Data->Root(); if (!R) return false;
-        Alias = R->Directory.Alias; Ordinal = R->Pages; return true;
+        Alias[0] = 0; Ordinal = 0;
+        if (!Data) return EStep::ResourceUnavailable;
+        if (Data->bCancelled) return Data->Failure;
+        if (Data->Phase != FData::EPhase::AwaitPage) return EStep::Pending;
+        const auto* R = Data->Root(); if (!R || R->Directory.Alias.Len() != 32) return EStep::Invalid;
+        if (!QualifiedPageCursorWork || QualifiedPageCursorWork > TickWorkLimit) return EStep::ResourceUnavailable;
+        if (!Data->Budget->Spend(QualifiedPageCursorWork))
+            return Data->Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+        for (int32 I = 0; I < 32; ++I) Alias[I] = R->Directory.Alias[I];
+        Alias[32] = 0; Ordinal = R->Pages; return EStep::Complete;
     }
     EStep FPages::Consume(const FObject& Envelope, uint32)
     {
         if (!Data) return EStep::ResourceUnavailable;
+        if (Data->bCancelled) return Data->Failure;
         if (Data->Phase != FData::EPhase::AwaitPage || !Data->Storage.IsValid()) return Data->Fail(EStep::Invalid);
+        if (!QualifiedPageHeaderWork || QualifiedPageHeaderWork > TickWorkLimit || !QualifiedPageHeaderScratchBytes)
+            return Data->Fail(EStep::ResourceUnavailable);
+        if (!Data->Budget->Spend(QualifiedPageHeaderWork))
+            return Data->Budget->bExhausted ? Data->Fail(EStep::ResourceUnavailable) : EStep::Pending;
+        if (!Data->Budget->Reserve(QualifiedPageHeaderScratchBytes)) return Data->Fail(EStep::ResourceUnavailable);
+        FAdmittedScratch Scratch{*Data->Budget, QualifiedPageHeaderScratchBytes};
         auto* R = Data->Root(); const auto O = Reply(Envelope); FString RootAlias, Previous;
         uint64 Slot = 0, Ordinal = 0, Start = 0, Count = 0;
         if (!Fields(O, {TEXT("v"), TEXT("generation"), TEXT("capture"), TEXT("status"), TEXT("root"), TEXT("slot"),
@@ -563,16 +672,30 @@ namespace BaddieCompanion::WorldObservationPrivate
                 || !Text(NextValue->AsArray()[0], NextRoot) || !Same(NextRoot, RootAlias)
                 || !Counter(NextValue->AsArray()[1], NextOrdinal) || NextOrdinal != Ordinal + 1) return Data->Fail(EStep::Invalid);
         }
-        Data->Page = O; Data->CanonicalIndex = Data->RecordIndex = 0;
+        Data->Page = O; Data->bOwnPage = true; Data->CanonicalIndex = Data->RecordIndex = 0;
         Data->CanonicalSize = 1; Data->Canonical[0] = '['; Data->Phase = FData::EPhase::Canonical;
         return EStep::Pending;
+    }
+    bool FPages::RetainBody(FObject& Body, uint64& Charge)
+    {
+        if (!Data || Data->bCancelled || !Data->Page || Data->Envelope) return false;
+        Data->Envelope = MoveTemp(Body); Data->BodyCharge = Charge; Charge = 0;
+        return true;
     }
     EStep FPages::Advance()
     {
         if (!Data) return EStep::ResourceUnavailable;
         using P = FData::EPhase;
+        if (Data->bCancelled) return Data->Failure;
         if (Data->Budget->bExhausted) return Data->Fail(EStep::ResourceUnavailable);
         if (Data->Phase == P::Failed) return Data->Failure;
+        // Includes local digest allocation, all retained digest replacements,
+        // fixed framing helpers and temporary destruction on every return.
+        if (!QualifiedAdvanceScratchWork || QualifiedAdvanceScratchWork > TickWorkLimit
+            || !QualifiedAdvanceScratchBytes) return Data->Fail(EStep::ResourceUnavailable);
+        if (!Data->Budget->Spend(QualifiedAdvanceScratchWork)) return EStep::Pending;
+        if (!Data->Budget->Reserve(QualifiedAdvanceScratchBytes)) return Data->Fail(EStep::ResourceUnavailable);
+        FAdmittedScratch Scratch{*Data->Budget, QualifiedAdvanceScratchBytes};
         if (!Data->Budget->Spend(128)) return EStep::Pending;
         if (Data->Reuse && !Data->Reuse->Current(Data->ReuseContext)) return Data->Fail(EStep::Invalid);
         if (Data->Phase == P::Reuse)
@@ -603,7 +726,8 @@ namespace BaddieCompanion::WorldObservationPrivate
         if (Data->Phase == P::BeginRoot)
         {
             if (!Data->Budget->Spend(512)) return EStep::Pending;
-            if (!Data->BeginRoot()) return Data->Fail(EStep::ResourceUnavailable);
+            const auto Result = Data->BeginRoot();
+            if (Result == EStep::Invalid || Result == EStep::ResourceUnavailable) return Data->Fail(Result);
             return EStep::Pending;
         }
         auto* R = Data->Root(); FString Digest;
@@ -653,7 +777,12 @@ namespace BaddieCompanion::WorldObservationPrivate
                     if (V->AsArray()[3]->AsArray().Num() > 2048) return Data->Fail(EStep::Invalid);
                     Cost += V->AsArray()[3]->AsArray().Num() * 15;
                 }
-                if (!Data->Budget->Spend(Cost)) return EStep::Pending;
+                if (!QualifiedCanonicalRecordWork || !QualifiedCanonicalScratchBytes
+                    || QualifiedCanonicalRecordWork > TickWorkLimit
+                    || Cost > TickWorkLimit - QualifiedCanonicalRecordWork) return Data->Fail(EStep::ResourceUnavailable);
+                if (!Data->Budget->Spend(Cost + QualifiedCanonicalRecordWork)) return EStep::Pending;
+                if (!Data->Budget->Reserve(QualifiedCanonicalScratchBytes)) return Data->Fail(EStep::ResourceUnavailable);
+                FAdmittedScratch Scratch{*Data->Budget, QualifiedCanonicalScratchBytes};
                 FBytes B{Data->Canonical, sizeof(Data->Canonical), Data->CanonicalSize};
                 if (Data->CanonicalIndex) B.Byte(',');
                 Data->Starts[Data->CanonicalIndex] = B.Used;
@@ -699,13 +828,17 @@ namespace BaddieCompanion::WorldObservationPrivate
         }
         if (Data->Phase == P::FinishPage)
         {
-            if (!Data->Budget->Spend(256)) return EStep::Pending;
+            if (!QualifiedPageReleaseWork || QualifiedPageReleaseWork > TickWorkLimit - 256)
+                return Data->Fail(EStep::ResourceUnavailable);
+            if (!Data->Budget->Spend(QualifiedPageReleaseWork + 256)) return EStep::Pending;
             if (!Add(R->Pages, 1, R->Directory.Pages)
                 || !Add(R->PageBytes, Data->PageNormalizedBytes, R->Directory.PageBytes)
                 || !Add(Data->Storage->FetchedPages, 1, Data->Storage->LogicalPages)
                 || !Add(Data->Storage->FetchedPageBytes, Data->PageNormalizedBytes, Data->Storage->LogicalPageBytes))
                 return Data->Fail(EStep::Invalid);
-            Data->Page.Reset(); Data->Budget->ReleasePage();
+            Data->Page.Reset(); Data->Envelope.Reset();
+            Data->Budget->Release(Data->BodyCharge); Data->BodyCharge = 0;
+            Data->Budget->ReleasePage(); Data->bOwnPage = false;
             if (!Data->bLastPage) { Data->Phase = P::AwaitPage; return EStep::Pending; }
             if (!R->bClosed || R->OpenString || R->Records != R->Directory.Records || R->Nodes != R->Directory.Nodes
                 || R->Members != R->Directory.Members || R->ArraySlots != R->Directory.ArraySlots
@@ -720,21 +853,20 @@ namespace BaddieCompanion::WorldObservationPrivate
     TSharedPtr<FStorage> FPages::TakeComplete()
     {
         if (!Data) return nullptr;
-        if (Data->Phase != FData::EPhase::Complete) return nullptr;
+        if (Data->bCancelled || Data->Phase != FData::EPhase::Complete) return nullptr;
         auto Out = MoveTemp(Data->Storage); Data->Reuse = nullptr; Data->Phase = FData::EPhase::Empty; return Out;
     }
     TSharedPtr<FStorage> FPages::Cancel()
     {
         if (!Data) return nullptr;
-        auto Out = MoveTemp(Data->Storage); Data->Page.Reset(); Data->Budget->ReleasePage();
+        auto Out = MoveTemp(Data->Storage);
         Data->Reuse = nullptr; Data->ReuseContext = {};
-        Data->ReleaseCrypto();
         Data->RootIndex = Data->RecordIndex = Data->CanonicalIndex = Data->CanonicalSize = 0;
         Data->Completing = Data->DuplicateKey = Data->Against = 0;
         Data->Left = Data->Right = nullptr;
         Data->LeftOffset = Data->RightOffset = Data->UnitOffset = 0;
         Data->bRecordStarted = Data->bLastPage = false;
-        Data->Phase = FData::EPhase::Empty; return Out;
+        Data->bCancelled = true; Data->Phase = FData::EPhase::Failed; return Out;
     }
     const FManifest* FPages::Manifest() const { return Data && Data->Storage.IsValid() ? &Data->Storage->Manifest : nullptr; }
 }

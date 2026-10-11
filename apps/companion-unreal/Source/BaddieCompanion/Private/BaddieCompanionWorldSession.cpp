@@ -8,36 +8,48 @@
 
 namespace BaddieCompanion
 {
+    struct FWorldDispatchArgumentsOwner
+    {
+        FJsonObject Arguments;
+        uint64 References = 0;
+    };
+    FWorldDispatchArguments::FWorldDispatchArguments(FWorldDispatchArgumentsOwner* InOwner)
+    {
+        check(IsInGameThread());
+        if (InOwner && InOwner->References != MAX_uint64) { Owner = InOwner; ++Owner->References; }
+    }
+    FWorldDispatchArguments::FWorldDispatchArguments(const FWorldDispatchArguments& Other)
+        : FWorldDispatchArguments(Other.Owner) {}
+    FWorldDispatchArguments::FWorldDispatchArguments(FWorldDispatchArguments&& Other) noexcept
+        : Owner(Other.Owner) { Other.Owner = nullptr; }
+    FWorldDispatchArguments& FWorldDispatchArguments::operator=(const FWorldDispatchArguments& Other)
+    {
+        if (this == &Other) return *this;
+        FWorldDispatchArguments Next(Other); Reset(); Owner = Next.Owner; Next.Owner = nullptr; return *this;
+    }
+    FWorldDispatchArguments& FWorldDispatchArguments::operator=(FWorldDispatchArguments&& Other) noexcept
+    {
+        if (this == &Other) return *this;
+        Reset(); Owner = Other.Owner; Other.Owner = nullptr; return *this;
+    }
+    FWorldDispatchArguments::~FWorldDispatchArguments() { Reset(); }
+    void FWorldDispatchArguments::Reset()
+    {
+        check(IsInGameThread());
+        if (Owner) { check(Owner->References); --Owner->References; Owner = nullptr; }
+    }
+    FJsonObject* FWorldDispatchArguments::operator->() const
+    { check(IsInGameThread() && Owner); return &Owner->Arguments; }
     namespace
     {
         using namespace WorldObservationPrivate;
         using namespace StateJsonPrivate;
         constexpr uint64 MaxCounter = 9007199254740991ULL;
         constexpr uint8 MaxResultLookups = 3;
-        // Includes the fixed JSON fields, shared-pointer control block, allocator
-        // slack and detached retirement callback. No target bound is qualified.
+        // Includes fixed JSON fields, allocator slack and the reserved task.
         constexpr uint64 QualifiedDispatchAllocationOverheadBytes = 0;
-        struct FDispatchDeleter
-        {
-            TSharedRef<FBudget> Budget;
-            uint64 Charge = 0, Work = 0;
-            void operator()(FJsonObject* Arguments) const
-            {
-                FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda(
-                    [Arguments, Owner = Budget, Bytes = Charge, Remaining = Work](float) mutable
-                    {
-                        Owner->BeginTick();
-                        while (Remaining)
-                        {
-                            const uint64 Part = FMath::Min<uint64>(Remaining, 1024);
-                            if (!Owner->Spend(Part, false)) return true;
-                            Remaining -= Part;
-                        }
-                        if (!Owner->Spend(128, false)) return true;
-                        delete Arguments; Owner->Release(Bytes); return false;
-                    }));
-            }
-        };
+        constexpr uint64 QualifiedDispatchConstructionWork = 0;
+        constexpr uint64 QualifiedDispatchReleaseWork = 0;
         bool Exact(const FObject& O, std::initializer_list<const TCHAR*> Names)
         {
             if (!O || O->Values.Num() != static_cast<int32>(Names.size())) return false;
@@ -103,7 +115,26 @@ namespace BaddieCompanion
     // Reader state and peer projections have separate, still-unqualified allocator
     // reservations. These are not estimates of Unreal allocator/controller slack.
     static constexpr uint64 QualifiedSemanticDataBytes = 0;
+    static constexpr uint64 QualifiedSemanticInitializationWork = 0;
+    static constexpr uint64 QualifiedSemanticPeerInitializationWork = 0;
+    static constexpr uint64 QualifiedStaticPreparationWork = 0;
+    static constexpr uint64 QualifiedWorldSubscriptionWork = 0;
     static constexpr uint64 QualifiedVisitAllocationOverheadBytes = 0;
+    static constexpr uint64 QualifiedVisitAllocationWork = 0;
+    static constexpr uint64 QualifiedReplyScratchBytes = 0;
+    static constexpr uint64 QualifiedReplyScratchWork = 0;
+    static constexpr uint64 QualifiedSessionRetirementBytes = 0;
+    static constexpr uint64 QualifiedSessionRetirementInitializationWork = 0;
+    static constexpr uint64 QualifiedTransientReleaseWork = 0;
+    static constexpr uint64 QualifiedEntryCopyWork = 0;
+    static constexpr uint64 QualifiedEntryCopyBytes = 0;
+    static constexpr uint64 QualifiedBodyBytes = 0;
+    static constexpr uint64 QualifiedBudgetBytes = 0;
+    static constexpr uint64 QualifiedBudgetInitializationWork = 0;
+    static constexpr uint64 QualifiedRequestIdentityBytes = 0;
+    static constexpr uint64 QualifiedRequestIdentityWork = 0;
+    static constexpr uint64 QualifiedCaptureIdentityBytes = 0;
+    static constexpr uint64 QualifiedPreparationIdentityBytes = 0;
 
     struct FWorldSession::FVisitIdentity
     {
@@ -132,7 +163,9 @@ namespace BaddieCompanion
                 if (!Budget->Spend(Part, false)) return EStep::Pending;
                 ReleaseWork -= Part;
             }
-            if (!Budget->Spend(128, false)) return EStep::Pending;
+            if (!QualifiedTransientReleaseWork || QualifiedTransientReleaseWork > TickWorkLimit)
+                return EStep::ResourceUnavailable;
+            if (!Budget->Spend(QualifiedTransientReleaseWork, false)) return EStep::Pending;
             Values[0].Empty(); Values[1].Empty(); return EStep::Complete;
         }
     };
@@ -173,7 +206,7 @@ namespace BaddieCompanion
         FRef Roots[20];
         EWorldFieldPresence RootPresence[20]{};
         uint8 Encoding[20]{};
-        FRef Selection, SelectedCharacter, SelectedHome, SelectedActiveRoom, RaceInstance;
+        FRef Selection, SelectedCharacter, SelectedHome, SelectedActiveRoom, RaceInstance, InstanceHome;
         int64 RaceTick = 0;
         uint64 Generation = 0, Peer = 0, PeerIndex = 0;
         uint32 Phase = 0, Step = 0, Comparison = 0, CopyIndex = 0, Subphase = 0;
@@ -185,6 +218,7 @@ namespace BaddieCompanion
         bool bLocal = true, bKeepDriving = false, bKeepWater = false, bSamePlayer = false;
         bool bPrepare = false, bHome = false, bRoad = false;
         bool bSuppressed = false, bSameRound = false;
+        bool bLifetimeHealthLost = false;
         EWorldRequest Operation = EWorldRequest::None;
         FRef ExpectedPlace, ExpectedEndpoint;
         TCHAR Joined[1024];
@@ -254,19 +288,22 @@ namespace BaddieCompanion
         EStep ReadRemaining();
         EStep ValidateControls();
         EStep PinPlayer();
+        EStep PreparePlayerHeader();
         EStep MaterializeVisit();
         EStep Retire()
         {
             bCancelled = true;
             if (EnterVisit)
             {
-                if (EnterVisit->Retire() != EStep::Complete || !Storage->Budget->Spend(sizeof(FVisitIdentity), false)) return EStep::Pending;
+                if (EnterVisit->Retire() != EStep::Complete || !WorldObservationPrivate::QualifiedRetirementDeleteWork
+                    || !Storage->Budget->Spend(WorldObservationPrivate::QualifiedRetirementDeleteWork, false)) return EStep::Pending;
                 EnterVisit.Reset();
             }
             while (Players)
             {
                 if (Players->Retire(*Storage->Budget) != EStep::Complete) return EStep::Pending;
-                if (!Storage->Budget->Spend(sizeof(FPlayerResult), false)) return EStep::Pending;
+                if (!WorldObservationPrivate::QualifiedRetirementDeleteWork
+                    || !Storage->Budget->Spend(WorldObservationPrivate::QualifiedRetirementDeleteWork, false)) return EStep::Pending;
                 auto* Old = Players; Players = Players->Next;
                 delete Old; Storage->Budget->Release(WorldReadPrivate::QualifiedSemanticPeerBytes);
             }
@@ -274,8 +311,10 @@ namespace BaddieCompanion
         }
         EStep AllocatePlayer(FRef Raw)
         {
-            if (!WorldReadPrivate::QualifiedSemanticPeerBytes) return EStep::ResourceUnavailable;
-            if (!Spend(sizeof(FPlayerResult))) return Yield();
+            if (!WorldReadPrivate::QualifiedSemanticPeerBytes || !QualifiedSemanticPeerInitializationWork
+                || QualifiedSemanticPeerInitializationWork > WorldObservationPrivate::TickWorkLimit)
+                return EStep::ResourceUnavailable;
+            if (!Spend(QualifiedSemanticPeerInitializationWork)) return Yield();
             if (!Storage->Budget->Reserve(WorldReadPrivate::QualifiedSemanticPeerBytes)) return EStep::ResourceUnavailable;
             auto* Next = new FPlayerResult;
             Next->Raw = Raw; Next->bPeer = !bLocal;
@@ -319,7 +358,9 @@ namespace BaddieCompanion
         }
         if (!EnterVisit)
         {
-            if (!Spend(128)) return Yield();
+            if (!QualifiedVisitAllocationWork || QualifiedVisitAllocationWork > TickWorkLimit)
+                return EStep::ResourceUnavailable;
+            if (!Spend(QualifiedVisitAllocationWork)) return Yield();
             if (!Storage->Budget->Reserve(IdentityCharge)) return EStep::ResourceUnavailable;
             EnterVisit = MakeUnique<FVisitIdentity>(Storage->Budget);
             EnterVisit->ChargedBytes = IdentityCharge;
@@ -442,7 +483,13 @@ namespace BaddieCompanion
                     S = ReadSchema(Schema, Instance.Fields[8], Room);
                 }
                 break;
-            case 5: if (bHome) S = Equal(Room.Fields[0], B.Field(BindingHome), Same); break;
+            case 5:
+                if (bHome)
+                {
+                    S = Equal(Room.Fields[0], B.Field(BindingHome), Same);
+                    if (S == EStep::Complete && Same) InstanceHome = Room.Fields[0];
+                }
+                break;
             case 6: JoinedCount = 0; break;
             case 7: S = Append(B.Field(BindingGameRoom)); break;
             case 8: S = bHome ? AppendLiteral(TEXT(":own-home:"), 10) : AppendLiteral(TEXT(":"), 1); break;
@@ -865,6 +912,8 @@ namespace BaddieCompanion
     WorldObservationPrivate::EStep FWorldSession::FSemanticData::PinPlayer()
     {
         if (CurrentPlayer->bPinned) return EStep::Complete;
+        const auto Prepared = PreparePlayerHeader();
+        if (Prepared != EStep::Complete) return Prepared;
         if (!Spend(29 * 64)) return Yield();
         for (uint32 I = 0; I < 29; ++I)
         {
@@ -877,6 +926,67 @@ namespace BaddieCompanion
             if (Ref.IsSet()) ++Ref.Owner->Owners;
         }
         CurrentPlayer->bPinned = true;
+        return EStep::Complete;
+    }
+
+    WorldObservationPrivate::EStep FWorldSession::FSemanticData::PreparePlayerHeader()
+    {
+        using namespace WorldReadPrivate;
+        while (Subphase < 8)
+        {
+            EStep Result = EStep::Complete;
+            switch (Subphase)
+            {
+            case 0: Result = Read(EDomain::Pose, CurrentPlayer->Position.Ref, Endpoint); break;
+            case 1:
+                if (Player.Presence[12] == EWorldFieldPresence::Value)
+                    Result = Read(EDomain::Journey, Player.Fields[12], Journey);
+                break;
+            case 2:
+                if (Player.Presence[17] == EWorldFieldPresence::Value)
+                    Result = Read(EDomain::Nightclub, Player.Fields[17], Activity);
+                break;
+            case 3:
+                if (CurrentPlayer->Water.Ref.IsSet()) Result = Read(EDomain::Water, CurrentPlayer->Water.Ref, Water);
+                break;
+            case 4:
+                if (!Spend(sizeof(FWorldPlayerHeader) + sizeof(FControlFacts) + 64)) return Yield();
+                {
+                    auto& Header = CurrentPlayer->Header;
+                    Header.Revision = static_cast<int64>(Player.Numbers[6]);
+                    Header.MoveSequence = static_cast<int64>(Player.Numbers[7]);
+                    Header.ServerNowMs = static_cast<int64>(Binding.Receipt().Number(ReceiptNow));
+                    Header.Status = static_cast<EWorldPlayerStatus>(Player.Choices[10]); Header.Health = Player.Numbers[11];
+                    Header.Position = {Endpoint.Numbers[0], Endpoint.Numbers[1], Endpoint.Numbers[2]};
+                    Header.Movement = Player.Presence[9]; Header.bControlUnavailable = CurrentPlayer->bControlUnavailable;
+                    FControlFacts Facts;
+                    Facts.Status = Header.Status; Facts.Health = Header.Health;
+                    Facts.bJourneyTraveling = Player.Presence[12] == EWorldFieldPresence::Value && Journey.Choices[5] == 0;
+                    Facts.bDriving = CurrentPlayer->Driving.Ref.IsSet();
+                    Facts.bActiveWater = CurrentPlayer->Water.Ref.IsSet() && Water.Choices[15] == 0;
+                    Facts.bTransit = Player.Presence[14] == EWorldFieldPresence::Value;
+                    Facts.bDance = Player.Presence[17] == EWorldFieldPresence::Value && Activity.Choices[2] == 0;
+                    Facts.bLoungeSeat = Player.Presence[17] == EWorldFieldPresence::Value && Activity.Choices[2] == 1
+                        && Activity.Presence[5] == EWorldFieldPresence::Value;
+                    Facts.bMovement = Header.Movement == EWorldFieldPresence::Value;
+                    Facts.Driving = Player.Presence[15]; Facts.Water = Player.Presence[16];
+                    Facts.Transit = Player.Presence[14]; Facts.Nightclub = Player.Presence[17];
+                    // ValidateControls has compared every effective identity before PinPlayer.
+                    Header.Controls = ControlObservations(Facts);
+                    CurrentPlayer->SuppliedDriving = Facts.Driving; CurrentPlayer->SuppliedWater = Facts.Water;
+                    Header.Driving = Facts.bDriving ? EWorldFieldPresence::Value
+                        : Facts.Driving == EWorldFieldPresence::Null ? EWorldFieldPresence::Null : EWorldFieldPresence::Missing;
+                    Header.Water = CurrentPlayer->Water.Ref.IsSet() ? EWorldFieldPresence::Value
+                        : Facts.Water == EWorldFieldPresence::Null ? EWorldFieldPresence::Null : EWorldFieldPresence::Missing;
+                }
+                break;
+            case 5: break;
+            case 6: break;
+            case 7: break;
+            }
+            if (Result != EStep::Complete) return Result;
+            ++Subphase;
+        }
         return EStep::Complete;
     }
 
@@ -1105,33 +1215,210 @@ namespace BaddieCompanion
         return EStep::Complete;
     }
 
+    struct FWorldSession::FSessionRetirement
+    {
+        TSharedPtr<WorldObservationPrivate::FBudget> Budget;
+        FWorldEntryIdentity Entries[2];
+        FWorldDispatch Requests[2];
+        FString Body, RequestIds[2], Captures[2], Preparations[2];
+        TSharedPtr<FJsonObject> DecodedBody;
+        TUniquePtr<WorldObservationPrivate::FPublicationPreparation> Publication;
+        TUniquePtr<WorldObservationPrivate::FPages> Pages;
+        TUniquePtr<FSemanticData> Semantic;
+        TUniquePtr<FVisitIdentity> Visit;
+        TSharedPtr<WorldObservationPrivate::FPublicationClock> Clock;
+        TSharedPtr<WorldObservationPrivate::FStorage> Storage[3];
+        uint64 Charge = 0, TransientCharge = 0;
+        uint32 Field = 0;
+        bool bOwnBodyPage = false;
+        bool HasTransient() const
+        {
+            return Entries[0].CredentialGeneration || Entries[1].CredentialGeneration
+                || Requests[0].Arguments || Requests[1].Arguments || DecodedBody || bOwnBodyPage
+                || !Body.GetCharArray().IsEmpty() || !RequestIds[0].GetCharArray().IsEmpty()
+                || !RequestIds[1].GetCharArray().IsEmpty() || !Captures[0].GetCharArray().IsEmpty()
+                || !Captures[1].GetCharArray().IsEmpty() || !Preparations[0].GetCharArray().IsEmpty()
+                || !Preparations[1].GetCharArray().IsEmpty();
+        }
+        void Hold(FString& Text, FString (&Slots)[2])
+        {
+            if (Text.GetCharArray().IsEmpty()) return;
+            for (auto& Slot : Slots)
+                if (Slot.GetCharArray().IsEmpty()) { Slot = MoveTemp(Text); Field = 0; return; }
+            checkNoEntry();
+        }
+        WorldObservationPrivate::EStep Advance()
+        {
+            using namespace WorldObservationPrivate;
+            if (HasTransient())
+            {
+                if (!QualifiedTransientReleaseWork || QualifiedTransientReleaseWork > TickWorkLimit)
+                    return EStep::ResourceUnavailable;
+                FString* Texts[] = { &Entries[0].GrantId, &Entries[0].UserId, &Entries[0].CharacterId, &Entries[0].HomeRoomId,
+                    &Entries[0].GameRoomId, &Entries[0].ParticipantId, &Entries[0].CallSessionId, &Entries[0].ExpressionSessionId,
+                    &Entries[0].ApprovingSessionId, &Entries[0].ReservationGeneration,
+                    &Entries[1].GrantId, &Entries[1].UserId, &Entries[1].CharacterId, &Entries[1].HomeRoomId,
+                    &Entries[1].GameRoomId, &Entries[1].ParticipantId, &Entries[1].CallSessionId, &Entries[1].ExpressionSessionId,
+                    &Entries[1].ApprovingSessionId, &Entries[1].ReservationGeneration, &Body,
+                    &RequestIds[0], &RequestIds[1], &Captures[0], &Captures[1], &Preparations[0], &Preparations[1] };
+                while (Field < UE_ARRAY_COUNT(Texts))
+                {
+                    if (!Budget->Spend(QualifiedTransientReleaseWork, false)) return EStep::Pending;
+                    Texts[Field++]->Empty();
+                }
+                if (!Budget->Spend(QualifiedTransientReleaseWork, false)) return EStep::Pending;
+                Requests[0] = {}; Requests[1] = {}; DecodedBody.Reset();
+                if (bOwnBodyPage) { Budget->ReleasePage(); bOwnBodyPage = false; }
+                Entries[0] = {}; Entries[1] = {}; Field = 0;
+                Budget->Release(TransientCharge); TransientCharge = 0;
+            }
+            if (Publication)
+            {
+                if (!Publication->Owner || Publication->Retire(*Publication->Owner) != EStep::Complete)
+                    return EStep::Pending;
+                if (!QualifiedRetirementDeleteWork || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
+                const uint64 Bytes = Publication->Charge; Publication.Reset(); Budget->Release(Bytes);
+            }
+            if (Pages)
+            {
+                if (!QualifiedRetirementDeleteWork || !Budget->Spend(QualifiedRetirementDeleteWork, false))
+                    return EStep::Pending;
+                Pages.Reset();
+            }
+            if (Semantic)
+            {
+                if (Semantic->Retire() != EStep::Complete || !QualifiedRetirementDeleteWork
+                    || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
+                Semantic.Reset(); Budget->Release(QualifiedSemanticDataBytes);
+            }
+            if (Visit)
+            {
+                if (Visit->Retire() != EStep::Complete || !QualifiedRetirementDeleteWork
+                    || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
+                Visit.Reset();
+            }
+            if (Clock)
+            {
+                uint64 Bytes = 0;
+                if (Clock.GetSharedReferenceCount() == 1)
+                {
+                    if (Clock->Retire(*Budget) != EStep::Complete) return EStep::Pending;
+                    Bytes = Clock->Charge;
+                }
+                if (!QualifiedRetirementDeleteWork || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
+                Clock.Reset(); Budget->Release(Bytes);
+            }
+            for (auto& Owner : Storage)
+            {
+                if (!Owner) continue;
+                if (Owner->Retire() != EStep::Complete || !QualifiedRetirementDeleteWork
+                    || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
+                Owner.Reset();
+            }
+            return EStep::Complete;
+        }
+    };
+
+    bool FWorldSession::InitializeRetirement()
+    {
+        using namespace WorldObservationPrivate;
+        if (Retirement) return true;
+        if (!Budget || !QualifiedSessionRetirementBytes || !QualifiedSessionRetirementInitializationWork
+            || QualifiedSessionRetirementInitializationWork > TickWorkLimit || !EnsureRetirementTicket(Budget)) return false;
+        RetirementSlot = ReserveRetirementTask(*Budget);
+        if (RetirementSlot == INDEX_NONE) return false;
+        if (!Budget->Spend(QualifiedSessionRetirementInitializationWork, false)
+            || !Budget->Reserve(QualifiedSessionRetirementBytes))
+        { ReleaseRetirementTask(*Budget, RetirementSlot); RetirementSlot = INDEX_NONE; return false; }
+        Retirement = MakeUnique<FSessionRetirement>(); Retirement->Budget = Budget;
+        Retirement->Charge = QualifiedSessionRetirementBytes; return true;
+    }
+    void FWorldSession::RetireBody()
+    {
+        if (Body.GetCharArray().IsEmpty() && !DecodedBody && !bOwnBodyPage) return;
+        check(Retirement);
+        if (!Body.GetCharArray().IsEmpty())
+        {
+            check(Retirement->Body.GetCharArray().IsEmpty());
+            Retirement->Body = MoveTemp(Body);
+            Retirement->Field = 0;
+        }
+        if (DecodedBody) RetireDecodedBody();
+        else if (bOwnBodyPage) { Retirement->bOwnBodyPage = true; bOwnBodyPage = false; }
+        Retirement->TransientCharge += BodyCharge; BodyCharge = 0;
+    }
+    void FWorldSession::RetireDecodedBody()
+    {
+        if (!DecodedBody) return;
+        check(Retirement && !Retirement->DecodedBody);
+        Retirement->DecodedBody = MoveTemp(DecodedBody);
+        Retirement->bOwnBodyPage |= bOwnBodyPage; bOwnBodyPage = false;
+        Retirement->Field = 0;
+        Retirement->TransientCharge += BodyCharge; BodyCharge = 0;
+    }
+    void FWorldSession::RetireRequest()
+    {
+        if (!Request.Arguments) { Request = {}; return; }
+        check(Retirement);
+        for (auto& Retired : Retirement->Requests)
+            if (!Retired.Arguments)
+            { Retired = MoveTemp(Request); Request = {}; Retirement->Field = 0; return; }
+        checkNoEntry();
+    }
+    void FWorldSession::RetireAttemptText(bool bEntry)
+    {
+        if (!Retirement) return;
+        Retirement->Hold(RequestId, Retirement->RequestIds);
+        Retirement->Hold(Capture, Retirement->Captures);
+        Retirement->Hold(Preparation, Retirement->Preparations);
+        Retirement->TransientCharge += RequestIdentityCharge + CaptureCharge + PreparationCharge;
+        RequestIdentityCharge = CaptureCharge = PreparationCharge = 0;
+        if (bEntry && Entry.CredentialGeneration)
+        {
+            for (auto& Retired : Retirement->Entries)
+                if (!Retired.CredentialGeneration)
+                {
+                    Retired = MoveTemp(Entry); Entry = {};
+                    Retirement->TransientCharge += QualifiedEntryCopyBytes;
+                    Retirement->Field = 0;
+                    return;
+                }
+            checkNoEntry();
+        }
+    }
+
     FWorldSession::FWorldSession() = default;
     FWorldSession::~FWorldSession()
     {
         Clear();
-        if (Semantic)
+        if (Access)
         {
-            FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([Reader = Semantic.Release()](float)
-            {
-                Reader->Storage->Budget->BeginTick();
-                if (Reader->Retire() != WorldObservationPrivate::EStep::Complete) return true;
-                if (!Reader->Storage->Budget->Spend(128, false)) return true;
-                const auto Budget = Reader->Storage->Budget;
-                delete Reader; Budget->Release(QualifiedSemanticDataBytes); return false;
-            }));
+            using namespace WorldObservationPrivate;
+            auto* Cell = Access.Release(); Cell->bAlive = false;
+            QueueRetirementTask(*Cell->Budget, Cell->RetirementSlot, {Cell,
+                [](void* Value, FBudget& Owner)
+                {
+                    if (static_cast<FAccess*>(Value)->WeakHandles) return EStep::Pending;
+                    if (!QualifiedAccessReleaseWork || QualifiedAccessReleaseWork > TickWorkLimit)
+                        return EStep::ResourceUnavailable;
+                    return Owner.Spend(QualifiedAccessReleaseWork, false) ? EStep::Complete : EStep::Pending;
+                }, [](void* Value) { delete static_cast<FAccess*>(Value); }, Cell->Charge});
         }
-        WorldObservationPrivate::RetireDetached(MoveTemp(RetiringStatic));
-        if (RetiringVisit)
+        if (Retirement)
         {
-            FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([Identity = RetiringVisit.Release()](float)
-            {
-                Identity->Budget->BeginTick();
-                if (Identity->Retire() != WorldObservationPrivate::EStep::Complete
-                    || !Identity->Budget->Spend(sizeof(FVisitIdentity), false)) return true;
-                delete Identity; return false;
-            }));
+            using namespace WorldObservationPrivate;
+            if (Publication)
+            { check(!Retirement->Publication); Retirement->Publication = MoveTemp(Publication); }
+            if (Semantic)
+            { check(!Retirement->Semantic); Retirement->Semantic = MoveTemp(Semantic); }
+            Retirement->Visit = MoveTemp(RetiringVisit); Retirement->Clock = MoveTemp(RetiringClock);
+            for (uint32 I = 0; I < 3; ++I) Retirement->Storage[I] = MoveTemp(Retiring[I]);
+            RetireDetached(MoveTemp(RetiringStatic));
+            auto* Owner = Retirement.Release();
+            QueueRetirementTask(*Budget, RetirementSlot, {Owner,
+                [](void* Value, FBudget&) { return static_cast<FSessionRetirement*>(Value)->Advance(); },
+                [](void* Value) { delete static_cast<FSessionRetirement*>(Value); }, Owner->Charge});
         }
-        for (auto& Storage : Retiring) WorldObservationPrivate::RetireDetached(MoveTemp(Storage));
         Recovery.Dispose();
     }
     FWorldSessionView FWorldSession::View() const
@@ -1155,8 +1442,11 @@ namespace BaddieCompanion
     void FWorldSession::Detach() { bAttached = false; Clear(); }
     bool FWorldSession::HasRetirement() const
     {
+        if (Budget && Budget->Retirement && Budget->Retirement->HasQueued()) return true;
+        if (Retirement && (Retirement->HasTransient() || Retirement->Publication || Retirement->Pages || Retirement->Semantic)) return true;
+        if (Publication) return true;
         if (Semantic && Semantic->bCancelled) return true;
-        if (RetiringStatic || RetiringVisit) return true;
+        if (RetiringStatic || RetiringVisit || RetiringClock) return true;
         for (const auto& Storage : Retiring) if (Storage) return true;
         return false;
     }
@@ -1174,13 +1464,39 @@ namespace BaddieCompanion
     void FWorldSession::Clear(EWorldReadStatus Status)
     {
         if (Access) Access->Revoke();
-        Access.Reset(); Transport.Reset();
+        PendingNotification = {};
+        bRestartPublication = false;
+        PublicationRestartPhase = 0;
+        Transport.Reset();
         State.Observation = {}; State.bHasObservation = State.bWalkingAvailable = false;
         if (State.Generation != MAX_uint64) ++State.Generation;
         State.Status = Status;
-        bInFlight = false; Request = {}; Next = CaptureOperation = RequestedOperation = EWorldRequest::None;
-        Body.Reset(); DecodedBody.Reset();
+        bInFlight = false; RetireRequest(); Next = CaptureOperation = RequestedOperation = EWorldRequest::None;
+        RetireBody();
         CancelSemantics();
+        if (Publication) Publication->Cancel();
+        if (Accepted && Accepted->Publication)
+            Recovery.ClearWorldSubscription(Accepted->Publication->RetiredRecovery);
+        else
+        {
+            FRecoveryReadView Empty;
+            Recovery.ClearWorldSubscription(Empty);
+            check(Empty.OwnerId.IsEmpty() && !Empty.Health);
+        }
+        RecoveryReceipt = {};
+        if (ClockBaseline)
+        {
+            if (Accepted && Accepted->Publication)
+            {
+                check(!Accepted->Publication->RetiredClock);
+                Accepted->Publication->RetiredClock = MoveTemp(ClockBaseline);
+            }
+            else
+            {
+                check(!RetiringClock);
+                RetiringClock = MoveTemp(ClockBaseline);
+            }
+        }
         if (Pages) Retire(Pages->Cancel());
         Pages.Reset();
         if (Candidate) Retire(MoveTemp(Candidate));
@@ -1193,7 +1509,7 @@ namespace BaddieCompanion
             check(!RetiringVisit);
             RetiringVisit = MoveTemp(Visit);
         }
-        Entry = {}; Preparation.Reset(); Capture.Reset(); RequestId.Reset();
+        RetireAttemptText(true);
         RevisionHighWater = MoveHighWater = -1;
         HealthHighWater = SavedHighWater = -1;
         TicketArrival = CandidateDeadline = NextAt = OriginalDispatchAt = 0;
@@ -1203,14 +1519,41 @@ namespace BaddieCompanion
         SettledRequestId[0] = SettledCapture[0] = 0; bSettledAcknowledged = false;
         bAttemptActive = bReplacementUsed = bLostTicket = bPageRetried = false; ResultLookups = 0;
         bManifestBodyPending = false;
-        if (Budget) Budget->ReleasePage();
-        // Outward health notification is last. Reentry sees no readable world.
-        Recovery.Clear();
+        if (OrderingVersion != MAX_uint64) ++OrderingVersion;
     }
     void FWorldSession::BeginEntry(const FWorldEntryIdentity& Identity)
     {
         Clear();
+        LostHealthPresence = EWorldFieldPresence::Missing;
+        bLostHealthDecodedNull = false;
         if (!bAttached || State.Generation == MAX_uint64) return;
+        if (!WorldObservationPrivate::FPages::ResourcesQualified()
+            || !QualifiedEntryCopyWork || !QualifiedEntryCopyBytes
+            || QualifiedEntryCopyWork > WorldObservationPrivate::TickWorkLimit)
+        { State.Status = EWorldReadStatus::ResourceUnavailable; return; }
+        if (!Budget)
+        {
+            if (!QualifiedBudgetBytes || QualifiedBudgetBytes > WorldObservationPrivate::RetainedLimit
+                || !QualifiedBudgetInitializationWork
+                || QualifiedBudgetInitializationWork > WorldObservationPrivate::TickWorkLimit
+                || !WorldObservationPrivate::QualifiedRetirementDeleteWork)
+            { State.Status = EWorldReadStatus::ResourceUnavailable; return; }
+            WorldObservationPrivate::FBudget InitialBudget;
+            InitialBudget.BeginTick();
+            if (!InitialBudget.Reserve(QualifiedBudgetBytes)
+                || !InitialBudget.Spend(QualifiedBudgetInitializationWork, false))
+            { State.Status = EWorldReadStatus::ResourceUnavailable; return; }
+            InitialBudget.OwnerCharge = QualifiedBudgetBytes;
+            // Both ledger writes precede allocation and survive shipping builds.
+            Budget = MakeShared<WorldObservationPrivate::FBudget>(MoveTemp(InitialBudget));
+        }
+        if (!InitializeRetirement()) { State.Status = EWorldReadStatus::ResourceUnavailable; return; }
+        // One new entry may wait beside the revoked entry. A further replacement
+        // is refused before allocation until those two fixed owners drain.
+        if (Retirement->Entries[0].CredentialGeneration && Retirement->Entries[1].CredentialGeneration)
+        { State.Status = EWorldReadStatus::ResourceUnavailable; return; }
+        if (!Budget->Spend(QualifiedEntryCopyWork)
+            || !Budget->Reserve(QualifiedEntryCopyBytes)) return;
         Entry = Identity;
         if (Live())
         {
@@ -1252,7 +1595,12 @@ namespace BaddieCompanion
         if ((Operation == EWorldRequest::Enter) == static_cast<bool>(Visit)) return false;
         if (!WorldObservationPrivate::FPages::ResourcesQualified())
         { State.Status = EWorldReadStatus::ResourceUnavailable; return false; }
-        if (!Budget) Budget = MakeShared<WorldObservationPrivate::FBudget>();
+        if (!Budget) return false;
+        if (!InitializeRetirement()) return false;
+        if (Budget->Retirement && Budget->Retirement->HasQueued()) return false;
+        if (!QualifiedRequestIdentityBytes || !QualifiedRequestIdentityWork
+            || QualifiedRequestIdentityWork > WorldObservationPrivate::TickWorkLimit)
+        { State.Status = EWorldReadStatus::ResourceUnavailable; return false; }
         if (!bContinueAttempt)
         {
             Budget->CandidateWork = 0; Budget->bExhausted = false;
@@ -1261,11 +1609,24 @@ namespace BaddieCompanion
             bReplacementUsed = false;
             if (!Budget->Spend(512)) { State.Status = EWorldReadStatus::ResourceUnavailable; return false; }
         }
+        if (!Budget->Spend(QualifiedRequestIdentityWork)
+            || !Budget->Reserve(QualifiedRequestIdentityBytes)) return false;
+        if (!RequestId.GetCharArray().IsEmpty())
+        {
+            Retirement->Hold(RequestId, Retirement->RequestIds);
+            Retirement->TransientCharge += RequestIdentityCharge; RequestIdentityCharge = 0;
+        }
+        if (!Capture.GetCharArray().IsEmpty())
+        {
+            Retirement->Hold(Capture, Retirement->Captures);
+            Retirement->TransientCharge += CaptureCharge; CaptureCharge = 0;
+        }
+        RequestIdentityCharge = QualifiedRequestIdentityBytes;
         Pages = MakeUnique<WorldObservationPrivate::FPages>(Budget.ToSharedRef());
         ++RequestSequence;
         if (Command(Operation)) ++OperationSequence;
         RequestId = FGuid::NewGuid().ToString(EGuidFormats::Digits);
-        Capture.Reset(); RequestedOperation = CaptureOperation = Operation; Next = Operation;
+        RequestedOperation = CaptureOperation = Operation; Next = Operation;
         TicketArrival = OriginalDispatchAt = 0; ResultLookups = 0; ReceiptExpiresAt = 0; bAttemptActive = true;
         bLostTicket = bPageRetried = bBindingValidated = bFinalBindComplete = false;
         NextAt = Now;
@@ -1299,9 +1660,14 @@ namespace BaddieCompanion
         const uint64 CopyWork = 4096 + IdentityUnits * sizeof(TCHAR) * 2;
         // FString/JSON construction is indivisible here. Refuse a request whose
         // exact copies cannot fit the existing tick policy; never shorten an ID.
-        if (!Budget || !QualifiedDispatchAllocationOverheadBytes || CopyWork > WorldObservationPrivate::TickWorkLimit)
+        if (!Budget || !QualifiedDispatchAllocationOverheadBytes || !QualifiedDispatchConstructionWork
+            || QualifiedDispatchConstructionWork > WorldObservationPrivate::TickWorkLimit
+            || CopyWork > WorldObservationPrivate::TickWorkLimit - QualifiedDispatchConstructionWork
+            || !QualifiedDispatchReleaseWork
+            || QualifiedDispatchReleaseWork > WorldObservationPrivate::TickWorkLimit
+            || CopyWork > WorldObservationPrivate::TickWorkLimit)
         { Unavailable(EWorldReadStatus::ResourceUnavailable); return false; }
-        if (!Budget->Spend(CopyWork))
+        if (!Budget->Spend(CopyWork + QualifiedDispatchConstructionWork))
         {
             if (Budget->bExhausted) Unavailable(EWorldReadStatus::ResourceUnavailable);
             return false;
@@ -1311,9 +1677,25 @@ namespace BaddieCompanion
             || CopyBytes > WorldObservationPrivate::RetainedLimit - QualifiedDispatchAllocationOverheadBytes)
         { Unavailable(EWorldReadStatus::ResourceUnavailable); return false; }
         const uint64 Charge = QualifiedDispatchAllocationOverheadBytes + CopyBytes;
+        if (Retirement && Retirement->Requests[0].Arguments && Retirement->Requests[1].Arguments) return false;
+        RetireRequest();
         if (!Budget->Reserve(Charge)) { Unavailable(EWorldReadStatus::ResourceUnavailable); return false; }
-        const TSharedPtr<FJsonObject> Args = MakeShareable(new FJsonObject,
-            FDispatchDeleter{Budget.ToSharedRef(), Charge, CopyWork});
+        if (!EnsureRetirementTicket(Budget))
+        { Budget->Release(Charge); Unavailable(EWorldReadStatus::ResourceUnavailable); return false; }
+        const int32 RetirementSlot = ReserveRetirementTask(*Budget);
+        if (RetirementSlot == INDEX_NONE)
+        { Budget->Release(Charge); return false; }
+        auto* ArgumentsOwner = new FWorldDispatchArgumentsOwner;
+        const FWorldDispatchArguments Args(ArgumentsOwner);
+        // Reference release does fixed metadata work only. Even an abandoned
+        // dispatch remains charged until the task admits complete DOM deletion.
+        QueueRetirementTask(*Budget, RetirementSlot, {ArgumentsOwner,
+            [](void* Value, FBudget& Owner)
+            {
+                if (static_cast<FWorldDispatchArgumentsOwner*>(Value)->References) return EStep::Pending;
+                return Owner.Spend(QualifiedDispatchReleaseWork, false) ? EStep::Complete : EStep::Pending;
+            }, [](void* Value) { delete static_cast<FWorldDispatchArgumentsOwner*>(Value); }, Charge, true,
+            [](void* Value) { return static_cast<FWorldDispatchArgumentsOwner*>(Value)->References == 0; }});
         Args->SetNumberField(TEXT("entrySequence"), Entry.EntrySequence);
         if (Next == RequestedOperation || Next == EWorldRequest::Result)
         {
@@ -1332,9 +1714,13 @@ namespace BaddieCompanion
             Args->SetStringField(TEXT("capture"), Capture);
             if (Next == EWorldRequest::Page)
             {
-                FString Root; uint64 Ordinal = 0;
-                if (!Pages || !Pages->Next(Root, Ordinal)) return false;
-                Args->SetArrayField(TEXT("cursor"), {MakeShared<FJsonValueString>(Root),
+                TCHAR Root[33]; uint64 Ordinal = 0;
+                if (!Pages) return false;
+                const auto Cursor = Pages->Next(Root, Ordinal);
+                if (Cursor == EStep::Invalid || Cursor == EStep::ResourceUnavailable)
+                { Unavailable(Cursor == EStep::Invalid ? EWorldReadStatus::InvalidResponse : EWorldReadStatus::ResourceUnavailable); return false; }
+                if (Cursor != EStep::Complete) return false;
+                Args->SetArrayField(TEXT("cursor"), {MakeShared<FJsonValueString>(FString(Root)),
                     MakeShared<FJsonValueNumber>(static_cast<double>(Ordinal))});
             }
         }
@@ -1346,14 +1732,20 @@ namespace BaddieCompanion
         Next = EWorldRequest::None; bInFlight = true; Out = Request;
         return true;
     }
-    void FWorldSession::Complete(const FWorldDispatch& Dispatch, FString InBody, double S, double R)
+    void FWorldSession::Complete(const FWorldDispatch& Dispatch, FString&& InBody, double S, double R)
     {
+        // The transport retains rejected input. This owner adopts its allocation
+        // only after admission; stale callbacks never destroy it on this stack.
         if (!Current(Dispatch)) return;
         bInFlight = false;
         if (!std::isfinite(S) || !std::isfinite(R) || R < S || R > FPlatformTime::Seconds()
             || !std::isfinite(OriginalDispatchAt) || OriginalDispatchAt <= 0 || S < OriginalDispatchAt
             || InBody.IsEmpty() || InBody.Len() > WorldObservationPrivate::BodyLimit)
         { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+        if (!QualifiedBodyBytes || !Retirement || !Retirement->Body.GetCharArray().IsEmpty() || Retirement->DecodedBody
+            || !Budget->Reserve(QualifiedBodyBytes))
+        { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+        BodyCharge = QualifiedBodyBytes;
         SentAt = S; ReceivedAt = R; Body = MoveTemp(InBody);
     }
     void FWorldSession::Failed(const FWorldDispatch& Dispatch, bool bTransportUnavailable)
@@ -1386,7 +1778,14 @@ namespace BaddieCompanion
         // Keep entry/visit and request identity, but remove stale render/clock access
         // before retiring its storage. No outward notification can see the old view.
         if (Access) Access->Revoke();
-        Access.Reset(); Transport.Reset(); Preparation.Reset();
+        PendingNotification = {};
+        Transport.Reset();
+        if (!Preparation.GetCharArray().IsEmpty())
+        {
+            check(Retirement);
+            Retirement->Hold(Preparation, Retirement->Preparations);
+            Retirement->TransientCharge += PreparationCharge; PreparationCharge = 0;
+        }
         // Stop borrowed page cursors before making their static owner retireable.
         if (Pages) Retire(Pages->Cancel());
         RetireStatic();
@@ -1400,22 +1799,25 @@ namespace BaddieCompanion
                 MoveHighWater = FMath::Max(MoveHighWater, Accepted->MoveSequence);
             HealthHighWater = FMath::Max(HealthHighWater, Accepted->HealthRevision);
             SavedHighWater = FMath::Max(SavedHighWater, Accepted->SavedRevision);
+            if (Accepted->Publication) Recovery.ClearWorldSubscription(Accepted->Publication->RetiredRecovery, false);
             Retire(MoveTemp(Accepted));
         }
+        if (OrderingVersion != MAX_uint64) ++OrderingVersion;
     }
     void FWorldSession::Unavailable(EWorldReadStatus Status)
     {
+        bRestartPublication = false; PublicationRestartPhase = 0;
         bInFlight = false; Next = EWorldRequest::None;
         AfterRetirement = EWorldRequest::None;
         bAttemptActive = bLostTicket = false;
         bManifestBodyPending = false;
-        Body.Reset(); DecodedBody.Reset();
+        RetireBody(); RetireRequest();
         CancelSemantics();
+        if (Publication) Publication->Cancel();
         if (Pages) Retire(Pages->Cancel());
         Pages.Reset();
-        if (Budget) Budget->ReleasePage();
         if (Candidate) Retire(MoveTemp(Candidate));
-        RetireStatic(); Preparation.Reset();
+        RetireStatic(); RetireAttemptText(false);
         State.Status = Status;
         if (!Live() || !Access || !Access->Current())
         {
@@ -1423,20 +1825,41 @@ namespace BaddieCompanion
             State.Observation = {}; State.bHasObservation = false;
         }
     }
-    void FWorldSession::Tick()
+    void FWorldSession::Tick(bool bRetirementOnly)
     {
         if (Budget) Budget->BeginTick();
+        if (Retirement && Retirement->Advance() != WorldObservationPrivate::EStep::Complete) return;
+        if (!RetirePublication()) return;
+        if (!bRetirementOnly && bRestartPublication && !RestartPublication()) return;
+        if (RetiringClock)
+        {
+            if (!Budget->Spend(32, false)) return;
+            uint64 FinalCharge = 0;
+            if (RetiringClock.GetSharedReferenceCount() == 1)
+            {
+                if (RetiringClock->Retire(*Budget) != WorldObservationPrivate::EStep::Complete) return;
+                FinalCharge = RetiringClock->Charge;
+            }
+            if (!WorldObservationPrivate::QualifiedRetirementDeleteWork
+                || !Budget->Spend(WorldObservationPrivate::QualifiedRetirementDeleteWork, false)) return;
+            RetiringClock.Reset(); Budget->Release(FinalCharge);
+        }
         RetireSemantics();
         if (RetiringStatic && RetiringStatic->Retire() == WorldObservationPrivate::EStep::Complete
-            && Budget->Spend(sizeof(WorldObservationPrivate::FStaticRoots), false)) RetiringStatic.Reset();
+            && WorldObservationPrivate::QualifiedRetirementDeleteWork
+            && Budget->Spend(WorldObservationPrivate::QualifiedRetirementDeleteWork, false)) RetiringStatic.Reset();
         if (RetiringVisit && RetiringVisit->Retire() == WorldObservationPrivate::EStep::Complete
-            && Budget->Spend(sizeof(FVisitIdentity), false)) RetiringVisit.Reset();
+            && WorldObservationPrivate::QualifiedRetirementDeleteWork
+            && Budget->Spend(WorldObservationPrivate::QualifiedRetirementDeleteWork, false)) RetiringVisit.Reset();
         for (auto& Storage : Retiring)
         {
             if (!Storage) continue;
-            if (Storage->Retire() == WorldObservationPrivate::EStep::Complete) Storage.Reset();
+            if (Storage->Retire() == WorldObservationPrivate::EStep::Complete
+                && WorldObservationPrivate::QualifiedRetirementDeleteWork
+                && Budget->Spend(WorldObservationPrivate::QualifiedRetirementDeleteWork, false)) Storage.Reset();
             break;
         }
+        if (bRetirementOnly) return;
         if (!Live())
         {
             if (Entry.CredentialGeneration) Clear(EWorldReadStatus::Expired);
@@ -1462,6 +1885,7 @@ namespace BaddieCompanion
             if (!BeginCapture(Following, bAttemptActive)) Unavailable(EWorldReadStatus::Unavailable);
         }
         if (!Body.IsEmpty() || DecodedBody) ProcessBody();
+        else if (Candidate && bFinalBindComplete && !bInFlight && Next == EWorldRequest::None) AdvancePublication();
         else if (Candidate && !bFinalBindComplete && !bInFlight && Next == EWorldRequest::None) AdvanceSemantics();
         else if (!Candidate && Pages && !bInFlight && Next == EWorldRequest::None) AdvancePages();
     }
@@ -1491,7 +1915,12 @@ namespace BaddieCompanion
             bReplacementUsed = true; CaptureOperation = EWorldRequest::Prepare;
             State.Status = EWorldReadStatus::Preparing;
         }
-        Capture = MoveTemp(Alias);
+        if (Capture.IsEmpty())
+        {
+            if (!QualifiedCaptureIdentityBytes || !Budget->Reserve(QualifiedCaptureIdentityBytes))
+            { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+            CaptureCharge = QualifiedCaptureIdentityBytes; Capture = MoveTemp(Alias);
+        }
         // A successful original dynamic capture, including pending, anchors its
         // own time. Preparation, lookup and capture polling cannot supply it.
         if (!bReplacement && Request.Operation == RequestedOperation && CaptureOperation == RequestedOperation
@@ -1504,7 +1933,7 @@ namespace BaddieCompanion
         // Page/bind polling must not restart an already assembled manifest/tree.
         Next = bPolling ? Request.Operation : EWorldRequest::Manifest;
         NextAt = ReceivedAt + static_cast<double>(RetryMs) / 1000;
-        DecodedBody.Reset(); Budget->ReleasePage();
+        RetireDecodedBody();
     }
     void FWorldSession::ProcessBody()
     {
@@ -1513,30 +1942,43 @@ namespace BaddieCompanion
         if (!Budget) { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
         if (bManifestBodyPending)
         {
-            // Begin precharges a full tick. The outer header was checked on the
-            // preceding slice, so it cannot starve this unchanged parser admission.
+            // The outer header was checked on the preceding slice. Begin admits
+            // complete directory work before touching its temporary manifest.
             const EStep Step = Pages ? Pages->Begin(DecodedBody, Capture, Kind(CaptureOperation),
                 CaptureOperation == EWorldRequest::Observe ? Static.Get() : nullptr, StaticContext(), Preparation) : EStep::Invalid;
             if (Step == EStep::Invalid || Step == EStep::ResourceUnavailable)
             { Unavailable(Step == EStep::Invalid ? EWorldReadStatus::InvalidResponse : EWorldReadStatus::ResourceUnavailable); return; }
             if (Pages->Manifest())
-            { bManifestBodyPending = false; DecodedBody.Reset(); State.Status = EWorldReadStatus::Receiving; }
+            { bManifestBodyPending = false; RetireDecodedBody(); State.Status = EWorldReadStatus::Receiving; }
             return;
         }
         if (!DecodedBody)
         {
-            if (!Budget->ReservePage()) return;
-            if (!FPages::DecodeBody(Body, DecodedBody, *Budget))
-            { Unavailable(Budget->bExhausted ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse); return; }
-            Body.Reset();
+            if (!bOwnBodyPage)
+            {
+                if (!Budget->ReservePage()) return;
+                bOwnBodyPage = true;
+            }
+            const auto Decoded = FPages::DecodeBody(Body, DecodedBody, *Budget);
+            if (Decoded == EStep::Pending) return;
+            if (Decoded != EStep::Complete)
+            { Unavailable(Decoded == EStep::ResourceUnavailable ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse); return; }
+            check(Retirement && Retirement->Body.GetCharArray().IsEmpty());
+            Retirement->Body = MoveTemp(Body);
+            Retirement->Field = 0;
         }
-        // Fixed reply fields are length-bounded before copying. Charge their
-        // comparisons and state transitions separately from bounded JSON decoding.
-        if (!Budget->Spend(4096))
+        // Includes bounded reply-field temporaries, comparisons, allocations and
+        // destruction on every return. Decoding has a separate page admission.
+        if (!QualifiedReplyScratchBytes || !QualifiedReplyScratchWork || QualifiedReplyScratchWork > TickWorkLimit)
+        { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+        if (!Budget->Spend(QualifiedReplyScratchWork))
         {
             if (Budget->bExhausted) Unavailable(EWorldReadStatus::ResourceUnavailable);
             return;
         }
+        if (!Budget->Reserve(QualifiedReplyScratchBytes))
+        { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+        FAdmittedScratch Scratch{*Budget, QualifiedReplyScratchBytes};
         const auto O = Object(Field(DecodedBody, TEXT("value")));
         FString Status, Outer;
         if (!Exact(DecodedBody, {TEXT("status"), TEXT("value")}) || !ShortText(DecodedBody, TEXT("status"), Outer)
@@ -1556,7 +1998,7 @@ namespace BaddieCompanion
                 if (!RecoverResult(Earliest)) return;
             }
             else { Next = Request.Operation; NextAt = Earliest; }
-            DecodedBody.Reset(); Budget->ReleasePage(); return;
+            RetireDecodedBody(); return;
         }
         if (Same(Status, TEXT("content_changed")) && O->Values.Num() != 1)
         {
@@ -1578,16 +2020,19 @@ namespace BaddieCompanion
         if (Request.Operation == EWorldRequest::Page && Same(Status, TEXT("page")))
         {
             const EStep Step = Pages ? Pages->Consume(DecodedBody, 0) : EStep::Invalid;
-            DecodedBody.Reset();
             if (Step == EStep::Invalid || Step == EStep::ResourceUnavailable)
                 Unavailable(Step == EStep::Invalid ? EWorldReadStatus::InvalidResponse : EWorldReadStatus::ResourceUnavailable);
-            else bPageRetried = false;
+            else
+            {
+                if (Pages->RetainBody(DecodedBody, BodyCharge))
+                { bOwnBodyPage = false; bPageRetried = false; }
+            }
             return;
         }
         if (Request.Operation == EWorldRequest::Bind && Same(Status, TEXT("bound")))
         {
             const bool bAccepted = AcceptBinding(O);
-            DecodedBody.Reset(); Budget->ReleasePage();
+            RetireDecodedBody();
             if (!bAccepted) Unavailable(EWorldReadStatus::InvalidResponse);
             else bFinalBindComplete = true;
             return;
@@ -1628,8 +2073,11 @@ namespace BaddieCompanion
         const EStep Step = Pages->Advance();
         if (Step == EStep::Invalid || Step == EStep::ResourceUnavailable)
         { Unavailable(Step == EStep::Invalid ? EWorldReadStatus::InvalidResponse : EWorldReadStatus::ResourceUnavailable); return; }
-        FString Root; uint64 Ordinal = 0;
-        if (Pages->Next(Root, Ordinal)) { Next = EWorldRequest::Page; NextAt = FPlatformTime::Seconds(); return; }
+        TCHAR Root[33]; uint64 Ordinal = 0;
+        const auto Cursor = Pages->Next(Root, Ordinal);
+        if (Cursor == EStep::Invalid || Cursor == EStep::ResourceUnavailable)
+        { Unavailable(Cursor == EStep::Invalid ? EWorldReadStatus::InvalidResponse : EWorldReadStatus::ResourceUnavailable); return; }
+        if (Cursor == EStep::Complete) { Next = EWorldRequest::Page; NextAt = FPlatformTime::Seconds(); return; }
         if (Step != EStep::Complete) return;
         Candidate = Pages->TakeComplete();
         AdvanceSemantics();
@@ -1648,7 +2096,8 @@ namespace BaddieCompanion
     {
         if (!Semantic || !Semantic->bCancelled) return true;
         if (Semantic->Retire() != WorldObservationPrivate::EStep::Complete) return false;
-        if (!Semantic->Storage->Budget->Spend(128, false)) return false;
+        if (!WorldObservationPrivate::QualifiedRetirementDeleteWork
+            || !Semantic->Storage->Budget->Spend(WorldObservationPrivate::QualifiedRetirementDeleteWork, false)) return false;
         const auto OwnerBudget = Semantic->Storage->Budget;
         Semantic.Reset(); OwnerBudget->Release(QualifiedSemanticDataBytes); return true;
     }
@@ -1665,6 +2114,8 @@ namespace BaddieCompanion
     }
     void FWorldSession::SeedOrdering()
     {
+        if (OrderingVersion == MAX_uint64) return;
+        ++OrderingVersion;
         if (Candidate->PlayerRevision > RevisionHighWater)
         { RevisionHighWater = Candidate->PlayerRevision; MoveHighWater = Candidate->MoveSequence; }
         else if (Candidate->PlayerRevision == RevisionHighWater)
@@ -1698,7 +2149,13 @@ namespace BaddieCompanion
                 || Root->Directory.Slot != Slot || Root->Directory.Presence != 2) return EStep::Invalid;
             if (Root->Owners == MAX_uint64) return EStep::ResourceUnavailable;
         }
-        if (!QualifiedStaticOwnerBytes || !Budget->Reserve(QualifiedStaticOwnerBytes)) return EStep::ResourceUnavailable;
+        if (!QualifiedStaticOwnerBytes || !QualifiedPreparationIdentityBytes
+            || !QualifiedStaticPreparationWork || QualifiedStaticPreparationWork > TickWorkLimit
+            || QualifiedPreparationIdentityBytes > RetainedLimit
+            || QualifiedStaticOwnerBytes > RetainedLimit - QualifiedPreparationIdentityBytes) return EStep::ResourceUnavailable;
+        if (!Budget->Spend(QualifiedStaticPreparationWork))
+            return Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+        if (!Budget->Reserve(QualifiedStaticOwnerBytes + QualifiedPreparationIdentityBytes)) return EStep::ResourceUnavailable;
         Static = MakeUnique<FStaticRoots>(Budget.ToSharedRef());
         Static->Context = StaticContext(); Static->Deadline = Deadline;
         for (int32 I = 0; I < 32; ++I) Static->Preparation[I] = Capture[I];
@@ -1706,6 +2163,7 @@ namespace BaddieCompanion
         { Static->Roots[I] = Candidate->Roots[Slots[I]]; ++Static->Roots[I]->Owners; }
         Static->bAvailable = true;
         Preparation = Capture;
+        PreparationCharge = QualifiedPreparationIdentityBytes;
         CandidateDeadline = FMath::Min(CandidateDeadline, Deadline);
         SeedOrdering();
         return EStep::Complete;
@@ -1742,6 +2200,11 @@ namespace BaddieCompanion
             || FPlatformTime::Seconds() >= Deadline) return EStep::Invalid;
         if (CaptureOperation == EWorldRequest::Enter)
         {
+            if (!QualifiedWorldSubscriptionWork || QualifiedWorldSubscriptionWork > TickWorkLimit)
+                return EStep::ResourceUnavailable;
+            if (!Budget->Spend(QualifiedWorldSubscriptionWork))
+                return Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+            if (!Recovery.BeginWorldSubscription(State.Generation, RecoveryReceipt)) return EStep::Invalid;
             Semantic->EnterVisit->Deadline = Deadline;
             Visit = MoveTemp(Semantic->EnterVisit);
         }
@@ -1761,6 +2224,15 @@ namespace BaddieCompanion
         if (Validated == EStep::Pending) return;
         if (Validated != EStep::Complete)
         {
+            if (Semantic && Semantic->bLifetimeHealthLost)
+            {
+                LostHealthPresence = Semantic->RootPresence[15];
+                bLostHealthDecodedNull = Semantic->Health.IsNull();
+                // Absence or a different life ends the installed visit. Revoke
+                // before the credential owner's controller/notification poll.
+                Clear(EWorldReadStatus::InvalidResponse);
+                return;
+            }
             Retire(MoveTemp(Candidate));
             Unavailable(Validated == EStep::ResourceUnavailable ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse);
             return;
@@ -1802,6 +2274,237 @@ namespace BaddieCompanion
         { Unavailable(EWorldReadStatus::InvalidResponse); return; }
         State.Status = EWorldReadStatus::Binding; Next = EWorldRequest::Bind;
     }
+
+    bool FWorldSession::RetirePublication()
+    {
+        if (!Publication || !Publication->bCancelled) return true;
+        if (!Publication->Owner || Publication->Retire(*Publication->Owner) != WorldObservationPrivate::EStep::Complete)
+            return false;
+        if (!WorldObservationPrivate::QualifiedRetirementDeleteWork
+            || !Budget->Spend(WorldObservationPrivate::QualifiedRetirementDeleteWork, false)) return false;
+        const uint64 Charge = Publication->Charge;
+        Publication.Reset(); Budget->Release(Charge); return true;
+    }
+
+    bool FWorldSession::RestartPublication()
+    {
+        using namespace WorldObservationPrivate;
+        if (!Candidate || !Candidate->bComplete || Candidate->bRetiring || !Live())
+        { bRestartPublication = false; Unavailable(EWorldReadStatus::InvalidResponse); return false; }
+        if (PublicationRestartPhase == 0 && !RetireSemantics()) return false;
+        if (Candidate->ActiveBorrows || Candidate->ActivePreparations) return false;
+        if (PublicationRestartPhase == 0 && Candidate->Publication)
+        {
+            const auto Result = Candidate->Publication->Retire(*Budget);
+            if (Result != EStep::Complete)
+            {
+                if (Result != EStep::Pending) Unavailable(EWorldReadStatus::ResourceUnavailable);
+                return false;
+            }
+            if (!QualifiedRetirementDeleteWork || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return false;
+            const uint64 Charge = Candidate->Publication->Charge;
+            delete Candidate->Publication; Candidate->Publication = nullptr; Budget->Release(Charge);
+        }
+        while (PublicationRestartPhase == 0 && Candidate->Players)
+        {
+            auto* Player = Candidate->Players;
+            if (Player->Retire(*Budget) != EStep::Complete || !QualifiedRetirementDeleteWork
+                || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return false;
+            Candidate->Players = Player->Next; delete Player;
+            Budget->Release(WorldReadPrivate::QualifiedSemanticPeerBytes);
+        }
+        if (PublicationRestartPhase == 0)
+        {
+            if (FStorage::ReleaseRoot(Candidate->RacingOwner, *Budget) != EStep::Complete) return false;
+            Candidate->bSemanticsComplete = false; Candidate->SemanticGeneration = 0;
+            PublicationRestartPhase = 1;
+        }
+        const auto Result = ValidateCandidate();
+        if (Result == EStep::Pending) return false;
+        if (Result != EStep::Complete)
+        {
+            bRestartPublication = false;
+            if (Semantic && Semantic->bLifetimeHealthLost)
+            {
+                LostHealthPresence = Semantic->RootPresence[15];
+                bLostHealthDecodedNull = Semantic->Health.IsNull();
+                Clear(EWorldReadStatus::InvalidResponse); return false;
+            }
+            Unavailable(Result == EStep::ResourceUnavailable ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse);
+            return false;
+        }
+        bRestartPublication = false;
+        PublicationRestartPhase = 0;
+        // Reconciliation invalidated only the private projection. The completed
+        // Bind and its original arrival remain evidence for this same attempt.
+        bFinalBindComplete = bBindingValidated = true;
+        return true;
+    }
+
+    void FWorldSession::NotifyRecovery(FWorldObservationToken Token)
+    {
+        if (bInNotification && State.Observation.Token() == Token && State.Observation.IsCurrent())
+            Recovery.NotifyWorldSubscription(RecoveryReceipt);
+    }
+
+    void FWorldSession::AdvancePublication()
+    {
+        using namespace WorldObservationPrivate;
+        using namespace WorldReadPrivate;
+        if (!Live() || !Visit || !Static || !Static->Current(StaticContext()) || !Candidate || !Semantic
+            || Semantic->bCancelled || !Candidate->bComplete || !Candidate->bSemanticsComplete
+            || Candidate->bRetiring || !bAttemptActive || !bFinalBindComplete || !bBindingValidated
+            || RequestedOperation != EWorldRequest::Observe || CaptureOperation != EWorldRequest::Observe
+            || !Candidate->Manifest.PublishBy.IsSet() || TicketArrival <= 0 || !std::isfinite(TicketArrival)
+            || !Hex(RequestId, 32) || !Hex(Capture, 32) || !Hex(Candidate->Manifest.Digest, 64))
+        { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+        if (Publication && Publication->bCancelled) return;
+        if (!Publication)
+        {
+            if (!QualifiedPublicationPreparationBytes || !QualifiedPublicationInitializationWork || !QualifiedAccessBytes)
+            { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+            if (QualifiedPublicationInitializationWork > TickWorkLimit)
+            { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+            if (!Budget->Spend(QualifiedPublicationInitializationWork)) return;
+            if (!Budget->Reserve(QualifiedPublicationPreparationBytes))
+            { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+            Publication = MakeUnique<FPublicationPreparation>(); Publication->Charge = QualifiedPublicationPreparationBytes;
+            auto& Prepared = *Publication;
+            Prepared.Owner = Candidate.Get();
+            Prepared.Evidence = {State.Generation, Entry.CredentialGeneration, RequestSequence, OperationSequence,
+                OrderingVersion, PublicationSerial, Entry.EntrySequence, Visit.Get()};
+            Prepared.Evidence.Static = Static.Get(); Prepared.Evidence.Semantic = Semantic.Get();
+            Prepared.Evidence.SemanticGeneration = Candidate->SemanticGeneration;
+            for (int32 I = 0; I < 32; ++I)
+            { Prepared.Evidence.RequestId[I] = RequestId[I]; Prepared.Evidence.Capture[I] = Capture[I]; }
+            for (int32 I = 0; I < 64; ++I) Prepared.Evidence.Directory[I] = Candidate->Manifest.Digest[I];
+            Prepared.SelectedCharacter = Semantic->SelectedCharacter; Prepared.SelectedRoom = Semantic->SelectedHome;
+            Prepared.InstanceHome = Semantic->InstanceHome;
+            Prepared.OwnerId = Semantic->Binding.Binding().Field(BindingUser);
+            Prepared.ExpectedLife = &Visit->Values[1]; Prepared.ExpectedGameRoom = &Entry.GameRoomId;
+            Prepared.Baseline = &ClockBaseline; Prepared.RecoveryOwner = &Recovery; Prepared.RecoveryReceipt = RecoveryReceipt;
+            Prepared.TicketArrival = TicketArrival;
+            Prepared.ServerNowMs = static_cast<int64>(Semantic->Binding.Receipt().Number(ReceiptNow));
+            Prepared.bOwnHome = Semantic->bHome;
+        }
+        auto& Prepared = *Publication;
+        if (Prepared.Evidence.Ordering != OrderingVersion || Prepared.Evidence.AcceptedPublication != PublicationSerial)
+        {
+            Prepared.Cancel(); CancelSemantics(); bRestartPublication = true; PublicationRestartPhase = 0;
+            return;
+        }
+        if (!Budget->Spend(320)) return;
+        bool bExactAttempt = true;
+        for (int32 I = 0; I < 32; ++I)
+            bExactAttempt &= Prepared.Evidence.RequestId[I] == RequestId[I] && Prepared.Evidence.Capture[I] == Capture[I];
+        for (int32 I = 0; I < 64; ++I)
+            bExactAttempt &= Prepared.Evidence.Directory[I] == Candidate->Manifest.Digest[I];
+        if (Prepared.Owner != Candidate.Get() || Prepared.Evidence.Lifetime != State.Generation
+            || Prepared.Evidence.CredentialGeneration != Entry.CredentialGeneration
+            || Prepared.Evidence.EntrySequence != Entry.EntrySequence || Prepared.Evidence.Visit != Visit.Get()
+            || Prepared.Evidence.Static != Static.Get() || Prepared.Evidence.Semantic != Semantic.Get()
+            || Prepared.Evidence.SemanticGeneration != Candidate->SemanticGeneration
+            || Prepared.Evidence.RequestSequence != RequestSequence || Prepared.Evidence.OperationSequence != OperationSequence
+            || Prepared.Evidence.Ordering != OrderingVersion || Prepared.Evidence.AcceptedPublication != PublicationSerial
+            || !bExactAttempt || Prepared.TicketArrival != TicketArrival)
+        { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+        const auto Started = Candidate->Publication ? EStep::Complete : Prepared.Begin(*Candidate);
+        if (Started == EStep::Pending) return;
+        if (Started != EStep::Complete)
+        { Unavailable(Started == EStep::ResourceUnavailable ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse); return; }
+        const auto Result = Prepared.Advance(*Candidate);
+        if (Result == EStep::Pending) return;
+        if (Result != EStep::Complete)
+        { Unavailable(Result == EStep::ResourceUnavailable ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse); return; }
+        if (!Access)
+        {
+            // The cell has no shared reference controller. Weak handles release
+            // fixed metadata only; the reserved task performs final destruction.
+            if (!QualifiedAccessChargeBytes || !QualifiedAccessInitializationWork || !QualifiedAccessReleaseWork
+                || QualifiedAccessReleaseWork > TickWorkLimit
+                || QualifiedAccessBytes > RetainedLimit
+                || QualifiedAccessChargeBytes > RetainedLimit - QualifiedAccessBytes
+                || QualifiedAccessInitializationWork > TickWorkLimit)
+            { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+            if (!Budget->Spend(QualifiedAccessInitializationWork)) return;
+            if (!EnsureRetirementTicket(Budget)) { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+            const int32 Slot = ReserveRetirementTask(*Budget);
+            if (Slot == INDEX_NONE) return;
+            const uint64 Charge = QualifiedAccessBytes + QualifiedAccessChargeBytes;
+            if (!Budget->Reserve(Charge))
+            { ReleaseRetirementTask(*Budget, Slot); Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+            Access = MakeUnique<FAccess>(); Access->Budget = Budget;
+            Access->Charge = Charge; Access->RetirementSlot = Slot;
+        }
+        const double Now = FPlatformTime::Seconds();
+        const double Deadline = FMath::Min(CandidateDeadline, FMath::Min(Entry.Deadline,
+            FMath::Min(Visit->Deadline, FMath::Min(Static->Deadline, TicketArrival + 60))));
+        FWorldPresentationTime Time;
+        auto& Payload = *Candidate->Publication;
+        bool bRetirementRoom = false;
+        for (const auto& Slot : Retiring) if (!Slot) bRetirementRoom = true;
+        if (!Prepared.Complete() || !Payload.bComplete || !Payload.Clock || !bRetirementRoom || RetiringClock
+            || (Accepted && Accepted->ActiveBorrows) || PublicationSerial == MAX_uint64 || OrderingVersion == MAX_uint64
+            || !std::isfinite(Now) || !std::isfinite(Deadline) || Now >= Deadline || !Live()
+            || !Recovery.CurrentWorldSubscription(RecoveryReceipt)
+            || Prepared.Evidence.Ordering != OrderingVersion || Prepared.Evidence.AcceptedPublication != PublicationSerial
+            || Candidate->SemanticGeneration != State.Generation || Semantic->Prior != Accepted
+            || Candidate->PlayerRevision < RevisionHighWater
+            || (Candidate->PlayerRevision == RevisionHighWater && Candidate->MoveSequence < MoveHighWater)
+            || Candidate->HealthRevision < HealthHighWater || Candidate->SavedRevision < SavedHighWater)
+        { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+        const uint64 ClockWork = QualifiedClockWork + 4 * static_cast<uint64>(Payload.Clock->GameRoomId.Len());
+        if (!QualifiedClockWork || ClockWork > TickWorkLimit)
+        { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+        if (!Budget->Spend(ClockWork)) return;
+        if (!Payload.Clock->Value.CopyTime(Payload.Clock->GameRoomId, Time) || Time.RemainingMs <= 0
+            || FPlatformTime::Seconds() >= Deadline)
+        { Unavailable(EWorldReadStatus::Expired); return; }
+        // Admission is adjacent to the swap, after all clock/provider work.
+        if (!QualifiedPublicationCommitWork || QualifiedPublicationCommitWork > TickWorkLimit)
+        { Unavailable(EWorldReadStatus::ResourceUnavailable); return; }
+        if (!Budget->Spend(QualifiedPublicationCommitWork))
+        {
+            if (Budget->bExhausted) Unavailable(EWorldReadStatus::ResourceUnavailable);
+            return;
+        }
+        const double CommitNow = FPlatformTime::Seconds();
+        if (!std::isfinite(CommitNow) || CommitNow >= Deadline || !Live())
+        { Unavailable(EWorldReadStatus::Expired); return; }
+        if (!Retirement || Retirement->HasTransient() || Retirement->Publication || Retirement->Semantic || Retirement->Pages)
+            return;
+        // No callbacks, variable copies or variable destruction follow revocation.
+        Access->Revoke(); State.bWalkingAvailable = false;
+        TSharedPtr<FStorage> Previous = MoveTemp(Accepted);
+        Recovery.CommitWorldSubscription(RecoveryReceipt, MoveTemp(Payload.NextRecovery), Payload.RetiredRecovery);
+        if (Previous && Previous->Publication)
+            Previous->Publication->RetiredRecovery = MoveTemp(Payload.RetiredRecovery);
+        if (ClockBaseline)
+        {
+            RetiringClock = MoveTemp(ClockBaseline);
+        }
+        ClockBaseline = Payload.Clock;
+        SeedOrdering(); ++PublicationSerial;
+        Accepted = MoveTemp(Candidate);
+        Access->Storage = Accepted; Access->Token = {State.Generation, PublicationSerial};
+        Access->Deadline = Deadline; Access->bReadable = true;
+        State.Observation.Access = FAccessWeak(Access.Get()); State.Observation.Captured = Access->Token;
+        State.bHasObservation = true; State.Status = EWorldReadStatus::Accepted;
+        bAttemptActive = bInFlight = bFinalBindComplete = bBindingValidated = bLostTicket = false;
+        Next = AfterRetirement = EWorldRequest::None;
+        PendingNotification = Access->Token;
+        Prepared.Cancel(); CancelSemantics();
+        Retirement->Publication = MoveTemp(Publication);
+        Retirement->Semantic = MoveTemp(Semantic);
+        Retirement->Pages = MoveTemp(Pages);
+        RetireRequest(); RetireBody(); RetireAttemptText(false);
+        CaptureOperation = RequestedOperation = EWorldRequest::None;
+        bManifestBodyPending = bPageRetried = false;
+        TicketArrival = CandidateDeadline = NextAt = OriginalDispatchAt = SentAt = ReceivedAt = 0;
+        ReceiptExpiresAt = 0; ResultLookups = 0;
+        if (Previous) Retire(MoveTemp(Previous));
+    }
+
     WorldObservationPrivate::EStep FWorldSession::ValidateCandidate()
     {
         using namespace WorldObservationPrivate;
@@ -1811,12 +2514,14 @@ namespace BaddieCompanion
         if ((CaptureOperation == EWorldRequest::Enter) == static_cast<bool>(Visit)) return EStep::Invalid;
         if (!Semantic)
         {
-            if (!QualifiedSemanticDataBytes) return EStep::ResourceUnavailable;
+            if (!QualifiedSemanticDataBytes || !QualifiedSemanticInitializationWork
+                || QualifiedSemanticInitializationWork > TickWorkLimit) return EStep::ResourceUnavailable;
             const uint64 Initialization = sizeof(FSemanticData)
                 - 23 * (sizeof(FSemanticData::FRecord) - sizeof(FSemanticData::FRef))
                 - FDomainRead::DeferredBytes();
-            if (Initialization > TickWorkLimit) return EStep::ResourceUnavailable;
-            if (!Budget->Spend(Initialization)) return Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+            if (Initialization > TickWorkLimit - QualifiedSemanticInitializationWork) return EStep::ResourceUnavailable;
+            if (!Budget->Spend(Initialization + QualifiedSemanticInitializationWork))
+                return Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
             if (!Budget->Reserve(QualifiedSemanticDataBytes)) return EStep::ResourceUnavailable;
             Semantic = MakeUnique<FSemanticData>();
             Semantic->Storage = Candidate; Semantic->Prior = Accepted; Semantic->Generation = State.Generation;
@@ -1917,7 +2622,11 @@ namespace BaddieCompanion
                 {
                     Step = D.Owner(V.Field(VisitLife), Visit->Values[1], Same);
                     if (Step != EStep::Complete) return FinishStep(Step);
-                    if (!Same) return FinishStep(EStep::Invalid);
+                    if (!Same)
+                    {
+                        D.bLifetimeHealthLost = CaptureOperation == EWorldRequest::Observe;
+                        return FinishStep(EStep::Invalid);
+                    }
                 }
                 D.Comparison = 0; D.Phase = 4;
             }
@@ -1959,7 +2668,8 @@ namespace BaddieCompanion
             {
                 if (CaptureOperation == EWorldRequest::Observe)
                 {
-                    if (D.RootPresence[15] != EWorldFieldPresence::Value) return FinishStep(EStep::Invalid);
+                    if (D.RootPresence[15] != EWorldFieldPresence::Value)
+                    { D.bLifetimeHealthLost = true; return FinishStep(EStep::Invalid); }
                     if (!D.bRecordWork)
                     {
                         if (!D.Spend(sizeof(FHealthRead))) return D.Yield();
@@ -1967,10 +2677,12 @@ namespace BaddieCompanion
                     }
                     Step = D.Health.Advance(*Candidate);
                     if (Step != EStep::Complete) return FinishStep(Step);
-                    if (D.Health.IsNull() || D.Health.Revision() != B.Number(BindingHealthRevision)) return FinishStep(EStep::Invalid);
+                    if (D.Health.IsNull())
+                    { D.bLifetimeHealthLost = true; return FinishStep(EStep::Invalid); }
+                    if (D.Health.Revision() != B.Number(BindingHealthRevision)) return FinishStep(EStep::Invalid);
                     Step = D.Equal(D.Health.Life(), V.Field(VisitLife), Same);
                     if (Step != EStep::Complete) return FinishStep(Step);
-                    if (!Same) return FinishStep(EStep::Invalid);
+                    if (!Same) { D.bLifetimeHealthLost = true; return FinishStep(EStep::Invalid); }
                     D.bRecordWork = false;
                 }
                 D.Phase = 8;
@@ -2052,7 +2764,7 @@ namespace BaddieCompanion
             {
                 Step = D.RetainActivity();
                 if (Step != EStep::Complete) return FinishStep(Step);
-                D.Phase = 22;
+                D.Subphase = D.Comparison = 0; D.Phase = 22;
             }
             if (D.Phase == 22)
             {
@@ -2161,9 +2873,9 @@ namespace BaddieCompanion
         return false;
     }
     void FWorldSession::StopWalking() { State.bWalkingAvailable = false; }
-    void FWorldSession::ContentLost(uint64 ObservationGeneration)
+    void FWorldSession::ContentLost(FWorldObservationToken ObservationToken)
     {
-        if (ObservationGeneration != State.Observation.Generation()) return;
+        if (!ObservationToken.IsSet() || ObservationToken != State.Observation.Token()) return;
         StopWalking();
         InvalidateContent();
         Unavailable(EWorldReadStatus::ContentUnavailable);

@@ -67,7 +67,7 @@ public:
     bool RequestWorldWalk(APlayerController* Consumer, const BaddieCompanion::FMovementPoint& Target,
         BaddieCompanion::EMovementPace Pace);
     void StopWorldWalk(APlayerController* Consumer);
-    void WorldContentLost(APlayerController* Consumer, uint64 ObservationGeneration);
+    void WorldContentLost(APlayerController* Consumer, BaddieCompanion::FWorldObservationToken ObservationToken);
     FBaddieCompanionGameplayConnectionChanged OnConnectionChanged;
 
 private:
@@ -86,7 +86,7 @@ private:
     void SlateActivationChanged(bool bActive);
     void FocusLost();
     void RetireRequest();
-    void ClearPrivateState();
+    bool ClearPrivateState();
     void Stop(BaddieCompanion::EGameplayConnectionState State, const TCHAR* Message);
     bool CheckLifetimes();
     void BeginLeave(const TCHAR* Message);

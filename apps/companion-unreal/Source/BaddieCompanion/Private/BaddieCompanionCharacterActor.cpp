@@ -46,6 +46,12 @@ ABaddieCompanionCharacterActor::ABaddieCompanionCharacterActor()
 bool ABaddieCompanionCharacterActor::AcceptsContent(const BaddieCompanion::FHomePresentationPlan& Plan,
     const BaddieCompanion::FNativeCharacterContent& Content)
 {
+    return AcceptsContent(static_cast<const BaddieCompanion::FHomePresentationData&>(Plan), Content);
+}
+
+bool ABaddieCompanionCharacterActor::AcceptsContent(const BaddieCompanion::FHomePresentationData& Plan,
+    const BaddieCompanion::FNativeCharacterContent& Content)
+{
     if (!Plan.Appearance.bCompleteKnownSelections || Content.ActorClass.IsNull()
         || Content.SourceAssetKey.IsEmpty() || Content.SourceSha256.Len() != 64
         || !Content.SourceAssetKey.Equals(Plan.CharacterAsset.Key, ESearchCase::CaseSensitive)
@@ -120,7 +126,7 @@ void ABaddieCompanionCharacterActor::BeginPlay()
     SuppressPresentation();
 }
 
-bool ABaddieCompanionCharacterActor::Prepare(const BaddieCompanion::FHomePresentationPlan& Plan,
+bool ABaddieCompanionCharacterActor::Prepare(const BaddieCompanion::FHomePresentationData& Plan,
     const BaddieCompanion::FNativeCharacterContent& Content,
     const FTransform& LevelToApartment, bool bLevelAlreadyTransformed)
 {
@@ -137,7 +143,7 @@ bool ABaddieCompanionCharacterActor::Prepare(const BaddieCompanion::FHomePresent
     return true;
 }
 
-bool ABaddieCompanionCharacterActor::PrepareBindings(const BaddieCompanion::FHomePresentationPlan& Plan,
+bool ABaddieCompanionCharacterActor::PrepareBindings(const BaddieCompanion::FHomePresentationData& Plan,
     const BaddieCompanion::FNativeCharacterContent& Content,
     const FTransform& LevelToApartment, bool bLevelAlreadyTransformed, const FTransform* WorldPose)
 {
@@ -216,7 +222,7 @@ bool ABaddieCompanionCharacterActor::PrepareBindings(const BaddieCompanion::FHom
     return true; // Hidden face/material/accessory preparation, not complete appearance or movement readiness.
 }
 
-bool ABaddieCompanionCharacterActor::PrepareWorld(const BaddieCompanion::FHomePresentationPlan& Plan,
+bool ABaddieCompanionCharacterActor::PrepareWorld(const BaddieCompanion::FHomePresentationData& Plan,
     const BaddieCompanion::FNativeCharacterContent& Content, const FTransform& WorldPose)
 {
     check(IsInGameThread());

@@ -18,7 +18,7 @@ namespace BaddieCompanion
     struct FNativeWorldContent
     {
         // Trusted authored package binding. Saved IDs are never used as package names.
-        FSnapshotSelection Source;
+        FWorldObservation Source;
         TSoftObjectPtr<UWorld> Level;
         FNativeCharacterContent Character;
         TArray<FNativeFurnitureAsset> Furniture;
@@ -42,8 +42,12 @@ private:
     friend class ABaddieCompanionSlicePlayerController;
     bool Prepare(const BaddieCompanion::FNativeWorldContent& Content);
     bool PrepareHiddenHome(const BaddieCompanion::FNativeWorldContent& Content);
+    void Reconcile();
+    void CheckNativeContent();
     BaddieCompanion::FWorldObservation Current;
-    TSharedPtr<const BaddieCompanion::FHomePresentationPlan> SavedHome;
+    BaddieCompanion::FWorldObservation Pending;
+    BaddieCompanion::FWorldHomeProjectionRead SavedHome;
+    BaddieCompanion::FWorldObservationToken NativeToken;
     BaddieCompanion::EWorldContentIssue Issue = BaddieCompanion::EWorldContentIssue::ObservationUnavailable;
     uint64 ContentGeneration = 0;
     bool bClearing = false;

@@ -185,6 +185,46 @@ namespace BaddieCompanion
         View = {}; View.OwnerId = NextOwner; Generation = FGuid::NewGuid(); RetireRecovery();
         bSubscribed = false; Changed.Broadcast();
     }
+
+    bool FRecoveryReadState::BeginWorldSubscription(uint64 Lifetime, FWorldRecoveryReceipt& Out)
+    {
+        Out = {};
+        if (bDisposed || !Lifetime || bSubscribed || WorldLifetime || View.Health || !View.OwnerId.IsEmpty()
+            || PreparedRecovery.IsSet() || View.Error.IsSet()) return false;
+        Generation = FGuid::NewGuid(); WorldLifetime = Lifetime; bSubscribed = true;
+        Out.Generation = Generation; Out.Lifetime = Lifetime; return true;
+    }
+    bool FRecoveryReadState::CurrentWorldSubscription(const FWorldRecoveryReceipt& Receipt) const
+    {
+        return !bDisposed && bSubscribed && Receipt.Lifetime && Receipt.Lifetime == WorldLifetime
+            && Receipt.Generation.IsValid() && Receipt.Generation == Generation;
+    }
+    bool FRecoveryReadState::StageWorldSubscription(const FWorldRecoveryReceipt& Receipt, FRecoveryReadView& Next) const
+    {
+        if (!CurrentWorldSubscription(Receipt) || Next.OwnerId.IsEmpty()
+            || Next.HealthPresence != EWorldFieldPresence::Value || !Next.Health
+            || Next.Health->LifeId.IsEmpty() || Next.Error.IsSet() || Next.bBusy) return false;
+        Next.bReady = true; Next.ServerOffsetMs = 0; return true;
+    }
+    void FRecoveryReadState::CommitWorldSubscription(const FWorldRecoveryReceipt& Receipt,
+        FRecoveryReadView&& Next, FRecoveryReadView& Retired)
+    {
+        check(CurrentWorldSubscription(Receipt));
+        check(Retired.OwnerId.IsEmpty() && !Retired.Health && !Retired.Error.IsSet());
+        Retired = MoveTemp(View); View = MoveTemp(Next);
+    }
+    void FRecoveryReadState::ClearWorldSubscription(FRecoveryReadView& Retired, bool bEndLifetime)
+    {
+        check(Retired.OwnerId.IsEmpty() && !Retired.Health && !Retired.Error.IsSet());
+        Retired = MoveTemp(View); View = {};
+        if (bEndLifetime) { WorldLifetime = 0; Generation.Invalidate(); bSubscribed = false; }
+        ActiveMutation.Invalidate(); bRecoveryDispatched = false;
+        check(!PreparedRecovery.IsSet());
+    }
+    void FRecoveryReadState::NotifyWorldSubscription(const FWorldRecoveryReceipt& Receipt)
+    {
+        if (CurrentWorldSubscription(Receipt)) Changed.Broadcast();
+    }
     FRecoveryReceipt FRecoveryReadState::BeginSubscription()
     {
         if (bDisposed || View.OwnerId.IsEmpty()) return {};

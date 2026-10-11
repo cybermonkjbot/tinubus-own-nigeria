@@ -339,10 +339,17 @@ void ABaddieCompanionSlicePlayerController::RefreshWorldPresentation()
     if (bOfflineInspection || MissionToken.IsSet() || !View.bHasObservation || !View.Observation.IsCurrent()
         || !FSlateApplication::IsInitialized() || !FSlateApplication::Get().IsActive())
     { ClearWorldPresentation(); return; }
-    WorldObservation = View.Observation;
+    if (WorldObservation.Token() != View.Observation.Token())
+    {
+        ClearWorldPresentation();
+        if (bEndingPlay || !View.Observation.IsCurrent()
+            || Session->GetWorldView().Observation.Token() != View.Observation.Token()) return;
+        WorldObservation = View.Observation;
+    }
     WorldPresentation->Observe(WorldObservation);
+    WorldPresentation->Reconcile();
     if (!WorldObservation.IsCurrent()) { ClearWorldPresentation(); return; }
-    if (!WorldPresentation->IsReady()) Session->WorldContentLost(this, WorldObservation.Generation());
+    // Initial unavailable imports are not loss of an accepted native generation.
     if (auto* Character = Cast<ABaddieCompanionWorldCharacter>(GetPawn()))
     {
         if (!View.bWalkingAvailable || !WorldPresentation->IsReady()
@@ -370,6 +377,17 @@ void ABaddieCompanionSlicePlayerController::ClearWorldPresentation()
         SetControlRotation(FRotator::ZeroRotator);
         ApplyPointerCapture();
     }
+}
+
+void ABaddieCompanionSlicePlayerController::WorldNativeContentLost(BaddieCompanion::FWorldObservationToken Token)
+{
+    if (bEndingPlay || bClearingWorld || !Token.IsSet() || WorldObservation.Token() != Token) return;
+    auto* Session = GameplaySession.Get();
+    if (!Session || Session->GetWorldView().Observation.Token() != Token) return;
+    Session->WorldContentLost(this, Token);
+    // The session revokes the observation before native hiding/unpossess can
+    // reenter. A newer publication must not be cleared by this older loss.
+    if (WorldObservation.Token() == Token) ClearWorldPresentation();
 }
 
 bool ABaddieCompanionSlicePlayerController::PrepareWorldContent(const BaddieCompanion::FNativeWorldContent& Content)

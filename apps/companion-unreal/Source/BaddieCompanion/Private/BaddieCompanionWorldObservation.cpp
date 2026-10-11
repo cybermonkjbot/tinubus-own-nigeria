@@ -1,6 +1,7 @@
 #include "BaddieCompanionWorldObservation.h"
 #include "BaddieCompanionWorldObservationPages.h"
 #include "BaddieCompanionWorldPlayerRead.h"
+#include "BaddieCompanionWorldPublication.h"
 #include "BaddieCompanionSnapshot.h"
 #include "Dom/JsonValue.h"
 #include "Containers/Ticker.h"
@@ -915,7 +916,8 @@ namespace BaddieCompanion::WorldObservationPrivate
         // Every owner moves storage to RetireDetached before dropping its last reference.
         // No recursive tree deletion is permitted here.
         ensureMsgf(RetireRoot == RootLimit, TEXT("World observation storage was not retired."));
-        ensureMsgf(!Players && !RacingOwner, TEXT("World semantic projections were not retired."));
+        ensureMsgf(!Players && !RacingOwner && !Publication, TEXT("World semantic projections were not retired."));
+        ensureMsgf(RetireManifestText == 3 + RootLimit * 3, TEXT("World manifest text was not retired."));
         Budget->Release(ChargedBytes);
     }
     FNode* FStorage::Get(uint8 Root, uint64 Id) const
@@ -936,31 +938,53 @@ namespace BaddieCompanion::WorldObservationPrivate
             auto* Node = Root->Get(Root->RetireNode);
             if (Node && Node->Text)
             {
-                if (!Budget.Spend(sizeof(FStringBlock), false)) return EStep::Pending;
+                if (!QualifiedRetirementDeleteWork || QualifiedRetirementDeleteWork > TickWorkLimit)
+                    return EStep::ResourceUnavailable;
+                if (!Budget.Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
                 auto* Block = Node->Text; Node->Text = Block->Next;
-                delete Block; Budget.Release(sizeof(FStringBlock) * 2 + 64);
+                delete Block; Budget.Release(QualifiedStringBlockBytes);
                 continue;
             }
             if (Root->RetireNode % 64 == 0 || Root->RetireNode == Root->Nodes)
             {
-                if (!Budget.Spend(sizeof(FNodePage), false)) return EStep::Pending;
+                if (!QualifiedRetirementDeleteWork || QualifiedRetirementDeleteWork > TickWorkLimit)
+                    return EStep::ResourceUnavailable;
+                if (!Budget.Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
                 const uint64 Index = (Root->RetireNode - 1) / 64;
                 delete Root->Index[Index]; Root->Index[Index] = nullptr;
-                Budget.Release(sizeof(FNodePage) * 2 + 64);
+                Budget.Release(QualifiedNodePageBytes);
             }
             ++Root->RetireNode;
         }
-        if (!Budget.Spend(256, false)) return EStep::Pending;
-        delete Root; Root = nullptr; Budget.Release(sizeof(FRoot) * 2 + 64);
+        FString* Texts[] = {&Root->Directory.Alias, &Root->Directory.Digest, &Root->Directory.Tail,
+            &Root->RecordHash, &Root->PageHash};
+        while (Root->RetireText < UE_ARRAY_COUNT(Texts))
+        {
+            if (!QualifiedDirectoryTextReleaseWork || QualifiedDirectoryTextReleaseWork > TickWorkLimit)
+                return EStep::ResourceUnavailable;
+            if (!Budget.Spend(QualifiedDirectoryTextReleaseWork, false)) return EStep::Pending;
+            Texts[Root->RetireText++]->Empty();
+        }
+        if (!QualifiedRetirementDeleteWork || !Budget.Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
+        delete Root; Root = nullptr; Budget.Release(QualifiedRootBytes);
         return EStep::Complete;
     }
     EStep FStorage::Retire()
     {
         bRetiring = true; bComplete = bSemanticsComplete = false;
+        if (ActiveBorrows || ActivePreparations) return EStep::Pending;
+        if (Publication)
+        {
+            const auto Result = Publication->Retire(*Budget);
+            if (Result != EStep::Complete) return Result;
+            if (!QualifiedRetirementDeleteWork || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
+            const uint64 Charge = Publication->Charge;
+            delete Publication; Publication = nullptr; Budget->Release(Charge);
+        }
         while (Players)
         {
             if (Players->Retire(*Budget) != EStep::Complete) return EStep::Pending;
-            if (!Budget->Spend(sizeof(WorldReadPrivate::FPlayerResult), false)) return EStep::Pending;
+            if (!QualifiedRetirementDeleteWork || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return EStep::Pending;
             auto* Old = Players; Players = Old->Next; delete Old;
             Budget->Release(WorldReadPrivate::QualifiedSemanticPeerBytes);
         }
@@ -971,18 +995,131 @@ namespace BaddieCompanion::WorldObservationPrivate
             if (ReleaseRoot(Roots[RetireRoot], *Budget) != EStep::Complete) return EStep::Pending;
             ++RetireRoot;
         }
+        while (RetireManifestText < 3 + RootLimit * 3)
+        {
+            if (!QualifiedDirectoryTextReleaseWork || QualifiedDirectoryTextReleaseWork > TickWorkLimit)
+                return EStep::ResourceUnavailable;
+            if (!Budget->Spend(QualifiedDirectoryTextReleaseWork, false)) return EStep::Pending;
+            FString* Text = nullptr;
+            if (RetireManifestText < 3)
+            {
+                FString* Header[] = {&Manifest.Capture, &Manifest.Kind, &Manifest.Digest};
+                Text = Header[RetireManifestText];
+            }
+            else
+            {
+                auto& Entry = Manifest.Entries[(RetireManifestText - 3) / 3];
+                FString* Fields[] = {&Entry.Alias, &Entry.Digest, &Entry.Tail};
+                Text = Fields[(RetireManifestText - 3) % 3];
+            }
+            Text->Empty(); ++RetireManifestText;
+        }
         return EStep::Complete;
     }
-    void RetireDetached(TSharedPtr<FStorage> Storage)
+    bool FRetirementTicket::Empty() const
     {
-        if (!Storage.IsValid()) return;
-        Storage->bRetiring = true; Storage->bComplete = false;
-        FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda(
-            [Storage = MoveTemp(Storage)](float)
-            {
-                Storage->Budget->BeginTick();
-                return Storage->Retire() != EStep::Complete;
-            }));
+        for (const auto& Owner : Storage) if (Owner) return false;
+        if (Static) return false;
+        for (const auto& Task : Tasks) if (Task.bReserved || Task.Owner) return false;
+        return true;
+    }
+    bool FRetirementTicket::HasQueued() const
+    {
+        for (const auto& Owner : Storage) if (Owner) return true;
+        if (Static) return true;
+        for (const auto& Task : Tasks)
+            if (Task.Owner && (!Task.Ready || Task.Ready(Task.Owner))) return true;
+        return false;
+    }
+    bool FRetirementTicket::Tick()
+    {
+        Budget->BeginTick();
+        if (!Budget->Spend(QualifiedRetirementTickerWork, false)) return true;
+        // Tasks can hold scoped preparation/semantic borrows. Drain them before
+        // attempting the storage slots which those borrows keep alive.
+        for (auto& Task : Tasks)
+        {
+            if (!Task.Owner) continue;
+            // A metadata cell can wait on external weak handles. It must not
+            // prevent independent payload owners from draining in this frame.
+            if (Task.Advance && Task.Advance(Task.Owner, *Budget) != EStep::Complete) continue;
+            if (!Budget->Spend(QualifiedRetirementDeleteWork, false)) return true;
+            Task.Destroy(Task.Owner); Budget->Release(Task.Charge); Task = {};
+        }
+        if (Static)
+        {
+            if (Static->Retire() != EStep::Complete
+                || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return true;
+            Static.Reset();
+        }
+        for (auto& Owner : Storage)
+        {
+            if (!Owner) continue;
+            if (Owner->Retire() != EStep::Complete
+                || !Budget->Spend(QualifiedRetirementDeleteWork, false)) return true;
+            Owner.Reset();
+        }
+        return !Empty();
+    }
+    bool EnsureRetirementTicket(TSharedPtr<FBudget> Budget)
+    {
+        if (!Budget) return false;
+        if (Budget->Retirement) return true;
+        if (!QualifiedRetirementTicketBytes || !QualifiedRetirementTicketInitializationWork || !QualifiedRetirementTickerWork
+            || !QualifiedRetirementDeleteWork || QualifiedRetirementTickerWork > TickWorkLimit
+            || QualifiedRetirementDeleteWork > TickWorkLimit
+            || QualifiedRetirementTicketInitializationWork > TickWorkLimit - QualifiedRetirementTickerWork) return false;
+        if (!Budget->Spend(QualifiedRetirementTicketInitializationWork + QualifiedRetirementTickerWork, false)
+            || !Budget->Reserve(QualifiedRetirementTicketBytes)) return false;
+        auto* Ticket = new FRetirementTicket;
+        Ticket->Budget = Budget; Ticket->Charge = QualifiedRetirementTicketBytes;
+        Budget->Retirement = Ticket;
+        FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([Ticket](float)
+        {
+            if (Ticket->Tick()) return true;
+            if (!Ticket->Budget->Spend(QualifiedRetirementDeleteWork, false)) return true;
+            auto BudgetOwner = Ticket->Budget;
+            const uint64 Charge = Ticket->Charge;
+            BudgetOwner->Retirement = nullptr;
+            delete Ticket; BudgetOwner->Release(Charge);
+            if (BudgetOwner.GetSharedReferenceCount() == 1)
+            { BudgetOwner->Release(BudgetOwner->OwnerCharge); BudgetOwner->OwnerCharge = 0; }
+            return false;
+        }));
+        return true;
+    }
+    int32 ReserveRetirementTask(FBudget& Budget)
+    {
+        if (!Budget.Retirement || !Budget.Spend(64, false)) return INDEX_NONE;
+        for (int32 I = 0; I < UE_ARRAY_COUNT(Budget.Retirement->Tasks); ++I)
+        {
+            auto& Task = Budget.Retirement->Tasks[I];
+            if (!Task.bReserved && !Task.Owner) { Task.bReserved = true; return I; }
+        }
+        return INDEX_NONE;
+    }
+    void ReleaseRetirementTask(FBudget& Budget, int32 Slot)
+    {
+        check(Budget.Retirement && Slot >= 0 && Slot < UE_ARRAY_COUNT(Budget.Retirement->Tasks));
+        auto& Task = Budget.Retirement->Tasks[Slot];
+        check(Task.bReserved && !Task.Owner); Task = {};
+    }
+    void QueueRetirementTask(FBudget& Budget, int32 Slot, FRetirementTask Task)
+    {
+        check(Budget.Retirement && Slot >= 0 && Slot < UE_ARRAY_COUNT(Budget.Retirement->Tasks));
+        auto& Target = Budget.Retirement->Tasks[Slot];
+        check(Target.bReserved && !Target.Owner && Task.Owner && Task.Destroy);
+        Task.bReserved = true; Target = Task;
+    }
+    void RetireDetached(TSharedPtr<FStorage> Owner)
+    {
+        if (!Owner) return;
+        auto* Ticket = Owner->Budget->Retirement;
+        check(Ticket);
+        Owner->bRetiring = true; Owner->bComplete = false;
+        for (const auto& Slot : Ticket->Storage) if (Slot == Owner) return;
+        for (auto& Slot : Ticket->Storage) if (!Slot) { Slot = MoveTemp(Owner); return; }
+        checkNoEntry();
     }
     FStaticRoots::~FStaticRoots()
     {
@@ -1010,25 +1147,49 @@ namespace BaddieCompanion::WorldObservationPrivate
     {
         if (!Roots) return;
         Roots->bAvailable = false;
-        FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([Owner = Roots.Release()](float)
-        {
-            Owner->Budget->BeginTick();
-            if (Owner->Retire() != EStep::Complete || !Owner->Budget->Spend(sizeof(FStaticRoots), false)) return true;
-            delete Owner; return false;
-        }));
+        auto* Ticket = Roots->Budget->Retirement;
+        check(Ticket && !Ticket->Static);
+        Ticket->Static = MoveTemp(Roots);
     }
     bool FAccess::Current() const
     {
+        if (!Budget || !QualifiedAccessReadWork || QualifiedAccessReadWork > TickWorkLimit || !bAlive) return false;
         const double Now = FPlatformTime::Seconds();
-        const auto Owner = Storage.Pin();
-        return bReadable && Generation != 0 && std::isfinite(Now) && std::isfinite(Deadline)
-            && Now < Deadline && Owner.IsValid() && Owner->bComplete && !Owner->bRetiring;
+        // Fixed currency metadata must not report revocation merely because a
+        // payload read has to yield. Payload pinning has separate admission.
+        return bReadable && Token.IsSet() && std::isfinite(Now) && std::isfinite(Deadline)
+            && Now < Deadline;
     }
+    FAccessWeak::FAccessWeak(FAccess* InCell)
+    {
+        check(IsInGameThread());
+        if (InCell && InCell->WeakHandles != MAX_uint64)
+        { Cell = InCell; ++Cell->WeakHandles; }
+    }
+    FAccessWeak::FAccessWeak(const FAccessWeak& Other) : FAccessWeak(Other.Cell) {}
+    FAccessWeak::FAccessWeak(FAccessWeak&& Other) noexcept : Cell(Other.Cell) { Other.Cell = nullptr; }
+    FAccessWeak& FAccessWeak::operator=(const FAccessWeak& Other)
+    {
+        if (this == &Other) return *this;
+        FAccessWeak Next(Other); Reset(); Cell = Next.Cell; Next.Cell = nullptr; return *this;
+    }
+    FAccessWeak& FAccessWeak::operator=(FAccessWeak&& Other) noexcept
+    {
+        if (this == &Other) return *this;
+        Reset(); Cell = Other.Cell; Other.Cell = nullptr; return *this;
+    }
+    FAccessWeak::~FAccessWeak() { Reset(); }
+    void FAccessWeak::Reset()
+    {
+        check(IsInGameThread());
+        if (Cell) { check(Cell->WeakHandles); --Cell->WeakHandles; Cell = nullptr; }
+    }
+    FAccess* FAccessWeak::Pin() const
+    { check(IsInGameThread()); return Cell && Cell->bAlive ? Cell : nullptr; }
     void FAccess::Revoke()
     {
         bReadable = false;
-        Storage.Reset(); Player.Reset(); Instance.Reset(); Selection.Reset();
-        Clock.Clear(); GameRoomId.Reset(); Deadline = 0;
+        Storage.Reset(); Deadline = 0;
     }
 }
 
@@ -1037,18 +1198,27 @@ namespace BaddieCompanion
     bool FWorldObservation::IsCurrent() const
     {
         const auto Current = Access.Pin();
-        return Current.IsValid() && Current->Current();
+        return Current && Current->Token == Captured && Current->Current();
+    }
+    EWorldReadResult FWorldObservation::AdmitRead() const
+    {
+        const auto Current = Access.Pin();
+        if (!Current || Current->Token != Captured || !Current->Current()) return EWorldReadResult::Unavailable;
+        if (!Current->Budget->Spend(WorldObservationPrivate::QualifiedAccessReadWork, false))
+            return EWorldReadResult::Pending;
+        const auto Owner = Current->Storage.Pin();
+        return Owner && Owner->bComplete && !Owner->bRetiring && Owner->Publication && Owner->Publication->bComplete
+            ? EWorldReadResult::Ready : EWorldReadResult::Unavailable;
     }
     uint64 FWorldObservation::Generation() const
     {
-        const auto Current = Access.Pin();
-        return Current.IsValid() && Current->Current() ? Current->Generation : 0;
+        return Captured.Lifetime;
     }
     bool FWorldObservation::ReadRoot(EWorldRoot Root, FWorldRootView& Out) const
     {
         Out = {};
         const auto Current = Access.Pin();
-        if (!Current.IsValid() || !Current->Current()) return false;
+        if (AdmitRead() != EWorldReadResult::Ready) return false;
         const auto Storage = Current->Storage.Pin();
         const uint8 Index = static_cast<uint8>(Root);
         if (Index >= WorldObservationPrivate::RootLimit
@@ -1064,11 +1234,38 @@ namespace BaddieCompanion
         }
         return false;
     }
+    EWorldReadResult FWorldObservation::ReadValue(EWorldRoot Root, FWorldValueRead& Out) const
+    {
+        Out = {};
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready) return Admission;
+        const auto Current = Access.Pin(); const auto Storage = Current->Storage.Pin();
+        const uint8 Index = static_cast<uint8>(Root);
+        if (Index >= WorldObservationPrivate::RootLimit) return EWorldReadResult::Unavailable;
+        if (!Storage->Budget->Spend(sizeof(Out) + Storage->Manifest.Count + 32, false))
+            return EWorldReadResult::Pending;
+        Out.Observation = *this; Out.Root = Index; Out.Kind = EWorldReadDomain::Raw;
+        Out.Owner = Storage->Roots[Index];
+        bool bFound = false;
+        for (int32 I = 0; I < Storage->Manifest.Count; ++I)
+        {
+            const auto& Entry = Storage->Manifest.Entries[I];
+            if (Entry.Slot != Index) continue;
+            Out.Presence = static_cast<EWorldFieldPresence>(Entry.Presence);
+            Out.bJsonDocument = Entry.Encoding == 1; bFound = true; break;
+        }
+        if (!bFound) { Out = {}; return EWorldReadResult::Unavailable; }
+        const auto* Node = Storage->Get(Index, 1);
+        if (Node) Out.Node = Node->Id;
+        else if (Out.Presence == EWorldFieldPresence::Value)
+        { Out = {}; return EWorldReadResult::Unavailable; }
+        return EWorldReadResult::Ready;
+    }
     bool FWorldObservation::ReadNode(EWorldRoot Root, uint64 Id, FWorldNodeView& Out) const
     {
         Out = {};
         const auto Current = Access.Pin();
-        if (!Current.IsValid() || !Current->Current()) return false;
+        if (AdmitRead() != EWorldReadResult::Ready) return false;
         const auto Storage = Current->Storage.Pin();
         if (!Storage->Budget->Spend(sizeof(FWorldNodeView), false)) return false;
         const auto* Node = Storage->Get(static_cast<uint8>(Root), Id);
@@ -1081,17 +1278,20 @@ namespace BaddieCompanion
     {
         OutCount = 0;
         const auto Current = Access.Pin();
-        if (!Current.IsValid() || !Current->Current()) { Cursor = {}; return false; }
+        if (AdmitRead() != EWorldReadResult::Ready)
+        { if (!IsCurrent()) Cursor = {}; return false; }
         const auto Storage = Current->Storage.Pin();
+        if (static_cast<uint8>(Root) >= WorldObservationPrivate::RootLimit
+            || !Storage->Budget->Spend(32, false)) return false;
         const auto* Node = Storage->Get(static_cast<uint8>(Root), Id);
         if (!Node || Node->Kind != EWorldValueKind::String) return false;
         if (!Cursor.Generation)
         {
-            Cursor.Generation = Current->Generation; Cursor.Node = Id;
-            Cursor.Root = static_cast<uint8>(Root); Cursor.Block = Node->Text;
+            Cursor.Generation = Captured.Lifetime; Cursor.Publication = Captured.Publication; Cursor.Node = Id;
+            Cursor.Root = static_cast<uint8>(Root); Cursor.Owner = Storage->Roots[Cursor.Root]; Cursor.Block = Node->Text;
         }
-        if (Cursor.Generation != Current->Generation || Cursor.Node != Id
-            || Cursor.Root != static_cast<uint8>(Root)) return false;
+        if (Cursor.Generation != Captured.Lifetime || Cursor.Publication != Captured.Publication || Cursor.Node != Id
+            || Cursor.Root != static_cast<uint8>(Root) || Cursor.Owner != Storage->Roots[static_cast<uint8>(Root)]) return false;
         const auto* Block = static_cast<const WorldObservationPrivate::FStringBlock*>(Cursor.Block);
         if (!Block) return Cursor.Offset == Node->Count;
         if (!Storage->Budget->Spend(1 + Block->Used * 2, false)) return false;
@@ -1099,36 +1299,141 @@ namespace BaddieCompanion
         OutCount = Block->Used; Cursor.Offset += Block->Used; Cursor.Block = Block->Next;
         return true;
     }
-    bool FWorldObservation::CopyPlayer(TSharedPtr<const FWorldPlayerView>& Out) const
+    EWorldReadResult FWorldObservation::ReadPlayer(FWorldPlayerRead& Out) const
     {
-        Out.Reset();
+        Out = {};
         const auto Current = Access.Pin();
-        if (!Current.IsValid() || !Current->Current()) return false;
-        Out = Current->Player;
-        return Out.IsValid();
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready) return Admission;
+        const auto Storage = Current->Storage.Pin();
+        if (!Storage->Publication || !Storage->Publication->Local) return EWorldReadResult::Unavailable;
+        if (!Storage->Budget->Spend(sizeof(Out), false)) return EWorldReadResult::Pending;
+        const auto* Player = Storage->Publication->Local;
+        Out.Record.Observation = *this; Out.Record.Owner = Player->Raw.Owner;
+        Out.Record.Root = Player->Raw.Root; Out.Record.Node = Player->Raw.Node;
+        Out.Record.Effective = Player; Out.Record.Kind = EWorldReadDomain::Player;
+        Out.Record.Presence = EWorldFieldPresence::Value; return EWorldReadResult::Ready;
     }
     bool FWorldObservation::CopyTime(FWorldPresentationTime& Out) const
     {
         Out = {};
         const auto Current = Access.Pin();
-        return Current.IsValid() && Current->Current()
-            && Current->Clock.CopyTime(Current->GameRoomId, Out);
+        if (AdmitRead() != EWorldReadResult::Ready) return false;
+        const auto Storage = Current->Storage.Pin();
+        if (!Storage->Publication || !WorldObservationPrivate::QualifiedClockBytes
+            || !WorldObservationPrivate::QualifiedClockWork) return false;
+        const auto& Payload = *Storage->Publication;
+        if (!Payload.Clock) return false;
+        const uint64 Work = WorldObservationPrivate::QualifiedClockWork
+            + 4 * static_cast<uint64>(Payload.Clock->GameRoomId.Len());
+        if (Work > WorldObservationPrivate::TickWorkLimit || !Storage->Budget->Spend(Work, false)) return false;
+        if (!Payload.Clock->Value.CopyTime(Payload.Clock->GameRoomId, Out) || Out.RemainingMs <= 0)
+        { Out = {}; return false; }
+        return true;
     }
 
-    bool FWorldObservation::CopyInstance(TSharedPtr<const FWorldCurrentInstanceIdentity>& Out) const
+    EWorldReadResult FWorldObservation::ReadPeer(FWorldPeerCursor& Cursor, FWorldPlayerRead& Out, bool& bEnd) const
     {
-        Out.Reset();
-        const auto Current = Access.Pin();
-        if (!Current || !Current->Current()) return false;
-        Out = Current->Instance;
-        return Out.IsValid();
+        Out = {}; bEnd = false;
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready)
+        { if (Admission == EWorldReadResult::Unavailable) Cursor = {}; return Admission; }
+        const auto Current = Access.Pin(); const auto Storage = Current->Storage.Pin();
+        if (!Storage->Publication) return EWorldReadResult::Unavailable;
+        if (!Cursor.bStarted)
+        {
+            if (!Storage->Budget->Spend(sizeof(Cursor), false)) return EWorldReadResult::Pending;
+            Cursor.Token = Captured; Cursor.Next = Storage->Players; Cursor.bStarted = true;
+        }
+        if (Cursor.Token != Captured) return EWorldReadResult::Unavailable;
+        while (Cursor.Next)
+        {
+            if (!Storage->Budget->Spend(sizeof(Out) + 32, false)) return EWorldReadResult::Pending;
+            const auto* Player = static_cast<const WorldReadPrivate::FPlayerResult*>(Cursor.Next);
+            Cursor.Next = Player->Next;
+            if (!Player->bPeer || !Player->bIncluded) continue;
+            Out.Record.Observation = *this; Out.Record.Owner = Player->Raw.Owner;
+            Out.Record.Root = Player->Raw.Root; Out.Record.Node = Player->Raw.Node;
+            Out.Record.Effective = Player; Out.Record.Kind = EWorldReadDomain::Player;
+            Out.Record.Presence = EWorldFieldPresence::Value; return EWorldReadResult::Ready;
+        }
+        bEnd = true; return EWorldReadResult::Ready;
     }
-    bool FWorldObservation::CopySelection(TSharedPtr<const FSnapshotSelection>& Out) const
+
+    EWorldReadResult FWorldObservation::ReadRacing(FWorldValueRead& Out) const
     {
-        Out.Reset();
+        Out = {};
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready) return Admission;
+        const auto Current = Access.Pin(); const auto Storage = Current->Storage.Pin();
+        if (!Storage->Budget->Spend(sizeof(Out) + 32, false)) return EWorldReadResult::Pending;
+        Out.Observation = *this; Out.Kind = EWorldReadDomain::Racing; Out.Root = 3;
+        Out.Owner = Storage->RacingOwner ? Storage->RacingOwner : Storage->Roots[3];
+        Out.Node = Storage->RacingOwner ? Storage->RacingNode : 1;
+        const auto* Node = WorldReadPrivate::Resolve(*Storage, {Out.Node, Out.Root,
+            static_cast<WorldObservationPrivate::FRoot*>(const_cast<void*>(Out.Owner))});
+        Out.Presence = !Node ? EWorldFieldPresence::Missing : Node->Kind == EWorldValueKind::Null
+            ? EWorldFieldPresence::Null : EWorldFieldPresence::Value;
+        Out.SourceNode = 1; Out.SourceRoot = 3; Out.SourceOwner = Storage->Roots[3]; Out.bHasSource = true;
+        const auto& Directory = Storage->Manifest.Entries[3];
+        Out.SourcePresence = Directory.Presence == 0 ? EWorldFieldPresence::Missing
+            : Directory.Presence == 1 ? EWorldFieldPresence::Null : EWorldFieldPresence::Value;
+        Out.bJsonDocument = Directory.Encoding != 0;
+        if (!Storage->Roots[3]) Out.SourceNode = 0;
+        if (!Storage->RacingOwner)
+        { Out.Presence = Out.SourcePresence; if (!Storage->Roots[3]) Out.Node = 0; }
+        return EWorldReadResult::Ready;
+    }
+
+    EWorldReadResult FWorldObservation::ReadInstance(FWorldInstanceRead& Out) const
+    {
+        Out = {};
         const auto Current = Access.Pin();
-        if (!Current || !Current->Current()) return false;
-        Out = Current->Selection;
-        return Out.IsValid();
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready) return Admission;
+        const auto Storage = Current->Storage.Pin();
+        if (!Storage->Publication) return EWorldReadResult::Unavailable;
+        if (!Storage->Budget->Spend(sizeof(Out), false)) return EWorldReadResult::Pending;
+        const auto Ref = Storage->Publication->InstanceRoot;
+        Out.Record.Observation = *this; Out.Record.Owner = Ref.Owner; Out.Record.Root = Ref.Root;
+        Out.Record.Node = Ref.Node; Out.Record.Kind = EWorldReadDomain::Instance;
+        Out.Record.Presence = EWorldFieldPresence::Value; return EWorldReadResult::Ready;
+    }
+    EWorldReadResult FWorldObservation::ReadSelection(FWorldSelectionRead& Out) const
+    {
+        Out = {};
+        const auto Current = Access.Pin();
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready) return Admission;
+        const auto Storage = Current->Storage.Pin();
+        if (!Storage->Publication) return EWorldReadResult::Unavailable;
+        if (!Storage->Budget->Spend(sizeof(Out), false)) return EWorldReadResult::Pending;
+        const auto Ref = Storage->Publication->Selection;
+        Out.Record.Observation = *this; Out.Record.Owner = Ref.Owner; Out.Record.Root = Ref.Root;
+        Out.Record.Node = Ref.Node; Out.Record.Kind = EWorldReadDomain::Selection;
+        Out.Record.Presence = EWorldFieldPresence::Value; return EWorldReadResult::Ready;
+    }
+    EWorldReadResult FWorldObservation::ReadHealth(FWorldHealthRead& Out) const
+    {
+        Out = {};
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready) return Admission;
+        const auto Current = Access.Pin(); const auto Storage = Current->Storage.Pin();
+        if (!Storage->Publication) return EWorldReadResult::Unavailable;
+        if (!Storage->Budget->Spend(sizeof(Out), false)) return EWorldReadResult::Pending;
+        const auto Ref = Storage->Publication->Health;
+        Out.Record.Observation = *this; Out.Record.Owner = Ref.Owner; Out.Record.Root = Ref.Root;
+        Out.Record.Node = Ref.Node; Out.Record.Kind = EWorldReadDomain::Health;
+        Out.Record.Presence = EWorldFieldPresence::Value; return EWorldReadResult::Ready;
+    }
+    EWorldReadResult FWorldObservation::ReadHomeProjection(FWorldHomeProjectionRead& Out) const
+    {
+        Out = {};
+        const auto Admission = AdmitRead();
+        if (Admission != EWorldReadResult::Ready) return Admission;
+        const auto Current = Access.Pin(); const auto Storage = Current->Storage.Pin();
+        if (!Storage->Publication) return EWorldReadResult::Unavailable;
+        if (!Storage->Budget->Spend(sizeof(Out), false)) return EWorldReadResult::Pending;
+        Out.Observation = *this; return EWorldReadResult::Ready;
     }
 }

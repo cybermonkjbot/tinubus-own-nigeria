@@ -234,10 +234,8 @@ namespace BaddieCompanion
         bool bSourceMapped = false;
         ERecipeStatus MaterialTranslation = ERecipeStatus::Unported;
     };
-    struct FHomePresentationPlan
+    struct FHomePresentationData
     {
-        // Preserve exact documents, IDs, names and revision in private process memory only.
-        FSnapshotSelection Source;
         FRoomPlan Home, ActiveRoom;
         TArray<FRoomPlan> Rooms;
         FApartmentPlan Apartment;
@@ -248,6 +246,11 @@ namespace BaddieCompanion
         TArray<FHomeMappingIssue> Issues;
         // Asset references and valid transforms never establish render readiness or admission.
         bool IsRenderReady() const { return false; }
+    };
+    struct FHomePresentationPlan : FHomePresentationData
+    {
+        // The independent Home decoder retains its complete bounded documents.
+        FSnapshotSelection Source;
     };
     // Pure translation, NOT a validity/admission boundary. Malformed input clears Out on failure.
     BADDIECOMPANION_API bool BuildHomePresentationPlan(const FSnapshotSelection& Input,

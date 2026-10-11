@@ -105,6 +105,12 @@ void UBaddieCompanionCharacterMaterials::RestoreOwnedMaterials()
 bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePresentationPlan& Plan,
     const BaddieCompanion::FNativeCharacterMaterialContent& Content)
 {
+    return Apply(static_cast<const BaddieCompanion::FHomePresentationData&>(Plan), Content);
+}
+
+bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePresentationData& Plan,
+    const BaddieCompanion::FNativeCharacterMaterialContent& Content)
+{
     using namespace BaddieCompanion;
     using namespace BaddieCompanion::CharacterMaterials;
     check(IsInGameThread());

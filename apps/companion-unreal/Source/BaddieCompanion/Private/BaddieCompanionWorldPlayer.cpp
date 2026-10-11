@@ -741,11 +741,10 @@ namespace BaddieCompanion
         }
         bool ConsistentPlayer(FWorldPlayerView& P)
         {
-            auto& C = P.Controls;
-            C.bRecovering = P.Status == EWorldPlayerStatus::Recovering;
-            C.bHealthDepleted = P.Health <= 0;
-            C.bTraveling = P.Status == EWorldPlayerStatus::Traveling
-                || (P.Journey.Value.IsSet() && P.Journey.Value.GetValue().Status == EWorldJourneyStatus::Traveling);
+            WorldReadPrivate::FControlFacts Facts;
+            Facts.Status = P.Status; Facts.Health = P.Health;
+            Facts.bJourneyTraveling = P.Journey.Value.IsSet()
+                && P.Journey.Value.GetValue().Status == EWorldJourneyStatus::Traveling;
             if (P.Status == EWorldPlayerStatus::Traveling && (!P.Journey.Value.IsSet()
                 || P.Journey.Value.GetValue().Status != EWorldJourneyStatus::Traveling)) return false;
             if (P.TransitRide.Value.IsSet() && (P.Status != EWorldPlayerStatus::Present
@@ -755,35 +754,34 @@ namespace BaddieCompanion
                 const auto& N = P.Nightclub.Value.GetValue();
                 if (P.Status != EWorldPlayerStatus::Present || !Same(P.PlaceId, TEXT("nightclub")) || N.VisitRevision != P.Revision
                     || (N.Kind == EWorldNightclubKind::Dance && !Same(N.Round.InstanceId, P.InstanceId))) return false;
-                C.bDanceActivity = N.Kind == EWorldNightclubKind::Dance;
-                C.bLoungeSeat = N.Kind == EWorldNightclubKind::Lounge && N.SeatId.Value.IsSet();
+                Facts.bDance = N.Kind == EWorldNightclubKind::Dance;
+                Facts.bLoungeSeat = N.Kind == EWorldNightclubKind::Lounge && N.SeatId.Value.IsSet();
             }
-            C.bDriving = P.Driving.Value.IsSet();
-            C.bActiveWater = P.WaterControl.Value.IsSet() && P.WaterControl.Value.GetValue().Phase == EWorldWaterPhase::Active;
-            C.bTransit = P.TransitRide.Value.IsSet();
-            C.bMissingControlFields = P.Driving.Presence == EWorldFieldPresence::Missing
-                || P.WaterControl.Presence == EWorldFieldPresence::Missing
-                || P.TransitRide.Presence == EWorldFieldPresence::Missing || P.Nightclub.Presence == EWorldFieldPresence::Missing;
-            C.bConflictingTransport = (C.bDriving && C.bActiveWater)
-                || ((C.bDriving || C.bActiveWater) && (P.Movement.IsSet() || C.bTransit || C.bTraveling));
-            if (C.bDriving)
+            Facts.bDriving = P.Driving.Value.IsSet();
+            Facts.bActiveWater = P.WaterControl.Value.IsSet() && P.WaterControl.Value.GetValue().Phase == EWorldWaterPhase::Active;
+            Facts.bTransit = P.TransitRide.Value.IsSet();
+            if (Facts.bDriving)
             {
                 const auto& D = P.Driving.Value.GetValue();
-                C.bTransportIdentityMismatch = P.Status != EWorldPlayerStatus::Present || !Same(D.GameRoomId, P.GameRoomId)
+                Facts.bTransportIdentityMismatch = P.Status != EWorldPlayerStatus::Present || !Same(D.GameRoomId, P.GameRoomId)
                     || !Same(D.InstanceId, P.InstanceId) || !Same(D.Driver.UserId, P.UserId) || !Same(D.Driver.CharacterId, P.CharacterId);
                 for (const auto& Occupant : D.Occupants)
-                    C.bTransportIdentityMismatch |= !Same(Occupant.UserId, P.UserId) || !Same(Occupant.CharacterId, P.CharacterId)
+                    Facts.bTransportIdentityMismatch |= !Same(Occupant.UserId, P.UserId) || !Same(Occupant.CharacterId, P.CharacterId)
                         || !Same(Occupant.LifeId, D.Driver.LifeId);
             }
             if (P.WaterControl.Value.IsSet())
             {
                 const auto& S = P.WaterControl.Value.GetValue().Scope;
-                C.bTransportIdentityMismatch |= P.Status != EWorldPlayerStatus::Present || !Same(S.GameRoomId, P.GameRoomId)
+                Facts.bTransportIdentityMismatch |= P.Status != EWorldPlayerStatus::Present || !Same(S.GameRoomId, P.GameRoomId)
                     || !Same(S.InstanceId, P.InstanceId) || !Same(S.PlaceId, P.PlaceId) || S.Revision != P.Revision
                     || !Same(S.UserId, P.UserId) || !Same(S.CharacterId, P.CharacterId);
             }
             // Retain mismatched/conflicting transport as an observation, never erase
             // it to null. Current life, previous receipt and instance checks need an owner.
+            Facts.bMovement = P.Movement.IsSet();
+            Facts.Driving = P.Driving.Presence; Facts.Water = P.WaterControl.Presence;
+            Facts.Transit = P.TransitRide.Presence; Facts.Nightclub = P.Nightclub.Presence;
+            P.Controls = WorldReadPrivate::ControlObservations(Facts);
             return true;
         }
         bool SameEndpoint(const FWorldTravelEndpoint& A, const FWorldTravelEndpoint& B)

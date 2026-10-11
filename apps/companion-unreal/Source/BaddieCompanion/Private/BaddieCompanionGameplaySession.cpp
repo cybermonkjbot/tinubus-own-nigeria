@@ -1,6 +1,7 @@
 #include "BaddieCompanionGameplaySession.h"
 #include "BaddieCompanionHttpResponse.h"
 #include "BaddieCompanionWorldSession.h"
+#include "BaddieCompanionSlicePlayerController.h"
 #include "GameFramework/PlayerController.h"
 
 #include "Dom/JsonObject.h"
@@ -284,7 +285,7 @@ struct FBaddieCompanionGameplaySessionData
     TWeakObjectPtr<APlayerController> WorldConsumer;
     FString GrantId, CrewThreadId, ApprovedUserId, ApprovedCharacterId, ApprovedHomeRoomId, LeaveMessage;
     FHttpRequestPtr Request;
-    uint64 Generation = 0;
+    uint64 Generation = 0, WorldConsumerSerial = 0;
     int32 EntrySequence = 0;
     double NextAttempt = 0, BeginRetryAt = 0, LastPresenceServerNow = 0;
     ERequest NextOperation = ERequest::None;
@@ -375,10 +376,12 @@ void UBaddieCompanionGameplaySession::RetireRequest()
     Data->NextAttempt = 0;
 }
 
-void UBaddieCompanionGameplaySession::ClearPrivateState()
+bool UBaddieCompanionGameplaySession::ClearPrivateState()
 {
     Data->World.Clear();
     RetireRequest();
+    const uint64 Generation = Data->Generation;
+    const auto Consumer = Data->WorldConsumer;
     Data->Credentials.DeviceId.Reset();
     Data->Credentials.Proof.Reset();
     Data->Credentials.Token.Reset();
@@ -392,6 +395,10 @@ void UBaddieCompanionGameplaySession::ClearPrivateState()
     Data->LastPresenceServerNow = 0;
     Data->bEntryOpen = false;
     Data->View = {};
+    // The credential clear is complete before native teardown can reenter.
+    if (auto* Controller = Cast<ABaddieCompanionSlicePlayerController>(Consumer.Get()))
+        Controller->ClearWorldPresentation();
+    return Data->Generation == Generation;
 }
 
 void UBaddieCompanionGameplaySession::Stop(EGameplayState State, const TCHAR* Message)
@@ -400,10 +407,11 @@ void UBaddieCompanionGameplaySession::Stop(EGameplayState State, const TCHAR* Me
         && Data->View.State == State && BaddieGameplaySessionPrivate::Same(Data->View.Error, Message)) return;
     const auto Credentials = Data->Credentials;
     const int32 Sequence = Data->bEntryOpen ? Data->EntrySequence : 0;
-    ClearPrivateState();
+    const bool bCurrent = ClearPrivateState();
+    BaddieGameplaySessionPrivate::Cleanup(Credentials, Sequence, true);
+    if (!bCurrent) return;
     Data->View.State = State;
     Data->View.Error = Message;
-    BaddieGameplaySessionPrivate::Cleanup(Credentials, Sequence, true);
     OnConnectionChanged.Broadcast();
 }
 
@@ -413,11 +421,12 @@ void UBaddieCompanionGameplaySession::Configure(const FString& ConvexOrigin, boo
     // Clear before notification. A reentrant subscriber cannot reuse the old proof.
     const auto Previous = Data->Credentials;
     const int32 Sequence = Data->bEntryOpen ? Data->EntrySequence : 0;
-    ClearPrivateState();
+    const bool bCurrent = ClearPrivateState();
+    BaddieGameplaySessionPrivate::Cleanup(Previous, Sequence, true);
+    if (!bCurrent || Data->bEnding) return;
     Data->Credentials.Origin = BaddieGameplaySessionPrivate::DeploymentOrigin(ConvexOrigin) ? ConvexOrigin : FString();
     Data->bEnabled = bEnabled && !Data->Credentials.Origin.IsEmpty();
     Data->View.State = Data->bEnabled ? EGameplayState::SignedOut : EGameplayState::Disabled;
-    BaddieGameplaySessionPrivate::Cleanup(Previous, Sequence, true);
     OnConnectionChanged.Broadcast();
 }
 
@@ -433,7 +442,7 @@ void UBaddieCompanionGameplaySession::BeginPairing(const FString& DeviceName)
         Stop(EGameplayState::Unavailable, TEXT("Enter a device name between 1 and 80 characters."));
         return;
     }
-    ClearPrivateState();
+    if (!ClearPrivateState() || Data->bEnding) return;
     Data->Credentials.DeviceId = FGuid::NewGuid().ToString(EGuidFormats::Digits);
     Data->View.DeviceName = Name;
     Data->View.State = EGameplayState::RequestingCode;
@@ -478,12 +487,19 @@ void UBaddieCompanionGameplaySession::BeginLeave(const TCHAR* Message)
     if (!Data->bEntryOpen || Data->Credentials.Token.IsEmpty()) return;
     Data->World.Clear();
     RetireRequest();
+    const uint64 Generation = Data->Generation;
+    const uint64 ConsumerSerial = Data->WorldConsumerSerial;
+    const auto Consumer = Data->WorldConsumer;
     Data->Identity = {};
     Data->Presence = {};
     Data->View.State = EGameplayState::Leaving;
     Data->View.bStale = false;
     Data->LeaveMessage = Message;
     Data->View.Error = Message;
+    if (auto* Controller = Cast<ABaddieCompanionSlicePlayerController>(Consumer.Get()))
+        Controller->ClearWorldPresentation();
+    if (Data->bEnding || Data->Generation != Generation || Data->WorldConsumerSerial != ConsumerSerial
+        || Consumer != Data->WorldConsumer || Data->View.State != EGameplayState::Leaving) return;
     // Keep this sequence occupied until the server acknowledges its retirement.
     Send(EGameplayRequest::Leave);
     OnConnectionChanged.Broadcast();
@@ -536,13 +552,26 @@ void UBaddieCompanionGameplaySession::AttachWorldConsumer(APlayerController* Con
     if (Data->bEnding || !IsValid(Consumer) || !Consumer->IsLocalController()
         || Consumer->GetGameInstance() != GetGameInstance()) return;
     if (Data->WorldConsumer.Get() == Consumer) return;
-    Data->World.Detach(); Data->WorldConsumer = Consumer; Data->World.Attach();
+    if (Data->WorldConsumerSerial == MAX_uint64) return;
+    const auto Previous = Data->WorldConsumer;
+    const uint64 Generation = Data->Generation;
+    const uint64 Serial = ++Data->WorldConsumerSerial;
+    Data->World.Detach(); Data->WorldConsumer.Reset();
+    if (auto* Controller = Cast<ABaddieCompanionSlicePlayerController>(Previous.Get()))
+        Controller->ClearWorldPresentation();
+    if (Data->bEnding || Data->Generation != Generation || Data->WorldConsumerSerial != Serial
+        || Data->WorldConsumer.IsValid() || !IsValid(Consumer) || !Consumer->IsLocalController()
+        || Consumer->GetGameInstance() != GetGameInstance()) return;
+    Data->WorldConsumer = Consumer; Data->World.Attach();
 }
 
 void UBaddieCompanionGameplaySession::DetachWorldConsumer(APlayerController* Consumer)
 {
     if (Data->WorldConsumer.Get() != Consumer) return;
+    if (Data->WorldConsumerSerial != MAX_uint64) ++Data->WorldConsumerSerial;
     Data->WorldConsumer.Reset(); Data->World.Detach();
+    if (auto* Controller = Cast<ABaddieCompanionSlicePlayerController>(Consumer))
+        Controller->ClearWorldPresentation();
 }
 
 void UBaddieCompanionGameplaySession::ReloadWorld(APlayerController* Consumer)
@@ -565,18 +594,48 @@ void UBaddieCompanionGameplaySession::StopWorldWalk(APlayerController* Consumer)
     if (Data->WorldConsumer.Get() == Consumer) Data->World.StopWalking();
 }
 
-void UBaddieCompanionGameplaySession::WorldContentLost(APlayerController* Consumer, uint64 Generation)
+void UBaddieCompanionGameplaySession::WorldContentLost(APlayerController* Consumer, BaddieCompanion::FWorldObservationToken Token)
 {
-    if (Data->WorldConsumer.Get() == Consumer) Data->World.ContentLost(Generation);
+    if (Data->WorldConsumer.Get() == Consumer) Data->World.ContentLost(Token);
 }
 
 void UBaddieCompanionGameplaySession::TickWorld()
 {
-    Data->World.Tick();
+    const bool bLive = !Data->bEnding && CheckLifetimes()
+        && Data->View.Scope == BaddieCompanion::EGameplayScope::World
+        && Data->View.State == EGameplayState::Joined && Data->WorldConsumer.IsValid();
+    const auto Consumer = Data->WorldConsumer;
+    const uint64 Generation = Data->Generation;
+    const uint64 ConsumerSerial = Data->WorldConsumerSerial;
+    Data->World.Tick(!bLive);
+    if (!bLive || Data->bEnding || !CheckLifetimes() || Generation != Data->Generation
+        || ConsumerSerial != Data->WorldConsumerSerial || Consumer != Data->WorldConsumer) return;
     // No callable public world adapter or enforced engine transport exists. Fail
     // before reading device credentials or constructing an HTTP world request.
     if (Data->World.Next != BaddieCompanion::EWorldRequest::None)
         Data->World.Unavailable(BaddieCompanion::EWorldReadStatus::Unavailable);
+    if (auto* Controller = Cast<ABaddieCompanionSlicePlayerController>(Consumer.Get()))
+        Controller->RefreshWorldPresentation();
+    if (Data->bEnding || Generation != Data->Generation || ConsumerSerial != Data->WorldConsumerSerial
+        || Consumer != Data->WorldConsumer
+        || !CheckLifetimes() || Data->View.Scope != BaddieCompanion::EGameplayScope::World
+        || Data->View.State != EGameplayState::Joined) return;
+    auto& World = Data->World;
+    const auto Token = World.PendingNotification;
+    if (!Token.IsSet() || World.bInNotification || !World.State.Observation.IsCurrent()
+        || World.State.Observation.Token() != Token) return;
+    using namespace BaddieCompanion::WorldObservationPrivate;
+    if (!QualifiedNotificationWork || QualifiedNotificationWork > TickWorkLimit || !World.Budget
+        || !World.Budget->Spend(QualifiedNotificationWork, false)) return;
+    // Consume before delivery. Reentrant changes can set a newer pending token.
+    World.PendingNotification = {};
+    TGuardValue<bool> Guard(World.bInNotification, true);
+    World.NotifyRecovery(Token);
+    if (Data->bEnding || Generation != Data->Generation || ConsumerSerial != Data->WorldConsumerSerial
+        || Consumer != Data->WorldConsumer
+        || !CheckLifetimes() || !World.State.Observation.IsCurrent()
+        || World.State.Observation.Token() != Token) return;
+    OnConnectionChanged.Broadcast();
 }
 
 bool UBaddieCompanionGameplaySession::CheckLifetimes()
@@ -603,8 +662,9 @@ bool UBaddieCompanionGameplaySession::CheckLifetimes()
 bool UBaddieCompanionGameplaySession::TickSession(float)
 {
     AttachSlateLifecycle();
+    const bool bLive = CheckLifetimes();
     TickWorld();
-    if (!CheckLifetimes() || Data->Request.IsValid() || Data->NextOperation == EGameplayRequest::None
+    if (!bLive || !CheckLifetimes() || Data->Request.IsValid() || Data->NextOperation == EGameplayRequest::None
         || FPlatformTime::Seconds() < Data->NextAttempt) return true;
     Send(Data->NextOperation);
     return true;
