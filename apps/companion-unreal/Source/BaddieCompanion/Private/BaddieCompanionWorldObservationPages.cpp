@@ -80,7 +80,15 @@ namespace BaddieCompanion::WorldObservationPrivate
                     && M.Entries[2].Slot == 17 && !M.PublishBy.IsSet();
             return M.Count == 2 && M.Entries[0].Slot == 17
                 && M.Entries[1].Slot == (Same(M.Kind, TEXT("enter")) || Same(M.Kind, TEXT("move")) ? 18 : 19)
-                && M.PublishBy.IsSet();
+                && !M.PublishBy.IsSet();
+        }
+        bool SameDirectory(const FDirectoryEntry& A, const FDirectoryEntry& B)
+        {
+            return A.Slot == B.Slot && A.Presence == B.Presence && A.Encoding == B.Encoding
+                && Same(A.Alias, B.Alias) && Same(A.Digest, B.Digest) && Same(A.Tail, B.Tail)
+                && A.Pages == B.Pages && A.Records == B.Records && A.Nodes == B.Nodes
+                && A.Members == B.Members && A.ArraySlots == B.ArraySlots && A.Units == B.Units
+                && A.PageBytes == B.PageBytes;
         }
         struct FBytes
         {
@@ -177,9 +185,11 @@ namespace BaddieCompanion::WorldObservationPrivate
     struct FPages::FData
     {
         explicit FData(TSharedRef<FBudget> InBudget) : Budget(MoveTemp(InBudget)) {}
-        enum class EPhase : uint8 { Empty, ManifestHash, RootSeed, PageSeed, AwaitPage, Canonical, PageHash, RecordHash, Assemble, RootHash, Complete, Failed };
+        enum class EPhase : uint8 { Empty, ManifestHash, Reuse, BeginRoot, RootSeed, PageSeed, AwaitPage, Canonical, PageHash, RecordHash, Assemble, FinishPage, RootHash, Complete, Failed };
         TSharedRef<FBudget> Budget;
         TSharedPtr<FStorage> Storage;
+        const FStaticRoots* Reuse = nullptr;
+        FStaticContext ReuseContext;
         FObject Page;
         TUniquePtr<FEncryptionContext> Crypto;
         TOptional<FSHA256Hasher> Hasher;
@@ -205,7 +215,7 @@ namespace BaddieCompanion::WorldObservationPrivate
             bHashStarted = false; bPrefixHashed = false; HashBytes = nullptr;
         }
         EStep Fail(EStep Why)
-        { Failure = Why; Phase = EPhase::Failed; ReleaseCrypto(); Page.Reset(); Budget->ReleasePage(); return Why; }
+        { Failure = Why; Phase = EPhase::Failed; Reuse = nullptr; ReleaseCrypto(); Page.Reset(); Budget->ReleasePage(); return Why; }
         FRoot* Root() const
         { return Storage.IsValid() && RootIndex < Storage->Manifest.Count ? Storage->Roots[Storage->Manifest.Entries[RootIndex].Slot] : nullptr; }
         void StartHash(const uint8* Bytes, int32 Size, int32 SeedSize)
@@ -249,8 +259,20 @@ namespace BaddieCompanion::WorldObservationPrivate
         }
         bool BeginRoot()
         {
-            while (RootIndex < Storage->Manifest.Count && Storage->Manifest.Entries[RootIndex].Presence != 2) ++RootIndex;
-            if (RootIndex == Storage->Manifest.Count) { Storage->bComplete = true; Phase = EPhase::Complete; return true; }
+            while (RootIndex < Storage->Manifest.Count)
+            {
+                const auto& E = Storage->Manifest.Entries[RootIndex];
+                if (E.Presence == 2 && !Storage->Roots[E.Slot]) break;
+                if (Storage->Roots[E.Slot] && ((E.Slot != 2 && E.Slot != 16) || !Storage->Roots[E.Slot]->bVerified)) return false;
+                ++RootIndex;
+            }
+            if (RootIndex == Storage->Manifest.Count)
+            {
+                if (Storage->FetchedPages > Storage->LogicalPages || Storage->ReusedPages != Storage->LogicalPages - Storage->FetchedPages
+                    || Storage->FetchedPageBytes > Storage->LogicalPageBytes
+                    || Storage->ReusedPageBytes != Storage->LogicalPageBytes - Storage->FetchedPageBytes) return false;
+                Storage->bComplete = true; Phase = EPhase::Complete; return true;
+            }
             const auto& E = Storage->Manifest.Entries[RootIndex];
             if (!Budget->Reserve(sizeof(FRoot) * 2 + 64)) return false;
             auto* R = new FRoot; R->Directory = E; Storage->Roots[E.Slot] = R;
@@ -441,7 +463,8 @@ namespace BaddieCompanion::WorldObservationPrivate
         }
         return Objects == 0 && FJsonSerializer::Deserialize(TJsonReaderFactory<>::Create(Body), Out) && Out.IsValid();
     }
-    EStep FPages::Begin(const FObject& Envelope, const FString& Capture, const FString& CaptureKind)
+    EStep FPages::Begin(const FObject& Envelope, const FString& Capture, const FString& CaptureKind,
+        const FStaticRoots* Reuse, FStaticContext Context, const FString& Preparation)
     {
         if (!Data) return EStep::ResourceUnavailable;
         // Fixed directory precharge precedes all scans, comparisons and writing.
@@ -469,6 +492,16 @@ namespace BaddieCompanion::WorldObservationPrivate
             ++M.Count;
         }
         if (!ExpectedSlots(M)) return Data->Fail(EStep::Invalid);
+        // Observe must name this preparation. No fallback can silently fetch or
+        // select a different static root after a descriptor mismatch.
+        if (Same(CaptureKind, TEXT("observe")))
+        {
+            if (!Reuse || Reuse->Budget != Data->Budget || !Reuse->Current(Context)
+                || Preparation.Len() != 32 || !Preparation.Equals(Reuse->Preparation, ESearchCase::CaseSensitive))
+                return Data->Fail(EStep::Invalid);
+            Data->Reuse = Reuse; Data->ReuseContext = Context;
+        }
+        else if (Reuse) return Data->Fail(EStep::Invalid);
         for (int32 I = 0; I < M.Count; ++I)
             if ((M.Entries[I].Slot == 17 || M.Entries[I].Slot == 16 || M.Entries[I].Slot >= 18)
                 && M.Entries[I].Presence != 2) return Data->Fail(EStep::Invalid);
@@ -480,6 +513,8 @@ namespace BaddieCompanion::WorldObservationPrivate
         for (int32 I = 0; I < Data->Storage->Manifest.Count; ++I)
         {
             const auto& E = Data->Storage->Manifest.Entries[I];
+            if (!Add(Data->Storage->LogicalPages, E.Pages, MAX_uint64)
+                || !Add(Data->Storage->LogicalPageBytes, E.PageBytes, MAX_uint64)) return Data->Fail(EStep::Invalid);
             if (I) B.Byte(','); B.Byte('['); B.Unsigned(E.Slot); B.Byte(','); B.Unsigned(E.Presence); B.Byte(','); B.Unsigned(E.Encoding); B.Byte(',');
             if (E.Presence == 2) { B.String(E.Alias); B.Byte(','); B.String(E.Digest); B.Byte(','); B.String(E.Tail); }
             else B.Literal("null,null,null");
@@ -538,6 +573,39 @@ namespace BaddieCompanion::WorldObservationPrivate
         using P = FData::EPhase;
         if (Data->Budget->bExhausted) return Data->Fail(EStep::ResourceUnavailable);
         if (Data->Phase == P::Failed) return Data->Failure;
+        if (!Data->Budget->Spend(128)) return EStep::Pending;
+        if (Data->Reuse && !Data->Reuse->Current(Data->ReuseContext)) return Data->Fail(EStep::Invalid);
+        if (Data->Phase == P::Reuse)
+        {
+            if (!Data->Budget->Spend(2048)) return EStep::Pending;
+            if (Data->Reuse)
+            {
+                static constexpr uint8 Slots[] = {2, 16};
+                for (int32 I = 0; I < 2; ++I)
+                {
+                    const auto* Root = Data->Reuse->Roots[I];
+                    if (!Root || !Root->bVerified || !Root->bClosed || !Root->Owners
+                        || !SameDirectory(Root->Directory, Data->Storage->Manifest.Entries[Slots[I]]))
+                        return Data->Fail(EStep::Invalid);
+                    if (Root->Owners == MAX_uint64) return Data->Fail(EStep::ResourceUnavailable);
+                }
+                // Both comparisons and overflow checks precede either pin.
+                for (int32 I = 0; I < 2; ++I)
+                {
+                    auto* Root = Data->Reuse->Roots[I];
+                    Data->Storage->Roots[Slots[I]] = Root; ++Root->Owners;
+                    Data->Storage->ReusedPages += Root->Directory.Pages;
+                    Data->Storage->ReusedPageBytes += Root->Directory.PageBytes;
+                }
+            }
+            Data->Phase = P::BeginRoot; return EStep::Pending;
+        }
+        if (Data->Phase == P::BeginRoot)
+        {
+            if (!Data->Budget->Spend(512)) return EStep::Pending;
+            if (!Data->BeginRoot()) return Data->Fail(EStep::ResourceUnavailable);
+            return EStep::Pending;
+        }
         auto* R = Data->Root(); FString Digest;
         if (Data->Phase == P::ManifestHash || Data->Phase == P::RootSeed || Data->Phase == P::PageSeed
             || Data->Phase == P::PageHash || Data->Phase == P::RecordHash || Data->Phase == P::RootHash)
@@ -548,7 +616,7 @@ namespace BaddieCompanion::WorldObservationPrivate
             if (Data->Phase == P::ManifestHash)
             {
                 if (!Same(Digest, Data->Storage->Manifest.Digest)) return Data->Fail(EStep::Invalid);
-                if (!Data->BeginRoot()) return Data->Fail(EStep::ResourceUnavailable);
+                Data->Phase = P::Reuse;
             }
             else if (Data->Phase == P::RootSeed)
             {
@@ -568,7 +636,7 @@ namespace BaddieCompanion::WorldObservationPrivate
             else
             {
                 if (!Same(Digest, R->Directory.Digest) || !Same(R->PageHash, R->Directory.Tail)) return Data->Fail(EStep::Invalid);
-                ++Data->RootIndex; if (!Data->BeginRoot()) return Data->Fail(EStep::ResourceUnavailable);
+                R->bVerified = true; ++Data->RootIndex; Data->Phase = P::BeginRoot;
             }
             return EStep::Pending;
         }
@@ -627,13 +695,22 @@ namespace BaddieCompanion::WorldObservationPrivate
                 Data->StartHash(Data->Canonical + Data->Starts[I], Data->Ends[I] - Data->Starts[I], B.Used); Data->Phase = P::RecordHash;
                 return EStep::Pending;
             }
-            ++R->Pages;
-            if (!Add(R->PageBytes, Data->PageNormalizedBytes, R->Directory.PageBytes)) return Data->Fail(EStep::Invalid);
+            Data->Phase = P::FinishPage; return EStep::Pending;
+        }
+        if (Data->Phase == P::FinishPage)
+        {
+            if (!Data->Budget->Spend(256)) return EStep::Pending;
+            if (!Add(R->Pages, 1, R->Directory.Pages)
+                || !Add(R->PageBytes, Data->PageNormalizedBytes, R->Directory.PageBytes)
+                || !Add(Data->Storage->FetchedPages, 1, Data->Storage->LogicalPages)
+                || !Add(Data->Storage->FetchedPageBytes, Data->PageNormalizedBytes, Data->Storage->LogicalPageBytes))
+                return Data->Fail(EStep::Invalid);
             Data->Page.Reset(); Data->Budget->ReleasePage();
             if (!Data->bLastPage) { Data->Phase = P::AwaitPage; return EStep::Pending; }
             if (!R->bClosed || R->OpenString || R->Records != R->Directory.Records || R->Nodes != R->Directory.Nodes
                 || R->Members != R->Directory.Members || R->ArraySlots != R->Directory.ArraySlots
-                || R->Units != R->Directory.Units || R->PageBytes != R->Directory.PageBytes) return Data->Fail(EStep::Invalid);
+                || R->Units != R->Directory.Units || R->Pages != R->Directory.Pages
+                || R->PageBytes != R->Directory.PageBytes) return Data->Fail(EStep::Invalid);
             FBytes B{Data->Prefix, sizeof(Data->Prefix)}; B.Digest(R->RecordHash);
             for (uint64 N : {R->Records, R->Nodes, R->Members, R->ArraySlots, R->Units}) B.BE(N, 8);
             Data->StartHash(nullptr, 0, B.Used); Data->Phase = P::RootHash; return EStep::Pending;
@@ -644,12 +721,13 @@ namespace BaddieCompanion::WorldObservationPrivate
     {
         if (!Data) return nullptr;
         if (Data->Phase != FData::EPhase::Complete) return nullptr;
-        auto Out = MoveTemp(Data->Storage); Data->Phase = FData::EPhase::Empty; return Out;
+        auto Out = MoveTemp(Data->Storage); Data->Reuse = nullptr; Data->Phase = FData::EPhase::Empty; return Out;
     }
     TSharedPtr<FStorage> FPages::Cancel()
     {
         if (!Data) return nullptr;
         auto Out = MoveTemp(Data->Storage); Data->Page.Reset(); Data->Budget->ReleasePage();
+        Data->Reuse = nullptr; Data->ReuseContext = {};
         Data->ReleaseCrypto();
         Data->RootIndex = Data->RecordIndex = Data->CanonicalIndex = Data->CanonicalSize = 0;
         Data->Completing = Data->DuplicateKey = Data->Against = 0;

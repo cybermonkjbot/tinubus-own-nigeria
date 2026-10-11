@@ -14,6 +14,30 @@ namespace BaddieCompanion
         using namespace StateJsonPrivate;
         constexpr uint64 MaxCounter = 9007199254740991ULL;
         constexpr uint8 MaxResultLookups = 3;
+        // Includes the fixed JSON fields, shared-pointer control block, allocator
+        // slack and detached retirement callback. No target bound is qualified.
+        constexpr uint64 QualifiedDispatchAllocationOverheadBytes = 0;
+        struct FDispatchDeleter
+        {
+            TSharedRef<FBudget> Budget;
+            uint64 Charge = 0, Work = 0;
+            void operator()(FJsonObject* Arguments) const
+            {
+                FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda(
+                    [Arguments, Owner = Budget, Bytes = Charge, Remaining = Work](float) mutable
+                    {
+                        Owner->BeginTick();
+                        while (Remaining)
+                        {
+                            const uint64 Part = FMath::Min<uint64>(Remaining, 1024);
+                            if (!Owner->Spend(Part, false)) return true;
+                            Remaining -= Part;
+                        }
+                        if (!Owner->Spend(128, false)) return true;
+                        delete Arguments; Owner->Release(Bytes); return false;
+                    }));
+            }
+        };
         bool Exact(const FObject& O, std::initializer_list<const TCHAR*> Names)
         {
             if (!O || O->Values.Num() != static_cast<int32>(Names.size())) return false;
@@ -79,6 +103,39 @@ namespace BaddieCompanion
     // Reader state and peer projections have separate, still-unqualified allocator
     // reservations. These are not estimates of Unreal allocator/controller slack.
     static constexpr uint64 QualifiedSemanticDataBytes = 0;
+    static constexpr uint64 QualifiedVisitAllocationOverheadBytes = 0;
+
+    struct FWorldSession::FVisitIdentity
+    {
+        explicit FVisitIdentity(TSharedRef<WorldObservationPrivate::FBudget> InBudget) : Budget(MoveTemp(InBudget)) {}
+        ~FVisitIdentity()
+        {
+            ensureMsgf(Values[0].IsEmpty() && Values[1].IsEmpty(), TEXT("World visit identity was not retired."));
+            Budget->Release(ChargedBytes);
+        }
+        TSharedRef<WorldObservationPrivate::FBudget> Budget;
+        FString Values[2];
+        uint64 ChargedBytes = 0, ReleaseWork = 0;
+        double Deadline = 0;
+        bool bRetiring = false;
+        WorldObservationPrivate::EStep Retire()
+        {
+            using namespace WorldObservationPrivate;
+            if (!bRetiring)
+            {
+                ReleaseWork = (static_cast<uint64>(Values[0].Len()) + Values[1].Len() + 2) * sizeof(TCHAR);
+                bRetiring = true;
+            }
+            while (ReleaseWork)
+            {
+                const uint64 Part = FMath::Min<uint64>(ReleaseWork, 1024);
+                if (!Budget->Spend(Part, false)) return EStep::Pending;
+                ReleaseWork -= Part;
+            }
+            if (!Budget->Spend(128, false)) return EStep::Pending;
+            Values[0].Empty(); Values[1].Empty(); return EStep::Complete;
+        }
+    };
 
     struct FWorldSession::FSemanticData
     {
@@ -136,6 +193,11 @@ namespace BaddieCompanion
         uint64 AppendRemaining = 0;
         bool bAppending = false;
         EStep Result = EStep::Pending;
+        TUniquePtr<FVisitIdentity> EnterVisit;
+        uint64 IdentityUnits[2]{}, IdentityAllocationWork = 0, IdentityCharge = 0, IdentityOffset = 0;
+        const WorldObservationPrivate::FStringBlock* IdentityBlock = nullptr;
+        uint8 IdentityIndex = 0;
+        bool bIdentityPlanned = false;
 
         EStep Yield() const { return Storage->Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending; }
         bool Spend(uint64 Units) { return Storage->Budget->Spend(Units); }
@@ -192,9 +254,15 @@ namespace BaddieCompanion
         EStep ReadRemaining();
         EStep ValidateControls();
         EStep PinPlayer();
+        EStep MaterializeVisit();
         EStep Retire()
         {
             bCancelled = true;
+            if (EnterVisit)
+            {
+                if (EnterVisit->Retire() != EStep::Complete || !Storage->Budget->Spend(sizeof(FVisitIdentity), false)) return EStep::Pending;
+                EnterVisit.Reset();
+            }
             while (Players)
             {
                 if (Players->Retire(*Storage->Budget) != EStep::Complete) return EStep::Pending;
@@ -216,6 +284,76 @@ namespace BaddieCompanion
             return EStep::Complete;
         }
     };
+
+    WorldObservationPrivate::EStep FWorldSession::FSemanticData::MaterializeVisit()
+    {
+        using namespace WorldObservationPrivate;
+        using namespace WorldReadPrivate;
+        if (!QualifiedVisitAllocationOverheadBytes) return EStep::ResourceUnavailable;
+        if (!bIdentityPlanned)
+        {
+            if (!Spend(256)) return Yield();
+            const auto* Id = Resolve(*Storage, Binding.Visit().Field(VisitId));
+            const auto* Life = Resolve(*Storage, Binding.Visit().Field(VisitLife));
+            if (!Id || !Life || Id->Kind != EWorldValueKind::String || Life->Kind != EWorldValueKind::String
+                || !Id->Count || !Life->Count) return EStep::Invalid;
+            // These are FString representation and retained-memory bounds, not
+            // gameplay identity quotas. All UTF-16 units, including zero, survive.
+            if (Id->Count >= MAX_int32 || Life->Count >= MAX_int32) return EStep::ResourceUnavailable;
+            IdentityUnits[0] = Id->Count; IdentityUnits[1] = Life->Count;
+            const uint64 Bytes = (Id->Count + Life->Count + 2) * sizeof(TCHAR);
+            if (QualifiedVisitAllocationOverheadBytes > RetainedLimit - PageAllowance - sizeof(FVisitIdentity)
+                || Bytes > RetainedLimit - PageAllowance - sizeof(FVisitIdentity) - QualifiedVisitAllocationOverheadBytes)
+                return EStep::ResourceUnavailable;
+            IdentityCharge = sizeof(FVisitIdentity) + QualifiedVisitAllocationOverheadBytes + Bytes;
+            IdentityAllocationWork = sizeof(FVisitIdentity) + Bytes;
+            bIdentityPlanned = true;
+        }
+        // Prepay initialization/allocation before allocating either destination.
+        // Copying from segmented input below has its own per-block work charge.
+        while (IdentityAllocationWork)
+        {
+            const uint64 Part = FMath::Min<uint64>(IdentityAllocationWork, 1024);
+            if (!Spend(Part)) return Yield();
+            IdentityAllocationWork -= Part;
+        }
+        if (!EnterVisit)
+        {
+            if (!Spend(128)) return Yield();
+            if (!Storage->Budget->Reserve(IdentityCharge)) return EStep::ResourceUnavailable;
+            EnterVisit = MakeUnique<FVisitIdentity>(Storage->Budget);
+            EnterVisit->ChargedBytes = IdentityCharge;
+            for (uint8 I = 0; I < 2; ++I)
+            {
+                auto& Units = EnterVisit->Values[I].GetCharArray();
+                Units.SetNumUninitialized(static_cast<int32>(IdentityUnits[I] + 1));
+                Units[static_cast<int32>(IdentityUnits[I])] = 0;
+            }
+        }
+        while (IdentityIndex < 2)
+        {
+            if (!Spend(16)) return Yield();
+            if (!IdentityOffset)
+            {
+                const auto* N = Resolve(*Storage, Binding.Visit().Field(IdentityIndex == 0 ? VisitId : VisitLife));
+                if (!N) return EStep::Invalid;
+                IdentityBlock = N->Text;
+            }
+            while (IdentityBlock)
+            {
+                const uint64 Count = IdentityBlock->Used;
+                if (!Count || Count > 256 || Count > IdentityUnits[IdentityIndex] - IdentityOffset) return EStep::Invalid;
+                if (!Spend(16 + Count * 2)) return Yield();
+                auto& Units = EnterVisit->Values[IdentityIndex].GetCharArray();
+                for (uint64 I = 0; I < Count; ++I)
+                    Units[static_cast<int32>(IdentityOffset + I)] = static_cast<TCHAR>(IdentityBlock->Units[I]);
+                IdentityOffset += Count; IdentityBlock = IdentityBlock->Next;
+            }
+            if (IdentityOffset != IdentityUnits[IdentityIndex]) return EStep::Invalid;
+            ++IdentityIndex; IdentityOffset = 0;
+        }
+        return EStep::Complete;
+    }
 
     WorldObservationPrivate::EStep FWorldSession::FSemanticData::Equal(FRef A, FRef B, bool& Equal)
     {
@@ -982,6 +1120,17 @@ namespace BaddieCompanion
                 delete Reader; Budget->Release(QualifiedSemanticDataBytes); return false;
             }));
         }
+        WorldObservationPrivate::RetireDetached(MoveTemp(RetiringStatic));
+        if (RetiringVisit)
+        {
+            FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([Identity = RetiringVisit.Release()](float)
+            {
+                Identity->Budget->BeginTick();
+                if (Identity->Retire() != WorldObservationPrivate::EStep::Complete
+                    || !Identity->Budget->Spend(sizeof(FVisitIdentity), false)) return true;
+                delete Identity; return false;
+            }));
+        }
         for (auto& Storage : Retiring) WorldObservationPrivate::RetireDetached(MoveTemp(Storage));
         Recovery.Dispose();
     }
@@ -999,13 +1148,15 @@ namespace BaddieCompanion
     {
         const double Now = FPlatformTime::Seconds();
         return bAttached && Entry.CredentialGeneration && Entry.EntrySequence > 0
-            && std::isfinite(Now) && std::isfinite(Entry.Deadline) && Now < Entry.Deadline;
+            && std::isfinite(Now) && std::isfinite(Entry.Deadline) && Now < Entry.Deadline
+            && (!Visit || (!Visit->bRetiring && std::isfinite(Visit->Deadline) && Now < Visit->Deadline));
     }
     void FWorldSession::Attach() { bAttached = true; }
     void FWorldSession::Detach() { bAttached = false; Clear(); }
     bool FWorldSession::HasRetirement() const
     {
         if (Semantic && Semantic->bCancelled) return true;
+        if (RetiringStatic || RetiringVisit) return true;
         for (const auto& Storage : Retiring) if (Storage) return true;
         return false;
     }
@@ -1034,12 +1185,22 @@ namespace BaddieCompanion
         Pages.Reset();
         if (Candidate) Retire(MoveTemp(Candidate));
         if (Accepted) Retire(MoveTemp(Accepted));
-        Entry = {}; VisitId.Reset(); LifeId.Reset(); Preparation.Reset(); Capture.Reset(); RequestId.Reset();
+        RetireStatic();
+        if (Visit)
+        {
+            // Admission waits for prior retirement, so there is never a third
+            // visit owner or an allocation-address reuse within this generation.
+            check(!RetiringVisit);
+            RetiringVisit = MoveTemp(Visit);
+        }
+        Entry = {}; Preparation.Reset(); Capture.Reset(); RequestId.Reset();
         RevisionHighWater = MoveHighWater = -1;
         HealthHighWater = SavedHighWater = -1;
-        TicketArrival = CandidateDeadline = NextAt = 0;
+        TicketArrival = CandidateDeadline = NextAt = OriginalDispatchAt = 0;
         ReceiptExpiresAt = 0; bBindingValidated = false;
-        bObserveAfterRetirement = false;
+        AfterRetirement = EWorldRequest::None;
+        SettledOperation = EWorldRequest::None; SettledRequestSequence = SettledOperationSequence = 0;
+        SettledRequestId[0] = SettledCapture[0] = 0; bSettledAcknowledged = false;
         bAttemptActive = bReplacementUsed = bLostTicket = bPageRetried = false; ResultLookups = 0;
         bManifestBodyPending = false;
         if (Budget) Budget->ReleasePage();
@@ -1051,15 +1212,23 @@ namespace BaddieCompanion
         Clear();
         if (!bAttached || State.Generation == MAX_uint64) return;
         Entry = Identity;
-        if (Live()) BeginCapture(EWorldRequest::Enter);
+        if (Live())
+        {
+            if (HasRetirement()) AfterRetirement = EWorldRequest::Enter;
+            else BeginCapture(EWorldRequest::Enter);
+        }
     }
     void FWorldSession::Retry()
     {
         if (!Live() || bAttemptActive || bInFlight || !Body.IsEmpty() || DecodedBody
-            || Next != EWorldRequest::None || HasRetirement() || Candidate) return;
+            || Next != EWorldRequest::None || AfterRetirement != EWorldRequest::None || HasRetirement() || Candidate) return;
         // Explicit reload starts new read work only after the previous request is
         // terminal. It cannot replay an enter/control operation or revive its lookup.
-        if (!VisitId.IsEmpty()) BeginCapture(EWorldRequest::Prepare);
+        if (Visit)
+        {
+            InvalidateContent();
+            AfterRetirement = EWorldRequest::Prepare;
+        }
     }
     bool FWorldSession::BeginCapture(EWorldRequest Operation, bool bContinueAttempt)
     {
@@ -1073,11 +1242,14 @@ namespace BaddieCompanion
             || (Command(Operation) && OperationSequence >= MaxCounter)) return false;
         if (bContinueAttempt)
         {
-            if (!bAttemptActive || Operation != EWorldRequest::Observe || CaptureOperation != EWorldRequest::Prepare
-                || Preparation.IsEmpty() || VisitId.IsEmpty() || LifeId.IsEmpty() || !Budget || Budget->bExhausted
+            const bool bAfterEnter = Operation == EWorldRequest::Prepare && CaptureOperation == EWorldRequest::Enter;
+            const bool bAfterPrepare = Operation == EWorldRequest::Observe && CaptureOperation == EWorldRequest::Prepare
+                && !Preparation.IsEmpty() && Static && Static->Current(StaticContext());
+            if (!bAttemptActive || (!bAfterEnter && !bAfterPrepare) || !Visit || !Budget || Budget->bExhausted
                 || !std::isfinite(CandidateDeadline) || Now >= CandidateDeadline) return false;
         }
-        else if (bAttemptActive) return false;
+        else if (bAttemptActive || Operation == EWorldRequest::Observe) return false;
+        if ((Operation == EWorldRequest::Enter) == static_cast<bool>(Visit)) return false;
         if (!WorldObservationPrivate::FPages::ResourcesQualified())
         { State.Status = EWorldReadStatus::ResourceUnavailable; return false; }
         if (!Budget) Budget = MakeShared<WorldObservationPrivate::FBudget>();
@@ -1085,14 +1257,16 @@ namespace BaddieCompanion
         {
             Budget->CandidateWork = 0; Budget->bExhausted = false;
             CandidateDeadline = FMath::Min(Entry.Deadline, Now + 900);
+            if (Visit) CandidateDeadline = FMath::Min(CandidateDeadline, Visit->Deadline);
             bReplacementUsed = false;
+            if (!Budget->Spend(512)) { State.Status = EWorldReadStatus::ResourceUnavailable; return false; }
         }
         Pages = MakeUnique<WorldObservationPrivate::FPages>(Budget.ToSharedRef());
         ++RequestSequence;
         if (Command(Operation)) ++OperationSequence;
         RequestId = FGuid::NewGuid().ToString(EGuidFormats::Digits);
         Capture.Reset(); RequestedOperation = CaptureOperation = Operation; Next = Operation;
-        TicketArrival = 0; ResultLookups = 0; ReceiptExpiresAt = 0; bAttemptActive = true;
+        TicketArrival = OriginalDispatchAt = 0; ResultLookups = 0; ReceiptExpiresAt = 0; bAttemptActive = true;
         bLostTicket = bPageRetried = bBindingValidated = bFinalBindComplete = false;
         NextAt = Now;
         State.Status = Operation == EWorldRequest::Prepare ? EWorldReadStatus::Preparing : EWorldReadStatus::Capturing;
@@ -1111,13 +1285,35 @@ namespace BaddieCompanion
             || FPlatformTime::Seconds() < NextAt || DispatchSerial == MAX_uint64) return false;
         if (FPlatformTime::Seconds() >= CandidateDeadline)
         { Unavailable(EWorldReadStatus::Expired); return false; }
+        if (Next == EWorldRequest::Bind && CaptureOperation != EWorldRequest::Observe)
+        { Unavailable(EWorldReadStatus::InvalidResponse); return false; }
         if (Next == EWorldRequest::Result)
         {
             if (!bLostTicket || ResultLookups >= MaxResultLookups)
             { Unavailable(EWorldReadStatus::Unavailable); return false; }
-            ++ResultLookups;
         }
-        const auto Args = MakeShared<FJsonObject>();
+        const bool bVisitArguments = Next == RequestedOperation && Next != EWorldRequest::Enter;
+        if (bVisitArguments && !Visit) { Unavailable(EWorldReadStatus::InvalidResponse); return false; }
+        const uint64 IdentityUnits = bVisitArguments
+            ? static_cast<uint64>(Visit->Values[0].Len()) + Visit->Values[1].Len() + 2 : 0;
+        const uint64 CopyWork = 4096 + IdentityUnits * sizeof(TCHAR) * 2;
+        // FString/JSON construction is indivisible here. Refuse a request whose
+        // exact copies cannot fit the existing tick policy; never shorten an ID.
+        if (!Budget || !QualifiedDispatchAllocationOverheadBytes || CopyWork > WorldObservationPrivate::TickWorkLimit)
+        { Unavailable(EWorldReadStatus::ResourceUnavailable); return false; }
+        if (!Budget->Spend(CopyWork))
+        {
+            if (Budget->bExhausted) Unavailable(EWorldReadStatus::ResourceUnavailable);
+            return false;
+        }
+        const uint64 CopyBytes = IdentityUnits * sizeof(TCHAR) * 2;
+        if (QualifiedDispatchAllocationOverheadBytes > WorldObservationPrivate::RetainedLimit
+            || CopyBytes > WorldObservationPrivate::RetainedLimit - QualifiedDispatchAllocationOverheadBytes)
+        { Unavailable(EWorldReadStatus::ResourceUnavailable); return false; }
+        const uint64 Charge = QualifiedDispatchAllocationOverheadBytes + CopyBytes;
+        if (!Budget->Reserve(Charge)) { Unavailable(EWorldReadStatus::ResourceUnavailable); return false; }
+        const TSharedPtr<FJsonObject> Args = MakeShareable(new FJsonObject,
+            FDispatchDeleter{Budget.ToSharedRef(), Charge, CopyWork});
         Args->SetNumberField(TEXT("entrySequence"), Entry.EntrySequence);
         if (Next == RequestedOperation || Next == EWorldRequest::Result)
         {
@@ -1127,7 +1323,7 @@ namespace BaddieCompanion
             {
                 if (Command(Next)) Args->SetNumberField(TEXT("operationSequence"), static_cast<double>(OperationSequence));
                 if (Next != EWorldRequest::Enter)
-                { Args->SetStringField(TEXT("visitId"), VisitId); Args->SetStringField(TEXT("lifeId"), LifeId); }
+                { Args->SetStringField(TEXT("visitId"), Visit->Values[0]); Args->SetStringField(TEXT("lifeId"), Visit->Values[1]); }
                 if (Next == EWorldRequest::Observe) Args->SetStringField(TEXT("preparation"), Preparation);
             }
         }
@@ -1143,6 +1339,10 @@ namespace BaddieCompanion
             }
         }
         Request = {Next, State.Generation, ++DispatchSerial, Args};
+        if (Next == EWorldRequest::Result) ++ResultLookups;
+        // Earlier than the credential owner's actual send is conservative for
+        // receipt expiry. Result lookups and capture polling never replace it.
+        if (Next == RequestedOperation && OriginalDispatchAt == 0) OriginalDispatchAt = FPlatformTime::Seconds();
         Next = EWorldRequest::None; bInFlight = true; Out = Request;
         return true;
     }
@@ -1151,6 +1351,7 @@ namespace BaddieCompanion
         if (!Current(Dispatch)) return;
         bInFlight = false;
         if (!std::isfinite(S) || !std::isfinite(R) || R < S || R > FPlatformTime::Seconds()
+            || !std::isfinite(OriginalDispatchAt) || OriginalDispatchAt <= 0 || S < OriginalDispatchAt
             || InBody.IsEmpty() || InBody.Len() > WorldObservationPrivate::BodyLimit)
         { Unavailable(EWorldReadStatus::InvalidResponse); return; }
         SentAt = S; ReceivedAt = R; Body = MoveTemp(InBody);
@@ -1186,6 +1387,9 @@ namespace BaddieCompanion
         // before retiring its storage. No outward notification can see the old view.
         if (Access) Access->Revoke();
         Access.Reset(); Transport.Reset(); Preparation.Reset();
+        // Stop borrowed page cursors before making their static owner retireable.
+        if (Pages) Retire(Pages->Cancel());
+        RetireStatic();
         State.Observation = {}; State.bHasObservation = State.bWalkingAvailable = false;
         if (Accepted)
         {
@@ -1202,7 +1406,8 @@ namespace BaddieCompanion
     void FWorldSession::Unavailable(EWorldReadStatus Status)
     {
         bInFlight = false; Next = EWorldRequest::None;
-        bObserveAfterRetirement = bAttemptActive = bLostTicket = false;
+        AfterRetirement = EWorldRequest::None;
+        bAttemptActive = bLostTicket = false;
         bManifestBodyPending = false;
         Body.Reset(); DecodedBody.Reset();
         CancelSemantics();
@@ -1210,6 +1415,7 @@ namespace BaddieCompanion
         Pages.Reset();
         if (Budget) Budget->ReleasePage();
         if (Candidate) Retire(MoveTemp(Candidate));
+        RetireStatic(); Preparation.Reset();
         State.Status = Status;
         if (!Live() || !Access || !Access->Current())
         {
@@ -1221,6 +1427,10 @@ namespace BaddieCompanion
     {
         if (Budget) Budget->BeginTick();
         RetireSemantics();
+        if (RetiringStatic && RetiringStatic->Retire() == WorldObservationPrivate::EStep::Complete
+            && Budget->Spend(sizeof(WorldObservationPrivate::FStaticRoots), false)) RetiringStatic.Reset();
+        if (RetiringVisit && RetiringVisit->Retire() == WorldObservationPrivate::EStep::Complete
+            && Budget->Spend(sizeof(FVisitIdentity), false)) RetiringVisit.Reset();
         for (auto& Storage : Retiring)
         {
             if (!Storage) continue;
@@ -1235,15 +1445,21 @@ namespace BaddieCompanion
         const double Now = FPlatformTime::Seconds();
         if (bAttemptActive && (!std::isfinite(Now) || Now >= CandidateDeadline))
         { Unavailable(EWorldReadStatus::Expired); return; }
-        if (bObserveAfterRetirement && !HasRetirement())
+        if (Static && FPlatformTime::Seconds() >= Static->Deadline)
         {
-            if (!Budget || !Budget->Spend(512))
+            InvalidateContent();
+            if (bAttemptActive) { Unavailable(EWorldReadStatus::Expired); return; }
+        }
+        if (AfterRetirement != EWorldRequest::None && !HasRetirement())
+        {
+            if (!Budget || Budget->TickRemaining < 512) return;
+            if (bAttemptActive && !Budget->Spend(512))
             {
-                if (!Budget || Budget->bExhausted) Unavailable(EWorldReadStatus::ResourceUnavailable);
+                if (Budget->bExhausted) Unavailable(EWorldReadStatus::ResourceUnavailable);
                 return;
             }
-            bObserveAfterRetirement = false;
-            if (!BeginCapture(EWorldRequest::Observe, true)) Unavailable(EWorldReadStatus::Unavailable);
+            const auto Following = AfterRetirement; AfterRetirement = EWorldRequest::None;
+            if (!BeginCapture(Following, bAttemptActive)) Unavailable(EWorldReadStatus::Unavailable);
         }
         if (!Body.IsEmpty() || DecodedBody) ProcessBody();
         else if (Candidate && !bFinalBindComplete && !bInFlight && Next == EWorldRequest::None) AdvanceSemantics();
@@ -1282,7 +1498,8 @@ namespace BaddieCompanion
             && (RequestedOperation == EWorldRequest::Observe || Command(RequestedOperation)) && !bLostTicket)
         {
             TicketArrival = TicketArrival > 0 ? FMath::Min(TicketArrival, ReceivedAt) : ReceivedAt;
-            CandidateDeadline = FMath::Min(CandidateDeadline, TicketArrival + 60);
+            if (RequestedOperation == EWorldRequest::Observe)
+                CandidateDeadline = FMath::Min(CandidateDeadline, TicketArrival + 60);
         }
         // Page/bind polling must not restart an already assembled manifest/tree.
         Next = bPolling ? Request.Operation : EWorldRequest::Manifest;
@@ -1298,7 +1515,8 @@ namespace BaddieCompanion
         {
             // Begin precharges a full tick. The outer header was checked on the
             // preceding slice, so it cannot starve this unchanged parser admission.
-            const EStep Step = Pages ? Pages->Begin(DecodedBody, Capture, Kind(CaptureOperation)) : EStep::Invalid;
+            const EStep Step = Pages ? Pages->Begin(DecodedBody, Capture, Kind(CaptureOperation),
+                CaptureOperation == EWorldRequest::Observe ? Static.Get() : nullptr, StaticContext(), Preparation) : EStep::Invalid;
             if (Step == EStep::Invalid || Step == EStep::ResourceUnavailable)
             { Unavailable(Step == EStep::Invalid ? EWorldReadStatus::InvalidResponse : EWorldReadStatus::ResourceUnavailable); return; }
             if (Pages->Manifest())
@@ -1344,6 +1562,9 @@ namespace BaddieCompanion
         {
             if (!Exact(O, {TEXT("status"), TEXT("preparation")}))
             { Unavailable(EWorldReadStatus::InvalidResponse); return; }
+            // The exact changed-content shell revokes stale access even if its
+            // proposed replacement ticket is malformed. No alias is promoted.
+            InvalidateContent();
             AcceptTicket(Object(Field(O, TEXT("preparation"))), true); return;
         }
         if (Same(Status, TEXT("pending")) || Same(Status, TEXT("captured")))
@@ -1431,6 +1652,108 @@ namespace BaddieCompanion
         const auto OwnerBudget = Semantic->Storage->Budget;
         Semantic.Reset(); OwnerBudget->Release(QualifiedSemanticDataBytes); return true;
     }
+    WorldObservationPrivate::FStaticContext FWorldSession::StaticContext() const
+    {
+        return {State.Generation, Entry.CredentialGeneration, Entry.EntrySequence, Visit.Get()};
+    }
+    void FWorldSession::RetireStatic()
+    {
+        if (!Static) return;
+        Static->bAvailable = false;
+        check(!RetiringStatic);
+        RetiringStatic = MoveTemp(Static);
+    }
+    void FWorldSession::SeedOrdering()
+    {
+        if (Candidate->PlayerRevision > RevisionHighWater)
+        { RevisionHighWater = Candidate->PlayerRevision; MoveHighWater = Candidate->MoveSequence; }
+        else if (Candidate->PlayerRevision == RevisionHighWater)
+            MoveHighWater = FMath::Max(MoveHighWater, Candidate->MoveSequence);
+        HealthHighWater = FMath::Max(HealthHighWater, Candidate->HealthRevision);
+        SavedHighWater = FMath::Max(SavedHighWater, Candidate->SavedRevision);
+    }
+    WorldObservationPrivate::EStep FWorldSession::RetainStatic()
+    {
+        using namespace WorldObservationPrivate;
+        using namespace WorldReadPrivate;
+        if (RetiringStatic) return EStep::Pending;
+        if (!Budget->Spend(2048)) return Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+        if (!Live() || !Visit || Static || !Candidate || !Semantic || Semantic->bCancelled
+            || !Candidate->bComplete || !Candidate->bSemanticsComplete || Candidate->bRetiring
+            || Candidate->SemanticGeneration != State.Generation || Candidate->Budget != Budget
+            || Candidate->Manifest.PublishBy.IsSet() || !Same(Candidate->Manifest.Kind, TEXT("prepare"))
+            || !Same(Candidate->Manifest.Capture, Capture) || !Hex(Capture, 32)) return EStep::Invalid;
+        if (!std::isfinite(OriginalDispatchAt) || OriginalDispatchAt <= 0) return EStep::Invalid;
+        const auto& Receipt = Semantic->Binding.Receipt();
+        const double Duration = FMath::Min(static_cast<double>(Candidate->Manifest.PermissionDeadline), Receipt.Number(ReceiptExpires))
+            - Receipt.Number(ReceiptNow);
+        const double Deadline = FMath::Min(CandidateDeadline, FMath::Min(Visit->Deadline, OriginalDispatchAt + Duration / 1000));
+        if (!std::isfinite(Duration) || Duration <= 0 || !std::isfinite(Deadline) || FPlatformTime::Seconds() >= Deadline)
+            return EStep::Invalid;
+        static constexpr uint8 Slots[] = {2, 16};
+        for (uint8 Slot : Slots)
+        {
+            const auto* Root = Candidate->Roots[Slot];
+            if (!Root || !Root->bVerified || !Root->bClosed || !Root->Owners
+                || Root->Directory.Slot != Slot || Root->Directory.Presence != 2) return EStep::Invalid;
+            if (Root->Owners == MAX_uint64) return EStep::ResourceUnavailable;
+        }
+        if (!QualifiedStaticOwnerBytes || !Budget->Reserve(QualifiedStaticOwnerBytes)) return EStep::ResourceUnavailable;
+        Static = MakeUnique<FStaticRoots>(Budget.ToSharedRef());
+        Static->Context = StaticContext(); Static->Deadline = Deadline;
+        for (int32 I = 0; I < 32; ++I) Static->Preparation[I] = Capture[I];
+        for (int32 I = 0; I < 2; ++I)
+        { Static->Roots[I] = Candidate->Roots[Slots[I]]; ++Static->Roots[I]->Owners; }
+        Static->bAvailable = true;
+        Preparation = Capture;
+        CandidateDeadline = FMath::Min(CandidateDeadline, Deadline);
+        SeedOrdering();
+        return EStep::Complete;
+    }
+    WorldObservationPrivate::EStep FWorldSession::SettleCommand()
+    {
+        using namespace WorldObservationPrivate;
+        using namespace WorldReadPrivate;
+        if (!Budget->Spend(1024)) return Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+        if (!Command(CaptureOperation) || CaptureOperation != RequestedOperation || !Semantic || Semantic->bCancelled
+            || !Candidate->bSemanticsComplete || Candidate->SemanticGeneration != State.Generation
+            || Candidate->Manifest.PublishBy.IsSet() || !Same(Candidate->Manifest.Kind, Kind(CaptureOperation))
+            || !Same(Candidate->Manifest.Capture, Capture) || !Hex(Capture, 32) || !Hex(RequestId, 32)
+            || RequestSequence <= SettledRequestSequence || OperationSequence <= SettledOperationSequence
+            || !std::isfinite(OriginalDispatchAt) || OriginalDispatchAt <= 0) return EStep::Invalid;
+        // ReceiptNow is the original operation's server anchor. A lookup may
+        // recover its evidence, never start that receipt's duration at arrival.
+        const auto& Receipt = Semantic->Binding.Receipt();
+        const double Duration = FMath::Min(static_cast<double>(Candidate->Manifest.PermissionDeadline), Receipt.Number(ReceiptExpires))
+            - Receipt.Number(ReceiptNow);
+        const double Deadline = FMath::Min(CandidateDeadline, FMath::Min(Entry.Deadline, OriginalDispatchAt + Duration / 1000));
+        if (!std::isfinite(Duration) || Duration <= 0 || !std::isfinite(Deadline) || FPlatformTime::Seconds() >= Deadline)
+            return EStep::Invalid;
+        if (CaptureOperation == EWorldRequest::Enter)
+        {
+            if (Visit || RetiringVisit) return EStep::Invalid;
+            const auto Copied = Semantic->MaterializeVisit();
+            if (Copied != EStep::Complete) return Copied;
+        }
+        if (!Budget->Spend(1024)) return Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+        // Recheck after the final copying slice, before any identity or marks
+        // become installed. The candidate itself is still wholly private.
+        if (!Live() || Semantic->bCancelled || Semantic->Generation != State.Generation
+            || FPlatformTime::Seconds() >= Deadline) return EStep::Invalid;
+        if (CaptureOperation == EWorldRequest::Enter)
+        {
+            Semantic->EnterVisit->Deadline = Deadline;
+            Visit = MoveTemp(Semantic->EnterVisit);
+        }
+        SettledOperation = CaptureOperation; SettledRequestSequence = RequestSequence;
+        SettledOperationSequence = OperationSequence;
+        for (int32 I = 0; I < 32; ++I) { SettledRequestId[I] = RequestId[I]; SettledCapture[I] = Capture[I]; }
+        bSettledAcknowledged = (CaptureOperation == EWorldRequest::Ready || CaptureOperation == EWorldRequest::PresentationFailed)
+            && Semantic->bSameRound;
+        CandidateDeadline = FMath::Min(CandidateDeadline, Deadline);
+        SeedOrdering();
+        return EStep::Complete;
+    }
     void FWorldSession::AdvanceSemantics()
     {
         using namespace WorldObservationPrivate;
@@ -1444,17 +1767,39 @@ namespace BaddieCompanion
         }
         if (CaptureOperation == EWorldRequest::Prepare)
         {
-            if (!Budget->Spend(128)) return;
-            Preparation = Capture;
+            const auto Retained = RetainStatic();
+            if (Retained == EStep::Pending) return;
+            if (Retained != EStep::Complete)
+            { Unavailable(Retained == EStep::ResourceUnavailable ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse); return; }
             CancelSemantics();
             Retire(MoveTemp(Candidate));
             Pages.Reset();
             // Exactly one fresh dynamic capture follows this preparation. Failure
             // requires explicit reload; static bytes never create a clock sample.
-            bObserveAfterRetirement = true;
+            AfterRetirement = EWorldRequest::Observe;
             State.Status = EWorldReadStatus::Preparing;
             return;
         }
+        if (Command(CaptureOperation))
+        {
+            const auto Settled = SettleCommand();
+            if (Settled == EStep::Pending) return;
+            if (Settled != EStep::Complete)
+            { Unavailable(Settled == EStep::ResourceUnavailable ? EWorldReadStatus::ResourceUnavailable : EWorldReadStatus::InvalidResponse); return; }
+            CancelSemantics();
+            Retire(MoveTemp(Candidate)); Pages.Reset();
+            if (CaptureOperation == EWorldRequest::Enter)
+            { AfterRetirement = EWorldRequest::Prepare; State.Status = EWorldReadStatus::Preparing; }
+            else
+            {
+                bAttemptActive = bLostTicket = false;
+                // Settled does not mean a complete published world or readiness.
+                State.Status = EWorldReadStatus::Unavailable;
+            }
+            return;
+        }
+        if (CaptureOperation != EWorldRequest::Observe)
+        { Unavailable(EWorldReadStatus::InvalidResponse); return; }
         State.Status = EWorldReadStatus::Binding; Next = EWorldRequest::Bind;
     }
     WorldObservationPrivate::EStep FWorldSession::ValidateCandidate()
@@ -1463,7 +1808,7 @@ namespace BaddieCompanion
         using namespace WorldReadPrivate;
         if (!Live() || !Candidate || !Candidate->bComplete || Candidate->bRetiring || !Budget
             || Candidate->Budget != Budget || (Accepted && Accepted->Budget != Budget)) return EStep::Invalid;
-        if (CaptureOperation != EWorldRequest::Enter && (VisitId.IsEmpty() || LifeId.IsEmpty())) return EStep::Invalid;
+        if ((CaptureOperation == EWorldRequest::Enter) == static_cast<bool>(Visit)) return EStep::Invalid;
         if (!Semantic)
         {
             if (!QualifiedSemanticDataBytes) return EStep::ResourceUnavailable;
@@ -1561,16 +1906,16 @@ namespace BaddieCompanion
                     if (!Same) return FinishStep(EStep::Invalid);
                     ++D.Comparison;
                 }
-                if (D.Comparison == 1 && !VisitId.IsEmpty())
+                if (D.Comparison == 1 && Visit)
                 {
-                    Step = D.Owner(V.Field(WorldReadPrivate::VisitId), VisitId, Same);
+                    Step = D.Owner(V.Field(WorldReadPrivate::VisitId), Visit->Values[0], Same);
                     if (Step != EStep::Complete) return FinishStep(Step);
                     if (!Same) return FinishStep(EStep::Invalid);
                     ++D.Comparison;
                 }
-                if (!LifeId.IsEmpty())
+                if (Visit)
                 {
-                    Step = D.Owner(V.Field(VisitLife), LifeId, Same);
+                    Step = D.Owner(V.Field(VisitLife), Visit->Values[1], Same);
                     if (Step != EStep::Complete) return FinishStep(Step);
                     if (!Same) return FinishStep(EStep::Invalid);
                 }
@@ -1787,7 +2132,8 @@ namespace BaddieCompanion
     {
         using namespace StateJsonPrivate;
         using namespace WorldObservationPrivate;
-        if (!Live() || !Candidate || !bBindingValidated || TicketArrival <= 0 || ReceiptExpiresAt <= 0) return false;
+        if (!Live() || CaptureOperation != EWorldRequest::Observe || RequestedOperation != EWorldRequest::Observe
+            || !Candidate || !bBindingValidated || TicketArrival <= 0 || ReceiptExpiresAt <= 0) return false;
         const auto& M = Candidate->Manifest;
         FString Alias, Digest, Generation; int64 V = 0, At = 0, Permission = 0, Publish = 0, Checked = 0;
         if (!Exact(O, {TEXT("v"), TEXT("generation"), TEXT("capture"), TEXT("status"), TEXT("directoryDigest"),
@@ -1819,6 +2165,7 @@ namespace BaddieCompanion
     {
         if (ObservationGeneration != State.Observation.Generation()) return;
         StopWalking();
-        State.Status = EWorldReadStatus::ContentUnavailable;
+        InvalidateContent();
+        Unavailable(EWorldReadStatus::ContentUnavailable);
     }
 }

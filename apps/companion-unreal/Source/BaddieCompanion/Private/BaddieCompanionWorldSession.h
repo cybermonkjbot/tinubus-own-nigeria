@@ -60,6 +60,11 @@ namespace BaddieCompanion
         bool RecoverResult(double Earliest);
         void AcceptTicket(const TSharedPtr<FJsonObject>& Ticket, bool bReplacement);
         void InvalidateContent();
+        void RetireStatic();
+        WorldObservationPrivate::FStaticContext StaticContext() const;
+        WorldObservationPrivate::EStep RetainStatic();
+        WorldObservationPrivate::EStep SettleCommand();
+        void SeedOrdering();
         void Unavailable(EWorldReadStatus Status);
         void ProcessBody();
         void AdvancePages();
@@ -77,6 +82,9 @@ namespace BaddieCompanion
         TSharedPtr<WorldObservationPrivate::FStorage> Candidate, Accepted;
         struct FSemanticData;
         TUniquePtr<FSemanticData> Semantic;
+        struct FVisitIdentity;
+        TUniquePtr<FVisitIdentity> Visit, RetiringVisit;
+        TUniquePtr<WorldObservationPrivate::FStaticRoots> Static, RetiringStatic;
         // One retirement owner, with fixed slots for a prior retirement and the
         // accepted/candidate pair revoked together. It drains only one at a time.
         TSharedPtr<WorldObservationPrivate::FStorage> Retiring[3];
@@ -88,18 +96,24 @@ namespace BaddieCompanion
         EWorldRequest Next = EWorldRequest::None, CaptureOperation = EWorldRequest::None;
         // Replacement preparation changes CaptureOperation, never this request's identity/kind.
         EWorldRequest RequestedOperation = EWorldRequest::None;
-        FString RequestId, Capture, Preparation, VisitId, LifeId;
+        FString RequestId, Capture, Preparation;
         FString Body;
         TSharedPtr<FJsonObject> DecodedBody;
         uint64 RequestSequence = 0, DispatchSerial = 0, OperationSequence = 0;
         int64 RevisionHighWater = -1, MoveHighWater = -1;
         int64 HealthHighWater = -1, SavedHighWater = -1;
         int64 ReceiptExpiresAt = 0;
+        // Fixed operation evidence survives payload retirement, never publishes.
+        EWorldRequest SettledOperation = EWorldRequest::None;
+        uint64 SettledRequestSequence = 0, SettledOperationSequence = 0;
+        TCHAR SettledRequestId[33]{}, SettledCapture[33]{};
+        bool bSettledAcknowledged = false;
         double TicketArrival = 0, CandidateDeadline = 0, NextAt = 0, SentAt = 0, ReceivedAt = 0;
+        double OriginalDispatchAt = 0;
         bool bAttached = false, bInFlight = false, bLostTicket = false, bPageRetried = false;
         bool bBindingValidated = false;
         bool bFinalBindComplete = false, bManifestBodyPending = false;
-        bool bObserveAfterRetirement = false;
+        EWorldRequest AfterRetirement = EWorldRequest::None;
         bool bAttemptActive = false, bReplacementUsed = false;
         uint8 ResultLookups = 0;
     };

@@ -927,6 +927,9 @@ namespace BaddieCompanion::WorldObservationPrivate
         if (!Root) return EStep::Complete;
         if (!Budget.Spend(8, false)) return EStep::Pending;
         if (Root->Owners > 1) { --Root->Owners; Root = nullptr; return EStep::Complete; }
+        // Last-owner retirement can yield halfway through a string. Such a root
+        // must never be pinned again, even while its storage is still allocated.
+        Root->bVerified = false;
         while (Root->RetireNode <= Root->Nodes)
         {
             if (!Budget.Spend(8, false)) return EStep::Pending;
@@ -980,6 +983,39 @@ namespace BaddieCompanion::WorldObservationPrivate
                 Storage->Budget->BeginTick();
                 return Storage->Retire() != EStep::Complete;
             }));
+    }
+    FStaticRoots::~FStaticRoots()
+    {
+        ensureMsgf(!Roots[0] && !Roots[1], TEXT("World static roots were not retired."));
+        Budget->Release(QualifiedStaticOwnerBytes);
+    }
+    bool FStaticRoots::Current(const FStaticContext& Expected) const
+    {
+        const double Now = FPlatformTime::Seconds();
+        return bAvailable && Context.Lifetime && Context.CredentialGeneration && Context.EntrySequence > 0
+            && Context.Visit && Context.Lifetime == Expected.Lifetime
+            && Context.CredentialGeneration == Expected.CredentialGeneration
+            && Context.EntrySequence == Expected.EntrySequence && Context.Visit == Expected.Visit
+            && FCString::Strcmp(Generation, ProtocolGeneration) == 0
+            && std::isfinite(Now) && std::isfinite(Deadline) && Now < Deadline;
+    }
+    EStep FStaticRoots::Retire()
+    {
+        bAvailable = false;
+        for (auto& Root : Roots)
+            if (FStorage::ReleaseRoot(Root, *Budget) != EStep::Complete) return EStep::Pending;
+        return EStep::Complete;
+    }
+    void RetireDetached(TUniquePtr<FStaticRoots> Roots)
+    {
+        if (!Roots) return;
+        Roots->bAvailable = false;
+        FTSTicker::GetCoreTicker().AddTicker(FTickerDelegate::CreateLambda([Owner = Roots.Release()](float)
+        {
+            Owner->Budget->BeginTick();
+            if (Owner->Retire() != EStep::Complete || !Owner->Budget->Spend(sizeof(FStaticRoots), false)) return true;
+            delete Owner; return false;
+        }));
     }
     bool FAccess::Current() const
     {

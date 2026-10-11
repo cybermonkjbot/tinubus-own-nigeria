@@ -69,7 +69,7 @@ namespace BaddieCompanion::WorldObservationPrivate
         uint64 Nodes = 0, Records = 0, Members = 0, ArraySlots = 0, Units = 0, Pages = 0, PageBytes = 0;
         uint64 Parent = 0, OpenString = 0, StringOffset = 0;
         FString RecordHash, PageHash;
-        bool bClosed = false;
+        bool bClosed = false, bVerified = false;
         uint64 Owners = 1, RetireNode = 1;
         FNode* Get(uint64 Id) const;
     };
@@ -85,6 +85,10 @@ namespace BaddieCompanion::WorldObservationPrivate
         uint8 RetireRoot = 0;
         bool bComplete = false, bRetiring = false;
         uint64 ChargedBytes = 0;
+        // Logical totals include shared roots. Fetched totals count validated new
+        // pages, not retries or wire framing received before validation.
+        uint64 LogicalPages = 0, LogicalPageBytes = 0;
+        uint64 FetchedPages = 0, FetchedPageBytes = 0, ReusedPages = 0, ReusedPageBytes = 0;
         WorldReadPrivate::FPlayerResult* Players = nullptr;
         FRoot* RacingOwner = nullptr;
         uint64 RacingNode = 0, RaceInstanceNode = 0;
@@ -95,6 +99,31 @@ namespace BaddieCompanion::WorldObservationPrivate
         static EStep ReleaseRoot(FRoot*& Root, FBudget& Budget);
         EStep Retire();
         FNode* Get(uint8 Root, uint64 Id) const;
+    };
+    struct FStaticContext
+    {
+        uint64 Lifetime = 0, CredentialGeneration = 0;
+        int32 EntrySequence = 0;
+        // Immutable, exactly materialized visit/life owned by this session.
+        // The handle is never reused within Lifetime; it is not an identity hash.
+        const void* Visit = nullptr;
+    };
+    constexpr uint64 QualifiedStaticOwnerBytes = 0;
+    struct FStaticRoots
+    {
+        explicit FStaticRoots(TSharedRef<FBudget> InBudget) : Budget(MoveTemp(InBudget)) {}
+        ~FStaticRoots();
+        FStaticRoots(const FStaticRoots&) = delete;
+        FStaticRoots& operator=(const FStaticRoots&) = delete;
+        TSharedRef<FBudget> Budget;
+        FRoot* Roots[2]{};
+        FStaticContext Context;
+        TCHAR Preparation[33]{};
+        const TCHAR* Generation = ProtocolGeneration;
+        double Deadline = 0;
+        bool bAvailable = false;
+        bool Current(const FStaticContext& Expected) const;
+        EStep Retire();
     };
     struct FAccess
     {
@@ -111,6 +140,7 @@ namespace BaddieCompanion::WorldObservationPrivate
         void Revoke();
     };
     void RetireDetached(TSharedPtr<FStorage> Storage);
+    void RetireDetached(TUniquePtr<FStaticRoots> Roots);
 
     // One bounded decoded body at a time. Credentials and actual HTTP stay outside.
     // Whole-root JSON reconstruction is deliberately absent from this interface.
@@ -119,7 +149,8 @@ namespace BaddieCompanion::WorldObservationPrivate
     public:
         explicit FPages(TSharedRef<FBudget> Budget);
         ~FPages();
-        EStep Begin(const TSharedPtr<FJsonObject>& Envelope, const FString& Capture, const FString& Kind);
+        EStep Begin(const TSharedPtr<FJsonObject>& Envelope, const FString& Capture, const FString& Kind,
+            const FStaticRoots* Reuse = nullptr, FStaticContext Context = {}, const FString& Preparation = FString());
         EStep Consume(const TSharedPtr<FJsonObject>& Envelope, uint32 NormalizedBodyBytes);
         EStep Advance();
         bool Next(FString& Root, uint64& Ordinal) const;
