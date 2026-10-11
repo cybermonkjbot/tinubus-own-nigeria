@@ -1,6 +1,8 @@
 #include "BaddieCompanionPlayState.h"
 
 #include "BaddieCompanionStateJson.h"
+#include "Containers/StringConv.h"
+#include "HAL/PlatformTime.h"
 #include "Misc/DateTime.h"
 #include "Serialization/JsonSerializer.h"
 #include "Serialization/JsonWriter.h"
@@ -426,7 +428,7 @@ namespace BaddieCompanion
     void FPlayState::Connect()
     {
         RetireQuery();
-        // Future utility owner: clear/abort utility generation here, even without a scope.
+        ClearUtilities();
         bQueryAvailable = !bDisposed && Scope.IsSet() && !Observers.IsEmpty();
     }
     FPlayObserverReceipt FPlayState::Subscribe(TFunction<void()> Listener)
@@ -448,7 +450,7 @@ namespace BaddieCompanion
         if (Observers.IsEmpty())
         {
             RetireQuery();
-            // Future utility owner: disable and clear/abort, retaining previous observation.
+            bUtilityActive = false; ClearUtilities();
             Snapshot.bBusy = false; // Canonical last-unsubscribe has no notification.
         }
         return true;
@@ -467,8 +469,9 @@ namespace BaddieCompanion
     {
         if (bDisposed) return;
         Session = FGuid::NewGuid();
+        bUtilityActive = false; ClearUtilities();
+        PreviousUtilityObservation.Reset(); NextUtilityAtMs = 0; NextUtilityEntryAtMs = 0;
         RetireQuery(); Scope.Reset(); Snapshot = {}; Observers.Reset();
-        // Future utility owner: disable, clear/abort and discard previous observation.
     }
     void FPlayState::Dispose()
     {
@@ -494,7 +497,7 @@ namespace BaddieCompanion
     }
     void FPlayState::FailQuery(const FString& PublicMessage)
     {
-        // Future utility owner: clear/abort without disabling or losing previous observation.
+        ClearUtilities();
         // Deliberately retain request ownership in this generation while resetting busy.
         Snapshot = {}; Snapshot.bReady = true; Snapshot.Error = PublicMessage; Emit();
     }
@@ -652,5 +655,260 @@ namespace BaddieCompanion
         if (!FindCompletion(Completion)) return false;
         Requests.Remove(Completion.Receipt.Id);
         Snapshot.bBusy = false; Emit(); return true;
+    }
+
+    namespace PlayUtilityPrivate
+    {
+        using namespace StateJsonPrivate;
+        constexpr const TCHAR* RefreshError = TEXT("Room conditions couldn't refresh.");
+        constexpr double PendingWindowMs = 15000, RetryDelayMs = 45000, EntryDelayMs = 5000;
+        // A maximally escaped 131,072-unit room key must fit without widening Play reads.
+        constexpr FParseLimits ReceiptLimits{1048576, 8, 128};
+
+        double MonotonicMs() { return FPlatformTime::Seconds() * 1000; }
+        bool Truthy(const TOptional<FString>& Value) { return Value.IsSet() && !Value->IsEmpty(); }
+        bool RoomKey(const FValue& Value, FString& Out)
+        {
+            if (!String(Value, Out) || Out.IsEmpty() || Out.Len() > 131072) return false;
+            const auto Units = StringCast<UTF16CHAR>(*Out, Out.Len());
+            return Units.Length() >= 1 && Units.Length() <= 131072;
+        }
+        // Header checks precede the retry-deadline update. Observation decoding follows it.
+        bool ReceiptHeader(const FString& Json, FObject& Root, FPlayRoomUtilityReceipt& Out)
+        {
+            return Parse(Json, Root, ReceiptLimits)
+                && Only(Root, {TEXT("serverNow"), TEXT("characterId"), TEXT("roomId"), TEXT("roomKey"),
+                    TEXT("roomRevision"), TEXT("invitationId"), TEXT("observation"), TEXT("retryAfterMs")})
+                && Integer(Field(Root, TEXT("serverNow")), Out.ServerNow, 1)
+                && Text(Field(Root, TEXT("characterId")), Out.CharacterId)
+                && Text(Field(Root, TEXT("roomId")), Out.RoomId)
+                && RoomKey(Field(Root, TEXT("roomKey")), Out.RoomKey)
+                && Integer(Field(Root, TEXT("roomRevision")), Out.RoomRevision)
+                && Nullable(Field(Root, TEXT("invitationId")), Out.InvitationId, Text)
+                && Integer(Field(Root, TEXT("retryAfterMs")), Out.RetryAfterMs) && Out.RetryAfterMs <= 60000;
+        }
+        bool Observation(const FValue& Value, FWorldUtilityObservation& Out)
+        {
+            const auto O = Object(Value);
+            const auto S = Object(Field(O, TEXT("scope"))), C = Object(Field(O, TEXT("clock")));
+            int64 ScopeVersion = 0, ClockVersion = 0;
+            if (!Only(O, {TEXT("scope"), TEXT("clock"), TEXT("serverNowRealMs"), TEXT("notBeforeRealMs")})
+                || !Only(S, {TEXT("version"), TEXT("worldKey"), TEXT("clockEpochKey"), TEXT("zoneKey")})
+                || !Only(C, {TEXT("version"), TEXT("worldKey"), TEXT("epochKey"), TEXT("epochRealMs"),
+                    TEXT("epochGameMinute"), TEXT("realMsPerGameMinute")})
+                || !Integer(Field(S, TEXT("version")), ScopeVersion) || ScopeVersion != 1
+                || !Text(Field(S, TEXT("worldKey")), Out.Scope.WorldKey)
+                || !Text(Field(S, TEXT("clockEpochKey")), Out.Scope.ClockEpochKey)
+                || !Text(Field(S, TEXT("zoneKey")), Out.Scope.ZoneKey)
+                || !Integer(Field(C, TEXT("version")), ClockVersion) || ClockVersion != 1
+                || !Text(Field(C, TEXT("worldKey")), Out.Clock.WorldKey)
+                || !Text(Field(C, TEXT("epochKey")), Out.Clock.EpochKey)
+                || !Integer(Field(C, TEXT("epochRealMs")), Out.Clock.EpochRealMs)
+                || !Integer(Field(C, TEXT("epochGameMinute")), Out.Clock.EpochGameMinute)
+                || !Integer(Field(C, TEXT("realMsPerGameMinute")), Out.Clock.RealMsPerGameMinute)
+                || !Integer(Field(O, TEXT("serverNowRealMs")), Out.ServerNowRealMs)
+                // Keep the original numeric watermark. Same-scope validation deliberately
+                // substitutes the previous server time, not this received field.
+                || !Integer(Field(O, TEXT("notBeforeRealMs")), Out.NotBeforeRealMs, -MaxInteger)) return false;
+            Out.Scope.Version = static_cast<int32>(ScopeVersion);
+            Out.Clock.Version = static_cast<int32>(ClockVersion);
+            return true;
+        }
+        bool SameScope(const FWorldUtilityScope& A, const FWorldUtilityScope& B)
+        {
+            return A.Version == B.Version && Same(A.WorldKey, B.WorldKey)
+                && Same(A.ClockEpochKey, B.ClockEpochKey) && Same(A.ZoneKey, B.ZoneKey);
+        }
+        bool SameClock(const FResidentClock& A, const FResidentClock& B)
+        {
+            return A.Version == B.Version && Same(A.WorldKey, B.WorldKey) && Same(A.EpochKey, B.EpochKey)
+                && A.EpochRealMs == B.EpochRealMs && A.EpochGameMinute == B.EpochGameMinute
+                && A.RealMsPerGameMinute == B.RealMsPerGameMinute;
+        }
+    }
+
+    void FPlayState::ClearUtilities()
+    {
+        UtilityGeneration = FGuid::NewGuid();
+        NextUtilityAtMs = NextUtilityEntryAtMs;
+        UtilityRequest.Reset(); // External transport must abort the retired receipt's handle.
+        Snapshot.RoomUtility.Reset(); Snapshot.UtilityError.Reset();
+    }
+    bool FPlayState::SetRoomUtilitiesActive(bool bActive)
+    {
+        if (bDisposed || bUtilityActive == bActive) return false;
+        bUtilityActive = bActive; ClearUtilities(); Emit(); return true;
+    }
+    bool FPlayState::UtilityEligible() const
+    {
+        return !bDisposed && bUtilityActive && !Observers.IsEmpty() && Scope.IsSet()
+            && !PlayUtilityPrivate::Truthy(Scope->CallSessionId) && Snapshot.bReady
+            && !PlayUtilityPrivate::Truthy(Snapshot.Error) && Scope->RoomRevision.IsSet()
+            && PlayCommandPrivate::SafeRevision(*Scope->RoomRevision);
+    }
+    TOptional<FPlayUtilityRequestReceipt> FPlayState::BeginRoomUtilityObservation()
+    {
+        using namespace PlayUtilityPrivate;
+        if (!UtilityEligible()) return {};
+        const double Began = MonotonicMs();
+        if (!std::isfinite(Began) || Began < 0 || !std::isfinite(Began + RetryDelayMs)) return {};
+        const FGuid BeganSession = Session, BeganQuery = QueryGeneration, BeganUtility = UtilityGeneration;
+        if (UtilityRequest.IsSet())
+        {
+            const double AgeMs = Began - UtilityRequest->BeganAtMs;
+            if (AgeMs >= 0 && AgeMs <= PendingWindowMs) return {};
+            UtilityRequest.Reset();
+            FailUtility(RefreshError); // Canonical expiry notification precedes retry checks.
+            // A listener may retire this attempt, remove eligibility or reserve a new request.
+            // Reuse the original began time, but read current deadlines after notification.
+            if (Session != BeganSession || QueryGeneration != BeganQuery || UtilityGeneration != BeganUtility
+                || !UtilityEligible() || UtilityRequest.IsSet()) return {};
+        }
+        if (Began < NextUtilityAtMs) return {};
+        FUtilityRequest Request;
+        Request.Dispatch.Receipt.Session = Session; Request.Dispatch.Receipt.QueryGeneration = QueryGeneration;
+        Request.Dispatch.Receipt.UtilityGeneration = UtilityGeneration; Request.Dispatch.Receipt.Id = FGuid::NewGuid();
+        Request.CharacterId = Scope->CharacterId; Request.RoomId = Scope->RoomId;
+        Request.RoomRevision = static_cast<int64>(*Scope->RoomRevision);
+        if (Truthy(Scope->InvitationId)) Request.InvitationId = Scope->InvitationId;
+        Request.BeganAtMs = Began;
+        const FPlayUtilityRequestReceipt Receipt = Request.Dispatch.Receipt;
+        UtilityRequest = Request;
+        NextUtilityAtMs = Began + RetryDelayMs; NextUtilityEntryAtMs = Began + EntryDelayMs;
+
+        const auto Args = MakeShared<FJsonObject>();
+        Args->SetStringField(TEXT("characterId"), Request.CharacterId);
+        Args->SetStringField(TEXT("roomId"), Request.RoomId);
+        Args->SetNumberField(TEXT("roomRevision"), static_cast<double>(Request.RoomRevision));
+        if (Request.InvitationId.IsSet()) Args->SetStringField(TEXT("invitationId"), *Request.InvitationId);
+        FString Arguments;
+        if (Request.CharacterId.Len() > MaxText || Request.RoomId.Len() > MaxText
+            || (Request.InvitationId.IsSet() && Request.InvitationId->Len() > MaxText)
+            || !PlayCommandPrivate::SerializeArguments(Args, Arguments))
+        {
+            const auto Completion = BeginUtilityCompletion(Receipt, true);
+            FailUtility(RefreshError);
+            if (Completion.IsSet()) FinalizeRoomUtility(*Completion);
+            return {};
+        }
+        UtilityRequest->Dispatch.ArgumentsJson = MoveTemp(Arguments);
+        return Receipt;
+    }
+    bool FPlayState::IsCurrentRoomUtilityRequest(FPlayUtilityRequestReceipt Receipt) const
+    {
+        return !bDisposed && bUtilityActive && UtilityRequest.IsSet() && Receipt.Id.IsValid()
+            && Receipt.Session == Session && Receipt.QueryGeneration == QueryGeneration
+            && Receipt.UtilityGeneration == UtilityGeneration && Receipt.Id == UtilityRequest->Dispatch.Receipt.Id;
+    }
+    TOptional<FPlayUtilityDispatch> FPlayState::MarkRoomUtilityDispatched(FPlayUtilityRequestReceipt Receipt)
+    {
+        if (!IsCurrentRoomUtilityRequest(Receipt) || UtilityRequest->Stage != EUtilityStage::Prepared) return {};
+        UtilityRequest->Stage = EUtilityStage::Dispatched;
+        return UtilityRequest->Dispatch;
+    }
+    bool FPlayState::AbandonPreparedRoomUtilityRequest(FPlayUtilityRequestReceipt Receipt)
+    {
+        if (!IsCurrentRoomUtilityRequest(Receipt) || UtilityRequest->Stage != EUtilityStage::Prepared) return false;
+        UtilityRequest.Reset(); // Deadlines and the displayed value are unchanged; no retry or emit.
+        return true;
+    }
+    TOptional<FPlayUtilityCompletion> FPlayState::BeginUtilityCompletion(
+        const FPlayUtilityRequestReceipt& Receipt, bool bAllowPrepared)
+    {
+        if (!IsCurrentRoomUtilityRequest(Receipt)
+            || (UtilityRequest->Stage != EUtilityStage::Dispatched
+                && !(bAllowPrepared && UtilityRequest->Stage == EUtilityStage::Prepared))) return {};
+        UtilityRequest->Stage = EUtilityStage::CompletingFailure;
+        UtilityRequest->CompletionId = FGuid::NewGuid();
+        FPlayUtilityCompletion Completion;
+        Completion.Receipt = Receipt; Completion.Id = UtilityRequest->CompletionId;
+        return Completion;
+    }
+    bool FPlayState::IsCurrentUtilityCompletion(const FPlayUtilityCompletion& Completion) const
+    {
+        return IsCurrentRoomUtilityRequest(Completion.Receipt) && Completion.Id.IsValid()
+            && Completion.Id == UtilityRequest->CompletionId
+            && (UtilityRequest->Stage == EUtilityStage::CompletingSuccess || UtilityRequest->Stage == EUtilityStage::CompletingFailure);
+    }
+    void FPlayState::FailUtility(const FString& PublicMessage)
+    {
+        Snapshot.RoomUtility.Reset(); Snapshot.UtilityError = PublicMessage; Emit();
+    }
+    TOptional<FPlayUtilityCompletion> FPlayState::ObserveRoomUtility(FPlayUtilityRequestReceipt Receipt, FString Json)
+    {
+        using namespace PlayUtilityPrivate;
+        auto Completion = BeginUtilityCompletion(Receipt);
+        if (!Completion.IsSet()) return {}; // Reject stale/duplicate identity before reading time.
+        const double ReceivedAt = MonotonicMs();
+        const FUtilityRequest Request = *UtilityRequest;
+        FPlayRoomUtilityReceipt Candidate;
+        FObject Root;
+        if (!ReceiptHeader(Json, Root, Candidate)
+            || !Same(Candidate.CharacterId, Request.CharacterId) || !Same(Candidate.RoomId, Request.RoomId)
+            || Candidate.RoomRevision != Request.RoomRevision
+            || !PlayCommandPrivate::SameOptionalText(Candidate.InvitationId, Request.InvitationId)
+            || !std::isfinite(ReceivedAt) || ReceivedAt < Request.BeganAtMs
+            || ReceivedAt - Request.BeganAtMs > PendingWindowMs)
+        {
+            FailUtility(RefreshError); return Completion;
+        }
+        const double NextAt = ReceivedAt + FMath::Max(RetryDelayMs, static_cast<double>(Candidate.RetryAfterMs));
+        if (!std::isfinite(NextAt)) { FailUtility(RefreshError); return Completion; }
+        NextUtilityAtMs = NextAt;
+        // Observation failures still retain the successfully checked receipt's retry deadline.
+        if (!Nullable(Field(Root, TEXT("observation")), Candidate.Observation, Observation))
+        {
+            FailUtility(RefreshError); return Completion;
+        }
+        if (Candidate.Observation.IsSet())
+        {
+            const FWorldUtilityObservation Original = *Candidate.Observation;
+            const bool bSameScope = PreviousUtilityObservation.IsSet()
+                && SameScope(PreviousUtilityObservation->Scope, Original.Scope);
+            if (Original.ServerNowRealMs != Candidate.ServerNow || (bSameScope
+                && (!SameClock(PreviousUtilityObservation->Clock, Original.Clock)
+                    || Original.ServerNowRealMs <= PreviousUtilityObservation->ServerNowRealMs)))
+            {
+                FailUtility(RefreshError); return Completion;
+            }
+            FWorldUtilityObservation Validation = Original;
+            if (bSameScope) Validation.NotBeforeRealMs = PreviousUtilityObservation->ServerNowRealMs;
+            FWorldUtilities Sample;
+            FString Error;
+            if (!SampleWorldUtilities(Validation, Sample, Error))
+            {
+                FailUtility(RefreshError); return Completion;
+            }
+            PreviousUtilityObservation = Original;
+            Snapshot.RoomUtility = FPlayRoomUtilityState{MoveTemp(Candidate), ReceivedAt};
+        }
+        else Snapshot.RoomUtility.Reset(); // Null does not discard the continuity watermark.
+        Snapshot.UtilityError.Reset();
+        UtilityRequest->Stage = EUtilityStage::CompletingSuccess;
+        Completion->bAccepted = true;
+        Emit();
+        return Completion; // No optional-storage reference survives notification.
+    }
+    TOptional<FPlayUtilityCompletion> FPlayState::ObserveRoomUtilityFailure(
+        FPlayUtilityRequestReceipt Receipt, TOptional<FString> PublicMessage)
+    {
+        auto Completion = BeginUtilityCompletion(Receipt);
+        if (!Completion.IsSet()) return {};
+        const FString Error = PlayCommandPrivate::PublicError(PublicMessage, PlayUtilityPrivate::RefreshError);
+        FailUtility(Error); return Completion;
+    }
+    TOptional<FPlayUtilityCompletion> FPlayState::ObserveRoomUtilityCompletionFailure(
+        FPlayUtilityCompletion Completion, TOptional<FString> PublicMessage)
+    {
+        if (!IsCurrentUtilityCompletion(Completion) || UtilityRequest->Stage != EUtilityStage::CompletingSuccess) return {};
+        UtilityRequest->Stage = EUtilityStage::CompletingFailure; UtilityRequest->CompletionId = FGuid::NewGuid();
+        Completion.Id = UtilityRequest->CompletionId; Completion.bAccepted = false;
+        const FString Error = PlayCommandPrivate::PublicError(PublicMessage, PlayUtilityPrivate::RefreshError);
+        FailUtility(Error); return Completion;
+    }
+    bool FPlayState::FinalizeRoomUtility(FPlayUtilityCompletion Completion)
+    {
+        if (!IsCurrentUtilityCompletion(Completion)) return false;
+        UtilityRequest.Reset(); return true;
     }
 }
