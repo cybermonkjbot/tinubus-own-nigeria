@@ -77,10 +77,12 @@ bool ABaddieCompanionWorldCharacter::FollowAccepted(UBaddieCompanionGameplaySess
         // route or silently skip its first corner during publication adoption.
         const FVector Origin = SourceToUnreal(FVector(LastCommittedPose.X, Instance.FloorY, LastCommittedPose.Z))
             + FVector(0, 0, GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
-        SetActorLocationAndRotation(Origin, FRotator(0, SourceYawToUnreal(LastCommittedPose.YawRadians), 0),
-            false, nullptr, ETeleportType::TeleportPhysics);
+        if (!SetActorLocationAndRotation(Origin, FRotator(0, SourceYawToUnreal(LastCommittedPose.YawRadians), 0),
+            false, nullptr, ETeleportType::TeleportPhysics))
+        { bHasRouteIdentity = false; return false; }
         if (!Observation.IsCurrent() || Observation.Token() != Token
-            || Session.GetWorldView().Observation.Token() != Token) return false;
+            || Session.GetWorldView().Observation.Token() != Token
+            || !Session.GetWorldView().bWalkingAvailable || IsActorBeingDestroyed()) return false;
     }
     FMovementPose Window[34];
     uint32 Count = 0;
@@ -109,10 +111,11 @@ bool ABaddieCompanionWorldCharacter::FollowAccepted(UBaddieCompanionGameplaySess
                 Time.ServerNowMs, Receipt, Origin) == EWorldReadResult::Ready;
             const FVector Committed = SourceToUnreal(FVector(LastCommittedPose.X, Instance.FloorY, LastCommittedPose.Z))
                 + FVector(0, 0, GetCapsuleComponent()->GetScaledCapsuleHalfHeight());
-            SetActorLocationAndRotation(Committed, FRotator(0, SourceYawToUnreal(LastCommittedPose.YawRadians), 0),
-                false, nullptr, ETeleportType::TeleportPhysics);
+            if (!SetActorLocationAndRotation(Committed, FRotator(0, SourceYawToUnreal(LastCommittedPose.YawRadians), 0),
+                false, nullptr, ETeleportType::TeleportPhysics)) return false;
             if (!Observation.IsCurrent() || Observation.Token() != Token
-                || Session.GetWorldView().Observation.Token() != Token) return false;
+                || Session.GetWorldView().Observation.Token() != Token
+                || !Session.GetWorldView().bWalkingAvailable || IsActorBeingDestroyed()) return false;
             GetCharacterMovement()->StopMovementImmediately();
             const auto AfterStop = Session.GetWorldView();
             if (!Observation.IsCurrent() || Observation.Token() != Token

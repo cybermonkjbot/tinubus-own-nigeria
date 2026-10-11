@@ -1652,6 +1652,7 @@ namespace BaddieCompanion
         Commands.bMoveInFlight = Commands.bStopInFlight = false;
         Commands.SettleReadyFailure();
         Commands.Presentation.Phase = EWorldPresentationPhase::Failed;
+        Commands.bNeedObserve = false;
     }
     bool FWorldSession::HasRetirement() const
     {
@@ -2093,10 +2094,19 @@ namespace BaddieCompanion
                 return;
             }
             if (Attempt.Body.IsEmpty()) continue;
+            // The exclusive worker's page owner is an allocation even when the
+            // raw reply was already reserved by another lane.
+            if (!QualifiedDispatchConstructionWork || !QualifiedDispatchAllocationOverheadBytes
+                || QualifiedDispatchConstructionWork > TickWorkLimit
+                || !Budget->Spend(QualifiedDispatchConstructionWork)
+                || !Budget->Reserve(QualifiedDispatchAllocationOverheadBytes))
+            { Attempt.Outcome = EWorldCommandOutcome::ResourceUnavailable; return; }
             WorkerLane = Lane; Request = MoveTemp(Attempt.Dispatch);
             RequestSequence = Attempt.RequestSequence; OperationSequence = Attempt.OperationSequence;
             RequestedOperation = Attempt.Requested; CaptureOperation = Attempt.CaptureKind;
-            RequestId = MoveTemp(Attempt.RequestId); RequestIdentityCharge = Attempt.IdentityCharge; Attempt.IdentityCharge = 0;
+            RequestId = MoveTemp(Attempt.RequestId);
+            RequestIdentityCharge = Attempt.IdentityCharge + QualifiedDispatchAllocationOverheadBytes;
+            Attempt.IdentityCharge = 0;
             Capture = MoveTemp(Attempt.Capture); CaptureCharge = Attempt.CaptureCharge; Attempt.CaptureCharge = 0;
             Body = MoveTemp(Attempt.Body); BodyCharge = Attempt.BodyCharge; Attempt.BodyCharge = 0;
             CandidateDeadline = Attempt.Deadline; OriginalDispatchAt = Attempt.OriginalAt;
@@ -2210,12 +2220,20 @@ namespace BaddieCompanion
         else if (!Commands.bDetached && Commands.MayMove(FPlatformTime::Seconds()))
             StartCommand(EWorldLane::Move, EWorldRequest::Move, &Commands.Unsent);
         if (!Commands.bDetached && Commands.bNeedObserve && !CommandLanes[0].bActive && !CommandLanes[1].bActive
-            && !bAttemptActive && !HasRetirement() && !Commands.bFinalObserve
+            && !bAttemptActive && !HasRetirement()
             && Commands.Presentation.Phase != EWorldPresentationPhase::RevokeWaiting
             && Commands.Presentation.Phase != EWorldPresentationPhase::RevokeSent)
         {
+            // A final Observe cannot refill a closed cohort after cancellation.
+            // Drain its fixed outcome; only fresh input or explicit reload starts
+            // another cohort after all original owners have retired.
+            if (Commands.bFinalObserve || Budget->bExhausted || !std::isfinite(CohortDeadline)
+                || (bCohortActive && FPlatformTime::Seconds() >= CohortDeadline))
+            { Commands.bNeedObserve = false; Commands.Suppress(); return; }
             if (BeginCapture(Static && Static->Current(StaticContext()) ? EWorldRequest::Observe : EWorldRequest::Prepare))
             { Commands.bNeedObserve = false; Commands.bFinalObserve = true; }
+            else if (State.Status == EWorldReadStatus::ResourceUnavailable || State.Status == EWorldReadStatus::Expired)
+            { Commands.bNeedObserve = false; Commands.Suppress(); }
         }
     }
     bool FWorldSession::TakeDispatch(FWorldDispatch& Out)

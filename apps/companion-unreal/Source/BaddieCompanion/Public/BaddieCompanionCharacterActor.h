@@ -94,6 +94,17 @@ private:
     TObjectPtr<UBaddieCompanionCharacterMaterials> Materials;
     BaddieCompanion::FNativeCharacterFaceAppearance FaceAppearance;
     BaddieCompanion::FNativeCharacterEquipment Equipment;
+    struct FAccessoryIdentity
+    {
+        TWeakObjectPtr<UMeshComponent> Component;
+        TWeakObjectPtr<USceneComponent> Parent;
+        TWeakObjectPtr<UObject> Asset;
+        FTransform LocalPose;
+        FName Name, Socket;
+        FString Source;
+        bool bBaseline = false;
+    };
+    TArray<FAccessoryIdentity> PreparedAccessories;
     TOptional<FTransform> PendingApartmentPose;
     uint64 PreparedMaterialGeneration = 0;
     FTSTicker::FDelegateHandle DeferredDisposal;

@@ -90,6 +90,18 @@ private:
     void RestoreOwnedMaterials();
     UPROPERTY(Transient)
     TArray<FBaddieOwnedCharacterMaterial> Owned;
+    struct FSlotIdentity
+    {
+        TWeakObjectPtr<UMeshComponent> Component;
+        TWeakObjectPtr<UObject> MeshAsset;
+        TWeakObjectPtr<UMaterialInterface> AuthoredMaterial, AuthoredOverride;
+        int32 Slot = INDEX_NONE;
+        FName SlotName, ColorParameter, IrisEnabledParameter;
+        FString SourceMaterialName;
+        FLinearColor AuthoredColor;
+        bool bAuthoredOverride = false;
+    };
+    TArray<FSlotIdentity> InspectedSlots;
     BaddieCompanion::ENativeCharacterMaterialIssue Issue = BaddieCompanion::ENativeCharacterMaterialIssue::None;
     uint64 ApplicationGeneration = 0;
     uint64 AppliedGeneration = 0;

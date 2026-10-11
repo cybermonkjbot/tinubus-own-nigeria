@@ -432,7 +432,8 @@ void BaddieCompanion::FNativeCharacterEquipment::Clear(ABaddieCompanionCharacter
     FramesIssue = ECharacterEquipmentIssue::ObservationUnknown;
 }
 
-bool BaddieCompanion::FNativeCharacterEquipment::InspectCurrent(const ABaddieCompanionCharacterActor& Actor) const
+bool BaddieCompanion::FNativeCharacterEquipment::InspectCurrent(const ABaddieCompanionCharacterActor& Actor,
+    const FNativeCharacterEquipmentContent& Content, bool bWantsRoundFrames) const
 {
     // The caller reserves the complete native scan, temporary topology/material
     // arrays and their destruction. No target getter/allocation cost is qualified.
@@ -440,7 +441,43 @@ bool BaddieCompanion::FNativeCharacterEquipment::InspectCurrent(const ABaddieCom
     if (!QualifiedEquipmentInspectionWork) return false;
     using namespace CharacterEquipment;
     if (!bInitialized || bCancelled || !bObserved || !IsValid(&Actor)
-        || Actor.IsActorBeingDestroyed() || Groups.Num() > 6) return false;
+        || Actor.IsActorBeingDestroyed() || Groups.Num() > 6 || Content.Items.Num() != Groups.Num()
+        || bWantsRoundFrames != bRoundFrames || Content.GeneratedRoundFrames.IsSet() != Frames.IsSet()) return false;
+    const auto SameGroup = [](const FNativeEquipmentGroup& Supplied, const FGroupState& Prepared)
+    {
+        const auto& Saved = Prepared.Binding;
+        if (Supplied.RootComponent != Saved.RootComponent || Supplied.AttachmentComponent != Saved.AttachmentComponent
+            || Supplied.AttachmentSocket != Saved.AttachmentSocket || Supplied.AttachmentMeshAsset != Saved.AttachmentMeshAsset
+            || Supplied.Meshes.Num() != Saved.Meshes.Num()) return false;
+        for (int32 I = 0; I < Supplied.Meshes.Num(); ++I)
+        {
+            const auto& A = Supplied.Meshes[I]; const auto& B = Saved.Meshes[I];
+            if (A.SourceNodeIndex != B.SourceNodeIndex || A.Component != B.Component || A.Mesh != B.Mesh
+                || !A.LocalPose.IsSet() || !B.LocalPose.IsSet() || !A.LocalPose->Equals(*B.LocalPose, 1.e-6)
+                || A.Materials.Num() != B.Materials.Num()) return false;
+            for (int32 J = 0; J < A.Materials.Num(); ++J)
+                if (A.Materials[J].SourceMaterialIndex != B.Materials[J].SourceMaterialIndex
+                    || A.Materials[J].Slot != B.Materials[J].Slot || A.Materials[J].Material != B.Materials[J].Material) return false;
+        }
+        return true;
+    };
+    TSet<FString> SuppliedItems;
+    for (const auto& Item : Content.Items)
+    {
+        const auto* Source = Find(Item.ItemId);
+        const auto* Prepared = Groups.FindByPredicate([&](const auto& Group)
+            { return Group.ItemId.Equals(Item.ItemId, ESearchCase::CaseSensitive); });
+        if (!Source || !Prepared || SuppliedItems.Contains(Item.ItemId)
+            || !Item.SourceAssetKey.Equals(Source->Key, ESearchCase::CaseSensitive)
+            || !Item.SourcePath.Equals(Source->Path, ESearchCase::CaseSensitive)
+            || !Item.SourceSha256.Equals(Source->Sha, ESearchCase::CaseSensitive)
+            || !Item.SourceParent.Equals(Source->Parent, ESearchCase::CaseSensitive)
+            || !SameGroup(Item.Group, *Prepared)) return false;
+        SuppliedItems.Add(Item.ItemId);
+    }
+    if (Frames.IsSet() && (!Content.GeneratedRoundFrames->SourceRecipeSha256.Equals(
+            TEXT("fc3dcb55e2e1d92cf9a0ea7c995c6b0b8a2a001366c6d59b51fa7ca2770e3eaa"), ESearchCase::CaseSensitive)
+        || !SameGroup(Content.GeneratedRoundFrames->Group, *Frames))) return false;
     for (int32 I = 0; I < 4; ++I)
     {
         const auto& Slot = Slots[I];

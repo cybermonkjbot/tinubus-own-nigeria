@@ -359,9 +359,14 @@ void ABaddieCompanionSlicePlayerController::RefreshWorldPresentation()
     }
     WorldPresentation->Observe(WorldObservation);
     WorldPresentation->Reconcile();
+    if (bEndingPlay || GameplaySession.Get() != Session || !WorldObservation.IsCurrent()
+        || WorldObservation.Token() != View.Observation.Token()
+        || Session->GetWorldView().Observation.Token() != View.Observation.Token()) return;
     BaddieCompanion::FWorldNativeEvidence Evidence;
     if (WorldPresentation->InspectNative(Evidence)) Session->ObserveWorldNative(this, Evidence);
-    if (!WorldObservation.IsCurrent()) { ClearWorldPresentation(); return; }
+    if (bEndingPlay || GameplaySession.Get() != Session || !WorldObservation.IsCurrent()
+        || WorldObservation.Token() != View.Observation.Token()
+        || Session->GetWorldView().Observation.Token() != View.Observation.Token()) return;
     // Initial unavailable imports are not loss of an accepted native generation.
     if (auto* Character = Cast<ABaddieCompanionWorldCharacter>(GetPawn()))
     {

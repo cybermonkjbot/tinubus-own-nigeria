@@ -741,8 +741,9 @@ void UBaddieCompanionGameplaySession::SendWorld()
     const uint64 Generation = Slot.CredentialGeneration;
     const auto Body = Slot.Response;
     const double Started = Slot.Started;
+    const FString ExpectedUrl = Data->Credentials.Origin + TEXT("/api/mutation");
     Request->OnProcessRequestComplete().BindLambda(
-        [WeakThis, Dispatch, Generation, Body, Started, Index]
+        [WeakThis, Dispatch, Generation, Body, Started, Index, ExpectedUrl]
         (FHttpRequestPtr Incoming, FHttpResponsePtr Response, bool bSuccess)
     {
         auto* Self = WeakThis.Get();
@@ -757,6 +758,7 @@ void UBaddieCompanionGameplaySession::SendWorld()
         Current = {};
         FString Text;
         if (!bSuccess || !Response.IsValid() || Response->GetResponseCode() != 200
+            || !BaddieGameplaySessionPrivate::Same(Response->GetEffectiveURL(), ExpectedUrl)
             || !Body.IsValid() || Body->HasRejectedData() || !Body->ReadCompletedText(Text))
         { Self->Data->World.Failed(Dispatch); return; }
         Self->Data->World.Complete(Dispatch, MoveTemp(Text), Started, Received);

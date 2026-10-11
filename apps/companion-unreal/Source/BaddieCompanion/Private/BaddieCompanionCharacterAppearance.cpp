@@ -164,6 +164,60 @@ bool BaddieCompanion::FNativeCharacterFaceAppearance::Matches(const ABaddieCompa
     return true;
 }
 
+bool BaddieCompanion::FNativeCharacterFaceAppearance::InspectCurrent(
+    const ABaddieCompanionCharacterActor& Actor, const FAppearancePlan& Appearance,
+    const TArray<FNativeCharacterFaceNode>& Bindings) const
+{
+    using namespace CharacterFace;
+    constexpr uint64 QualifiedFaceInspectionWork = 0;
+    if (!QualifiedFaceInspectionWork) return false;
+    if (!Accepts(Appearance, Bindings) || Nodes.Num() != NodeCount
+        || Appearance.Eyes.Effective.GetValue() != PreparedEyes
+        || Appearance.Brows.Effective.GetValue() != PreparedBrows
+        || Appearance.Nose.Effective.GetValue() != PreparedNose
+        || Appearance.Mouth.Effective.GetValue() != PreparedMouth) return false;
+    TInlineComponentArray<USceneComponent*> AllComponents(&Actor);
+    const auto UniqueComponent = [&](FName Name, const USceneComponent* Expected)
+    {
+        int32 Count = 0;
+        for (const auto* Component : AllComponents)
+            if (IsValid(Component) && Component->GetFName() == Name)
+            { if (Component != Expected) return false; ++Count; }
+        return Count == 1;
+    };
+    for (const auto& Binding : Bindings)
+    {
+        const int32 Source = SourceIndex(Binding.SourceNode);
+        const FNodeState* Node = nullptr;
+        for (const auto& Saved : Nodes)
+            if (Saved.Source == Source)
+            { if (Node) return false; Node = &Saved; }
+        if (!Node || !Node->bApplied || Node->Components.IsEmpty()) return false;
+        const auto& Root = Node->Components[0];
+        FTransform Target;
+        if (Root.Name != Binding.Component || !Root.Parent.IsValid()
+            || Root.Parent->GetFName() != Binding.ParentComponent
+            || !UniqueComponent(Binding.Component, Root.Component.Get())
+            || !UniqueComponent(Binding.ParentComponent, Root.Parent.Get())
+            || !Root.LocalPose.Equals(Binding.AuthoredLocalPose.GetValue(), PoseTolerance)
+            || !TargetPose(Appearance, Source, Root.LocalPose, Target)
+            || !Target.Equals(Node->Target, PoseTolerance) || !MatchesNode(Actor, *Node)) return false;
+        int32 MeshCount = 0;
+        for (const auto& Component : Node->Components)
+        {
+            if (!UniqueComponent(Component.Name, Component.Component.Get())) return false;
+            if (!Component.bMesh) continue;
+            const auto* Mesh = Binding.Meshes.FindByPredicate([&](const auto& Value)
+                { return Value.MeshComponent == Component.Name; });
+            if (!Mesh || !Component.MeshAsset.IsValid() || !Mesh->MeshAsset.IsValid()
+                || Mesh->MeshAsset.Get() != Component.MeshAsset.Get()) return false;
+            ++MeshCount;
+        }
+        if (MeshCount != Binding.Meshes.Num()) return false;
+    }
+    return Matches(Actor);
+}
+
 void BaddieCompanion::FNativeCharacterFaceAppearance::AppendControlledComponentNames(TSet<FName>& Out) const
 {
     for (const auto& Node : Nodes)
@@ -204,7 +258,8 @@ bool BaddieCompanion::FNativeCharacterFaceAppearance::Apply(ABaddieCompanionChar
         Subtree.Insert(Root, 0);
         if (Subtree.Num() > MaxComponents) return false;
         auto& Node = Staged.AddDefaulted_GetRef();
-        if (!TargetPose(Appearance, SourceIndex(Binding.SourceNode), Root->GetRelativeTransform(), Node.Target)) return false;
+        Node.Source = SourceIndex(Binding.SourceNode);
+        if (!TargetPose(Appearance, Node.Source, Root->GetRelativeTransform(), Node.Target)) return false;
         int32 MeshCount = 0;
         for (auto* Component : Subtree)
         {
@@ -233,6 +288,8 @@ bool BaddieCompanion::FNativeCharacterFaceAppearance::Apply(ABaddieCompanionChar
     // Retain baselines before any callback can cancel preparation. Actor cleanup restores them
     // after the setter stack unwinds, including a partially completed multi-node application.
     Nodes = MoveTemp(Staged);
+    PreparedEyes = Appearance.Eyes.Effective.GetValue(); PreparedBrows = Appearance.Brows.Effective.GetValue();
+    PreparedNose = Appearance.Nose.Effective.GetValue(); PreparedMouth = Appearance.Mouth.Effective.GetValue();
     for (auto& Node : Nodes)
     {
         if (!IsCurrent() || !Matches(Actor)) return false;

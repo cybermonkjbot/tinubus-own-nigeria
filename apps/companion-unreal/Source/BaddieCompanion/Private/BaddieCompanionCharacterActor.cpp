@@ -294,6 +294,15 @@ bool ABaddieCompanionCharacterActor::PrepareAccessoryVisibility(const BaddieComp
     // A later render-state callback may have changed an earlier occurrence.
     for (const auto& Value : Resolved)
         if (!Matches(Value, Value.bTarget)) return false;
+    for (int32 I = 0; I < Resolved.Num(); ++I)
+    {
+        const auto& Value = Resolved[I];
+        auto& Saved = PreparedAccessories.AddDefaulted_GetRef();
+        Saved.Component = Value.Component; Saved.Asset = Value.Asset; Saved.Name = Value.Name;
+        Saved.Parent = Value.Component->GetAttachParent(); Saved.Socket = Value.Component->GetAttachSocketName();
+        Saved.LocalPose = Value.Component->GetRelativeTransform(); Saved.Source = Bindings[I].SourceNode;
+        Saved.bBaseline = Value.bBaseline;
+    }
     return true;
 }
 
@@ -318,7 +327,10 @@ bool ABaddieCompanionCharacterActor::InspectCurrent(const BaddieCompanion::FHome
             && PreparedMaterialGeneration == MaterialGeneration && HasCurrentMaterials();
     };
     if (!Current() || !AcceptsContent(Plan, Content) || Content.ActorClass.Get() != GetClass()
-        || !FaceAppearance.Matches(*this) || !Equipment.InspectCurrent(*this)) return false;
+        || !FaceAppearance.InspectCurrent(*this, Plan.Appearance, Content.FaceNodes)
+        || !Plan.Appearance.Eyewear.Effective.IsSet()
+        || !Equipment.InspectCurrent(*this, Content.Equipment,
+            Plan.Appearance.Eyewear.Effective.GetValue() == BaddieCompanion::EEyewear::Round)) return false;
     BaddieCompanion::FNativeCharacterMaterialContent Resolved;
     Resolved.SourceAssetKey = Content.SourceAssetKey; Resolved.SourceSha256 = Content.SourceSha256;
     TInlineComponentArray<UMeshComponent*> Meshes(this);
@@ -338,17 +350,30 @@ bool ABaddieCompanionCharacterActor::InspectCurrent(const BaddieCompanion::FHome
         static_cast<BaddieCompanion::FNativeCharacterMaterialSlot&>(Binding) = Named;
         Binding.Component = Mesh;
     }
-    if (!Materials->InspectCurrent(Plan, Resolved, MaterialGeneration)) return false;
+    if (!Materials->InspectCurrent(Plan, Resolved, MaterialGeneration)
+        || PreparedAccessories.Num() != Content.Accessories.Num() || !Plan.Home.Shell.IsSet()
+        || !GetActorScale3D().Equals(FVector(Plan.Home.Shell->CharacterScale), 1.e-6)) return false;
     for (const auto& Binding : Content.Accessories)
     {
         const auto Visible = BaddieCompanion::CharacterAccessories::SelectedVisibility(Plan.Appearance, Binding.SourceNode);
         auto* Mesh = FindMesh(Binding.MeshComponent);
+        const auto* Saved = PreparedAccessories.FindByPredicate([&](const auto& Value)
+            { return Value.Name == Binding.MeshComponent; });
         if (!Visible.IsSet() || !Binding.VisibleWhenEnabled.IsSet() || !IsValid(Mesh) || !Mesh->IsRegistered()
+            || !Saved || Saved->Component.Get() != Mesh || !Saved->Asset.IsValid() || !Saved->Parent.IsValid()
+            || !Saved->Source.Equals(Binding.SourceNode, ESearchCase::CaseSensitive)
+            || Saved->bBaseline != Binding.VisibleWhenEnabled.GetValue()
+            || Saved->Asset.Get() != Binding.MeshAsset.Get() || Mesh->GetAttachParent() != Saved->Parent.Get()
+            || Mesh->GetAttachSocketName() != Saved->Socket || Saved->Parent->GetOwner() != this
+            || !Saved->Parent->IsRegistered() || Saved->Parent->GetWorld() != World
+            || !Mesh->GetRelativeTransform().Equals(Saved->LocalPose, 1.e-6)
+            || Mesh->GetMobility() != EComponentMobility::Movable || Mesh->IsUsingAbsoluteLocation()
+            || Mesh->IsUsingAbsoluteRotation() || Mesh->IsUsingAbsoluteScale()
             || Mesh->GetWorld() != World || Mesh->bHiddenInGame || !Binding.MeshAsset.IsValid()
             || BaddieCompanion::CharacterAccessories::MeshAsset(Mesh) != Binding.MeshAsset.Get()
             || Mesh->GetVisibleFlag() != (Visible.GetValue() && Binding.VisibleWhenEnabled.GetValue())) return false;
     }
-    return Current() && FaceAppearance.Matches(*this);
+    return Current() && FaceAppearance.InspectCurrent(*this, Plan.Appearance, Content.FaceNodes) && Current();
 }
 
 BaddieCompanion::ECharacterEquipmentIssue ABaddieCompanionCharacterActor::ObserveEquipment(
@@ -423,6 +448,7 @@ void ABaddieCompanionCharacterActor::ClearPrivateCharacter()
 {
     check(IsInGameThread());
     bDiscarded = true; bPrepared = false; PreparedMaterialGeneration = 0;
+    PreparedAccessories.Reset();
     Equipment.Cancel();
     PendingApartmentPose.Reset();
     if (bClearing) { QueueDeferredDisposal(); return; }

@@ -36,6 +36,8 @@ namespace BaddieCompanion
         bool Apply(ABaddieCompanionCharacterActor& Actor, const FAppearancePlan& Appearance,
             const TArray<FNativeCharacterFaceNode>& Bindings, TFunctionRef<bool()> IsCurrent);
         bool Matches(const ABaddieCompanionCharacterActor& Actor) const;
+        bool InspectCurrent(const ABaddieCompanionCharacterActor& Actor, const FAppearancePlan& Appearance,
+            const TArray<FNativeCharacterFaceNode>& Bindings) const;
         void AppendControlledComponentNames(TSet<FName>& Out) const;
         void Clear(ABaddieCompanionCharacterActor& Actor);
 
@@ -51,10 +53,15 @@ namespace BaddieCompanion
         {
             // Root first, followed by every attachment descendant.
             TArray<FComponentState> Components;
+            int32 Source = INDEX_NONE;
             FTransform Target;
             bool bApplied = false;
         };
         static bool MatchesNode(const ABaddieCompanionCharacterActor& Actor, const FNodeState& Node);
         TArray<FNodeState> Nodes;
+        EEyeShape PreparedEyes = EEyeShape::Classic;
+        EBrowStyle PreparedBrows = EBrowStyle::Classic;
+        ENoseShape PreparedNose = ENoseShape::Classic;
+        EMouthShape PreparedMouth = EMouthShape::Classic;
     };
 }

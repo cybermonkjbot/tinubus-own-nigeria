@@ -100,6 +100,7 @@ void UBaddieCompanionCharacterMaterials::RestoreOwnedMaterials()
         if (IsValid(Entry.Override.Get())) Entry.Override->ClearParameterValues();
     }
     Owned.Reset();
+    InspectedSlots.Reset();
 }
 
 bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePresentationPlan& Plan,
@@ -167,6 +168,7 @@ bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePrese
         int32 Slot = INDEX_NONE;
         int32 OwnedIndex = INDEX_NONE;
         TOptional<FLinearColor> Color;
+        FLinearColor AuthoredColor;
     };
     TArray<FResolved> Resolved;
     for (const auto& Binding : Content.Bindings)
@@ -210,6 +212,7 @@ bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePrese
         Next.Binding = &Binding; Next.Component = Component; Next.Mesh = Mesh;
         Next.Original = Original; Next.Slot = Slot; Next.SlotName = Binding.MaterialSlot;
         Next.PreviousOverride = SlotOverride(Component, Slot);
+        Next.AuthoredColor = OriginalColor;
         if (Requirement->TargetHex.IsSet())
         {
             FLinearColor Color;
@@ -268,6 +271,18 @@ bool UBaddieCompanionCharacterMaterials::Apply(const BaddieCompanion::FHomePrese
             : Owned[Value.OwnedIndex].Override.Get();
         if (!BindingIsCurrent(Value, Expected)) return Fail(ENativeCharacterMaterialIssue::MaterialChanged);
     }
+    for (const auto& Value : Resolved)
+    {
+        auto& Saved = InspectedSlots.AddDefaulted_GetRef();
+        Saved.Component = Value.Component; Saved.MeshAsset = Value.Mesh;
+        Saved.AuthoredMaterial = Value.Original; Saved.AuthoredOverride = Value.PreviousOverride;
+        Saved.bAuthoredOverride = Value.PreviousOverride.IsValid();
+        Saved.AuthoredColor = Value.AuthoredColor;
+        Saved.Slot = Value.Slot; Saved.SlotName = Value.SlotName;
+        Saved.SourceMaterialName = Value.Binding->SourceMaterialName;
+        Saved.ColorParameter = Value.Binding->ColorParameter;
+        Saved.IrisEnabledParameter = Value.Binding->IrisEnabledParameter;
+    }
     AppliedGeneration = ++ApplicationGeneration;
     return true; // Material parameters only, never whole-character or gameplay readiness.
 }
@@ -290,6 +305,7 @@ bool UBaddieCompanionCharacterMaterials::InspectCurrent(const BaddieCompanion::F
     };
     if (!Current() || !Plan.Appearance.bCompleteKnownSelections || Plan.CharacterMaterials.IsEmpty()
         || Plan.CharacterMaterials.Num() > 64 || Content.Bindings.IsEmpty() || Content.Bindings.Num() > 256
+        || Content.Bindings.Num() != InspectedSlots.Num()
         || !Content.SourceAssetKey.Equals(Plan.CharacterAsset.Key, ESearchCase::CaseSensitive)
         || !Content.SourceSha256.Equals(Plan.CharacterAsset.Sha256, ESearchCase::CaseSensitive)) return false;
     for (int32 I = 0; I < Plan.CharacterMaterials.Num(); ++I)
@@ -323,13 +339,23 @@ bool UBaddieCompanionCharacterMaterials::InspectCurrent(const BaddieCompanion::F
         for (int32 J = 0; J < I; ++J)
             if (Content.Bindings[J].Component == Binding.Component
                 && Content.Bindings[J].MaterialSlot == Binding.MaterialSlot) return false;
+        const FSlotIdentity* Prepared = nullptr;
+        for (const auto& Saved : InspectedSlots)
+            if (Saved.Component.Get() == Component && Saved.Slot == Slot)
+            { if (Prepared) return false; Prepared = &Saved; }
+        if (!Prepared || Prepared->MeshAsset.Get() != Binding.MeshAsset.Get()
+            || (Prepared->bAuthoredOverride && !Prepared->AuthoredOverride.IsValid())
+            || Prepared->AuthoredMaterial.Get() != Binding.AuthoredMaterial.Get()
+            || Prepared->SlotName != Binding.MaterialSlot || Prepared->ColorParameter != Binding.ColorParameter
+            || Prepared->IrisEnabledParameter != Binding.IrisEnabledParameter
+            || !Prepared->SourceMaterialName.Equals(Binding.SourceMaterialName, ESearchCase::CaseSensitive)) return false;
         const bool bIris = Binding.SourceMaterialName.Equals(TEXT("Amber iris"), ESearchCase::CaseSensitive);
         if (Binding.Recipe != (bIris ? ENativeCharacterColorRecipe::IrisLuminanceTint
             : ENativeCharacterColorRecipe::BaseColorFactor)
             || (bIris ? Binding.IrisEnabledParameter.IsNone() : !Binding.IrisEnabledParameter.IsNone())) return false;
         FLinearColor Authored;
         if (!Binding.AuthoredMaterial->GetVectorParameterValue(FMaterialParameterInfo(Binding.ColorParameter), Authored)
-            || !FiniteColor(Authored)) return false;
+            || !FiniteColor(Authored) || Authored != Prepared->AuthoredColor) return false;
         if (bIris)
         {
             float Enabled = 0;
@@ -343,12 +369,14 @@ bool UBaddieCompanionCharacterMaterials::InspectCurrent(const BaddieCompanion::F
         if (!Requirement->TargetHex.IsSet())
         {
             // PreserveAuthored creates no owned override. It is still inspected.
-            if (OwnedSlot || Component->GetMaterial(Slot) != Binding.AuthoredMaterial.Get()) return false;
+            if (OwnedSlot || Component->GetMaterial(Slot) != Binding.AuthoredMaterial.Get()
+                || SlotOverride(Component, Slot) != Prepared->AuthoredOverride.Get()) return false;
         }
         else
         {
             if (!OwnedSlot || !IsValid(OwnedSlot->Override.Get()) || OwnedSlot->MeshAsset.Get() != Binding.MeshAsset.Get()
                 || OwnedSlot->SlotName != Binding.MaterialSlot
+                || OwnedSlot->Override->Parent != Binding.AuthoredMaterial.Get()
                 || Component->GetMaterial(Slot) != OwnedSlot->Override.Get()
                 || SlotOverride(Component, Slot) != OwnedSlot->Override.Get()) return false;
             ++MatchedOwned;
@@ -364,8 +392,15 @@ bool UBaddieCompanionCharacterMaterials::InspectCurrent(const BaddieCompanion::F
                     || !FMath::IsFinite(Enabled) || Enabled != 1.f) return false;
             }
         }
+        auto* ExpectedMaterial = OwnedSlot ? static_cast<UMaterialInterface*>(OwnedSlot->Override.Get())
+            : Binding.AuthoredMaterial.Get();
+        auto* ExpectedOverride = OwnedSlot ? static_cast<UMaterialInterface*>(OwnedSlot->Override.Get())
+            : Prepared->AuthoredOverride.Get();
         if (!Current() || !Component->IsRegistered() || Component->GetOwner() != Owner
-            || Component->GetWorld() != World || MeshAsset(Component) != Binding.MeshAsset.Get()) return false;
+            || Component->GetWorld() != World || MeshAsset(Component) != Binding.MeshAsset.Get()
+            || Component->GetMaterialIndex(Binding.MaterialSlot) != Slot
+            || Component->GetMaterial(Slot) != ExpectedMaterial || SlotOverride(Component, Slot) != ExpectedOverride
+            || (OwnedSlot && OwnedSlot->Override->Parent != Binding.AuthoredMaterial.Get())) return false;
     }
     return Current() && MatchedOwned == Owned.Num();
 }

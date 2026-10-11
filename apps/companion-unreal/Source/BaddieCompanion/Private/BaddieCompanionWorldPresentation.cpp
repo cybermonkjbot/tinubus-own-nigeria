@@ -5,6 +5,7 @@
 #include "BaddieCompanionWorldCommandLifecycle.h"
 #include "Engine/LevelStreamingDynamic.h"
 #include "Engine/World.h"
+#include "Engine/StaticMesh.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/PointLightComponent.h"
 #include "Materials/MaterialInstanceDynamic.h"
@@ -187,20 +188,59 @@ bool UBaddieCompanionWorldPresentation::InspectNative(BaddieCompanion::FWorldNat
             || Actor->FurnitureMesh->GetOwner() != Actor || Actor->PracticalLight->GetOwner() != Actor
             || Actor->FurnitureMesh->GetWorld() != NativeWorld.Get() || Actor->PracticalLight->GetWorld() != NativeWorld.Get()
             || !Asset->Mesh.IsValid() || Actor->FurnitureMesh->GetStaticMesh() != Asset->Mesh.Get()
-            || Actor->PracticalLight->GetAttachParent() != Actor->FurnitureMesh.Get()) return false;
+            || Actor->GetRootComponent() != Actor->FurnitureMesh.Get()
+            || Actor->FurnitureMesh->GetAttachParent() || !Actor->FurnitureMesh->GetAttachSocketName().IsNone()
+            || Actor->PracticalLight->GetAttachParent() != Actor->FurnitureMesh.Get()
+            || !Actor->PracticalLight->GetAttachSocketName().IsNone()
+            || Actor->FurnitureMesh->GetMobility() != EComponentMobility::Movable
+            || Actor->PracticalLight->GetMobility() != EComponentMobility::Movable
+            || Actor->FurnitureMesh->IsUsingAbsoluteLocation() || Actor->FurnitureMesh->IsUsingAbsoluteRotation()
+            || Actor->FurnitureMesh->IsUsingAbsoluteScale() || Actor->PracticalLight->IsUsingAbsoluteLocation()
+            || Actor->PracticalLight->IsUsingAbsoluteRotation() || Actor->PracticalLight->IsUsingAbsoluteScale()) return false;
         const auto& Placement = *Item.PlacementPose;
         const FTransform Pose(FRotator(0, Placement.UnrealYawDegrees, 0), Placement.UnrealCentimetres,
             FVector(Room.Shell->ObjectScale));
         if (Pose.ContainsNaN() || !Actor->GetActorTransform().Equals(Pose, 1.e-4)) return false;
         const bool bEmissive = Asset->Kind == EItemKind::FloorLamp || Asset->Kind == EItemKind::DeskLamp;
+        const auto Names = Actor->FurnitureMesh->GetMaterialSlotNames();
+        const auto& AuthoredSlots = Asset->Mesh->GetStaticMaterials();
+        if (Names.Num() != AuthoredSlots.Num() || Actor->FurnitureMesh->GetNumMaterials() != AuthoredSlots.Num()) return false;
+        const int32 EmissiveSlot = bEmissive ? Actor->FurnitureMesh->GetMaterialIndex(Asset->EmissiveMaterialSlot) : INDEX_NONE;
+        for (int32 Slot = 0; Slot < AuthoredSlots.Num(); ++Slot)
+        {
+            if (Names[Slot] != AuthoredSlots[Slot].MaterialSlotName
+                || !IsValid(AuthoredSlots[Slot].MaterialInterface.Get())) return false;
+            auto* Override = Actor->FurnitureMesh->OverrideMaterials.IsValidIndex(Slot)
+                ? Actor->FurnitureMesh->OverrideMaterials[Slot].Get() : nullptr;
+            if (Slot == EmissiveSlot)
+            {
+                if (!IsValid(Actor->BulbMaterial) || Override != Actor->BulbMaterial.Get()
+                    || Actor->BulbMaterial->Parent != AuthoredSlots[Slot].MaterialInterface.Get()) return false;
+            }
+            else if (Override || Actor->FurnitureMesh->GetMaterial(Slot) != AuthoredSlots[Slot].MaterialInterface.Get()) return false;
+        }
+        for (int32 Slot = AuthoredSlots.Num(); Slot < Actor->FurnitureMesh->OverrideMaterials.Num(); ++Slot)
+            if (Actor->FurnitureMesh->OverrideMaterials[Slot]) return false;
+        const bool bLamp = Asset->Kind == EItemKind::Lamp || bEmissive;
+        const bool bTableLamp = Asset->Kind == EItemKind::Lamp;
+        const float Power = Actor->LastAppliedPower.Get(0.f);
+        const float SavedIntensity = bLamp && Item.bEffectiveLit ? (bTableLamp ? 1.8f : 1.1f) : 0.f;
+        const double Height = !bLamp ? 0 : Asset->Kind == EItemKind::FloorLamp ? 2.75 : .65;
+        const FTransform LightPose(FQuat::Identity, SourceToUnreal(FVector(0, Height, 0)), FVector::OneVector);
+        if (!FMath::IsFinite(Power) || Power < 0 || Power > 1 || Actor->SavedLightIntensity != SavedIntensity
+            || !Actor->PracticalLight->GetRelativeTransform().Equals(LightPose, 1.e-6)
+            || Actor->PracticalLight->Intensity != SavedIntensity * Power
+            || Actor->PracticalLight->GetVisibleFlag() != (SavedIntensity * Power > 0.f)
+            || (bLamp && (Actor->PracticalLight->IntensityUnits != ELightUnits::Candelas
+                || !Actor->PracticalLight->bUseInverseSquaredFalloff
+                || Actor->PracticalLight->AttenuationRadius != (bTableLamp ? 210.f : 240.f)
+                || Actor->PracticalLight->GetLightColor() != FLinearColor(FColor(255, 211, 155))))) return false;
         if (bEmissive)
         {
-            const auto Names = Actor->FurnitureMesh->GetMaterialSlotNames();
             int32 Count = 0;
             for (FName Name : Names) if (Name == Asset->EmissiveMaterialSlot) ++Count;
             const int32 Slot = Actor->FurnitureMesh->GetMaterialIndex(Asset->EmissiveMaterialSlot);
             float Value = 0;
-            const float Power = Actor->LastAppliedPower.Get(0.f);
             if (Count != 1 || Slot == INDEX_NONE || !IsValid(Actor->BulbMaterial)
                 || Actor->FurnitureMesh->GetMaterial(Slot) != Actor->BulbMaterial.Get()
                 || Actor->EmissiveParameter != Asset->EmissiveIntensityParameter
