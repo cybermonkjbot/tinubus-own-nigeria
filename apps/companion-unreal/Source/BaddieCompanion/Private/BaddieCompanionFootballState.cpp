@@ -402,16 +402,18 @@ namespace BaddieCompanion
     }
     TOptional<FFootballCommandSuccess> FFootballReadState::BeginCommandSuccess(const FFootballCommandReceipt& Receipt, const FString& Json)
     {
-        if (!CanCompleteCommand(Receipt)) return {};
+        // Notifications may overwrite the caller's receipt with replacement work.
+        const FFootballCommandReceipt CompletionReceipt = Receipt;
+        if (!CanCompleteCommand(CompletionReceipt)) return {};
         CommandStage = ECommandStage::Completing;
-        if (!CurrentCommand(Receipt)) { FinishCommand(Receipt); return {}; }
+        if (!CurrentCommand(CompletionReceipt)) { FinishCommand(CompletionReceipt); return {}; }
         FFootballCommandSuccess Success;
         FString Error;
         if (!DecodeFootballSnapshot(Json, Success.Snapshot, Error))
         {
-            FailMatch(Error); FinishCommand(Receipt); return {};
+            FailMatch(Error); FinishCommand(CompletionReceipt); return {};
         }
-        Success.Receipt = Receipt;
+        Success.Receipt = CompletionReceipt;
         Success.bDeactivateInput = PendingCommand->Type == EFootballCommandType::Leave || PendingCommand->Type == EFootballCommandType::End;
         return Success;
     }
@@ -421,21 +423,23 @@ namespace BaddieCompanion
     }
     EFootballReadResult FFootballReadState::AcceptCommandSuccess(const FFootballCommandSuccess& Success)
     {
-        if (!Success.Snapshot.IsSet() || !OwnsCommand(Success.Receipt) || CommandStage != ECommandStage::Completing)
+        const FFootballCommandReceipt CompletionReceipt = Success.Receipt;
+        if (!Success.Snapshot.IsSet() || !OwnsCommand(CompletionReceipt) || CommandStage != ECommandStage::Completing)
             return EFootballReadResult::StaleReceipt;
-        if (!CurrentCommand(Success.Receipt)) { FinishCommand(Success.Receipt); return EFootballReadResult::StaleReceipt; }
+        if (!CurrentCommand(CompletionReceipt)) { FinishCommand(CompletionReceipt); return EFootballReadResult::StaleReceipt; }
         CommandStage = ECommandStage::Applying;
         const auto Result = ApplyMatch(Success.Snapshot.GetValue());
-        FinishCommand(Success.Receipt);
+        FinishCommand(CompletionReceipt);
         return Result;
     }
     bool FFootballReadState::AcceptCommandFailure(const FFootballCommandReceipt& Receipt, const FFootballPublicReadFailure& Failure)
     {
-        if (!CanCompleteCommand(Receipt)) return false;
+        const FFootballCommandReceipt CompletionReceipt = Receipt;
+        if (!CanCompleteCommand(CompletionReceipt)) return false;
         CommandStage = ECommandStage::Completing;
-        if (!CurrentCommand(Receipt)) { FinishCommand(Receipt); return false; }
+        if (!CurrentCommand(CompletionReceipt)) { FinishCommand(CompletionReceipt); return false; }
         FailMatch(Failure.Message.IsSet() ? Failure.Message.GetValue() : FString(FootballPrivate::CommandFailed));
-        FinishCommand(Receipt);
+        FinishCommand(CompletionReceipt);
         return true;
     }
     bool FFootballReadState::BeginEntryObservation(int64 CapturedNowMs, FFootballReadReceipt& Out)
