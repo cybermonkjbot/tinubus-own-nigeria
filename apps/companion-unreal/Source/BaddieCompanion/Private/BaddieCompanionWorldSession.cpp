@@ -348,7 +348,7 @@ namespace BaddieCompanion
         const bool HasDriving = CurrentPlayer->Driving.Ref.IsSet(), HasWater = CurrentPlayer->Water.Ref.IsSet();
         while (Step < 9)
         {
-            if (!Spend(512)) return Yield();
+            if (!Spend(1024)) return Yield();
             EStep S = EStep::Complete; bool Same = true;
             switch (Step)
             {
@@ -1323,11 +1323,12 @@ namespace BaddieCompanion
         auto CurrentHighWater = [&]()
         {
             const auto& B = D.Binding.Binding();
-            const int64 Revision = FMath::Max(RevisionHighWater, Accepted ? Accepted->PlayerRevision : int64(-1));
-            const int64 Sequence = FMath::Max(MoveHighWater, Accepted ? Accepted->MoveSequence : int64(-1));
-            return B.Number(BindingRevision) >= Revision
-                && (B.Number(BindingRevision) != Revision || B.Number(BindingSequence) >= Sequence)
-                && (!Accepted || (B.Number(BindingHealthRevision) >= Accepted->HealthRevision
+            const double Revision = B.Number(BindingRevision), Sequence = B.Number(BindingSequence);
+            // Keep each sequence paired with the revision that established it.
+            return (Revision > RevisionHighWater || (Revision == RevisionHighWater && Sequence >= MoveHighWater))
+                && (!Accepted || ((Revision > Accepted->PlayerRevision
+                    || (Revision == Accepted->PlayerRevision && Sequence >= Accepted->MoveSequence))
+                    && B.Number(BindingHealthRevision) >= Accepted->HealthRevision
                     && B.Number(BindingSavedRevision) >= Accepted->SavedRevision));
         };
         auto FinishStep = [&](EStep Step) { if (Step != EStep::Pending) D.Result = Step; return Step; };
