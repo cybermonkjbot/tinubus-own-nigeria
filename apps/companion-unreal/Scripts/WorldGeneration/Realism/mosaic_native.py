@@ -94,6 +94,10 @@ def author(expected_pid, expected_world):
     common.verify_files(base["files"])
     common.fresh(package, True)
     rows, buildings = mosaic_layout.plan(base, config)
+    from WorldGeneration.Realism import mosaic_audio, mosaic_navigation, mosaic_routines
+    navigation = mosaic_navigation.build_navigation(config)
+    routines = mosaic_routines.build_routines(config, navigation["destinations"])
+    emitters = mosaic_audio.build_emitters(config, navigation["destinations"])
     materials = dict(base["materialUsageDerivatives"])
     missing = {path for row in rows for path in row["materials"] if path not in materials}
     if missing:
@@ -122,6 +126,10 @@ def author(expected_pid, expected_world):
               "configSha256": sha(CONFIG_PATH), "baseReceiptSha256": config["baseReceiptSha256"],
               "researchDocumentSha256": config["researchDocumentSha256"],
               "meshes": base["meshes"], "placements": journal, "batches": batches,
+              "navigation": navigation, "routines": routines, "audioEmitters": emitters,
+              "events": mosaic_navigation.build_events(navigation["destinations"]),
+              "authoringSystemHashes": {"navigation": sha(mosaic_navigation.__file__),
+                                       "routines": sha(mosaic_routines.__file__), "audio": sha(mosaic_audio.__file__)},
               "materialUsageDerivatives": materials, "buildingRuns": buildings,
               "cameras": config["cameras"], "mainStreetLengthMetres": 120,
               "sideStreetSurfaceLengthMetres": config["sideRoadSections"] * 10,
