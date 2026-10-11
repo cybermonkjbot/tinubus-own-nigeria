@@ -1,0 +1,247 @@
+{
+  "job": "lagos-unpaved-road-v1",
+  "recorded_at": "2026-10-11T03:41:30-07:00",
+  "owned_pids": {
+    "generation": 1792,
+    "preview_repair": 14216,
+    "state": "Both exited, only protected3224 remains"
+  },
+  "output": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1",
+  "blend": {
+    "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1/LagosUnpavedRoadKit.blend",
+    "sha256": "260f78d3cd441716ff08e8a85fb43eac2186f4f0054823f9aa7b8febec8800c3"
+  },
+  "preview_blend": {
+    "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1/preview-r2/LagosUnpavedRoadKit-PreviewR2.blend",
+    "sha256": "f216c5d0ddea3acffe4addd7c2448ba569eb5987f6863416631f4bfe41eca5fc"
+  },
+  "road_manifest": {
+    "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1/road-manifest.json",
+    "sha256": "a0213b8dc5c1ab079f8ace28a4e0a735357161b172689a33081f421c58743f0f"
+  },
+  "material_bindings": {
+    "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1/material-bindings.json",
+    "sha256": "90cf68903f326876136c0dfbe5faca81336602767d599f025ebee9ceab7fe801"
+  },
+  "file_inventory": [
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\asset-inspection.json",
+      "bytes": 6905,
+      "sha256": "e7b249b758def5410681ef52196e2c90a7e207ee62bd20da056642812f5d2cea"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\author_road_kit.py",
+      "bytes": 25008,
+      "sha256": "3b1f8f0de69112665190ec203c3e5c597a1972c7eb35a6be07994ebcb540b9d8"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\frames.json",
+      "bytes": 1149,
+      "sha256": "d4b35b128dcf7e6342bf6bd650df3917c14e9ff5b41b29e1405a77174edc4754"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\LagosUnpavedRoadKit.blend",
+      "bytes": 402461439,
+      "sha256": "260f78d3cd441716ff08e8a85fb43eac2186f4f0054823f9aa7b8febec8800c3"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\material-bindings.json",
+      "bytes": 6487,
+      "sha256": "90cf68903f326876136c0dfbe5faca81336602767d599f025ebee9ceab7fe801"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\puddle-inspection.json",
+      "bytes": 456,
+      "sha256": "20fd53a169b6e5feafae00e844cb4e8b3bd9b90920f4ff06ea361ee871a75e1e"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\road-manifest.json",
+      "bytes": 10242,
+      "sha256": "a0213b8dc5c1ab079f8ace28a4e0a735357161b172689a33081f421c58743f0f"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\scene-probe-reopened.json",
+      "bytes": 13146,
+      "sha256": "c6482f375870a4c026e7f81ea00104d9418f8f8484ad46485b443343b5d776e9"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\fbx\\SM_Road_compacted_earth_s7.fbx",
+      "bytes": 57324,
+      "sha256": "b91b5863c59da6870343cfc33ba2bf191f4f205bd8f66fec154d0cde874d30cf"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\fbx\\SM_Road_paved_to_earth_s7.fbx",
+      "bytes": 60492,
+      "sha256": "068cde4bd04a358986dc5db14a09c422fea3c66164f5797a4bcb9b8c79b7f59c"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\fbx\\SM_Road_rutted_earth_s31.fbx",
+      "bytes": 71164,
+      "sha256": "8ba00bed3d0de220e14657933e23da4ef314c1bcc6c8a7431bad1fc9a22c2e26"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\fbx\\SM_Road_sandy_lane_s19.fbx",
+      "bytes": 57468,
+      "sha256": "7ac9adbc9ac303fe80824d1d651411b374a5c9cd5bde68026d75c6a14d4c5d35"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\weights\\SM_Road_compacted_earth_s7.json",
+      "bytes": 205148,
+      "sha256": "5396e9d25d1cb2e9cd27a38f62d66b9d2aa9388bc94d7ce623d9490d26603f8c"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\weights\\SM_Road_paved_to_earth_s7.json",
+      "bytes": 214200,
+      "sha256": "e81613169d3560ccda2e1996972cfa407cbce49b7e7230c3d58eaaeb44da86c2"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\weights\\SM_Road_rutted_earth_s31.json",
+      "bytes": 229364,
+      "sha256": "fd306a662cbf85375cb8ba402d8c0a32a78dd448912cc67d9d66f4905df225f1"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\weights\\SM_Road_sandy_lane_s19.json",
+      "bytes": 204340,
+      "sha256": "164387a7770eef94dfa4d534b8b0945d1c8f94af4b1a847b493b16cd5d2bbfcb"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\frames\\01-Dry-Earth-Ground.png",
+      "bytes": 449281,
+      "sha256": "2ca969b6da083a175bf2593da4d16c9d8b4ee0967ac2eaf1902f078c340ef321"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\frames\\02-Sandy-Lane-Ground.png",
+      "bytes": 449230,
+      "sha256": "77c396a8281f7ab1959f0cb0eacbf368307ba36aaca205e79102a95a1ac36200"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\frames\\03-Damp-Ruts-Ground.png",
+      "bytes": 449202,
+      "sha256": "bb15640c98a6cb8e565114eb64538750b3fa24857ac64b2c4557689164976ed6"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\frames\\04-Asphalt-Earth-Join.png",
+      "bytes": 598335,
+      "sha256": "b66b3fbe59b0a553370d3a15931ab93c6cd9974371ae2fcfca2932d263ff6080"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\01-Dry-Earth-Ground.png",
+      "bytes": 445679,
+      "sha256": "d78879d7b7c23f6e9a7fb22819784d912b1064e1834d0ae5e0894ac9728b7202"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\03-Damp-Ruts-Ground.png",
+      "bytes": 445392,
+      "sha256": "1dcb3be0fa67d27c339889ccd2e65a02c4db7a69cf7b34fd6ee168fc6d027a75"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\04-Asphalt-Earth-Join.png",
+      "bytes": 600062,
+      "sha256": "1c582c796507b196e3a084151df197d18bb6a546b4e11ffd616d4eeef9a667f7"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\05-Road-Shop-Drain-Walk.png",
+      "bytes": 497077,
+      "sha256": "4429a66c7aaaaafc6d4739dcb9bd41cca5dd99132634460c52be7c2a90278e72"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\frames.json",
+      "bytes": 1170,
+      "sha256": "1c6acef142db1f6c7eb2753ce05936dabdc8a32a82297888e0afe1f906b5aaff"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\LagosUnpavedRoadKit-PreviewR2.blend",
+      "bytes": 402510520,
+      "sha256": "f216c5d0ddea3acffe4addd7c2448ba569eb5987f6863416631f4bfe41eca5fc"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\preview-manifest.json",
+      "bytes": 2605,
+      "sha256": "7f720a5ccbd3b92232a0a33aad3e80881ea539e3269f401ac69605919a9933c0"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\repair_preview.py",
+      "bytes": 7654,
+      "sha256": "6cb228d3cdee74b7b5649c2104c252b4bae56850839d9c58e43c777f72f1aa0f"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\scene-probe-reopened.json",
+      "bytes": 13226,
+      "sha256": "dac5f42329502680e4614734435612b34d08d70284eef3b6340a7e3a78d56873"
+    }
+  ],
+  "source": {
+    "recipe": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-source/road_mesh_recipe.py",
+    "sha256": "063f9f7f9a7eb1b55cc6a0fd8c285ba8481a16600b16a4a51305cf874205f197",
+    "frozen": true
+  },
+  "technical_inspection": {
+    "reopened": true,
+    "missing_dependencies": 0,
+    "FBX_count": 4,
+    "weights_JSON_count": 4,
+    "export_hash_mismatches": 0,
+    "dimensions_default": "10mrun5mlane+.6mshoulders each, source defaults not measured Lagos",
+    "five_weights": "Exact per-point5float attributes and authoritative topology/weight JSON. FBXtwo LINEAR layers:RGBAearth/sand/damp/gravel; second Rasphalt Gwetcandidate. Blender FBX roundtrip retained both named layers; native unverified.",
+    "UV": "RoadUV_Metres raw metre UV; scanned shader coverage division once, NOT frontage SurfaceUV1x predivided contract.",
+    "native": "No Unreal import/mutation. Native basis, cm bounds, two-layer weight binding,materials,collision and performance unverified.",
+    "puddle": "Actual lowest candidate Z-.059219m,12mmwaterdepth,.2302m2 triangle-clipped preview water, candidate mask not water simulation"
+  },
+  "actual_images_reviewed": 8,
+  "defect_ledger": [
+    {
+      "views": [
+        "frames/01-Dry-Earth-Ground.png",
+        "frames/02-Sandy-Lane-Ground.png"
+      ],
+      "observed": "Smooth flat fallback surface and exposed rectangular module edge read as pad rather than convincing lane.",
+      "change": "Preview-r2 adds matching-profile continuations and contoured shoulders, original modules/weights preserved.",
+      "verification": "Same ground cameras show foreground cut removed but distant edge/fill boundaries remain visibly artificial.",
+      "status": "Partial repair, not accepted realism"
+    },
+    {
+      "views": [
+        "preview-r2/01-Dry-Earth-Ground.png",
+        "preview-r2/03-Damp-Ruts-Ground.png"
+      ],
+      "observed": "Dry/damp earth remains very smooth; shoulders uniformly shaped, tyre depressions weak from this camera; puddle reads as pale small patch.",
+      "status": "Requires qualified soil/grain inputs and further controlled geometry/material review, not a noise blanket"
+    },
+    {
+      "views": [
+        "preview-r2/04-Asphalt-Earth-Join.png"
+      ],
+      "observed": "Verified asphalt visible in foreground and transition beyond; match-profile geometry avoids exposed floating asphalt at near join, but broad shader transition and distant preview seam remain unnatural.",
+      "status": "Not visually accepted join, native unverified"
+    },
+    {
+      "views": [
+        "preview-r2/05-Road-Shop-Drain-Walk.png"
+      ],
+      "observed": "Partial shop/drain edge context visible with black wall strips, mismatched partial window framing and incomplete surrounding building geometry. Does not establish dense Lagos street, clear shop business or finished access.",
+      "status": "Context rejected as realism evidence; no canonical placement changed"
+    }
+  ],
+  "material_inventory": {
+    "inspected": [
+      "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/material-input-inventory-verified.json",
+      "C:/dev/baddie-assets/Textures"
+    ],
+    "available_scans": "Coordinator20maps:plaster/concrete/asphalt/metal/timber, CC0, originals/authors/hashes retained",
+    "soil_scans": "No licensed soil/sand/gravel locally found; not downloaded/relabelled",
+    "fallback": "Earth/sand/damp/gravel original constants, no shader noise blanket.36small preview shoulder stones; target grain-scale/photo fidelity pending",
+    "geography": "No location assignment, no district soil presets, no Makoko overwater road claims"
+  },
+  "runtime_errors": [],
+  "warnings": [
+    "Road initial source Material.use_nodes/World.use_nodes nonfatal deprecation warnings"
+  ],
+  "acceptance": "Bounded mesh/save/export/reopen and8realPNGauthoring evidence complete. Visual grain-scale/realism/dense-street target NOT met; native/performance/playable acceptance not established.",
+  "next": "Parent image review, licensed soil reference/scan inputs and targeted largest-defect direction before further art; no additional renderer",
+  "protected_workbench": {
+    "pid": 3224,
+    "sha256": "70592d3c04a9fc6c9599188ec2220c3b1425a85477e4f5984a4c5898fb993eab",
+    "mutated": false
+  },
+  "inventory_policy": "Immutable artifacts only; live progress.json files excluded from SHA inventory."
+}

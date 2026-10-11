@@ -1,0 +1,304 @@
+{
+  "job": "lagos-unpaved-road-v1",
+  "pid": 1792,
+  "script_sha256": "3b1f8f0de69112665190ec203c3e5c597a1972c7eb35a6be07994ebcb540b9d8",
+  "recipe_sha256": "063f9f7f9a7eb1b55cc6a0fd8c285ba8481a16600b16a4a51305cf874205f197",
+  "blend": {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\LagosUnpavedRoadKit.blend",
+    "sha256": "260f78d3cd441716ff08e8a85fb43eac2186f4f0054823f9aa7b8febec8800c3"
+  },
+  "assets": [
+    {
+      "id": "unpaved-art-v1:compacted_earth:94cbe564744b0bf8b6932a79b0e4ee865fe8a68edaaaaaf3eab2e131874e6a65",
+      "name": "SM_Road_compacted_earth_s7",
+      "variant": "compacted_earth",
+      "seed": 7,
+      "weights": "weights/SM_Road_compacted_earth_s7.json",
+      "weights_sha256": "5396e9d25d1cb2e9cd27a38f62d66b9d2aa9388bc94d7ce623d9490d26603f8c",
+      "bounds": {
+        "min_m": [
+          -3.0999999046325684,
+          0.0,
+          -0.17103813588619232
+        ],
+        "max_m": [
+          3.0999999046325684,
+          10.0,
+          0.04657368361949921
+        ],
+        "dimensions_m": [
+          6.199999809265137,
+          10.0,
+          0.21761181950569153
+        ]
+      },
+      "origin": "Source start join Y0/Zsurface datum; underside below datum by design; not arbitrary ground-shift",
+      "uv": "RoadUV_Metres raw metre coordinates; shader physical division once",
+      "material_slots": [
+        "Road_FiveSurface_Blend",
+        "Road_CompactedEarth",
+        "Road_LooseSand",
+        "Road_DampSoil",
+        "Road_Gravel",
+        "Road_Asphalt"
+      ],
+      "attributes": [
+        ".select_vert",
+        "position",
+        ".corner_vert",
+        ".corner_edge",
+        ".select_poly",
+        "sharp_face",
+        ".edge_verts",
+        ".select_edge",
+        "RoadUV_Metres",
+        "RoadWeight_compacted_earth",
+        "RoadWeight_loose_sand",
+        "RoadWeight_damp_soil",
+        "RoadWeight_gravel",
+        "RoadWeight_asphalt",
+        "CandidateWetMask",
+        "RoadWeights0_EarthSandDampGravel",
+        "RoadWeights1_AsphaltWet"
+      ],
+      "join_profile": {
+        "length_m": 10.0,
+        "lane_width_m": 5.0,
+        "shoulder_m": 0.6,
+        "crown_m": 0.035,
+        "end_relief_m": 0.0
+      },
+      "fbx": "fbx/SM_Road_compacted_earth_s7.fbx",
+      "fbx_sha256": "b91b5863c59da6870343cfc33ba2bf191f4f205bd8f66fec154d0cde874d30cf"
+    },
+    {
+      "id": "unpaved-art-v1:sandy_lane:27216ce90fe99cfdc3910cbd54c4189d2cda41b40dcc780ab8271c9b1963a90e",
+      "name": "SM_Road_sandy_lane_s19",
+      "variant": "sandy_lane",
+      "seed": 19,
+      "weights": "weights/SM_Road_sandy_lane_s19.json",
+      "weights_sha256": "164387a7770eef94dfa4d534b8b0945d1c8f94af4b1a847b493b16cd5d2bbfcb",
+      "bounds": {
+        "min_m": [
+          -3.0999999046325684,
+          0.0,
+          -0.17283351719379425
+        ],
+        "max_m": [
+          3.0999999046325684,
+          10.0,
+          0.04568684473633766
+        ],
+        "dimensions_m": [
+          6.199999809265137,
+          10.0,
+          0.2185203619301319
+        ]
+      },
+      "origin": "Source start join Y0/Zsurface datum; underside below datum by design; not arbitrary ground-shift",
+      "uv": "RoadUV_Metres raw metre coordinates; shader physical division once",
+      "material_slots": [
+        "Road_FiveSurface_Blend",
+        "Road_CompactedEarth",
+        "Road_LooseSand",
+        "Road_DampSoil",
+        "Road_Gravel",
+        "Road_Asphalt"
+      ],
+      "attributes": [
+        ".select_vert",
+        "position",
+        ".corner_vert",
+        ".corner_edge",
+        ".select_poly",
+        "sharp_face",
+        ".edge_verts",
+        ".select_edge",
+        "RoadUV_Metres",
+        "RoadWeight_compacted_earth",
+        "RoadWeight_loose_sand",
+        "RoadWeight_damp_soil",
+        "RoadWeight_gravel",
+        "RoadWeight_asphalt",
+        "CandidateWetMask",
+        "RoadWeights0_EarthSandDampGravel",
+        "RoadWeights1_AsphaltWet"
+      ],
+      "join_profile": {
+        "length_m": 10.0,
+        "lane_width_m": 5.0,
+        "shoulder_m": 0.6,
+        "crown_m": 0.035,
+        "end_relief_m": 0.0
+      },
+      "fbx": "fbx/SM_Road_sandy_lane_s19.fbx",
+      "fbx_sha256": "7ac9adbc9ac303fe80824d1d651411b374a5c9cd5bde68026d75c6a14d4c5d35"
+    },
+    {
+      "id": "unpaved-art-v1:rutted_earth:2ebec6518966d31d47ba7bc49d34164f1bbad0bd886985e52dc225c0c9df7918",
+      "name": "SM_Road_rutted_earth_s31",
+      "variant": "rutted_earth",
+      "seed": 31,
+      "weights": "weights/SM_Road_rutted_earth_s31.json",
+      "weights_sha256": "fd306a662cbf85375cb8ba402d8c0a32a78dd448912cc67d9d66f4905df225f1",
+      "bounds": {
+        "min_m": [
+          -3.0999999046325684,
+          0.0,
+          -0.17921917140483856
+        ],
+        "max_m": [
+          3.0999999046325684,
+          10.0,
+          0.0442955456674099
+        ],
+        "dimensions_m": [
+          6.199999809265137,
+          10.0,
+          0.22351471707224846
+        ]
+      },
+      "origin": "Source start join Y0/Zsurface datum; underside below datum by design; not arbitrary ground-shift",
+      "uv": "RoadUV_Metres raw metre coordinates; shader physical division once",
+      "material_slots": [
+        "Road_FiveSurface_Blend",
+        "Road_CompactedEarth",
+        "Road_LooseSand",
+        "Road_DampSoil",
+        "Road_Gravel",
+        "Road_Asphalt"
+      ],
+      "attributes": [
+        ".select_vert",
+        "position",
+        ".corner_vert",
+        ".corner_edge",
+        ".select_poly",
+        "sharp_face",
+        ".edge_verts",
+        ".select_edge",
+        "RoadUV_Metres",
+        "RoadWeight_compacted_earth",
+        "RoadWeight_loose_sand",
+        "RoadWeight_damp_soil",
+        "RoadWeight_gravel",
+        "RoadWeight_asphalt",
+        "CandidateWetMask",
+        "RoadWeights0_EarthSandDampGravel",
+        "RoadWeights1_AsphaltWet"
+      ],
+      "join_profile": {
+        "length_m": 10.0,
+        "lane_width_m": 5.0,
+        "shoulder_m": 0.6,
+        "crown_m": 0.035,
+        "end_relief_m": 0.0
+      },
+      "fbx": "fbx/SM_Road_rutted_earth_s31.fbx",
+      "fbx_sha256": "8ba00bed3d0de220e14657933e23da4ef314c1bcc6c8a7431bad1fc9a22c2e26"
+    },
+    {
+      "id": "unpaved-art-v1:paved_to_earth:50bdc084e4a4347dba39c51ee9c20d64b1ef2924532f912db3b125b25857d3a6",
+      "name": "SM_Road_paved_to_earth_s7",
+      "variant": "paved_to_earth",
+      "seed": 7,
+      "weights": "weights/SM_Road_paved_to_earth_s7.json",
+      "weights_sha256": "e81613169d3560ccda2e1996972cfa407cbce49b7e7230c3d58eaaeb44da86c2",
+      "bounds": {
+        "min_m": [
+          -3.0999999046325684,
+          0.0,
+          -0.1649196445941925
+        ],
+        "max_m": [
+          3.0999999046325684,
+          10.0,
+          0.039872217923402786
+        ],
+        "dimensions_m": [
+          6.199999809265137,
+          10.0,
+          0.2047918625175953
+        ]
+      },
+      "origin": "Source start join Y0/Zsurface datum; underside below datum by design; not arbitrary ground-shift",
+      "uv": "RoadUV_Metres raw metre coordinates; shader physical division once",
+      "material_slots": [
+        "Road_FiveSurface_Blend",
+        "Road_CompactedEarth",
+        "Road_LooseSand",
+        "Road_DampSoil",
+        "Road_Gravel",
+        "Road_Asphalt"
+      ],
+      "attributes": [
+        ".select_vert",
+        "position",
+        ".corner_vert",
+        ".corner_edge",
+        ".select_poly",
+        "sharp_face",
+        ".edge_verts",
+        ".select_edge",
+        "RoadUV_Metres",
+        "RoadWeight_compacted_earth",
+        "RoadWeight_loose_sand",
+        "RoadWeight_damp_soil",
+        "RoadWeight_gravel",
+        "RoadWeight_asphalt",
+        "CandidateWetMask",
+        "RoadWeights0_EarthSandDampGravel",
+        "RoadWeights1_AsphaltWet"
+      ],
+      "join_profile": {
+        "length_m": 10.0,
+        "lane_width_m": 5.0,
+        "shoulder_m": 0.6,
+        "crown_m": 0.035,
+        "end_relief_m": 0.0
+      },
+      "fbx": "fbx/SM_Road_paved_to_earth_s7.fbx",
+      "fbx_sha256": "068cde4bd04a358986dc5db14a09c422fea3c66164f5797a4bcb9b8c79b7f59c"
+    }
+  ],
+  "units": "metres",
+  "axes": {
+    "across": "+X",
+    "run": "+Y",
+    "up": "+Z"
+  },
+  "FBX": {
+    "axis_forward": "-Y",
+    "axis_up": "Z",
+    "apply_unit_scale": true,
+    "global_scale": 1,
+    "apply_scale_options": "FBX_SCALE_UNITS",
+    "vertex_colors": "LINEAR, two named corner layers"
+  },
+  "five_weights_contract": {
+    "authoritative": "Per-vertex surface_weights arrays with exact topology in weights/*.json; point FLOAT attributes in saved blend",
+    "order": [
+      "compacted_earth",
+      "loose_sand",
+      "damp_soil",
+      "gravel",
+      "asphalt"
+    ],
+    "FBX_layer0": "RoadWeights0_EarthSandDampGravel RGBA=earth,sand,damp,gravel",
+    "FBX_layer1": "RoadWeights1_AsphaltWet R=asphalt G=candidatewet B0 A1; consumer must verify two-layer retention or use authoritative JSON. Never silently drop asphalt.",
+    "UV": "RoadUV_Metres raw metre coordinates. Each scanned shader divides by coverage exactly once. NOT frontage predivided SurfaceUV."
+  },
+  "preview_context": {
+    "frontage_blend": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\YabaFrontageV3.blend",
+    "sha256": "6ea6d7bb05a2c0d44deab135145d6c13f77dbc30751303a2670df753e0c88168",
+    "state": "Additive isolated partial shop context, unchanged meshes not canonical placement"
+  },
+  "known_gaps": [
+    "No licensed soil/sand/gravel scans; explicit authored earth fallbacks not photographic fidelity",
+    "No dated location-specific road reference or geography assignment",
+    "Native five-weight shader/import units,collision,LOD,performance and final visuals unverified",
+    "Preview local water clipped; wet mask not water simulation",
+    "No traction,dust,flooding or gameplay effects"
+  ],
+  "errors": []
+}

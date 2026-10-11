@@ -1,0 +1,57 @@
+{
+  "updated_at": "2026-10-11T03:41:30-07:00",
+  "role": "sole Windows Blender asset writer; no Unreal mutation",
+  "step": "vehicle_frontage_v3_road_batches_saved_reopened_images_inspected_frozen",
+  "active_owned_blender_pid": null,
+  "last_authoring_pid": 14216,
+  "last_process_state": "Vehicle13664, frontage10588, road1792 and preview14216 exited; only protected3224 remains, disk hash unchanged. No further renderer or Unreal mutation.",
+  "current_handoffs": {"vehicles":"vehicle-wear-v1/vehicle-handoff.json","frontage_v3":"C:/dev/baddie-assets/YabaRealismKit/frontage-v3-owned/frontage-v3/worker-visual-review.json","roads":"unpaved-road-v1/road-handoff.json"},
+  "unpaved_road": {"output":"C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1","pids":[1792,14216],"state":"Exited;4FBXs,exact5weights,2editableblends,8actualPNGworker-reviewed. Soil scans absent, smooth surfaces and partial context unaccepted.","recipe_sha256":"063f9f7f9a7eb1b55cc6a0fd8c285ba8481a16600b16a4a51305cf874205f197"},
+  "vehicle_handoff": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/vehicle-wear-v1/vehicle-handoff.json",
+  "frontage_v3": {"output":"C:/dev/baddie-assets/YabaRealismKit/frontage-v3-owned/frontage-v3","control_progress":"C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/frontage-v3-control/progress.json","source_sha256":"39b52640e108b41cfccf34da5cafc2f7542f61561c4f6afa50058291ddc57f45","state":"PID10588exited;32FBXs/173placements/reopenedscene/4actualviews inspected, explicit wood1.5m;frozen kit only, final realism unaccepted"},
+  "handoff":"C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/replacement-art-handoff.json",
+  "frontage_review": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/frontage-v2-visual-review.json",
+  "tree_working_revision": {"output":"C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/roadside-tree-v2","source_sha256":"24ed6c208b2c4743ad94e6f26442d5174a3037ff751745270abf3d71c189c312","state":"Same-ground-camera frame inspected, central spike removed but sparse foliage and smooth bark remain; native placement prohibited pending review"},
+  "replacement_tree": {"output": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/roadside-tree-v1", "control_progress": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/roadside-tree-v1-control/progress.json", "source_sha256": "6dce09d3eee74ab10ea0f94580ff21e7d7f068339cb6c3dc180639939ddb4835", "threads": 2, "samples": 24, "resolution": [960,640], "species": "unresolved", "first_view_observation": "Individual foliage and canopy gaps visible, trunk contact present; bare central spike and simplified bark remain visible defects, not final realism"},
+  "replacement_frontage": {"output_base": "C:/dev/baddie-assets/YabaRealismKit", "owner_marker": ".owner-yaba-kit contains yaba-frontage-replacement-v1", "current_run": "frontage-v2", "state": "Delivered immutable editable blend,18FBXs,83placements,11packed maps and3actual PNGs; reopened and worker-inspected; final realism rejected", "source_sha256": "2bc71471cb5f3abc28aa06623de9c23800cf524028ade6003b0f64207682d460", "owned_revision_sha256": "598bfefadc522550be4bb6d49905066dbb089963aa2a5f776f33af41f0b3808d", "repair": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/frontage-source-r2/repair.json", "contract_sha256": "37314e3e16633b7f5edc9b2c11e105561813bfe2e6c3c1bed6ba942b04f991ff"},
+  "protected_session": {
+    "pid": 3224,
+    "path": "C:/dev/baddie-assets/Blender/LagosWorkbench.blend",
+    "sha256": "70592d3c04a9fc6c9599188ec2220c3b1425a85477e4f5984a4c5898fb993eab",
+    "verification": "PID and executable inspected; on-disk hash unchanged; no live operation or profile mutation"
+  },
+  "blockout_evidence": {
+    "png": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/camera-delivery-v1/03-Theatre-Danfo-Kiosk.png",
+    "png_sha256": "dcf6bd355ac74073851ffc500c7902d6f54ebb975b10ed7ff2a0807e3150a7ae",
+    "blend": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/camera-delivery-v1/LagosFirstScene-CameraDelivery.blend",
+    "blend_sha256": "4fd6f9f8f70cd95c968bec1d691a7bc02fa2bfa2d778754f82bda2c74b3a37a2",
+    "acceptance": "Parent inspected and rejected final realism; immutable blockout evidence retained"
+  },
+  "derivative_outputs": [
+    {"path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/author_danfo_detail.py", "sha256": "3d12f5b0480f11d1370ede6811a4b2acf738339a6360b0383e2cc9d48ccfe33c", "role": "Owned derivative geometry source; not a replacement facade generator"},
+    {"path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/DanfoDetail_v1.blend", "sha256": "8e5c0d4758bd8b92e7525328410998f3fcf6a907919a95048ac5ee825b3546c8"},
+    {"path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/DanfoDetail_v1.fbx", "sha256": "282dc12cbd98529f8c679aeca41426f173f9802f108650a80f2420bff5d05586", "export_identity": "SM_DanfoDetail_v1"},
+    {"path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/01-Danfo-Detail-Quarter.png", "sha256": "b74b43ef2a74d90de94b8cb9ccb14c3772e277c6cee69efdb174e6a961e3c9d8"},
+    {"path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/02-Danfo-Cabin-Wheel-Close.png", "sha256": "d21bfe3c4272f08e0d67a0a4e2fea31dc732599ddd94fc154217c035558d0cc8"}
+  ],
+  "records": {
+    "inventory": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/material-input-inventory.json",
+    "target_and_defects": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/target-and-defects.json",
+    "provenance": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/provenance.json",
+    "visual_review": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/visual-review.json",
+    "probe": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/scene-probe-reopened.json"
+  },
+  "pending_inputs": ["Approved dated Yaba references", "Native importer units/axes confirmation before consuming tree placement matrices"],
+  "material_handoff": {
+    "state": "Released; complete material-inputs-verified directory and all 20 maps locally verified",
+    "current_inventory": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/material-input-inventory-verified.json",
+    "authority": "Coordinator-supplied media exception only; no worker downloads, purchases or installations",
+    "required_receipt": ["Exact paths and SHA-256", "Source and CC0 provenance", "Physical coverage in metres", "Channel mapping and GL/DX normal convention"],
+    "intended_binding": {"basecolor": "sRGB", "roughness": "Non-Color", "normal": "Non-Color with documented GL/DX interpretation", "uvs": "Physical-scale mapping from supplied coverage; verify on saved/reopened scene and actual views"},
+    "acceptance": "Existing procedural shaders remain unaccepted fallback; receipt or wiring alone will not establish realism"
+  },
+  "next_street_acceptance": ["100-150m segment before expansion", "Near/mid/far detail and pedestrian-height grounding", "Real branch/leaf structure; no smooth blob canopies", "Connected road edges and drainage, localized traffic/water wear", "Daylight and damp/evening views plus facade/road/drain/prop close coverage"],
+  "visual_acceptance": "Detail derivative only; not final art, named-district fidelity or native runtime acceptance",
+  "warnings": ["One nonfatal World.use_nodes deprecation warning", "Close PNG crops wheel; tread detail not visually verified", "Dark glass obscures cabin; smooth stylized paint remains"],
+  "errors": []
+}

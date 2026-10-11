@@ -1,0 +1,59 @@
+{
+  "recorded_at": "2026-10-11T03:43:00-07:00",
+  "role": "Sole Windows Blender writer, no Unreal mutation",
+  "state": "All owned renderers exited; saved/editable exported/reopened authoring evidence frozen; parent review and final realism open",
+  "protected_workbench": {
+    "pid": 3224,
+    "path": "C:/dev/baddie-assets/Blender/LagosWorkbench.blend",
+    "sha256": "70592d3c04a9fc6c9599188ec2220c3b1425a85477e4f5984a4c5898fb993eab",
+    "mutated": false
+  },
+  "vehicles": {
+    "pid": 13664,
+    "blend": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/vehicle-wear-v1/delivery/LagosVehicleWearLibrary.blend",
+    "blend_sha256": "f8222ce714870ad68eae40c241b2a71beccdebf7b0619e5cac5b8b95a32086fd",
+    "fbx_dir": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/vehicle-wear-v1/delivery",
+    "frame_dir": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/vehicle-wear-v1/frames-delivery",
+    "frames": 4,
+    "initial_frames_preserved": 4,
+    "handoff": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/vehicle-wear-v1/vehicle-handoff.json",
+    "handoff_sha256": "fbf95ff338a1dccc064520dc54cf64ec42cbe046999e99f50e951a22a7ee6bc8",
+    "failure": "Initial PID2388 unused GlassEdgeFilm/RoadsideDust pruned. Initial saved blend/threeFBXs/logs preserved; resume material mapping additive, no missing external media.",
+    "visual": "Roof/fascia/lens/bumper/side-dent repair same cameras visibly improves vehicle, still simplified toy-like broad body and constant paint; no realism or native acceptance"
+  },
+  "frontage_v3": {
+    "pid": 10588,
+    "output": "C:/dev/baddie-assets/YabaRealismKit/frontage-v3-owned/frontage-v3",
+    "blend": "C:/dev/baddie-assets/YabaRealismKit/frontage-v3-owned/frontage-v3/YabaFrontageV3.blend",
+    "blend_sha256": "6ea6d7bb05a2c0d44deab135145d6c13f77dbc30751303a2670df753e0c88168",
+    "fbx_count": 32,
+    "instances": 173,
+    "frames": 4,
+    "review": "C:/dev/baddie-assets/YabaRealismKit/frontage-v3-owned/frontage-v3/worker-visual-review.json",
+    "review_sha256": "d3811fa0e1f8f1212485a3bafe6e896e2d89414922a10e8a43ba25fade3e56a7",
+    "technical": "Actual saved250mmwall/35mmsetback, zero stock-bounds support gaps and aisle intrusions; exports hash match; wood explicit1.5m verified",
+    "visual": "Shops visibly furnished but generic stock, blank signs, outer black strips, isolated11.7m frontage and generic materials remain; not100-150mstreet or native/realism acceptance"
+  },
+  "roads": {
+    "pids": [
+      1792,
+      14216
+    ],
+    "output": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1",
+    "blend": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1/LagosUnpavedRoadKit.blend",
+    "preview_blend": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1/preview-r2/LagosUnpavedRoadKit-PreviewR2.blend",
+    "fbx_count": 4,
+    "frames": 8,
+    "review": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1/road-handoff.json",
+    "review_sha256": "27002bee3c95735d6f4da8a695fd5ea1758094c90462da56c925ef7c3c3b6c12",
+    "weights": "Five explicit channels retained in saved point floats, authoritative topology JSON and two LINEAR FBX colour layers, Blender roundtrip retained; native binding unverified",
+    "UV": "Raw metre UV; divide verified coverage once, not frontage predivided1x",
+    "visual": "Dry/sand/damp/transition real stills reviewed, foreground pad edge improved only. Smooth soil fallbacks, distant preview seams, pale water patch and incomplete shop context not accepted.",
+    "material_gap": "No soil/sand/gravel scans in inspected local inventory; no independent media acquisition or asphalt relabelling"
+  },
+  "total_actual_images_reviewed": 20,
+  "still_settings": "Serial only; Blender5.2.2 CPUtwoThreads,16samples vehicle/roads,24frontage;960x640 vehicles/frontage,960x540roads",
+  "new_native_imports": "None by Blender writer",
+  "gameplay": "No driving/breakdown/traction/flood/dust or saved placement changes",
+  "next": "Parent review and direction for largest observed defects; qualified soil references/material inputs needed for road photographic fidelity. No further renderer started."
+}

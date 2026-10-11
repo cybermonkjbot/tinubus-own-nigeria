@@ -1,0 +1,37 @@
+{
+  "actual_saved_names": [
+    "VW_Amber",
+    "VW_Asphalt",
+    "VW_Battery",
+    "VW_BlackStripe",
+    "VW_ExposedOxidizedMetal",
+    "VW_GlassAged",
+    "VW_GlassClear",
+    "VW_Hose",
+    "VW_Ivory",
+    "VW_LampGlass",
+    "VW_Mirror",
+    "VW_OldSeatBacking",
+    "VW_Primer",
+    "VW_RedLamp",
+    "VW_RimOld",
+    "VW_Rubber",
+    "VW_RustSeam",
+    "VW_SeatCloth",
+    "VW_SeatRepair",
+    "VW_SedanBlue",
+    "VW_SedanFaded",
+    "VW_SedanPanel",
+    "VW_Steel",
+    "VW_YellowBleached",
+    "VW_YellowFaded",
+    "VW_YellowMaintained",
+    "VW_YellowRepair"
+  ],
+  "declared_but_not_saved": [
+    "GlassEdgeFilm",
+    "RoadsideDust"
+  ],
+  "glass_edge_film_source_assignments": 0,
+  "cause": "Unused palette entries have no fake user; omitted on save. No differently named retained GlassEdgeFilm."
+}

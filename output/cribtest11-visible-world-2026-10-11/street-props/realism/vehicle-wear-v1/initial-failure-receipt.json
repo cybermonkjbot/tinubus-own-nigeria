@@ -1,0 +1,16 @@
+{
+  "job": "lagos-vehicle-wear-v1",
+  "pid": 2388,
+  "state": "exited_after_save_and_three_exports_before_render",
+  "source": "author_vehicles.py",
+  "source_sha256": "a8d32401b643a392a8e4ac46afe42c41599df2d0badecf38b99751917e07f898",
+  "saved_blend": "initial/LagosVehicleWearLibrary.blend",
+  "saved_blend_sha256": "e0ce3b6cf7c21715f5f2177e1b116024c5644f93038f10cf56d0d13ea7b7d877",
+  "traceback": "stderr.log",
+  "traceback_sha256": "069f9d2926e6066c96b49b809fdea9ff53e5c1b3e642f13793f37091f451dbf1",
+  "error": "KeyError: bpy_prop_collection[key]: key VW_GlassEdgeFilm not found at author_vehicles.py:477 after open_mainfile",
+  "source_review": "GlassEdgeFilm is declared in palette but never assigned to a part; no fake user. Its saved absence is consistent with unused datablock pruning, not an external missing dependency or alternate retained name.",
+  "recovery": "Separate resume_saved_r2.py restores only actual saved materials and writes checkpoint-r2; original source, initial blend, exports and logs retained.",
+  "recovery_source_sha256": "c6782beca0e2528e571fbdbe0bcb158047fc3b9dd13ebd1c0238fa6ef8bea8ea",
+  "acceptance": "No native import or final visual acceptance"
+}

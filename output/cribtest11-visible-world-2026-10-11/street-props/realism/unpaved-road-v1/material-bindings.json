@@ -1,0 +1,188 @@
+{
+  "Road_EarthBrown": {
+    "slot": "Road_EarthBrown",
+    "base_linear": [
+      0.105,
+      0.08,
+      0.049
+    ],
+    "roughness": 0.94,
+    "metallic": 0,
+    "transmission": 0,
+    "provenance": "Explicit original authored constants; not licensed soil scans",
+    "coverage_m": null
+  },
+  "Road_CompactedEarth": {
+    "slot": "Road_CompactedEarth",
+    "base_linear": [
+      0.115,
+      0.082,
+      0.05
+    ],
+    "roughness": 0.92,
+    "metallic": 0,
+    "transmission": 0,
+    "provenance": "Explicit original authored constants; not licensed soil scans",
+    "coverage_m": null
+  },
+  "Road_LooseSand": {
+    "slot": "Road_LooseSand",
+    "base_linear": [
+      0.4,
+      0.32,
+      0.2
+    ],
+    "roughness": 0.94,
+    "metallic": 0,
+    "transmission": 0,
+    "provenance": "Explicit original authored constants; not licensed soil scans",
+    "coverage_m": null
+  },
+  "Road_DampSoil": {
+    "slot": "Road_DampSoil",
+    "base_linear": [
+      0.045,
+      0.035,
+      0.022
+    ],
+    "roughness": 0.57,
+    "metallic": 0,
+    "transmission": 0,
+    "provenance": "Explicit original authored constants; not licensed soil scans",
+    "coverage_m": null
+  },
+  "Road_Gravel": {
+    "slot": "Road_Gravel",
+    "base_linear": [
+      0.17,
+      0.155,
+      0.13
+    ],
+    "roughness": 0.91,
+    "metallic": 0,
+    "transmission": 0,
+    "provenance": "Explicit original authored constants; not licensed soil scans",
+    "coverage_m": null
+  },
+  "Road_LocalWater": {
+    "slot": "Road_LocalWater",
+    "base_linear": [
+      0.93,
+      0.97,
+      0.98
+    ],
+    "roughness": 0.025,
+    "metallic": 0,
+    "transmission": 1,
+    "provenance": "Explicit original authored constants; not licensed soil scans",
+    "coverage_m": null
+  },
+  "Road_Asphalt": {
+    "slot": "Road_Asphalt",
+    "base_linear": [
+      0.3,
+      0.3,
+      0.3
+    ],
+    "roughness": 0.82,
+    "metallic": 0,
+    "transmission": 0,
+    "provenance": "Coordinator Poly Haven original CC0 scans",
+    "coverage_m": [
+      2,
+      2
+    ],
+    "authors": {
+      "Amal Kumar": "All"
+    },
+    "license": "CC0-1.0",
+    "maps": {
+      "Diffuse": {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\material-inputs-verified\\worn_asphalt\\worn_asphalt_diff_2k.jpg",
+        "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/worn_asphalt/worn_asphalt_diff_2k.jpg",
+        "colorspace": "sRGB",
+        "GL_green_invert_once_in_Unreal": false
+      },
+      "Rough": {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\material-inputs-verified\\worn_asphalt\\worn_asphalt_rough_2k.png",
+        "sha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_rough_2k.png",
+        "colorspace": "Non-Color",
+        "GL_green_invert_once_in_Unreal": false
+      },
+      "nor_gl": {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\material-inputs-verified\\worn_asphalt\\worn_asphalt_nor_gl_2k.png",
+        "sha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_nor_gl_2k.png",
+        "colorspace": "Non-Color",
+        "GL_green_invert_once_in_Unreal": true
+      }
+    }
+  },
+  "Road_ConcreteSupport": {
+    "slot": "Road_ConcreteSupport",
+    "base_linear": [
+      0.3,
+      0.3,
+      0.3
+    ],
+    "roughness": 0.82,
+    "metallic": 0,
+    "transmission": 0,
+    "provenance": "Coordinator Poly Haven original CC0 scans",
+    "coverage_m": [
+      2.7100000381469727,
+      2.7100000381469727
+    ],
+    "authors": {
+      "Dario Barresi": "Processing ",
+      "Charlotte Baglioni": "Photography"
+    },
+    "license": "CC0-1.0",
+    "maps": {
+      "Diffuse": {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\material-inputs-verified\\concrete_wall_008\\concrete_wall_008_diff_2k.jpg",
+        "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_008/concrete_wall_008_diff_2k.jpg",
+        "colorspace": "sRGB",
+        "GL_green_invert_once_in_Unreal": false
+      },
+      "Rough": {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\material-inputs-verified\\concrete_wall_008\\concrete_wall_008_rough_2k.png",
+        "sha256": "af2c3055aea34c0b1366b04ccdc90a83ed22e997de446a2d1e02817c800eb026",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/concrete_wall_008/concrete_wall_008_rough_2k.png",
+        "colorspace": "Non-Color",
+        "GL_green_invert_once_in_Unreal": false
+      },
+      "nor_gl": {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\material-inputs-verified\\concrete_wall_008\\concrete_wall_008_nor_gl_2k.png",
+        "sha256": "3d26d24586556ee400506888ad6496733a67bcc9020616c10119c1c343c5be24",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/concrete_wall_008/concrete_wall_008_nor_gl_2k.png",
+        "colorspace": "Non-Color",
+        "GL_green_invert_once_in_Unreal": true
+      }
+    }
+  },
+  "Road_FiveSurface_Blend": {
+    "slot": "Road_FiveSurface_Blend",
+    "channels": [
+      "compacted_earth",
+      "loose_sand",
+      "damp_soil",
+      "gravel",
+      "asphalt"
+    ],
+    "source": "Five exact recipe point weights, normalized conditional shader mix; asphalt licensed, first four explicitly authored fallback constants",
+    "soil_scans": "Not present; no noise/displacement or relabelled asphalt/concrete into soil",
+    "soil_color_choices": "Grey/brown compacted earth and pale sand authored, no claimed Lagos-location assignment or laterite scan",
+    "roughness": [
+      0.92,
+      0.94,
+      0.57,
+      0.91,
+      "verified asphalt roughness"
+    ],
+    "UV": "RoadUV_Metres stores raw metre coordinates; asphalt shader divides by verified2m exactly once, unknown soil coverage not invented"
+  }
+}

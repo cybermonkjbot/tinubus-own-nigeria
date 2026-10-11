@@ -1,0 +1,117 @@
+{
+  "recorded_at": "2026-10-11",
+  "job": "lagos-vehicle-wear-v1",
+  "authoring_pid": 13664,
+  "process_state": "Exited after serial save/export/reopen and eight frames; no other owned Blender remains",
+  "final_blend": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/vehicle-wear-v1/delivery/LagosVehicleWearLibrary.blend",
+  "blend_sha256": "f8222ce714870ad68eae40c241b2a71beccdebf7b0619e5cac5b8b95a32086fd",
+  "material_bindings": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/vehicle-wear-v1/material-bindings-r3.json",
+  "manifest": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/vehicle-wear-v1/delivery/vehicle-manifest.json",
+  "inventory": [
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\delivery\\LagosVehicleWearLibrary.blend",
+      "bytes": 58959918,
+      "sha256": "f8222ce714870ad68eae40c241b2a71beccdebf7b0619e5cac5b8b95a32086fd"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\delivery\\scene-probe-reopened.json",
+      "bytes": 10388,
+      "sha256": "ebc06040a6635ffbf2a49edb5f5708690f680c4e8bd04327709c4ace70e0e177"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\delivery\\SM_Danfo_Breakdown_v1.fbx",
+      "bytes": 2143772,
+      "sha256": "c3c21bcb05570bbb9293a5d4b325244a332b698a1d7bc81dca92d553fcbc77ab"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\delivery\\SM_Danfo_Worn_v1.fbx",
+      "bytes": 2431372,
+      "sha256": "047eceb11ee2d45c956a63267a1124a8888402fdd7b97b7b2b47a6b26aa70206"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\delivery\\SM_OlderSedan_Worn_v1.fbx",
+      "bytes": 1011484,
+      "sha256": "b9a2843cad62a555c6bcc18b4007336e76e39324138cea0f0ef63d8b650c431a"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\delivery\\vehicle-manifest.json",
+      "bytes": 937396,
+      "sha256": "9a1a22c8d73c1648e35acd058a33cc55b391688d231e4492900f0454afb8914b"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-delivery\\01-Worn-Danfo-Quarter.png",
+      "bytes": 734243,
+      "sha256": "08b65132c44b4eeee687390bdafd785f94444ea3c38471350197a95bcfdf7187"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-delivery\\02-Breakdown-Danfo-Quarter.png",
+      "bytes": 728726,
+      "sha256": "62963a8957cfa66203068077ebf5a8bd9364384e6153f1947ec26bcd14237278"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-delivery\\03-Older-Sedan-Quarter.png",
+      "bytes": 728364,
+      "sha256": "87a6201188a2591026ff426e239b91f46097fdd80d4e218fc1625ea5e11bb4bc"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-delivery\\04-Danfo-Wheel-Cabin.png",
+      "bytes": 729535,
+      "sha256": "adf411cda38cd04b1f4de69367f5a27c8ede16a0a838e50e2172ab9761a4b9b8"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-initial\\01-Worn-Danfo-Quarter.png",
+      "bytes": 732059,
+      "sha256": "ac407d14f9f0c8caf16827989cffbf08e99b2a70d50e9d53c3b7062079d8cd76"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-initial\\02-Breakdown-Danfo-Quarter.png",
+      "bytes": 728684,
+      "sha256": "dcc710eab4073f97040eae0d8bf7bacae16b669193d28f4485a22044c1b2c2cc"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-initial\\03-Older-Sedan-Quarter.png",
+      "bytes": 729474,
+      "sha256": "94f54cc37131df3b573e66aecb1c5dc890a681fe1e7a5920a0e204a82bf9926b"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-initial\\04-Danfo-Wheel-Cabin.png",
+      "bytes": 716691,
+      "sha256": "795652af8529740dd5d281e9efd2efa8c9dee4f9c14f5d9a9b494b207d04fac0"
+    }
+  ],
+  "visual_review": {
+    "actual_images_opened": 8,
+    "configuration": "Blender5.2.2 Cycles CPU2threads16samples960x640 AgX; fixed original cameras and lighting",
+    "largest_repair": "Slab roof changed to thin crowned sheet; pale solid headlamps replaced by recessed reflector/shallow clear-lens assembly; grille louvres and rolled returned bumper; smoothed reduced localized dents. Sedan bonnet-wing shoulder repaired.",
+    "observations": [
+      "Quarter views retain readable yellow/black danfo treatment, cabin depth and fully framed inflated/flat wheels; broken variant has open separate hatch with cavity and static support.",
+      "Close view fully contains front wheel, cabin/wiper/step and repaired lens/roof; vehicle rear cropped intentionally in close composition.",
+      "Sedan complete silhouette and full wheels visible; remaining black bonnet edge seam and thin angular cabin pillars remain unaccepted details."
+    ],
+    "open_defects": [
+      "Vehicles remain simplified/stylized rather than photographic; danfo broad rectangular body and flat side paint remain.",
+      "Lamp optics improved but still graphic, side repair patch simple, tyres lack measured branding/sidewall and full close tread realism.",
+      "Sedan silhouette is generic authored older three-box car; angular glass pillars and simplified fascia/body panel finish remain.",
+      "No automotive paint/rubber/textile scan inputs or vehicle-specific photographic references were supplied; generic metal/timber scans used only on small exposed repairs/interior/chock.",
+      "Jack support/service bay are authored; actual native importer/material/reflections/axes and runtime support unverified."
+    ]
+  },
+  "technical": {
+    "reopened_scene_probe": "delivery/scene-probe-reopened.json",
+    "missing_dependencies": 0,
+    "fbx_count": 3,
+    "units": "metres; minZ0",
+    "uv": "FBX channel0 SurfaceUV only, physical coverage predivided native multiplier1x",
+    "native_importer": "Unverified. Sole Unreal writer must check cm bounds, front/up/origin,slots. No canonical mapping assumed.",
+    "appearance_only": "No driving,damage/breakdown/repair gameplay or runtime registration"
+  },
+  "failure_evidence": "initial-failure-receipt.json",
+  "saved_material_inspection": "saved-material-inspection-r3.json",
+  "scope_acceptance": "Bounded additive authoring/save/export/reopen/render/review complete; final realism and native import acceptance NOT established",
+  "protected_workbench": {
+    "pid": 3224,
+    "sha256": "70592d3c04a9fc6c9599188ec2220c3b1425a85477e4f5984a4c5898fb993eab",
+    "mutated": false
+  },
+  "next": "Reviewed frozen frontage-v3 source execution serially; no duplicated Mac source repair"
+}

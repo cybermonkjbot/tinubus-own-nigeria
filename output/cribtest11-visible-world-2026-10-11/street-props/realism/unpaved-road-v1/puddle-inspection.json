@@ -1,0 +1,12 @@
+{
+  "lowest_candidate_point_m": [
+    -0.8679999999999999,
+    5.0,
+    -0.05921917439999999
+  ],
+  "water_plane_m": -0.047219174399999994,
+  "max_depth_m": 0.012,
+  "area_m2": 0.23020154068843568,
+  "geometry": "Triangle clipping to actual below-plane terrain, bounded1.4x2m local area; +.8mm display offset",
+  "state": "Separate preview water, NOT conversion of wet mask into full road water; native placement/render/collision unverified"
+}

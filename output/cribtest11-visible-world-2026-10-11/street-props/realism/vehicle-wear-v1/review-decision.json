@@ -1,0 +1,12 @@
+{
+  "expected_pid": 13664,
+  "action": "repair",
+  "script": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/vehicle-wear-v1/repair_visible_r3.py",
+  "defect": "Actual initial quarter and close PNGs: slab roof, flat fascia, pale solid headlamps, clean block bumper and triangular side dent. Same-lighting geometry repair: thin crowned roof, recessed reflector/clear lenses and grille, rolled bumper and smaller smoothed dents. Actual sedan PNG has broad bonnet/wing slot, closed with thin shoulder sheets. No blanket noise or camera concealment.",
+  "rerender": [
+    "01-Worn-Danfo-Quarter",
+    "02-Breakdown-Danfo-Quarter",
+    "03-Older-Sedan-Quarter",
+    "04-Danfo-Wheel-Cabin"
+  ]
+}

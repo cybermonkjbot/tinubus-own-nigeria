@@ -1,0 +1,242 @@
+{
+  "saved": [
+    {
+      "id": "unpaved-art-v1:compacted_earth:94cbe564744b0bf8b6932a79b0e4ee865fe8a68edaaaaaf3eab2e131874e6a65",
+      "saved_bounds": {
+        "min_m": [
+          -3.0999999046325684,
+          0.0,
+          -0.17103813588619232
+        ],
+        "max_m": [
+          3.0999999046325684,
+          10.0,
+          0.04657368361949921
+        ],
+        "dimensions_m": [
+          6.199999809265137,
+          10.0,
+          0.21761181950569153
+        ]
+      },
+      "five_float_attributes_present": true,
+      "max_weight_sum_error": 1.1102230246251565e-16,
+      "color_layers": [
+        "RoadWeights0_EarthSandDampGravel",
+        "RoadWeights1_AsphaltWet"
+      ]
+    },
+    {
+      "id": "unpaved-art-v1:sandy_lane:27216ce90fe99cfdc3910cbd54c4189d2cda41b40dcc780ab8271c9b1963a90e",
+      "saved_bounds": {
+        "min_m": [
+          -3.0999999046325684,
+          0.0,
+          -0.17283351719379425
+        ],
+        "max_m": [
+          3.0999999046325684,
+          10.0,
+          0.04568684473633766
+        ],
+        "dimensions_m": [
+          6.199999809265137,
+          10.0,
+          0.2185203619301319
+        ]
+      },
+      "five_float_attributes_present": true,
+      "max_weight_sum_error": 0.0,
+      "color_layers": [
+        "RoadWeights0_EarthSandDampGravel",
+        "RoadWeights1_AsphaltWet"
+      ]
+    },
+    {
+      "id": "unpaved-art-v1:rutted_earth:2ebec6518966d31d47ba7bc49d34164f1bbad0bd886985e52dc225c0c9df7918",
+      "saved_bounds": {
+        "min_m": [
+          -3.0999999046325684,
+          0.0,
+          -0.17921917140483856
+        ],
+        "max_m": [
+          3.0999999046325684,
+          10.0,
+          0.0442955456674099
+        ],
+        "dimensions_m": [
+          6.199999809265137,
+          10.0,
+          0.22351471707224846
+        ]
+      },
+      "five_float_attributes_present": true,
+      "max_weight_sum_error": 1.1102230246251565e-16,
+      "color_layers": [
+        "RoadWeights0_EarthSandDampGravel",
+        "RoadWeights1_AsphaltWet"
+      ]
+    },
+    {
+      "id": "unpaved-art-v1:paved_to_earth:50bdc084e4a4347dba39c51ee9c20d64b1ef2924532f912db3b125b25857d3a6",
+      "saved_bounds": {
+        "min_m": [
+          -3.0999999046325684,
+          0.0,
+          -0.1649196445941925
+        ],
+        "max_m": [
+          3.0999999046325684,
+          10.0,
+          0.039872217923402786
+        ],
+        "dimensions_m": [
+          6.199999809265137,
+          10.0,
+          0.2047918625175953
+        ]
+      },
+      "five_float_attributes_present": true,
+      "max_weight_sum_error": 1.1102230246251565e-16,
+      "color_layers": [
+        "RoadWeights0_EarthSandDampGravel",
+        "RoadWeights1_AsphaltWet"
+      ]
+    }
+  ],
+  "Blender_FBX_roundtrip": [
+    {
+      "id": "unpaved-art-v1:compacted_earth:94cbe564744b0bf8b6932a79b0e4ee865fe8a68edaaaaaf3eab2e131874e6a65",
+      "meshes": [
+        {
+          "name": "SM_Road_compacted_earth_s7.001",
+          "bounds": {
+            "min_m": [
+              -3.1000008583068848,
+              -2.710106059566897e-07,
+              -0.17103813588619232
+            ],
+            "max_m": [
+              3.0999999046325684,
+              10.0,
+              0.04657368361949921
+            ],
+            "dimensions_m": [
+              6.200000762939453,
+              10.000000271010606,
+              0.21761181950569153
+            ]
+          },
+          "uv_layers": [
+            "RoadUV_Metres"
+          ],
+          "color_layers": [
+            "RoadWeights0_EarthSandDampGravel",
+            "RoadWeights1_AsphaltWet"
+          ]
+        }
+      ],
+      "limitation": "Blender FBX importer only; Unreal units/axis/layer retention and materials unverified"
+    },
+    {
+      "id": "unpaved-art-v1:sandy_lane:27216ce90fe99cfdc3910cbd54c4189d2cda41b40dcc780ab8271c9b1963a90e",
+      "meshes": [
+        {
+          "name": "SM_Road_sandy_lane_s19.001",
+          "bounds": {
+            "min_m": [
+              -3.1000008583068848,
+              -2.710106059566897e-07,
+              -0.17283351719379425
+            ],
+            "max_m": [
+              3.0999999046325684,
+              10.0,
+              0.04568684473633766
+            ],
+            "dimensions_m": [
+              6.200000762939453,
+              10.000000271010606,
+              0.2185203619301319
+            ]
+          },
+          "uv_layers": [
+            "RoadUV_Metres"
+          ],
+          "color_layers": [
+            "RoadWeights0_EarthSandDampGravel",
+            "RoadWeights1_AsphaltWet"
+          ]
+        }
+      ],
+      "limitation": "Blender FBX importer only; Unreal units/axis/layer retention and materials unverified"
+    },
+    {
+      "id": "unpaved-art-v1:rutted_earth:2ebec6518966d31d47ba7bc49d34164f1bbad0bd886985e52dc225c0c9df7918",
+      "meshes": [
+        {
+          "name": "SM_Road_rutted_earth_s31.001",
+          "bounds": {
+            "min_m": [
+              -3.1000008583068848,
+              -2.710106059566897e-07,
+              -0.17921917140483856
+            ],
+            "max_m": [
+              3.0999999046325684,
+              10.0,
+              0.0442955456674099
+            ],
+            "dimensions_m": [
+              6.200000762939453,
+              10.000000271010606,
+              0.22351471707224846
+            ]
+          },
+          "uv_layers": [
+            "RoadUV_Metres"
+          ],
+          "color_layers": [
+            "RoadWeights0_EarthSandDampGravel",
+            "RoadWeights1_AsphaltWet"
+          ]
+        }
+      ],
+      "limitation": "Blender FBX importer only; Unreal units/axis/layer retention and materials unverified"
+    },
+    {
+      "id": "unpaved-art-v1:paved_to_earth:50bdc084e4a4347dba39c51ee9c20d64b1ef2924532f912db3b125b25857d3a6",
+      "meshes": [
+        {
+          "name": "SM_Road_paved_to_earth_s7.001",
+          "bounds": {
+            "min_m": [
+              -3.1000008583068848,
+              -2.710106059566897e-07,
+              -0.1649196445941925
+            ],
+            "max_m": [
+              3.0999999046325684,
+              10.0,
+              0.039872217923402786
+            ],
+            "dimensions_m": [
+              6.200000762939453,
+              10.000000271010606,
+              0.2047918625175953
+            ]
+          },
+          "uv_layers": [
+            "RoadUV_Metres"
+          ],
+          "color_layers": [
+            "RoadWeights0_EarthSandDampGravel",
+            "RoadWeights1_AsphaltWet"
+          ]
+        }
+      ],
+      "limitation": "Blender FBX importer only; Unreal units/axis/layer retention and materials unverified"
+    }
+  ]
+}

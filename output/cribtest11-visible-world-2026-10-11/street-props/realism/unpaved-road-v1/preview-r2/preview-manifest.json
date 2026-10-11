@@ -1,0 +1,40 @@
+{
+  "pid": 14216,
+  "blend": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\LagosUnpavedRoadKit-PreviewR2.blend",
+  "sha256": "f216c5d0ddea3acffe4addd7c2448ba569eb5987f6863416631f4bfe41eca5fc",
+  "source_blend": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\LagosUnpavedRoadKit.blend",
+  "source_blend_sha256": "260f78d3cd441716ff08e8a85fb43eac2186f4f0054823f9aa7b8febec8800c3",
+  "repair_source_sha256": "6cb228d3cdee74b7b5649c2104c252b4bae56850839d9c58e43c777f72f1aa0f",
+  "frames": [
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\01-Dry-Earth-Ground.png",
+      "sha256": "d78879d7b7c23f6e9a7fb22819784d912b1064e1834d0ae5e0894ac9728b7202",
+      "seconds": 20.764878100002534
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\03-Damp-Ruts-Ground.png",
+      "sha256": "1dcb3be0fa67d27c339889ccd2e65a02c4db7a69cf7b34fd6ee168fc6d027a75",
+      "seconds": 20.893088299999363
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\04-Asphalt-Earth-Join.png",
+      "sha256": "1c582c796507b196e3a084151df197d18bb6a546b4e11ffd616d4eeef9a667f7",
+      "seconds": 22.492995299995528
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\05-Road-Shop-Drain-Walk.png",
+      "sha256": "4429a66c7aaaaafc6d4739dcb9bd41cca5dd99132634460c52be7c2a90278e72",
+      "seconds": 23.81363020000572
+    }
+  ],
+  "original_modules_weights_exports_unchanged": true,
+  "assets_manifest": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\road-manifest.json",
+  "causal_repair": "Actual initial images showed exposed rectangular pad; add matching-profile runs and contour shoulder fill, preserve original ground cameras/light.36small shoulder stones, no blanket noise.",
+  "remaining_gaps": [
+    "Soil/sand/gravel scans absent, broad fallback surfaces remain too smooth for realism",
+    "Partial shop context not dense finished street",
+    "Native weights/import/materials/collision/performance not accepted"
+  ],
+  "appearance": "Scenery only, no gameplay or canonical assignments",
+  "errors": []
+}
