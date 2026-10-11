@@ -1,0 +1,136 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T19:38:02.456500+00:00",
+  "pid": 1784,
+  "owner": "cribtest11-world-generation-20261010",
+  "operation": "town-centre-connected-neighbourhood-v1",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.umap": "2daa4902e037dec194d060fa4a77639473cbb06600ecad18028f9d7572df09b3"
+  },
+  "childLevels": [
+    {
+      "job": "city/road-ribbons",
+      "identity": "b30bccaf7052d9499ce790577e6d65a5d4638076fcc867ca45b3a63094769d63",
+      "package": "/Game/BaddieGeneratedWorld/R_b30bccaf7052d9499ce79057/Maps/L_city_road_ribbons_5368c24a99",
+      "role": "citywide-roads",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_0",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_b30bccaf7052d9499ce79057/Maps/L_city_road_ribbons_5368c24a99.L_city_road_ribbons_5368c24a99:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "city/landmarks",
+      "identity": "34c6499a40284513f0b4bf2e9f9e2201fa4a7d75e196e3cbad244b1874be6595",
+      "package": "/Game/BaddieGeneratedWorld/R_34c6499a40284513f0b4bf2e/Maps/L_city_landmarks_9fd4befe70",
+      "role": "landmark-context",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_1",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_34c6499a40284513f0b4bf2e/Maps/L_city_landmarks_9fd4befe70.L_city_landmarks_9fd4befe70:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "city/districts/town-centre",
+      "identity": "35d9213d603f458bdc1355d23dee4a8181d967fae09b02cde329766f0223023d",
+      "package": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "role": "district-core",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_2",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "city/signatures/library-lane-3",
+      "identity": "3512ca59ea863ccf542795b73b3e8f47d6a26354ca2df871fd3295223e15e776",
+      "package": "/Game/BaddieGeneratedWorld/R_3512ca59ea863ccf542795b7/Maps/L_city_signatures_library_lane_3_951aeda12a",
+      "role": "signature-building",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_3",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_3512ca59ea863ccf542795b7/Maps/L_city_signatures_library_lane_3_951aeda12a.L_city_signatures_library_lane_3_951aeda12a:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "city/signatures/college-lane-16",
+      "identity": "c58c0f7905cfbecf99734bf7e8940ec4fbb1e03b8da256ff3b6541a8de5ac286",
+      "package": "/Game/BaddieGeneratedWorld/R_c58c0f7905cfbecf99734bf7/Maps/L_city_signatures_college_lane_16_b1decfaf70",
+      "role": "signature-building",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_4",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_c58c0f7905cfbecf99734bf7/Maps/L_city_signatures_college_lane_16_b1decfaf70.L_city_signatures_college_lane_16_b1decfaf70:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "city/signatures/garden-avenue-3",
+      "identity": "6e86afa65ef2e664f76b9e64764065c508ba00583a4321c1e0c2d2640e256360",
+      "package": "/Game/BaddieGeneratedWorld/R_6e86afa65ef2e664f76b9e64/Maps/L_city_signatures_garden_avenue_3_0d2e29b359",
+      "role": "signature-building",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_5",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_6e86afa65ef2e664f76b9e64/Maps/L_city_signatures_garden_avenue_3_0d2e29b359.L_city_signatures_garden_avenue_3_0d2e29b359:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "city/dance-again-exterior",
+      "identity": "8a7214b59aa169bc7ccb240a3e1f5da1ff5fe35661d6d896babc2e32f5c5e296",
+      "package": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c",
+      "role": "destination-exterior",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_6",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c.L_city_dance_again_exterior_b95522161c:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "city/civic-terrace-exterior",
+      "identity": "658b0b3d7c41d58ae50d820f7a7fb02e4b1b34b9a2b1d05256682679846a255b",
+      "package": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "role": "destination-exterior",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_7",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "places/civic-reception",
+      "identity": "5a62e6998dd9baf710a1fbd349ea96f4d7c25aca99a91f4d9987df756a423ebc",
+      "package": "/Game/BaddieGeneratedWorld/R_5a62e6998dd9baf710a1fbd3/Maps/L_places_civic_reception_27b4c84ac2",
+      "role": "destination-interior",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_8",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_5a62e6998dd9baf710a1fbd3/Maps/L_places_civic_reception_27b4c84ac2.L_places_civic_reception_27b4c84ac2:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "places/civic-terrace-lounge",
+      "identity": "c0315c0fe33a407937a0d1981eb17e664cddc7d43835ab86f5cb3089a53d13d8",
+      "package": "/Game/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402",
+      "role": "destination-interior",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_9",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402.L_places_civic_terrace_lounge_975a670402:PersistentLevel",
+      "disableDistanceStreaming": true
+    },
+    {
+      "job": "places/pool-courtyard",
+      "identity": "79ff80ea1e0f606e6a4d71ec387b014ffcbadd925dec52a0b9b49a40fe1a208e",
+      "package": "/Game/BaddieGeneratedWorld/R_79ff80ea1e0f606e6a4d71ec/Maps/L_places_pool_courtyard_75767f2c76",
+      "role": "destination-exterior",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011.L_town_centre_neighbourhood_20261011:LevelStreamingDynamic_10",
+      "loadedLevel": "/Game/BaddieGeneratedWorld/R_79ff80ea1e0f606e6a4d71ec/Maps/L_places_pool_courtyard_75767f2c76.L_places_pool_courtyard_75767f2c76:PersistentLevel",
+      "disableDistanceStreaming": true
+    }
+  ],
+  "environmentActors": [
+    "TownCentreConnected_Sun",
+    "TownCentreConnected_SkyAtmosphere",
+    "TownCentreConnected_SkyLight",
+    "TownCentreConnected_Fog",
+    "TownCentreConnected_ManualExposure"
+  ],
+  "districtId": "town-centre",
+  "renderedInspection": "captured-with-known-visual-defects",
+  "playableAcceptance": "not-established",
+  "runtimeAdmission": false,
+  "previewImages": [
+    "output/cribtest11-visible-world-2026-10-11/previews/town-centre-neighbourhood/library-lane-approach-final.png",
+    "output/cribtest11-visible-world-2026-10-11/previews/town-centre-neighbourhood/dance-again-junction-final.png",
+    "output/cribtest11-visible-world-2026-10-11/previews/town-centre-neighbourhood/civic-terrace-approach-final.png",
+    "output/cribtest11-visible-world-2026-10-11/previews/town-centre-neighbourhood/civic-reception-interior-final.png",
+    "output/cribtest11-visible-world-2026-10-11/previews/town-centre-neighbourhood/terrace-lounge-interior-final.png"
+  ],
+  "visualDefects": [
+    "Several exterior signature and destination maps still render as low-detail white masses without finished materials.",
+    "Ground and road surfaces in the exterior captures remain too dark under the current inspection shell.",
+    "Interior captures are readable but still over-bright and materially sparse."
+  ],
+  "selectionPath": "output/cribtest11-visible-world-2026-10-11/town-centre-district-selection.json"
+}
