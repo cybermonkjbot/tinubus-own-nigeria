@@ -1,0 +1,184 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-11",
+  "review": "Source/diff and local installed engine API review only; no execution/tests/lint/typecheck/build",
+  "editorRunning": false,
+  "sourceOnlyFiles": [
+    "repair_dense_v2.py",
+    "safe_level_change.py",
+    "streamed_authoring.py corrected portion",
+    "unpaved_lane.py",
+    "unpaved-road-contract.json"
+  ],
+  "scriptHashes": [
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/assemble_frontage.py",
+      "sha256": "98dd4f89a63d6b62570f1f637c15dd4fb0391f8994737e7dfeadb41de7b66940"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/author_slice.py",
+      "sha256": "d914c9ea41f94d328429a5faf84f85e76ae2c973c0cb8bdb50027e842661bbf6"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/batch_frontage.py",
+      "sha256": "5392bc6de6f7b2f2f9978648488de4f34834f1c76967f00a8b3f04bacd6734af"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/capture_slice.py",
+      "sha256": "0188f4a7ffe22799fc41ca8af538b969761e80e652bd55469bf8fe87fbc78e22"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/dense_street.py",
+      "sha256": "a5913af8fdbfbbbf70cb68ad16beaa5f7b853ab601a5660141da2f6d5317ae70"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/frontage_import.py",
+      "sha256": "a6ca879c7df0a31050dce923a25e6f36ad12cb84edd055d6f67dd9a85f84ab97"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/full_detail.py",
+      "sha256": "c9846bb1591a6a062a256cb32826b6fe9721ec06be2b80e60bceb857cafd97b1"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/import-contract.json",
+      "sha256": "9a2a0c1ae463a6305e0718ad214d1c482ff3582c7fbb5ab3617e9d0c2e106d8b"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/README.md",
+      "sha256": "1ee00100c0f6e1d60c3df3d7d4e64fc347651f7a111ee86a59c72d198b49a3ef"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/render-target-profile.json",
+      "sha256": "58c7083b89b3a15f5a3392b7d11dc381bb4653b946c53a97ad4bd12c23183ccd"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/repair_dense_v2.py",
+      "sha256": "1d1e72f7018429cdeb49a7bb0ffbb35d2be6f98b5131544551b44df4fca42e53"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/safe_level_change.py",
+      "sha256": "b4743effc817400307c21ebfdf5314fb3ce418968902739f8e097faa5f57a021"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/slice-config.json",
+      "sha256": "0b3a02181aa5f66082971aa534b385d3bbd2ba2f3ec832feb285102449cc8225"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/streamed_authoring.py",
+      "sha256": "46c6537e97d1f69969871219972ebf6729474002330cc767e0928a3ee11515c2"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/unpaved_lane.py",
+      "sha256": "34c7ea841e0dd926dacf2add2d0bb0d3b0cbf3cffe91628ab9ae0141cf5bd2e3"
+    },
+    {
+      "path": "apps/companion-unreal/Scripts/WorldGeneration/Realism/unpaved-road-contract.json",
+      "sha256": "0b4849b6283caf78b3f3ad83fae9f4ab3474d55129986d6020fdf6ed5ab84c7f"
+    }
+  ],
+  "installedApiSources": [
+    {
+      "path": "C:/Program Files/Epic Games/UE_5.8/Engine/Plugins/Experimental/PythonScriptPlugin/Source/PythonScriptPlugin/Private/PyReferenceCollector.cpp",
+      "lines": [
+        40,
+        48
+      ],
+      "finding": "Live Python wrappers remain GC references; dirty UPackage list and traceback scopes matter"
+    },
+    {
+      "path": "C:/Program Files/Epic Games/UE_5.8/Engine/Source/Editor/UnrealEd/Private/EditorLevelUtils.cpp",
+      "lines": [
+        830,
+        1506
+      ],
+      "finding": "Created streaming child becomes current; level enumeration returns World levels"
+    },
+    {
+      "path": "C:/Program Files/Epic Games/UE_5.8/Engine/Source/Editor/LevelEditor/Private/LevelEditorSubsystem.cpp",
+      "lines": [
+        575,
+        589
+      ],
+      "finding": "SaveCurrentLevel saves World.GetCurrentLevel"
+    },
+    {
+      "path": "C:/Program Files/Epic Games/UE_5.8/Engine/Source/Editor/UnrealEd/Public/EditorLevelUtils.h",
+      "lines": [
+        242,
+        274
+      ],
+      "finding": "Exposed add_level_to_world/add_level_to_world_with_transform wrappers"
+    },
+    {
+      "path": "C:/Program Files/Epic Games/UE_5.8/Engine/Source/Runtime/Engine/Classes/Kismet/GameplayStatics.h",
+      "lines": [
+        322
+      ],
+      "finding": "GetStreamingLevel package readback is exposed"
+    },
+    {
+      "path": "C:/Program Files/Epic Games/UE_5.8/Engine/Source/Runtime/Engine/Public/Materials/MaterialExpressionTextureCoordinate.h",
+      "lines": [
+        18,
+        22,
+        26
+      ],
+      "finding": "UV channel index and physical period tiling properties"
+    },
+    {
+      "path": "C:/Program Files/Epic Games/UE_5.8/Engine/Source/Runtime/Engine/Public/Materials/MaterialExpressionComponentMask.h",
+      "lines": [
+        23,
+        26
+      ],
+      "finding": "R/G channels can read all five weights packed in UV1-3"
+    },
+    {
+      "path": "C:/Program Files/Epic Games/UE_5.8/Engine/Source/Runtime/StaticMeshDescription/Public/StaticMeshDescription.h",
+      "lines": [
+        46,
+        49
+      ],
+      "finding": "Native per-vertex UV readback; inherited importer verifies all exported probes"
+    },
+    {
+      "path": "C:/Program Files/Epic Games/UE_5.8/Engine/Source/Editor/MaterialEditor/Public/MaterialEditingLibrary.h",
+      "lines": [
+        321,
+        325
+      ],
+      "finding": "Input/output pin name inspection before wiring nodes"
+    }
+  ],
+  "reviewCorrections": [
+    "Removed proposed merged upper-shell height remap because original floor/roof/parapet geometry would intersect a replacement storey; retain original complete2storeys",
+    "Exact source-camera/light/atmosphere helper reused forv2 comparison",
+    "Unpaved material preserves5weights in3UVsets; UV0 metres scales per texture coverage only",
+    "New stream-parent recovery preservesv1and exact final OptionalDressing hash",
+    "Executed original streamed source snapshot matches historical d9c2c486... receipt identity"
+  ],
+  "referenceAudit": {
+    "pinnedFiles": 250,
+    "mismatches": 0,
+    "generator": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+    "frontageFBXs": 18,
+    "frontageHashMismatches": 0,
+    "materialMaps": 20,
+    "materialBytes": 260970634,
+    "materialHashMismatches": 0
+  },
+  "protectedHashes": {
+    "uproject": "7086e6b8239d3ae22ce1ef7de45fe2e4e64da7104b30aea8f2449436aff7002b",
+    "defaultEngine": "c33a2850f6c472091fc84e5cb1b2724de18aa9ab20939ed299a54cd193cc3f75",
+    "defaultInput": "999e020cafbfdbb270f11b64461cd572423912d2ab8c0ab877b1ad7dcf3a22ca",
+    "priorTrackedPackages": 40,
+    "priorChangedPaths": []
+  },
+  "pendingNativeEvidence": [
+    "NewPIDguarded helper execution and installed wrapper readback",
+    "Corrected street material/geometry support capture comparison",
+    "New parent package reload and streaming relationship readback",
+    "Earth-road complete FBX/UV5weight/source material review before import",
+    "Collision/targetRHI/performance/rendered quality"
+  ]
+}

@@ -1,0 +1,199 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Maps/L_Yaba_Local_ArtSetup_v1.L_Yaba_Local_ArtSetup_v1",
+  "actors": [
+    {
+      "label": "ArtSlice_Sun_NoUtilityAuthority",
+      "class": "DirectionalLight"
+    },
+    {
+      "label": "ArtSlice_Atmosphere",
+      "class": "SkyAtmosphere"
+    },
+    {
+      "label": "ArtSlice_Sky_IndirectReviewPending",
+      "class": "SkyLight"
+    },
+    {
+      "label": "ArtSlice_ManualExposure",
+      "class": "PostProcessVolume",
+      "unbound": true,
+      "exposureMethod": "<AutoExposureMethod.AEM_MANUAL: 2>",
+      "exposureBias": -12.0,
+      "physicalCameraExposure": false
+    },
+    {
+      "label": "ArtSlice_Camera_walk-near-mid-far",
+      "class": "CameraActor",
+      "locationCentimetres": [
+        500.0,
+        -150.0,
+        165.0
+      ],
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": 6.0000000000000036,
+        "roll": -0.0
+      },
+      "fov": 68.0
+    },
+    {
+      "label": "ArtSlice_Camera_walk-reverse",
+      "class": "CameraActor",
+      "locationCentimetres": [
+        11200.0,
+        150.0,
+        165.0
+      ],
+      "rotation": {
+        "pitch": 0.0,
+        "yaw": -174.0,
+        "roll": 0.0
+      },
+      "fov": 68.0
+    },
+    {
+      "label": "ArtSlice_Camera_facade-close",
+      "class": "CameraActor",
+      "locationCentimetres": [
+        1800.0,
+        -400.0,
+        165.0
+      ],
+      "rotation": {
+        "pitch": 5.000000000000003,
+        "yaw": -65.0,
+        "roll": 3.9908798545555505e-16
+      },
+      "fov": 55.0
+    },
+    {
+      "label": "ArtSlice_Camera_road-drain-close",
+      "class": "CameraActor",
+      "locationCentimetres": [
+        3000.0,
+        -200.0,
+        165.0
+      ],
+      "rotation": {
+        "pitch": -22.000000000000007,
+        "yaw": -38.000000000000014,
+        "roll": -8.575846812360592e-16
+      },
+      "fov": 55.0
+    },
+    {
+      "label": "ArtSlice_Camera_prop-close",
+      "class": "CameraActor",
+      "locationCentimetres": [
+        4400.0,
+        0.0,
+        165.0
+      ],
+      "rotation": {
+        "pitch": -2.0000000000000004,
+        "yaw": 30.00000000000001,
+        "roll": 1.9890583565229333e-16
+      },
+      "fov": 55.0
+    }
+  ],
+  "materialInputs": [
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Plaster.M_Input_Plaster",
+      "role": "UntexturedInputContract",
+      "vectors": [
+        "BaseColor",
+        "Normal"
+      ],
+      "scalars": [
+        "Roughness",
+        "Metallic",
+        "AO"
+      ]
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Concrete.M_Input_Concrete",
+      "role": "UntexturedInputContract",
+      "vectors": [
+        "BaseColor",
+        "Normal"
+      ],
+      "scalars": [
+        "Roughness",
+        "Metallic",
+        "AO"
+      ]
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Asphalt.M_Input_Asphalt",
+      "role": "UntexturedInputContract",
+      "vectors": [
+        "BaseColor",
+        "Normal"
+      ],
+      "scalars": [
+        "Roughness",
+        "Metallic",
+        "AO"
+      ]
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Metal.M_Input_Metal",
+      "role": "UntexturedInputContract",
+      "vectors": [
+        "BaseColor",
+        "Normal"
+      ],
+      "scalars": [
+        "Roughness",
+        "Metallic",
+        "AO"
+      ]
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Timber.M_Input_Timber",
+      "role": "UntexturedInputContract",
+      "vectors": [
+        "BaseColor",
+        "Normal"
+      ],
+      "scalars": [
+        "Roughness",
+        "Metallic",
+        "AO"
+      ]
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Glass.M_Input_Glass",
+      "role": "UntexturedInputContract",
+      "vectors": [
+        "BaseColor",
+        "Normal"
+      ],
+      "scalars": [
+        "Roughness",
+        "Metallic",
+        "AO"
+      ]
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Drainage.M_Input_Drainage",
+      "role": "UntexturedInputContract",
+      "vectors": [
+        "BaseColor",
+        "Normal"
+      ],
+      "scalars": [
+        "Roughness",
+        "Metallic",
+        "AO"
+      ]
+    }
+  ],
+  "dirtyMaps": [],
+  "dirtyAssets": [],
+  "nativeReceiptSha256": "9a8d139eb97b4394cbe806dbf817074ec8c384d88bae8843227eccaad3c466ff",
+  "captureCount": 0
+}

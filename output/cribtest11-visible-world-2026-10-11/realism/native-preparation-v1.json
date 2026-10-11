@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T09:51:56.742922+00:00",
+  "pid": 5916,
+  "operation": "yaba-quality-slice-20261011",
+  "scriptSha256": "b680e1fddaad55e39513efa39220a7df540d26c6b7d9737cb59d63c38bf940a1",
+  "configSha256": "0b3a02181aa5f66082971aa534b385d3bbd2ba2f3ec832feb285102449cc8225",
+  "canonicalGeneratorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Maps/L_Yaba_Local_ArtSetup_v1",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Maps/L_Yaba_Local_ArtSetup_v1.umap": "5edf03926d783d5d745c8b4f0e601e4d838d2dc806f7a8fbe57455d1756d7f24",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Plaster.uasset": "28a7470f98ace7194f9fd4b436ed1358b90ed27f27f23560d5974a9d653c5428",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Concrete.uasset": "54c16ae6326df44aa0c41f32418e06e571347497337de5f5d83f06c0e8b1484c",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Asphalt.uasset": "cc141be9939bcdfa465efc47e451c1bfcf3bffe1fce348ac859127ef296bab0e",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Metal.uasset": "226d9228de253bb173a3134ec348e9d2811342ae65147b61072318a5ece9d06b",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Timber.uasset": "656810998ab40b964086a55790a20913f0e23ed9a9cc93eaaa819fedd319eea9",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Glass.uasset": "5a584f9a70b1e6af24eef466f9805254f5e3ccccb97dcd3a2eaa420b2f84fdd2",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Drainage.uasset": "7ec758f1e2fd41e102263df81947a24567eb3ffa092dd66a503e0c22ca0f1f77"
+  },
+  "geometryCount": 0,
+  "materialInputContracts": [
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Plaster",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Concrete",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Asphalt",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Metal",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Timber",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Glass",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Drainage"
+  ],
+  "partitioned": false,
+  "districtTransform": null,
+  "captureCount": 0,
+  "visualAcceptance": "not-established; no detailed street geometry or photographic textures yet",
+  "gates": {
+    "accountAccess": false,
+    "movementAdmission": false,
+    "missionReadiness": false,
+    "utilityAuthority": false
+  }
+}

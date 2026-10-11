@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T10:05:57.105507+00:00",
+  "pid": 5916,
+  "receipt": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-assembly-v1.json",
+  "receiptSha256": "9e91de818fcb843fdfeb4cebf3922268dbf7e0f1870150cb8179a9dcce291940",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ImportCheck_v1",
+  "camera": "frontage-walk-wide",
+  "cameraConfig": {
+    "id": "frontage-walk-wide",
+    "locationMetres": [
+      -12,
+      -5.85,
+      1.65
+    ],
+    "rotation": {
+      "pitch": 8,
+      "yaw": 0,
+      "roll": 0
+    },
+    "fov": 70
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-native-walk-wide.png",
+  "imageSha256": "4bfac4a254666503bee38519b1a261f094fa4eafe6d5010bd061f2b1dbba8fa9",
+  "width": 705,
+  "height": 486,
+  "warmupNativeFrames": 53,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -1200,
+      "y": -585,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 8,
+      "yaw": 0,
+      "roll": 0
+    },
+    "cameraFOV": 70,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "parentVisualAcceptance": "pending",
+  "scriptSha256": "0188f4a7ffe22799fc41ca8af538b969761e80e652bd55469bf8fe87fbc78e22"
+}

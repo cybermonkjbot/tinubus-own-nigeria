@@ -1,0 +1,23 @@
+{
+  "pid": 5916,
+  "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m.uasset": "6fdb65d7f64a76c3e2b62dee1ef0532a5107bdd6abe20b07ea37d42564aba97c"
+  },
+  "boundsCm": [
+    [
+      -839.0001831054688,
+      -1000.0,
+      -44.0
+    ],
+    [
+      -338.9999694824219,
+      3.098231172771193e-05,
+      -20.0
+    ]
+  ],
+  "triangles": 12,
+  "failure": "Placement evidence serialization rejected set after road asset save; no street map created",
+  "failedSourceSha256": "60b4ded7a186f5ac9daff8c00e88f9b1753dbf3364f9183706700ea60dc8c946",
+  "partialPlanPreserved": "yaba-dense-street-placement-v1.json"
+}

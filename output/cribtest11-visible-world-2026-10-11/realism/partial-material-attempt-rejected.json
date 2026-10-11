@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "source": "Preserved earlier material-inputs partial directory; not consumed after complete handoff instruction",
+  "failure": "Texture parameter input is UVs in installed 5.8.3, not Coordinates",
+  "state": "Rejected, saved only to preserve evidence and clear own dirty package; never bound to geometry",
+  "executedSourceSha256": "02cf43d247ab52a85a3d475805e4894ceb4706e6bafe10cb361dfc6584683f78",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_5994d07db413b1b1439979ee/Materials/M_Plaster.uasset": "6b4d8c6167f8b7f729574232c54dbaf1fc7ce74470993741bce8d6eca1cdc04e",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_5994d07db413b1b1439979ee/Textures/T_Plaster_base_color.uasset": "9241785535aa0b78eceff2bd61a48c914e2723c789a90b8435acafba68ae3d04",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_5994d07db413b1b1439979ee/Textures/T_Plaster_roughness.uasset": "0f83b9b9b8c9b4664723021f6982340f3dd47a4419499cc10467b6923e1f1923",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_5994d07db413b1b1439979ee/Textures/T_Plaster_normal_gl.uasset": "49dae2df61a146727ceb8f930e4d8e0d890e492471d85a9a4cb3e785578d9ae7"
+  },
+  "captureCount": 0
+}

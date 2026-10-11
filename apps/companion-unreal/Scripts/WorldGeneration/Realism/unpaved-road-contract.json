@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "state": "source-only; no recipe execution, native assets, soil import or placement",
+  "recipe": {"path": "output/cribtest11-visible-world-2026-10-11/parent-unpaved-roads/road_mesh_recipe.py", "sha256": "063f9f7f9a7eb1b55cc6a0fd8c285ba8481a16600b16a4a51305cf874205f197"},
+  "handoffSha256": "2dd655b9edb829782adbd55d70ea4914c417b66fd0556f96ffd92801540ec641",
+  "namespace": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/UnpavedLane_v1",
+  "variants": ["compacted_earth", "sandy_lane", "rutted_earth", "paved_to_earth"],
+  "defaultsNotSurveyed": {"lengthMetres": 10, "laneWidthMetres": 5, "shoulderMetres": 0.6},
+  "sourceAxes": {"across": "+X", "run": "+Y", "up": "+Z", "units": "metres"},
+  "expectedMeasuredImporterBasis": {"pointUECm": ["-100*y", "-100*x", "100*z"], "actorScale": 1, "status": "Measured frontage FBX basis; new road exports must confirm bounds, origin and probes before placement"},
+  "fiveChannelExportRequest": {"ordered": ["compacted_earth", "loose_sand", "damp_soil", "gravel", "asphalt"], "uv0": "metre coordinates, unchanged", "uv1": ["earth", "sand"], "uv2": ["damp_soil", "gravel"], "uv3": ["asphalt", "candidateWetMask"], "vertexColour": "not used; cannot hold all five weights", "nativeUVPrecision": "full", "uvReadback": "All exported vertex/corner weights and metre UVs represented in channel0-3 probes"},
+  "nativeMaterial": {"weights": "UV1.xy, UV2.xy, UV3.x; saturate and normalize total", "sampleUV": "UV0 divided once by each verified scan coverage", "basecolour": "sRGB", "roughness": "noncolour R", "normal": "noncolour normal compression, DX or GL green inverted once; weighted normalized normals", "candidateWet": "retained UV3.y; not water or uniform gloss", "noiseReplacement": false},
+  "requiredExportManifest": {"role": "editor-only-unpaved-lane-kit", "exportStatus": "complete-reviewed", "stableFBXHashes": true, "exactGroundSlot": "LagosRoadSurfaceBlend", "attributeInventory": "per exported vertex/corner positions, uvMetres, five surfaceWeights, candidateWetMask", "reviewedImages": "local path and SHA256 for actual dry/wet/transition views", "layers": "five ordered licensed native texture bindings, file hashes, physical coverage, normal convention and review evidence", "canonicalAssignment": null, "gameplayEffects": false},
+  "placementPolicy": {"mainRoutes": "preserve paved canonical and saved v1 routes", "sideLane": "new bounded art revision, authored per segment; no whole-district soil preset", "join": "derive supported paved mouth if old slab crown differs; inspect both ends and drainage before placing", "thresholds": "preserve doors, access ramps and clear pedestrian support", "regionMix": "Yaba/Ikeja/island choices authored unless dated local references; no default unpaved Makoko over-water passage", "seeds": "small deterministic set from reviewed export inventory, not generated here"},
+  "missingInputs": ["Completed reviewed Blender road FBXs and full UV/weight manifest", "Correctly licensed earth, sand and gravel PBR maps; asphalt/concrete are not soil", "Bounded side-lane origin/join elevation and road-mouth support geometry", "New editor recovery and fresh PID/RHI-bound execution authorization"],
+  "deferred": ["Native mesh/material import", "Bounded scene assembly", "Join/drain/threshold and dry/wet/transition capture inspection", "Collision and target-device performance", "Gameplay physics/weather/traction/dust/floods", "Shipping integration"]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "target": "Finished 100-150m pedestrian-scale Yaba segment, dense photorealism-oriented art; target not achieved",
+  "reviewedImage": "output/cribtest11-visible-world-2026-10-11/street-props/camera-delivery-v1/03-Theatre-Danfo-Kiosk.png",
+  "imageSha256": "dcf6bd355ac74073851ffc500c7902d6f54ebb975b10ed7ff2a0807e3150a7ae",
+  "imageOrigin": "Separate Blender camera-delivery evidence, not a new native Unreal realism frame",
+  "review": "Parent rejection and local image inspection agree: blockout only",
+  "defects": [
+    {"id": "F01", "observed": "Rounded smooth foliage masses lack branches and leaf structure", "repair": "Detailed branching/leaves with economical distant fallback; no blob canopy", "status": "open"},
+    {"id": "R01", "observed": "Flat uniform ground and weak road edges lack surface scale and traffic/water wear", "repair": "Detailed road, kerb, connected drainage, supplied photographic surface maps and local wear", "status": "open"},
+    {"id": "K01", "observed": "Kiosk rear is a blank opaque plane", "repair": "Source-derived rear construction, panels, joints and grounded base", "status": "open"},
+    {"id": "C01", "observed": "Sparse empty foreground without pedestrian-scale near/mid/far detail", "repair": "Finished local slice with credible access, contacts, cables, drains and contextual placement", "status": "open"},
+    {"id": "B01", "observed": "Repeating facade beams have limited opening and surface detail", "repair": "Recessed openings, framed glass, thickness, balcony/AC/rail supports and licensed surface inputs", "status": "open"}
+  ],
+  "rejectedDetailedTree": {"image": "output/cribtest11-visible-world-2026-10-11/street-props/realism/roadside-tree-v1/Tree-Ground-Shadow.png", "sha256": "3f5f82c68080c0055f2bfc0c0d0b49761f431ed30c209641288a303682dbdbdc", "parentInspection": "Leaves, connected limbs and gaps improved; bare pointed central trunk spike, regular radial limb layers, smooth bark/root remain placeholder art", "nativePlacement": "prohibited until separate revision reviewed", "species": "unresolved", "priority": "textured frontage first, then Blender tree working revision"},
+  "nativeRealismImages": [],
+  "daylightAcceptance": "not-established",
+  "eveningAcceptance": "not-established",
+  "districtExpansion": "deferred until street quality acceptance",
+  "previousEvidence": "All failed white frames, exposure repair and accepted bare geometry frames retained without final-art claim"
+}

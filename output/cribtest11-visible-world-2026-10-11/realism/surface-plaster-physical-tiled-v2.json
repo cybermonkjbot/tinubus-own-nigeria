@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "recordedAt": "2026-10-11T10:00:31.498826+00:00",
+  "identity": "e90413415c61860f4b8c3dee74af9ad0880edeb93997619a4f8d8bd594ea65d2",
+  "scriptSha256": "d914c9ea41f94d328429a5faf84f85e76ae2c973c0cb8bdb50027e842661bbf6",
+  "manifestPath": "output/cribtest11-visible-world-2026-10-11/material-inputs-verified/yaba-material-inputs.json",
+  "manifestSha256": "892d6f78340ec268a97dfd9f15cfcff7b869881058f05f1d98d786016e62944a",
+  "sourceManifestSha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46",
+  "source": "https://polyhaven.com/a/painted_plaster_wall",
+  "authors": {
+    "Amal Kumar": "All"
+  },
+  "licence": "CC0-1.0",
+  "materialPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Materials/M_Plaster",
+  "coverageMetres": [
+    2,
+    2
+  ],
+  "uvBasis": "physical-tiled",
+  "textureReadback": [
+    {
+      "channel": "basecolor",
+      "sourceSha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_base_color.T_Plaster_base_color",
+      "sRGB": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flipGreenChannel": false
+    },
+    {
+      "channel": "roughness",
+      "sourceSha256": "e355a47f007bcf8b50c9e2f9edfc9f45d85501eefc63a822fd82c2dbc7ab34ea",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_roughness.T_Plaster_roughness",
+      "sRGB": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flipGreenChannel": false
+    },
+    {
+      "channel": "normal",
+      "sourceSha256": "322041257ab0dad1a1a1c18d98bc28689136103f6a64d4849f7aa3ae5b8b090f",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_normal_gl.T_Plaster_normal_gl",
+      "sRGB": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flipGreenChannel": true
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_base_color.uasset": "4130a7bafc3406982a10f0b31fcfd8cc7900f45bf213afb449b3ad946fdec306",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_roughness.uasset": "665abfb46a81b6fd2bb5025aac7d514d7813371b993c5aedea193b9e79eeb7a0",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_normal_gl.uasset": "0c4bfdca19287d38d7c57652dbf3d8acd25345f119f1b63c0c3869a92305550d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Materials/M_Plaster.uasset": "bd81504bdb4ce350aad5c4439ca61564d54879ffa718459f5c5e6c9d28eb2701"
+  },
+  "captureCount": 0,
+  "geometryCount": 0,
+  "visualAcceptance": "pending detailed scene and native image review"
+}

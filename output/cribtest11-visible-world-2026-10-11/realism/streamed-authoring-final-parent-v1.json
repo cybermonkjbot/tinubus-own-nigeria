@@ -1,0 +1,9 @@
+{
+  "pid": 5916,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.umap": "ba54613ddc1a8857deafd9038620e54e3b6269727f14cbe8436800b92cbe7370"
+  },
+  "reason": "Editor streaming continues marking parent dirty; save then release current world in same scoped bridge operation",
+  "loadedLevelCount": 12
+}

@@ -1,0 +1,198 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "surfaces": [
+    {
+      "receipt": "surface-asphalt-physical-tiled-v2.json",
+      "receiptSha256": "141676b956093f232b7f14b15285cf2060bd0b54427255bd8b8e7183c03a0687",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Materials/M_Asphalt",
+      "nodes": [
+        {
+          "class": "MaterialExpressionTextureCoordinate",
+          "uTiling": 1.0,
+          "vTiling": 1.0,
+          "uvChannel": 0
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "BaseColorMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_COLOR: 0>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_base_color.T_Asphalt_base_color"
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "RoughnessMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_MASKS: 4>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_roughness.T_Asphalt_roughness"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "NormalMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_NORMAL: 3>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_normal_gl.T_Asphalt_normal_gl"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        }
+      ],
+      "filesMatch": true
+    },
+    {
+      "receipt": "surface-concrete-physical-tiled-v2.json",
+      "receiptSha256": "2452d25e8a79f28ab63d2d2a371170dc4ee9c3488433a5c4a289d63ed64f4e8c",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Materials/M_Concrete",
+      "nodes": [
+        {
+          "class": "MaterialExpressionTextureCoordinate",
+          "uTiling": 1.0,
+          "vTiling": 1.0,
+          "uvChannel": 0
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "BaseColorMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_COLOR: 0>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_base_color.T_Concrete_base_color"
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "RoughnessMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_MASKS: 4>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_roughness.T_Concrete_roughness"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "NormalMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_NORMAL: 3>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_normal_gl.T_Concrete_normal_gl"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        }
+      ],
+      "filesMatch": true
+    },
+    {
+      "receipt": "surface-corrugated_metal-physical-tiled-v2.json",
+      "receiptSha256": "225c74677f21391fa8a7b33437f8fb481365e4600b17f2caa5bae06e73506d7f",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Materials/M_Corrugated_Metal",
+      "nodes": [
+        {
+          "class": "MaterialExpressionTextureCoordinate",
+          "uTiling": 1.0,
+          "vTiling": 1.0,
+          "uvChannel": 0
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "BaseColorMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_COLOR: 0>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Textures/T_Corrugated_Metal_base_color.T_Corrugated_Metal_base_color"
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "RoughnessMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_MASKS: 4>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Textures/T_Corrugated_Metal_roughness.T_Corrugated_Metal_roughness"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        },
+        {
+          "class": "MaterialExpressionVectorParameter"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        }
+      ],
+      "filesMatch": true
+    },
+    {
+      "receipt": "surface-plaster-physical-tiled-v2.json",
+      "receiptSha256": "c929dd970dce99f487a6d855ea0275a7755d84a255a45b7e581445fbe4124a32",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Materials/M_Plaster",
+      "nodes": [
+        {
+          "class": "MaterialExpressionTextureCoordinate",
+          "uTiling": 1.0,
+          "vTiling": 1.0,
+          "uvChannel": 0
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "BaseColorMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_COLOR: 0>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_base_color.T_Plaster_base_color"
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "RoughnessMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_MASKS: 4>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_roughness.T_Plaster_roughness"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "NormalMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_NORMAL: 3>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_normal_gl.T_Plaster_normal_gl"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        }
+      ],
+      "filesMatch": true
+    },
+    {
+      "receipt": "surface-timber-physical-tiled-v2.json",
+      "receiptSha256": "150e28cc034a68b3bae8b859093a818eb1d6de25374ccf3d783a589f2d53d511",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Materials/M_Timber",
+      "nodes": [
+        {
+          "class": "MaterialExpressionTextureCoordinate",
+          "uTiling": 1.0,
+          "vTiling": 1.0,
+          "uvChannel": 0
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "BaseColorMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_COLOR: 0>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_base_color.T_Timber_base_color"
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "RoughnessMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_MASKS: 4>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_roughness.T_Timber_roughness"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        },
+        {
+          "class": "MaterialExpressionTextureSampleParameter2D",
+          "parameter": "NormalMap",
+          "sampler": "<MaterialSamplerType.SAMPLERTYPE_NORMAL: 3>",
+          "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_normal_dx.T_Timber_normal_dx"
+        },
+        {
+          "class": "MaterialExpressionScalarParameter"
+        }
+      ],
+      "filesMatch": true
+    }
+  ],
+  "dirtyMaps": [],
+  "dirtyAssets": [],
+  "geometryCount": 0,
+  "captureCount": 0,
+  "canonicalGeneratorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797"
+}

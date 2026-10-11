@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-10-11",
+  "step": "detailed_frontage_saved_three_native_captures_inspected_preparing_exact_ism_derivative",
+  "pid": 5916,
+  "sourcePin": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "acceptedGeneratorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "referenceManifestBytesSha256": "800e29a26cb897a10e50657b3cd3dced1b9f385342560fae73d96efe53b00447",
+  "referenceReceiptSha256": "620a06dad3de0514612e0b27d3fa5a3293e42e5a643b1dfa7a3fe3915db60c8a",
+  "sourceLockSha256": "36fb0cc6adee250e04743f71faebef9acff2bf7a2047ead74c1fe8ac6abbf874",
+  "reconciliation": "Current human authoring request plus coordinator serialization review; no separate Joshua manual digest-review claim",
+  "target": "Isolated 120m Yaba quality slice at additive local origin",
+  "districtTransform": null,
+  "geographicManifestDependency": false,
+  "rhi": "D3D11 Microsoft Basic Render Driver, software SM5; no measured FPS or final Nanite/Lumen acceptance",
+  "newGeneratedOutputs": [{"map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Maps/L_Yaba_Local_ArtSetup_v1", "mapSha256": "5edf03926d783d5d745c8b4f0e601e4d838d2dc806f7a8fbe57455d1756d7f24", "packages": 8, "meshCount": 0, "materialInputAssets": 7, "receipt": "output/cribtest11-visible-world-2026-10-11/realism/native-preparation-v1.json", "receiptSha256": "9a8d139eb97b4394cbe806dbf817074ec8c384d88bae8843227eccaad3c466ff", "readback": "output/cribtest11-visible-world-2026-10-11/realism/native-setup-readback-v1.json"}],
+  "detailedFrontage": {"map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ImportCheck_v1", "meshAssets": 18, "staticMeshActors": 83, "frontageMetres": 11.7, "assemblyCount": 1, "receipt": "frontage-v2-assembly-v1.json", "receiptSha256": "9e91de818fcb843fdfeb4cebf3922268dbf7e0f1870150cb8179a9dcce291940", "immutable": true},
+  "verifiedSurfaces": {"textures": 14, "materials": 5, "inputDirectory": "material-inputs-verified", "inputManifestSha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46", "uvMultiplier": 1, "priorFailedMaterials": "preserved; not consumed"},
+  "newCaptures": [
+    {"image": "frontage-v2-native-walk-wide.png", "sha256": "4bfac4a254666503bee38519b1a261f094fa4eafe6d5010bd061f2b1dbba8fa9"},
+    {"image": "frontage-v2-native-walk-oblique.png", "sha256": "78782ffe7d3f1dbb1ebec1c63da35a22b409b15732c50b703fee38adff5b5e3f"},
+    {"image": "frontage-v2-native-drain-close.png", "sha256": "02a116dc2ed0901749375a9ef680295ad4a10496bca00704f2d073d5e3f61d86"}
+  ],
+  "priorMilestone": {"packages": 40, "maps": 3, "status": "preserved blockout evidence, not realism acceptance"},
+  "operationsActuallyPerformed": ["One authorized desktop-task editor recovery", "Fresh PID/project/RHI readback", "Read-only installed API/source and native material/UV inventory", "Owned executable local-slice importer/material/camera source authoring", "Local inspection of rejected Blender Theatre-Danfo-Kiosk frame", "Native fresh map/camera/manual exposure creation and save; seven untextured material-input contracts and normal shader processing", "Native setup readback: camera UE(500,-150,165), yaw6/FOV68, manual exposure -12; dirty maps/assets empty", "All 40 prior saved packages hash-verified unchanged", "Incoming frontage/material/geography source review; eventual fictional island composition recorded without native region mutation"],
+  "states": {"sourcePreparation": "implemented native helper source", "realNativeArtSetup": "saved", "detailedStreetGeometry": "18 detailed module meshes and one 83-placement 11.7m import assembly saved; not 120m street", "photographicMaterials": "complete supplied scans imported; generic surfaces, not surveyed Yaba fidelity", "renderedInspection": "three native frames locally inspected; parent walking-wide rejection retained", "compilation": "not-performed", "playableAcceptance": "not-established", "wholeWorldGeneration": "incomplete", "batching": "preparing separate native map", "targetFrameTimes": "pending"},
+  "blockers": ["Separate detailed revision for measured coplanar panel/pier overlap, shop contents, facade variation and adjoining street context", "Native striping/sampling and asphalt roughness diagnosis", "Reviewed detailed foliage replacement; rejected tree remains unplaced", "World Partition external actors default outside exclusive write paths; inspect safe alternative"],
+  "next": "Exact native ISM map derivative, save/readback and same-camera capture before any district repetition; preserve immutable v2 source and source maps",
+  "gates": {"accountAccess": false, "movementAdmission": false, "missionReadiness": false, "utilityAuthority": false},
+  "noIndependentDownloads": true,
+  "checkpoint": null
+}

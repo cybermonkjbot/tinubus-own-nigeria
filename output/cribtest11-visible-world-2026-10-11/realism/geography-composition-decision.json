@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T09:56:00Z",
+  "reference": {"path": "output/cribtest11-visible-world-2026-10-11/parent-geography/lagos-geographic-authoring-v1.json", "sha256": "e3088192c43d4e70d3a37873598e699794997f38bf580ff7154ddaaa71769352", "notes": "output/cribtest11-visible-world-2026-10-11/parent-geography/reference-notes.md"},
+  "sourceTruth": "Retain factual mainland/island/peninsula topology and evidence qualifiers in the immutable parent reference. Its coarse overlapping region envelopes are neither shoreline polygons nor final terrain; bridge sampling is partial, not surveyed structure.",
+  "selectedEventualGameComposition": "fictional-separated-district-islands",
+  "authority": "Current human request explicitly selects separated island districts for the eventual large game map",
+  "districtChunks": ["Lagos Island", "Ikoyi", "Victoria Island", "Western Lekki fictional island chunk"],
+  "mainlandPlan": ["Yaba", "Makoko timber waterfront and canoe passages", "Ikeja inland", "Oworonshoki"],
+  "optionalHarbourRegion": "Snake Island, exact authoring footprint not assigned",
+  "crossings": "Reauthor relocated endpoints and connecting bridge geometry after game region layout resolves; do not reuse factual Third Mainland samples at relocated coordinates",
+  "exactChunkTransforms": null,
+  "coastlineGeometry": null,
+  "reference30kmOffsetApplied": false,
+  "canonicalTheatreAndSavedPlacementsMoved": false,
+  "localYabaArtOrigin": [0, 0, 0],
+  "localSliceIntegrationTransform": null,
+  "localSliceBlockedByGeography": false,
+  "nativeRegionGeneration": "not-performed",
+  "runtimeMovementAdmission": false
+}

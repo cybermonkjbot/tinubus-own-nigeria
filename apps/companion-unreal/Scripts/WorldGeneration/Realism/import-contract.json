@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "status": "Native importer input contract; no fabricated source payload",
+  "manifest": {
+    "schemaVersion": 1,
+    "role": "editor-only-yaba-quality-slice",
+    "meshProvenance": {"author": "Required original author", "licence": "Required rights declaration", "sourceFiles": [{"file": "relative path", "sha256": "64 hex"}]},
+    "textures": [{"id": "Asphalt_BaseColor", "file": "relative path to supplied raster", "sha256": "64 hex", "channel": "basecolor", "normalConvention": null, "provenance": {"author": "Required", "licence": "CC0 or supplied licence", "sourceUrl": "Required provenance URL, not fetched by importer", "licenceFile": "local licence evidence", "licenceSha256": "64 hex"}}],
+    "materials": [{"id": "Asphalt", "uvChannel": 0, "coverageMetres": [2, 2], "baseColor": [0.2, 0.2, 0.2], "roughness": 0.8, "metallic": 0, "twoSided": false, "maps": {"basecolor": "Asphalt_BaseColor", "roughness": "optional separate noncolor map", "normal": "optional GL or DX map", "metallic": "optional noncolor map", "ao": "optional noncolor map"}, "fallback": false}],
+    "meshes": [{"id": "Facade_A", "file": "relative path to FBX", "sha256": "64 hex", "expectedBoundsUECentimetres": [[0, 0, 0], [1200, 800, 1000]], "uvBasis": "metres", "minimumUVChannels": 1, "uvProbes": [{"positionUECentimetres": [0, 0, 0], "uv": [0, 0], "channel": 0, "positionToleranceCm": 0.05, "uvTolerance": 0.0001}], "materials": {"Plaster_SourceSlot": "Plaster"}, "importNormals": "normals", "importLODs": false}],
+    "placements": [{"id": "Facade_A_01", "mesh": "Facade_A", "locationMetres": [12, -8, 0], "rotationDegrees": {"pitch": 0, "yaw": 0, "roll": 0}, "scale": [1, 1, 1], "role": "editor-only", "expectedWorldBoundsUECentimetres": [[1200, -800, 0], [2400, 0, 1000]]}]
+  },
+  "meshImport": "Native FbxFactory; scene/unit conversion exactly once, uniform scale 1; absolute mesh vertices, retain source UV/normals/optional source LODs; verify expected native bounds and source UV probes before placement",
+  "uvMapping": "Explicit uvBasis per mesh/material: metres means native UV multiplied by reciprocal raster coverage; physical-tiled means source SurfaceUV already divided by coverage, native tiling stays 1. Incoming parent frontage uses physical-tiled; Danfo detail reports metres. Atlas mapping requires separate contract. Never divide twice.",
+  "channels": {"basecolor": "sRGB true; colour sampler", "roughness": "sRGB false; masks sampler R", "metallic": "sRGB false; masks sampler R", "ao": "sRGB false; masks sampler R", "normal": "sRGB false; normal compression/sampler; DX retained, GL green flipped during native import"},
+  "constraints": ["No network fetching", "Every explicitly supplied file resolves inside the visible-world output handoff root, including coordinator sibling directories; incoming files remain read-only", "New content-addressed import namespace", "No immutable original package overwrite", "No runtime registration", "No geometry invented from absent handoff", "Non-Nanite full-detail preview; source LODs retained when delivered", "No baked lighting/navigation/HLOD/full build"]
+}

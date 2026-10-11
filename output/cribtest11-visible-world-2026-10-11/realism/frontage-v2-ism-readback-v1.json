@@ -1,0 +1,1849 @@
+{
+  "pid": 5916,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1",
+  "receiptSha256": "3b15c88e9e3e44ffc268180a18f1b7f285fa1674bd840d75709b7e93e48f324b",
+  "savedComponentCounts": {
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_0.InstancedStaticMesh": 3,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_1.InstancedStaticMesh": 3,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_2.InstancedStaticMesh": 3,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_3.InstancedStaticMesh": 3,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh": 11,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh": 9,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh": 11,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh": 11,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh": 13,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_9.InstancedStaticMesh": 2,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_10.InstancedStaticMesh": 3,
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_11.InstancedStaticMesh": 3
+  },
+  "sourceMapping": [
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:0",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.StaticMeshActor_5.StaticMeshComponent0",
+      "instanceIndex": null,
+      "transform": {
+        "locationCm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:1",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_11.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:2",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_10.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          0.0,
+          0.0,
+          300.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:3",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.StaticMeshActor_0.StaticMeshComponent0",
+      "instanceIndex": null,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -130.0,
+          402.50000000000006
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:4",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_1.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          0.0,
+          0.0,
+          300.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:5",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_9.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -195.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:6",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_0.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -294.0,
+          455.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:7",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_2.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          -31.0,
+          0.0,
+          610.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:8",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_11.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -390.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:9",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_10.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -390.0,
+          300.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:10",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.StaticMeshActor_1.StaticMeshComponent0",
+      "instanceIndex": null,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -520.0,
+          402.50000000000006
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:11",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_1.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -390.0,
+          300.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:12",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.StaticMeshActor_4.StaticMeshComponent0",
+      "instanceIndex": null,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -445.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:13",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_0.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -684.0,
+          455.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:14",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_2.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          -31.0,
+          -390.0,
+          610.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:15",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_11.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -780.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:16",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_10.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -780.0,
+          300.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:17",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.StaticMeshActor_2.StaticMeshComponent0",
+      "instanceIndex": null,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -910.0,
+          402.50000000000006
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:18",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_1.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -780.0,
+          300.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:19",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_9.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -975.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:20",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_0.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -1074.0,
+          455.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:21",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_2.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          -31.0,
+          -780.0,
+          610.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:22",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          0.0,
+          0.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:23",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -90.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:24",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -180.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:25",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 3,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -270.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:26",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 4,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -360.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:27",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 5,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -450.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:28",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 6,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -540.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:29",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 7,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -630.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:30",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 8,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -720.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:31",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 9,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -810.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:32",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 10,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -900.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:33",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 11,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -990.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:34",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_8.InstancedStaticMesh",
+      "instanceIndex": 12,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -1080.0,
+          612.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:35",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.StaticMeshActor_3.StaticMeshComponent0",
+      "instanceIndex": null,
+      "transform": {
+        "locationCm": [
+          -31.0,
+          -1145.0,
+          610.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:36",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          0.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:37",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          0.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:38",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          0.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:39",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          0.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:40",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -100.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:41",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -100.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:42",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -100.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:43",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -100.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:44",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -200.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:45",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -200.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:46",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -200.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:47",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -200.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:48",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 3,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -300.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:49",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 3,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -300.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:50",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 3,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -300.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:51",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 4,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -400.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:52",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 4,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -400.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:53",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh",
+      "instanceIndex": 3,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -400.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:54",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 4,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -400.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:55",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 5,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -500.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:56",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 5,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -500.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:57",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh",
+      "instanceIndex": 4,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -500.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:58",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 5,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -500.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:59",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 6,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -600.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:60",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 6,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -600.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:61",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh",
+      "instanceIndex": 5,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -600.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:62",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 6,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -600.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:63",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 7,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -700.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:64",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 7,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -700.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:65",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh",
+      "instanceIndex": 6,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -700.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:66",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 7,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -700.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:67",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 8,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -800.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:68",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 8,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -800.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:69",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 8,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -800.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:70",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 9,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -900.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:71",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 9,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -900.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:72",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh",
+      "instanceIndex": 7,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -900.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:73",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 9,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -900.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:74",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_7.InstancedStaticMesh",
+      "instanceIndex": 10,
+      "transform": {
+        "locationCm": [
+          -43.0,
+          -1000.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:75",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_4.InstancedStaticMesh",
+      "instanceIndex": 10,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -1000.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:76",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_5.InstancedStaticMesh",
+      "instanceIndex": 8,
+      "transform": {
+        "locationCm": [
+          -275.0,
+          -1000.0,
+          -5.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:77",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_6.InstancedStaticMesh",
+      "instanceIndex": 10,
+      "transform": {
+        "locationCm": [
+          -328.0,
+          -1000.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:78",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.StaticMeshActor_6.StaticMeshComponent0",
+      "instanceIndex": null,
+      "transform": {
+        "locationCm": [
+          -322.0,
+          -1100.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:79",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.StaticMeshActor_7.StaticMeshComponent0",
+      "instanceIndex": null,
+      "transform": {
+        "locationCm": [
+          0.0,
+          0.0,
+          -20.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:80",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_3.InstancedStaticMesh",
+      "instanceIndex": 0,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -45.0,
+          15.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:81",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_3.InstancedStaticMesh",
+      "instanceIndex": 1,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -405.0,
+          28.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    },
+    {
+      "sourceId": "placement:0b12b938fe2539e511e0ed1b909ad42b208d5ae2f3f77a08734b16ba69b5195c:82",
+      "component": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.L_Frontage_ISM_v1:PersistentLevel.Actor_3.InstancedStaticMesh",
+      "instanceIndex": 2,
+      "transform": {
+        "locationCm": [
+          0.0,
+          -820.0,
+          555.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "rotation": {
+          "pitch": 0.0,
+          "yaw": 0.0,
+          "roll": -0.0
+        }
+      }
+    }
+  ],
+  "dirtyPackages": [],
+  "targetFrameTimes": null
+}

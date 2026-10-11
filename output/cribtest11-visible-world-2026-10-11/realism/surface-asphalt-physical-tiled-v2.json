@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "recordedAt": "2026-10-11T10:00:53.456144+00:00",
+  "identity": "197722e3d58220610757ab50304d395513d5e98e28411410321a260ecf9bbfa4",
+  "scriptSha256": "d914c9ea41f94d328429a5faf84f85e76ae2c973c0cb8bdb50027e842661bbf6",
+  "manifestPath": "output/cribtest11-visible-world-2026-10-11/material-inputs-verified/yaba-material-inputs.json",
+  "manifestSha256": "892d6f78340ec268a97dfd9f15cfcff7b869881058f05f1d98d786016e62944a",
+  "sourceManifestSha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46",
+  "source": "https://polyhaven.com/a/worn_asphalt",
+  "authors": {
+    "Amal Kumar": "All"
+  },
+  "licence": "CC0-1.0",
+  "materialPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Materials/M_Asphalt",
+  "coverageMetres": [
+    2,
+    2
+  ],
+  "uvBasis": "physical-tiled",
+  "textureReadback": [
+    {
+      "channel": "basecolor",
+      "sourceSha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_base_color.T_Asphalt_base_color",
+      "sRGB": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flipGreenChannel": false
+    },
+    {
+      "channel": "roughness",
+      "sourceSha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_roughness.T_Asphalt_roughness",
+      "sRGB": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flipGreenChannel": false
+    },
+    {
+      "channel": "normal",
+      "sourceSha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_normal_gl.T_Asphalt_normal_gl",
+      "sRGB": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flipGreenChannel": true
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_base_color.uasset": "6ab599517c3be189cb32c0d0f2391f7f7f0cdfe52166516db1f82c342adf9d1a",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_roughness.uasset": "1d56b7b8490eb2d76031dce836ef051094fc7f5068cf698c0d7c9f128c5a9f03",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_normal_gl.uasset": "613601dd184ea5497937aa32a9d3faefde77bb0be36809b70c8c6fa54678b992",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Materials/M_Asphalt.uasset": "34cdbd270501997b2dbd52516edc3a3116ac2f98e8eb7715a29fac4aab88c14c"
+  },
+  "captureCount": 0,
+  "geometryCount": 0,
+  "visualAcceptance": "pending detailed scene and native image review"
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "recordedAt": "2026-10-11T10:01:03.927125+00:00",
+  "identity": "7bfa1597fb1d585d3d3a29c2273c534630ab678a5ccf61cad7c20653ef779773",
+  "scriptSha256": "d914c9ea41f94d328429a5faf84f85e76ae2c973c0cb8bdb50027e842661bbf6",
+  "manifestPath": "output/cribtest11-visible-world-2026-10-11/material-inputs-verified/yaba-material-inputs.json",
+  "manifestSha256": "892d6f78340ec268a97dfd9f15cfcff7b869881058f05f1d98d786016e62944a",
+  "sourceManifestSha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46",
+  "source": "https://polyhaven.com/a/wood_planks_grey",
+  "authors": {
+    "Rob Tuytel": "All"
+  },
+  "licence": "CC0-1.0",
+  "materialPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Materials/M_Timber",
+  "coverageMetres": [
+    1.5,
+    1.5000001192092896
+  ],
+  "uvBasis": "physical-tiled",
+  "textureReadback": [
+    {
+      "channel": "basecolor",
+      "sourceSha256": "31bdd475c6f1520fccc34a6823bfab8ba61ce5fd6dd97a3d1d868c21295e1000",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_base_color.T_Timber_base_color",
+      "sRGB": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flipGreenChannel": false
+    },
+    {
+      "channel": "roughness",
+      "sourceSha256": "0e76025babe056bfdcd750a8f186df92d359fa804273fceb0f23d4884b9f5520",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_roughness.T_Timber_roughness",
+      "sRGB": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flipGreenChannel": false
+    },
+    {
+      "channel": "normal",
+      "sourceSha256": "589d1a0ca42f1cc64b43ca73852251969188a07b9a24e8001fe9a14bfb208272",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_normal_dx.T_Timber_normal_dx",
+      "sRGB": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flipGreenChannel": false
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_base_color.uasset": "0858bdcf186c632f7aaa918e1591a5fb33204b36ce5afb1f31ea3337e19a01b5",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_roughness.uasset": "cf023f86a3e6f0f2de4461a0ac659a603d1bb7c230b194518df4606edade126d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_normal_dx.uasset": "fe7f9a4398db24af5bfb61b4acb3bc7f05384487af620908918a9fbbcb3b13bb",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Materials/M_Timber.uasset": "cad00a22faac19e68fe12c579fb89867924af397411f46146522f80dc61c7647"
+  },
+  "captureCount": 0,
+  "geometryCount": 0,
+  "visualAcceptance": "pending detailed scene and native image review"
+}

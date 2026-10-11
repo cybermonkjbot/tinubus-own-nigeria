@@ -1,0 +1,25 @@
+6935-[2026.10.11-10.25.20:028][815]Error:     ^ UnknownFunction []
+6936-[2026.10.11-10.25.20:029][815]Error:     ^ UnknownFunction []
+6937-[2026.10.11-10.25.20:030][815]Error:   
+6938:[2026.10.11-10.25.20:050][815]LogLoad: Error: Old Package /Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1 not cleaned up by GC! Object Package /Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1 is being referenced by GCObjectReferencer /Engine/Transient.GCObjectReferencer_0:
+6939- (root)  GCObjectReferencer /Engine/Transient.GCObjectReferencer_0
+6940- -> FPyReferenceCollector::AddReferencedObjects( Package /Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1)
+6941-    ^ UnknownFunction []
+6942-    ^ UnknownFunction []
+--
+6978-/Script/LevelEditor.LevelEditorSubsystem.LoadLevel
+6979-
+6980-[2026.10.11-10.25.20:052][815]LogWindows: Error: appError called: Fatal error: [File:D:\build\++UE5\Sync\Engine\Source\Editor\UnrealEd\Private\EditorServer.cpp] [Line: 1951] 
+6981:World Memory Leaks: 1 leaks objects and packages. See The output above.
+6982-
+6983-
+6984-
+6985-[2026.10.11-10.25.20:052][815]LogWindows: Windows GetLastError: The operation completed successfully. (0)
+6986-[2026.10.11-10.25.23:248][815]LogWindows: Error: === Critical error: ===
+6987-[2026.10.11-10.25.23:248][815]LogWindows: Error: 
+6988-[2026.10.11-10.25.23:248][815]LogWindows: Error: Fatal error: [File:D:\build\++UE5\Sync\Engine\Source\Editor\UnrealEd\Private\EditorServer.cpp] [Line: 1951] 
+6989:[2026.10.11-10.25.23:248][815]LogWindows: Error: World Memory Leaks: 1 leaks objects and packages. See The output above.
+6990-[2026.10.11-10.25.23:248][815]LogWindows: Error: 
+6991-[2026.10.11-10.25.23:248][815]LogWindows: Error: 
+6992-[2026.10.11-10.25.23:248][815]LogWindows: Error: [Callstack] 0x00007ffedbfdc302 UnrealEditor-UnrealEd.dll!UnknownFunction []
+6993-[2026.10.11-10.25.23:248][815]LogWindows: Error: [Callstack] 0x00007ffedbfe5fe6 UnrealEditor-UnrealEd.dll!UnknownFunction []

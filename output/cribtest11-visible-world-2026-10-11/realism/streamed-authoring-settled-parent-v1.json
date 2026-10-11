@@ -1,0 +1,24 @@
+{
+  "pid": 5916,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.umap": "ba54613ddc1a8857deafd9038620e54e3b6269727f14cbe8436800b92cbe7370"
+  },
+  "parentReceiptSha256": "7866a03ffeaf6a713bfec43544ede2e1b3cf4781866680d80c4eec4fd0564283",
+  "cause": "Asynchronous streaming editor update marked new parent dirty after first save; settled parent saved separately",
+  "loadedLevels": [
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Yaba.L_Mainland_Yaba:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Makoko.L_Mainland_Makoko:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Ikeja.L_Mainland_Ikeja:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Oworonshoki.L_Mainland_Oworonshoki:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Corridor_ThirdMainland.L_Corridor_ThirdMainland:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_LagosIsland.L_Island_LagosIsland:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_Ikoyi.L_Island_Ikoyi:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_VictoriaIsland.L_Island_VictoriaIsland:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_FictionalIsland_WesternLekki.L_FictionalIsland_WesternLekki:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Interiors.L_Interiors:PersistentLevel",
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_OptionalDressing.L_OptionalDressing:PersistentLevel"
+  ],
+  "partitioned": false
+}

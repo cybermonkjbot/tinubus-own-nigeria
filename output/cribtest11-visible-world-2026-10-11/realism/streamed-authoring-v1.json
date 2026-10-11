@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "recordedAt": "2026-10-11T10:23:29.024528+00:00",
+  "scriptSha256": "d9c2c4869decfeefe91eb227aeb5f94425cca157e948269c877051614fc2fdca",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.umap": "ba54613ddc1a8857deafd9038620e54e3b6269727f14cbe8436800b92cbe7370",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Yaba.umap": "117da85f226e076e3948cbab40361def03706097d47aeabc28fc4d1794042b32",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Makoko.umap": "bd724cc0649d9909502ee9a8789b257a032091ea330ef50ea2ffab90e00127e7",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Ikeja.umap": "b37345877c35c1f11d313a9738b5a96df3ebfc5ca63fbef18de04895c9a85860",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Oworonshoki.umap": "52cdd17e0c650139fcbec5003dea845e1edec653c5e7ada66c1b9bcf62305c0b",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Corridor_ThirdMainland.umap": "1fefc1c09ce0bc67ccde4178b49eb5cc106b5a0bd433c40f59cf5a96c68ba587",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_LagosIsland.umap": "443f478492e23d92cb0bc8e7a9aa1777994c71c2793df5f8ac5b78490c027560",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_Ikoyi.umap": "f76be056cbdc6fad3911c3669bcd0f26f652c0679627b7d53d488c80f3c46e09",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_VictoriaIsland.umap": "1b02bbed9ffabff60d25ef0d803e811918d65d913ec5dd8dadb5a5fc1cea85ff",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_FictionalIsland_WesternLekki.umap": "c4175b91229c081216c0a30dfd58ee15c14f8e9c45a718072500188bdb41c16e",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Interiors.umap": "af679c335a5d5d3aaab80f20770ab2e4546752b8912cb55a5d0113779271056e",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_OptionalDressing.umap": "3edb41f8529bdac69a186b23764a473238cccff801b48f1d509e0b2ec9b303cc"
+  },
+  "districtLevels": [
+    {
+      "id": "Mainland_Yaba",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Yaba",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_0",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Yaba.umap": "117da85f226e076e3948cbab40361def03706097d47aeabc28fc4d1794042b32"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "Mainland_Makoko",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Makoko",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_1",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Makoko.umap": "bd724cc0649d9909502ee9a8789b257a032091ea330ef50ea2ffab90e00127e7"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "Mainland_Ikeja",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Ikeja",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_2",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Ikeja.umap": "b37345877c35c1f11d313a9738b5a96df3ebfc5ca63fbef18de04895c9a85860"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "Mainland_Oworonshoki",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Oworonshoki",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_3",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Oworonshoki.umap": "52cdd17e0c650139fcbec5003dea845e1edec653c5e7ada66c1b9bcf62305c0b"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "Corridor_ThirdMainland",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Corridor_ThirdMainland",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_4",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Corridor_ThirdMainland.umap": "1fefc1c09ce0bc67ccde4178b49eb5cc106b5a0bd433c40f59cf5a96c68ba587"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "Island_LagosIsland",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_LagosIsland",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_5",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_LagosIsland.umap": "443f478492e23d92cb0bc8e7a9aa1777994c71c2793df5f8ac5b78490c027560"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "Island_Ikoyi",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_Ikoyi",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_6",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_Ikoyi.umap": "f76be056cbdc6fad3911c3669bcd0f26f652c0679627b7d53d488c80f3c46e09"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "Island_VictoriaIsland",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_VictoriaIsland",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_7",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_VictoriaIsland.umap": "1b02bbed9ffabff60d25ef0d803e811918d65d913ec5dd8dadb5a5fc1cea85ff"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "FictionalIsland_WesternLekki",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_FictionalIsland_WesternLekki",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_8",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_FictionalIsland_WesternLekki.umap": "c4175b91229c081216c0a30dfd58ee15c14f8e9c45a718072500188bdb41c16e"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "Interiors",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Interiors",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_9",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Interiors.umap": "af679c335a5d5d3aaab80f20770ab2e4546752b8912cb55a5d0113779271056e"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    },
+    {
+      "id": "OptionalDressing",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_OptionalDressing",
+      "streamingObject": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.L_Lagos_AuthoringPersistent_v1:LevelStreamingDynamic_10",
+      "streamingClass": "LevelStreamingDynamic",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_OptionalDressing.umap": "3edb41f8529bdac69a186b23764a473238cccff801b48f1d509e0b2ec9b303cc"
+      },
+      "geometryPresent": false,
+      "worldTransform": "identity unresolved authoring placeholder",
+      "movementAdmission": false,
+      "role": "Explicit native streamed authoring level; not geographic land geometry"
+    }
+  ],
+  "partitioned": false,
+  "externalActors": false,
+  "alternative": "Native LevelStreamingDynamic district levels, saved parent relationships",
+  "worldPartitionDecision": "Installed new_level(true) available, but ULevel::GetExternalActorsPath defaults to /Game/__ExternalActors__/BaddieGeneratedWorld outside owned write path; no safe Python routing confirmed",
+  "dataLayers": "Not configured; chosen nonpartitioned alternative uses explicit district/interior/dressing levels",
+  "hlodLayers": "Not configured on nonpartitioned alternative",
+  "hlodProxyCount": 0,
+  "regionGeometryGenerated": false,
+  "qualitySlice": "Independent locally anchored DenseStreet_v1; no district transform applied",
+  "geographyReferenceSha256": "e3088192c43d4e70d3a37873598e699794997f38bf580ff7154ddaaa71769352",
+  "canonicalPlacementsChanged": false,
+  "coastlineMeshes": null,
+  "bridgeEndpointsRelocated": false,
+  "gates": {
+    "accountAccess": false,
+    "movementAdmission": false,
+    "missionReadiness": false,
+    "utilityAuthority": false
+  },
+  "playerStreamingImplemented": false,
+  "playableAcceptance": false
+}

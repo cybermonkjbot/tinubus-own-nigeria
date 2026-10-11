@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "scope": "Owned additive PC authoring target; no shipping Config or mobile/web requirement",
+  "state": "configured-artifact-inactive",
+  "engine": "Unreal 5.8.3",
+  "requirements": {
+    "rhi": "DX12 SM6 on verified compatible hardware, not Microsoft Basic Render Driver",
+    "nanite": "Hardware support including 64-bit atomics; eligible opaque static derivatives only",
+    "lumen": "Compatible hardware/RHI; software tracing requires generated mesh distance fields; hardware tracing requires project support and eligible GPU",
+    "profileActivation": "Separate hardware inspection and owner-approved renderer integration; this artifact does not activate settings"
+  },
+  "targetConsoleValues": {
+    "r.DynamicGlobalIlluminationMethod": 1,
+    "r.ReflectionMethod": 1,
+    "r.Shadow.Virtual.Enable": 1,
+    "r.AntiAliasingMethod": 4,
+    "r.ScreenPercentage": 100
+  },
+  "installedSource": [
+    "Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h:452 EDynamicGlobalIlluminationMethod Lumen=1",
+    "Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h:472 EReflectionMethod Lumen=1",
+    "Engine/Source/Runtime/Engine/Classes/Engine/EngineTypes.h:489 EShadowMapMethod VirtualShadowMaps=1",
+    "Engine/Source/Runtime/Engine/Classes/Engine/RendererSettings.h:598,603,666,863 console bindings",
+    "Engine/Source/Editor/StaticMeshEditor/Private/StaticMeshEditorSubsystem.cpp:1243 SetNaniteSettings/PostEditChange"
+  ],
+  "materialPolicy": "Physical pre-scaled UV multiplier1; scanned basecolour sRGB, roughness/normal data; GL green inversion once; modeled corrugation scan normal omitted",
+  "preview": {
+    "pid": 5916,
+    "rhi": "D3D11 software SM5",
+    "adapter": "Microsoft Basic Render Driver",
+    "actualConsoleReadback": {
+      "r.DynamicGlobalIlluminationMethod": 0,
+      "r.ReflectionMethod": 2,
+      "r.Shadow.Virtual.Enable": 0,
+      "r.AntiAliasingMethod": 4,
+      "r.Nanite": 1,
+      "r.GenerateMeshDistanceFields": 0,
+      "r.Lumen.HardwareRayTracing": 1
+    },
+    "interpretation": "Requested/default console values do not imply hardware support or active rendering. No preview renderer settings changed."
+  },
+  "qualityAcceptance": false,
+  "performance": {"gpuFrameTimes": null, "memory": null, "traversal": null},
+  "deferred": ["HLOD proxy commandlets", "target hardware render inspection", "target-device profiling", "runtime admission-aware streaming", "shipping profile activation"]
+}

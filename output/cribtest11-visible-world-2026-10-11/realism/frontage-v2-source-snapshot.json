@@ -1,0 +1,1375 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "recordedAt": "2026-10-11T10:04:09.256941+00:00",
+  "scriptSha256": "a6ca879c7df0a31050dce923a25e6f36ad12cb84edd055d6f67dd9a85f84ab97",
+  "sourceScriptSha256": "598bfefadc522550be4bb6d49905066dbb089963aa2a5f776f33af41f0b3808d",
+  "sourceDirectory": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2",
+  "materialBindingsSha256": "fd9efda83d15223eecf9052ead6cac006b76bfd00d11ad5425c3b0664cf469c3",
+  "placementSha256": "7c0b6140cc2d3f07956fe78fe88bd69693f37e09d4ff12423fdc84693ec1f99d",
+  "modules": [
+    {
+      "module": "ResidentialBay",
+      "file": "fbx/ResidentialBay.fbx",
+      "sha256": "026a54573255f9c84253f9169b45862fbd5dc4b57a60781f9b79ab05f01492fa",
+      "triangles": 64,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_plaster"
+      ],
+      "anchor": "left bay edge at X=0, exterior Y=0, floor Z=0"
+    },
+    {
+      "module": "ShopBay",
+      "file": "fbx/ShopBay.fbx",
+      "sha256": "9621e21764a5073ba68cac856a778985c7c44a556ddea2c57b92ae53f42a7167",
+      "triangles": 44,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_plaster"
+      ],
+      "anchor": "left bay edge at X=0, exterior Y=0, floor Z=0"
+    },
+    {
+      "module": "Window1300",
+      "file": "fbx/Window1300.fbx",
+      "sha256": "afc954640714e73d7765cb13ed135ad55b8176a120bb18237f9d2be54e929def",
+      "triangles": 1236,
+      "mesh_parts": 23,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_concrete",
+        "Yaba_glass",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "opening bottom-left; frame recessed 110mm behind facade"
+    },
+    {
+      "module": "Shutter2800",
+      "file": "fbx/Shutter2800.fbx",
+      "sha256": "80547716d369ae424a3fed006051ee3af41c1e463b6fde343af8c0e5d42f5a50",
+      "triangles": 988,
+      "mesh_parts": 45,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "shop opening bottom-left, 150mm recessed"
+    },
+    {
+      "module": "OpenShopInterior",
+      "file": "fbx/OpenShopInterior.fbx",
+      "sha256": "9746638f5ba72acc9b393a438f96a5ce5b246734ce3ed7c8805cc079052013ac",
+      "triangles": 456,
+      "mesh_parts": 14,
+      "material_slots": [
+        "Yaba_concrete",
+        "Yaba_painted_steel",
+        "Yaba_plaster"
+      ],
+      "anchor": "shop opening centre at ground; no hidden flat shadow card"
+    },
+    {
+      "module": "Balcony3900",
+      "file": "fbx/Balcony3900.fbx",
+      "sha256": "16bc1ecd6a1fb7b9528ac75ed01f4a2f66001e4cacfc514963ca5513726e2a81",
+      "triangles": 1600,
+      "mesh_parts": 50,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_concrete",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "bay left edge and upper floor Z=0"
+    },
+    {
+      "module": "ACServiceAssembly",
+      "file": "fbx/ACServiceAssembly.fbx",
+      "sha256": "d4cc60aa0b010a965cad142c0bc91ca4d2d59b5c6b79e9994b8d786bbdb1c491",
+      "triangles": 4600,
+      "mesh_parts": 57,
+      "material_slots": [
+        "Yaba_ac_paint",
+        "Yaba_aluminium",
+        "Yaba_painted_steel",
+        "Yaba_rubber"
+      ],
+      "anchor": "wall anchor at [0,0,0]; unit faces street +Y"
+    },
+    {
+      "module": "RoofSheetPanel",
+      "file": "fbx/RoofSheetPanel.fbx",
+      "sha256": "52b8a36a083b96d90b1e8ede4ee9e4a9ebbe95f5ddc6632bcaa6ab779c6dd827",
+      "triangles": 1020,
+      "mesh_parts": 13,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_corrugated_metal",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "0.96m overlapping sheet; left edge datum; rear -Y"
+    },
+    {
+      "module": "Gutter3900",
+      "file": "fbx/Gutter3900.fbx",
+      "sha256": "7ad3521e84b7d21b35eebf1ec158149500cb848d57087406fc94db05ee517301",
+      "triangles": 268,
+      "mesh_parts": 5,
+      "material_slots": [
+        "Yaba_corrugated_metal",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "3.9m horizontal segment; ends join without caps"
+    },
+    {
+      "module": "RainwaterDownpipe",
+      "file": "fbx/RainwaterDownpipe.fbx",
+      "sha256": "4aebd0ee9550f04cb2ae2e9d4ed43c325ac2346f9929cd706a064e4af72eb249",
+      "triangles": 272,
+      "mesh_parts": 4,
+      "material_slots": [
+        "Yaba_ac_paint",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "roof gutter outlet datum; drop to drain"
+    },
+    {
+      "module": "Drain1000",
+      "file": "fbx/Drain1000.fbx",
+      "sha256": "4299137345745e5a910d7f89317e4c4fc6154098ca75e8b8d0ade30e357278f0",
+      "triangles": 36,
+      "mesh_parts": 3,
+      "material_slots": [
+        "Yaba_concrete"
+      ],
+      "anchor": "pavement lip Z=0; channel below; run +X"
+    },
+    {
+      "module": "DrainCover1000",
+      "file": "fbx/DrainCover1000.fbx",
+      "sha256": "aa324c3af3913a2cb198b5848b410bbb2723e08e06b5333b36bb32313f16194a",
+      "triangles": 432,
+      "mesh_parts": 4,
+      "material_slots": [
+        "Yaba_concrete"
+      ],
+      "anchor": "top Z=0; 4 separate removable concrete covers"
+    },
+    {
+      "module": "Kerb1000",
+      "file": "fbx/Kerb1000.fbx",
+      "sha256": "307cf7ddb272c692268a03db466faeee9b2e13b1e4a467473ac9bd4b79e7461d",
+      "triangles": 16,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_concrete"
+      ],
+      "anchor": "road contact Z=0; pavement Z=0.15"
+    },
+    {
+      "module": "Pavement1000",
+      "file": "fbx/Pavement1000.fbx",
+      "sha256": "c6c28659f4d0fece60cdc738dcb5ae4badc9b5aecdd251c46f350d68a5a334be",
+      "triangles": 48,
+      "mesh_parts": 4,
+      "material_slots": [
+        "Yaba_concrete"
+      ],
+      "anchor": "pavement top Z=0; 1m longitudinal module"
+    },
+    {
+      "module": "RoadJunction",
+      "file": "fbx/RoadJunction.fbx",
+      "sha256": "026a092cc6f8c53fdf04f0f822e6ea30bd8324340f5f03a8a2368c924d9da9ae",
+      "triangles": 40,
+      "mesh_parts": 3,
+      "material_slots": [
+        "Yaba_asphalt"
+      ],
+      "anchor": "local road top Z=0; bounded T-junction, no georeferencing"
+    },
+    {
+      "module": "JunctionInlet",
+      "file": "fbx/JunctionInlet.fbx",
+      "sha256": "008f03a59b5546308e82671d4a065af3000910c1535329ffe865ae017af1cdb7",
+      "triangles": 228,
+      "mesh_parts": 19,
+      "material_slots": [
+        "Yaba_concrete",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "kerb inlet top Z=0.15; channel bed Z=-0.30"
+    },
+    {
+      "module": "PlasterRepair",
+      "file": "fbx/PlasterRepair.fbx",
+      "sha256": "aa4fd6d5769a94fa511ec93c8dfd4a704d66034ba3ed2e6fad7ed4c61dc47fac",
+      "triangles": 20,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_repair_mortar"
+      ],
+      "anchor": "local authored repair patch, not random dirt"
+    },
+    {
+      "module": "FrontageStructure",
+      "file": "fbx/FrontageStructure.fbx",
+      "sha256": "4e0d67c18e6fecf8659652ed7a313d0a7964e0a944dfbf289ea29133742ee419",
+      "triangles": 540,
+      "mesh_parts": 21,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_concrete",
+        "Yaba_painted_steel",
+        "Yaba_plaster"
+      ],
+      "anchor": "local building/street origin; no district identity"
+    }
+  ],
+  "placement": {
+    "units": "metres",
+    "up": "+Z",
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "canonical_assignment": null,
+    "instances": [
+      {
+        "module": "FrontageStructure",
+        "translation_m": [
+          0,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "ShopBay",
+        "translation_m": [
+          0.0,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "ResidentialBay",
+        "translation_m": [
+          0.0,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Window1300",
+        "translation_m": [
+          1.3,
+          0,
+          4.025
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Balcony3900",
+        "translation_m": [
+          0.0,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "OpenShopInterior",
+        "translation_m": [
+          1.95,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "ACServiceAssembly",
+        "translation_m": [
+          2.94,
+          0,
+          4.55
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Gutter3900",
+        "translation_m": [
+          0.0,
+          0.31,
+          6.1
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "ShopBay",
+        "translation_m": [
+          3.9,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "ResidentialBay",
+        "translation_m": [
+          3.9,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Window1300",
+        "translation_m": [
+          5.2,
+          0,
+          4.025
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Balcony3900",
+        "translation_m": [
+          3.9,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Shutter2800",
+        "translation_m": [
+          4.45,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "ACServiceAssembly",
+        "translation_m": [
+          6.84,
+          0,
+          4.55
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Gutter3900",
+        "translation_m": [
+          3.9,
+          0.31,
+          6.1
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "ShopBay",
+        "translation_m": [
+          7.8,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "ResidentialBay",
+        "translation_m": [
+          7.8,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Window1300",
+        "translation_m": [
+          9.1,
+          0,
+          4.025
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Balcony3900",
+        "translation_m": [
+          7.8,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "OpenShopInterior",
+        "translation_m": [
+          9.75,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "ACServiceAssembly",
+        "translation_m": [
+          10.74,
+          0,
+          4.55
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Gutter3900",
+        "translation_m": [
+          7.8,
+          0.31,
+          6.1
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          0.0,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          0.9,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          1.8,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          2.7,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          3.6,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          4.5,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          5.4,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          6.3,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          7.2,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          8.1,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          9.0,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          9.9,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          10.8,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RainwaterDownpipe",
+        "translation_m": [
+          11.45,
+          0.31,
+          6.1
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          0,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          0,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "DrainCover1000",
+        "translation_m": [
+          0,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          0,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          1,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          1,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "DrainCover1000",
+        "translation_m": [
+          1,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          1,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          2,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          2,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "DrainCover1000",
+        "translation_m": [
+          2,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          2,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          3,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          3,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          3,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          4,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          4,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "DrainCover1000",
+        "translation_m": [
+          4,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          4,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          5,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          5,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "DrainCover1000",
+        "translation_m": [
+          5,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          5,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          6,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          6,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "DrainCover1000",
+        "translation_m": [
+          6,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          6,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          7,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          7,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "DrainCover1000",
+        "translation_m": [
+          7,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          7,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          8,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          8,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          8,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          9,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          9,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "DrainCover1000",
+        "translation_m": [
+          9,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          9,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Pavement1000",
+        "translation_m": [
+          10,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Drain1000",
+        "translation_m": [
+          10,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "DrainCover1000",
+        "translation_m": [
+          10,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "Kerb1000",
+        "translation_m": [
+          10,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "JunctionInlet",
+        "translation_m": [
+          11.0,
+          3.22,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "RoadJunction",
+        "translation_m": [
+          0,
+          0,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "PlasterRepair",
+        "translation_m": [
+          0.45,
+          0,
+          0.15
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "PlasterRepair",
+        "translation_m": [
+          4.05,
+          0,
+          0.28
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "module": "PlasterRepair",
+        "translation_m": [
+          8.2,
+          0,
+          5.55
+        ],
+        "rotation_z_rad": 0
+      }
+    ]
+  },
+  "materialBindings": {
+    "session": {
+      "pid": 12848,
+      "file_before": "",
+      "blender": "5.2.2 LTS",
+      "engine": "CYCLES",
+      "threads": 2
+    },
+    "plaster": {
+      "slot": "Yaba_plaster",
+      "mode": "scanned_maps",
+      "constants": {
+        "scan_id": "painted_plaster_wall",
+        "tile_m": 2.0,
+        "base": [
+          0.57,
+          0.53,
+          0.43
+        ],
+        "roughness": 0.87,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          2,
+          2
+        ]
+      },
+      "maps": {
+        "base_color": {
+          "file": "textures/plaster_base_color.jpg",
+          "sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/painted_plaster_wall",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": false
+        },
+        "normal_gl": {
+          "file": "textures/plaster_normal_gl.png",
+          "sha256": "322041257ab0dad1a1a1c18d98bc28689136103f6a64d4849f7aa3ae5b8b090f",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/painted_plaster_wall",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": true
+        },
+        "roughness": {
+          "file": "textures/plaster_roughness.png",
+          "sha256": "e355a47f007bcf8b50c9e2f9edfc9f45d85501eefc63a822fd82c2dbc7ab34ea",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/painted_plaster_wall",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": false
+        }
+      },
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "concrete": {
+      "slot": "Yaba_concrete",
+      "mode": "scanned_maps",
+      "constants": {
+        "scan_id": "concrete_floor_02",
+        "tile_m": 2.0,
+        "base": [
+          0.35,
+          0.34,
+          0.3
+        ],
+        "roughness": 0.92,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          2.7100000381469727,
+          2.7100000381469727
+        ]
+      },
+      "maps": {
+        "base_color": {
+          "file": "textures/concrete_base_color.jpg",
+          "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/concrete_wall_008",
+          "coverage_m": [
+            2.7100000381469727,
+            2.7100000381469727
+          ],
+          "unreal_normal_green_flip": false
+        },
+        "normal_gl": {
+          "file": "textures/concrete_normal_gl.png",
+          "sha256": "3d26d24586556ee400506888ad6496733a67bcc9020616c10119c1c343c5be24",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/concrete_wall_008",
+          "coverage_m": [
+            2.7100000381469727,
+            2.7100000381469727
+          ],
+          "unreal_normal_green_flip": true
+        },
+        "roughness": {
+          "file": "textures/concrete_roughness.png",
+          "sha256": "af2c3055aea34c0b1366b04ccdc90a83ed22e997de446a2d1e02817c800eb026",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/concrete_wall_008",
+          "coverage_m": [
+            2.7100000381469727,
+            2.7100000381469727
+          ],
+          "unreal_normal_green_flip": false
+        }
+      },
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "asphalt": {
+      "slot": "Yaba_asphalt",
+      "mode": "scanned_maps",
+      "constants": {
+        "scan_id": "asphalt_03",
+        "tile_m": 2.05,
+        "base": [
+          0.075,
+          0.071,
+          0.062
+        ],
+        "roughness": 0.93,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          2,
+          2
+        ]
+      },
+      "maps": {
+        "base_color": {
+          "file": "textures/asphalt_base_color.jpg",
+          "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/worn_asphalt",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": false
+        },
+        "normal_gl": {
+          "file": "textures/asphalt_normal_gl.png",
+          "sha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/worn_asphalt",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": true
+        },
+        "roughness": {
+          "file": "textures/asphalt_roughness.png",
+          "sha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/worn_asphalt",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": false
+        }
+      },
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "repair_mortar": {
+      "slot": "Yaba_repair_mortar",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1.0,
+        "base": [
+          0.42,
+          0.41,
+          0.37
+        ],
+        "roughness": 0.94,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [
+        "base_color",
+        "normal_gl",
+        "orm"
+      ],
+      "uv": "SurfaceUV"
+    },
+    "corrugated_metal": {
+      "slot": "Yaba_corrugated_metal",
+      "mode": "partial_scans_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1.0,
+        "base": [
+          0.39,
+          0.41,
+          0.39
+        ],
+        "roughness": 0.52,
+        "metallic": 1,
+        "required_for_finish": true,
+        "coverage_m": [
+          2.700000047683716,
+          2.700000047683716
+        ]
+      },
+      "maps": {
+        "base_color": {
+          "file": "textures/corrugated_metal_base_color.jpg",
+          "sha256": "1bd2b9900e066d7e6cbacc5093aa4204db71c1bbe13b42a3d8ad23d04fa8075a",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/corrugated_iron_02",
+          "coverage_m": [
+            2.700000047683716,
+            2.700000047683716
+          ],
+          "unreal_normal_green_flip": false
+        },
+        "roughness": {
+          "file": "textures/corrugated_metal_roughness.png",
+          "sha256": "7bf7e03196e601b4173822505e7cb01b401b4e50bb98bc0ecc556de7d4b231c3",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/corrugated_iron_02",
+          "coverage_m": [
+            2.700000047683716,
+            2.700000047683716
+          ],
+          "unreal_normal_green_flip": false
+        }
+      },
+      "missing": [
+        "normal_gl"
+      ],
+      "uv": "SurfaceUV"
+    },
+    "painted_steel": {
+      "slot": "Yaba_painted_steel",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1.0,
+        "base": [
+          0.055,
+          0.079,
+          0.066
+        ],
+        "roughness": 0.48,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [
+        "base_color",
+        "normal_gl",
+        "orm"
+      ],
+      "uv": "SurfaceUV"
+    },
+    "aluminium": {
+      "slot": "Yaba_aluminium",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1.0,
+        "base": [
+          0.55,
+          0.57,
+          0.57
+        ],
+        "roughness": 0.3,
+        "metallic": 1,
+        "required_for_finish": false,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "glass": {
+      "slot": "Yaba_glass",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1.0,
+        "base": [
+          0.8,
+          0.87,
+          0.86
+        ],
+        "roughness": 0.075,
+        "metallic": 0,
+        "transmission": 1,
+        "ior": 1.45,
+        "required_for_finish": false,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "rubber": {
+      "slot": "Yaba_rubber",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1.0,
+        "base": [
+          0.021,
+          0.024,
+          0.023
+        ],
+        "roughness": 0.85,
+        "metallic": 0,
+        "required_for_finish": false,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "ac_paint": {
+      "slot": "Yaba_ac_paint",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1.0,
+        "base": [
+          0.67,
+          0.65,
+          0.58
+        ],
+        "roughness": 0.5,
+        "metallic": 0,
+        "required_for_finish": false,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    }
+  },
+  "executionSnapshotSha256": "e367f78540aa4d7e71ca3df14b6fbf5c46219266a9dd65d1b8f12ad8fc940969",
+  "liveExecutionIsImmutable": false,
+  "sourceBounds": "actual native module bounds recorded after import",
+  "authority": "Current human native frontage import request; editor-only, local origin, no runtime registration",
+  "wholeStreetComplete": false,
+  "gates": {
+    "accountAccess": false,
+    "movementAdmission": false,
+    "missionReadiness": false,
+    "utilityAuthority": false
+  }
+}

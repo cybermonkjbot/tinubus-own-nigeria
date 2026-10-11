@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T10:07:04.114266+00:00",
+  "pid": 5916,
+  "receipt": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-assembly-v1.json",
+  "receiptSha256": "9e91de818fcb843fdfeb4cebf3922268dbf7e0f1870150cb8179a9dcce291940",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ImportCheck_v1",
+  "camera": "frontage-drain-close",
+  "cameraConfig": {
+    "id": "frontage-drain-close",
+    "locationMetres": [
+      -3.4,
+      -2,
+      1.65
+    ],
+    "rotation": {
+      "pitch": -22,
+      "yaw": -65,
+      "roll": 0
+    },
+    "fov": 65
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-native-drain-close.png",
+  "imageSha256": "02a116dc2ed0901749375a9ef680295ad4a10496bca00704f2d073d5e3f61d86",
+  "width": 705,
+  "height": 486,
+  "warmupNativeFrames": 50,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -340,
+      "y": -200,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": -22,
+      "yaw": -65,
+      "roll": 0
+    },
+    "cameraFOV": 65,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "parentVisualAcceptance": "pending",
+  "scriptSha256": "0188f4a7ffe22799fc41ca8af538b969761e80e652bd55469bf8fe87fbc78e22"
+}

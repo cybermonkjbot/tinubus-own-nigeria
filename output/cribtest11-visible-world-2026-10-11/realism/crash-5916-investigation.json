@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "crashedAtUTC": "2026-10-11T10:25:20Z",
+  "pid": 5916,
+  "editorRunning": false,
+  "log": "apps/companion-unreal/Saved/Bridge/editor-20261011-024041.log",
+  "logSha256": "6ce60705008c8cafe333ef5241425c1b77fc61e6d1a697bd415b545f48a38e27",
+  "crashContext": "apps/companion-unreal/Saved/Crashes/UECC-Windows-B9305A994205C2CB81A5F9978B4E13E9_0000/CrashContext.runtime-xml",
+  "crashContextSha256": "065eec3b3cd23684b1dc822c45f092e0b0a96b1035f414355eaefa37f2a3e115",
+  "fatal": "EditorServer.cpp:1951 World Memory Leaks:1 objects/packages",
+  "failureOperation": "LevelEditorSubsystem.load_level(DenseStreet_v1) after streamed-authoring parent",
+  "retainedObject": "UPackage /Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1",
+  "referenceChain": "GCObjectReferencer -> FPyReferenceCollector::AddReferencedObjects -> parent UPackage",
+  "cause": "The bridge function retained a dirty UPackage list in its local variable dirty while load_level garbage-collected the old world. Scoped World references alone were insufficient.",
+  "installedSource": [
+    "PythonScriptPlugin/Private/PyReferenceCollector.cpp:40 visits live Python wrappers",
+    "LevelEditorSubsystem.cpp:575 SaveCurrentLevel saves World.GetCurrentLevel, not necessarily persistent level",
+    "EditorLevelUtils.cpp:830 CreateNewStreamingLevel makes the child current"
+  ],
+  "streamingSaveDefect": "Current level was OptionalDressing; repeated save_current_level calls saved that child, leaving parent relationships dirty. Parent disk file exists but saved relationships are not certified.",
+  "historicalChildResave": {"path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_OptionalDressing.umap", "firstReceiptSha256": "3edb41f8529bdac69a186b23764a473238cccff801b48f1d509e0b2ec9b303cc", "actualFinalSha256": "9bba2e57b4a902b8dddbb9c0c1b4c4c3daaa00d98ddf0ed0a5f4b2c40f815b41", "parentSha256Unchanged": "ba54613ddc1a8857deafd9038620e54e3b6269727f14cbe8436800b92cbe7370", "receiptPreserved": true},
+  "sourceCorrections": ["safe_level_change.py returns dirty names and clears standard exception references; caller must hold no World/Package/Actor wrappers across switch", "streamed_authoring.py selects exact PersistentLevel identity and explicitly saves new v2 parent attaching unchanged saved children; reload/readback is separate"],
+  "executedStreamingSource": {"path": "output/cribtest11-visible-world-2026-10-11/realism/executed-source/streamed_authoring-pid5916-v1.py", "sha256": "d9c2c4869decfeefe91eb227aeb5f94425cca157e948269c877051614fc2fdca", "matchesHistoricalReceipt": true},
+  "logExcerpt": "output/cribtest11-visible-world-2026-10-11/realism/crash-5916-log-excerpt.txt",
+  "correctionsExecuted": false,
+  "savedOutput": "Frontage import/ISM maps, DenseStreet_v1, native captures and11empty child maps remain on disk",
+  "v2Repair": "Source prepared, not executed; zero v2 native outputs/captures",
+  "recoveryLaunchesThisOperation": 1,
+  "nextAuthority": "Direct authorization for one existing desktop-task editor recovery, fresh PID/project/RHI inspection, then bounded v2 authoring/capture and explicit streamed-parent save/readback",
+  "engineMutationsAfterCrash": false,
+  "editorRecoveryCurrentlyAuthorized": false,
+  "buildsTestsPushes": false
+}

@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 2,
+  "target": "Finished 100-150m pedestrian-scale Yaba segment, dense photorealism-oriented art; target not achieved",
+  "reviewedImage": "output/cribtest11-visible-world-2026-10-11/street-props/camera-delivery-v1/03-Theatre-Danfo-Kiosk.png",
+  "imageSha256": "dcf6bd355ac74073851ffc500c7902d6f54ebb975b10ed7ff2a0807e3150a7ae",
+  "imageOrigin": "Separate Blender camera-delivery evidence, not a new native Unreal realism frame",
+  "review": "Parent rejection and local image inspection agree: blockout only",
+  "defects": [
+    {
+      "id": "F01",
+      "observed": "Rounded smooth foliage masses lack branches and leaf structure",
+      "repair": "Detailed branching/leaves with economical distant fallback; no blob canopy",
+      "status": "open"
+    },
+    {
+      "id": "R01",
+      "observed": "Flat uniform ground and weak road edges lack surface scale and traffic/water wear",
+      "repair": "Detailed road, kerb, connected drainage, supplied photographic surface maps and local wear",
+      "status": "open"
+    },
+    {
+      "id": "K01",
+      "observed": "Kiosk rear is a blank opaque plane",
+      "repair": "Source-derived rear construction, panels, joints and grounded base",
+      "status": "open"
+    },
+    {
+      "id": "C01",
+      "observed": "Sparse empty foreground without pedestrian-scale near/mid/far detail",
+      "repair": "Finished local slice with credible access, contacts, cables, drains and contextual placement",
+      "status": "open"
+    },
+    {
+      "id": "B01",
+      "observed": "Repeating facade beams have limited opening and surface detail",
+      "repair": "Recessed openings, framed glass, thickness, balcony/AC/rail supports and licensed surface inputs",
+      "status": "open"
+    }
+  ],
+  "rejectedDetailedTree": {
+    "image": "output/cribtest11-visible-world-2026-10-11/street-props/realism/roadside-tree-v1/Tree-Ground-Shadow.png",
+    "sha256": "3f5f82c68080c0055f2bfc0c0d0b49761f431ed30c209641288a303682dbdbdc",
+    "parentInspection": "Leaves, connected limbs and gaps improved; bare pointed central trunk spike, regular radial limb layers, smooth bark/root remain placeholder art",
+    "nativePlacement": "prohibited until separate revision reviewed",
+    "species": "unresolved",
+    "priority": "textured frontage first, then Blender tree working revision"
+  },
+  "nativeRealismImages": [
+    {
+      "image": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-ism-walk-wide.png",
+      "sha256": "dda427130b5839df4c7a9db3797c5d8e40a401c1ec7e4c4b5e226be287e3eba0",
+      "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1",
+      "review": "Preserved native image, not final realism acceptance"
+    },
+    {
+      "image": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-native-drain-close.png",
+      "sha256": "02a116dc2ed0901749375a9ef680295ad4a10496bca00704f2d073d5e3f61d86",
+      "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ImportCheck_v1",
+      "review": "Preserved native image, not final realism acceptance"
+    },
+    {
+      "image": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-native-walk-oblique.png",
+      "sha256": "78782ffe7d3f1dbb1ebec1c63da35a22b409b15732c50b703fee38adff5b5e3f",
+      "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ImportCheck_v1",
+      "review": "Preserved native image, not final realism acceptance"
+    },
+    {
+      "image": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-native-walk-wide.png",
+      "sha256": "4bfac4a254666503bee38519b1a261f094fa4eafe6d5010bd061f2b1dbba8fa9",
+      "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ImportCheck_v1",
+      "review": "Preserved native image, not final realism acceptance"
+    },
+    {
+      "image": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v1-forward.png",
+      "sha256": "808aef55b496f7d415461a1be8a963f642a35c5f35800900c08d9587a4bcf44d",
+      "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Maps/L_Yaba_DenseStreet_v1",
+      "review": "Preserved native image, not final realism acceptance"
+    },
+    {
+      "image": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v1-junction.png",
+      "sha256": "7eddb865f87531488b81eada8894d74920b4abd32484003c60486ae27f47dd05",
+      "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Maps/L_Yaba_DenseStreet_v1",
+      "review": "Preserved native image, not final realism acceptance"
+    },
+    {
+      "image": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v1-reverse.png",
+      "sha256": "34ff21b4b849c6005d55fd2e8048e8f6de2d565b965c58c8943bb26f5639666f",
+      "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Maps/L_Yaba_DenseStreet_v1",
+      "review": "Preserved native image, not final realism acceptance"
+    }
+  ],
+  "daylightAcceptance": "not-established",
+  "eveningAcceptance": "not-established",
+  "districtExpansion": "deferred until street quality acceptance",
+  "previousEvidence": "All failed white frames, exposure repair and accepted bare geometry frames retained without final-art claim",
+  "nativeDefects": [
+    {
+      "id": "N01",
+      "images": [
+        "frontage-v2-native-walk-wide.png",
+        "frontage-v2-ism-walk-wide.png",
+        "yaba-dense-v1-forward.png"
+      ],
+      "observed": "Rail/window striped or noisy appearance",
+      "cause": "Temporal/sampling and source contact must be separated; no renderer cause proven",
+      "status": "open; parent same-camera comparison found no batching-specific loss"
+    },
+    {
+      "id": "N02",
+      "images": [
+        "yaba-dense-v1-forward.png",
+        "yaba-dense-v1-reverse.png",
+        "yaba-dense-v1-junction.png"
+      ],
+      "observed": "Asphalt reads as continuous glossy water",
+      "nativeEvidence": "RoughnessR connection and noncolourTC_MASKS correct; source min.819608 max.949020 mean.875013 over65536samples",
+      "repairSource": "New max(R,.88),specular.18,attenuated scan normal; no fog/lighting concealment",
+      "status": "source-only; actual rendering cause not proven"
+    },
+    {
+      "id": "N03",
+      "images": [
+        "yaba-dense-v1-forward.png",
+        "yaba-dense-v1-reverse.png"
+      ],
+      "observed": "Duplicated upper-storey groups float/disconnect/overhang",
+      "repairSource": "Remove all upper duplicates, preserve complete original two-storey shells, supported balconies/recesses/roof; no reshaped merged-wall substitute",
+      "status": "source-only"
+    },
+    {
+      "id": "N04",
+      "images": [
+        "yaba-dense-v1-junction.png"
+      ],
+      "observed": "Broad dark unsupported pedestrian span at junction",
+      "sourceEvidence": "v1 omitted source pavement/channel/cover modules for12m junction opening; road section edge atX=-339cm",
+      "repairSource": "Restore actual imported sidewalk/bed/walls/covers; no asphalt overlap; vehicle ramp and culvert continuation still require inspection",
+      "status": "source-only; native support/flow/contact not yet proven"
+    },
+    {
+      "id": "N05",
+      "images": [
+        "frontage-v2-native-walk-wide.png",
+        "yaba-dense-v1-forward.png"
+      ],
+      "observed": "Empty/black shop bays and identical windows/AC cadence",
+      "repair": "Reviewed frontage-v3/source stock/facade variants pending; no clone expansion",
+      "status": "open"
+    },
+    {
+      "id": "N06",
+      "images": [
+        "frontage-v2-native-walk-wide.png",
+        "yaba-dense-v1-forward.png"
+      ],
+      "observed": "Pale pavement uniform, limited localized use/material variation",
+      "repair": "Actual approved material/detail revision; no noise-only realism claim",
+      "status": "open"
+    },
+    {
+      "id": "N07",
+      "images": [
+        "frontage-v2-native-walk-wide.png"
+      ],
+      "observed": "Dark wall joints/contact striping",
+      "sourceEvidence": "Blender writer measured coplanar panel/pier front contact overlap",
+      "repair": "Separate reviewed source geometry revision; preservev2",
+      "status": "open"
+    },
+    {
+      "id": "N08",
+      "images": [
+        "frontage-v2-native-walk-wide.png",
+        "frontage-v2-native-walk-oblique.png",
+        "frontage-v2-native-drain-close.png"
+      ],
+      "observed": "Standalone frontage black surrounding ground/absent adjacent context",
+      "status": "Dense-v1 adds120m context but rejected; not resolved as finished street"
+    }
+  ],
+  "nativeCaptureReview": "Coordinator inspected matching original/ISM wide and3dense views; local forward inspection retained. No final realism/FPS acceptance.",
+  "sourceOnlyRoadMix": "Unpaved recipe integration prepared; no new imagery or dirt-lane native output."
+}

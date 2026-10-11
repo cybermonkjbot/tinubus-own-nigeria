@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "receipt": "surface-plaster-physical-tiled.json",
+  "state": "Rejected shader binding; receipt and packages preserved, not used on geometry",
+  "cause": "TextureFactory autodetection saved roughness as TC_DEFAULT while graph requested Masks sampler; native shader log reports sampler should be Linear Color, default material fallback",
+  "evidence": "apps/companion-unreal/Saved/Bridge/editor-20261011-024041.log:3273-3295",
+  "repair": "Create additive v2 surface identity; set actual loaded roughness TC_MASKS and verify compression before graph creation/save",
+  "mapOrGeometryModified": false,
+  "captureCount": 0
+}

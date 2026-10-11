@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "recordedAt": "2026-10-11T10:00:49.426442+00:00",
+  "identity": "9379e91eaeaecfe4fa8f4e31454a4d87604890d0fd5f545af4100cbc3a77087d",
+  "scriptSha256": "d914c9ea41f94d328429a5faf84f85e76ae2c973c0cb8bdb50027e842661bbf6",
+  "manifestPath": "output/cribtest11-visible-world-2026-10-11/material-inputs-verified/yaba-material-inputs.json",
+  "manifestSha256": "892d6f78340ec268a97dfd9f15cfcff7b869881058f05f1d98d786016e62944a",
+  "sourceManifestSha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46",
+  "source": "https://polyhaven.com/a/concrete_wall_008",
+  "authors": {
+    "Dario Barresi": "Processing ",
+    "Charlotte Baglioni": "Photography"
+  },
+  "licence": "CC0-1.0",
+  "materialPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Materials/M_Concrete",
+  "coverageMetres": [
+    2.7100000381469727,
+    2.7100000381469727
+  ],
+  "uvBasis": "physical-tiled",
+  "textureReadback": [
+    {
+      "channel": "basecolor",
+      "sourceSha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_base_color.T_Concrete_base_color",
+      "sRGB": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flipGreenChannel": false
+    },
+    {
+      "channel": "roughness",
+      "sourceSha256": "af2c3055aea34c0b1366b04ccdc90a83ed22e997de446a2d1e02817c800eb026",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_roughness.T_Concrete_roughness",
+      "sRGB": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flipGreenChannel": false
+    },
+    {
+      "channel": "normal",
+      "sourceSha256": "3d26d24586556ee400506888ad6496733a67bcc9020616c10119c1c343c5be24",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_normal_gl.T_Concrete_normal_gl",
+      "sRGB": false,
+      "compression": "<TextureCompressionSettings.TC_NORMALMAP: 1>",
+      "flipGreenChannel": true
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_base_color.uasset": "6be687e82ae3c366dea23df9384ae3a116d57ebbe9b2591db722f7f7687e2822",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_roughness.uasset": "b52eaca6a4a15a7dd964f5319fb30b9c33d546e88a376310bf2ea66030bc5b3b",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_normal_gl.uasset": "354493cd33828119ff3ba72d4785c5ed9205f18ed5d0dbf51e9644e120a3df93",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Materials/M_Concrete.uasset": "89362c2b6449e84388c0a5dc50538c2a4a9c6c0ee875df3d561df03149a19618"
+  },
+  "captureCount": 0,
+  "geometryCount": 0,
+  "visualAcceptance": "pending detailed scene and native image review"
+}

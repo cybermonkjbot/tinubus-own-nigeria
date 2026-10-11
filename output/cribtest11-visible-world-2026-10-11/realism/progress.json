@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 2,
+  "updatedAt": "2026-10-11",
+  "step": "checkpoint_source_only_after_pid5916_crash",
+  "workspace": "C:/dev/cribtest-game",
+  "pid": null,
+  "lastInspectedPid": 5916,
+  "editorState": "stopped-crashed; no restart authorized",
+  "sourcePin": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "acceptedGeneratorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "acceptedCorrectionCommit": "5bc324adeaddbab1085d9d33db5a18359b492941",
+  "referenceManifestBytesSha256": "800e29a26cb897a10e50657b3cd3dced1b9f385342560fae73d96efe53b00447",
+  "referenceReceiptSha256": "620a06dad3de0514612e0b27d3fa5a3293e42e5a643b1dfa7a3fe3915db60c8a",
+  "sourceLockSha256": "36fb0cc6adee250e04743f71faebef9acff2bf7a2047ead74c1fe8ac6abbf874",
+  "macRecoverySha256": "bf6f28b763ccfde1f72036914d927cc59e93b5ac1e5749e739e4113c932853ad",
+  "referenceReview": {
+    "files": 250,
+    "mismatches": 0,
+    "reconciliation": "Current human authoring request plus coordinator verified serialization reconciliation; no separate Joshua manual digest claim"
+  },
+  "ownedCheckpointPaths": [
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/",
+    "apps/companion-unreal/Scripts/WorldGeneration/Realism/",
+    "output/cribtest11-visible-world-2026-10-11/realism/"
+  ],
+  "savedOutputs": {
+    "inventory": "saved-output-inventory.json",
+    "realism": {
+      "packages": 89,
+      "maps": 16,
+      "assets": 73,
+      "bytes": 202890999
+    },
+    "priorPackages": 40,
+    "priorMaps": 3,
+    "priorTrackedOutputsChanged": 0,
+    "includes": "Setup, rejected material attempts, detailed import and batching, rejected dense-v1, inactive Nanite derivatives, 11 empty streamed children and uncertified parent"
+  },
+  "nativeAssembly": {
+    "modules": 18,
+    "sourcePlacements": 83,
+    "frontageMetres": 11.7,
+    "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ImportCheck_v1",
+    "receipt": "frontage-v2-assembly-v1.json",
+    "receiptSha256": "9e91de818fcb843fdfeb4cebf3922268dbf7e0f1870150cb8179a9dcce291940"
+  },
+  "batching": {
+    "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1",
+    "components": 12,
+    "instances": 75,
+    "separateActors": 8,
+    "sourceMappings": 83,
+    "coordinatorComparison": "Zero location/scale/yaw mismatches; no apparent batching loss at705x486",
+    "receiptSha256": "3b15c88e9e3e44ffc268180a18f1b7f285fa1674bd840d75709b7e93e48f324b",
+    "measuredFrameTimes": null
+  },
+  "denseStreet": {
+    "map": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Maps/L_Yaba_DenseStreet_v1",
+    "lengthMetres": 120,
+    "sideStreetDepthMetres": 20,
+    "assemblies": 21,
+    "placements": 2033,
+    "components": 118,
+    "instances": 1950,
+    "separateModules": 83,
+    "staticProps": 2,
+    "receiptSha256": "0f6e153f51c28e86ab6da6b989e91408d970538bc186e2b4f704125f3818ae6b",
+    "saved": true,
+    "readbackBeforeCrash": true,
+    "visualAcceptance": false,
+    "review": "Forward/reverse/junction inspected; floating upper duplicates, repetition, glossy road and dark junction span rejected"
+  },
+  "captureCount": 7,
+  "captures": [
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-ism-walk-wide.png",
+      "sha256": "dda427130b5839df4c7a9db3797c5d8e40a401c1ec7e4c4b5e226be287e3eba0"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-native-drain-close.png",
+      "sha256": "02a116dc2ed0901749375a9ef680295ad4a10496bca00704f2d073d5e3f61d86"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-native-walk-oblique.png",
+      "sha256": "78782ffe7d3f1dbb1ebec1c63da35a22b409b15732c50b703fee38adff5b5e3f"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/frontage-v2-native-walk-wide.png",
+      "sha256": "4bfac4a254666503bee38519b1a261f094fa4eafe6d5010bd061f2b1dbba8fa9"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v1-forward.png",
+      "sha256": "808aef55b496f7d415461a1be8a963f642a35c5f35800900c08d9587a4bcf44d"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v1-junction.png",
+      "sha256": "7eddb865f87531488b81eada8894d74920b4abd32484003c60486ae27f47dd05"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v1-reverse.png",
+      "sha256": "34ff21b4b849c6005d55fd2e8048e8f6de2d565b965c58c8943bb26f5639666f"
+    }
+  ],
+  "surfaces": {
+    "directory": "material-inputs-verified",
+    "manifestSha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46",
+    "inputSha256": "892d6f78340ec268a97dfd9f15cfcff7b869881058f05f1d98d786016e62944a",
+    "nativeTextures": 14,
+    "nativePBRMaterials": 5,
+    "provenance": "Coordinator-supplied Poly Haven CC0 maps; no independent downloads",
+    "frontageUVMultiplier": 1,
+    "soilScansAvailable": false
+  },
+  "streaming": {
+    "savedChildren": 11,
+    "childrenGeometry": false,
+    "parentDiskExists": true,
+    "savedParentRelationships": "not-certified; save_current_level saved current child",
+    "historicalChildResave": {
+      "receipt": "streamed-authoring-v1.json",
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_OptionalDressing.umap",
+      "recordedSha256": "3edb41f8529bdac69a186b23764a473238cccff801b48f1d509e0b2ec9b303cc",
+      "finalSha256": "9bba2e57b4a902b8dddbb9c0c1b4c4c3daaa00d98ddf0ed0a5f4b2c40f815b41",
+      "cause": "Later save_current_level attempts saved this child before crash; historical receipt retained",
+      "parentRelationships": "not-certified"
+    },
+    "partitioned": false,
+    "dataLayers": "not-configured",
+    "hlodLayers": "not-configured",
+    "hlodProxies": 0,
+    "playerStreaming": false,
+    "recoverySource": "Separate StreamedAuthoring_v2 parent attaching saved children then explicit parent save/reload readback; not executed"
+  },
+  "sourceOnlyRepairs": {
+    "denseV2": {
+      "script": "apps/companion-unreal/Scripts/WorldGeneration/Realism/repair_dense_v2.py",
+      "execution": false,
+      "packages": 0,
+      "maps": 0,
+      "captures": 0,
+      "scope": "Remove unsupported duplicated upper assemblies; retain complete original geometry/openings/roof; derivative dry road graph; source-module sidewalk/channel support; exact v1 camera/lighting/atmosphere",
+      "remaining": "Frontage-v2 panel/pier overlap, missing shop stock and detailed vehicle crossing transitions need reviewed new assets"
+    },
+    "safeSwitch": {
+      "script": "safe_level_change.py",
+      "execution": false,
+      "scope": "Strings-only dirty inspection; standard exception-reference cleanup before switch; no World/Package wrappers may survive in bridge caller"
+    },
+    "unpaved": {
+      "script": "unpaved_lane.py",
+      "contract": "unpaved-road-contract.json",
+      "recipeSha256": "063f9f7f9a7eb1b55cc6a0fd8c285ba8481a16600b16a4a51305cf874205f197",
+      "handoffSha256": "2dd655b9edb829782adbd55d70ea4914c417b66fd0556f96ffd92801540ec641",
+      "execution": false,
+      "packages": 0,
+      "maps": 0,
+      "geometry": "Actual crown/rut/shoulder recipe and closed underside; not asphalt recolour",
+      "weights": "UV1earth/sand,UV2damp/gravel,UV3asphalt/candidateWet; UV0metres divides by each scan coverage once",
+      "placement": "Separate bounded side-lane only; preserve paved main routes/canonical placements; no district soil preset"
+    }
+  },
+  "crash": {
+    "record": "crash-5916-investigation.json",
+    "atUTC": "2026-10-11T10:25:20Z",
+    "log": "apps/companion-unreal/Saved/Bridge/editor-20261011-024041.log",
+    "logSha256": "6ce60705008c8cafe333ef5241425c1b77fc61e6d1a697bd415b545f48a38e27",
+    "fatal": "EditorServer.cpp:1951 World Memory Leaks:1 objects/packages",
+    "retained": "Python bridge local dirty UPackage list / streamed parent"
+  },
+  "renderer": {
+    "engine": "5.8.3-58210709+++UE5+Release-5.8",
+    "rhi": "D3D11 Microsoft Basic Render Driver softwareSM5",
+    "naniteDerivatives": {
+      "saved": 5,
+      "enabledFlagReadback": true,
+      "activePreview": false
+    },
+    "lumenVsmTarget": "owned render-target-profile.json configured inactive",
+    "gpuFrameTimes": null,
+    "memoryProfiling": null
+  },
+  "coverage": {
+    "canonicalInventoryJobs": 135,
+    "canonicalExecutedJobs": [
+      "city/national-theatre",
+      "city/theatre-grounds"
+    ],
+    "canonicalFullCity": false,
+    "placesAndInteriors": "not-generated",
+    "homes": "49 reusable recipes inventoried; no native Home generation/private snapshot",
+    "waterfront": "not-generated",
+    "rural": "not-generated",
+    "namedMainlandIslands": "plan/11empty native levels only; no geographic land geometry",
+    "fictionalSeparatedIslandComposition": "approved authoring choice, factual topology retained separately; no canonical remap",
+    "localStreet": "120m rejected art evidence, not district coverage"
+  },
+  "operationsThisStopTurn": [
+    "Read-only instructions/source/log/API/provenance inspection",
+    "Rehashed250pinned sources,18FBXs,prior tracked content and saved native receipts",
+    "Local inspection of preserved forward frame",
+    "Source-only bounded repair/safe-switch/stream-parent-recovery and unpaved import/material/placement helpers",
+    "Owned evidence inventory and handoff",
+    "Explicit path-scoped checkpoint with hooks disabled"
+  ],
+  "engineMutationsAfterCrash": false,
+  "launchesAfterStop": 0,
+  "buildsTestsPushes": false,
+  "states": {
+    "preparation": "source-prepared",
+    "realNativeAssets": "saved historical outputs preserved",
+    "renderedInspection": "7existing native captures; realism rejected",
+    "denseV2": "source-only",
+    "unpavedLane": "source-only",
+    "streamingRelationships": "uncertified",
+    "compilation": "not-performed",
+    "performance": "not-measured",
+    "playableAcceptance": false,
+    "wholeWorldComplete": false
+  },
+  "blockers": [
+    "Direct human authorization for one recovery launch and freshPID/project/RHI inspection",
+    "Execute bounded DenseStreet_v2 and identical walking-height capture/readback before acceptance",
+    "New explicit saved streaming-parent relationship readback",
+    "Reviewed completed frontage-v3, vehicle/foliage revisions; rejected tree remains unplaced",
+    "Completed Blender earth-road FBXs/UV-weight manifest and licensed soil inputs"
+  ],
+  "nextAuthorization": "One existing inspected desktop-task recovery, fresh PID/project/RHI readback; then bounded new DenseStreet_v2 authoring/save/readback and three matching captures, and new streamed parent explicit save/reload/readback. Unpaved import separately awaits complete reviewed exports/soil bindings and exact new PID-bound receipt.",
+  "gates": {
+    "accountAccess": false,
+    "movementAdmission": false,
+    "missionReadiness": false,
+    "utilityAuthority": false
+  },
+  "checkpoint": {
+    "operationStartHead": "35b0a09fbdb9ef154a99430b6291444310e45dbf",
+    "baseHead": "f4107e4fc7f3d64a8ba478826e34bff491e62f55",
+    "concurrentCheckpointPreserved": "Sole Blender writer committed its owned paths before this native checkpoint; no native-path overlap",
+    "record": ".git/operations/world-generation-20261010/worker/realism-checkpoint-20261011.json",
+    "mode": "explicit owned paths, command-local hooks disabled, no push"
+  }
+}

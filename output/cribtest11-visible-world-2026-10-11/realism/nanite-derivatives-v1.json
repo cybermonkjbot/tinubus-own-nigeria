@@ -1,0 +1,243 @@
+{
+  "pid": 5916,
+  "recordedAt": "2026-10-11T10:15:28.426185+00:00",
+  "scriptSha256": "c9846bb1591a6a062a256cb32826b6fe9721ec06be2b80e60bceb857cafd97b1",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_Shutter2800.uasset": "0a750ae6f3123070a8b06ebefbe80c7d379b5a08e1ebf0fc6a0e7d1e49938ebb",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_OpenShopInterior.uasset": "6b360e473df8bcbed836b3d24bd8232a89286fdd8178af7ee93e5a522bffb019",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_Balcony3900.uasset": "63022f454d7669ea007f3768a17e7238c1f5105a9e58508d4d8530eee94814c6",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_RoofSheetPanel.uasset": "54cf84bbd2a9e1982c9c4ae54671dfc6885b2751c972eab5fd8de447a53d5f04",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_FrontageStructure.uasset": "b62451563685cf79237f5b78fbeb75ed460f8670a040fbbeaabd8bdb9a94e5fe"
+  },
+  "assets": [
+    {
+      "module": "ResidentialBay",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_ResidentialBay",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "ShopBay",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_ShopBay",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "Window1300",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Window1300",
+      "enabled": false,
+      "reason": "Glass-bearing module retained separately"
+    },
+    {
+      "module": "Shutter2800",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_Shutter2800",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Shutter2800",
+      "enabled": true,
+      "keepPercentTriangles": 1.0,
+      "fallbackPercentTriangles": 1.0,
+      "generateFallback": "<NaniteGenerateFallback.ENABLED: 1>",
+      "explicitTangents": true,
+      "uvChannels": 1,
+      "boundsCm": [
+        [
+          2.8132972717285156,
+          -280.0165100097656,
+          -2.77618408203125
+        ],
+        [
+          20.0,
+          2.957733154296875,
+          253.96356201171875
+        ]
+      ],
+      "materialSlots": [
+        "Yaba_painted_steel",
+        "Yaba_aluminium"
+      ],
+      "previewNaniteActive": false
+    },
+    {
+      "module": "OpenShopInterior",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_OpenShopInterior",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_OpenShopInterior",
+      "enabled": true,
+      "keepPercentTriangles": 1.0,
+      "fallbackPercentTriangles": 1.0,
+      "generateFallback": "<NaniteGenerateFallback.ENABLED: 1>",
+      "explicitTangents": true,
+      "uvChannels": 1,
+      "boundsCm": [
+        [
+          -1.52587890625e-05,
+          -195.00003051757812,
+          -15.0
+        ],
+        [
+          234.00001525878906,
+          195.0,
+          300.0
+        ]
+      ],
+      "materialSlots": [
+        "Yaba_plaster",
+        "Yaba_concrete",
+        "Yaba_painted_steel"
+      ],
+      "previewNaniteActive": false
+    },
+    {
+      "module": "Balcony3900",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_Balcony3900",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Balcony3900",
+      "enabled": true,
+      "keepPercentTriangles": 1.0,
+      "fallbackPercentTriangles": 1.0,
+      "generateFallback": "<NaniteGenerateFallback.ENABLED: 1>",
+      "explicitTangents": true,
+      "uvChannels": 1,
+      "boundsCm": [
+        [
+          -105.00003051757812,
+          -390.0,
+          -68.0
+        ],
+        [
+          24.0,
+          0.0,
+          112.38836669921875
+        ]
+      ],
+      "materialSlots": [
+        "Yaba_aluminium",
+        "Yaba_concrete",
+        "Yaba_painted_steel"
+      ],
+      "previewNaniteActive": false
+    },
+    {
+      "module": "ACServiceAssembly",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_ACServiceAssembly",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "RoofSheetPanel",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_RoofSheetPanel",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_RoofSheetPanel",
+      "enabled": true,
+      "keepPercentTriangles": 1.0,
+      "fallbackPercentTriangles": 1.0,
+      "generateFallback": "<NaniteGenerateFallback.ENABLED: 1>",
+      "explicitTangents": true,
+      "uvChannels": 1,
+      "boundsCm": [
+        [
+          -30.63739013671875,
+          -96.0000228881836,
+          -10.100000381469727
+        ],
+        [
+          310.0048828125,
+          0.0,
+          23.499753952026367
+        ]
+      ],
+      "materialSlots": [
+        "Yaba_corrugated_metal",
+        "Yaba_painted_steel",
+        "Yaba_aluminium"
+      ],
+      "previewNaniteActive": false
+    },
+    {
+      "module": "Gutter3900",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Gutter3900",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "RainwaterDownpipe",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_RainwaterDownpipe",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "Drain1000",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Drain1000",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "DrainCover1000",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_DrainCover1000",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "Kerb1000",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Kerb1000",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "Pavement1000",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Pavement1000",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "RoadJunction",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_RoadJunction",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "JunctionInlet",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_JunctionInlet",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "PlasterRepair",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_PlasterRepair",
+      "enabled": false,
+      "reason": "Existing low-detail/small fitting fallback retained; no automatic universal Nanite"
+    },
+    {
+      "module": "FrontageStructure",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_FrontageStructure",
+      "fallback": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_FrontageStructure",
+      "enabled": true,
+      "keepPercentTriangles": 1.0,
+      "fallbackPercentTriangles": 1.0,
+      "generateFallback": "<NaniteGenerateFallback.ENABLED: 1>",
+      "explicitTangents": true,
+      "uvChannels": 1,
+      "boundsCm": [
+        [
+          -17.70965576171875,
+          -1184.1773681640625,
+          -20.0
+        ],
+        [
+          309.5,
+          14.4111328125,
+          642.5
+        ]
+      ],
+      "materialSlots": [
+        "Yaba_painted_steel",
+        "Yaba_concrete",
+        "Yaba_plaster",
+        "Yaba_aluminium"
+      ],
+      "previewNaniteActive": false
+    }
+  ],
+  "activeRHI": "D3D11 Microsoft Basic Render Driver SM5",
+  "requiredTarget": "Compatible hardware DX12 SM6 with 64-bit atomics; target inspection/profile activation separate",
+  "derivedDataProcessing": "Native asset PostEditChange/save requested; enabled flags read back",
+  "targetRenderedAcceptance": false,
+  "frameTimes": null,
+  "fallbackSourcesUnchanged": true
+}

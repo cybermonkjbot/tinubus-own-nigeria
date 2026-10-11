@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "pid": 5916,
+  "recordedAt": "2026-10-11T10:00:59.838594+00:00",
+  "identity": "d81e9c81c49620b81941d2e7a4029583973975bc1a74587a519a70f9100f11b6",
+  "scriptSha256": "d914c9ea41f94d328429a5faf84f85e76ae2c973c0cb8bdb50027e842661bbf6",
+  "manifestPath": "output/cribtest11-visible-world-2026-10-11/material-inputs-verified/yaba-material-inputs.json",
+  "manifestSha256": "892d6f78340ec268a97dfd9f15cfcff7b869881058f05f1d98d786016e62944a",
+  "sourceManifestSha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46",
+  "source": "https://polyhaven.com/a/corrugated_iron_02",
+  "authors": {
+    "Jenelle van Heerden": "Processing",
+    "Sergej Majboroda": "Photography"
+  },
+  "licence": "CC0-1.0",
+  "materialPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Materials/M_Corrugated_Metal",
+  "coverageMetres": [
+    2.700000047683716,
+    2.700000047683716
+  ],
+  "uvBasis": "physical-tiled",
+  "textureReadback": [
+    {
+      "channel": "basecolor",
+      "sourceSha256": "1bd2b9900e066d7e6cbacc5093aa4204db71c1bbe13b42a3d8ad23d04fa8075a",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Textures/T_Corrugated_Metal_base_color.T_Corrugated_Metal_base_color",
+      "sRGB": true,
+      "compression": "<TextureCompressionSettings.TC_DEFAULT: 0>",
+      "flipGreenChannel": false
+    },
+    {
+      "channel": "roughness",
+      "sourceSha256": "7bf7e03196e601b4173822505e7cb01b401b4e50bb98bc0ecc556de7d4b231c3",
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Textures/T_Corrugated_Metal_roughness.T_Corrugated_Metal_roughness",
+      "sRGB": false,
+      "compression": "<TextureCompressionSettings.TC_MASKS: 2>",
+      "flipGreenChannel": false
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Textures/T_Corrugated_Metal_base_color.uasset": "63414eeec1fff0ba0fd4d05183564f0a29b5dfd0780e080a40f923a8926698fa",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Textures/T_Corrugated_Metal_roughness.uasset": "39de6204812b858aa1e4c74be41207ea159cfc41faa7cfccdf099ccc48232d8e",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Materials/M_Corrugated_Metal.uasset": "4c6be57f9aeaa93be31f84b955bd19aaab23ab0d0e35d3d5ae8b24d353199781"
+  },
+  "captureCount": 0,
+  "geometryCount": 0,
+  "visualAcceptance": "pending detailed scene and native image review"
+}

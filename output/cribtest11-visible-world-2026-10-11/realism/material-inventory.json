@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T09:51:00Z",
+  "pid": 5916,
+  "inspection": "Read-only filesystem, native asset registry and existing mesh UV/LOD readback",
+  "localTextureAssetsInGame": 0,
+  "localPaletteMaterialAssetsInGame": 23,
+  "qualifiedLicensedPhotographicSurfaceSets": [],
+  "checked": ["Pinned readonly-source raster/licence files", "Project Content loose raster files and native texture asset registry", "C:/dev/baddie-assets/Textures and Manifests", "Documents and Downloads", "Known local Fab/Quixel/Megascans caches", "Installed Unreal StarterContent location", "Engine sky/editor/template material candidates"],
+  "limits": "Scoped local absence, not an inventory of all drives. Installed engine sky/editor assets do not establish photographic Lagos surfaces or third-party licence rights.",
+  "coordinatorMediaHandoff": "CC0 PBR payload announced; no independent fetch/download/install by this worker",
+  "incomingMapContract": {"basecolor": "sRGB colour", "roughness": "noncolor R masks", "normal": "noncolor normal compression; DX retained, GL green flipped", "physicalUVs": "Authored metre UV divided by supplied texture coverage metres"},
+  "legacyProps": {"DanfoDimensionsCm": [455.100, 231.500, 215.850], "KioskDimensionsCm": [313.996, 311.222, 282.460], "front": "native -X", "uvChannels": 1, "lodCount": 1, "nanite": false, "uvLimit": "Frozen v1 FBX lacked authored UVs despite native channel count; do not call metre mapping verified"},
+  "availableDetailedDerivative": {"provenancePath": "output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/provenance.json", "provenanceSha256": "a45ab9222adaf702aff015b506395d625944809fd64df9c39cbe90688f190f5e", "fbxSha256": "282dc12cbd98529f8c679aeca41426f173f9802f108650a80f2420bff5d05586", "uvBasis": "Author reports planar metre UV preserved; native import readback pending", "materialLimit": "Authored shader fallback, no photographic PBR textures", "visualAcceptance": "parent review pending"},
+  "missing": ["Hash-verified detailed street/facade mesh handoff", "Coordinator supplied CC0 surfaces with physical coverage and licence evidence", "Real branch/leaf foliage or licensed detailed trees"],
+  "geography": "Later district transform only, not a local slice dependency"
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "operation": "yaba-quality-slice-20261011",
+  "role": "Isolated additive editor-only art slice; not canonical district generation",
+  "namespace": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011",
+  "lengthMetres": 120,
+  "localBasis": "Unreal X along slice, Y lateral, Z up; incoming placement vectors use this basis in metres",
+  "localOriginMetres": [0, 0, 0],
+  "districtTransform": null,
+  "districtTransformOwner": "geography coordinator; not a dependency of local asset authoring",
+  "canonicalProductionCoordinatesChanged": false,
+  "partitioned": false,
+  "presets": {
+    "daylight": {"sunPitch": -48, "sunYaw": -35, "sunLux": 50000, "sunColour": [1, 0.96, 0.89], "skyIntensity": 1, "exposureBias": -12},
+    "evening": {"sunPitch": -8, "sunYaw": -90, "sunLux": 1200, "sunColour": [1, 0.70, 0.45], "skyIntensity": 0.35, "exposureBias": -8}
+  },
+  "presetStatus": "Starting light/exposure values only; unreviewed until detailed scene captures",
+  "cameras": [
+    {"id": "walk-near-mid-far", "locationMetres": [5, -1.5, 1.65], "rotation": {"pitch": 0, "yaw": 6, "roll": 0}, "fov": 68},
+    {"id": "walk-reverse", "locationMetres": [112, 1.5, 1.65], "rotation": {"pitch": 0, "yaw": -174, "roll": 0}, "fov": 68},
+    {"id": "facade-close", "locationMetres": [18, -4, 1.65], "rotation": {"pitch": 5, "yaw": -65, "roll": 0}, "fov": 55},
+    {"id": "road-drain-close", "locationMetres": [30, -2, 1.65], "rotation": {"pitch": -22, "yaw": -38, "roll": 0}, "fov": 55},
+    {"id": "prop-close", "locationMetres": [44, 0, 1.65], "rotation": {"pitch": -2, "yaw": 30, "roll": 0}, "fov": 55}
+  ],
+  "cameraStatus": "Local preparation poses, retarget after incoming detailed placement and bounds readback",
+  "gates": {"accountAccess": false, "movementAdmission": false, "missionReadiness": false, "utilityAuthority": false},
+  "surfaceInputs": ["plaster", "concrete", "asphalt", "metal", "timber", "glass", "drainage"],
+  "foliage": "No smooth blockout canopy; require branching/leaf mesh or licensed tree with explicit distant fallback"
+}
