@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "BaddieCompanionWorldUtilities.h"
 #include "Templates/Function.h"
 #include <variant>
 
@@ -151,6 +152,22 @@ namespace BaddieCompanion
         TOptional<FString> CallSessionId, InvitationId;
         TOptional<double> RoomRevision;
     };
+    struct FPlayRoomUtilityReceipt
+    {
+        int64 ServerNow = 0;
+        FString CharacterId, RoomId, RoomKey;
+        int64 RoomRevision = 0;
+        TOptional<FString> InvitationId; // Required nullable on the wire.
+        TOptional<FWorldUtilityObservation> Observation; // Required nullable on the wire.
+        int64 RetryAfterMs = 0;
+    };
+    struct FPlayRoomUtilityState
+    {
+        FPlayRoomUtilityReceipt Receipt;
+        // Original monotonic receipt time. Display projection must not refresh this age
+        // or replace the retained observation with a projected sample.
+        double ReceivedAtMs = 0;
+    };
     struct FPlaySnapshot
     {
         // Unset until a wire is received, including a valid null-round wire.
@@ -158,6 +175,8 @@ namespace BaddieCompanion
         bool bBusy = false, bReady = false;
         TOptional<FString> Error;
         double ServerOffset = 0;
+        TOptional<FPlayRoomUtilityState> RoomUtility;
+        TOptional<FString> UtilityError;
     };
 
     // Playground and toy are representable only to reject retired caller input.
@@ -241,8 +260,38 @@ namespace BaddieCompanion
         EPlayWireDisposition Disposition = EPlayWireDisposition::Invalid;
     };
 
+    class FPlayUtilityRequestReceipt
+    {
+        friend class FPlayState;
+        FGuid Session, QueryGeneration, UtilityGeneration, Id;
+    };
+    class FPlayUtilityDispatch
+    {
+        friend class FPlayState;
+    public:
+        FString GetEndpoint() const { return TEXT("companionPlay:observeRoom"); }
+        FString GetArgumentsJson() const { return ArgumentsJson; }
+        FPlayUtilityRequestReceipt GetReceipt() const { return Receipt; }
+        bool ShouldRetry() const { return false; }
+        bool ShouldInvalidateQueryCache() const { return false; }
+    private:
+        FPlayUtilityRequestReceipt Receipt;
+        FString ArgumentsJson;
+    };
+    class FPlayUtilityCompletion
+    {
+        friend class FPlayState;
+    public:
+        bool WasAccepted() const { return bAccepted; } // Includes valid null observation.
+    private:
+        FPlayUtilityRequestReceipt Receipt;
+        FGuid Id;
+        bool bAccepted = false;
+    };
+
     // Account-private, single-game-thread owner. All getters/receipts are detached values.
-    // No transport, credentials, permissions, utilities, timers or rendering are supplied.
+    // Utility observations are retained data, not transport, permissions or scene power.
+    // No credentials, timers, renewal scheduler or rendering are supplied.
     // Callbacks may reenter but must not throw or destroy this owner while a method runs.
     class BADDIECOMPANION_API FPlayState
     {
@@ -288,6 +337,26 @@ namespace BaddieCompanion
         // Call after success notification or failure handling. Removes only this request,
         // clears displayed busy and emits, even when a newer request is still outstanding.
         bool FinalizeCommand(FPlayCommandCompletion Completion);
+
+        bool SetRoomUtilitiesActive(bool bActive);
+        // Caller-driven attempts only. Uses monotonic milliseconds, a 15s pending window,
+        // 45s retry pacing and the retained 5s re-entry floor. No busy/error command writes.
+        TOptional<FPlayUtilityRequestReceipt> BeginRoomUtilityObservation();
+        // One-request mutation transport stays outside this owner. Mark and send immediately
+        // without yielding. Abort its handle when IsCurrentRoomUtilityRequest becomes false;
+        // retirement here performs no network abort. Completion/finalization is separate.
+        TOptional<FPlayUtilityDispatch> MarkRoomUtilityDispatched(FPlayUtilityRequestReceipt Receipt);
+        bool IsCurrentRoomUtilityRequest(FPlayUtilityRequestReceipt Receipt) const;
+        bool AbandonPreparedRoomUtilityRequest(FPlayUtilityRequestReceipt Receipt);
+        // Current successes and failures emit before finalization. Malformed success uses
+        // a fixed diagnostic. PublicMessage must already be sanitized, as for command failures.
+        TOptional<FPlayUtilityCompletion> ObserveRoomUtility(FPlayUtilityRequestReceipt Receipt, FString Json);
+        TOptional<FPlayUtilityCompletion> ObserveRoomUtilityFailure(
+            FPlayUtilityRequestReceipt Receipt, TOptional<FString> PublicMessage);
+        TOptional<FPlayUtilityCompletion> ObserveRoomUtilityCompletionFailure(
+            FPlayUtilityCompletion Completion, TOptional<FString> PublicMessage);
+        // Clears only the matching request. No notification or deadline/data changes.
+        bool FinalizeRoomUtility(FPlayUtilityCompletion Completion);
     private:
         struct FObserver
         {
@@ -310,11 +379,33 @@ namespace BaddieCompanion
         FCommandRequest* FindCommand(const FPlayCommandReceipt& Receipt);
         FCommandRequest* FindCompletion(const FPlayCommandCompletion& Completion);
         TOptional<FPlayCommandCompletion> BeginCompletion(const FPlayCommandReceipt& Receipt);
+        enum class EUtilityStage : uint8 { Prepared, Dispatched, CompletingSuccess, CompletingFailure };
+        struct FUtilityRequest
+        {
+            FPlayUtilityDispatch Dispatch;
+            FString CharacterId, RoomId;
+            int64 RoomRevision = 0;
+            TOptional<FString> InvitationId;
+            double BeganAtMs = 0;
+            EUtilityStage Stage = EUtilityStage::Prepared;
+            FGuid CompletionId;
+        };
+        bool UtilityEligible() const;
+        void ClearUtilities();
+        void FailUtility(const FString& PublicMessage);
+        TOptional<FPlayUtilityCompletion> BeginUtilityCompletion(
+            const FPlayUtilityRequestReceipt& Receipt, bool bAllowPrepared = false);
+        bool IsCurrentUtilityCompletion(const FPlayUtilityCompletion& Completion) const;
         FPlaySnapshot Snapshot;
         TOptional<FPlayScope> Scope;
         TArray<FObserver> Observers;
         TMap<FGuid, FCommandRequest> Requests;
         FGuid Session = FGuid::NewGuid(), QueryGeneration = FGuid::NewGuid();
         bool bQueryAvailable = false, bQueryTaken = false, bDisposed = false;
+        FGuid UtilityGeneration = FGuid::NewGuid();
+        TOptional<FUtilityRequest> UtilityRequest;
+        TOptional<FWorldUtilityObservation> PreviousUtilityObservation;
+        double NextUtilityAtMs = 0, NextUtilityEntryAtMs = 0;
+        bool bUtilityActive = false;
     };
 }
