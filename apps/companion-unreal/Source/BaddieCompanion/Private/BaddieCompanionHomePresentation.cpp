@@ -143,6 +143,21 @@ namespace BaddieCompanion
 
 namespace BaddieCompanion::HomeMapping
 {
+    namespace
+    {
+        bool IsColorValue(const FString& Value)
+        {
+            if (Value.Len() != 7 || Value[0] != TEXT('#')) return false;
+            for (int32 I = 1; I < 7; ++I)
+            {
+                const TCHAR C = Value[I];
+                if (!((C >= TEXT('0') && C <= TEXT('9')) || (C >= TEXT('a') && C <= TEXT('f'))
+                    || (C >= TEXT('A') && C <= TEXT('F')))) return false;
+            }
+            return true;
+        }
+    }
+
     const WorldReadPrivate::FRecordSchema& AppearanceFields()
     {
         using namespace WorldReadPrivate;
@@ -328,13 +343,7 @@ namespace BaddieCompanion::HomeMapping
         Out.Reset();
         if (!Object.HasField(Field)) return true;
         FString Value;
-        if (!Text(Object, Field, 7, Value) || Value.Len() != 7 || Value[0] != TEXT('#')) return false;
-        for (int32 I = 1; I < 7; ++I)
-        {
-            const TCHAR C = Value[I];
-            if (!(C >= TEXT('0') && C <= TEXT('9')) && !(C >= TEXT('a') && C <= TEXT('f'))
-                && !(C >= TEXT('A') && C <= TEXT('F'))) return false;
-        }
+        if (!Text(Object, Field, 7, Value) || !IsColorValue(Value)) return false;
         Out = MoveTemp(Value); return true;
     }
     void UnknownFields(const FMappingObject& Object, std::initializer_list<const TCHAR*> Known,
@@ -419,13 +428,7 @@ namespace BaddieCompanion::HomeMapping
         Out.Reset();
         if (!Object->HasField(Field)) return true;
         FString Value;
-        if (!Text(Object, Field, 7, Value) || Value.Len() != 7 || Value[0] != TEXT('#')) return false;
-        for (int32 I = 1; I < 7; ++I)
-        {
-            const TCHAR C = Value[I];
-            if (!((C >= TEXT('0') && C <= TEXT('9')) || (C >= TEXT('a') && C <= TEXT('f'))
-                || (C >= TEXT('A') && C <= TEXT('F')))) return false;
-        }
+        if (!Text(Object, Field, 7, Value) || !IsColorValue(Value)) return false;
         Out = Value; // Preserve supplied case, not a normalized replacement document.
         return true;
     }
