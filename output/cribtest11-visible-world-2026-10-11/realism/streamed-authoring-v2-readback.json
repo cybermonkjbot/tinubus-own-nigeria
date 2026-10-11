@@ -1,0 +1,67 @@
+{
+  "pid": 1784,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v2/Maps/L_Lagos_AuthoringPersistent_v2",
+  "receiptSha256": "a06f7fc1478199434983cbf3c9833e4dd87b58bc817ca3762da80435112d2d74",
+  "relationships": [
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Yaba",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Makoko",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Ikeja",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Oworonshoki",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Corridor_ThirdMainland",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_LagosIsland",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_Ikoyi",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_VictoriaIsland",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_FictionalIsland_WesternLekki",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Interiors",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_OptionalDressing",
+      "streamingClass": "LevelStreamingDynamic",
+      "disableDistanceStreaming": false
+    }
+  ],
+  "dirtyPackages": [],
+  "partitioned": false,
+  "districtGeometryPresent": false,
+  "playerStreamingImplemented": false,
+  "playableAcceptance": false
+}

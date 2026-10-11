@@ -1,0 +1,21 @@
+{
+  "pid": 1784,
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "rhi": "D3D11 software SM5; Microsoft Basic Render Driver from startup log",
+  "actualConsoleReadback": {
+    "r.DynamicGlobalIlluminationMethod": 0,
+    "r.ReflectionMethod": 2,
+    "r.Shadow.Virtual.Enable": 0,
+    "r.AntiAliasingMethod": 4,
+    "r.Nanite": 1,
+    "r.GenerateMeshDistanceFields": 0,
+    "r.Lumen.HardwareRayTracing": 1
+  },
+  "world": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v2Reviewed/Maps/L_Yaba_DenseStreet_v2Reviewed.L_Yaba_DenseStreet_v2Reviewed",
+  "dirtyPackages": [],
+  "profileActivated": false,
+  "targetNaniteLumenOutputEstablished": false,
+  "frameTimes": null,
+  "memoryProfiling": null,
+  "gameplayActivation": false
+}

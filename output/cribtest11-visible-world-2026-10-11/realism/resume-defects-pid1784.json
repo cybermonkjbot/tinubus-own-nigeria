@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "pid": 1784,
+  "date": "2026-10-11",
+  "actualNewImagesOpenedLocally": 8,
+  "finalRealismAccepted": false,
+  "coordinatorAcceptance": "pending independent inspection of new PNGs",
+  "observations": [
+    {
+      "id": "upper-attachment",
+      "images": ["yaba-dense-v2-forward.png", "yaba-dense-v2-reverse.png", "yaba-dense-v2-reviewed-forward.png"],
+      "observation": "Unsupported duplicated upper shells absent; complete original two-storey shells/roof and balcony supports now coherent.",
+      "status": "visible repair; no new tall-storey geometry claimed"
+    },
+    {
+      "id": "dry-road",
+      "images": ["yaba-dense-v2-forward.png", "yaba-dense-v2-reverse.png", "yaba-dense-v2-reviewed-reverse.png"],
+      "observation": "Continuous glossy-water appearance no longer visible. Brown/orange aggregate dominates and repeats; target dry asphalt grading/local wear still needs refinement.",
+      "status": "visible improvement, not final material acceptance",
+      "diagnosis": "Original roughness was correctly linked noncolour R, range.820-.949; conservative derivative max(R,.88),specular.18,normalstrength.30 normalized. Exact earlier glossy cause not proven."
+    },
+    {
+      "id": "construction-contact",
+      "images": ["yaba-dense-v2-reviewed-junction.png", "yaba-dense-v2-reviewed-stock-threshold.png"],
+      "observation": "Inset thick v3panels and open bays/stock visible; black structural seams less dominant. Broad pale paving still uniform; sampling strips on fine rails/shutter remain.",
+      "status": "bounded source contact repair, no lighting concealment"
+    },
+    {
+      "id": "shop-use",
+      "images": ["yaba-dense-v2-reviewed-junction.png", "yaba-dense-v2-reviewed-stock-threshold.png"],
+      "observation": "Shelf/counter containers and crates are actually visible/supported. Generic unlabelled repeated stock, blank signs and dark interior do not establish credible named businesses.",
+      "status": "empty-bay repair only; business-specific assets/signs pending"
+    },
+    {
+      "id": "facade-rhythm",
+      "images": ["yaba-dense-v2-reviewed-forward.png", "yaba-dense-v2-reviewed-reverse.png"],
+      "observation": "Window/AC geometry variants and existing setbacks break identical fittings, but repeated2storey shell, roofline and evenly spaced bays remain dominant.",
+      "status": "open; no district expansion"
+    },
+    {
+      "id": "junction-crossing",
+      "images": ["yaba-dense-v2-junction.png", "yaba-dense-v2-reviewed-junction.png"],
+      "observation": "Pavement/channel support restored across missing right footway span. Detailed vehicle ramp, channel-flow continuation and threshold height transitions remain unresolved.",
+      "status": "pedestrian support visible; no driveability/collision acceptance"
+    },
+    {
+      "id": "side-street-boundary",
+      "images": ["yaba-dense-v2-reviewed-side-street.png"],
+      "observation": "20m branch has road and side footpaths/buildings, but abrupt open black ground boundary beyond both runs is conspicuous. Road/footpath endings need coherent supported termination/context.",
+      "status": "critical remaining context defect; preserved as evidence"
+    }
+  ],
+  "rejectedIncomingInputs": {
+    "vehicles": "Actual breakdown danfo and older sedan Blender PNGs inspected: simplified angular body/constant paint; exports retained, not imported here.",
+    "earthRoad": "Actual join and shop/drain views inspected: smooth untextured earth fallback/weak join; licensedsoilscans absent. Fiveweights require explicit native mapping; import deferred.",
+    "trees": "Rejected source revisions remain unplaced."
+  },
+  "coverage": "120m authored local street and20mbranch, not surveyedYaba/fullLagos/districtgeometry",
+  "performance": null,
+  "gameplayAcceptance": false
+}

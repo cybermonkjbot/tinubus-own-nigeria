@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T15:24:26.591649+00:00",
+  "pid": 1784,
+  "receipt": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-street-v2-reviewed.json",
+  "receiptSha256": "bd981004b5179ed75edbba9e2c46cb5e6d2d0bf5f13f1d068682e40e57117667",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v2Reviewed/Maps/L_Yaba_DenseStreet_v2Reviewed",
+  "camera": "street-reverse",
+  "cameraConfig": {
+    "id": "street-reverse",
+    "locationMetres": [
+      -6,
+      -111,
+      1.65
+    ],
+    "rotation": {
+      "pitch": 2,
+      "yaw": 86,
+      "roll": 0
+    },
+    "fov": 70
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v2-reviewed-reverse.png",
+  "imageSha256": "b3c72e440b913823b1b22238e02744c28085e096e4e79a2b84bdc9856973283e",
+  "width": 705,
+  "height": 486,
+  "warmupNativeFrames": 50,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -600,
+      "y": -11100,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 2,
+      "yaw": 86,
+      "roll": 0
+    },
+    "cameraFOV": 70,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "parentVisualAcceptance": "pending",
+  "scriptSha256": "0188f4a7ffe22799fc41ca8af538b969761e80e652bd55469bf8fe87fbc78e22"
+}

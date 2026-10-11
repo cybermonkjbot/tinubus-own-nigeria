@@ -1,0 +1,1026 @@
+{
+  "schemaVersion": 1,
+  "pid": 1784,
+  "recordedAt": "2026-10-11T15:29:24.446310+00:00",
+  "inspection": "Saved disk packages and exact PNG/source hashes, not performance or visual acceptance",
+  "counts": {
+    "packages": 136,
+    "maps": 19,
+    "assets": 117,
+    "bytes": 206609356
+  },
+  "newCounts": {
+    "packages": 47,
+    "maps": 3,
+    "assets": 44,
+    "bytes": 3718357
+  },
+  "files": [
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Maps/L_Yaba_DenseStreet_v1.umap",
+      "bytes": 845744,
+      "sha256": "7c60ec0fd140b8fd8951d3fa7e280eb79f4c5143d618a91a58a18d324664ffd3"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM.uasset",
+      "bytes": 20123,
+      "sha256": "1544a2731d97ce0fb0d1799bdde178e3d1df1fb20053caea5be586d373dd3cdc"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m.uasset",
+      "bytes": 15339,
+      "sha256": "6fdb65d7f64a76c3e2b62dee1ef0532a5107bdd6abe20b07ea37d42564aba97c"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v2/Maps/L_Yaba_DenseStreet_v2.umap",
+      "bytes": 812877,
+      "sha256": "183d918bd59b7146b49a34906895074f6f0e1b27c360a082e8d1ae40c5998106"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v2/Materials/M_Asphalt_DryReviewedInput_v2.uasset",
+      "bytes": 20860,
+      "sha256": "92af8a121455146b6818bf744265f856ebd393d772c93a92ade24c20412cdc17"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v2Reviewed/Maps/L_Yaba_DenseStreet_v2Reviewed.umap",
+      "bytes": 1395585,
+      "sha256": "7a7fe5581cbc4ca39c2525b34d2b2a6d4ee5a4b51dd0a3224fbff6be8391411b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_ac_paint.uasset",
+      "bytes": 12949,
+      "sha256": "eb5aecb4b0894c72eb5f9baf063ea588c7cbfc5a70b3edf024c6c013a3c9e158"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_aluminium.uasset",
+      "bytes": 12866,
+      "sha256": "ac29acab1682f987a06760c320a05c202619a64d2ef848f5759a9b926ba7bd8e"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete.uasset",
+      "bytes": 15758,
+      "sha256": "acada627f8ec129544c38f0be82c0d1e1af354770c3d0c8620e755cf4e6f063d"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal.uasset",
+      "bytes": 15796,
+      "sha256": "69e6ae95b4194084247e7b9a399b055fb47ddb8846c5fe194ced65641b7d5a89"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_painted_steel.uasset",
+      "bytes": 12293,
+      "sha256": "a1f32ed4a89c1e874e1d43245d9e3e3f74c5fe757269b4ab128a78f35466b38f"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Plaster.uasset",
+      "bytes": 16019,
+      "sha256": "f1637eb8448082a1b0dcb52a65e89b20c7eb9416493dd163c214a75e4b43951b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_repair_mortar.uasset",
+      "bytes": 12886,
+      "sha256": "850761ad25894426ffeb32244d98807c57546967d524de28702aadf3fd3c2066"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_rubber.uasset",
+      "bytes": 11639,
+      "sha256": "a56e793753edad373b758ad06ae6cf5464a649e13a41864a69c0d551853187f8"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ImportCheck_v1.umap",
+      "bytes": 177379,
+      "sha256": "3d1c117de66e1c44d9d20dc5e2e47b69982d4c513af378d5c3b198cf513a4ac7"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Maps/L_Frontage_ISM_v1.umap",
+      "bytes": 107880,
+      "sha256": "4132926b487dab445fa74e95693fb28ca096ca0619c596baf16fdc4502f513cb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Materials/M_ac_paint.uasset",
+      "bytes": 13389,
+      "sha256": "70ed6f9c58f4c789ddb86e491d868eaef9ad8f417a5e7ca6a332e7c53294b576"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Materials/M_aluminium.uasset",
+      "bytes": 13307,
+      "sha256": "05d9643a671212048b1df55e185857335e5d7e31a7ec28808ebe1e2bfe36589d"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Materials/M_glass.uasset",
+      "bytes": 14201,
+      "sha256": "250041ca98d11e2f63e9dbf352aed421dd5b17e36344769929cb10cdef1385a2"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Materials/M_painted_steel.uasset",
+      "bytes": 12773,
+      "sha256": "34fa656f9ff6d021d510a627d03f528dc3e3050c720e6d506f9e2c4ed5c3e5d5"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Materials/M_repair_mortar.uasset",
+      "bytes": 13366,
+      "sha256": "466d0fe205a09ab31f51c027580c40be0360a4b40b67f31eee9bfdbf61369d74"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Materials/M_rubber.uasset",
+      "bytes": 12079,
+      "sha256": "37995cac68e5b51185f085f1cd506f0c0742bb7375c13ef9b6995fc1ad0c428a"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_ACServiceAssembly.uasset",
+      "bytes": 130455,
+      "sha256": "49cf3c08bab28e5d307c8ac7ec290cb99617e3db177f6d7d50554a926df320fb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Balcony3900.uasset",
+      "bytes": 66026,
+      "sha256": "6f77e8ae4cd83efe92c42144fa8255e0c6ed51b809c678aad5ee9f3422cd6f37"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Drain1000.uasset",
+      "bytes": 17454,
+      "sha256": "90a3184ef9b64dddd4c2873d47399649f54c407bafa713281bd1de25f47683ec"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_DrainCover1000.uasset",
+      "bytes": 29304,
+      "sha256": "2624670dc2195bf36c64119197f2101ddbc9bcc6f685bffd9eab0334427a3a02"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_FrontageStructure.uasset",
+      "bytes": 36009,
+      "sha256": "316e75635b3c042a9e75f15a307fd38196742eddbae941611190ec205805c0e9"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Gutter3900.uasset",
+      "bytes": 24390,
+      "sha256": "44a4b604231f75879457642ef6502f021c532c7b9b63851b0067bb6a87cb8def"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_JunctionInlet.uasset",
+      "bytes": 24418,
+      "sha256": "0c88048abbe7b9aa203d4534d96d5be52bf8d7fb89c0a062a54481185007a22b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Kerb1000.uasset",
+      "bytes": 16581,
+      "sha256": "579e02d244048c27b0d64b5fb1011c3c1ba88eb5410a1ad37cea621248c0611e"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_OpenShopInterior.uasset",
+      "bytes": 30830,
+      "sha256": "fbd08f27e1c8c21bf67f9bf163dbba9a04e62a2b23baeaae026760f8db4eb285"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Pavement1000.uasset",
+      "bytes": 17358,
+      "sha256": "34d28b3ce71a458130ab61ba468619fa55a7f244d79db4a0b8ba5c2bda41ceab"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_PlasterRepair.uasset",
+      "bytes": 16479,
+      "sha256": "a402acef29cc5a7e2fdd60f33878a3c77fca83ebfa6b90339f668441519bc4a9"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_RainwaterDownpipe.uasset",
+      "bytes": 24948,
+      "sha256": "b5e15aaa3ba757661628928de8262e406c0e3cf75203e481adcee62c1822ca49"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_ResidentialBay.uasset",
+      "bytes": 17730,
+      "sha256": "40df1aa06e583b499d1a15c4cb46e7549ba06fc53bdb68868fc1383dfaae237d"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_RoadJunction.uasset",
+      "bytes": 16773,
+      "sha256": "2a9be0dddde2827603ae743927a45f456bab9dabb85e6bcbf7ce06491f70bfc0"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_RoofSheetPanel.uasset",
+      "bytes": 51618,
+      "sha256": "ad358aa21feee9ad420616b63ac5e13ba56eee41e2b46500319bbef4aec60e80"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_ShopBay.uasset",
+      "bytes": 17450,
+      "sha256": "2bc1b62be24fe1f5cac7051363e34efe713e792efb1b6377385a0725a177b070"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Shutter2800.uasset",
+      "bytes": 44330,
+      "sha256": "9bb6ce57009661258fc31a9aeb610ac45f7182f92640e1b81526826f26a9d9f0"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Meshes/SM_Window1300.uasset",
+      "bytes": 54536,
+      "sha256": "3e17ecc2fd6178251aa1b2e58384990a25e7af3143b179be33c8960c1acf3b76"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_Balcony3900.uasset",
+      "bytes": 66364,
+      "sha256": "63022f454d7669ea007f3768a17e7238c1f5105a9e58508d4d8530eee94814c6"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_FrontageStructure.uasset",
+      "bytes": 36527,
+      "sha256": "b62451563685cf79237f5b78fbeb75ed460f8670a040fbbeaabd8bdb9a94e5fe"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_OpenShopInterior.uasset",
+      "bytes": 31292,
+      "sha256": "6b360e473df8bcbed836b3d24bd8232a89286fdd8178af7ee93e5a522bffb019"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_RoofSheetPanel.uasset",
+      "bytes": 52344,
+      "sha256": "54cf84bbd2a9e1982c9c4ae54671dfc6885b2751c972eab5fd8de447a53d5f04"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/Nanite_v1/Meshes/SM_Shutter2800.uasset",
+      "bytes": 44957,
+      "sha256": "0a750ae6f3123070a8b06ebefbe80c7d379b5a08e1ebf0fc6a0e7d1e49938ebb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint.uasset",
+      "bytes": 13448,
+      "sha256": "1f7a6db77605a9cf36d8439fc081e75a9ea267f9e97ebdad21c1f437e5de98b6"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium.uasset",
+      "bytes": 13363,
+      "sha256": "fdfd7f9d86750e8954993ed3368c84c12fb6707da56de0aa24652d2e6c3381bb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_asphalt_ISM.uasset",
+      "bytes": 19860,
+      "sha256": "1f58dd3ef3590dd731900942f49b20dc874d68543a25781b20fe931fc14c0b07"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_cloth_v3.uasset",
+      "bytes": 13416,
+      "sha256": "f9131b0d4bddbb999389118eff239394286ce3888be3127416c4c31e010dc7fb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_container_v3.uasset",
+      "bytes": 13461,
+      "sha256": "68893f5d30ff990aa3e63bf29a4420454197385d79a40e30c88e0cfeba74fcad"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_glass.uasset",
+      "bytes": 14263,
+      "sha256": "d3693a4f9ecda22fff9dd10d0fc3070d79dcf32a095908070cbdc7c029cc5960"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel.uasset",
+      "bytes": 12835,
+      "sha256": "3ce8709089c4b925ee0e794d7ca3f0edc9a88453c995f8f88dae4a56b93036f0"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_paper_v3.uasset",
+      "bytes": 13440,
+      "sha256": "c697805f4a174b422b046b1345f509a57c759641eae1b084887720e1baae6b2f"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_repair_mortar.uasset",
+      "bytes": 13429,
+      "sha256": "9235ac8b6566409f4c35a98c53169e0770d5955ba8f247a5b584669339b2d823"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_rubber.uasset",
+      "bytes": 12141,
+      "sha256": "a1b892ffd0573a0a8754bd32d609c0b2721eca011ba27531526383c9489d3b43"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_wood_v3_ISM.uasset",
+      "bytes": 16117,
+      "sha256": "2f76056f1c1ee0ff43b2234b79dcbbf684e11689366f1bf0a104439afa274b9b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ACServiceAssembly.uasset",
+      "bytes": 130491,
+      "sha256": "b3562b4a1163d32813ba7a725c443ba7950984db196f843eb1259a8b3076147b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ACServiceAssembly_V3Compact.uasset",
+      "bytes": 130702,
+      "sha256": "0807db784690950ffb28a049a2861256c74564d3277e519a404ce019eaf37ecc"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ACServiceAssembly_V3Cover.uasset",
+      "bytes": 153593,
+      "sha256": "2e7c07cdfc1db6b6d77bee82d5ffc4300739927f299e43feea33bb5f8efed2ea"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.uasset",
+      "bytes": 65922,
+      "sha256": "a860a9bf1e92c00a58ab746ce5ee9315ab4713822630ea95ae70a668a817439a"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Drain1000.uasset",
+      "bytes": 17642,
+      "sha256": "6bc7d6c1bc853c762614246be6335f06b42765f8bd2094409c420be57fa45300"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_DrainCover1000.uasset",
+      "bytes": 29365,
+      "sha256": "52a1ecb3862b6f11b7fe584bec43e8f7ba165523ffe51a52e8179d383ad04110"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.uasset",
+      "bytes": 36636,
+      "sha256": "0da53bc1dd864d7c3cb9df5e1daa803fd3b8cb90c1796d925cfae0f798e313c1"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900.uasset",
+      "bytes": 24367,
+      "sha256": "ddf06bbf633bcb29c9fbac97d911acc25aad9e4234408706b0edc86a9c60c3ec"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_JunctionInlet.uasset",
+      "bytes": 24511,
+      "sha256": "5143b6f748c5aba3b513207fb4d7de5314db948e7750ea989a715e17a5efc1ce"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Kerb1000.uasset",
+      "bytes": 16672,
+      "sha256": "ad9eb1f4180d7854b96334069db883ba034d285c2fc9bf27caa31d587dbb23e1"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_OpenShopInterior.uasset",
+      "bytes": 49862,
+      "sha256": "bb29e657d82425e422e03ab92bad3f8cdd4fe4c3d3a68fa34d23c646820be326"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000.uasset",
+      "bytes": 17364,
+      "sha256": "85c46e6a2db36028e7af6733838565b79e10648506f7e5000dd9df20a79fa52f"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_PlasterRepair.uasset",
+      "bytes": 16515,
+      "sha256": "9c0dbcf7668451d8ede7718640f6fe04df6e113f75497c3242e5aae9c660b290"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RainwaterDownpipe.uasset",
+      "bytes": 24984,
+      "sha256": "e0d8bf1c9a4e833d5c28ad5f0b979a87da6d929a31993b0a1b81601c4adeee9c"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.uasset",
+      "bytes": 17871,
+      "sha256": "b4e227a94b900f06b151f9a2357d0b1b3484c8e19951aafc135509ce5b1ff9fa"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.uasset",
+      "bytes": 17864,
+      "sha256": "0a077b999fe8cad18f71c8e44e7b782b801ba18aa7d106f458b0042226d29604"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.uasset",
+      "bytes": 17943,
+      "sha256": "05ef2af4f79165347e1d497397e333768bd9a0e407a640b8519ce94c0c930c8a"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoadJunction.uasset",
+      "bytes": 16862,
+      "sha256": "77cc6cbc57332c23f812357d1e91194f50edbe7e05038c12ffa10b1692dbe382"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.uasset",
+      "bytes": 52095,
+      "sha256": "9806316cfb446a60ca91effdcff006cd6e596c98c2a94506e1571a1fb8f9aa2b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.uasset",
+      "bytes": 17341,
+      "sha256": "654b49efdf631c78ad32e236c46a00d35b41520de763f12f7ea9c0d0aecb64e1"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.uasset",
+      "bytes": 17427,
+      "sha256": "53e8ecdd0dff389610ed558e3e4283aefa71f3d37cdf137690d2da87f0a0b389"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.uasset",
+      "bytes": 17427,
+      "sha256": "934cb84536e816c78949525e240257b3fdc00eb78e21658964fa456922cbdcbc"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800.uasset",
+      "bytes": 44366,
+      "sha256": "8188da7e97da5ae40749017c75f3ec14f46e70f5043b8f0a85a01eef2ec0d535"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_GrainSack.uasset",
+      "bytes": 50541,
+      "sha256": "878c449101559b091070e89c31ae9227e54a127ec55ed360ad474dbd53978772"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_PaperPackage.uasset",
+      "bytes": 22834,
+      "sha256": "10eec925bbcb338e06d63e7388587ae0c9d7cc2805ee9c82a721015edd8db655"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_StockBottle.uasset",
+      "bytes": 24126,
+      "sha256": "264333deb8c16867df5df21e32b8b205dbe080eb0cbadc2ccc9a493f8b8a3675"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_StockJar.uasset",
+      "bytes": 22219,
+      "sha256": "2be35dd9d8778c3332cc20c15b8dbce2a80650b8e6a3d3851d842b63da7e7233"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_StockTin.uasset",
+      "bytes": 21820,
+      "sha256": "74eef7f575bcdc78cf5547f1462e08abb10198ebc281f709d2521adf29158667"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_TimberCrate.uasset",
+      "bytes": 27491,
+      "sha256": "88565cfe404cb453a48626102f94b7a7c21655466c59284a4212943cfffce611"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.uasset",
+      "bytes": 54465,
+      "sha256": "b773b810089b1d9487e91faa7c6bca3c0fd30bd9a8583a99a2389ec2728e6153"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300_V3Curtain.uasset",
+      "bytes": 70459,
+      "sha256": "859c5b00e4317d922ffd443b5c83c357024991d4336294896c12de792e47bacb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300_V3Louvres.uasset",
+      "bytes": 67762,
+      "sha256": "00a4de755f1219c86b2e4799ce2cd27e74e27424141ab1aa12159a834f4c748f"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Maps/L_Yaba_Local_ArtSetup_v1.umap",
+      "bytes": 33124,
+      "sha256": "5edf03926d783d5d745c8b4f0e601e4d838d2dc806f7a8fbe57455d1756d7f24"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Asphalt.uasset",
+      "bytes": 12757,
+      "sha256": "cc141be9939bcdfa465efc47e451c1bfcf3bffe1fce348ac859127ef296bab0e"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Concrete.uasset",
+      "bytes": 12763,
+      "sha256": "54c16ae6326df44aa0c41f32418e06e571347497337de5f5d83f06c0e8b1484c"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Drainage.uasset",
+      "bytes": 12763,
+      "sha256": "7ec758f1e2fd41e102263df81947a24567eb3ffa092dd66a503e0c22ca0f1f77"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Glass.uasset",
+      "bytes": 12745,
+      "sha256": "5a584f9a70b1e6af24eef466f9805254f5e3ccccb97dcd3a2eaa420b2f84fdd2"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Metal.uasset",
+      "bytes": 12745,
+      "sha256": "226d9228de253bb173a3134ec348e9d2811342ae65147b61072318a5ece9d06b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Plaster.uasset",
+      "bytes": 12343,
+      "sha256": "28a7470f98ace7194f9fd4b436ed1358b90ed27f27f23560d5974a9d653c5428"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Materials/Inputs/M_Input_Timber.uasset",
+      "bytes": 12751,
+      "sha256": "656810998ab40b964086a55790a20913f0e23ed9a9cc93eaaa819fedd319eea9"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Corridor_ThirdMainland.umap",
+      "bytes": 7281,
+      "sha256": "1fefc1c09ce0bc67ccde4178b49eb5cc106b5a0bd433c40f59cf5a96c68ba587"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_FictionalIsland_WesternLekki.umap",
+      "bytes": 7317,
+      "sha256": "c4175b91229c081216c0a30dfd58ee15c14f8e9c45a718072500188bdb41c16e"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Interiors.umap",
+      "bytes": 7203,
+      "sha256": "af679c335a5d5d3aaab80f20770ab2e4546752b8912cb55a5d0113779271056e"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_Ikoyi.umap",
+      "bytes": 7221,
+      "sha256": "f76be056cbdc6fad3911c3669bcd0f26f652c0679627b7d53d488c80f3c46e09"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_LagosIsland.umap",
+      "bytes": 7257,
+      "sha256": "443f478492e23d92cb0bc8e7a9aa1777994c71c2793df5f8ac5b78490c027560"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Island_VictoriaIsland.umap",
+      "bytes": 7275,
+      "sha256": "1b02bbed9ffabff60d25ef0d803e811918d65d913ec5dd8dadb5a5fc1cea85ff"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Ikeja.umap",
+      "bytes": 7233,
+      "sha256": "b37345877c35c1f11d313a9738b5a96df3ebfc5ca63fbef18de04895c9a85860"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Makoko.umap",
+      "bytes": 7239,
+      "sha256": "bd724cc0649d9909502ee9a8789b257a032091ea330ef50ea2ffab90e00127e7"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Oworonshoki.umap",
+      "bytes": 7269,
+      "sha256": "52cdd17e0c650139fcbec5003dea845e1edec653c5e7ada66c1b9bcf62305c0b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_Mainland_Yaba.umap",
+      "bytes": 7227,
+      "sha256": "117da85f226e076e3948cbab40361def03706097d47aeabc28fc4d1794042b32"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Districts/L_OptionalDressing.umap",
+      "bytes": 7245,
+      "sha256": "9bba2e57b4a902b8dddbb9c0c1b4c4c3daaa00d98ddf0ed0a5f4b2c40f815b41"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v1/Maps/L_Lagos_AuthoringPersistent_v1.umap",
+      "bytes": 8756,
+      "sha256": "ba54613ddc1a8857deafd9038620e54e3b6269727f14cbe8436800b92cbe7370"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v2/Maps/L_Lagos_AuthoringPersistent_v2.umap",
+      "bytes": 13723,
+      "sha256": "8857a9a8ebd8c23224e7e089a5e4e33fe3815640a136351316554ebbacdc47f8"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Materials/M_Asphalt.uasset",
+      "bytes": 15946,
+      "sha256": "34cdbd270501997b2dbd52516edc3a3116ac2f98e8eb7715a29fac4aab88c14c"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_base_color.uasset",
+      "bytes": 3583403,
+      "sha256": "6ab599517c3be189cb32c0d0f2391f7f7f0cdfe52166516db1f82c342adf9d1a"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_normal_gl.uasset",
+      "bytes": 25845751,
+      "sha256": "613601dd184ea5497937aa32a9d3faefde77bb0be36809b70c8c6fa54678b992"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_roughness.uasset",
+      "bytes": 7057961,
+      "sha256": "1d56b7b8490eb2d76031dce836ef051094fc7f5068cf698c0d7c9f128c5a9f03"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Materials/M_Concrete.uasset",
+      "bytes": 15234,
+      "sha256": "89362c2b6449e84388c0a5dc50538c2a4a9c6c0ee875df3d561df03149a19618"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_base_color.uasset",
+      "bytes": 2674796,
+      "sha256": "6be687e82ae3c366dea23df9384ae3a116d57ebbe9b2591db722f7f7687e2822"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_normal_gl.uasset",
+      "bytes": 13728028,
+      "sha256": "354493cd33828119ff3ba72d4785c5ed9205f18ed5d0dbf51e9644e120a3df93"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_concrete_9379e91eaeaecfe4fa8f4e31/Textures/T_Concrete_roughness.uasset",
+      "bytes": 6266247,
+      "sha256": "b52eaca6a4a15a7dd964f5319fb30b9c33d546e88a376310bf2ea66030bc5b3b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Materials/M_Corrugated_Metal.uasset",
+      "bytes": 15883,
+      "sha256": "4c6be57f9aeaa93be31f84b955bd19aaab23ab0d0e35d3d5ae8b24d353199781"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Textures/T_Corrugated_Metal_base_color.uasset",
+      "bytes": 2334652,
+      "sha256": "63414eeec1fff0ba0fd4d05183564f0a29b5dfd0780e080a40f923a8926698fa"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_corrugated_metal_d81e9c81c49620b81941d2e7/Textures/T_Corrugated_Metal_roughness.uasset",
+      "bytes": 7887871,
+      "sha256": "39de6204812b858aa1e4c74be41207ea159cfc41faa7cfccdf099ccc48232d8e"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_12fe330a84f5b450a04b70db/Materials/M_Plaster.uasset",
+      "bytes": 14333,
+      "sha256": "b45b9ded6929a3a7fdfc01303705adea215e0cb9708ffaf2d395fd92a5af50a2"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_12fe330a84f5b450a04b70db/Textures/T_Plaster_base_color.uasset",
+      "bytes": 3141390,
+      "sha256": "1c3cccb55463ce9b7e54c38634e2e278268b2da8b0f80a4a3e1c24f42bda8807"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_12fe330a84f5b450a04b70db/Textures/T_Plaster_normal_gl.uasset",
+      "bytes": 23883310,
+      "sha256": "0dbeb22f4c0cdd9ca5651d4c15db75e7e7a387b12ef24179f3b4a43433273bcb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_12fe330a84f5b450a04b70db/Textures/T_Plaster_roughness.uasset",
+      "bytes": 6874258,
+      "sha256": "7fb62921a257397b8c3b1dcb4343ea101be5cf3cd6a1f4c5834822c4665871f8"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_5994d07db413b1b1439979ee/Materials/M_Plaster.uasset",
+      "bytes": 8860,
+      "sha256": "6b4d8c6167f8b7f729574232c54dbaf1fc7ce74470993741bce8d6eca1cdc04e"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_5994d07db413b1b1439979ee/Textures/T_Plaster_base_color.uasset",
+      "bytes": 3141217,
+      "sha256": "9241785535aa0b78eceff2bd61a48c914e2723c789a90b8435acafba68ae3d04"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_5994d07db413b1b1439979ee/Textures/T_Plaster_normal_gl.uasset",
+      "bytes": 23882791,
+      "sha256": "49dae2df61a146727ceb8f930e4d8e0d890e492471d85a9a4cb3e785578d9ae7"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_5994d07db413b1b1439979ee/Textures/T_Plaster_roughness.uasset",
+      "bytes": 6872074,
+      "sha256": "0f83b9b9b8c9b4664723021f6982340f3dd47a4419499cc10467b6923e1f1923"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Materials/M_Plaster.uasset",
+      "bytes": 15479,
+      "sha256": "bd81504bdb4ce350aad5c4439ca61564d54879ffa718459f5c5e6c9d28eb2701"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_base_color.uasset",
+      "bytes": 3141390,
+      "sha256": "4130a7bafc3406982a10f0b31fcfd8cc7900f45bf213afb449b3ad946fdec306"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_normal_gl.uasset",
+      "bytes": 23883310,
+      "sha256": "0c4bfdca19287d38d7c57652dbf3d8acd25345f119f1b63c0c3869a92305550d"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_plaster_e90413415c61860f4b8c3dee/Textures/T_Plaster_roughness.uasset",
+      "bytes": 6872717,
+      "sha256": "665abfb46a81b6fd2bb5025aac7d514d7813371b993c5aedea193b9e79eeb7a0"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Materials/M_Timber.uasset",
+      "bytes": 16023,
+      "sha256": "cad00a22faac19e68fe12c579fb89867924af397411f46146522f80dc61c7647"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_base_color.uasset",
+      "bytes": 1008305,
+      "sha256": "0858bdcf186c632f7aaa918e1591a5fb33204b36ce5afb1f31ea3337e19a01b5"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_normal_dx.uasset",
+      "bytes": 20848537,
+      "sha256": "fe7f9a4398db24af5bfb61b4acb3bc7f05384487af620908918a9fbbcb3b13bb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_timber_7bfa1597fb1d585d3d3a29c2/Textures/T_Timber_roughness.uasset",
+      "bytes": 7426760,
+      "sha256": "cf023f86a3e6f0f2de4461a0ac659a603d1bb7c230b194518df4606edade126d"
+    }
+  ],
+  "added": [
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v2/Maps/L_Yaba_DenseStreet_v2.umap",
+      "bytes": 812877,
+      "sha256": "183d918bd59b7146b49a34906895074f6f0e1b27c360a082e8d1ae40c5998106"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v2/Materials/M_Asphalt_DryReviewedInput_v2.uasset",
+      "bytes": 20860,
+      "sha256": "92af8a121455146b6818bf744265f856ebd393d772c93a92ade24c20412cdc17"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v2Reviewed/Maps/L_Yaba_DenseStreet_v2Reviewed.umap",
+      "bytes": 1395585,
+      "sha256": "7a7fe5581cbc4ca39c2525b34d2b2a6d4ee5a4b51dd0a3224fbff6be8391411b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint.uasset",
+      "bytes": 13448,
+      "sha256": "1f7a6db77605a9cf36d8439fc081e75a9ea267f9e97ebdad21c1f437e5de98b6"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium.uasset",
+      "bytes": 13363,
+      "sha256": "fdfd7f9d86750e8954993ed3368c84c12fb6707da56de0aa24652d2e6c3381bb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_asphalt_ISM.uasset",
+      "bytes": 19860,
+      "sha256": "1f58dd3ef3590dd731900942f49b20dc874d68543a25781b20fe931fc14c0b07"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_cloth_v3.uasset",
+      "bytes": 13416,
+      "sha256": "f9131b0d4bddbb999389118eff239394286ce3888be3127416c4c31e010dc7fb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_container_v3.uasset",
+      "bytes": 13461,
+      "sha256": "68893f5d30ff990aa3e63bf29a4420454197385d79a40e30c88e0cfeba74fcad"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_glass.uasset",
+      "bytes": 14263,
+      "sha256": "d3693a4f9ecda22fff9dd10d0fc3070d79dcf32a095908070cbdc7c029cc5960"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel.uasset",
+      "bytes": 12835,
+      "sha256": "3ce8709089c4b925ee0e794d7ca3f0edc9a88453c995f8f88dae4a56b93036f0"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_paper_v3.uasset",
+      "bytes": 13440,
+      "sha256": "c697805f4a174b422b046b1345f509a57c759641eae1b084887720e1baae6b2f"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_repair_mortar.uasset",
+      "bytes": 13429,
+      "sha256": "9235ac8b6566409f4c35a98c53169e0770d5955ba8f247a5b584669339b2d823"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_rubber.uasset",
+      "bytes": 12141,
+      "sha256": "a1b892ffd0573a0a8754bd32d609c0b2721eca011ba27531526383c9489d3b43"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_wood_v3_ISM.uasset",
+      "bytes": 16117,
+      "sha256": "2f76056f1c1ee0ff43b2234b79dcbbf684e11689366f1bf0a104439afa274b9b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ACServiceAssembly.uasset",
+      "bytes": 130491,
+      "sha256": "b3562b4a1163d32813ba7a725c443ba7950984db196f843eb1259a8b3076147b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ACServiceAssembly_V3Compact.uasset",
+      "bytes": 130702,
+      "sha256": "0807db784690950ffb28a049a2861256c74564d3277e519a404ce019eaf37ecc"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ACServiceAssembly_V3Cover.uasset",
+      "bytes": 153593,
+      "sha256": "2e7c07cdfc1db6b6d77bee82d5ffc4300739927f299e43feea33bb5f8efed2ea"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.uasset",
+      "bytes": 65922,
+      "sha256": "a860a9bf1e92c00a58ab746ce5ee9315ab4713822630ea95ae70a668a817439a"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Drain1000.uasset",
+      "bytes": 17642,
+      "sha256": "6bc7d6c1bc853c762614246be6335f06b42765f8bd2094409c420be57fa45300"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_DrainCover1000.uasset",
+      "bytes": 29365,
+      "sha256": "52a1ecb3862b6f11b7fe584bec43e8f7ba165523ffe51a52e8179d383ad04110"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.uasset",
+      "bytes": 36636,
+      "sha256": "0da53bc1dd864d7c3cb9df5e1daa803fd3b8cb90c1796d925cfae0f798e313c1"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900.uasset",
+      "bytes": 24367,
+      "sha256": "ddf06bbf633bcb29c9fbac97d911acc25aad9e4234408706b0edc86a9c60c3ec"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_JunctionInlet.uasset",
+      "bytes": 24511,
+      "sha256": "5143b6f748c5aba3b513207fb4d7de5314db948e7750ea989a715e17a5efc1ce"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Kerb1000.uasset",
+      "bytes": 16672,
+      "sha256": "ad9eb1f4180d7854b96334069db883ba034d285c2fc9bf27caa31d587dbb23e1"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_OpenShopInterior.uasset",
+      "bytes": 49862,
+      "sha256": "bb29e657d82425e422e03ab92bad3f8cdd4fe4c3d3a68fa34d23c646820be326"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000.uasset",
+      "bytes": 17364,
+      "sha256": "85c46e6a2db36028e7af6733838565b79e10648506f7e5000dd9df20a79fa52f"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_PlasterRepair.uasset",
+      "bytes": 16515,
+      "sha256": "9c0dbcf7668451d8ede7718640f6fe04df6e113f75497c3242e5aae9c660b290"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RainwaterDownpipe.uasset",
+      "bytes": 24984,
+      "sha256": "e0d8bf1c9a4e833d5c28ad5f0b979a87da6d929a31993b0a1b81601c4adeee9c"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.uasset",
+      "bytes": 17871,
+      "sha256": "b4e227a94b900f06b151f9a2357d0b1b3484c8e19951aafc135509ce5b1ff9fa"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.uasset",
+      "bytes": 17864,
+      "sha256": "0a077b999fe8cad18f71c8e44e7b782b801ba18aa7d106f458b0042226d29604"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.uasset",
+      "bytes": 17943,
+      "sha256": "05ef2af4f79165347e1d497397e333768bd9a0e407a640b8519ce94c0c930c8a"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoadJunction.uasset",
+      "bytes": 16862,
+      "sha256": "77cc6cbc57332c23f812357d1e91194f50edbe7e05038c12ffa10b1692dbe382"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.uasset",
+      "bytes": 52095,
+      "sha256": "9806316cfb446a60ca91effdcff006cd6e596c98c2a94506e1571a1fb8f9aa2b"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.uasset",
+      "bytes": 17341,
+      "sha256": "654b49efdf631c78ad32e236c46a00d35b41520de763f12f7ea9c0d0aecb64e1"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.uasset",
+      "bytes": 17427,
+      "sha256": "53e8ecdd0dff389610ed558e3e4283aefa71f3d37cdf137690d2da87f0a0b389"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.uasset",
+      "bytes": 17427,
+      "sha256": "934cb84536e816c78949525e240257b3fdc00eb78e21658964fa456922cbdcbc"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800.uasset",
+      "bytes": 44366,
+      "sha256": "8188da7e97da5ae40749017c75f3ec14f46e70f5043b8f0a85a01eef2ec0d535"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_GrainSack.uasset",
+      "bytes": 50541,
+      "sha256": "878c449101559b091070e89c31ae9227e54a127ec55ed360ad474dbd53978772"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_PaperPackage.uasset",
+      "bytes": 22834,
+      "sha256": "10eec925bbcb338e06d63e7388587ae0c9d7cc2805ee9c82a721015edd8db655"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_StockBottle.uasset",
+      "bytes": 24126,
+      "sha256": "264333deb8c16867df5df21e32b8b205dbe080eb0cbadc2ccc9a493f8b8a3675"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_StockJar.uasset",
+      "bytes": 22219,
+      "sha256": "2be35dd9d8778c3332cc20c15b8dbce2a80650b8e6a3d3851d842b63da7e7233"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_StockTin.uasset",
+      "bytes": 21820,
+      "sha256": "74eef7f575bcdc78cf5547f1462e08abb10198ebc281f709d2521adf29158667"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_V3_TimberCrate.uasset",
+      "bytes": 27491,
+      "sha256": "88565cfe404cb453a48626102f94b7a7c21655466c59284a4212943cfffce611"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.uasset",
+      "bytes": 54465,
+      "sha256": "b773b810089b1d9487e91faa7c6bca3c0fd30bd9a8583a99a2389ec2728e6153"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300_V3Curtain.uasset",
+      "bytes": 70459,
+      "sha256": "859c5b00e4317d922ffd443b5c83c357024991d4336294896c12de792e47bacb"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300_V3Louvres.uasset",
+      "bytes": 67762,
+      "sha256": "00a4de755f1219c86b2e4799ce2cd27e74e27424141ab1aa12159a834f4c748f"
+    },
+    {
+      "path": "apps/companion-unreal/Content/BaddieGeneratedWorld/Realism/YabaSlice_20261011/StreamedAuthoring_v2/Maps/L_Lagos_AuthoringPersistent_v2.umap",
+      "bytes": 13723,
+      "sha256": "8857a9a8ebd8c23224e7e089a5e4e33fe3815640a136351316554ebbacdc47f8"
+    }
+  ],
+  "historicalSavedFilesChanged": [],
+  "captures": [
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v2-forward.png",
+      "sha256": "162f56f2d5f537ce6d99fa286e9d3bc8526d2937c0391ec2832a4b29bd591f37",
+      "camera": "street-forward",
+      "width": 705,
+      "height": 486,
+      "receiptSha256": "dca21fd04e339d31f29a1aa2f89d4ce69b99ac9cceee7344751698efedb208c5"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v2-junction.png",
+      "sha256": "f913ea69569cb06e3c99f97b948d1fdef8784262d6fb00c19068cec845885d17",
+      "camera": "street-junction",
+      "width": 705,
+      "height": 486,
+      "receiptSha256": "dca21fd04e339d31f29a1aa2f89d4ce69b99ac9cceee7344751698efedb208c5"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v2-reverse.png",
+      "sha256": "d03868c382b0f4768a751c646302eb5b9f6ed4721dcd6483ff268e579818c098",
+      "camera": "street-reverse",
+      "width": 705,
+      "height": 486,
+      "receiptSha256": "dca21fd04e339d31f29a1aa2f89d4ce69b99ac9cceee7344751698efedb208c5"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v2-reviewed-forward.png",
+      "sha256": "10c29c2e4e0705eabd7a96479beeefb9b3c6019931d4f4816ca6fc4c3ac3b0ef",
+      "camera": "street-forward",
+      "width": 705,
+      "height": 486,
+      "receiptSha256": "bd981004b5179ed75edbba9e2c46cb5e6d2d0bf5f13f1d068682e40e57117667"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v2-reviewed-junction.png",
+      "sha256": "e452b652cde5b2a281b067dca8765756197d73c6432083f18d5e95c2582a3b6e",
+      "camera": "street-junction",
+      "width": 705,
+      "height": 486,
+      "receiptSha256": "bd981004b5179ed75edbba9e2c46cb5e6d2d0bf5f13f1d068682e40e57117667"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v2-reviewed-reverse.png",
+      "sha256": "b3c72e440b913823b1b22238e02744c28085e096e4e79a2b84bdc9856973283e",
+      "camera": "street-reverse",
+      "width": 705,
+      "height": 486,
+      "receiptSha256": "bd981004b5179ed75edbba9e2c46cb5e6d2d0bf5f13f1d068682e40e57117667"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v2-reviewed-side-street.png",
+      "sha256": "714b7b5b0fc1ed6036372b527025299aac8d2a68305a0a71e0b9073b013376e1",
+      "camera": "side-street-depth",
+      "width": 705,
+      "height": 486,
+      "receiptSha256": "d90984da10cfdbbdb6cef652b3eb74b1fc30e6ac1559153d5bd6e0fe9e863c0e"
+    },
+    {
+      "path": "output/cribtest11-visible-world-2026-10-11/realism/yaba-dense-v2-reviewed-stock-threshold.png",
+      "sha256": "293758d96e88968b92fe4907069e803044289c3fb234e969cd5428042e540bd6",
+      "camera": "stock-threshold",
+      "width": 705,
+      "height": 486,
+      "receiptSha256": "d90984da10cfdbbdb6cef652b3eb74b1fc30e6ac1559153d5bd6e0fe9e863c0e"
+    }
+  ],
+  "sourceReview": {
+    "pin": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+    "files": 250,
+    "mismatches": [],
+    "referenceManifestSha256": "800e29a26cb897a10e50657b3cd3dced1b9f385342560fae73d96efe53b00447",
+    "referenceReceiptSha256": "620a06dad3de0514612e0b27d3fa5a3293e42e5a643b1dfa7a3fe3915db60c8a",
+    "acceptedGeneratorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797"
+  },
+  "protectedCurrentHashes": {
+    "apps/companion-unreal/BaddieCompanion.uproject": "7086e6b8239d3ae22ce1ef7de45fe2e4e64da7104b30aea8f2449436aff7002b",
+    "apps/companion-unreal/Config/DefaultEngine.ini": "c33a2850f6c472091fc84e5cb1b2724de18aa9ab20939ed299a54cd193cc3f75",
+    "apps/companion-unreal/Config/DefaultInput.ini": "999e020cafbfdbb270f11b64461cd572423912d2ab8c0ab877b1ad7dcf3a22ca"
+  },
+  "launchReceipt": "apps/companion-unreal/Saved/Bridge/launch-20261011-081405.json",
+  "launchReceiptSha256": "6d4c4f5455e579e2ea4e402e37cf3c7d64fe745c0243dd45905d4de84428bbb4",
+  "liveLog": "apps/companion-unreal/Saved/Bridge/editor-20261011-081405.log",
+  "logSnapshotSha256": "612ca4781465b19046a7e64c8be9c56c148abed602153647e84a508c097f10f5",
+  "liveLogImmutable": false,
+  "engineVersion": "5.8.3-58210709+++UE5+Release-5.8",
+  "rhi": "D3D11 Microsoft Basic Render Driver, inspected fresh startup log; no target GPU result",
+  "wholeWorldComplete": false,
+  "playableAcceptance": false
+}

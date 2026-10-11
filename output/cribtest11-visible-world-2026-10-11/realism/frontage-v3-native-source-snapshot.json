@@ -1,0 +1,2847 @@
+{
+  "pid": 1784,
+  "sourceDirectory": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3",
+  "sourceScriptSha256": "39b52640e108b41cfccf34da5cafc2f7542f61561c4f6afa50058291ddc57f45",
+  "materialBindingsSha256": "6bca8305d23b8641a4b1b9d379ca7162d78f36f6f6ed76809b73d1fbde2c6244",
+  "placementSha256": "49e399471e8d349d1fe747db80e45002fd6d116c1da54bfd1800b50da8f287e5",
+  "reviewSha256": "d3811fa0e1f8f1212485a3bafe6e896e2d89414922a10e8a43ba25fade3e56a7",
+  "modules": [
+    {
+      "module": "ResidentialBay",
+      "file": "fbx/ResidentialBay.fbx",
+      "sha256": "7f67ac79bcc2f45843d85ea8f979ecabb1d1bbe52c6608c311f525350b37876f",
+      "triangles": 64,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_plaster"
+      ],
+      "anchor": "original bay datum; panel face -35mm, thickness 250mm"
+    },
+    {
+      "module": "ShopBay",
+      "file": "fbx/ShopBay.fbx",
+      "sha256": "4f2df2d390e0381f025ce1996dbe3e4660489d4d0a0ec501b7269770b4be139a",
+      "triangles": 44,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_plaster"
+      ],
+      "anchor": "original bay datum; panel face -35mm, thickness 250mm"
+    },
+    {
+      "module": "ResidentialBay_V3Left",
+      "file": "fbx/ResidentialBay_V3Left.fbx",
+      "sha256": "dac3a4d226a0f101da00af32bafdb211397997f524f38bb22aee6677d6bd8909",
+      "triangles": 64,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_plaster"
+      ],
+      "anchor": "original bay datum; panel face -35mm, thickness 250mm"
+    },
+    {
+      "module": "ShopBay_V3Left",
+      "file": "fbx/ShopBay_V3Left.fbx",
+      "sha256": "2108397dc888dce42d68b4ca3b232ff9580ec01b86b461a52a70f75b3036a2ef",
+      "triangles": 44,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_plaster"
+      ],
+      "anchor": "original bay datum; panel face -35mm, thickness 250mm"
+    },
+    {
+      "module": "ResidentialBay_V3Right",
+      "file": "fbx/ResidentialBay_V3Right.fbx",
+      "sha256": "b67344c1156cb2c6a91a5806cd09e6910b891d6a0b047b2dbe468bb8b073af54",
+      "triangles": 64,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_plaster"
+      ],
+      "anchor": "original bay datum; panel face -35mm, thickness 250mm"
+    },
+    {
+      "module": "ShopBay_V3Right",
+      "file": "fbx/ShopBay_V3Right.fbx",
+      "sha256": "77df960bb24b1bb77794165af19d824f52e2e41ddbf9b969c48cf4a8d0f6bc5d",
+      "triangles": 44,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_plaster"
+      ],
+      "anchor": "original bay datum; panel face -35mm, thickness 250mm"
+    },
+    {
+      "module": "Window1300",
+      "file": "fbx/Window1300.fbx",
+      "sha256": "273e6424fef66f79cea2e8cb83194ca4819a853349de668064314ed0a81204ba",
+      "triangles": 1236,
+      "mesh_parts": 23,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_concrete",
+        "Yaba_glass",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "opening bottom-left; frame recessed 110mm behind facade"
+    },
+    {
+      "module": "Shutter2800",
+      "file": "fbx/Shutter2800.fbx",
+      "sha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6",
+      "triangles": 988,
+      "mesh_parts": 45,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "shop opening bottom-left, 150mm recessed"
+    },
+    {
+      "module": "OpenShopInterior",
+      "file": "fbx/OpenShopInterior.fbx",
+      "sha256": "a5a5ac940bcee4eecb6f00018e66aee4e2beb6f539a6f65cd97d6bea4ab1d771",
+      "triangles": 1104,
+      "mesh_parts": 20,
+      "material_slots": [
+        "Yaba_painted_steel",
+        "Yaba_plaster",
+        "Yaba_wood_v3"
+      ],
+      "anchor": "shop centre; shared structure supplies floor/ceiling"
+    },
+    {
+      "module": "Balcony3900",
+      "file": "fbx/Balcony3900.fbx",
+      "sha256": "7dce9d901147e088da08fee650bfc7f83352df13682206d89b43930646246eea",
+      "triangles": 1600,
+      "mesh_parts": 50,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_concrete",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "bay left edge and upper floor Z=0"
+    },
+    {
+      "module": "ACServiceAssembly",
+      "file": "fbx/ACServiceAssembly.fbx",
+      "sha256": "63807efc2eda54af998b0900bd773e0cffdc38b6cdbc03b1ae6920eeeba959bb",
+      "triangles": 4600,
+      "mesh_parts": 57,
+      "material_slots": [
+        "Yaba_ac_paint",
+        "Yaba_aluminium",
+        "Yaba_painted_steel",
+        "Yaba_rubber"
+      ],
+      "anchor": "wall anchor at [0,0,0]; unit faces street +Y"
+    },
+    {
+      "module": "RoofSheetPanel",
+      "file": "fbx/RoofSheetPanel.fbx",
+      "sha256": "db380f142b6732d0b8ead51db5f09819017c262f5ec7fcc27a8437c280f4d1e3",
+      "triangles": 1020,
+      "mesh_parts": 13,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_corrugated_metal",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "0.96m overlapping sheet; left edge datum; rear -Y"
+    },
+    {
+      "module": "Gutter3900",
+      "file": "fbx/Gutter3900.fbx",
+      "sha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "triangles": 268,
+      "mesh_parts": 5,
+      "material_slots": [
+        "Yaba_corrugated_metal",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "3.9m horizontal segment; ends join without caps"
+    },
+    {
+      "module": "RainwaterDownpipe",
+      "file": "fbx/RainwaterDownpipe.fbx",
+      "sha256": "fbde6385da2645975ce9db95dbb2e32b18ed1bf115c5043c41fe962ccddc704a",
+      "triangles": 272,
+      "mesh_parts": 4,
+      "material_slots": [
+        "Yaba_ac_paint",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "roof gutter outlet datum; drop to drain"
+    },
+    {
+      "module": "Drain1000",
+      "file": "fbx/Drain1000.fbx",
+      "sha256": "39a14a0e6f1d9cee2b325957ad8c93efe8f53422a977a470ea12858d85f4a7ec",
+      "triangles": 36,
+      "mesh_parts": 3,
+      "material_slots": [
+        "Yaba_concrete"
+      ],
+      "anchor": "pavement lip Z=0; channel below; run +X"
+    },
+    {
+      "module": "DrainCover1000",
+      "file": "fbx/DrainCover1000.fbx",
+      "sha256": "0b0cfc3627a3998430c2169ae18915f1b27e8c2b63d8602213dda7d71501ba46",
+      "triangles": 432,
+      "mesh_parts": 4,
+      "material_slots": [
+        "Yaba_concrete"
+      ],
+      "anchor": "top Z=0; 4 separate removable concrete covers"
+    },
+    {
+      "module": "Kerb1000",
+      "file": "fbx/Kerb1000.fbx",
+      "sha256": "e1145814ad57694bd14c2f2b94512c12d5432b413e396b9d5bb9acb3a281d7a6",
+      "triangles": 16,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_concrete"
+      ],
+      "anchor": "road contact Z=0; pavement Z=0.15"
+    },
+    {
+      "module": "Pavement1000",
+      "file": "fbx/Pavement1000.fbx",
+      "sha256": "653f47eee83d663ce590090f9c7bf2b48912116e3566054bb3086a05fa998853",
+      "triangles": 48,
+      "mesh_parts": 4,
+      "material_slots": [
+        "Yaba_concrete"
+      ],
+      "anchor": "pavement top Z=0; 1m longitudinal module"
+    },
+    {
+      "module": "RoadJunction",
+      "file": "fbx/RoadJunction.fbx",
+      "sha256": "65f00a5a097a2cb375fe1cd206febe3d8899bbe5821bb7e7980ca4397bff1e17",
+      "triangles": 40,
+      "mesh_parts": 3,
+      "material_slots": [
+        "Yaba_asphalt"
+      ],
+      "anchor": "local road top Z=0; bounded T-junction, no georeferencing"
+    },
+    {
+      "module": "JunctionInlet",
+      "file": "fbx/JunctionInlet.fbx",
+      "sha256": "06ed7cf4a0f60ee4b6c5ff1b33a67812a0957641fad368351e1f513465e49842",
+      "triangles": 228,
+      "mesh_parts": 19,
+      "material_slots": [
+        "Yaba_concrete",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "kerb inlet top Z=0.15; channel bed Z=-0.30"
+    },
+    {
+      "module": "PlasterRepair",
+      "file": "fbx/PlasterRepair.fbx",
+      "sha256": "2b4261a39490e8622b9ef6a644bbe2fb812a83e2e4c24d8d37aac275e574fe3e",
+      "triangles": 20,
+      "mesh_parts": 1,
+      "material_slots": [
+        "Yaba_repair_mortar"
+      ],
+      "anchor": "local authored repair patch, not random dirt"
+    },
+    {
+      "module": "Window1300_V3Curtain",
+      "file": "fbx/Window1300_V3Curtain.fbx",
+      "sha256": "567437baa2194a3565771a3d6f10976c63a82261a1bc080b4455cd6eedfb44c1",
+      "triangles": 1752,
+      "mesh_parts": 30,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_cloth_v3",
+        "Yaba_concrete",
+        "Yaba_glass",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "opening bottom-left; frame recessed 110mm behind facade; v3 derivative"
+    },
+    {
+      "module": "Window1300_V3Louvres",
+      "file": "fbx/Window1300_V3Louvres.fbx",
+      "sha256": "896b2249a28c9255fd797e0087b69815e2f40432315fac3e50f348187de04cd1",
+      "triangles": 1788,
+      "mesh_parts": 69,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_concrete",
+        "Yaba_glass",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "opening bottom-left; frame recessed 110mm behind facade; v3 derivative"
+    },
+    {
+      "module": "ACServiceAssembly_V3Compact",
+      "file": "fbx/ACServiceAssembly_V3Compact.fbx",
+      "sha256": "126bba6d464dc1d3a8ee48a5f2449908048da1d6a869819b4fc8ff61eebaeb68",
+      "triangles": 4600,
+      "mesh_parts": 57,
+      "material_slots": [
+        "Yaba_ac_paint",
+        "Yaba_aluminium",
+        "Yaba_painted_steel",
+        "Yaba_rubber"
+      ],
+      "anchor": "wall anchor at [0,0,0]; unit faces street +Y; v3 derivative"
+    },
+    {
+      "module": "ACServiceAssembly_V3Cover",
+      "file": "fbx/ACServiceAssembly_V3Cover.fbx",
+      "sha256": "0de6389927f4917325d1b6bb1a1d045668d2e4c46f7b45fadcbdb972054a165c",
+      "triangles": 4748,
+      "mesh_parts": 60,
+      "material_slots": [
+        "Yaba_ac_paint",
+        "Yaba_aluminium",
+        "Yaba_corrugated_metal",
+        "Yaba_painted_steel",
+        "Yaba_rubber"
+      ],
+      "anchor": "wall anchor at [0,0,0]; unit faces street +Y; v3 derivative"
+    },
+    {
+      "module": "V3_StockTin",
+      "file": "fbx/V3_StockTin.fbx",
+      "sha256": "e11e2720bed007169d5a5d5945a5c76dfe64d83c0ebd56e30a9a62a76192d05e",
+      "triangles": 276,
+      "mesh_parts": 3,
+      "material_slots": [
+        "Yaba_aluminium"
+      ],
+      "anchor": "bottom contact Z=0; diameter 110mm"
+    },
+    {
+      "module": "V3_StockJar",
+      "file": "fbx/V3_StockJar.fbx",
+      "sha256": "10d58fb5217f732dab5728b66252ac18c64095ae74e4dbabc36e4434bbb196aa",
+      "triangles": 184,
+      "mesh_parts": 2,
+      "material_slots": [
+        "Yaba_container_v3",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "bottom contact Z=0; diameter 130mm"
+    },
+    {
+      "module": "V3_StockBottle",
+      "file": "fbx/V3_StockBottle.fbx",
+      "sha256": "548558388ef2b739e04c093ebde49047af6427055052553887e90edfe48dd506",
+      "triangles": 244,
+      "mesh_parts": 3,
+      "material_slots": [
+        "Yaba_container_v3",
+        "Yaba_painted_steel"
+      ],
+      "anchor": "bottom contact Z=0; height 255mm"
+    },
+    {
+      "module": "V3_PaperPackage",
+      "file": "fbx/V3_PaperPackage.fbx",
+      "sha256": "f5e565778c8b21a0538002a1a6872cb860078a465e9d4bf3e7223847efa20f8d",
+      "triangles": 216,
+      "mesh_parts": 2,
+      "material_slots": [
+        "Yaba_paper_v3"
+      ],
+      "anchor": "bottom contact Z=0; folded rectangular food packet"
+    },
+    {
+      "module": "V3_TimberCrate",
+      "file": "fbx/V3_TimberCrate.fbx",
+      "sha256": "c3b5e7f7f40ad31ef6b0721fb8a18dfa6ef59e41fbf3d8696d1895c7a2463db6",
+      "triangles": 464,
+      "mesh_parts": 28,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_wood_v3"
+      ],
+      "anchor": "bottom contact Z=0; 480x340x315mm reusable crate"
+    },
+    {
+      "module": "V3_GrainSack",
+      "file": "fbx/V3_GrainSack.fbx",
+      "sha256": "cb595ce5c06fcc0380acfa90b452404cfa62e8fbdd8f2edbe05ba57a7514e06d",
+      "triangles": 1184,
+      "mesh_parts": 4,
+      "material_slots": [
+        "Yaba_cloth_v3",
+        "Yaba_paper_v3"
+      ],
+      "anchor": "filled sewn sack; flat base at Z=0, tied neck 590mm"
+    },
+    {
+      "module": "FrontageStructure",
+      "file": "fbx/FrontageStructure.fbx",
+      "sha256": "af1cefdfd1d17f63d197df2e2a0fc07d2e53fdec7809c42e2c0b0bd67daaee26",
+      "triangles": 624,
+      "mesh_parts": 28,
+      "material_slots": [
+        "Yaba_aluminium",
+        "Yaba_concrete",
+        "Yaba_painted_steel",
+        "Yaba_plaster"
+      ],
+      "anchor": "local building/street origin; no district identity"
+    }
+  ],
+  "materialBindings": {
+    "session": {
+      "pid": 10588,
+      "file_before": "",
+      "blender": "5.2.2 LTS",
+      "engine": "CYCLES",
+      "threads": 2
+    },
+    "plaster": {
+      "slot": "Yaba_plaster",
+      "mode": "scanned_maps",
+      "constants": {
+        "scan_id": "painted_plaster_wall",
+        "tile_m": 2,
+        "base": [
+          0.57,
+          0.53,
+          0.43
+        ],
+        "roughness": 0.87,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          2,
+          2
+        ]
+      },
+      "maps": {
+        "base_color": {
+          "file": "textures/plaster_base_color.jpg",
+          "sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/painted_plaster_wall",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        },
+        "normal_gl": {
+          "file": "textures/plaster_normal_gl.png",
+          "sha256": "322041257ab0dad1a1a1c18d98bc28689136103f6a64d4849f7aa3ae5b8b090f",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/painted_plaster_wall",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": true,
+          "normal_strength": 1.0
+        },
+        "roughness": {
+          "file": "textures/plaster_roughness.png",
+          "sha256": "e355a47f007bcf8b50c9e2f9edfc9f45d85501eefc63a822fd82c2dbc7ab34ea",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/painted_plaster_wall",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        }
+      },
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "concrete": {
+      "slot": "Yaba_concrete",
+      "mode": "scanned_maps",
+      "constants": {
+        "scan_id": "concrete_floor_02",
+        "tile_m": 2,
+        "base": [
+          0.35,
+          0.34,
+          0.3
+        ],
+        "roughness": 0.92,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          2.7100000381469727,
+          2.7100000381469727
+        ]
+      },
+      "maps": {
+        "base_color": {
+          "file": "textures/concrete_base_color.jpg",
+          "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/concrete_wall_008",
+          "coverage_m": [
+            2.7100000381469727,
+            2.7100000381469727
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        },
+        "normal_gl": {
+          "file": "textures/concrete_normal_gl.png",
+          "sha256": "3d26d24586556ee400506888ad6496733a67bcc9020616c10119c1c343c5be24",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/concrete_wall_008",
+          "coverage_m": [
+            2.7100000381469727,
+            2.7100000381469727
+          ],
+          "unreal_normal_green_flip": true,
+          "normal_strength": 1.0
+        },
+        "roughness": {
+          "file": "textures/concrete_roughness.png",
+          "sha256": "af2c3055aea34c0b1366b04ccdc90a83ed22e997de446a2d1e02817c800eb026",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/concrete_wall_008",
+          "coverage_m": [
+            2.7100000381469727,
+            2.7100000381469727
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        }
+      },
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "asphalt": {
+      "slot": "Yaba_asphalt",
+      "mode": "scanned_maps",
+      "constants": {
+        "scan_id": "asphalt_03",
+        "tile_m": 2.05,
+        "base": [
+          0.075,
+          0.071,
+          0.062
+        ],
+        "roughness": 0.93,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          2,
+          2
+        ]
+      },
+      "maps": {
+        "base_color": {
+          "file": "textures/asphalt_base_color.jpg",
+          "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/worn_asphalt",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        },
+        "normal_gl": {
+          "file": "textures/asphalt_normal_gl.png",
+          "sha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/worn_asphalt",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": true,
+          "normal_strength": 1.0
+        },
+        "roughness": {
+          "file": "textures/asphalt_roughness.png",
+          "sha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/worn_asphalt",
+          "coverage_m": [
+            2,
+            2
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        }
+      },
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "repair_mortar": {
+      "slot": "Yaba_repair_mortar",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1,
+        "base": [
+          0.42,
+          0.41,
+          0.37
+        ],
+        "roughness": 0.94,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [
+        "base_color",
+        "normal_gl",
+        "orm"
+      ],
+      "uv": "SurfaceUV"
+    },
+    "corrugated_metal": {
+      "slot": "Yaba_corrugated_metal",
+      "mode": "partial_scans_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1,
+        "base": [
+          0.39,
+          0.41,
+          0.39
+        ],
+        "roughness": 0.52,
+        "metallic": 1,
+        "required_for_finish": true,
+        "coverage_m": [
+          2.700000047683716,
+          2.700000047683716
+        ]
+      },
+      "maps": {
+        "base_color": {
+          "file": "textures/corrugated_metal_base_color.jpg",
+          "sha256": "1bd2b9900e066d7e6cbacc5093aa4204db71c1bbe13b42a3d8ad23d04fa8075a",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/corrugated_iron_02",
+          "coverage_m": [
+            2.700000047683716,
+            2.700000047683716
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        },
+        "roughness": {
+          "file": "textures/corrugated_metal_roughness.png",
+          "sha256": "7bf7e03196e601b4173822505e7cb01b401b4e50bb98bc0ecc556de7d4b231c3",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/corrugated_iron_02",
+          "coverage_m": [
+            2.700000047683716,
+            2.700000047683716
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        }
+      },
+      "missing": [
+        "normal_gl"
+      ],
+      "uv": "SurfaceUV"
+    },
+    "painted_steel": {
+      "slot": "Yaba_painted_steel",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1,
+        "base": [
+          0.055,
+          0.079,
+          0.066
+        ],
+        "roughness": 0.48,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [
+        "base_color",
+        "normal_gl",
+        "orm"
+      ],
+      "uv": "SurfaceUV"
+    },
+    "aluminium": {
+      "slot": "Yaba_aluminium",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1,
+        "base": [
+          0.55,
+          0.57,
+          0.57
+        ],
+        "roughness": 0.3,
+        "metallic": 1,
+        "required_for_finish": false,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "glass": {
+      "slot": "Yaba_glass",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1,
+        "base": [
+          0.8,
+          0.87,
+          0.86
+        ],
+        "roughness": 0.075,
+        "metallic": 0,
+        "transmission": 1,
+        "ior": 1.45,
+        "required_for_finish": false,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "rubber": {
+      "slot": "Yaba_rubber",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1,
+        "base": [
+          0.021,
+          0.024,
+          0.023
+        ],
+        "roughness": 0.85,
+        "metallic": 0,
+        "required_for_finish": false,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "ac_paint": {
+      "slot": "Yaba_ac_paint",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1,
+        "base": [
+          0.67,
+          0.65,
+          0.58
+        ],
+        "roughness": 0.5,
+        "metallic": 0,
+        "required_for_finish": false,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "wood_v3": {
+      "slot": "Yaba_wood_v3",
+      "mode": "scanned_maps",
+      "constants": {
+        "scan_id": "wood_planks_grey",
+        "tile_m": 1.5,
+        "base": [
+          0.28,
+          0.22,
+          0.15
+        ],
+        "roughness": 0.83,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          1.5,
+          1.5
+        ]
+      },
+      "maps": {
+        "base_color": {
+          "file": "textures/wood_v3_base_color.jpg",
+          "sha256": "31bdd475c6f1520fccc34a6823bfab8ba61ce5fd6dd97a3d1d868c21295e1000",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/wood_planks_grey",
+          "coverage_m": [
+            1.5,
+            1.5
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        },
+        "normal_gl": {
+          "file": "textures/wood_v3_normal_gl.png",
+          "sha256": "c8cc509c74efa77bf9e2f09002b32dbf0cb12913494c664070d599a182fbcaf0",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/wood_planks_grey",
+          "coverage_m": [
+            1.5,
+            1.5
+          ],
+          "unreal_normal_green_flip": true,
+          "normal_strength": 1.0
+        },
+        "roughness": {
+          "file": "textures/wood_v3_roughness.png",
+          "sha256": "0e76025babe056bfdcd750a8f186df92d359fa804273fceb0f23d4884b9f5520",
+          "license": "CC0-1.0",
+          "source": "https://polyhaven.com/a/wood_planks_grey",
+          "coverage_m": [
+            1.5,
+            1.5
+          ],
+          "unreal_normal_green_flip": false,
+          "normal_strength": 1.0
+        }
+      },
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "cloth_v3": {
+      "slot": "Yaba_cloth_v3",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 0.5,
+        "base": [
+          0.49,
+          0.42,
+          0.3
+        ],
+        "roughness": 0.95,
+        "metallic": 0,
+        "required_for_finish": true,
+        "coverage_m": [
+          0.5,
+          0.5
+        ]
+      },
+      "maps": {},
+      "missing": [
+        "base_color",
+        "normal_gl",
+        "orm"
+      ],
+      "uv": "SurfaceUV"
+    },
+    "paper_v3": {
+      "slot": "Yaba_paper_v3",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 0.5,
+        "base": [
+          0.56,
+          0.42,
+          0.24
+        ],
+        "roughness": 0.91,
+        "metallic": 0,
+        "required_for_finish": false,
+        "coverage_m": [
+          0.5,
+          0.5
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    },
+    "container_v3": {
+      "slot": "Yaba_container_v3",
+      "mode": "authored_constants_unresolved_finish",
+      "constants": {
+        "scan_id": null,
+        "tile_m": 1,
+        "base": [
+          0.37,
+          0.27,
+          0.11
+        ],
+        "roughness": 0.44,
+        "metallic": 0,
+        "required_for_finish": false,
+        "coverage_m": [
+          1.0,
+          1.0
+        ]
+      },
+      "maps": {},
+      "missing": [],
+      "uv": "SurfaceUV"
+    }
+  },
+  "placement": {
+    "units": "metres",
+    "up": "+Z",
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "canonical_assignment": null,
+    "instances": [
+      {
+        "id": "FrontageStructure_instance_000",
+        "source_id": "FrontageStructure_instance_000",
+        "module": "FrontageStructure",
+        "translation_m": [
+          0,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:ShopBay_instance_001:ShopBay_V3Left",
+        "source_id": "ShopBay_instance_001",
+        "module": "ShopBay_V3Left",
+        "translation_m": [
+          0.0,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:ResidentialBay_instance_002:ResidentialBay_V3Left",
+        "source_id": "ResidentialBay_instance_002",
+        "module": "ResidentialBay_V3Left",
+        "translation_m": [
+          0.0,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Window1300_instance_003",
+        "source_id": "Window1300_instance_003",
+        "module": "Window1300",
+        "translation_m": [
+          1.3,
+          0,
+          4.025
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Balcony3900_instance_004",
+        "source_id": "Balcony3900_instance_004",
+        "module": "Balcony3900",
+        "translation_m": [
+          0.0,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "OpenShopInterior_instance_005",
+        "source_id": "OpenShopInterior_instance_005",
+        "module": "OpenShopInterior",
+        "translation_m": [
+          1.95,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "ACServiceAssembly_instance_006",
+        "source_id": "ACServiceAssembly_instance_006",
+        "module": "ACServiceAssembly",
+        "translation_m": [
+          2.94,
+          -0.035,
+          4.55
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Gutter3900_instance_007",
+        "source_id": "Gutter3900_instance_007",
+        "module": "Gutter3900",
+        "translation_m": [
+          0.0,
+          0.31,
+          6.1
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "ShopBay_instance_008",
+        "source_id": "ShopBay_instance_008",
+        "module": "ShopBay",
+        "translation_m": [
+          3.9,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "ResidentialBay_instance_009",
+        "source_id": "ResidentialBay_instance_009",
+        "module": "ResidentialBay",
+        "translation_m": [
+          3.9,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:Window1300_instance_010:Window1300_V3Curtain",
+        "source_id": "Window1300_instance_010",
+        "module": "Window1300_V3Curtain",
+        "translation_m": [
+          5.2,
+          0,
+          4.025
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Balcony3900_instance_011",
+        "source_id": "Balcony3900_instance_011",
+        "module": "Balcony3900",
+        "translation_m": [
+          3.9,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Shutter2800_instance_012",
+        "source_id": "Shutter2800_instance_012",
+        "module": "Shutter2800",
+        "translation_m": [
+          4.45,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:ACServiceAssembly_instance_013:ACServiceAssembly_V3Compact",
+        "source_id": "ACServiceAssembly_instance_013",
+        "module": "ACServiceAssembly_V3Compact",
+        "translation_m": [
+          6.84,
+          -0.035,
+          4.55
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Gutter3900_instance_014",
+        "source_id": "Gutter3900_instance_014",
+        "module": "Gutter3900",
+        "translation_m": [
+          3.9,
+          0.31,
+          6.1
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:ShopBay_instance_015:ShopBay_V3Right",
+        "source_id": "ShopBay_instance_015",
+        "module": "ShopBay_V3Right",
+        "translation_m": [
+          7.8,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:ResidentialBay_instance_016:ResidentialBay_V3Right",
+        "source_id": "ResidentialBay_instance_016",
+        "module": "ResidentialBay_V3Right",
+        "translation_m": [
+          7.8,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:Window1300_instance_017:Window1300_V3Louvres",
+        "source_id": "Window1300_instance_017",
+        "module": "Window1300_V3Louvres",
+        "translation_m": [
+          9.1,
+          0,
+          4.025
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Balcony3900_instance_018",
+        "source_id": "Balcony3900_instance_018",
+        "module": "Balcony3900",
+        "translation_m": [
+          7.8,
+          0,
+          3.0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "OpenShopInterior_instance_019",
+        "source_id": "OpenShopInterior_instance_019",
+        "module": "OpenShopInterior",
+        "translation_m": [
+          9.75,
+          0,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:ACServiceAssembly_instance_020:ACServiceAssembly_V3Cover",
+        "source_id": "ACServiceAssembly_instance_020",
+        "module": "ACServiceAssembly_V3Cover",
+        "translation_m": [
+          10.74,
+          -0.035,
+          4.55
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Gutter3900_instance_021",
+        "source_id": "Gutter3900_instance_021",
+        "module": "Gutter3900",
+        "translation_m": [
+          7.8,
+          0.31,
+          6.1
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_022",
+        "source_id": "RoofSheetPanel_instance_022",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          0.0,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_023",
+        "source_id": "RoofSheetPanel_instance_023",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          0.9,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_024",
+        "source_id": "RoofSheetPanel_instance_024",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          1.8,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_025",
+        "source_id": "RoofSheetPanel_instance_025",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          2.7,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_026",
+        "source_id": "RoofSheetPanel_instance_026",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          3.6,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_027",
+        "source_id": "RoofSheetPanel_instance_027",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          4.5,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_028",
+        "source_id": "RoofSheetPanel_instance_028",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          5.4,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_029",
+        "source_id": "RoofSheetPanel_instance_029",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          6.3,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_030",
+        "source_id": "RoofSheetPanel_instance_030",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          7.2,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_031",
+        "source_id": "RoofSheetPanel_instance_031",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          8.1,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_032",
+        "source_id": "RoofSheetPanel_instance_032",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          9.0,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_033",
+        "source_id": "RoofSheetPanel_instance_033",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          9.9,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoofSheetPanel_instance_034",
+        "source_id": "RoofSheetPanel_instance_034",
+        "module": "RoofSheetPanel",
+        "translation_m": [
+          10.8,
+          0,
+          6.12
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RainwaterDownpipe_instance_035",
+        "source_id": "RainwaterDownpipe_instance_035",
+        "module": "RainwaterDownpipe",
+        "translation_m": [
+          11.45,
+          0.31,
+          6.1
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_036",
+        "source_id": "Pavement1000_instance_036",
+        "module": "Pavement1000",
+        "translation_m": [
+          0,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_037",
+        "source_id": "Drain1000_instance_037",
+        "module": "Drain1000",
+        "translation_m": [
+          0,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "DrainCover1000_instance_038",
+        "source_id": "DrainCover1000_instance_038",
+        "module": "DrainCover1000",
+        "translation_m": [
+          0,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_039",
+        "source_id": "Kerb1000_instance_039",
+        "module": "Kerb1000",
+        "translation_m": [
+          0,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_040",
+        "source_id": "Pavement1000_instance_040",
+        "module": "Pavement1000",
+        "translation_m": [
+          1,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_041",
+        "source_id": "Drain1000_instance_041",
+        "module": "Drain1000",
+        "translation_m": [
+          1,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "DrainCover1000_instance_042",
+        "source_id": "DrainCover1000_instance_042",
+        "module": "DrainCover1000",
+        "translation_m": [
+          1,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_043",
+        "source_id": "Kerb1000_instance_043",
+        "module": "Kerb1000",
+        "translation_m": [
+          1,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_044",
+        "source_id": "Pavement1000_instance_044",
+        "module": "Pavement1000",
+        "translation_m": [
+          2,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_045",
+        "source_id": "Drain1000_instance_045",
+        "module": "Drain1000",
+        "translation_m": [
+          2,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "DrainCover1000_instance_046",
+        "source_id": "DrainCover1000_instance_046",
+        "module": "DrainCover1000",
+        "translation_m": [
+          2,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_047",
+        "source_id": "Kerb1000_instance_047",
+        "module": "Kerb1000",
+        "translation_m": [
+          2,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_048",
+        "source_id": "Pavement1000_instance_048",
+        "module": "Pavement1000",
+        "translation_m": [
+          3,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_049",
+        "source_id": "Drain1000_instance_049",
+        "module": "Drain1000",
+        "translation_m": [
+          3,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_050",
+        "source_id": "Kerb1000_instance_050",
+        "module": "Kerb1000",
+        "translation_m": [
+          3,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_051",
+        "source_id": "Pavement1000_instance_051",
+        "module": "Pavement1000",
+        "translation_m": [
+          4,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_052",
+        "source_id": "Drain1000_instance_052",
+        "module": "Drain1000",
+        "translation_m": [
+          4,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "DrainCover1000_instance_053",
+        "source_id": "DrainCover1000_instance_053",
+        "module": "DrainCover1000",
+        "translation_m": [
+          4,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_054",
+        "source_id": "Kerb1000_instance_054",
+        "module": "Kerb1000",
+        "translation_m": [
+          4,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_055",
+        "source_id": "Pavement1000_instance_055",
+        "module": "Pavement1000",
+        "translation_m": [
+          5,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_056",
+        "source_id": "Drain1000_instance_056",
+        "module": "Drain1000",
+        "translation_m": [
+          5,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "DrainCover1000_instance_057",
+        "source_id": "DrainCover1000_instance_057",
+        "module": "DrainCover1000",
+        "translation_m": [
+          5,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_058",
+        "source_id": "Kerb1000_instance_058",
+        "module": "Kerb1000",
+        "translation_m": [
+          5,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_059",
+        "source_id": "Pavement1000_instance_059",
+        "module": "Pavement1000",
+        "translation_m": [
+          6,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_060",
+        "source_id": "Drain1000_instance_060",
+        "module": "Drain1000",
+        "translation_m": [
+          6,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "DrainCover1000_instance_061",
+        "source_id": "DrainCover1000_instance_061",
+        "module": "DrainCover1000",
+        "translation_m": [
+          6,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_062",
+        "source_id": "Kerb1000_instance_062",
+        "module": "Kerb1000",
+        "translation_m": [
+          6,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_063",
+        "source_id": "Pavement1000_instance_063",
+        "module": "Pavement1000",
+        "translation_m": [
+          7,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_064",
+        "source_id": "Drain1000_instance_064",
+        "module": "Drain1000",
+        "translation_m": [
+          7,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "DrainCover1000_instance_065",
+        "source_id": "DrainCover1000_instance_065",
+        "module": "DrainCover1000",
+        "translation_m": [
+          7,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_066",
+        "source_id": "Kerb1000_instance_066",
+        "module": "Kerb1000",
+        "translation_m": [
+          7,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_067",
+        "source_id": "Pavement1000_instance_067",
+        "module": "Pavement1000",
+        "translation_m": [
+          8,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_068",
+        "source_id": "Drain1000_instance_068",
+        "module": "Drain1000",
+        "translation_m": [
+          8,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_069",
+        "source_id": "Kerb1000_instance_069",
+        "module": "Kerb1000",
+        "translation_m": [
+          8,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_070",
+        "source_id": "Pavement1000_instance_070",
+        "module": "Pavement1000",
+        "translation_m": [
+          9,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_071",
+        "source_id": "Drain1000_instance_071",
+        "module": "Drain1000",
+        "translation_m": [
+          9,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "DrainCover1000_instance_072",
+        "source_id": "DrainCover1000_instance_072",
+        "module": "DrainCover1000",
+        "translation_m": [
+          9,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_073",
+        "source_id": "Kerb1000_instance_073",
+        "module": "Kerb1000",
+        "translation_m": [
+          9,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Pavement1000_instance_074",
+        "source_id": "Pavement1000_instance_074",
+        "module": "Pavement1000",
+        "translation_m": [
+          10,
+          0.43,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Drain1000_instance_075",
+        "source_id": "Drain1000_instance_075",
+        "module": "Drain1000",
+        "translation_m": [
+          10,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "DrainCover1000_instance_076",
+        "source_id": "DrainCover1000_instance_076",
+        "module": "DrainCover1000",
+        "translation_m": [
+          10,
+          2.75,
+          -0.05
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "Kerb1000_instance_077",
+        "source_id": "Kerb1000_instance_077",
+        "module": "Kerb1000",
+        "translation_m": [
+          10,
+          3.28,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "JunctionInlet_instance_078",
+        "source_id": "JunctionInlet_instance_078",
+        "module": "JunctionInlet",
+        "translation_m": [
+          11.0,
+          3.22,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "RoadJunction_instance_079",
+        "source_id": "RoadJunction_instance_079",
+        "module": "RoadJunction",
+        "translation_m": [
+          0,
+          0,
+          -0.2
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "PlasterRepair_instance_080",
+        "source_id": "PlasterRepair_instance_080",
+        "module": "PlasterRepair",
+        "translation_m": [
+          0.45,
+          -0.035,
+          0.15
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "PlasterRepair_instance_081",
+        "source_id": "PlasterRepair_instance_081",
+        "module": "PlasterRepair",
+        "translation_m": [
+          4.05,
+          -0.035,
+          0.28
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "PlasterRepair_instance_082",
+        "source_id": "PlasterRepair_instance_082",
+        "module": "PlasterRepair",
+        "translation_m": [
+          8.2,
+          -0.035,
+          5.55
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-0:stock-0",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          0.8299999999999998,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-0:stock-1",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          1.1099999999999999,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-0:stock-2",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          1.39,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-0:stock-3",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          1.67,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-0:stock-4",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          1.95,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-0:stock-5",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          2.23,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-0:stock-6",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          2.51,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-0:stock-7",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          2.79,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-0:stock-8",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          3.0700000000000003,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-1:stock-0",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          0.8299999999999998,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-1:stock-1",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          1.1099999999999999,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-1:stock-2",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          1.39,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-1:stock-3",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          1.67,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-1:stock-4",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          1.95,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-1:stock-5",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          2.23,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-1:stock-6",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          2.51,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-1:stock-7",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          2.79,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-1:stock-8",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          3.0700000000000003,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-2:stock-0",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          0.8299999999999998,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-2:stock-1",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          1.1099999999999999,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-2:stock-2",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          1.39,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-2:stock-3",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          1.67,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-2:stock-4",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          1.95,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-2:stock-5",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          2.23,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-2:stock-6",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          2.51,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-2:stock-7",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          2.79,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-2:stock-8",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          3.0700000000000003,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-3:stock-0",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          0.8299999999999998,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-3:stock-1",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          1.1099999999999999,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-3:stock-2",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          1.39,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-3:stock-3",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          1.67,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-3:stock-4",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          1.95,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-3:stock-5",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          2.23,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-3:stock-6",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          2.51,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-3:stock-7",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          2.79,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:shelf-3:stock-8",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          3.0700000000000003,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:crate-0",
+        "source_id": null,
+        "module": "V3_TimberCrate",
+        "translation_m": [
+          0.75,
+          -1.61,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:sack-0",
+        "source_id": null,
+        "module": "V3_GrainSack",
+        "translation_m": [
+          0.75,
+          -1.61,
+          0.026
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:crate-1",
+        "source_id": null,
+        "module": "V3_TimberCrate",
+        "translation_m": [
+          1.27,
+          -1.61,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:sack-1",
+        "source_id": null,
+        "module": "V3_GrainSack",
+        "translation_m": [
+          1.27,
+          -1.61,
+          0.026
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:crate-2",
+        "source_id": null,
+        "module": "V3_TimberCrate",
+        "translation_m": [
+          3.0999999999999996,
+          -1.62,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:counter-stock-0",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          0.77,
+          -0.74,
+          0.991
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:counter-stock-1",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          1.0,
+          -0.74,
+          0.991
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:counter-stock-2",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          1.23,
+          -0.74,
+          0.991
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-0:counter-tin",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          1.52,
+          -0.75,
+          0.991
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-0:stock-0",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          8.629999999999999,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-0:stock-1",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          8.909999999999998,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-0:stock-2",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          9.19,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-0:stock-3",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          9.469999999999999,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-0:stock-4",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          9.75,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-0:stock-5",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          10.03,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-0:stock-6",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          10.309999999999999,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-0:stock-7",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          10.59,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-0:stock-8",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          10.87,
+          -2.51,
+          0.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-1:stock-0",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          8.629999999999999,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-1:stock-1",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          8.909999999999998,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-1:stock-2",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          9.19,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-1:stock-3",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          9.469999999999999,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-1:stock-4",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          9.75,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-1:stock-5",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          10.03,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-1:stock-6",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          10.309999999999999,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-1:stock-7",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          10.59,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-1:stock-8",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          10.87,
+          -2.51,
+          1.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-2:stock-0",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          8.629999999999999,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-2:stock-1",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          8.909999999999998,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-2:stock-2",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          9.19,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-2:stock-3",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          9.469999999999999,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-2:stock-4",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          9.75,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-2:stock-5",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          10.03,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-2:stock-6",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          10.309999999999999,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-2:stock-7",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          10.59,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-2:stock-8",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          10.87,
+          -2.51,
+          1.692
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-3:stock-0",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          8.629999999999999,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-3:stock-1",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          8.909999999999998,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-3:stock-2",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          9.19,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-3:stock-3",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          9.469999999999999,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-3:stock-4",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          9.75,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-3:stock-5",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          10.03,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-3:stock-6",
+        "source_id": null,
+        "module": "V3_StockBottle",
+        "translation_m": [
+          10.309999999999999,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-3:stock-7",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          10.59,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:shelf-3:stock-8",
+        "source_id": null,
+        "module": "V3_StockJar",
+        "translation_m": [
+          10.87,
+          -2.51,
+          2.192
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:crate-0",
+        "source_id": null,
+        "module": "V3_TimberCrate",
+        "translation_m": [
+          8.55,
+          -1.61,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:sack-0",
+        "source_id": null,
+        "module": "V3_GrainSack",
+        "translation_m": [
+          8.55,
+          -1.61,
+          0.026
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:crate-1",
+        "source_id": null,
+        "module": "V3_TimberCrate",
+        "translation_m": [
+          9.07,
+          -1.61,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:sack-1",
+        "source_id": null,
+        "module": "V3_GrainSack",
+        "translation_m": [
+          9.07,
+          -1.61,
+          0.026
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:crate-2",
+        "source_id": null,
+        "module": "V3_TimberCrate",
+        "translation_m": [
+          10.9,
+          -1.62,
+          0
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:counter-stock-0",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          8.57,
+          -0.74,
+          0.991
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:counter-stock-1",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          8.8,
+          -0.74,
+          0.991
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:counter-stock-2",
+        "source_id": null,
+        "module": "V3_PaperPackage",
+        "translation_m": [
+          9.030000000000001,
+          -0.74,
+          0.991
+        ],
+        "rotation_z_rad": 0
+      },
+      {
+        "id": "v3:shop-2:counter-tin",
+        "source_id": null,
+        "module": "V3_StockTin",
+        "translation_m": [
+          9.32,
+          -0.75,
+          0.991
+        ],
+        "rotation_z_rad": 0
+      }
+    ]
+  },
+  "actualImagesInspectedLocally": [
+    "WalkV3.png",
+    "Construction.png"
+  ],
+  "acceptance": "Bounded native import/contact/stock repair only; not final realism",
+  "normalEquivalence": "Existing verified timber DirectX original replaces same-source GL map; no second green flip",
+  "scriptSha256": "4130fea1f6e7c71606b8bd43fe82d9828f8add051e811a577ba9bb5d152f6d7e",
+  "gates": {
+    "accountAccess": false,
+    "movementAdmission": false,
+    "missionReadiness": false,
+    "utilityAuthority": false
+  }
+}
