@@ -1,0 +1,24 @@
+{
+  "saved_library": {
+    "scenes": [
+      "LagosSecondaryDetailingV1"
+    ],
+    "objects": 51,
+    "materials": [
+      "M_LagosDetail_Paper",
+      "M_LagosDetail_Opaque"
+    ],
+    "images": [
+      "LagosSecondaryDetailingV1_T_WeatherMasks_RGBA.003",
+      "LagosSecondaryDetailingV1_T_DetailAtlas_ORM.003",
+      "LagosSecondaryDetailingV1_T_DetailAtlas_BC.003"
+    ]
+  },
+  "hashes_match": true,
+  "workbench_scene": "BaddieAssetWorkbench",
+  "workbench_file": "C:\\dev\\baddie-assets\\Blender\\LagosWorkbench.blend",
+  "native_import": "not-run",
+  "geometry_visual": "not-rendered",
+  "niagara": "recipes-only",
+  "fbx_context": "Corrected; all 51 exported object names match intended IDs"
+}

@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "baseline_importer": ["M_LagosDetail_Opaque", "M_LagosDetail_Paper"],
+  "optional_importer": {"name": "M_LagosDetail_ClearPlastic_Close", "enable_argument": "include_close_plastic=True", "default_assigned": false, "blend": "translucent", "opacity": 0.22, "refraction": false, "scope": "Only a few nearby sachets; inspect against background before enabling"},
+  "weathering_integration_status": "Recipe and importable masks prepared; primary material integration not performed",
+  "mask_texture": {"file": "textures/T_WeatherMasks_RGBA.png", "srgb": false, "compression": "Masks; preserve alpha", "channels": {"R": "laterite dust", "G": "exhaust soot", "B": "algae", "A": "oxidation"}, "uv_orientation": "UV v=0 at image bottom, dust density maximum at v=1; remap wall-height to 1-saturate(height/0.5m) or reverse texture v appropriately"},
+  "vertex_contract": {"status": "optional-new-wall-derivative-only", "R": "dust amount", "G": "damp amount", "B": "soot amount", "A": "rust amount", "prohibited": "Never repurpose existing road color or five-channel point attribute contracts"},
+  "layers": [
+    {"name": "laterite", "base_color_srgb": [0.50,0.28,0.13], "roughness": 0.95, "metallic": 0, "rules": ["Uneven lower 0.5m gradient", "Blend out on swept thresholds and sheltered bays", "Do not paint vehicle glass"]},
+    {"name": "damp-algae", "base_color_srgb": [0.15,0.23,0.095], "roughness_range": [0.55,0.8], "rules": ["Follow shade, runoff and actual drain waterline", "Wetness darkens receiving base color, not opaque flat green", "Keep damp and algae controls independent"]},
+    {"name": "soot", "base_color_srgb": [0.055,0.050,0.043], "roughness": 0.95, "rules": ["Apply only near approved exhaust outlet", "Small local decal box or UV overlay", "No full-building repeated plume"]},
+    {"name": "rust", "base_color_srgb": [0.39,0.19,0.075], "roughness": 0.88, "metallic": 0, "rules": ["Oxide is dielectric; intact exposed metal stays separate", "Concentrate around cut edges, fixings and seams", "Preserve modeled corrugated ridges"]}
+  ],
+  "deferred_decal_materials": {"status": "Importer prepares four localized deferred-decal graphs during decals batch; no .uasset created until run", "names": ["M_LagosWeather_Dust", "M_LagosWeather_Soot", "M_LagosWeather_Algae", "M_LagosWeather_Rust"], "receivers": "Existing approved wall material", "rules": ["No broad overlapping transparent layers", "Small projection bounds", "Do not change receiving mesh decals globally", "Inspect with the primary native owner"]},
+  "normal_policy": "No fake albedo-derived normal. Geometry provides folds/tears; existing approved normals remain untouched.",
+  "performance": {"master_materials": "Share atlas parents; do not create a master per prop", "mipmaps": "enabled", "near_sachet_shadow": "Optional for hero view only; disable dense litter shadows", "decal_distance": "Tune screen-size fade in existing native preview; no measured budget claimed", "niagara": "Use placement-recipes.json caps; systems are not authored or imported by this kit"}
+}

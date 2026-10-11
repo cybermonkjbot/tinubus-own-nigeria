@@ -1,0 +1,916 @@
+{
+  "schema_version": 1,
+  "kit": "LagosSecondaryDetailingV1",
+  "status": "exported-unplaced-native-acceptance-pending",
+  "blender_version": "5.2.2 LTS",
+  "pid": 3224,
+  "author_script_sha256": "465d43c64cd2e4b240127f5e66bde14ea510b5dff23e38ae2b34893013f296ab",
+  "blend": "LagosSecondaryDetailingV1.blend",
+  "blend_sha256": "76f8f2838f96e853adc00492f40287dcf000667086d0aa1906ffa7e72b0560fd",
+  "coordinate_contract": {
+    "units": "metres",
+    "fbx_axis_forward": "-Y",
+    "fbx_axis_up": "Z",
+    "unreal_import_convert_scene": true,
+    "unreal_import_convert_scene_unit": true
+  },
+  "assets": [
+    {
+      "id": "SM_WaterSachet_A",
+      "batch": "litter",
+      "lods": [
+        {
+          "file": "fbx/SM_WaterSachet_A.fbx",
+          "sha256": "1f016e113dd9ac8e002fe38ca2d353f4ea9cf59ac65316e86e5afbd46cc6c22a",
+          "triangles": 320,
+          "dimensions_metres": [
+            0.13528,
+            0.18008,
+            0.01454
+          ],
+          "bytes": 25788
+        },
+        {
+          "file": "fbx/SM_WaterSachet_A_LOD1.fbx",
+          "sha256": "55d0aa5fb6258dc8855b78a4559ea57ff3c7ec9e70fd6f02b1cae4cd35bfbdff",
+          "triangles": 96,
+          "dimensions_metres": [
+            0.13518,
+            0.18004,
+            0.01389
+          ],
+          "bytes": 20972
+        },
+        {
+          "file": "fbx/SM_WaterSachet_A_LOD2.fbx",
+          "sha256": "7df734bdb0413826d28e954d2fecd079fd8800681c8ced6fcbe82ab410bc6300",
+          "triangles": 12,
+          "dimensions_metres": [
+            0.135,
+            0.18,
+            0.00577
+          ],
+          "bytes": 19244
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 4,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_WaterSachet_B",
+      "batch": "litter",
+      "lods": [
+        {
+          "file": "fbx/SM_WaterSachet_B.fbx",
+          "sha256": "ccfb64fcbb6b0e16eda5178e10ab5a77d93dca60c364ebe08f0872fc7efa7eb6",
+          "triangles": 320,
+          "dimensions_metres": [
+            0.13532,
+            0.1801,
+            0.01414
+          ],
+          "bytes": 25788
+        },
+        {
+          "file": "fbx/SM_WaterSachet_B_LOD1.fbx",
+          "sha256": "956a2e03cb33388a0b12578bb110372cc17e682094dd50084d546bdd16356357",
+          "triangles": 96,
+          "dimensions_metres": [
+            0.13517,
+            0.18003,
+            0.01404
+          ],
+          "bytes": 20988
+        },
+        {
+          "file": "fbx/SM_WaterSachet_B_LOD2.fbx",
+          "sha256": "11359dcc3265c6ecc951b691e2d1f3758f855811c27bee403da651fcdc62935c",
+          "triangles": 12,
+          "dimensions_metres": [
+            0.135,
+            0.18,
+            0.00619
+          ],
+          "bytes": 19244
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 4,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_SausageWrapper_A",
+      "batch": "litter",
+      "lods": [
+        {
+          "file": "fbx/SM_SausageWrapper_A.fbx",
+          "sha256": "34bec54eb931d63a1740076075ee24ca9da060a157bc229ef3c8f09edab15248",
+          "triangles": 320,
+          "dimensions_metres": [
+            0.07052,
+            0.18008,
+            0.01391
+          ],
+          "bytes": 25836
+        },
+        {
+          "file": "fbx/SM_SausageWrapper_A_LOD1.fbx",
+          "sha256": "eb3c7d13321f96ba7e813038ef16f50168c1e3820bcbdf10cd1d3810082299c8",
+          "triangles": 96,
+          "dimensions_metres": [
+            0.07028,
+            0.18002,
+            0.01347
+          ],
+          "bytes": 21004
+        },
+        {
+          "file": "fbx/SM_SausageWrapper_A_LOD2.fbx",
+          "sha256": "c6d8fb0990a16fef78b234f5881553f25924346eaa794c9a8bd0eaf54ccb994a",
+          "triangles": 12,
+          "dimensions_metres": [
+            0.07001,
+            0.18,
+            0.00488
+          ],
+          "bytes": 19260
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 5,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_NylonBag_A",
+      "batch": "litter",
+      "lods": [
+        {
+          "file": "fbx/SM_NylonBag_A.fbx",
+          "sha256": "36eea7f5c9d9f94262c63bdbef462f0628fa01cd1a125de0287716b2a142da8d",
+          "triangles": 220,
+          "dimensions_metres": [
+            0.23892,
+            0.18909,
+            0.19
+          ],
+          "bytes": 24764
+        },
+        {
+          "file": "fbx/SM_NylonBag_A_LOD1.fbx",
+          "sha256": "a36a03b957ee7ecf6863a97a2ed409fa099d71c5f4c7c20f7211c1c2a0e6f723",
+          "triangles": 96,
+          "dimensions_metres": [
+            0.23749,
+            0.1852,
+            0.19
+          ],
+          "bytes": 21484
+        },
+        {
+          "file": "fbx/SM_NylonBag_A_LOD2.fbx",
+          "sha256": "9a7508ee133e0fde11a271902ad8ba626c595970b2b71f323437209c54ef298d",
+          "triangles": 44,
+          "dimensions_metres": [
+            0.23433,
+            0.15192,
+            0.19
+          ],
+          "bytes": 20124
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 2,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_NylonBag_B",
+      "batch": "litter",
+      "lods": [
+        {
+          "file": "fbx/SM_NylonBag_B.fbx",
+          "sha256": "6e8ed5da938b107f196a0d8c1ce41f06fe86658e8d06a71b4db25f82a9f7e6aa",
+          "triangles": 220,
+          "dimensions_metres": [
+            0.23792,
+            0.19199,
+            0.19
+          ],
+          "bytes": 24796
+        },
+        {
+          "file": "fbx/SM_NylonBag_B_LOD1.fbx",
+          "sha256": "128d7bdaf3daffa3f52e749bcecf7270d90de38640246eb7083f4747a6b653b2",
+          "triangles": 96,
+          "dimensions_metres": [
+            0.23532,
+            0.18282,
+            0.19
+          ],
+          "bytes": 21500
+        },
+        {
+          "file": "fbx/SM_NylonBag_B_LOD2.fbx",
+          "sha256": "bc84b9bdd141dba1d4099c2a2aa8e475b7fbdd2ea3422fada6553f492af77765",
+          "triangles": 44,
+          "dimensions_metres": [
+            0.23182,
+            0.15215,
+            0.19
+          ],
+          "bytes": 20124
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 2,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_Tire_A",
+      "batch": "infrastructure",
+      "lods": [
+        {
+          "file": "fbx/SM_Tire_A.fbx",
+          "sha256": "d48c436b91250af97405506aff4bada2a65af5da13588d5da9c98cb81f2c6bb6",
+          "triangles": 1152,
+          "dimensions_metres": [
+            0.67854,
+            0.68229,
+            0.16
+          ],
+          "bytes": 44700
+        },
+        {
+          "file": "fbx/SM_Tire_A_LOD1.fbx",
+          "sha256": "9732180204c8156bd84dc0da4fdbbbe6b2db5e5c7fa99b18f692130d60b61cd7",
+          "triangles": 384,
+          "dimensions_metres": [
+            0.68094,
+            0.68062,
+            0.16
+          ],
+          "bytes": 27724
+        },
+        {
+          "file": "fbx/SM_Tire_A_LOD2.fbx",
+          "sha256": "e50c39400f141fd0f42f7599218efb693f0dcf7d094ae57e351097046f565430",
+          "triangles": 144,
+          "dimensions_metres": [
+            0.68142,
+            0.68231,
+            0.13856
+          ],
+          "bytes": 21900
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 1,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_PlankShort_A",
+      "batch": "infrastructure",
+      "lods": [
+        {
+          "file": "fbx/SM_PlankShort_A.fbx",
+          "sha256": "fc6b5df8f33b1b85602db75b4f3ee6ff7067db07e863976d2b08a989a6b92412",
+          "triangles": 44,
+          "dimensions_metres": [
+            0.22,
+            1.25,
+            0.035
+          ],
+          "bytes": 19628
+        },
+        {
+          "file": "fbx/SM_PlankShort_A_LOD1.fbx",
+          "sha256": "a0ed10ec875ebdbc97b0e593e74f114ef5f781a19cc22624fef16026d6e81984",
+          "triangles": 44,
+          "dimensions_metres": [
+            0.22,
+            1.25,
+            0.035
+          ],
+          "bytes": 19644
+        },
+        {
+          "file": "fbx/SM_PlankShort_A_LOD2.fbx",
+          "sha256": "f82eeed829827763b47b5288aaac75f0a458dacef74a60e33f35ac411648a17b",
+          "triangles": 44,
+          "dimensions_metres": [
+            0.22,
+            1.25,
+            0.035
+          ],
+          "bytes": 19644
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 0,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_GutterPlanks_A",
+      "batch": "infrastructure",
+      "lods": [
+        {
+          "file": "fbx/SM_GutterPlanks_A.fbx",
+          "sha256": "ed1d076f8999654ae74f65eeb47d1d6a548ee2cca854ae6cbadff3ad10589146",
+          "triangles": 36,
+          "dimensions_metres": [
+            0.68,
+            1.25,
+            0.045
+          ],
+          "bytes": 21740
+        },
+        {
+          "file": "fbx/SM_GutterPlanks_A_LOD1.fbx",
+          "sha256": "f82afa1b6f2d65826b5163bc0a95360c5b204a05d4a540b432b2b012ed7f8dbd",
+          "triangles": 36,
+          "dimensions_metres": [
+            0.68,
+            1.25,
+            0.045
+          ],
+          "bytes": 19164
+        },
+        {
+          "file": "fbx/SM_GutterPlanks_A_LOD2.fbx",
+          "sha256": "f030c3d32e130ce90a77e160346997c4fb2dfe8bb98d4ae73e247f8dabea29b6",
+          "triangles": 36,
+          "dimensions_metres": [
+            0.68,
+            1.25,
+            0.045
+          ],
+          "bytes": 19164
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "UCX-approved-crossing-only",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 0,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_RoofStone_A",
+      "batch": "infrastructure",
+      "lods": [
+        {
+          "file": "fbx/SM_RoofStone_A.fbx",
+          "sha256": "452045a095e44fb6ad0ed44bd287888f67304d64a8a6335eaa4603655e7f1781",
+          "triangles": 80,
+          "dimensions_metres": [
+            0.29399,
+            0.21268,
+            0.09
+          ],
+          "bytes": 20844
+        },
+        {
+          "file": "fbx/SM_RoofStone_A_LOD1.fbx",
+          "sha256": "2f0a3b19160893b701cea10c6f96c0944174649cc62f9195b216c9e3c3d582df",
+          "triangles": 50,
+          "dimensions_metres": [
+            0.30925,
+            0.20375,
+            0.09
+          ],
+          "bytes": 20172
+        },
+        {
+          "file": "fbx/SM_RoofStone_A_LOD2.fbx",
+          "sha256": "bb24ac44489c0dd8a6a0fa85ac8b485562a98f5bed8ef20bc99237e12b4fce3a",
+          "triangles": 32,
+          "dimensions_metres": [
+            0.28517,
+            0.19163,
+            0.09
+          ],
+          "bytes": 19676
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 3,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_RoofStone_B",
+      "batch": "infrastructure",
+      "lods": [
+        {
+          "file": "fbx/SM_RoofStone_B.fbx",
+          "sha256": "a6358feae876135568c82a2968a18d417801f17b15837b63d5bced4c6782cd76",
+          "triangles": 80,
+          "dimensions_metres": [
+            0.28157,
+            0.20535,
+            0.09
+          ],
+          "bytes": 20860
+        },
+        {
+          "file": "fbx/SM_RoofStone_B_LOD1.fbx",
+          "sha256": "66f209b9e65c600e3f986b9794cee40bf1f81efc9e869fe6f5d1e697b54907dd",
+          "triangles": 50,
+          "dimensions_metres": [
+            0.31246,
+            0.18266,
+            0.09
+          ],
+          "bytes": 20188
+        },
+        {
+          "file": "fbx/SM_RoofStone_B_LOD2.fbx",
+          "sha256": "dde09eae77c73c3d9ae1bd363996b3ad68fc2394692b1f6cfc7393729211d345",
+          "triangles": 32,
+          "dimensions_metres": [
+            0.29485,
+            0.17765,
+            0.09
+          ],
+          "bytes": 19676
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 3,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_CableSpan8m_A",
+      "batch": "infrastructure",
+      "lods": [
+        {
+          "file": "fbx/SM_CableSpan8m_A.fbx",
+          "sha256": "3aa69df528856b0dc68729f059a245705f32739ece192323893155d4f242ca9d",
+          "triangles": 296,
+          "dimensions_metres": [
+            8.0,
+            0.016,
+            0.86386
+          ],
+          "bytes": 24012
+        },
+        {
+          "file": "fbx/SM_CableSpan8m_A_LOD1.fbx",
+          "sha256": "defbc39f4658306c925f9dbb752ba57271eb32706cea1eaa2bd3359235225163",
+          "triangles": 100,
+          "dimensions_metres": [
+            8.0,
+            0.016,
+            0.866
+          ],
+          "bytes": 20572
+        },
+        {
+          "file": "fbx/SM_CableSpan8m_A_LOD2.fbx",
+          "sha256": "5b69e4728c4d28fdd1020c537b8de6615fd65192abfbfb3cc93f1250a4b2c622",
+          "triangles": 38,
+          "dimensions_metres": [
+            8.0,
+            0.012,
+            0.86386
+          ],
+          "bytes": 19468
+        }
+      ],
+      "material": "M_LagosDetail_Opaque",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 1,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_PosterCampaign_A",
+      "batch": "decals",
+      "lods": [
+        {
+          "file": "fbx/SM_PosterCampaign_A.fbx",
+          "sha256": "5218c2e56c920592311e6f1c6b48c320669810f66701e4b9b190139d6c3b108c",
+          "triangles": 128,
+          "dimensions_metres": [
+            0.43,
+            0.01401,
+            0.6
+          ],
+          "bytes": 22252
+        },
+        {
+          "file": "fbx/SM_PosterCampaign_A_LOD1.fbx",
+          "sha256": "11c526db093e00d6b98605825166c73f34d1776db3c64205636ee93897061e95",
+          "triangles": 32,
+          "dimensions_metres": [
+            0.43,
+            0.01379,
+            0.6
+          ],
+          "bytes": 20204
+        },
+        {
+          "file": "fbx/SM_PosterCampaign_A_LOD2.fbx",
+          "sha256": "317fedd7cf7a8f4f45f2cb1acc6e58ae05e88c55c1eb41962354c4fb786e5de4",
+          "triangles": 2,
+          "dimensions_metres": [
+            0.43,
+            0.00664,
+            0.6
+          ],
+          "bytes": 19484
+        }
+      ],
+      "material": "M_LagosDetail_Paper",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 6,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_PosterChurch_A",
+      "batch": "decals",
+      "lods": [
+        {
+          "file": "fbx/SM_PosterChurch_A.fbx",
+          "sha256": "645386bb1798a1fc13754d55a9f29cbebc8e83df028c82d7446ce23ff2ffd75d",
+          "triangles": 128,
+          "dimensions_metres": [
+            0.43,
+            0.01479,
+            0.6
+          ],
+          "bytes": 22284
+        },
+        {
+          "file": "fbx/SM_PosterChurch_A_LOD1.fbx",
+          "sha256": "6066cf5ae38f914db97cd3d5f5ffaefb4b1f74fe90fcf67b2777f1d3c6d8bb2e",
+          "triangles": 32,
+          "dimensions_metres": [
+            0.43,
+            0.01293,
+            0.6
+          ],
+          "bytes": 20204
+        },
+        {
+          "file": "fbx/SM_PosterChurch_A_LOD2.fbx",
+          "sha256": "e81d99d3b0aa4ee2526ede37b374d4c8eccefb8ea78011c1152944c0e7c302a0",
+          "triangles": 2,
+          "dimensions_metres": [
+            0.43,
+            0.00726,
+            0.6
+          ],
+          "bytes": 19468
+        }
+      ],
+      "material": "M_LagosDetail_Paper",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 7,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_PosterObituary_A",
+      "batch": "decals",
+      "lods": [
+        {
+          "file": "fbx/SM_PosterObituary_A.fbx",
+          "sha256": "4c74bd430c929d3770c01de1a0985682e8d374021afb213796ea022297996d56",
+          "triangles": 128,
+          "dimensions_metres": [
+            0.43,
+            0.01472,
+            0.6
+          ],
+          "bytes": 22300
+        },
+        {
+          "file": "fbx/SM_PosterObituary_A_LOD1.fbx",
+          "sha256": "9d046bb6c4c2a529adcc7e6e4107b8db5e2a64074859862e489189d90d54c796",
+          "triangles": 32,
+          "dimensions_metres": [
+            0.43,
+            0.01144,
+            0.6
+          ],
+          "bytes": 20204
+        },
+        {
+          "file": "fbx/SM_PosterObituary_A_LOD2.fbx",
+          "sha256": "e9a9896e0aab8d6f618c11260a567de6983c39fb91a25951346a3b93344b2277",
+          "triangles": 2,
+          "dimensions_metres": [
+            0.43,
+            0.00488,
+            0.6
+          ],
+          "bytes": 19484
+        }
+      ],
+      "material": "M_LagosDetail_Paper",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 8,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_Warning419_A",
+      "batch": "decals",
+      "lods": [
+        {
+          "file": "fbx/SM_Warning419_A.fbx",
+          "sha256": "4dc643c3e6a3d8c5f9863d051fe7e4f198db0dc5d5bdebec92aeca2de5ee7aa1",
+          "triangles": 128,
+          "dimensions_metres": [
+            0.43,
+            0.0137,
+            0.6
+          ],
+          "bytes": 22252
+        },
+        {
+          "file": "fbx/SM_Warning419_A_LOD1.fbx",
+          "sha256": "077e4b78121b913dce4086890f20f96800ba5aaf97af8e56451347f6425ffc94",
+          "triangles": 32,
+          "dimensions_metres": [
+            0.43,
+            0.01248,
+            0.6
+          ],
+          "bytes": 20204
+        },
+        {
+          "file": "fbx/SM_Warning419_A_LOD2.fbx",
+          "sha256": "3e34791762a4dddb4b9f5d5d0089dcb594a6e4bda2b493c0426a159c6011058a",
+          "triangles": 2,
+          "dimensions_metres": [
+            0.43,
+            0.00647,
+            0.6
+          ],
+          "bytes": 19468
+        }
+      ],
+      "material": "M_LagosDetail_Paper",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 9,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_PostNoBill_A",
+      "batch": "decals",
+      "lods": [
+        {
+          "file": "fbx/SM_PostNoBill_A.fbx",
+          "sha256": "6525ddbb8229f16eb9b59cfb9a1568ed1488c7e39f004624c742ee740eaa6fbb",
+          "triangles": 128,
+          "dimensions_metres": [
+            0.43,
+            0.01437,
+            0.6
+          ],
+          "bytes": 22284
+        },
+        {
+          "file": "fbx/SM_PostNoBill_A_LOD1.fbx",
+          "sha256": "71eefbfd3b9bd744e6423b9972c03287fde5023d875a52f87e08342a95eb2cad",
+          "triangles": 32,
+          "dimensions_metres": [
+            0.43,
+            0.01303,
+            0.6
+          ],
+          "bytes": 20188
+        },
+        {
+          "file": "fbx/SM_PostNoBill_A_LOD2.fbx",
+          "sha256": "d348e2463272910f53c95b14a769173a92c4d4a484ecd4ba15e4f15095159d38",
+          "triangles": 2,
+          "dimensions_metres": [
+            0.43,
+            0.00757,
+            0.6
+          ],
+          "bytes": 19468
+        }
+      ],
+      "material": "M_LagosDetail_Paper",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 10,
+      "nanite_default": false
+    },
+    {
+      "id": "SM_ShopSignRepairs_A",
+      "batch": "decals",
+      "lods": [
+        {
+          "file": "fbx/SM_ShopSignRepairs_A.fbx",
+          "sha256": "c17374d25602d778066939fa15f3c7d80612f7163fe7f0c9d5ec8bed24198ea0",
+          "triangles": 128,
+          "dimensions_metres": [
+            0.43,
+            0.01458,
+            0.6
+          ],
+          "bytes": 22284
+        },
+        {
+          "file": "fbx/SM_ShopSignRepairs_A_LOD1.fbx",
+          "sha256": "9c62426c8ed66c28c8744917b6ba8887bd06e95460ea1b66458ad04a3893c136",
+          "triangles": 32,
+          "dimensions_metres": [
+            0.43,
+            0.01244,
+            0.6
+          ],
+          "bytes": 20204
+        },
+        {
+          "file": "fbx/SM_ShopSignRepairs_A_LOD2.fbx",
+          "sha256": "adc5f70a4ec64a3f76abef50efe69995ee51659e88954223f0dace5e52ab99bd",
+          "triangles": 2,
+          "dimensions_metres": [
+            0.43,
+            0.00543,
+            0.6
+          ],
+          "bytes": 19484
+        }
+      ],
+      "material": "M_LagosDetail_Paper",
+      "collision": "none",
+      "lod_screen_sizes": [
+        1.0,
+        0.12,
+        0.035
+      ],
+      "pivot": "contact plane; local origin; metres; Z up",
+      "atlas_tile": 11,
+      "nanite_default": false
+    }
+  ],
+  "textures": [
+    {
+      "file": "textures/T_DetailAtlas_BC.png",
+      "sha256": "979323fed7391d54aed8b49038f39adceaf45901b380f78581d0e9398f982ce1",
+      "bytes": 5652011,
+      "srgb": true
+    },
+    {
+      "file": "textures/T_DetailAtlas_ORM.png",
+      "sha256": "96106839fa9cfde91560c19822a1e0c9ebd2fa2664244a865e6bbf3774498787",
+      "bytes": 4480224,
+      "srgb": false
+    },
+    {
+      "file": "textures/T_WeatherMasks_RGBA.png",
+      "sha256": "814045cb195525a099bd33f97aa20e3695a0f7c41fe4b6859a780472b39904c3",
+      "bytes": 1901303,
+      "srgb": false
+    }
+  ],
+  "timber_provenance": {
+    "id": "wood_planks_grey",
+    "license": "CC0-1.0",
+    "authors": {
+      "Rob Tuytel": "All"
+    },
+    "source_path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\material-inputs-verified\\wood_planks_grey\\wood_planks_grey_diff_2k.jpg",
+    "source_sha256": "31bdd475c6f1520fccc34a6823bfab8ba61ce5fd6dd97a3d1d868c21295e1000",
+    "source_manifest_sha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46"
+  },
+  "performance": {
+    "materials": 2,
+    "shared_color_orm_atlas_size": 2048,
+    "weather_mask_size": 1024,
+    "lod_count": 3,
+    "measured_fps": null
+  },
+  "workbench_before": {
+    "file": "C:\\dev\\baddie-assets\\Blender\\LagosWorkbench.blend",
+    "scene": "BaddieAssetWorkbench",
+    "objects": [
+      "Cube",
+      "Light",
+      "Camera"
+    ]
+  },
+  "workbench_after": {
+    "file": "C:\\dev\\baddie-assets\\Blender\\LagosWorkbench.blend",
+    "scene": "BaddieAssetWorkbench",
+    "objects": [
+      "Cube",
+      "Light",
+      "Camera"
+    ]
+  },
+  "acceptance": {
+    "unreal_import": "not-run",
+    "rendered_geometry": "not-run",
+    "atlas_inspection": "Text fit, torn masked edges and nonperiodic algae mask inspected; warning edge color darkened in r4; no rendered geometry or native visual acceptance",
+    "niagara": "handoff-only",
+    "world_placement": "none",
+    "export_context": "Corrected native window.scene binding; all 51 FBX object IDs inspected in binary payload"
+  },
+  "texture_revision": "r4; geometry unchanged"
+}

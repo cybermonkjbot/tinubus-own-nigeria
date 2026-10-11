@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "status": "unplaced-anchor-relative-authoring-recipes",
+  "coordinate_policy": "Use approved primary transforms; metres in authoring, centimetres in Unreal. No layout/topography mutation.",
+  "batch_policy": {"cell_metres": 25, "group_key": ["mesh", "materials", "collision", "mobility", "custom_data_shape"], "journal_required": true},
+  "recipes": [
+    {"id": "drain-catch", "anchor": "existing drain catch or bend", "assets": ["SM_WaterSachet_A", "SM_WaterSachet_B", "SM_SausageWrapper_A", "SM_NylonBag_A"], "count_range": [3, 9], "extent_metres": [1.2, 0.5], "rules": ["Fit actual water/bed surface", "Do not bridge or seal whole drain", "No collision", "Suppress outside pockets; no uniform roadside carpet"], "candidate_draw_distance_metres": 28},
+    {"id": "repair-bay", "anchor": "approved existing repair frontage", "assets": ["SM_Tire_A", "SM_PlankShort_A", "SM_NylonBag_B"], "count_range": [2, 4], "rules": ["Retain clear swept working patch", "Outside door swing, drain and pedestrian path", "No new repair building"], "candidate_draw_distance_metres": 65},
+    {"id": "gutter-crossing", "anchor": "approved existing entrance crossing", "assets": ["SM_GutterPlanks_A"], "count_range": [1, 1], "rules": ["Both ends supported on approved banks", "Span checked against actual drain width", "Do not scale a fixed crossing into an unsafe unsupported span", "Collision enabled only by primary gameplay owner"]},
+    {"id": "roof-weights", "anchor": "existing corrugated roof", "assets": ["SM_RoofStone_A", "SM_RoofStone_B"], "count_range": [2, 5], "rules": ["Contact real roof surface", "No floating stones", "Keep off drainage outlet", "No collision"], "candidate_draw_distance_metres": 70},
+    {"id": "notice-cluster", "anchor": "existing public wall outside controls/doors", "assets": ["SM_PosterCampaign_A", "SM_PosterChurch_A", "SM_PosterObituary_A"], "count_range": [2, 4], "rules": ["One locally readable layer; partial older layers", "Keep away from maintained private shop signage", "No paper volumes coplanar with receiving wall"], "candidate_draw_distance_metres": 45},
+    {"id": "power-web", "anchor": "existing approved poles and building attachments", "assets": ["SM_CableSpan8m_A"], "rules": ["Library span is illustrative; regenerate spline from actual endpoints", "Keep crossing and doorway clearances", "No arbitrary pole placement", "No gameplay power/network authority"], "candidate_draw_distance_metres": 100},
+    {"id": "generator-soot", "anchor": "existing approved exhaust outlet", "decal_tile": 13, "rules": ["Align plume to actual outlet and wall", "Do not stain unrelated adjacent walls", "No generator spawning"]},
+    {"id": "dust-and-damp", "anchor": "existing mesh surface", "rules": ["Dust limited primarily to lower 0.5 m with uneven edge", "Damp follows actual shade, drain and drip evidence", "Preserve existing road vertex channels", "Do not use algae uniformly across maintained frontages"]}
+  ],
+  "micro_vfx": [
+    {"id": "flies", "status": "Niagara-owner-handoff-not-created", "anchor": "approved exposed organic waste", "maximum_live_particles": 12, "candidate_activation_distance_metres": 12, "fixed_bounds_metres": [1.5,1.5,1.2], "collision": false, "shadows": false, "persistent_offscreen_simulation": false},
+    {"id": "ac-drip", "status": "Niagara-owner-handoff-not-created", "anchor": "existing AC outlet", "maximum_live_particles": 8, "candidate_activation_distance_metres": 15, "rules": ["One measured fall path", "No scene-depth collision by default", "Fixed contact splash/wet decal", "No synthetic AC units"]},
+    {"id": "heat-shimmer", "status": "optional-Niagara-owner-handoff-not-created", "anchor": "existing operating generator or approved hot asphalt", "maximum_live_particles": 2, "candidate_activation_distance_metres": 12, "rules": ["Distortion optional and scalability gated", "No screen-wide effect", "Disable on low-quality target until measured"]}
+  ]
+}
