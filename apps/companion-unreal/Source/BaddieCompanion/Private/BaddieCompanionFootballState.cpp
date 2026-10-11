@@ -2,6 +2,10 @@
 #include "BaddieCompanionStateJson.h"
 #include "Serialization/JsonSerializer.h"
 #include "Serialization/JsonWriter.h"
+#include "Internationalization/TextComparison.h"
+#include "Containers/StringConv.h"
+#include <cmath>
+#include <limits>
 
 namespace BaddieCompanion
 {
@@ -17,6 +21,274 @@ namespace BaddieCompanion
         const TCHAR* InvalidEntry = TEXT("Football players couldn't load. Reopen the roster to try again.");
         const TCHAR* Disconnected = TEXT("Football disconnected. Reconnect to continue.");
         const TCHAR* CommandFailed = TEXT("Couldn't update the match. Try again.");
+        const TCHAR* OpenFailed = TEXT("Couldn't open football. Try again.");
+        // Pinned footballLimits. Source milliseconds and metres, not Unreal centimetres.
+        constexpr double InputMs = 200, InputRenewMs = 400, TickMs = 200;
+        constexpr double PlayerRadius = .42, BallRadius = .16;
+
+        double ClockMs(FDateTime Now) { return static_cast<double>(Now.ToUnixTimestamp()) * 1000 + Now.GetMillisecond(); }
+        double Length(const FFootballPoint& P) { return std::hypot(P.X, P.Z); }
+        double Distance(const FFootballPoint& A, const FFootballPoint& B) { return Length({ A.X - B.X, A.Z - B.Z }); }
+        bool SafeInteger(double Value, int64 Minimum = -9007199254740991LL)
+        {
+            int64 Out = 0;
+            return Integer(MakeShared<FJsonValueNumber>(Value), Out, Minimum);
+        }
+        bool FinitePoint(const FFootballPoint& P) { return FMath::IsFinite(P.X) && FMath::IsFinite(P.Z); }
+        bool Moving(const FFootballInput& Input) { return Input.Destination.IsSet() || Length(Input.Move) > 0; }
+        bool ValidInput(const FFootballInput& Input, const FFootballPitch& Pitch)
+        {
+            const bool bAction = Input.Action == EFootballAction::None || Input.Action == EFootballAction::Pass
+                || Input.Action == EFootballAction::Shoot || Input.Action == EFootballAction::Challenge;
+            return SafeInteger(Input.Sequence, 1) && FinitePoint(Input.Move) && FinitePoint(Input.Aim)
+                && Length(Input.Move) <= 1.01 && Length(Input.Aim) <= 1.01
+                && FMath::IsFinite(Input.Power) && Input.Power >= .1 && Input.Power <= 1 && bAction
+                && (!Input.TargetPlayerId.IsSet() || Input.TargetPlayerId->Len() <= 160)
+                && (!Input.Destination.IsSet() || (FinitePoint(Input.Destination.GetValue())
+                    && FMath::Abs(Input.Destination->X - Pitch.Centre.X) <= Pitch.HalfWidth
+                    && FMath::Abs(Input.Destination->Z - Pitch.Centre.Z) <= Pitch.HalfLength))
+                && (!Input.CancelActions.Get(false) || (Input.Action == EFootballAction::None && !Input.Destination.IsSet()
+                    && Length(Input.Move) == 0 && !Input.TargetPlayerId.IsSet()));
+        }
+        FObject PointJson(const FFootballPoint& P)
+        {
+            auto O = MakeShared<FJsonObject>(); O->SetNumberField(TEXT("x"), P.X); O->SetNumberField(TEXT("z"), P.Z); return O;
+        }
+        FObject InputJson(const FFootballInput& Input)
+        {
+            auto O = MakeShared<FJsonObject>();
+            O->SetNumberField(TEXT("sequence"), Input.Sequence);
+            O->SetObjectField(TEXT("move"), PointJson(Input.Move)); O->SetObjectField(TEXT("aim"), PointJson(Input.Aim));
+            if (Input.Destination.IsSet()) O->SetObjectField(TEXT("destination"), PointJson(Input.Destination.GetValue()));
+            else O->SetField(TEXT("destination"), MakeShared<FJsonValueNull>());
+            const TCHAR* Action = Input.Action == EFootballAction::Pass ? TEXT("pass") : Input.Action == EFootballAction::Shoot ? TEXT("shoot")
+                : Input.Action == EFootballAction::Challenge ? TEXT("challenge") : TEXT("none");
+            O->SetStringField(TEXT("action"), Action);
+            if (Input.TargetPlayerId.IsSet()) O->SetStringField(TEXT("targetPlayerId"), Input.TargetPlayerId.GetValue());
+            else O->SetField(TEXT("targetPlayerId"), MakeShared<FJsonValueNull>());
+            O->SetNumberField(TEXT("power"), Input.Power);
+            if (Input.CancelActions.IsSet()) O->SetBoolField(TEXT("cancelActions"), Input.CancelActions.GetValue());
+            return O;
+        }
+        bool Json(const FObject& O, FString& Out) { return FJsonSerializer::Serialize(O.ToSharedRef(), TJsonWriterFactory<>::Create(&Out)); }
+        bool SameInput(const FFootballInput& A, const FFootballInput& B)
+        {
+            FString Left, Right; return Json(InputJson(A), Left) && Json(InputJson(B), Right) && Same(Left, Right);
+        }
+        const FFootballPlayer* CurrentPlayer(const FFootballSnapshot& Snapshot)
+        {
+            if (!Snapshot.Match.IsSet() || !Snapshot.PlayerId.IsSet()) return nullptr;
+            return Snapshot.Match->Players.FindByPredicate([&](const FFootballPlayer& P) { return Same(P.Id, Snapshot.PlayerId.GetValue()); });
+        }
+        bool SameId(const TOptional<FString>& Id, const FString& Other) { return Id.IsSet() && Same(Id.GetValue(), Other); }
+        bool SameNullableId(const TOptional<FString>& A, const TOptional<FString>& B)
+        {
+            return A.IsSet() == B.IsSet() && (!A.IsSet() || Same(A.GetValue(), B.GetValue()));
+        }
+        bool ValidEntry(const FFootballEntrySelection& Entry, bool bCheckRequest = true)
+        {
+            if (Entry.InstanceId.IsEmpty() || Entry.InstanceId.Len() > 160 || !SafeInteger(Entry.Revision, 0) || !SafeInteger(Entry.Epoch, 0)
+                || Entry.Players.Num() < 1 || Entry.Players.Num() > MatchPlayers) return false;
+            if (bCheckRequest)
+            {
+                if (Entry.RequestId.Len() < 8 || Entry.RequestId.Len() > 64) return false;
+                for (TCHAR C : Entry.RequestId)
+                    if (!((C >= 'a' && C <= 'z') || (C >= 'A' && C <= 'Z') || (C >= '0' && C <= '9') || C == '_' || C == '-')) return false;
+            }
+            bool bHome = false, bAway = false;
+            for (int32 I = 0; I < Entry.Players.Num(); ++I)
+            {
+                const auto& P = Entry.Players[I];
+                if (P.Id.IsEmpty() || P.Id.Len() > 160 || (P.Side != EFootballSide::Home && P.Side != EFootballSide::Away)) return false;
+                for (int32 J = 0; J < I; ++J) if (Same(P.Id, Entry.Players[J].Id)) return false;
+                bHome |= P.Side == EFootballSide::Home; bAway |= P.Side == EFootballSide::Away;
+            }
+            switch (Entry.Mode)
+            {
+            case EFootballMode::Solo: return Entry.Players.Num() == 1 && bHome;
+            case EFootballMode::Coop: return Entry.Players.Num() <= MatchPlayers - 4 && !bAway;
+            case EFootballMode::Teams: return bHome && bAway;
+            default: return false;
+            }
+        }
+        bool SameEntry(const FFootballEntrySelection& A, const FFootballEntrySelection& B)
+        {
+            if (!Same(A.InstanceId, B.InstanceId) || A.Revision != B.Revision || A.Epoch != B.Epoch || A.Mode != B.Mode || A.Players.Num() != B.Players.Num()) return false;
+            for (int32 I = 0; I < A.Players.Num(); ++I)
+                if (!Same(A.Players[I].Id, B.Players[I].Id) || A.Players[I].Side != B.Players[I].Side) return false;
+            return true; // RequestId deliberately excluded from manual-retry identity.
+        }
+        FObject EntryJson(const FFootballEntrySelection& Entry, const FString& RoomId)
+        {
+            auto Args = MakeShared<FJsonObject>();
+            Args->SetStringField(TEXT("roomId"), RoomId); Args->SetStringField(TEXT("instanceId"), Entry.InstanceId);
+            Args->SetNumberField(TEXT("revision"), Entry.Revision); Args->SetNumberField(TEXT("epoch"), Entry.Epoch);
+            Args->SetStringField(TEXT("requestId"), Entry.RequestId);
+            Args->SetStringField(TEXT("mode"), Entry.Mode == EFootballMode::Solo ? TEXT("solo") : Entry.Mode == EFootballMode::Teams ? TEXT("teams") : TEXT("coop"));
+            TArray<TSharedPtr<FJsonValue>> Players;
+            for (const auto& Player : Entry.Players)
+            {
+                auto P = MakeShared<FJsonObject>(); P->SetStringField(TEXT("id"), Player.Id);
+                P->SetStringField(TEXT("side"), Player.Side == EFootballSide::Home ? TEXT("home") : TEXT("away"));
+                Players.Add(MakeShared<FJsonValueObject>(P));
+            }
+            Args->SetArrayField(TEXT("players"), Players); return Args;
+        }
+
+        // Read-only dependency of footballNextAdvanceAt. This evaluates target distance
+        // and action wakeups; it never produces NPC inputs or advances match state.
+        enum class ENpcRole : uint8 { Keeper, Defender, Playmaker, Striker };
+        struct FNpcStyle { ENpcRole Role; double Lane, Anticipation; };
+        uint32 NpcSeed(const FString& Id)
+        {
+            uint32 Value = 2166136261u;
+            const auto Units = StringCast<UTF16CHAR>(*Id, Id.Len());
+            for (int32 I = 0; I < Units.Length(); ++I) Value = (Value ^ static_cast<uint32>(Units.Get()[I])) * 16777619u;
+            return Value;
+        }
+        FNpcStyle NpcStyle(const FFootballPlayer& Player)
+        {
+            const uint32 Seed = NpcSeed(Player.Id);
+            TArray<FString> Parts; Player.Id.ParseIntoArray(Parts, TEXT(":"), false);
+            ENpcRole Role = static_cast<ENpcRole>(1 + Seed % 3);
+            if (Parts.IsValidIndex(2))
+            {
+                if (Same(Parts[2], TEXT("defender"))) Role = ENpcRole::Defender;
+                else if (Same(Parts[2], TEXT("playmaker"))) Role = ENpcRole::Playmaker;
+                else if (Same(Parts[2], TEXT("striker"))) Role = ENpcRole::Striker;
+            }
+            if (Player.bGoalkeeper) Role = ENpcRole::Keeper;
+            return { Role, (static_cast<int32>((Seed >> 4) % 3) - 1) * .48, .18 + (Seed % 5) * .05 };
+        }
+        double Clamp(double N, double Low, double High) { return FMath::Max(Low, FMath::Min(High, N)); }
+        FFootballPoint BoundedPoint(const FFootballPitch& P, FFootballPoint Point)
+        {
+            constexpr double Margin = PlayerRadius + .2;
+            return { Clamp(Point.X, P.Centre.X - P.HalfWidth + Margin, P.Centre.X + P.HalfWidth - Margin),
+                Clamp(Point.Z, P.Centre.Z - P.HalfLength + Margin, P.Centre.Z + P.HalfLength - Margin) };
+        }
+        bool IdLess(const FString& A, const FString& B)
+        {
+            // NPC tie breaks use raw JS string order, unlike the opening roster's collation.
+            return A.Compare(B, ESearchCase::CaseSensitive) < 0;
+        }
+        bool NpcsNeedAdvance(const FFootballMatch& Match, double NowMs)
+        {
+            if (Match.Phase != EFootballPhase::Playing) return false;
+            TArray<const FFootballPlayer*> Active;
+            for (const auto& P : Match.Players) if (P.bConnected && Active.Num() < MatchPlayers) Active.Add(&P);
+            const FFootballPlayer* Owner = nullptr;
+            for (const auto* P : Active) if (SameId(Match.Ball.OwnerId, P->Id)) { Owner = P; break; }
+            const auto& Pitch = Match.Pitch;
+            struct FNpcWake { FString Id; FFootballPoint Target; bool bAction = false; };
+            TArray<FNpcWake> Wakes;
+            const auto StoreWake = [&](const FString& Id, FFootballPoint Target, bool bAction) {
+                auto* Prior = Wakes.FindByPredicate([&](const FNpcWake& W) { return Same(W.Id, Id); });
+                if (Prior) { Prior->Target = Target; Prior->bAction = bAction; }
+                else Wakes.Add({ Id, Target, bAction });
+            };
+            for (const auto* Player : Active)
+            {
+                if (!Player->bBot) continue;
+                // The canonical predicate returns true for a bot carrier regardless of
+                // its chosen kick/pass. Those choices are outside this dependency closure.
+                if (SameId(Match.Ball.OwnerId, Player->Id)) return true;
+                const auto Style = NpcStyle(*Player);
+                const double Sign = Player->Side == EFootballSide::Home ? -1 : 1;
+                FFootballPoint Target;
+                bool bPursuing = false;
+                if (Player->bGoalkeeper)
+                {
+                    Target = { Clamp(Match.Ball.Position.X, Pitch.Centre.X - Pitch.GoalHalfWidth + .3, Pitch.Centre.X + Pitch.GoalHalfWidth - .3),
+                        Pitch.Centre.Z - Sign * (Pitch.HalfLength - 1.1) };
+                    StoreWake(Player->Id, Target, false);
+                    continue;
+                }
+                if (Owner && Owner->Side == Player->Side)
+                {
+                    const double Forward = Style.Role == ENpcRole::Striker ? 5 : Style.Role == ENpcRole::Defender ? -5 : 1.5;
+                    const double Lane = Style.Lane != 0 ? Style.Lane : NpcSeed(Player->Id) % 2 ? .48 : -.48;
+                    Target = BoundedPoint(Pitch, { Pitch.Centre.X + Lane * Pitch.HalfWidth, Owner->Position.Z + Sign * Forward });
+                }
+                else
+                {
+                    const auto TeamTarget = BoundedPoint(Pitch, { Match.Ball.Position.X + Match.Ball.Velocity.X * .28,
+                        Match.Ball.Position.Z + Match.Ball.Velocity.Z * .28 });
+                    const FFootballPlayer* Chaser = nullptr;
+                    double BestDistance = std::numeric_limits<double>::infinity();
+                    TArray<const FFootballPlayer*> Outfield, Threats;
+                    for (const auto* Other : Active)
+                    {
+                        if (Other->Side == Player->Side && !Other->bGoalkeeper)
+                        {
+                            Outfield.Add(Other);
+                            if (!Other->bBot) continue;
+                            const double Score = Distance(Other->Position, TeamTarget) + (NpcStyle(*Other).Role == ENpcRole::Defender ? .7 : 0);
+                            if (Score < BestDistance || (Score == BestDistance && Chaser && IdLess(Other->Id, Chaser->Id)))
+                            { Chaser = Other; BestDistance = Score; }
+                        }
+                        else if (Other->Side != Player->Side && !Other->bGoalkeeper && (!Owner || !Same(Other->Id, Owner->Id))) Threats.Add(Other);
+                    }
+                    if (Chaser && Same(Chaser->Id, Player->Id))
+                    {
+                        Target = BoundedPoint(Pitch, Owner ? FFootballPoint { Owner->Position.X + Owner->Velocity.X * Style.Anticipation,
+                            Owner->Position.Z + Owner->Velocity.Z * Style.Anticipation } : FFootballPoint {
+                            Match.Ball.Position.X + Match.Ball.Velocity.X * Style.Anticipation, Match.Ball.Position.Z + Match.Ball.Velocity.Z * Style.Anticipation });
+                        bPursuing = true;
+                    }
+                    else
+                    {
+                        const FFootballPoint OwnGoal { Pitch.Centre.X, Pitch.Centre.Z - Sign * Pitch.HalfLength };
+                        Threats.StableSort([&](const FFootballPlayer& A, const FFootballPlayer& B) {
+                            const double Delta = Distance(A.Position, OwnGoal) - Distance(B.Position, OwnGoal);
+                            return Delta == 0 ? IdLess(A.Id, B.Id) : Delta < 0;
+                        });
+                        if (Chaser) Outfield.RemoveAll([&](const FFootballPlayer* P) { return Same(P->Id, Chaser->Id); });
+                        Outfield.StableSort([](const FFootballPlayer& A, const FFootballPlayer& B) { return IdLess(A.Id, B.Id); });
+                        const int32 Index = Outfield.IndexOfByPredicate([&](const FFootballPlayer* P) { return Same(P->Id, Player->Id); });
+                        if (Owner && Threats.IsValidIndex(Index)) Target = { Threats[Index]->Position.X, Threats[Index]->Position.Z - Sign * 1.4 };
+                        else Target = { Pitch.Centre.X + Style.Lane * Pitch.HalfWidth,
+                            Pitch.Centre.Z + (Match.Ball.Position.Z - Pitch.Centre.Z) * .4 - Sign * Pitch.HalfLength * (Style.Role == ENpcRole::Defender ? .45 : .15) };
+                        Target = BoundedPoint(Pitch, Target);
+                    }
+                }
+                if (!bPursuing && Active.ContainsByPredicate([&](const FFootballPlayer* Other) {
+                    return !Same(Other->Id, Player->Id) && Distance(Other->Position, Target) < 1.2;
+                })) Target = BoundedPoint(Pitch, { Target.X + (NpcSeed(Player->Id) % 2 ? 1.4 : -1.4), Target.Z });
+                const bool bChallenge = Owner && Owner->Side != Player->Side && Distance(Player->Position, Owner->Position) < 1.35
+                    && NowMs - Player->ActionAtMs >= 650;
+                StoreWake(Player->Id, Target, bChallenge);
+            }
+            // Canonical NPC Map uses the last value for duplicate IDs; broad read
+            // decoding does not impose a new uniqueness rule on received players.
+            for (const auto& P : Match.Players)
+            {
+                const auto* Wake = Wakes.FindByPredicate([&](const FNpcWake& W) { return Same(W.Id, P.Id); });
+                if (Wake && (Wake->bAction || Distance(P.Position, Wake->Target) > (P.bGoalkeeper ? .08 : .1))) return true;
+            }
+            return false;
+        }
+        TOptional<double> NextAdvanceAt(const FFootballMatch& Match)
+        {
+            if (Match.Phase != EFootballPhase::Playing && Match.Phase != EFootballPhase::Restart) return {};
+            if (Match.Phase == EFootballPhase::Restart)
+            {
+                const double Deadline = Match.EndsAtMs.Get(std::numeric_limits<double>::infinity());
+                return FMath::Min(Deadline, Match.RestartAtMs.Get(Deadline));
+            }
+            bool bMoving = Length(Match.Ball.Velocity) > 0 || Match.Ball.Height > BallRadius || Match.Ball.VerticalSpeed != 0
+                || Match.Players.ContainsByPredicate([](const FFootballPlayer& P) { return P.bConnected && Length(P.Velocity) > 0; })
+                || NpcsNeedAdvance(Match, Match.SimulatedAtMs);
+            for (int32 I = 0; !bMoving && I < Match.Players.Num(); ++I)
+            {
+                const auto& P = Match.Players[I]; if (!P.bConnected) continue;
+                if (!Match.Ball.OwnerId.IsSet() && Match.Ball.Height <= 1.05 && Distance(P.Position, Match.Ball.Position) < (P.bGoalkeeper ? 1.05 : .7)) bMoving = true;
+                for (int32 J = I + 1; !bMoving && J < Match.Players.Num(); ++J)
+                    if (Match.Players[J].bConnected && Distance(P.Position, Match.Players[J].Position) < PlayerRadius * 2 - .001) bMoving = true;
+            }
+            if (bMoving) return Match.EndsAtMs.IsSet() ? FMath::Min(Match.EndsAtMs.GetValue(), Match.SimulatedAtMs + TickMs) : Match.SimulatedAtMs + TickMs;
+            return Match.EndsAtMs;
+        }
 
         bool Text(const FValue& V, FString& Out) { return String(V, Out) && Out.Len() <= MaxText; }
         bool Numeric(const FValue& V, double& Out) { return Number(V, Out); }
@@ -213,16 +485,17 @@ namespace BaddieCompanion
     }
     bool FFootballReadState::Select(const FFootballReadScope& Scope)
     {
-        if (bDisposed) return false;
+        if (bDisposed || bFinalizing) return false;
         if (FootballPrivate::SameScope(Selection, Scope)) return true;
         return ResetSession(Scope);
     }
     bool FFootballReadState::ResetSession(const FFootballReadScope& Scope)
     {
-        if (bDisposed) return false;
+        if (bDisposed || bFinalizing) return false;
         // Copy first: callers may pass GetSelection().
         const FFootballReadScope Next = Scope;
-        EndMatchObservation();
+        InvalidateMatchObservation();
+        ResetLifecycle();
         RetireCommand();
         SessionGeneration = FGuid::NewGuid();
         EntryGenerations.Reset();
@@ -234,51 +507,65 @@ namespace BaddieCompanion
     }
     bool FFootballReadState::CanObserve(int64 CapturedNowMs) const
     {
-        return !bDisposed && FootballPrivate::ValidScope(Selection)
+        return !bDisposed && !bFinalizing && FootballPrivate::ValidScope(Selection)
             && CapturedNowMs >= 0 && CapturedNowMs <= FootballPrivate::MaxCapturedNowMs;
     }
     bool FFootballReadState::BeginMatchObservation(int64 CapturedNowMs, FFootballReadReceipt& Out)
     {
         Out = FFootballReadReceipt{};
-        EndMatchObservation();
+        if (bFinalizing) return false;
+        InvalidateMatchObservation();
         if (!CanObserve(CapturedNowMs)) return false;
         bMatchObserved = true;
         Out.Generation = MatchGeneration;
         Out.Scope = Selection;
         Out.CapturedNowMs = CapturedNowMs;
+        SyncPump();
         return true;
     }
     void FFootballReadState::EndMatchObservation()
     {
+        if (bDisposed || bFinalizing) return;
+        PrepareFinalEffects();
+        InvalidateMatchObservation();
+        InputEffect.Reset(); NeutralEffect.Reset(); PulseEffect.Reset(); bReleasePending = false;
+        bPumpRunning = false;
+    }
+    void FFootballReadState::InvalidateMatchObservation()
+    {
         // Canonical generation replacement does not clear command busy, even in flight.
         MatchGeneration = FGuid::NewGuid();
         bMatchObserved = false;
+        bPumpRunning = false;
     }
     bool FFootballReadState::ReloadMatch(int64 CapturedNowMs, FFootballReadReceipt& Out)
     {
         Out = FFootballReadReceipt{};
-        if (bDisposed) return false;
+        if (bDisposed || bFinalizing) return false;
+        ResetInput();
         View.Error.Reset();
         bool bConnected = false;
         if (bMatchObserved) bConnected = BeginMatchObservation(CapturedNowMs, Out);
-        else EndMatchObservation();
+        else InvalidateMatchObservation();
+        SyncPump();
         Changed.Broadcast();
         return bConnected;
     }
     bool FFootballReadState::CurrentMatch(const FFootballReadReceipt& Receipt) const
     {
-        return !bDisposed && bMatchObserved && !Receipt.bEntry && Receipt.Generation.IsValid()
+        return !bDisposed && !bFinalizing && bMatchObserved && !Receipt.bEntry && Receipt.Generation.IsValid()
             && Receipt.Generation == MatchGeneration && Receipt.Scope.IsSet()
             && FootballPrivate::SameScope(Selection, Receipt.Scope.GetValue());
     }
     bool FFootballReadState::CurrentEntry(const FFootballReadReceipt& Receipt) const
     {
-        return !bDisposed && Receipt.bEntry && Receipt.Generation.IsValid() && EntryGenerations.Contains(Receipt.Generation)
+        return !bDisposed && !bFinalizing && Receipt.bEntry && Receipt.Generation.IsValid() && EntryGenerations.Contains(Receipt.Generation)
             && Receipt.Scope.IsSet() && FootballPrivate::SameScope(Selection, Receipt.Scope.GetValue());
     }
     void FFootballReadState::FailMatch(const FString& Message)
     {
         // Ordinary query failure retains the entire current match, ready and advancement.
+        bActive = false; bPumpRunning = false; ResetInput();
         View.Error = Message;
         Changed.Broadcast();
     }
@@ -303,11 +590,27 @@ namespace BaddieCompanion
             return EFootballReadResult::OlderRevision;
         if (bSameScope && FootballPrivate::SameRevision(View, Next) && View.Advancement.IsSet() && Next.Advancement.IsSet()
             && Next.Advancement->ServerNowMs < View.Advancement->ServerNowMs) return EFootballReadResult::OlderAdvancement;
+        if (!bSameScope)
+        {
+            ResetInput(); bSentMovement = false; bNeutralPending = false;
+            if (NeutralEffect.IsSet() && NeutralEffect->Stage == FFootballEffectRequest::EStage::Prepared) NeutralEffect.Reset();
+            const auto* Player = FootballPrivate::CurrentPlayer(Next);
+            Sequence = Player ? Player->LastSequence : 0;
+            ActionSequence = 0; LastSendAtMs.Reset();
+        }
+        if (View.Match.IsSet() != Next.Match.IsSet() || (View.Match.IsSet() && View.Match->Phase != Next.Match->Phase))
+        {
+            ResetInput(); bSentMovement = false; bNeutralPending = false;
+            if (NeutralEffect.IsSet() && NeutralEffect->Stage == FFootballEffectRequest::EStage::Prepared) NeutralEffect.Reset();
+        }
+        const auto* Player = FootballPrivate::CurrentPlayer(Next);
+        if ((Player ? Player->LastSequence : 0) >= ActionSequence) ActionSequence = 0;
         // Neither query nor command wire data may take ownership of the local busy latch.
         Next.bBusy = View.bBusy;
         Next.Error.Reset();
         View = MoveTemp(Next);
         bHasApplied = true;
+        SyncPump();
         Changed.Broadcast();
         return EFootballReadResult::Accepted;
     }
@@ -320,7 +623,7 @@ namespace BaddieCompanion
     TOptional<FFootballCommandRequest> FFootballReadState::PrepareCommand(const FFootballCommand& Command)
     {
         using namespace FootballPrivate;
-        if (bDisposed || View.bBusy || !View.Match.IsSet() || !ValidScope(Selection)) return {};
+        if (bDisposed || bFinalizing || View.bBusy || !View.Match.IsSet() || !ValidScope(Selection)) return {};
         // Read epochs stay finite doubles. Only this outbound boundary needs a safe integer,
         // and assertEpoch permits negative and zero values when authoritative state agrees.
         int64 Epoch = 0;
@@ -351,6 +654,7 @@ namespace BaddieCompanion
         Args->SetNumberField(TEXT("epoch"), static_cast<double>(Epoch)); Args->SetObjectField(TEXT("command"), Value);
         if (!FJsonSerializer::Serialize(Args, TJsonWriterFactory<>::Create(&Request.ArgumentsJson))) return {};
         PendingCommand = Request; CommandStage = ECommandStage::Prepared;
+        ResetInput(); bPumpRunning = false;
         View.bBusy = true; View.Error.Reset(); Changed.Broadcast();
         // A query change intentionally leaves busy set. Its unsent receipt remains available
         // through GetPendingCommand; a replaced session must expose none of its old work.
@@ -358,7 +662,7 @@ namespace BaddieCompanion
     }
     bool FFootballReadState::OwnsCommand(const FFootballCommandReceipt& Receipt) const
     {
-        return !bDisposed && PendingCommand.IsSet() && Receipt.RequestId.IsValid()
+        return !bDisposed && !bFinalizing && PendingCommand.IsSet() && Receipt.RequestId.IsValid()
             && Receipt.RequestId == PendingCommand->Receipt.RequestId && Receipt.SessionGeneration == SessionGeneration
             && Receipt.QueryGeneration == PendingCommand->Receipt.QueryGeneration
             && FootballPrivate::SameScope(Receipt.Scope, Selection);
@@ -381,7 +685,7 @@ namespace BaddieCompanion
     bool FFootballReadState::AbandonCommand(const FFootballCommandReceipt& Receipt)
     {
         if (!OwnsCommand(Receipt) || CommandStage != ECommandStage::Prepared) return false;
-        RetireCommand(); View.bBusy = false; Changed.Broadcast();
+        RetireCommand(); View.bBusy = false; SyncPump(); Changed.Broadcast();
         return true;
     }
     void FFootballReadState::RetireCommand()
@@ -398,7 +702,7 @@ namespace BaddieCompanion
         if (!OwnsCommand(Receipt)) return;
         const bool bCurrent = CurrentCommand(Receipt);
         RetireCommand();
-        if (bCurrent) { View.bBusy = false; Changed.Broadcast(); }
+        if (bCurrent) { View.bBusy = false; SyncPump(); Changed.Broadcast(); }
     }
     TOptional<FFootballCommandSuccess> FFootballReadState::BeginCommandSuccess(const FFootballCommandReceipt& Receipt, const FString& Json)
     {
@@ -411,7 +715,7 @@ namespace BaddieCompanion
         FString Error;
         if (!DecodeFootballSnapshot(Json, Success.Snapshot, Error))
         {
-            FailMatch(Error); FinishCommand(CompletionReceipt); return {};
+            View.Error = Error; Changed.Broadcast(); FinishCommand(CompletionReceipt); return {};
         }
         Success.Receipt = CompletionReceipt;
         Success.bDeactivateInput = PendingCommand->Type == EFootballCommandType::Leave || PendingCommand->Type == EFootballCommandType::End;
@@ -428,6 +732,7 @@ namespace BaddieCompanion
             return EFootballReadResult::StaleReceipt;
         if (!CurrentCommand(CompletionReceipt)) { FinishCommand(CompletionReceipt); return EFootballReadResult::StaleReceipt; }
         CommandStage = ECommandStage::Applying;
+        if (Success.bDeactivateInput) bActive = false;
         const auto Result = ApplyMatch(Success.Snapshot.GetValue());
         FinishCommand(CompletionReceipt);
         return Result;
@@ -438,9 +743,367 @@ namespace BaddieCompanion
         if (!CanCompleteCommand(CompletionReceipt)) return false;
         CommandStage = ECommandStage::Completing;
         if (!CurrentCommand(CompletionReceipt)) { FinishCommand(CompletionReceipt); return false; }
-        FailMatch(Failure.Message.IsSet() ? Failure.Message.GetValue() : FString(FootballPrivate::CommandFailed));
+        View.Error = Failure.Message.IsSet() ? Failure.Message.GetValue() : FString(FootballPrivate::CommandFailed);
+        Changed.Broadcast();
         FinishCommand(CompletionReceipt);
         return true;
+    }
+    const TCHAR* FFootballEffectRequest::GetEndpoint() const
+    {
+        switch (Receipt.GetKind())
+        {
+        case EFootballEffect::Open: return TEXT("companionFootball:open");
+        case EFootballEffect::Input: case EFootballEffect::Neutral: return TEXT("companionFootball:input");
+        default: return TEXT("companionFootball:pulse");
+        }
+    }
+    TOptional<FFootballEffectRequest> FFootballReadState::PrepareOpen(const FFootballEntrySelection& Entry)
+    {
+        if (bDisposed || bFinalizing || View.bBusy || !FootballPrivate::ValidScope(Selection) || !FootballPrivate::ValidEntry(Entry, false)) return {};
+        FFootballEntrySelection Captured = Entry;
+        // UE default culture/comparison level, stable ties. Never normalize identifier bytes.
+        Captured.Players.StableSort([](const FFootballEntrySeat& A, const FFootballEntrySeat& B) {
+            return FTextComparison::CompareTo(A.Id, B.Id, ETextComparisonLevel::Default) < 0;
+        });
+        if (PendingEntry.IsSet() && FootballPrivate::SameEntry(PendingEntry.GetValue(), Captured)) Captured = PendingEntry.GetValue();
+        if (!FootballPrivate::ValidEntry(Captured)) return {};
+        FFootballEffectRequest Request; Request.Receipt = NewEffect(EFootballEffect::Open);
+        if (!FootballPrivate::Json(FootballPrivate::EntryJson(Captured, Selection.RoomId), Request.ArgumentsJson)) return {};
+        PendingEntry = MoveTemp(Captured); OpenEffect = Request;
+        ResetInput(); View.bBusy = true; View.Error.Reset(); bPumpRunning = false;
+        Changed.Broadcast();
+        return CurrentEffect(Request.Receipt) ? TOptional<FFootballEffectRequest>(Request) : TOptional<FFootballEffectRequest>();
+    }
+    void FFootballReadState::FinishOpen(const FFootballEffectReceipt& Receipt)
+    {
+        if (!OwnsEffect(Receipt)) return;
+        OpenEffect.Reset(); View.bBusy = false; SyncPump(); Changed.Broadcast();
+    }
+    FFootballOpenOutcome FFootballReadState::AcceptOpenSuccess(const FFootballEffectReceipt& Receipt, const FString& Json)
+    {
+        const FFootballEffectReceipt Captured = Receipt;
+        FFootballOpenOutcome Outcome;
+        if (Captured.Kind != EFootballEffect::Open || !ClaimEffect(Captured)) return Outcome;
+        TOptional<FFootballSnapshot> Next; FString Error;
+        if (!DecodeFootballSnapshot(Json, Next, Error))
+        { Outcome.Result = EFootballReadResult::InvalidResponse; Outcome.Error = Error; }
+        else
+        {
+            // Open differs from command: current-session success clears the retry even
+            // after a query change, while only a current query can apply its snapshot.
+            PendingEntry.Reset();
+            if (CurrentEffect(Captured)) Outcome.Result = ApplyMatch(MoveTemp(Next.GetValue()));
+        }
+        FinishOpen(Captured);
+        return Outcome;
+    }
+    FFootballOpenOutcome FFootballReadState::AcceptOpenFailure(const FFootballEffectReceipt& Receipt, const FFootballPublicReadFailure& Failure)
+    {
+        const FFootballEffectReceipt Captured = Receipt;
+        FFootballOpenOutcome Outcome;
+        if (Captured.Kind != EFootballEffect::Open || !ClaimEffect(Captured)) return Outcome;
+        Outcome.Result = EFootballReadResult::InvalidResponse;
+        Outcome.Error = Failure.Message.IsSet() ? Failure.Message.GetValue() : FString(FootballPrivate::OpenFailed);
+        FinishOpen(Captured);
+        return Outcome;
+    }
+    bool FFootballReadState::Playing() const
+    {
+        const auto* Player = FootballPrivate::CurrentPlayer(View);
+        return View.bReady && (!View.Error.IsSet() || View.Error->IsEmpty()) && !View.bBusy && View.Match.IsSet()
+            && (View.Match->Phase == EFootballPhase::Playing || View.Match->Phase == EFootballPhase::Restart)
+            && Player && Player->bConnected;
+    }
+    void FFootballReadState::SyncPump()
+    {
+        bPumpRunning = !bDisposed && !bFinalizing && bMatchObserved && Playing() && (bForeground || bActive || bNeutralPending);
+    }
+    TOptional<FTimespan> FFootballReadState::GetPumpInterval() const
+    {
+        return bPumpRunning ? TOptional<FTimespan>(FTimespan::FromMilliseconds(FootballPrivate::InputMs)) : TOptional<FTimespan>();
+    }
+    void FFootballReadState::ResetInput()
+    {
+        Latest = FFootballInput{}; Actions.Reset(); bDirty = false;
+        bNeutralPending |= bSentMovement || ActionSequence > 0;
+        // A prepared packet is not sent. Never dispatch old movement after focus/reset.
+        if (InputEffect.IsSet() && InputEffect->Stage == FFootballEffectRequest::EStage::Prepared) InputEffect.Reset();
+    }
+    void FFootballReadState::ResetLifecycle()
+    {
+        OpenEffect.Reset(); InputEffect.Reset(); NeutralEffect.Reset(); PulseEffect.Reset(); PendingEntry.Reset();
+        Latest = FFootballInput{}; Actions.Reset(); Sequence = 0; ActionSequence = 0; ServerOffsetMs = 0;
+        LastSendAtMs.Reset(); LastPulseAtMs.Reset();
+        bActive = bForeground = bDirty = bSentMovement = bNeutralPending = bReleasePending = bPumpRunning = false;
+    }
+    FFootballEffectReceipt FFootballReadState::NewEffect(EFootballEffect Kind) const
+    {
+        FFootballEffectReceipt Receipt;
+        Receipt.Kind = Kind; Receipt.RequestId = FGuid::NewGuid(); Receipt.SessionGeneration = SessionGeneration;
+        Receipt.QueryGeneration = MatchGeneration; Receipt.Scope = Selection; Receipt.PlayerId = View.PlayerId;
+        if (View.Match.IsSet()) { Receipt.MatchId = View.Match->Id; Receipt.Epoch = View.Match->Epoch; }
+        return Receipt;
+    }
+    TOptional<FFootballEffectRequest>* FFootballReadState::EffectSlot(EFootballEffect Kind)
+    {
+        switch (Kind)
+        {
+        case EFootballEffect::Open: return &OpenEffect;
+        case EFootballEffect::Input: return &InputEffect;
+        case EFootballEffect::Neutral: return &NeutralEffect;
+        case EFootballEffect::Pulse: case EFootballEffect::Release: return &PulseEffect;
+        default: return nullptr;
+        }
+    }
+    const TOptional<FFootballEffectRequest>* FFootballReadState::EffectSlot(EFootballEffect Kind) const
+    {
+        switch (Kind)
+        {
+        case EFootballEffect::Open: return &OpenEffect;
+        case EFootballEffect::Input: return &InputEffect;
+        case EFootballEffect::Neutral: return &NeutralEffect;
+        case EFootballEffect::Pulse: case EFootballEffect::Release: return &PulseEffect;
+        default: return nullptr;
+        }
+    }
+    bool FFootballReadState::OwnsEffect(const FFootballEffectReceipt& Receipt) const
+    {
+        const auto* Slot = EffectSlot(Receipt.Kind);
+        return !bDisposed && Slot && Slot->IsSet() && Receipt.RequestId.IsValid()
+            && Slot->GetValue().Receipt.RequestId == Receipt.RequestId && Slot->GetValue().Receipt.Kind == Receipt.Kind
+            && Receipt.SessionGeneration == SessionGeneration && FootballPrivate::SameScope(Receipt.Scope, Selection);
+    }
+    bool FFootballReadState::CurrentEffect(const FFootballEffectReceipt& Receipt) const
+    {
+        if (!OwnsEffect(Receipt) || Receipt.QueryGeneration != MatchGeneration) return false;
+        return Receipt.Kind == EFootballEffect::Open || (View.Match.IsSet() && FootballPrivate::Same(Receipt.MatchId, View.Match->Id)
+            && Receipt.Epoch == View.Match->Epoch && FootballPrivate::SamePlayerScope(Receipt.PlayerId, View.PlayerId));
+    }
+    TArray<FFootballEffectRequest> FFootballReadState::GetPendingEffects() const
+    {
+        TArray<FFootballEffectRequest> Out;
+        if (bDisposed || bFinalizing) return Out;
+        // Cancel overtakes ordinary input. Include stale prepared packets for explicit abandonment.
+        for (const auto* Slot : { &NeutralEffect, &OpenEffect, &InputEffect, &PulseEffect })
+            if (Slot->IsSet() && Slot->GetValue().Stage == FFootballEffectRequest::EStage::Prepared) Out.Add(Slot->GetValue());
+        return Out;
+    }
+    TOptional<FFootballEffectRequest> FFootballReadState::DispatchEffect(const FFootballEffectReceipt& Receipt)
+    {
+        if (!CurrentEffect(Receipt)) return {};
+        auto& Request = EffectSlot(Receipt.Kind)->GetValue();
+        if (Request.Stage != FFootballEffectRequest::EStage::Prepared || (bFinalizing && !Request.bFinal)) return {};
+        if (Receipt.Kind == EFootballEffect::Input && (!bActive || !Playing() || NeutralEffect.IsSet())) return {};
+        if (Receipt.Kind == EFootballEffect::Neutral && !Playing()) return {};
+        if (Receipt.Kind == EFootballEffect::Pulse && (!bForeground || !Playing())) return {};
+        Request.Stage = FFootballEffectRequest::EStage::Dispatched;
+        return Request;
+    }
+    bool FFootballReadState::AbandonEffect(const FFootballEffectReceipt& Receipt)
+    {
+        const FFootballEffectReceipt Captured = Receipt;
+        if (bFinalizing || !OwnsEffect(Captured) || EffectSlot(Captured.Kind)->GetValue().Stage != FFootballEffectRequest::EStage::Prepared) return false;
+        if (Captured.Kind == EFootballEffect::Open) { FinishOpen(Captured); return true; }
+        if (Captured.Kind == EFootballEffect::Pulse || Captured.Kind == EFootballEffect::Release)
+        { FinishEffect(Captured, FootballPrivate::ClockMs(FDateTime::UtcNow())); return true; }
+        EffectSlot(Captured.Kind)->Reset();
+        // Unsent input is cancelled locally, never converted to a fictional failure.
+        if (Captured.Kind == EFootballEffect::Input) ResetInput();
+        if (Captured.Kind == EFootballEffect::Neutral && Captured.QueryGeneration == MatchGeneration
+            && View.Match.IsSet() && Captured.Epoch == View.Match->Epoch && FootballPrivate::Same(Captured.MatchId, View.Match->Id)) bNeutralPending = true;
+        SyncPump();
+        return true;
+    }
+    bool FFootballReadState::ClaimEffect(const FFootballEffectReceipt& Receipt)
+    {
+        if (bFinalizing || !OwnsEffect(Receipt)) return false;
+        auto& Request = EffectSlot(Receipt.Kind)->GetValue();
+        if (Request.Stage != FFootballEffectRequest::EStage::Dispatched) return false;
+        Request.Stage = FFootballEffectRequest::EStage::Completing;
+        return true;
+    }
+    void FFootballReadState::FinishEffect(const FFootballEffectReceipt& Receipt, double NowMs)
+    {
+        if (!OwnsEffect(Receipt)) return;
+        EffectSlot(Receipt.Kind)->Reset();
+        if (Receipt.Kind == EFootballEffect::Pulse || Receipt.Kind == EFootballEffect::Release)
+        {
+            if (bReleasePending) { bReleasePending = false; PreparePulse(true, NowMs); }
+        }
+        else SyncPump();
+    }
+    void FFootballReadState::PrepareFlush(double NowMs)
+    {
+        using namespace FootballPrivate;
+        if (bDisposed || !Playing() || !ValidScope(Selection) || !SafeInteger(View.Match->Epoch) || !FMath::IsFinite(NowMs)) return;
+        const bool bNeutral = bNeutralPending;
+        // This branch deliberately precedes both in-flight and rate guards.
+        if (!bNeutral)
+        {
+            if (InputEffect.IsSet() || NeutralEffect.IsSet() || (LastSendAtMs.IsSet() && NowMs - LastSendAtMs.GetValue() < InputMs)) return;
+            const auto* Player = CurrentPlayer(View);
+            const bool bAction = bActive && Actions.Num() > 0 && (Player ? Player->LastSequence : 0) >= ActionSequence;
+            const bool bRenew = bActive && Moving(Latest) && (!LastSendAtMs.IsSet() || NowMs - LastSendAtMs.GetValue() >= InputRenewMs);
+            if (!(bActive && (bDirty || bAction || bRenew))) return;
+            FFootballInput Next = bAction ? Actions[0] : Latest;
+            if (bAction) Actions.RemoveAt(0);
+            Next.Sequence = ++Sequence;
+            if (!ValidInput(Next, View.Match->Pitch)) return;
+            FFootballEffectRequest Request; Request.Receipt = NewEffect(EFootballEffect::Input);
+            auto Args = MakeShared<FJsonObject>(); Args->SetStringField(TEXT("roomId"), Selection.RoomId);
+            Args->SetNumberField(TEXT("epoch"), View.Match->Epoch); Args->SetObjectField(TEXT("input"), InputJson(Next));
+            if (!Json(Args, Request.ArgumentsJson)) return;
+            bDirty = false; bSentMovement = Moving(Next);
+            if (Next.Action != EFootballAction::None) ActionSequence = Next.Sequence;
+            InputEffect = MoveTemp(Request); LastSendAtMs = NowMs;
+        }
+        else
+        {
+            FFootballInput Next; Next.CancelActions = true; Next.Sequence = Sequence + 1;
+            if (!ValidInput(Next, View.Match->Pitch)) return;
+            FFootballEffectRequest Request; Request.Receipt = NewEffect(EFootballEffect::Neutral);
+            auto Args = MakeShared<FJsonObject>(); Args->SetStringField(TEXT("roomId"), Selection.RoomId);
+            Args->SetNumberField(TEXT("epoch"), View.Match->Epoch); Args->SetObjectField(TEXT("input"), InputJson(Next));
+            if (!Json(Args, Request.ArgumentsJson)) return;
+            Sequence = Next.Sequence; bNeutralPending = false; bSentMovement = false; ActionSequence = 0;
+            NeutralEffect = MoveTemp(Request); LastSendAtMs = NowMs;
+        }
+    }
+    void FFootballReadState::PreparePulse(bool bRelease, double NowMs)
+    {
+        using namespace FootballPrivate;
+        if (bDisposed || !View.Match.IsSet() || !ValidScope(Selection) || !SafeInteger(View.Match->Epoch) || !FMath::IsFinite(NowMs)) return;
+        if (PulseEffect.IsSet()) { bReleasePending |= bRelease; return; }
+        if (!bRelease)
+        {
+            if (!bForeground || !Playing() || (LastPulseAtMs.IsSet() && NowMs - LastPulseAtMs.GetValue() < TickMs)) return;
+            const auto NextAt = View.Advancement.IsSet() ? View.Advancement->NextAtMs : NextAdvanceAt(View.Match.GetValue());
+            if (!NextAt.IsSet()) return;
+            int32 Ordinal = 0, Peers = 0;
+            for (const auto& P : View.Match->Players) if (!P.bBot && P.bConnected)
+            {
+                if (SameId(View.PlayerId, P.Id)) { Ordinal = Peers; break; }
+                ++Peers;
+            }
+            const bool bOwn = View.Advancement.IsSet() && SameNullableId(View.Advancement->OwnerId, View.PlayerId);
+            const double Due = bOwn ? NextAt.GetValue() : FMath::Max(NextAt.GetValue(), View.Advancement.IsSet() ? View.Advancement->OwnerUntilMs : 0) + Ordinal * TickMs;
+            if (NowMs + ServerOffsetMs < Due) return;
+        }
+        else if (!View.Advancement.IsSet() || !SameNullableId(View.Advancement->OwnerId, View.PlayerId)) return;
+        FFootballEffectRequest Request; Request.Receipt = NewEffect(bRelease ? EFootballEffect::Release : EFootballEffect::Pulse);
+        auto Args = MakeShared<FJsonObject>(); Args->SetStringField(TEXT("roomId"), Selection.RoomId);
+        Args->SetNumberField(TEXT("epoch"), View.Match->Epoch); Args->SetBoolField(TEXT("release"), bRelease);
+        if (!Json(Args, Request.ArgumentsJson)) return;
+        PulseEffect = MoveTemp(Request); LastPulseAtMs = NowMs;
+    }
+    void FFootballReadState::Pump(FDateTime Now)
+    {
+        if (bDisposed || bFinalizing || !bPumpRunning) return;
+        PrepareFlush(FootballPrivate::ClockMs(Now)); PreparePulse(false, FootballPrivate::ClockMs(Now));
+    }
+    bool FFootballReadState::Input(const FFootballInput& Value, FDateTime Now)
+    {
+        if (bDisposed || bFinalizing || !bActive || !Playing()) return false;
+        FFootballInput Next = Value; Next.Sequence = Sequence + 1;
+        if (!FootballPrivate::ValidInput(Next, View.Match->Pitch)) return false;
+        Next.Action = EFootballAction::None; Next.Sequence = 0;
+        bDirty |= !FootballPrivate::SameInput(Next, Latest); Latest = Next;
+        if (Value.Action != EFootballAction::None && Actions.Num() < 2)
+        { Next.Action = Value.Action; Actions.Add(MoveTemp(Next)); }
+        SyncPump(); PrepareFlush(FootballPrivate::ClockMs(Now)); return true;
+    }
+    void FFootballReadState::SetActive(bool bValue, FDateTime Now)
+    {
+        if (bDisposed || bFinalizing || bActive == bValue) return;
+        ResetInput(); bActive = bValue; SyncPump(); PrepareFlush(FootballPrivate::ClockMs(Now));
+    }
+    void FFootballReadState::SetForeground(bool bValue, FDateTime Now)
+    {
+        if (bDisposed || bFinalizing || bForeground == bValue) return;
+        bForeground = bValue;
+        if (!bValue)
+        {
+            bActive = false; ResetInput(); PrepareFlush(FootballPrivate::ClockMs(Now)); PreparePulse(true, FootballPrivate::ClockMs(Now));
+        }
+        SyncPump(); if (bValue) PreparePulse(false, FootballPrivate::ClockMs(Now));
+    }
+    void FFootballReadState::Stop(FDateTime Now)
+    {
+        if (bDisposed || bFinalizing) return;
+        ResetInput(); SyncPump(); PrepareFlush(FootballPrivate::ClockMs(Now));
+    }
+    void FFootballReadState::PrepareFinalEffects()
+    {
+        bActive = false; bForeground = false; ResetInput();
+        const double NowMs = FootballPrivate::ClockMs(FDateTime::UtcNow());
+        PrepareFlush(NowMs); PreparePulse(true, NowMs);
+        TArray<FFootballEffectRequest> Effects;
+        for (auto* Slot : { &NeutralEffect, &PulseEffect })
+            if (Slot->IsSet() && Slot->GetValue().Stage == FFootballEffectRequest::EStage::Prepared
+                && Slot->GetValue().Receipt.Kind != EFootballEffect::Pulse)
+            { Slot->GetValue().bFinal = true; Effects.Add(Slot->GetValue()); }
+        bFinalizing = true; bPumpRunning = false;
+        // Copy the delegate: rebinding from the adapter cannot invalidate this call.
+        const FFootballFinalEffects Dispatch = FinalEffects;
+        Dispatch.ExecuteIfBound(Effects);
+        bFinalizing = false;
+        // Final packets only have authority inside the synchronous window above.
+        for (auto* Slot : { &NeutralEffect, &PulseEffect })
+            if (Slot->IsSet() && Slot->GetValue().bFinal && Slot->GetValue().Stage == FFootballEffectRequest::EStage::Prepared) Slot->Reset();
+    }
+    EFootballReadResult FFootballReadState::AcceptInputSuccess(const FFootballEffectReceipt& Receipt, const FString& Json)
+    {
+        const FFootballEffectReceipt Captured = Receipt;
+        if ((Captured.Kind != EFootballEffect::Input && Captured.Kind != EFootballEffect::Neutral) || !ClaimEffect(Captured)) return EFootballReadResult::StaleReceipt;
+        EFootballReadResult Result = EFootballReadResult::StaleReceipt;
+        if (CurrentEffect(Captured))
+        {
+            StateJsonPrivate::FObject Root; double AckSequence = 0, Revision = 0, Epoch = 0;
+            if (!StateJsonPrivate::Parse(Json, Root, FootballPrivate::Limits)
+                || !StateJsonPrivate::Only(Root, { TEXT("sequence"), TEXT("revision"), TEXT("epoch") })
+                || !StateJsonPrivate::Number(Root, TEXT("sequence"), AckSequence) || !StateJsonPrivate::Number(Root, TEXT("revision"), Revision)
+                || !StateJsonPrivate::Number(Root, TEXT("epoch"), Epoch))
+            { FailMatch(FootballPrivate::InvalidMatch); Result = EFootballReadResult::InvalidResponse; }
+            else if (Epoch == Captured.Epoch) { Sequence = FMath::Max(Sequence, AckSequence); Result = EFootballReadResult::Accepted; }
+        }
+        FinishEffect(Captured, FootballPrivate::ClockMs(FDateTime::UtcNow()));
+        return Result;
+    }
+    EFootballReadResult FFootballReadState::AcceptPulseSuccess(const FFootballEffectReceipt& Receipt, const FString& Json, FDateTime ReceivedAt)
+    {
+        const FFootballEffectReceipt Captured = Receipt;
+        if ((Captured.Kind != EFootballEffect::Pulse && Captured.Kind != EFootballEffect::Release) || !ClaimEffect(Captured)) return EFootballReadResult::StaleReceipt;
+        EFootballReadResult Result = EFootballReadResult::StaleReceipt;
+        const double NowMs = FootballPrivate::ClockMs(ReceivedAt);
+        if (CurrentEffect(Captured))
+        {
+            TOptional<FFootballSnapshot> Next; FString Error;
+            if (!DecodeFootballSnapshot(Json, Next, Error))
+            {
+                if (Captured.Kind != EFootballEffect::Release) FailMatch(Error);
+                Result = EFootballReadResult::InvalidResponse;
+            }
+            else
+            {
+                const auto Advancement = Next->Advancement;
+                if (Advancement.IsSet()) ServerOffsetMs = Advancement->ServerNowMs - NowMs;
+                Result = ApplyMatch(MoveTemp(Next.GetValue()));
+                if (OwnsEffect(Captured) && Captured.QueryGeneration == MatchGeneration && !bForeground
+                    && Advancement.IsSet() && FootballPrivate::SameNullableId(Advancement->OwnerId, View.PlayerId)) bReleasePending = true;
+            }
+        }
+        FinishEffect(Captured, NowMs);
+        return Result;
+    }
+    bool FFootballReadState::AcceptEffectFailure(const FFootballEffectReceipt& Receipt, const FFootballPublicReadFailure& Failure)
+    {
+        const FFootballEffectReceipt Captured = Receipt;
+        if (Captured.Kind == EFootballEffect::Open || !ClaimEffect(Captured)) return false;
+        const bool bCurrent = CurrentEffect(Captured);
+        if (bCurrent && Captured.Kind != EFootballEffect::Release)
+            FailMatch(Failure.Message.IsSet() ? Failure.Message.GetValue() : FString(FootballPrivate::Disconnected));
+        FinishEffect(Captured, FootballPrivate::ClockMs(FDateTime::UtcNow()));
+        return bCurrent;
     }
     bool FFootballReadState::BeginEntryObservation(int64 CapturedNowMs, FFootballReadReceipt& Out)
     {
@@ -475,19 +1138,22 @@ namespace BaddieCompanion
     }
     void FFootballReadState::Clear()
     {
-        if (bDisposed) return;
+        if (bDisposed || bFinalizing) return;
         ResetSession(FFootballReadScope{});
     }
     void FFootballReadState::Dispose()
     {
-        if (bDisposed) return;
+        if (bDisposed || bFinalizing) return;
+        PrepareFinalEffects();
         bDisposed = true;
-        EndMatchObservation();
+        InvalidateMatchObservation();
+        ResetLifecycle();
         RetireCommand(); SessionGeneration.Invalidate();
         EntryGenerations.Reset();
         Selection = FFootballReadScope{};
         View = FFootballSnapshot{};
         bHasApplied = false;
         Changed.Clear();
+        FinalEffects.Unbind();
     }
 }

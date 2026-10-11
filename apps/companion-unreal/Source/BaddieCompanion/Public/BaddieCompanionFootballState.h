@@ -162,8 +162,8 @@ namespace BaddieCompanion
     class FFootballCommandSuccess
     {
     public:
-        // Required consumer effect, not an executed input operation. Check currentness
-        // immediately before the effect, then call AcceptCommandSuccess even if stale.
+        // Retained adapter hint. AcceptCommandSuccess now deactivates owned input
+        // before applying a current leave/end reply, including an older snapshot.
         bool RequiresInputDeactivation() const { return bDeactivateInput; }
     private:
         friend class FFootballReadState;
@@ -171,10 +171,67 @@ namespace BaddieCompanion
         TOptional<FFootballSnapshot> Snapshot;
         bool bDeactivateInput = false;
     };
+    enum class EFootballAction : uint8 { None, Pass, Shoot, Challenge };
+    struct FFootballInput
+    {
+        // Input() ignores caller sequence; the owner assigns it at flush preparation.
+        double Sequence = 0;
+        FFootballPoint Move, Aim { 0, -1 };
+        TOptional<FFootballPoint> Destination;
+        EFootballAction Action = EFootballAction::None;
+        TOptional<FString> TargetPlayerId;
+        double Power = .7;
+        TOptional<bool> CancelActions;
+    };
+    struct FFootballEntrySeat { FString Id; EFootballSide Side = EFootballSide::Home; };
+    struct FFootballEntrySelection
+    {
+        FString InstanceId, RequestId;
+        double Revision = 0, Epoch = 0;
+        EFootballMode Mode = EFootballMode::Solo;
+        TArray<FFootballEntrySeat> Players;
+    };
+    enum class EFootballEffect : uint8 { Open, Input, Neutral, Pulse, Release };
+    class FFootballEffectReceipt
+    {
+    public:
+        const FFootballReadScope& GetScope() const { return Scope; }
+        EFootballEffect GetKind() const { return Kind; }
+    private:
+        friend class FFootballReadState;
+        FGuid RequestId, SessionGeneration, QueryGeneration;
+        FFootballReadScope Scope;
+        FString MatchId;
+        TOptional<FString> PlayerId;
+        double Epoch = 0;
+        EFootballEffect Kind = EFootballEffect::Open;
+    };
+    class BADDIECOMPANION_API FFootballEffectRequest
+    {
+    public:
+        const FFootballEffectReceipt& GetReceipt() const { return Receipt; }
+        const FString& GetArgumentsJson() const { return ArgumentsJson; }
+        const TCHAR* GetEndpoint() const;
+    private:
+        friend class FFootballReadState;
+        FFootballEffectReceipt Receipt;
+        FString ArgumentsJson;
+        enum class EStage : uint8 { Prepared, Dispatched, Completing };
+        EStage Stage = EStage::Prepared;
+        bool bFinal = false;
+    };
+    struct FFootballOpenOutcome
+    {
+        EFootballReadResult Result = EFootballReadResult::StaleReceipt;
+        TOptional<FString> Error;
+    };
+    // Bound adapter may only dispatch supplied final packets synchronously. No state
+    // mutation/reentry is admitted in this window. Credentials stay outside the owner.
+    DECLARE_DELEGATE_OneParam(FFootballFinalEffects, const TArray<FFootballEffectRequest>&);
     DECLARE_MULTICAST_DELEGATE(FFootballReadChanged);
 
     // Single-threaded read/command ownership. The caller owns transport and listener
-    // counts. No input, pump, opening, simulation or native permission is implemented.
+    // counts, a single native pump and final-effect dispatch. No simulation or permission.
     class BADDIECOMPANION_API FFootballReadState
     {
     public:
@@ -187,19 +244,41 @@ namespace BaddieCompanion
         const FFootballSnapshot& GetView() const { return View; }
         const FFootballReadScope& GetSelection() const { return Selection; }
         FFootballReadChanged& OnChanged() { return Changed; }
+        FFootballFinalEffects& OnFinalEffects() { return FinalEffects; }
+        // Clock samples are UTC wall time, converted to Unix milliseconds. Query and
+        // command replies never update the server offset. No timer is started here.
+        TOptional<FTimespan> GetPumpInterval() const;
+        void Pump(FDateTime Now = FDateTime::UtcNow());
+        bool Input(const FFootballInput& Value, FDateTime Now = FDateTime::UtcNow());
+        void SetActive(bool bValue, FDateTime Now = FDateTime::UtcNow());
+        void SetForeground(bool bValue, FDateTime Now = FDateTime::UtcNow());
+        void Stop(FDateTime Now = FDateTime::UtcNow());
+        // Drain after every owner call. Dispatch then send immediately, without yielding,
+        // under independently established permission. All mutations disable retry/cache invalidation.
+        TArray<FFootballEffectRequest> GetPendingEffects() const;
+        TOptional<FFootballEffectRequest> DispatchEffect(const FFootballEffectReceipt& Receipt);
+        bool AbandonEffect(const FFootballEffectReceipt& Receipt);
+        TOptional<FFootballEffectRequest> PrepareOpen(const FFootballEntrySelection& Entry);
+        FFootballOpenOutcome AcceptOpenSuccess(const FFootballEffectReceipt& Receipt, const FString& Json);
+        FFootballOpenOutcome AcceptOpenFailure(const FFootballEffectReceipt& Receipt, const FFootballPublicReadFailure& Failure);
+        EFootballReadResult AcceptInputSuccess(const FFootballEffectReceipt& Receipt, const FString& Json);
+        EFootballReadResult AcceptPulseSuccess(const FFootballEffectReceipt& Receipt, const FString& Json, FDateTime ReceivedAt = FDateTime::UtcNow());
+        bool AcceptEffectFailure(const FFootballEffectReceipt& Receipt, const FFootballPublicReadFailure& Failure);
         bool Select(const FFootballReadScope& Scope);
         // Unconditional reset, including same-ID session replacement. Retires all receipts.
         bool ResetSession(const FFootballReadScope& Scope);
         // Call on first match listener/reconnect. Captures now once, in the backend's
         // inclusive 0..4102444800000 range. Invalid intent retires the old match receipt.
         bool BeginMatchObservation(int64 CapturedNowMs, FFootballReadReceipt& Out);
+        // Last observer only. Offers final neutral/release packets through OnFinalEffects
+        // before retiring control callbacks. Reconnect uses BeginMatchObservation instead.
         void EndMatchObservation();
         // Clears read error immediately. Reconnects only if match observation is active.
         bool ReloadMatch(int64 CapturedNowMs, FFootballReadReceipt& Out);
         EFootballReadResult AcceptMatch(const FFootballReadReceipt& Receipt, const FString& Json);
         bool AcceptMatchFailure(const FFootballReadReceipt& Receipt, const FFootballPublicReadFailure& Failure);
         // No observer, ready, phase, foreground, connection or host prerequisite.
-        // The future input owner must reset input and stop its pump at command begin.
+        // Resets owned input and stops the pump at command begin.
         TOptional<FFootballCommandRequest> PrepareCommand(const FFootballCommand& Command);
         // Send immediately after a successful mark, without a yield or notification.
         TOptional<FFootballCommandRequest> DispatchCommand(const FFootballCommandReceipt& Receipt);
@@ -208,7 +287,7 @@ namespace BaddieCompanion
         TOptional<FFootballCommandReceipt> GetPendingCommand() const;
         bool AbandonCommand(const FFootballCommandReceipt& Receipt);
         // Decodes and claims one terminal success. Malformed replies publish a fixed
-        // failure and finish; valid replies await the required pre-apply consumer effect.
+        // failure and finish; AcceptCommandSuccess performs owned leave/end deactivation.
         TOptional<FFootballCommandSuccess> BeginCommandSuccess(const FFootballCommandReceipt& Receipt, const FString& Json);
         bool IsCommandSuccessCurrent(const FFootballCommandSuccess& Success) const;
         EFootballReadResult AcceptCommandSuccess(const FFootballCommandSuccess& Success);
@@ -234,6 +313,22 @@ namespace BaddieCompanion
         bool CanCompleteCommand(const FFootballCommandReceipt& Receipt) const;
         void RetireCommand();
         void FinishCommand(const FFootballCommandReceipt& Receipt);
+        void InvalidateMatchObservation();
+        void ResetInput();
+        void ResetLifecycle();
+        void SyncPump();
+        bool Playing() const;
+        void PrepareFlush(double NowMs);
+        void PreparePulse(bool bRelease, double NowMs);
+        void PrepareFinalEffects();
+        FFootballEffectReceipt NewEffect(EFootballEffect Kind) const;
+        TOptional<FFootballEffectRequest>* EffectSlot(EFootballEffect Kind);
+        const TOptional<FFootballEffectRequest>* EffectSlot(EFootballEffect Kind) const;
+        bool OwnsEffect(const FFootballEffectReceipt& Receipt) const;
+        bool CurrentEffect(const FFootballEffectReceipt& Receipt) const;
+        bool ClaimEffect(const FFootballEffectReceipt& Receipt);
+        void FinishEffect(const FFootballEffectReceipt& Receipt, double NowMs);
+        void FinishOpen(const FFootballEffectReceipt& Receipt);
         FFootballReadScope Selection;
         FFootballSnapshot View;
         FGuid MatchGeneration;
@@ -244,5 +339,14 @@ namespace BaddieCompanion
         TSet<FGuid> EntryGenerations;
         bool bMatchObserved = false, bHasApplied = false, bDisposed = false;
         FFootballReadChanged Changed;
+        FFootballFinalEffects FinalEffects;
+        TOptional<FFootballEffectRequest> OpenEffect, InputEffect, NeutralEffect, PulseEffect;
+        TOptional<FFootballEntrySelection> PendingEntry;
+        FFootballInput Latest;
+        TArray<FFootballInput> Actions;
+        double Sequence = 0, ActionSequence = 0, ServerOffsetMs = 0;
+        TOptional<double> LastSendAtMs, LastPulseAtMs;
+        bool bActive = false, bForeground = false, bDirty = false, bSentMovement = false;
+        bool bNeutralPending = false, bReleasePending = false, bPumpRunning = false, bFinalizing = false;
     };
 }
