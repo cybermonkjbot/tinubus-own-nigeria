@@ -463,7 +463,9 @@ namespace BaddieCompanion
     }
     void FPlayState::Reconnect()
     {
-        if (!bDisposed) Connect(); // Connect retains the displayed state and does not emit.
+        // Retains Play wire, busy, readiness, command error and offset.
+        // Clears RoomUtility and UtilityError without emitting.
+        if (!bDisposed) Connect();
     }
     void FPlayState::ResetSession()
     {
