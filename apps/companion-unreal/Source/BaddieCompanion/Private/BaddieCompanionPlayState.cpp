@@ -1,8 +1,11 @@
 #include "BaddieCompanionPlayState.h"
 
 #include "BaddieCompanionStateJson.h"
+#include "Misc/DateTime.h"
 #include "Serialization/JsonSerializer.h"
 #include "Serialization/JsonWriter.h"
+#include <cmath>
+#include <type_traits>
 
 namespace BaddieCompanion
 {
@@ -227,5 +230,427 @@ namespace BaddieCompanion
             Result.Wire = Previous; // Includes playerId and memories, never a partial merge.
         }
         return Result;
+    }
+
+    namespace PlayCommandPrivate
+    {
+        using namespace StateJsonPrivate;
+        constexpr const TCHAR* QueryError = TEXT("Room activity couldn't load.");
+        constexpr const TCHAR* CommandError = TEXT("That move couldn't finish. Try again.");
+        constexpr const TCHAR* UnavailableError = TEXT("This activity is no longer available.");
+
+        double WallTimeMs()
+        {
+            const FDateTime Now = FDateTime::UtcNow();
+            return static_cast<double>(Now.ToUnixTimestamp()) * 1000 + Now.GetMillisecond();
+        }
+        bool SafeRevision(double Value)
+        {
+            return std::isfinite(Value) && Value >= 0 && Value <= MaxInteger && std::floor(Value) == Value;
+        }
+        bool PlayIndex(double Value)
+        {
+            return std::isfinite(Value) && Value >= 0 && Value <= 5 && std::floor(Value) == Value;
+        }
+        FString PublicError(const TOptional<FString>& Message, const TCHAR* Fallback)
+        {
+            return Message.IsSet() && Message->Len() <= MaxText ? *Message : FString(Fallback);
+        }
+        bool SameOptionalText(const TOptional<FString>& A, const TOptional<FString>& B)
+        {
+            return A.IsSet() == B.IsSet() && (!A.IsSet() || Same(*A, *B));
+        }
+        bool SameScope(const TOptional<FPlayScope>& A, const TOptional<FPlayScope>& B)
+        {
+            if (A.IsSet() != B.IsSet()) return false;
+            if (!A.IsSet()) return true;
+            return Same(A->CharacterId, B->CharacterId) && Same(A->RoomId, B->RoomId)
+                && SameOptionalText(A->CallSessionId, B->CallSessionId)
+                && SameOptionalText(A->InvitationId, B->InvitationId)
+                && A->RoomRevision.IsSet() == B->RoomRevision.IsSet()
+                && (!A->RoomRevision.IsSet() || *A->RoomRevision == *B->RoomRevision
+                    || (std::isnan(*A->RoomRevision) && std::isnan(*B->RoomRevision)));
+        }
+        FObject ScopeArguments(const FPlayScope& Scope)
+        {
+            // Resource/JSON checks only. Access, ID validity and room authority stay remote.
+            if (Scope.CharacterId.Len() > MaxText || Scope.RoomId.Len() > MaxText
+                || (Scope.CallSessionId.IsSet() && Scope.CallSessionId->Len() > MaxText)
+                || (Scope.InvitationId.IsSet() && Scope.InvitationId->Len() > MaxText)
+                || (Scope.RoomRevision.IsSet() && !std::isfinite(*Scope.RoomRevision))) return {};
+            const auto O = MakeShared<FJsonObject>();
+            O->SetStringField(TEXT("characterId"), Scope.CharacterId);
+            O->SetStringField(TEXT("roomId"), Scope.RoomId);
+            if (Scope.CallSessionId.IsSet()) O->SetStringField(TEXT("callSessionId"), *Scope.CallSessionId);
+            if (Scope.InvitationId.IsSet()) O->SetStringField(TEXT("invitationId"), *Scope.InvitationId);
+            if (Scope.RoomRevision.IsSet()) O->SetNumberField(TEXT("roomRevision"), *Scope.RoomRevision);
+            return O;
+        }
+        bool SerializeArguments(const FObject& O, FString& Out)
+        {
+            return O.IsValid() && FJsonSerializer::Serialize(O.ToSharedRef(),
+                TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Out))
+                && WithinParseLimits(Out, PlayLimits);
+        }
+        const TCHAR* StartKind(EPlayStartKind Kind)
+        {
+            switch (Kind)
+            {
+            case EPlayStartKind::Mirror: return TEXT("mirror");
+            case EPlayStartKind::Mystery: return TEXT("mystery");
+            case EPlayStartKind::Style: return TEXT("style");
+            case EPlayStartKind::Kitchen: return TEXT("kitchen");
+            case EPlayStartKind::Memories: return TEXT("memories");
+            default: return nullptr;
+            }
+        }
+        const TCHAR* EmoteName(EPlayEmote Value)
+        {
+            switch (Value)
+            {
+            case EPlayEmote::Greeting: return TEXT("greeting");
+            case EPlayEmote::Nod: return TEXT("nod");
+            case EPlayEmote::Cheer: return TEXT("cheer");
+            case EPlayEmote::Stretch: return TEXT("stretch");
+            case EPlayEmote::Groove: return TEXT("groove");
+            case EPlayEmote::Sway: return TEXT("sway");
+            default: return nullptr;
+            }
+        }
+        bool PaletteColor(const FString& Value)
+        {
+            for (const TCHAR* Color : {TEXT("#e7adbb"), TEXT("#ede4d5"), TEXT("#77856b"),
+                TEXT("#343340"), TEXT("#b48755"), TEXT("#809bac")})
+                if (Same(Value, Color)) return true;
+            return false;
+        }
+        FObject CommandArguments(const FPlayCommand& Command)
+        {
+            if (Command.valueless_by_exception()) return {};
+            const auto O = MakeShared<FJsonObject>();
+            const bool bValid = std::visit([&O](const auto& Input)
+            {
+                using T = std::decay_t<decltype(Input)>;
+                const TCHAR* Type = nullptr;
+                if constexpr (std::is_same_v<T, FPlayJoinCommand>) Type = TEXT("join");
+                else if constexpr (std::is_same_v<T, FPlayLeaveCommand>) Type = TEXT("leave");
+                else if constexpr (std::is_same_v<T, FPlayReplayCommand>) Type = TEXT("replay");
+                else if constexpr (std::is_same_v<T, FPlayLeadCommand>) Type = TEXT("lead");
+                else if constexpr (std::is_same_v<T, FPlayPerformCommand>) Type = TEXT("perform");
+                else if constexpr (std::is_same_v<T, FPlayWatchCommand>) Type = TEXT("watch");
+                else if constexpr (std::is_same_v<T, FPlayChopCommand>) Type = TEXT("chop");
+                else if constexpr (std::is_same_v<T, FPlayHeatCommand>) Type = TEXT("heat");
+                else if constexpr (std::is_same_v<T, FPlayPlateCommand>) Type = TEXT("plate");
+                else if constexpr (std::is_same_v<T, FPlayServeCommand>) Type = TEXT("serve");
+                else if constexpr (std::is_same_v<T, FPlaySaveMemoryCommand>) Type = TEXT("save-memory");
+                else if constexpr (std::is_same_v<T, FPlayStartCommand>)
+                {
+                    const TCHAR* Kind = StartKind(Input.Kind);
+                    if (!Kind) return false;
+                    Type = TEXT("start"); O->SetStringField(TEXT("kind"), Kind);
+                    if (Input.Rush.IsSet()) O->SetBoolField(TEXT("rush"), *Input.Rush);
+                }
+                else if constexpr (std::is_same_v<T, FPlayTouchCommand>)
+                {
+                    if (!PlayIndex(Input.Target) || (Input.Power.IsSet()
+                        && (!std::isfinite(*Input.Power) || *Input.Power < 0 || *Input.Power > 1))) return false;
+                    Type = TEXT("touch"); O->SetNumberField(TEXT("target"), Input.Target);
+                    if (Input.Power.IsSet()) O->SetNumberField(TEXT("power"), *Input.Power);
+                }
+                else if constexpr (std::is_same_v<T, FPlayEmoteCommand>)
+                {
+                    const TCHAR* Name = EmoteName(Input.Emote);
+                    if (!Name) return false;
+                    Type = TEXT("emote"); O->SetStringField(TEXT("emote"), Name);
+                }
+                else if constexpr (std::is_same_v<T, FPlayLookCommand>)
+                {
+                    const auto& L = Input.Look;
+                    if ((L.Look != EPlayLook::Rose && L.Look != EPlayLook::Ivory)
+                        || !PaletteColor(L.TopColor) || !PaletteColor(L.TrousersColor)
+                        || !PaletteColor(L.FootwearColor)) return false;
+                    const auto LookObject = MakeShared<FJsonObject>();
+                    LookObject->SetStringField(TEXT("look"), L.Look == EPlayLook::Rose ? TEXT("rose") : TEXT("ivory"));
+                    LookObject->SetStringField(TEXT("topColor"), L.TopColor);
+                    LookObject->SetStringField(TEXT("trousersColor"), L.TrousersColor);
+                    LookObject->SetStringField(TEXT("footwearColor"), L.FootwearColor);
+                    Type = TEXT("look"); O->SetObjectField(TEXT("look"), LookObject);
+                }
+                else if constexpr (std::is_same_v<T, FPlayVoteCommand>)
+                {
+                    if (Input.PlayerId.Len() > 100) return false;
+                    Type = TEXT("vote"); O->SetStringField(TEXT("playerId"), Input.PlayerId);
+                }
+                else if constexpr (std::is_same_v<T, FPlayIngredientCommand>)
+                {
+                    if (!PlayIndex(Input.Ingredient)) return false;
+                    Type = TEXT("ingredient"); O->SetNumberField(TEXT("ingredient"), Input.Ingredient);
+                }
+                else if constexpr (std::is_same_v<T, FPlayRemoveMemoryCommand>)
+                {
+                    if (Input.MemoryId.Len() > 100) return false;
+                    Type = TEXT("remove-memory"); O->SetStringField(TEXT("memoryId"), Input.MemoryId);
+                }
+                else return false;
+                O->SetStringField(TEXT("type"), Type);
+                return true;
+            }, Command);
+            return bValid ? FObject(O) : FObject();
+        }
+    }
+
+    void FPlayState::Emit()
+    {
+        // Keep a callable alive across removal and visit newly registered listeners in order.
+        // No array/map reference survives a callback. A replacement generation ends this emit.
+        const FGuid EmittingSession = Session, EmittingGeneration = QueryGeneration;
+        TSet<FGuid> Visited;
+        while (!bDisposed && Session == EmittingSession && QueryGeneration == EmittingGeneration)
+        {
+            TSharedPtr<TFunction<void()>> Listener;
+            for (const auto& Observer : Observers)
+            {
+                if (Visited.Contains(Observer.Id)) continue;
+                Visited.Add(Observer.Id); Listener = Observer.Listener; break;
+            }
+            if (!Listener.IsValid()) return;
+            (*Listener)();
+        }
+    }
+    void FPlayState::RetireQuery()
+    {
+        QueryGeneration = FGuid::NewGuid();
+        bQueryAvailable = false; bQueryTaken = false;
+        Requests.Reset();
+    }
+    void FPlayState::Connect()
+    {
+        RetireQuery();
+        // Future utility owner: clear/abort utility generation here, even without a scope.
+        bQueryAvailable = !bDisposed && Scope.IsSet() && !Observers.IsEmpty();
+    }
+    FPlayObserverReceipt FPlayState::Subscribe(TFunction<void()> Listener)
+    {
+        FPlayObserverReceipt Receipt;
+        if (bDisposed || !Listener) return Receipt;
+        Receipt.Id = FGuid::NewGuid();
+        FObserver Observer;
+        Observer.Id = Receipt.Id; Observer.Listener = MakeShared<TFunction<void()>>(MoveTemp(Listener));
+        Observers.Add(MoveTemp(Observer));
+        if (!bQueryAvailable) Connect();
+        return Receipt;
+    }
+    bool FPlayState::Unsubscribe(FPlayObserverReceipt Observer)
+    {
+        if (bDisposed || !Observer.Id.IsValid()) return false;
+        const int32 Removed = Observers.RemoveAll([&Observer](const FObserver& Item) { return Item.Id == Observer.Id; });
+        if (!Removed) return false;
+        if (Observers.IsEmpty())
+        {
+            RetireQuery();
+            // Future utility owner: disable and clear/abort, retaining previous observation.
+            Snapshot.bBusy = false; // Canonical last-unsubscribe has no notification.
+        }
+        return true;
+    }
+    bool FPlayState::Select(TOptional<FPlayScope> Next)
+    {
+        if (bDisposed || PlayCommandPrivate::SameScope(Scope, Next)) return false;
+        Scope = MoveTemp(Next); Snapshot = {};
+        Connect(); Emit(); return true;
+    }
+    void FPlayState::Reconnect()
+    {
+        if (!bDisposed) Connect(); // Connect retains the displayed state and does not emit.
+    }
+    void FPlayState::ResetSession()
+    {
+        if (bDisposed) return;
+        Session = FGuid::NewGuid();
+        RetireQuery(); Scope.Reset(); Snapshot = {}; Observers.Reset();
+        // Future utility owner: disable, clear/abort and discard previous observation.
+    }
+    void FPlayState::Dispose()
+    {
+        if (bDisposed) return;
+        ResetSession(); bDisposed = true;
+    }
+    TOptional<FPlayQueryDispatch> FPlayState::TakeQuerySubscription()
+    {
+        if (bDisposed || !bQueryAvailable || bQueryTaken) return {};
+        bQueryTaken = true;
+        FPlayQueryDispatch Dispatch;
+        Dispatch.Receipt.Session = Session; Dispatch.Receipt.Generation = QueryGeneration;
+        if (!PlayCommandPrivate::SerializeArguments(PlayCommandPrivate::ScopeArguments(*Scope), Dispatch.ArgumentsJson))
+        {
+            FailQuery(PlayCommandPrivate::QueryError); return {};
+        }
+        return Dispatch;
+    }
+    bool FPlayState::IsCurrentQuery(FPlayQueryReceipt Receipt) const
+    {
+        return !bDisposed && bQueryAvailable && bQueryTaken
+            && Receipt.Session == Session && Receipt.Generation == QueryGeneration;
+    }
+    void FPlayState::FailQuery(const FString& PublicMessage)
+    {
+        // Future utility owner: clear/abort without disabling or losing previous observation.
+        // Deliberately retain request ownership in this generation while resetting busy.
+        Snapshot = {}; Snapshot.bReady = true; Snapshot.Error = PublicMessage; Emit();
+    }
+    void FPlayState::Accept(const FPlayWireResult& Result)
+    {
+        if (Result.Disposition == EPlayWireDisposition::Accepted)
+        {
+            Snapshot.Wire = Result.Wire; Snapshot.bReady = true; Snapshot.Error.Reset();
+        }
+        Emit(); // A valid older round retains every wire/readiness/error field but still emits.
+    }
+    EPlayWireDisposition FPlayState::ObserveQuery(FPlayQueryReceipt Receipt, FString Json)
+    {
+        if (!IsCurrentQuery(Receipt)) return EPlayWireDisposition::Invalid;
+        const auto Result = ReconcilePlayWire(Snapshot.Wire, Json);
+        if (!Result.Wire.IsSet()) FailQuery(PlayCommandPrivate::QueryError);
+        else Accept(Result);
+        return Result.Disposition;
+    }
+    bool FPlayState::ObserveQueryFailure(FPlayQueryReceipt Receipt, TOptional<FString> PublicMessage)
+    {
+        if (!IsCurrentQuery(Receipt)) return false;
+        const FString Error = PlayCommandPrivate::PublicError(PublicMessage, PlayCommandPrivate::QueryError);
+        FailQuery(Error); return true;
+    }
+    FPlayState::FCommandRequest* FPlayState::FindCommand(const FPlayCommandReceipt& Receipt)
+    {
+        if (bDisposed || !Receipt.Id.IsValid() || Receipt.Session != Session || Receipt.Generation != QueryGeneration) return nullptr;
+        return Requests.Find(Receipt.Id);
+    }
+    TOptional<FPlayCommandReceipt> FPlayState::BeginCommand(FPlayCommand Command)
+    {
+        using namespace PlayCommandPrivate;
+        if (bDisposed || !Scope.IsSet() || Snapshot.bBusy || !Snapshot.bReady) return {};
+        const auto CommandObject = CommandArguments(Command);
+        const auto RoundBefore = Snapshot.Wire.IsSet() ? Snapshot.Wire->GetRound() : TOptional<FPlayRound>();
+        const bool bRetiredRound = RoundBefore.IsSet() && std::holds_alternative<FPlayPlaygroundGame>(RoundBefore->Game);
+        if (!CommandObject.IsValid() || (bRetiredRound && !std::holds_alternative<FPlayStartCommand>(Command)
+            && !std::holds_alternative<FPlayRemoveMemoryCommand>(Command)))
+        {
+            Snapshot.Error = UnavailableError; Emit(); return {};
+        }
+        FPlayCommandReceipt Receipt;
+        Receipt.Session = Session; Receipt.Generation = QueryGeneration; Receipt.Id = FGuid::NewGuid();
+        FCommandRequest Request;
+        Request.Dispatch.Receipt = Receipt;
+        Request.BeganWallTime = WallTimeMs();
+        Request.Dispatch.ActionId = FString::Printf(TEXT("play-%lld-%s"), static_cast<int64>(Request.BeganWallTime),
+            *Receipt.Id.ToString(EGuidFormats::Digits));
+        Requests.Add(Receipt.Id, Request);
+        Snapshot.bBusy = true; Snapshot.Error.Reset(); Emit();
+        // Reacquire after notification: query failure may admit another command, and scope/
+        // session/observer replacement may have removed this request altogether.
+        auto* Current = FindCommand(Receipt);
+        if (!Current || !Scope.IsSet()) return {};
+        const auto RoundNow = Snapshot.Wire.IsSet() ? Snapshot.Wire->GetRound() : TOptional<FPlayRound>();
+        const double Revision = RoundNow.IsSet() ? RoundNow->Revision : 0;
+        const auto Args = ScopeArguments(*Scope);
+        FString Arguments;
+        bool bValid = Args.IsValid() && SafeRevision(Revision);
+        if (bValid)
+        {
+            Args->SetObjectField(TEXT("command"), CommandObject);
+            if (RoundNow.IsSet()) Args->SetStringField(TEXT("expectedRoundId"), RoundNow->Id);
+            else Args->SetField(TEXT("expectedRoundId"), MakeShared<FJsonValueNull>());
+            Args->SetNumberField(TEXT("expectedRevision"), Revision);
+            Args->SetStringField(TEXT("actionId"), Request.Dispatch.ActionId);
+            bValid = SerializeArguments(Args, Arguments);
+        }
+        if (!bValid)
+        {
+            // Local preparation failure follows catch/finally without a pre-final emission.
+            Requests.Remove(Receipt.Id); Snapshot.Error = CommandError; Snapshot.bBusy = false; Emit(); return {};
+        }
+        Current->Dispatch.ArgumentsJson = MoveTemp(Arguments);
+        Current->Stage = ECommandStage::Prepared;
+        return Receipt;
+    }
+    TOptional<FPlayCommandDispatch> FPlayState::MarkCommandDispatched(FPlayCommandReceipt Receipt)
+    {
+        auto* Request = FindCommand(Receipt);
+        if (!Request || Request->Stage != ECommandStage::Prepared) return {};
+        Request->Stage = ECommandStage::Dispatched;
+        return Request->Dispatch;
+    }
+    bool FPlayState::AbandonPreparedCommand(FPlayCommandReceipt Receipt)
+    {
+        auto* Request = FindCommand(Receipt);
+        if (!Request || Request->Stage != ECommandStage::Prepared) return false;
+        Requests.Remove(Receipt.Id); Snapshot.bBusy = false; Emit(); return true;
+    }
+    TOptional<FPlayCommandCompletion> FPlayState::BeginCompletion(const FPlayCommandReceipt& Receipt)
+    {
+        auto* Request = FindCommand(Receipt);
+        if (!Request || Request->Stage != ECommandStage::Dispatched) return {};
+        Request->Stage = ECommandStage::CompletingFailure;
+        Request->CompletionId = FGuid::NewGuid();
+        FPlayCommandCompletion Completion;
+        Completion.Receipt = Receipt; Completion.Id = Request->CompletionId;
+        return Completion;
+    }
+    FPlayState::FCommandRequest* FPlayState::FindCompletion(const FPlayCommandCompletion& Completion)
+    {
+        auto* Request = FindCommand(Completion.Receipt);
+        return Request && Completion.Id.IsValid() && Request->CompletionId == Completion.Id
+            && (Request->Stage == ECommandStage::CompletingSuccess || Request->Stage == ECommandStage::CompletingFailure)
+            ? Request : nullptr;
+    }
+    TOptional<FPlayCommandCompletion> FPlayState::ObserveCommand(FPlayCommandReceipt Receipt, FString Json)
+    {
+        using namespace PlayCommandPrivate;
+        const double ReceivedWallTime = WallTimeMs();
+        auto Completion = BeginCompletion(Receipt);
+        if (!Completion.IsSet()) return {};
+        auto* Request = FindCompletion(*Completion);
+        const double BeganWallTime = Request->BeganWallTime;
+        // Reuse the complete read validator, including validation before older-wire retention.
+        // The second bounded parse reads serverTime; neither projection publishes on its own.
+        const auto Result = ReconcilePlayWire(Snapshot.Wire, Json);
+        FObject O;
+        double ServerTime = 0;
+        if (!Result.Wire.IsSet() || !Parse(Json, O, PlayLimits) || !Number(O, TEXT("serverTime"), ServerTime))
+        {
+            Snapshot.Error = CommandError; return Completion;
+        }
+        const double Offset = ServerTime - (BeganWallTime + ReceivedWallTime) / 2;
+        if (!std::isfinite(Offset)) { Snapshot.Error = CommandError; return Completion; }
+        Request->Stage = ECommandStage::CompletingSuccess;
+        Completion->Disposition = Result.Disposition;
+        Snapshot.ServerOffset = Offset;
+        Accept(Result);
+        // Only detached local data survives the notification. Finalize rechecks ownership.
+        return Completion;
+    }
+    TOptional<FPlayCommandCompletion> FPlayState::ObserveCommandFailure(
+        FPlayCommandReceipt Receipt, TOptional<FString> PublicMessage)
+    {
+        auto Completion = BeginCompletion(Receipt);
+        if (!Completion.IsSet()) return {};
+        Snapshot.Error = PlayCommandPrivate::PublicError(PublicMessage, PlayCommandPrivate::CommandError);
+        return Completion; // No notification before canonical finally.
+    }
+    TOptional<FPlayCommandCompletion> FPlayState::ObserveCommandCompletionFailure(
+        FPlayCommandCompletion Completion, TOptional<FString> PublicMessage)
+    {
+        auto* Request = FindCompletion(Completion);
+        if (!Request || Request->Stage != ECommandStage::CompletingSuccess) return {};
+        Request->Stage = ECommandStage::CompletingFailure; Request->CompletionId = FGuid::NewGuid();
+        Completion.Id = Request->CompletionId; Completion.Disposition = EPlayWireDisposition::Invalid;
+        Snapshot.Error = PlayCommandPrivate::PublicError(PublicMessage, PlayCommandPrivate::CommandError);
+        return Completion;
+    }
+    bool FPlayState::FinalizeCommand(FPlayCommandCompletion Completion)
+    {
+        if (!FindCompletion(Completion)) return false;
+        Requests.Remove(Completion.Receipt.Id);
+        Snapshot.bBusy = false; Emit(); return true;
     }
 }

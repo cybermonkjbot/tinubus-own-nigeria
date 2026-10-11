@@ -1,6 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Templates/Function.h"
 #include <variant>
 
 namespace BaddieCompanion
@@ -143,4 +144,177 @@ namespace BaddieCompanion
     // Caller must clear Previous across account/scope changes and authenticate every callback.
     BADDIECOMPANION_API FPlayWireResult ReconcilePlayWire(
         const TOptional<FPlayWire>& Previous, const FString& Json);
+
+    struct FPlayScope
+    {
+        FString CharacterId, RoomId;
+        TOptional<FString> CallSessionId, InvitationId;
+        TOptional<double> RoomRevision;
+    };
+    struct FPlaySnapshot
+    {
+        // Unset until a wire is received, including a valid null-round wire.
+        TOptional<FPlayWire> Wire;
+        bool bBusy = false, bReady = false;
+        TOptional<FString> Error;
+        double ServerOffset = 0;
+    };
+
+    // Playground and toy are representable only to reject retired caller input.
+    enum class EPlayStartKind : uint8 { Mirror, Mystery, Style, Kitchen, Memories, Playground };
+    struct FPlayStartCommand { EPlayStartKind Kind = EPlayStartKind::Mirror; TOptional<bool> Rush; };
+    struct FPlayJoinCommand {};
+    struct FPlayLeaveCommand {};
+    struct FPlayReplayCommand {};
+    struct FPlayLeadCommand {};
+    struct FPlayPerformCommand {};
+    struct FPlayWatchCommand {};
+    struct FPlayChopCommand {};
+    struct FPlayHeatCommand {};
+    struct FPlayPlateCommand {};
+    struct FPlayServeCommand {};
+    struct FPlaySaveMemoryCommand {};
+    struct FPlayTouchCommand { double Target = 0; TOptional<double> Power; };
+    struct FPlayEmoteCommand { EPlayEmote Emote = EPlayEmote::Greeting; };
+    struct FPlayLookCommand { FPlayLook Look; };
+    struct FPlayVoteCommand { FString PlayerId; };
+    struct FPlayIngredientCommand { double Ingredient = 0; };
+    struct FPlayRemoveMemoryCommand { FString MemoryId; };
+    struct FPlayRetiredToyCommand { EPlayToy Toy = EPlayToy::Ball; };
+    // monostate represents malformed/unknown input, never an accepted command.
+    using FPlayCommand = std::variant<std::monostate, FPlayStartCommand, FPlayJoinCommand,
+        FPlayLeaveCommand, FPlayReplayCommand, FPlayLeadCommand, FPlayPerformCommand,
+        FPlayWatchCommand, FPlayChopCommand, FPlayHeatCommand, FPlayPlateCommand,
+        FPlayServeCommand, FPlaySaveMemoryCommand, FPlayTouchCommand, FPlayEmoteCommand,
+        FPlayLookCommand, FPlayVoteCommand, FPlayIngredientCommand, FPlayRemoveMemoryCommand,
+        FPlayRetiredToyCommand>;
+
+    class FPlayObserverReceipt
+    {
+        friend class FPlayState;
+        FGuid Id;
+    };
+    class FPlayQueryReceipt
+    {
+        friend class FPlayState;
+        FGuid Session, Generation;
+    };
+    class FPlayQueryDispatch
+    {
+        friend class FPlayState;
+    public:
+        FString GetEndpoint() const { return TEXT("companionPlay:snapshot"); }
+        FString GetArgumentsJson() const { return ArgumentsJson; }
+        FPlayQueryReceipt GetReceipt() const { return Receipt; }
+    private:
+        FPlayQueryReceipt Receipt;
+        FString ArgumentsJson;
+    };
+    class FPlayCommandReceipt
+    {
+        friend class FPlayState;
+        FGuid Session, Generation, Id;
+    };
+    class FPlayCommandDispatch
+    {
+        friend class FPlayState;
+    public:
+        FString GetEndpoint() const { return TEXT("companionPlay:act"); }
+        FString GetArgumentsJson() const { return ArgumentsJson; }
+        FString GetActionId() const { return ActionId; }
+        FPlayCommandReceipt GetReceipt() const { return Receipt; }
+        bool ShouldRetry() const { return false; }
+        bool ShouldInvalidateQueryCache() const { return false; }
+    private:
+        FPlayCommandReceipt Receipt;
+        FString ArgumentsJson, ActionId;
+    };
+    class FPlayCommandCompletion
+    {
+        friend class FPlayState;
+    public:
+        // Invalid means a consumed failure, not a usable success wire.
+        EPlayWireDisposition GetDisposition() const { return Disposition; }
+    private:
+        FPlayCommandReceipt Receipt;
+        FGuid Id;
+        EPlayWireDisposition Disposition = EPlayWireDisposition::Invalid;
+    };
+
+    // Account-private, single-game-thread owner. All getters/receipts are detached values.
+    // No transport, credentials, permissions, utilities, timers or rendering are supplied.
+    // Callbacks may reenter but must not throw or destroy this owner while a method runs.
+    class BADDIECOMPANION_API FPlayState
+    {
+    public:
+        FPlayState() = default;
+        FPlayState(const FPlayState&) = delete;
+        FPlayState& operator=(const FPlayState&) = delete;
+        FPlayState(FPlayState&&) = delete;
+        FPlayState& operator=(FPlayState&&) = delete;
+        FPlaySnapshot GetSnapshot() const { return Snapshot; }
+        TOptional<FPlayScope> GetScope() const { return Scope; }
+        FPlayObserverReceipt Subscribe(TFunction<void()> Listener);
+        bool Unsubscribe(FPlayObserverReceipt Observer);
+        bool Select(TOptional<FPlayScope> Next);
+        void Reconnect();
+        // Unconditionally clears scope, private data, listeners and all receipts, even
+        // when the next account/session reuses public IDs. Does not revive Dispose.
+        void ResetSession();
+        void Dispose();
+        // Once per connection generation. The admitted caller owns subscription teardown;
+        // stop its previous subscription whenever IsCurrentQuery becomes false.
+        TOptional<FPlayQueryDispatch> TakeQuerySubscription();
+        bool IsCurrentQuery(FPlayQueryReceipt Receipt) const;
+        EPlayWireDisposition ObserveQuery(FPlayQueryReceipt Receipt, FString Json);
+        // Only sanitized public text from an admitted transport, never raw bodies/errors.
+        // Missing/oversized text uses fixed diagnostics; present empty text stays empty.
+        bool ObserveQueryFailure(FPlayQueryReceipt Receipt, TOptional<FString> PublicMessage);
+        // Validates, captures began time, sets busy/clears error and synchronously notifies.
+        // Only after that notification does it capture scope/round into the packet.
+        TOptional<FPlayCommandReceipt> BeginCommand(FPlayCommand Command);
+        // Recheck and send immediately without a yield/notification. Once only, no retries.
+        TOptional<FPlayCommandDispatch> MarkCommandDispatched(FPlayCommandReceipt Receipt);
+        bool AbandonPreparedCommand(FPlayCommandReceipt Receipt);
+        // Consumes a dispatched callback once. Success updates midpoint offset, accepts
+        // or retains the whole wire, then notifies before finalization. Failure does not notify.
+        TOptional<FPlayCommandCompletion> ObserveCommand(FPlayCommandReceipt Receipt, FString Json);
+        TOptional<FPlayCommandCompletion> ObserveCommandFailure(
+            FPlayCommandReceipt Receipt, TOptional<FString> PublicMessage);
+        // A caller-side failure after success invalidates old completion copies. Applied
+        // wire/offset survive; the replacement failure completion has no pre-final emission.
+        TOptional<FPlayCommandCompletion> ObserveCommandCompletionFailure(
+            FPlayCommandCompletion Completion, TOptional<FString> PublicMessage);
+        // Call after success notification or failure handling. Removes only this request,
+        // clears displayed busy and emits, even when a newer request is still outstanding.
+        bool FinalizeCommand(FPlayCommandCompletion Completion);
+    private:
+        struct FObserver
+        {
+            FGuid Id;
+            TSharedPtr<TFunction<void()>> Listener;
+        };
+        enum class ECommandStage : uint8 { PublishingBusy, Prepared, Dispatched, CompletingSuccess, CompletingFailure };
+        struct FCommandRequest
+        {
+            FPlayCommandDispatch Dispatch;
+            double BeganWallTime = 0;
+            ECommandStage Stage = ECommandStage::PublishingBusy;
+            FGuid CompletionId;
+        };
+        void Emit();
+        void Connect();
+        void RetireQuery();
+        void FailQuery(const FString& PublicMessage);
+        void Accept(const FPlayWireResult& Result);
+        FCommandRequest* FindCommand(const FPlayCommandReceipt& Receipt);
+        FCommandRequest* FindCompletion(const FPlayCommandCompletion& Completion);
+        TOptional<FPlayCommandCompletion> BeginCompletion(const FPlayCommandReceipt& Receipt);
+        FPlaySnapshot Snapshot;
+        TOptional<FPlayScope> Scope;
+        TArray<FObserver> Observers;
+        TMap<FGuid, FCommandRequest> Requests;
+        FGuid Session = FGuid::NewGuid(), QueryGeneration = FGuid::NewGuid();
+        bool bQueryAvailable = false, bQueryTaken = false, bDisposed = false;
+    };
 }
