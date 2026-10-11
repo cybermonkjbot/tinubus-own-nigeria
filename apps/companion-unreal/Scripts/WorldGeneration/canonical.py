@@ -4,6 +4,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+from urllib.parse import quote
 
 SOURCE_COMMIT = "e978763b74acfb0369b65b879af6a3a8c90b110b"
 OWNER = "cribtest11-world-generation-20261010"
@@ -85,6 +86,14 @@ def geo_point(plan,x,z):
             "longitude":plan["origin"]["longitude"]+x/(111320*math.cos(math.radians(plan["origin"]["latitude"])))}
 
 
+def bank(points,x):
+    for a,b in zip(points,points[1:]):
+        if x<=b[0]:
+            t=max(0,min(1,(x-a[0])/(b[0]-a[0])))
+            return a[1]+(b[1]-a[1])*t
+    return points[-1][1]
+
+
 def destinations(refs):
     # Deliberately bounded literal extraction, not a JS evaluator. Hash guards
     # freeze the grammar; an unmatched call or changed count is an error.
@@ -126,12 +135,6 @@ def destinations(refs):
                        "source":refs.identity(expansion_source,"companionPlaceExpansionDestinations/" + identifier)})
     water_source = "packages/utils/src/companionWaterfront.ts"
     water = refs.text(water_source).split("export const companionWaterfrontPlaces:",1)[1].split("];",1)[0]
-    def bank(points, x):
-        for a,b in zip(points,points[1:]):
-            if x <= b[0]:
-                t = max(0,min(1,(x-a[0])/(b[0]-a[0])))
-                return a[1] + (b[1]-a[1])*t
-        return points[-1][1]
     water_matches = re.findall(r'place\("([^"]+)", "([^"]+)", "([^"]+)", (-?[\d.]+), (.+?), "(lagoon|creek|ocean)", (true|false)(.*?)\),',water)
     if len(water_matches) != 12:
         raise ValueError("Waterfront destination extraction is incomplete")
@@ -156,17 +159,125 @@ def destinations(refs):
     return result
 
 
+def registered_asset_version(refs,path,keys):
+    source=refs.text(path)
+    versions=[]
+    for key in sorted(set(keys)):
+        matches=re.findall(r'\b'+re.escape(key)+r'\s*:\s*\{[^}]*?sha256:\s*"([a-f0-9]{64})"',source)
+        if len(matches)!=1:
+            raise ValueError("Unproven canonical asset identity "+key)
+        versions.append(key+":"+matches[0])
+    return "|".join(versions)
+
+
+def inspect_place_contract(value,refs):
+    """Bind the handoff to the registered seed and this pin's producer branch."""
+    place=next((p for p in destinations(refs) if "places/"+p["id"]==value["id"]),None)
+    contract=value.get("contract")
+    required=("placeId","layoutId","seed","assetVersion","generatorVersion","navigation","entrances","spawns")
+    if not place or not isinstance(contract,dict) or not all(key in contract for key in required):
+        raise ValueError("Exact registered place layout/navigation/entrance contract required")
+    kind=place["kind"]
+    if (contract["placeId"]!=place["id"] or contract["seed"]!=place["seed"]
+            or contract.get("kind",kind)!=kind or contract["generatorVersion"]!="lagos-places-v1"):
+        raise ValueError("Place identity/seed/generator differs from canonical registration")
+    if contract.get("housingOption") is not None:
+        raise ValueError("Dynamic housing input is unproven; retain the resolved-layout blocker")
+    sources={place["source"]["path"]}
+    utils="packages/utils/src/"
+    assets=utils+"companionAssets.ts"
+    prefix=place["id"]+":lagos-places-v1:"
+    seed=quote(place["seed"],safe="~()*!.'-")
+    if kind in ("civic-interior","pool-courtyard"):
+        civic=kind=="civic-interior"
+        design_path="packages/assets/venues/"+("civic-interiors-v1.json" if civic else "pool-courtyard-v1.json")
+        design=refs.json(design_path)
+        if civic and not any(floor["id"]==place["id"] for floor in design["floors"]):
+            raise ValueError("Unregistered authored Civic floor")
+        sources.update((design_path,utils+("companionPlacesCivicInteriors.ts" if civic else "companionPlacesPoolCourtyard.ts")))
+        asset_version=design["id"]
+        layout_id=prefix+asset_version+":"+seed
+    elif kind=="race-circuit":
+        producer=utils+"companionRacing.ts"
+        rules=re.search(r'export const racingRules = Object.freeze\(\{\s*placeId: "([^"]+)", version: "([^"]+)"',refs.text(producer))
+        if not rules or rules[1]!=place["id"]:
+            raise ValueError("Unproven canonical racing identity")
+        sources.add(producer)
+        asset_version=rules[2]
+        layout_id=asset_version+":"+place["seed"]
+    elif "waterZone" in place:
+        producer=utils+"companionWaterfrontLayouts.ts"
+        boats=utils+"companionBoatAssets.ts"
+        version=re.search(r'export const COMPANION_WATERFRONT_VERSION = "([^"]+)";',refs.text(utils+"companionWaterfront.ts"))
+        if not version:
+            raise ValueError("Unproven canonical waterfront version")
+        # These fixed selections project the pinned producer's branches, not
+        # caller-supplied props. Unrecognized/dynamic branches stay blocked.
+        if kind=="surf-island":
+            boat_keys=["bestieBoatPassengerSpeedboat"]
+        elif kind=="stilt-creek":
+            boat_keys=["bestieBoatDugoutCanoe","bestieBoatPlankedCanoe","bestieBoatFishingSkiff"]
+        elif kind=="timber-atoll":
+            boat_keys=["bestieBoatSandDredger","bestieBoatTimberBarge","bestieBoatDugoutCanoe","bestieBoatPassengerSpeedboat"]
+        elif kind=="under-bridge":
+            boat_keys=["bestieBoatDugoutCanoe"] if place["level"]=="pier" else []
+        elif kind=="water-terminal":
+            boat_keys=["bestieBoatPassengerSpeedboat","bestieBoatSandDredger"]
+            if place["id"]=="ikoyi-marina":
+                boat_keys += ["bestieBoatCabinYacht","bestieBoatFlybridgeYacht","bestieBoatOpenSpeedboat",
+                              "bestieBoatInflatableTender","bestieBoatJetSki"]
+        else:
+            raise ValueError("Unproven dynamic waterfront assets; retain the resolved-layout blocker")
+        sources.update((producer,boats,assets))
+        asset_version=version[1]+"|"+registered_asset_version(refs,assets,["bestieTownSquareNpcs"])
+        if boat_keys:
+            asset_version+="|"+registered_asset_version(refs,boats,boat_keys)
+        layout_id=prefix+version[1]+":"+seed
+    else:
+        expansion=("market","supermarket","bus-terminal","fuel-station","mechanic","salon",
+                   "gym","cinema","library","arts-centre","campus","office")
+        base=("hospital","mama-put","content-house","skyline","fine-dining","nightclub","station","soccer-pitch","arena","lounge")
+        if kind not in base+expansion:
+            raise ValueError("Unproven dynamic place inputs; retain the resolved-layout blocker")
+        sources.add(utils+"companionPlacesLayouts.ts")
+        keys=[] if kind=="lounge" else ["bestieTownSquareNpcs"]
+        if kind in ("hospital","content-house","skyline","fine-dining"):
+            keys.append("bestiePatStudio")
+            sources.add(utils+"companionRoomLayouts.ts")
+        if kind=="mama-put":
+            keys.append("bestieKitchen")
+        if kind in expansion:
+            sources.add(utils+"companionPlacesExpansionLayouts.ts")
+        if kind=="lounge":
+            sources.add("packages/assets/venues/dance-again-v1.json")
+        if keys:
+            sources.add(assets)
+        asset_version=registered_asset_version(refs,assets,keys) if keys else "geometry-v1"
+        layout_id=prefix+kind+":default:"+seed
+    navigation_revision=layout_id if kind=="race-circuit" else layout_id+":"+asset_version
+    if (contract["layoutId"]!=layout_id or contract["assetVersion"]!=asset_version
+            or not isinstance(contract["navigation"],dict)
+            or contract["navigation"].get("revision")!=navigation_revision):
+        raise ValueError("Place layout/asset/navigation identity differs from pinned producer")
+    supplied=set()
+    for source in value.get("sources",[]):
+        path=source.get("path")
+        if (path not in refs.entries or source.get("sha256")!=refs.entries[path]["sha256"]
+                or source.get("sourceCommit",SOURCE_COMMIT)!=SOURCE_COMMIT):
+            raise ValueError("Place source differs from pinned reference")
+        supplied.add(path)
+    if not sources.issubset(supplied):
+        raise ValueError("Place handoff lacks canonical registration/producer sources: "+", ".join(sorted(sources-supplied)))
+    for path in sources:
+        refs.text(path)
+
+
 def travel_contract(refs):
     """Retain proposed corridors and boat/level exclusions, never grant travel."""
     import math
     plan=city_plan(refs)
     places=destinations(refs)
     water={p["id"]:p for p in places if "waterZone" in p}
-    def bank(points,x):
-        for a,b in zip(points,points[1:]):
-            if x<=b[0]:
-                return a[1]+(b[1]-a[1])*max(0,min(1,(x-a[0])/(b[0]-a[0])))
-        return points[-1][1]
     def length(points):
         total=0
         for a,b in zip(points,points[1:]):

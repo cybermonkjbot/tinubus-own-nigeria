@@ -5,7 +5,7 @@ from copy import deepcopy
 import math
 from urllib.parse import quote
 
-from .canonical import city_plan, destinations, digest, travel_contract
+from .canonical import city_plan, destinations, digest, inspect_place_contract, travel_contract
 from .geometry import (beam_mesh, home_point, home_shell_point, part_vertices,
                       place_point, ribbon, triangles)
 
@@ -16,6 +16,19 @@ def job(identifier, sources, parts=None, meshes=None, blockers=None, category="c
     return {"id":identifier,"category":category,"sources":sources,
             "parts":parts or [],"meshes":meshes or [],"blockers":blockers or [],
             "authority":{"access":False,"movementAdmission":False,"missionReadiness":False,"utilityPower":False}}
+
+
+def inspect_content(value):
+    for name in ("meshes","parts"):
+        records=value.get(name,[])
+        if (not isinstance(records,list)
+                or any(not isinstance(record,dict) or not isinstance(record.get("id"),str) or not record["id"] for record in records)):
+            raise ValueError("Native handoff needs arrays of identified meshes/parts")
+    template=value.get("template")
+    if template is not None and (not isinstance(template,dict) or not template):
+        raise ValueError("An explicit template needs complete initialized native input evidence")
+    if not (value.get("meshes") or value.get("parts") or template):
+        raise ValueError("Empty native handoff content")
 
 
 def explicit(identifier, vertices, faces, material, collision="none"):
@@ -59,6 +72,8 @@ def venue_contract(design, place_id, seed, grid_size, floor_y=0):
                           "outside":local(floor["entrance"]["outside"]),"width":floor["entrance"]["width"],
                           "role":"world","access":"place-membership"}],
             "spawns":[{"point":local(p),"yaw":math.pi} for p in floor["spawns"]],
+            "cameras":{name:{pose:local(floor["cameras"][name][pose]) for pose in ("eye","target")}
+                       for name in ("wide","close")},
             "rooms":floor.get("rooms",[]),"services":[],"npcs":[],"gates":"runtime-authoritative-closed"}
 
 
@@ -113,7 +128,7 @@ def prepare_home_handoff(identifier,incoming,refs):
                 or contract["layoutRevision"]!="runtime-authoritative"
                 or not contract["entrances"] or not contract["navigation"]):
             raise ValueError("Independent Home shell needs exact layout/navigation/opening and runtime ownership contracts")
-        if any(mesh.get("role")!="shell" for mesh in incoming.get("meshes",[])):
+        if any(item.get("role")!="shell" for item in incoming.get("meshes",[])+incoming.get("parts",[])):
             raise ValueError("Independent Home shells cannot bake private saved furniture")
         return incoming
     layout=segments[1]
@@ -173,6 +188,8 @@ def prepare_home_handoff(identifier,incoming,refs):
 def build_jobs(refs, handoffs=None):
     handoffs=handoffs or {}
     plan=city_plan(refs)
+    places=destinations(refs)
+    registrations={place["id"]:place for place in places}
     architecture_path="packages/assets/city/lagos-architecture-delivery-v1.json"
     architecture=refs.json(architecture_path)
     reserved={p["parcelId"] for p in architecture["buildings"]} | {"civic-street-2",architecture["exterior"]["parcelId"]}
@@ -275,22 +292,27 @@ def build_jobs(refs, handoffs=None):
     interior_path="packages/assets/venues/civic-interiors-v1.json"
     interiors=refs.json(interior_path)
     for floor in interiors["floors"]:
-        value=job("places/"+floor["id"],[refs.identity(interior_path),refs.identity("packages/utils/src/companionPlacesCivicInteriors.ts")],meshes=authored_parts(
+        registration=registrations[floor["id"]]
+        value=job("places/"+floor["id"],[registration["source"],refs.identity(interior_path),refs.identity("packages/utils/src/companionPlacesCivicInteriors.ts")],meshes=authored_parts(
             floor["parts"],interiors["materials"],"civic",floor_y=floor["floorY"]),category="interior")
-        value["contract"]=venue_contract(interiors,floor["id"],floor["id"]+"-v1",.25,floor["floorY"])
+        value["contract"]=venue_contract(interiors,floor["id"],registration["seed"],.25,floor["floorY"])
         jobs.append(value)
     pool_path="packages/assets/venues/pool-courtyard-v1.json"
     pool=refs.json(pool_path)
-    meshes=authored_parts([p for p in pool["parts"] if p["shape"]!="water"],pool["materials"],"pool")
-    water={"shape":"water","position":[pool["pool"]["x"],pool["pool"]["waterY"],pool["pool"]["z"]],
-           "size":[pool["pool"]["width"],1,pool["pool"]["depth"]],"rotation":[0,0,0],"material":"water","name":"pool-water"}
-    meshes += authored_parts([water],pool["materials"],"pool")
-    value=job("places/pool-courtyard",[refs.identity(pool_path),refs.identity("packages/utils/src/companionPlacesPoolCourtyard.ts")],meshes=meshes,category="interior")
-    value["contract"]=venue_contract(pool,"pool-courtyard","pool-courtyard-v1",.3)
+    # Replace water in its original slot, retaining its name and every source
+    # array index. The plane has no thickness; its elevation is waterY.
+    parts=[{**part,"position":[pool["pool"]["x"],pool["pool"]["waterY"],pool["pool"]["z"]],
+            "size":[pool["pool"]["width"],part["size"][1],pool["pool"]["depth"]]}
+           if part["shape"]=="water" else part for part in pool["parts"]]
+    meshes=authored_parts(parts,pool["materials"],"pool")
+    registration=registrations["pool-courtyard"]
+    value=job("places/pool-courtyard",[registration["source"],refs.identity(pool_path),refs.identity("packages/utils/src/companionPlacesPoolCourtyard.ts"),
+              refs.identity("packages/companion-scene/src/interactions/lagos-places/poolCourtyardGeometry.ts")],meshes=meshes,category="interior")
+    value["contract"]=venue_contract(pool,"pool-courtyard",registration["seed"],.3)
     value["contract"]["pool"]=pool["pool"]
     jobs.append(value)
     supplied=set(j["id"] for j in jobs)
-    for destination in destinations(refs):
+    for destination in places:
         identifier="places/"+destination["id"]
         if destination["id"] in ("town-square","own-home") or identifier in supplied:
             continue
@@ -321,13 +343,17 @@ def build_jobs(refs, handoffs=None):
                 raise ValueError("Incoming handoff conflicts with an implemented canonical job")
             if incoming.get("authority") != value["authority"]:
                 raise ValueError("Scene handoff cannot grant runtime authority")
+            inspect_content(incoming)
             if value["category"]=="Home":
                 incoming=prepare_home_handoff(value["id"],incoming,refs)
-            if not incoming.get("sources") or not (incoming.get("meshes") or incoming.get("template")):
-                raise ValueError("Empty or unprovenanced native handoff")
+            if not incoming.get("sources"):
+                raise ValueError("Unprovenanced native handoff")
             if incoming["id"]!=value["id"] or incoming.get("category",value["category"])!=value["category"]:
                 raise ValueError("Incoming canonical job identity changed")
-            value.update({key:incoming[key] for key in ("meshes","parts","template","contract","sources") if key in incoming})
+            incoming_fields={key:incoming[key] for key in ("meshes","parts","template","contract","sources") if key in incoming}
+            if value["category"] in ("place","waterfront","interior"):
+                inspect_place_contract({**value,**incoming_fields},refs)
+            value.update(incoming_fields)
             value["blockers"]=[]
         if value["id"].startswith("city/"):
             value.setdefault("contract",{})["navigationSource"]=refs.identity("packages/assets/city/lagos-street-density-navigation-v1.json","navigation")
