@@ -411,12 +411,17 @@ namespace BaddieCompanion::WorldObservationPrivate
         if (!Budget.bPageReserved || Body.IsEmpty() || Body.Len() > BodyLimit
             || !StateJsonPrivate::WithinParseLimits(Body, {BodyLimit, 12, BodyLimit})) return false;
         for (TCHAR C : Body) if (C <= 0 || C > 127) return false;
-        const uint64 Charge = static_cast<uint64>(Body.Len()) * 8;
+        // Success/value/preparation is the deepest supported reply-object shape.
+        // Each object keeps its own bounded key set until that object closes.
+        constexpr int32 ReplyObjectLimit = 3;
+        using FReplyKeys = TArray<FString, TInlineAllocator<32>>;
+        constexpr uint64 KeyScopeBytes = sizeof(FReplyKeys) * ReplyObjectLimit;
+        const uint64 Charge = static_cast<uint64>(Body.Len()) * 8 + KeyScopeBytes;
         if (Charge > CandidateWorkLimit - Budget.CandidateWork) { Budget.bExhausted = true; return false; }
         Budget.CandidateWork += Charge;
         const auto Reader = TJsonReaderFactory<>::Create(Body);
-        TArray<FString, TInlineAllocator<32>> Keys[2];
-        int32 Objects = 0; uint64 Estimate = Body.Len() * 8 + 65536;
+        FReplyKeys Keys[ReplyObjectLimit];
+        int32 Objects = 0; uint64 Estimate = Body.Len() * 8 + 65536 + KeyScopeBytes;
         EJsonNotation Notation;
         while (Reader->ReadNext(Notation))
         {
@@ -429,7 +434,7 @@ namespace BaddieCompanion::WorldObservationPrivate
                 Scope.Add(Identifier);
             }
             if (Notation == EJsonNotation::ObjectStart)
-            { if (Objects == 2) return false; Keys[Objects++].Reset(); }
+            { if (Objects == ReplyObjectLimit) return false; Keys[Objects++].Reset(); }
             else if (Notation == EJsonNotation::ObjectEnd) { if (!Objects) return false; --Objects; }
             else if (Notation == EJsonNotation::String && Reader->GetValueAsString().Len() > 64) return false;
             else if (Notation == EJsonNotation::Error) return false;

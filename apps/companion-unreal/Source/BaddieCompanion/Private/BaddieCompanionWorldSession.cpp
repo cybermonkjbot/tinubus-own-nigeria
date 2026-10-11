@@ -1276,10 +1276,10 @@ namespace BaddieCompanion
             State.Status = EWorldReadStatus::Preparing;
         }
         Capture = MoveTemp(Alias);
-        // Only the successful original Observe completion, including pending,
-        // anchors time. A lookup resolves identity but cannot recover its arrival.
-        if (!bReplacement && Request.Operation == EWorldRequest::Observe
-            && CaptureOperation == EWorldRequest::Observe && !bLostTicket)
+        // A successful original dynamic capture, including pending, anchors its
+        // own time. Preparation, lookup and capture polling cannot supply it.
+        if (!bReplacement && Request.Operation == RequestedOperation && CaptureOperation == RequestedOperation
+            && (RequestedOperation == EWorldRequest::Observe || Command(RequestedOperation)) && !bLostTicket)
         {
             TicketArrival = TicketArrival > 0 ? FMath::Min(TicketArrival, ReceivedAt) : ReceivedAt;
             CandidateDeadline = FMath::Min(CandidateDeadline, TicketArrival + 60);
