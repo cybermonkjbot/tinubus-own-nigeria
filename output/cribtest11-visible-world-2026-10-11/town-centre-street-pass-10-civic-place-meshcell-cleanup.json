@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T01:32:18.2855521Z",
+  "owner": "cribtest11-world-generation-20261010/town-centre-street-pass-01",
+  "mode": "cleanup-closed-civic-place-mesh-cells",
+  "sourceCommitBeforeScriptPatch": "9cc03c1",
+  "districtId": "town-centre",
+  "sourceSelection": {
+    "path": "output/cribtest11-visible-world-2026-10-11/town-centre-district-selection.json",
+    "districtDestinations": [
+      "civic-reception",
+      "civic-terrace-lounge"
+    ]
+  },
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "placeLevelPackages": [
+    "/Game/BaddieGeneratedWorld/R_5a62e6998dd9baf710a1fbd3/Maps/L_places_civic_reception_27b4c84ac2",
+    "/Game/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402"
+  ],
+  "mutation": {
+    "removedClosedMeshCellCount": 89,
+    "removedClosedMeshCellFilter": {
+      "actorLabelContains": "mesh_cell",
+      "requiredTags": [
+        "Baddie.Readiness=Closed",
+        "Baddie.CanonicalId=mesh-cell:*"
+      ]
+    },
+    "removedClosedMeshCellCountsByLevel": {
+      "/Game/BaddieGeneratedWorld/R_5a62e6998dd9baf710a1fbd3/Maps/L_places_civic_reception_27b4c84ac2": 46,
+      "/Game/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402": 43
+    },
+    "remainingClosedMeshCellCountAfterReload": 0
+  },
+  "saveState": {
+    "dirtyBeforeSave": {
+      "/Game/BaddieGeneratedWorld/R_5a62e6998dd9baf710a1fbd3/Maps/L_places_civic_reception_27b4c84ac2": true,
+      "/Game/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402": true
+    },
+    "saved": true,
+    "dirtyAfterSave": {
+      "/Game/BaddieGeneratedWorld/R_5a62e6998dd9baf710a1fbd3/Maps/L_places_civic_reception_27b4c84ac2": false,
+      "/Game/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402": false
+    },
+    "reloadedLevel": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01"
+  },
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "2f6484295a3f2e477969b43338ed8e7626f38e975a94e9482c1365444b931a95",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_5a62e6998dd9baf710a1fbd3/Maps/L_places_civic_reception_27b4c84ac2.umap": "74f3ba9cf3312a0e8bc923788ffbbf17a17f41b8be24296e2b1d7e1a6b62ed31",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402.umap": "2d1d3f7c9f3fc52b94d57cbb97e967c4727a975813310c8765e38470a8bcb8f1"
+  },
+  "camerasToRecapture": [
+    "market-road-frontage-a",
+    "market-road-frontage-b",
+    "civic-street-approach",
+    "civic-terrace-open-a",
+    "civic-terrace-open-b"
+  ],
+  "playableAcceptance": "not-established",
+  "runtimeAdmission": false
+}

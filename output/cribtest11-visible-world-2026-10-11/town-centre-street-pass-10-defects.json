@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T01:33:10Z",
+  "districtId": "town-centre",
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-10-civic-place-meshcell-cleanup.json",
+  "previewSet": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-cleanup10-daylight",
+  "status": "not visually acceptable",
+  "observations": [
+    {
+      "camera": "market-road-frontage-a",
+      "imageSha256": "b6a62cdc0bc732bed59155b75459e20b1ba3168ae8e282ad16b5e4d4051e301e",
+      "defect": "Long open void and sparse context still dominate the right side of the corridor."
+    },
+    {
+      "camera": "market-road-frontage-b",
+      "imageSha256": "c39f07b350daeba9524f3bd0833bdd34fa1b05c8527ad09d4e93e40fce962660",
+      "defect": "Pass-by frontage remains too thin; the road edge still falls into unsupported empty space."
+    },
+    {
+      "camera": "civic-street-approach",
+      "imageSha256": "6fbe05302b8dea389a6d212d7c818c8dcb48174b345a911bdfd0f0a60f5caaf0",
+      "defect": "The previous closed civic blocker is gone, but the replacement view is still a broad blank side wall rather than a lived-in street edge."
+    },
+    {
+      "camera": "civic-terrace-open-a",
+      "imageSha256": "7b2e66bfbc97f49c81d18e802f940fa3a8877ba04612e0308e0f39552b957310",
+      "defect": "Large blue-ground void and isolated slabs still break continuity around the civic node."
+    },
+    {
+      "camera": "civic-terrace-open-b",
+      "imageSha256": "424abfd2b8df133f06719f65f716b4fd0ee29f614cd6220663ea5463b3ded132",
+      "defect": "Street enclosure is still too reliant on blank wall massing with no believable adjoining context."
+    }
+  ],
+  "nextNeed": [
+    "Add ordinary filler/pass-by frontage in the market and civic corridors with tighter side returns and rear closure.",
+    "Close the visible void ground around the corridors so pavements and plots do not terminate into empty blue space.",
+    "Vary the visible side walls and edge treatment so the district reads as Lagos street fabric rather than repeated shell masses."
+  ]
+}

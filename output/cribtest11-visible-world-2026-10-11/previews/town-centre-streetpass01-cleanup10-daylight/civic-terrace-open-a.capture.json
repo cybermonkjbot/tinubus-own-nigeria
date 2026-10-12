@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T01:33:02.530791+00:00",
+  "camera": "civic-terrace-open-a",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "image": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-cleanup10-daylight/civic-terrace-open-a.png",
+  "imageSha256": "7b2e66bfbc97f49c81d18e802f940fa3a8877ba04612e0308e0f39552b957310",
+  "width": 705,
+  "height": 486,
+  "cameraConfig": {
+    "location": {
+      "x": -31600.0,
+      "y": 2200.0,
+      "z": 165.0
+    },
+    "rotation": {
+      "pitch": 2.0,
+      "yaw": 350.0,
+      "roll": 0.0
+    }
+  },
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -31600,
+      "y": 2200,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 1.9999999999999996,
+      "yaw": -10.000000000000005,
+      "roll": 2.4863229456536666e-17
+    },
+    "cameraFOV": 90,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-10-civic-place-meshcell-cleanup.json",
+  "receiptSha256": "b24383cec8640cbe4ffb85aa87e42b207ed90812efa0a7bde3053872c587c1f5"
+}
