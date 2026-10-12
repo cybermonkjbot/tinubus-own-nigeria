@@ -49,6 +49,7 @@ CONNECTED_DISTRICT_LEVEL = "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d
 REFINE_RECEIPT_NAME = "town-centre-street-pass-05-refine04.json"
 PLACEHOLDER_CLEANUP_RECEIPT_NAME = "town-centre-street-pass-06-placeholder-cleanup.json"
 ALL_CLOSED_BOX_CLEANUP_RECEIPT_NAME = "town-centre-street-pass-07-all-closed-box-cleanup.json"
+ADJOINING_MESH_CLEANUP_RECEIPT_NAME = "town-centre-street-pass-08-adjoining-meshcell-cleanup.json"
 
 FRONTAGE_RECEIPT = REALISM_OUT / "frontage-v2-ism-v1.json"
 FOCUS_RADIUS_PAD_METRES = 55.0
@@ -64,6 +65,32 @@ PASS_BY_CONTEXT_PARCELS = {
     "market-road-10", "market-road-12",
     "civic-street-2", "civic-street-4", "civic-street-5", "civic-street-6",
     "unity-avenue-3", "unity-avenue-9",
+}
+ADJOINING_CLOSED_MESH_LEVELS = {
+    "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c": {
+        "mesh-cell:-1:-1:3651a566d87b",
+        "mesh-cell:-1:-1:6ba0c451f54f",
+        "mesh-cell:-1:-1:6cffe552c1fc",
+        "mesh-cell:-1:-1:72f4c98c41bd",
+        "mesh-cell:-1:-1:f4b6d8f83942",
+    },
+    "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f": {
+        "mesh-cell:0:-2:0453e67b17d8",
+        "mesh-cell:0:-2:2540caa2a358",
+        "mesh-cell:0:-2:2bd0a2983324",
+        "mesh-cell:0:-2:35c994cb4ce1",
+        "mesh-cell:0:-2:4b5b48b9a8cd",
+        "mesh-cell:0:-2:57733a202e67",
+        "mesh-cell:0:-2:7947b7840c55",
+        "mesh-cell:0:-2:81c723f8a09e",
+        "mesh-cell:0:-2:a87e83741d44",
+        "mesh-cell:0:-2:ac2500549624",
+        "mesh-cell:0:-2:c28d82f66e94",
+        "mesh-cell:0:-2:c7162a236889",
+        "mesh-cell:0:-2:cad68309650d",
+        "mesh-cell:0:-2:d3625fbf6a93",
+        "mesh-cell:0:-2:faca9b073f55",
+    },
 }
 PACK_SPACING_CM = 1180.0
 PLACEHOLDER_BLOCKER_CANONICAL_IDS = {
@@ -927,6 +954,35 @@ def remove_all_closed_instance_boxes():
     return sorted(affected, key=lambda row: row["canonicalId"])
 
 
+def remove_closed_adjoining_mesh_cells():
+    affected = []
+    for actor in actors().get_all_level_actors():
+        level_package = actor.get_outer().get_path_name().split(".")[0]
+        allowed_ids = ADJOINING_CLOSED_MESH_LEVELS.get(level_package)
+        if not allowed_ids:
+            continue
+        canonical_id = placeholder_canonical_id(actor)
+        if canonical_id not in allowed_ids:
+            continue
+        if not canonical_id.startswith("mesh-cell:"):
+            continue
+        tags = {str(tag) for tag in actor.tags}
+        if "Baddie.Readiness=Closed" not in tags:
+            continue
+        origin, extent = actor.get_actor_bounds(False)
+        record = {
+            "label": actor.get_actor_label(),
+            "actor": actor.get_path_name(),
+            "canonicalId": canonical_id,
+            "levelPackage": level_package,
+            "origin": [origin.x, origin.y, origin.z],
+            "extent": [extent.x, extent.y, extent.z],
+        }
+        assert actors().destroy_actor(actor), record["label"]
+        affected.append(record)
+    return sorted(affected, key=lambda row: (row["levelPackage"], row["canonicalId"]))
+
+
 def save_and_receipt(frontage_rows_created, road_rows_created, packs, dressing, child_levels, detail_streaming, removed_placeholders):
     detail_world = detail_streaming.get_loaded_level().get_outer()
     assert unreal.EditorLoadingAndSavingUtils.save_map(detail_world, DETAIL_MAP), "Failed to save additive street detail level"
@@ -1103,6 +1159,37 @@ def save_all_closed_box_cleanup_receipt(removed_placeholders):
     return receipt_path
 
 
+def save_adjoining_mesh_cleanup_receipt(removed_mesh_cells):
+    files = {}
+    for package in sorted(ADJOINING_CLOSED_MESH_LEVELS):
+        level_world = loaded_level_by_package(package).get_outer()
+        assert unreal.EditorLoadingAndSavingUtils.save_map(level_world, package), "Failed to save cleaned adjoining level"
+        files.update(package_files(package, True))
+    receipt = {
+        "schemaVersion": 1,
+        "recordedAt": datetime.now(timezone.utc).isoformat(),
+        "pid": os.getpid(),
+        "owner": OWNER,
+        "mode": "cleanup-closed-adjoining-mesh-cells",
+        "mapPackage": active_world_package(),
+        "adjoiningLevelPackages": sorted(ADJOINING_CLOSED_MESH_LEVELS),
+        "files": files,
+        "districtId": "town-centre",
+        "districtSelectionPath": str(DISTRICT_SELECTION.relative_to(ROOT)).replace("\\", "/"),
+        "districtSelectionSha256": sha(DISTRICT_SELECTION),
+        "removedClosedMeshCellCount": len(removed_mesh_cells),
+        "removedClosedMeshCells": removed_mesh_cells,
+        "playableAcceptance": "not-established",
+        "runtimeAdmission": False,
+    }
+    receipt_path = OUT / ADJOINING_MESH_CLEANUP_RECEIPT_NAME
+    assert not receipt_path.exists(), receipt_path
+    with receipt_path.open("x", encoding="utf-8", newline="\n") as stream:
+        json.dump(receipt, stream, indent=2)
+        stream.write("\n")
+    return receipt_path
+
+
 def prepare_camera(camera_id):
     spec = next(c for c in CAMERAS if c["id"] == camera_id)
     key = levels().get_active_viewport_config_key()
@@ -1219,6 +1306,22 @@ def cleanup_all_closed_instance_boxes(expected_pid):
     }))
 
 
+def cleanup_closed_adjoining_mesh_cells(expected_pid):
+    ensure_identity(expected_pid)
+    assert active_world_package() == TARGET_MAP, "Expected the existing streetpass01 map to be loaded"
+    assert not dirty_names(), "Cleanup pass expects a clean loaded map"
+    removed_mesh_cells = remove_closed_adjoining_mesh_cells()
+    receipt_path = save_adjoining_mesh_cleanup_receipt(removed_mesh_cells)
+    prepare_camera("civic-street-approach")
+    print(json.dumps({
+        "mapPackage": TARGET_MAP,
+        "adjoiningLevelPackages": sorted(ADJOINING_CLOSED_MESH_LEVELS),
+        "removedClosedMeshCells": len(removed_mesh_cells),
+        "receipt": str(receipt_path.relative_to(ROOT)).replace("\\", "/"),
+        "receiptSha256": sha(receipt_path),
+    }))
+
+
 def dispatch(expected_pid):
     mode = os.environ.get("BADDIE_TOWN_CENTRE_PASS_MODE", "").strip().lower()
     if mode == "execute":
@@ -1232,6 +1335,9 @@ def dispatch(expected_pid):
         return
     if mode == "cleanup-all":
         cleanup_all_closed_instance_boxes(expected_pid)
+        return
+    if mode == "cleanup-adjoining-mesh":
+        cleanup_closed_adjoining_mesh_cells(expected_pid)
         return
     if active_world_package() == TARGET_MAP:
         refine_existing(expected_pid)

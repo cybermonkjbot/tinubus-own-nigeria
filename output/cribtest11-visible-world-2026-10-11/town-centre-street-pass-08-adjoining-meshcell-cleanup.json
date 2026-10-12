@@ -1,0 +1,344 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T01:00:30.942156+00:00",
+  "pid": 13732,
+  "owner": "cribtest11-world-generation-20261010/town-centre-street-pass-01",
+  "mode": "cleanup-closed-adjoining-mesh-cells",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "adjoiningLevelPackages": [
+    "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+    "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c"
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.umap": "7d2c54f23c06d0bc2ad204cfc17089add75fa8fbfceb72ce3bcb2e88ad0f01e7",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c.umap": "b9b2bc547c69ec57b284b06189bba445c1e987cde3fa86693fd61d8afe810e2b"
+  },
+  "districtId": "town-centre",
+  "districtSelectionPath": "output/cribtest11-visible-world-2026-10-11/town-centre-district-selection.json",
+  "districtSelectionSha256": "2fdc9ad04dbf6ef064d70661e78bf6204401a4a6f9e469f36d37d269a3321c8e",
+  "removedClosedMeshCellCount": 20,
+  "removedClosedMeshCells": [
+    {
+      "label": "mesh_cell_0__2_0453e67b17d8_b684af9fba",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_9",
+      "canonicalId": "mesh-cell:0:-2:0453e67b17d8",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26720.8662109375,
+        3479.44189453125,
+        375.25
+      ],
+      "extent": [
+        227.2783203125,
+        774.9462890625,
+        289.75
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_2540caa2a358_1a574c4c41",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_5",
+      "canonicalId": "mesh-cell:0:-2:2540caa2a358",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26612.5859375,
+        3951.265869140625,
+        35.0
+      ],
+      "extent": [
+        40.26171875,
+        402.973388671875,
+        30.5
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_2bd0a2983324_b82dd323f7",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_7",
+      "canonicalId": "mesh-cell:0:-2:2bd0a2983324",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26637.6201171875,
+        3686.47802734375,
+        335.25
+      ],
+      "extent": [
+        295.6298828125,
+        655.43994140625,
+        329.75
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_35c994cb4ce1_db5994bbaf",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_4",
+      "canonicalId": "mesh-cell:0:-2:35c994cb4ce1",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26567.65234375,
+        3488.08203125,
+        354.9750118255615
+      ],
+      "extent": [
+        75.759765625,
+        868.1513671875,
+        333.675012588501
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_4b5b48b9a8cd_0be78a4cc4",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_13",
+      "canonicalId": "mesh-cell:0:-2:4b5b48b9a8cd",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26485.583984375,
+        3705.588623046875,
+        322.75
+      ],
+      "extent": [
+        55.888671875,
+        553.541748046875,
+        322.75
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_57733a202e67_a597c11d37",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_2",
+      "canonicalId": "mesh-cell:0:-2:57733a202e67",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26430.5478515625,
+        4005.13818359375,
+        10.5
+      ],
+      "extent": [
+        188.3505859375,
+        394.51025390625,
+        7.0
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_7947b7840c55_560a97d942",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_0",
+      "canonicalId": "mesh-cell:0:-2:7947b7840c55",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -27095.037109375,
+        3447.8609619140625,
+        2.5
+      ],
+      "extent": [
+        1251.564453125,
+        1037.6697998046875,
+        2.5
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_81c723f8a09e_d044dba8ac",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_11",
+      "canonicalId": "mesh-cell:0:-2:81c723f8a09e",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26903.32421875,
+        2565.0885009765625,
+        295.0
+      ],
+      "extent": [
+        395.470703125,
+        56.4234619140625,
+        292.0
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_a87e83741d44_ce1800a942",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_10",
+      "canonicalId": "mesh-cell:0:-2:a87e83741d44",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26670.7373046875,
+        3505.1751708984375,
+        376.25
+      ],
+      "extent": [
+        519.6181640625,
+        911.3687744140625,
+        385.75
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_ac2500549624_f8165f1abc",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_3",
+      "canonicalId": "mesh-cell:0:-2:ac2500549624",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26471.6220703125,
+        4021.2491455078125,
+        159.5
+      ],
+      "extent": [
+        103.2451171875,
+        303.4183349609375,
+        114.5
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_c28d82f66e94_169b84c684",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_8",
+      "canonicalId": "mesh-cell:0:-2:c28d82f66e94",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26465.880859375,
+        4014.4517822265625,
+        155.2750015258789
+      ],
+      "extent": [
+        102.580078125,
+        313.2137451171875,
+        106.44499969482422
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_c7162a236889_db127116f3",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_6",
+      "canonicalId": "mesh-cell:0:-2:c7162a236889",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26654.529296875,
+        3537.345947265625,
+        335.25
+      ],
+      "extent": [
+        319.080078125,
+        835.168701171875,
+        334.75
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_cad68309650d_e36a9b4ed0",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_1",
+      "canonicalId": "mesh-cell:0:-2:cad68309650d",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26594.041015625,
+        3850.4884033203125,
+        304.0
+      ],
+      "extent": [
+        22.3984375,
+        238.0228271484375,
+        28.0
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_d3625fbf6a93_b4fbab5fa0",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_14",
+      "canonicalId": "mesh-cell:0:-2:d3625fbf6a93",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -26654.9453125,
+        3522.5181884765625,
+        337.25
+      ],
+      "extent": [
+        312.421875,
+        828.0867919921875,
+        340.75
+      ]
+    },
+    {
+      "label": "mesh_cell_0__2_faca9b073f55_fcaea26e92",
+      "actor": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.L_city_civic_terrace_exterior_6fdc438d5f:PersistentLevel.StaticMeshActor_12",
+      "canonicalId": "mesh-cell:0:-2:faca9b073f55",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "origin": [
+        -27213.9541015625,
+        3443.38525390625,
+        365.86122167110443
+      ],
+      "extent": [
+        1043.9541015625,
+        970.994140625,
+        368.13877832889557
+      ]
+    },
+    {
+      "label": "mesh_cell__1__1_3651a566d87b_8baaa7edf4",
+      "actor": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c.L_city_dance_again_exterior_b95522161c:PersistentLevel.StaticMeshActor_1",
+      "canonicalId": "mesh-cell:-1:-1:3651a566d87b",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c",
+      "origin": [
+        -8149.068115234375,
+        -21868.09375,
+        494.25
+      ],
+      "extent": [
+        1146.792236328125,
+        1106.140625,
+        185.75
+      ]
+    },
+    {
+      "label": "mesh_cell__1__1_6ba0c451f54f_fc47370a29",
+      "actor": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c.L_city_dance_again_exterior_b95522161c:PersistentLevel.StaticMeshActor_2",
+      "canonicalId": "mesh-cell:-1:-1:6ba0c451f54f",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c",
+      "origin": [
+        -7546.967041015625,
+        -22298.2958984375,
+        -1.5
+      ],
+      "extent": [
+        552.827880859375,
+        681.7509765625,
+        1.5
+      ]
+    },
+    {
+      "label": "mesh_cell__1__1_6cffe552c1fc_de7822f0f9",
+      "actor": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c.L_city_dance_again_exterior_b95522161c:PersistentLevel.StaticMeshActor_3",
+      "canonicalId": "mesh-cell:-1:-1:6cffe552c1fc",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c",
+      "origin": [
+        -7490.01171875,
+        -22338.9912109375,
+        149.0
+      ],
+      "extent": [
+        163.92236328125,
+        184.8291015625,
+        149.0
+      ]
+    },
+    {
+      "label": "mesh_cell__1__1_72f4c98c41bd_99d5bb51b6",
+      "actor": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c.L_city_dance_again_exterior_b95522161c:PersistentLevel.StaticMeshActor_0",
+      "canonicalId": "mesh-cell:-1:-1:72f4c98c41bd",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c",
+      "origin": [
+        -8144.999755859375,
+        -21871.0,
+        354.0
+      ],
+      "extent": [
+        1150.860595703125,
+        1109.046875,
+        354.0
+      ]
+    },
+    {
+      "label": "mesh_cell__1__1_f4b6d8f83942_3081d0f2cf",
+      "actor": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c.L_city_dance_again_exterior_b95522161c:PersistentLevel.StaticMeshActor_4",
+      "canonicalId": "mesh-cell:-1:-1:f4b6d8f83942",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c",
+      "origin": [
+        -7517.67578125,
+        -22319.224609375,
+        137.0
+      ],
+      "extent": [
+        88.59716796875,
+        120.654296875,
+        140.0
+      ]
+    }
+  ],
+  "playableAcceptance": "not-established",
+  "runtimeAdmission": false
+}

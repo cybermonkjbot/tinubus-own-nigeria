@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T01:18:00Z",
+  "owner": "cribtest11-world-generation-20261010/town-centre-street-pass-01",
+  "mode": "refine-existing-loaded-streetpass01",
+  "status": "abandoned-before-save",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "attemptedPid": 13732,
+  "failure": {
+    "kind": "repeated-static-mesh-actor-add-loop",
+    "logPattern": "LogEditor: Attempting to add actor of class 'StaticMeshActor' to level at -25980.00,-5410.00,480.00",
+    "firstObservedUtc": "2026-10-12T01:09:33Z",
+    "bridgeBlocked": true,
+    "savedReceiptProduced": false
+  },
+  "recovery": {
+    "action": "discard-unsaved-run-and-controlled-editor-restart",
+    "restartedPid": 13584,
+    "postRestartLoadedMap": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01"
+  },
+  "nextNeed": "Identify which generated frontage row or current-level target causes repeated actor-add attempts near the civic terrace corridor before reattempting denser filler frontage."
+}
