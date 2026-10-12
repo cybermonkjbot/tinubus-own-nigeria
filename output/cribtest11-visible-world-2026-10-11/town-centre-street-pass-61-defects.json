@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 61,
+  "sourceIds": ["old-town-lane", "old-town-lane-3"],
+  "matchedAfterImagesInspected": 1,
+  "routeLengthCm": 451.21956934903665,
+  "profileCm": [[0,0],[180,15],[270,15],[451.21956934903665,-1]],
+  "remainingDefects": ["Paving/material joins and forecourt finish incomplete", "Parcel3 retained Ground22 road intersection not independently accepted", "Parcel7 triangular dark/contact junction shape remains unresolved", "Parcels6/10 require separately fitted boundary returns", "Drain structure/outfalls, street services, planting and surrounding density incomplete", "Repeated facade grammar and dark software shadows; side/rear/GPU/runtime acceptance outstanding"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; editor-authored static content only",
+  "nextArea": "Distinct6/10boundary returns and adjoining exterior density, road contacts3/7"
+}

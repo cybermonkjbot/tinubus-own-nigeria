@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T08:14:10.982825+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/ShortApproach61/Meshes/SM_old_town_lane_3_road_ramp.uasset": "10ceb705aa02b571e9d793df160e48c4463cd46b64ac13a9d51c8f7dd2770809",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/ShortApproach61/Meshes/SM_old_town_lane_3_pavement_deck.uasset": "da52eaa1326a185e6f9186c7a0ff8665c3886cc1990c2c12a8ee79265827f93f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/ShortApproach61/Meshes/SM_old_town_lane_3_entrance_ramp.uasset": "2481a841b64b40f582cbff0f9a27f0bd6d1636260a1741e3171b90736b13ae5c",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/ShortApproach61/Meshes/SM_old_town_lane_3_shoulders.uasset": "4ea759172a29b700ba3e0dda2f3d7a9a63ebf4d3809699d2301bcfb04455db7f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "4176adc265a449f748ba0b812443bd836ab331f08c468bd91777db48c8de6238",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "bbd4d0e4e3577fc5e25efe48f193b0f56094581ca16307b41a6c998c5befb5a5"
+  },
+  "safeReloadCompleted": true,
+  "newApproachActors": 4,
+  "retainedCompoundActors": 4,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

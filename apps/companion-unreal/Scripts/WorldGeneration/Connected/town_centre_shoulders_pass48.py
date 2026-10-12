@@ -23,10 +23,11 @@ SOURCE_DIRECTORY='shoulders48-import-source'
 
 def geometry(plan):
     length=plan['lengthCm']
+    ramp_end,deck_end=plan['profile'][1][0],plan['profile'][2][0]
     def height(x,y):
-        if x<180:middle=max(0,x*15/180)
-        elif x<=286:middle=15
-        else:middle=15-16*min(1,max(0,(x-286)/(length-286)))
+        if x<ramp_end:middle=max(0,x*15/ramp_end)
+        elif x<=deck_end:middle=15
+        else:middle=15-16*min(1,max(0,(x-deck_end)/(length-deck_end)))
         blend=min(1,max(0,(abs(y)-90)/70))
         return middle+(15-middle)*blend
     vertices,faces=[],[]

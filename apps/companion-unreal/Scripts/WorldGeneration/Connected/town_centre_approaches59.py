@@ -39,7 +39,7 @@ def execute(pid):
 inspect_saved=APPROACH.inspect_saved
 
 
-def inspect_mesh_contract(pid):
+def inspect_mesh_contract(pid,target=None):
     APPROACH.BASE.ensure_identity(pid)
     assert not APPROACH.BASE.dirty_names()
     data=json.loads(APPROACH.TARGET.read_text());probes=0
@@ -56,6 +56,6 @@ def inspect_mesh_contract(pid):
             probes+=1
     result={'pid':pid,'verifiedAssetCount':len(data['createdActors']),'uvProbes':probes,
             'sourceHashesMatched':True,'staticTriangleCollisionMatched':True,'shoulderGridStepCm':15,'runtimeTraversal':'not-inspected'}
-    with (APPROACH.OUT/'town-centre-street-pass-59-mesh-readback.json').open('x',encoding='utf-8') as stream:
+    with (target or APPROACH.OUT/'town-centre-street-pass-59-mesh-readback.json').open('x',encoding='utf-8') as stream:
         json.dump(result,stream,indent=2);stream.write('\n')
     print(json.dumps(result))

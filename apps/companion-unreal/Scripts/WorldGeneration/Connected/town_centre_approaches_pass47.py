@@ -21,6 +21,8 @@ SOURCE_DIRECTORY='approaches47-import-source'
 READBACK=OUT/'town-centre-street-pass-47-saved-readback.json'
 RETAINED_RECEIPT=OUT/'town-centre-street-pass-46-compounds.json'
 SHOULDER_GEOMETRY=None
+MIN_APPROACH_LENGTH=470
+PROFILE_BREAKS=(180,286)
 
 
 def plans():
@@ -37,14 +39,16 @@ def plans():
         side=(-direction[1],direction[0])
         start=BASE.add2(pose['point'],BASE.mul2(direction,road['width']*50))
         length=BASE.dist2(start,entrance)
-        assert length>470, 'Source entrance too close for the planned raised-pavement profile: '+pid
+        assert length>MIN_APPROACH_LENGTH, 'Source entrance too close for the planned raised-pavement profile: '+pid
+        ramp_end,deck_end=PROFILE_BREAKS
+        assert 0<ramp_end<deck_end<length
         slots=[r for r in prior['omittedConflictModules'] if r['reason']==[pid+':entrance']]
         assert slots
         # Complete all uniquely omitted footprint bands, not just the centre strip.
         def height(x,y):
-            if x<180:middle=max(0,x*15/180)
-            elif x<=286:middle=15
-            else:middle=15-16*min(1,max(0,(x-286)/(length-286)))
+            if x<ramp_end:middle=max(0,x*15/ramp_end)
+            elif x<=deck_end:middle=15
+            else:middle=15-16*min(1,max(0,(x-deck_end)/(length-deck_end)))
             blend=min(1,max(0,(abs(y)-90)/70))
             return middle+(15-middle)*blend
         vertices,faces,polygons=[],[],[]
@@ -65,7 +69,7 @@ def plans():
             for sign_y in (-1,1):
                 outside=APRON.clip(poly,1,90*sign_y,sign_y==1)
                 # Split at profile changes and blend boundaries before triangulating.
-                for lo,hi in ((0,180),(180,286),(286,length)):
+                for lo,hi in ((0,ramp_end),(ramp_end,deck_end),(deck_end,length)):
                     section=APRON.clip(APRON.clip(outside,0,lo,True),0,hi,False)
                     for near,far in ((90,160),(160,10000)):
                         fitted=APRON.clip(APRON.clip(section,1,near*sign_y,sign_y==1),1,far*sign_y,sign_y==-1)
@@ -74,7 +78,7 @@ def plans():
                         if len(faces)>before:polygons.append({'excludedSourceId':slot['sourceId'],'module':name,'localPolygonCm':fitted})
         assert vertices and faces
         result.append({'parcelId':pid,'roadId':road['id'],'sourceEntrance':parcel['entrance'],'startCm':list(start),
-                       'direction':list(direction),'lengthCm':length,'clearWidthCm':180,'profile':[[0,0],[180,15],[286,15],[length,-1]],
+                       'direction':list(direction),'lengthCm':length,'clearWidthCm':180,'profile':[[0,0],[ramp_end,15],[deck_end,15],[length,-1]],
                        'excludedSlots':slots,'shoulderVertices':vertices,'shoulderFaces':faces,'shoulderPolygons':polygons,
                        'retainedSupport':supports['TC_Ground22_'+pid+'_entrance']})
     return result
@@ -105,7 +109,8 @@ def execute(expected_pid):
     rows,files=[],{}
     for p in planned:
         pid=p['parcelId'];length=p['lengthCm'];yaw=math.degrees(math.atan2(p['direction'][1],p['direction'][0]))
-        sections=[(0,180,0,15,'road-ramp'),(180,286,15,15,'pavement-deck'),(286,length,15,-1,'entrance-ramp')]
+        ramp_end,deck_end=p['profile'][1][0],p['profile'][2][0]
+        sections=[(0,ramp_end,0,15,'road-ramp'),(ramp_end,deck_end,15,15,'pavement-deck'),(deck_end,length,15,-1,'entrance-ramp')]
         sections.append((0,0,0,0,'shoulders'))
         for index,(a,b,z0,z1,role) in enumerate(sections):
             package=NS+'/Meshes/SM_'+pid.replace('-','_')+'_'+role.replace('-','_')

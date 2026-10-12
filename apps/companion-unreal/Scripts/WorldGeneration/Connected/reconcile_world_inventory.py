@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass60.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass61.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -56,7 +56,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass60.json'):
             if source in selection['parcelIds']:
                 frontage.add(source)
                 frontage_evidence.setdefault(source,[]).append(path.relative_to(ROOT).as_posix())
-    current_path = OUT / 'town-centre-street-pass-60-saved-readback.json'
+    current_path = OUT / 'town-centre-street-pass-61-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-60-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-59-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-58-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-57-saved-readback.json'
@@ -129,6 +130,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass60.json'):
     oldtown_approaches = {p['parcelId'] for p in read(oldtown_approaches_path)['plans']} if oldtown_approaches_path.is_file() else set()
     edge_supports_path = OUT / 'town-centre-street-pass-60-support-repair.json'
     edge_supports = {p['parcelId'] for p in read(edge_supports_path)['plans']} if edge_supports_path.is_file() else set()
+    short_approach_path = OUT / 'town-centre-street-pass-61-entrance-approaches.json'
+    short_approaches = {p['parcelId'] for p in read(short_approach_path)['plans']} if short_approach_path.is_file() else set()
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -247,6 +250,11 @@ def main(target_name='world-inventory-reconciled-20261011-pass60.json'):
         if item['id'] in edge_supports:
             entry['entranceSupportRepairEvidence'] = edge_supports_path.relative_to(ROOT).as_posix()
             entry['entranceSupportRepairAcceptance'] = 'Ground22 entrance actor replaced with unit-scale road-edge-to-source slab; original road-centre support transform superseded only for this item'
+        if item['id'] in short_approaches:
+            entry['roadEntranceApproachEvidence'] = short_approach_path.relative_to(ROOT).as_posix()
+            entry['roadEntranceApproachAcceptance'] = 'Measured451.219cm source route with180cm rise,90cm deck and fitted descent/15cm shoulders; static support only'
+            entry['missingDependencies'] = ['Final contact and paving finish, retained support road intersection and drain structure/outfalls',
+                'Gate fittings, varied facade artwork, services, landscape and runtime navigation/admission']
         parcels.append(entry)
     road_journal = next((read(ROOT / e['journal']) for e in saved.get('city/road-ribbons',[])),{})
     ribbon_ids = {f['canonicalId'].split(':')[0] for m in road_journal.get('meshes',[]) for f in m.get('features',[])}
