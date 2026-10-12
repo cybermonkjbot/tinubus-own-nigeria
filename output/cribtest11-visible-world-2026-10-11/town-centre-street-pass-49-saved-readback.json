@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T07:10:11.841062+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "safeReloadCompleted": true,
+  "createdActors": 125,
+  "removedActors": 0,
+  "sourceFloors": {
+    "college-lane-18": 3
+  },
+  "uvProbes": 12540,
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Fabric49/Meshes/SM_college_lane_18_StructuralFrame.uasset": "fcfcbccb8a69f09048f036aaca6f8c7d6eccc4bbda621d586b178f8717be740c",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Fabric49/Meshes/SM_college_lane_18_corrugated-roof.uasset": "f04436b655c90fe44f9a5e6882fad2882ac69c0895982773f9b5456e5ec7996c",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Fabric49/Meshes/SM_college_lane_18_pipe_-1.uasset": "e97ea83392dfeb9248e156a9e93902a00c6ca1246687aba7c9901f559426632b",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Fabric49/Meshes/SM_college_lane_18_pipe_1.uasset": "4084cf96c8011be1323a0e807412fc4817865c698a70be0c06c4c91f8a72c405",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "23628993c668564bd7b609d6f68310050d79af9d28f1af30d4133e43283bf3a0",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "7cecc25b7f98c32831936280e37923077afa6d44963826f08f3ce5bb14ed433a"
+  },
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

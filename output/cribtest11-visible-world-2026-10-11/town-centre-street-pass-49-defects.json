@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 49,
+  "sourceIds": ["college-lane-18", "college-lane"],
+  "matchedAfterImagesInspected": 2,
+  "improvements": ["Empty source parcel now has a three-storey shop exterior", "Corner balconies, shuttered commercial bays, roof and rainwater components distinguish it from adjacent apartment blocks"],
+  "remainingDefects": ["Sparse surrounding blocks and empty forecourt", "Five closed shutters use similarly worn finishes", "No fictional business signs or roadside service detail", "Pavement seams and source entrance-to-shutter transitions remain unaccepted", "Roof/gutter end fittings and ground outfalls unfinished", "Street view clips part of roof edge; close-up rear/side contact inspection remains", "Brown asphalt and distant plain/repetitive frontage remain"],
+  "preservedSignature": "college-lane-16: existing source signature level retained without overlay or relocation",
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "nextArea": "Town Centre remaining ordinary Arcade Crescent frontage and College Lane entrance contacts; College Lane16 needs signature-specific detailing"
+}
