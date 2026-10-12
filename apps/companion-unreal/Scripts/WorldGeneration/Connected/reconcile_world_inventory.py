@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass52.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass53.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -56,7 +56,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass52.json'):
             if source in selection['parcelIds']:
                 frontage.add(source)
                 frontage_evidence.setdefault(source,[]).append(path.relative_to(ROOT).as_posix())
-    current_path = OUT / 'town-centre-street-pass-52-saved-readback.json'
+    current_path = OUT / 'town-centre-street-pass-53-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-52-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-51-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-50-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-49-saved-readback.json'
@@ -105,6 +106,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass52.json'):
     arcade_compounds = {p['parcelId'] for p in read(arcade_compound_path)['plans']} if arcade_compound_path.is_file() else set()
     apartments_path = OUT / 'town-centre-street-pass-52-parcel-frontage.json'
     apartments = {p['parcelId'] for p in read(apartments_path)['plans']} if apartments_path.is_file() else set()
+    connections_path = OUT / 'town-centre-street-pass-53-connections.json'
+    connections = {p['parcelId'] for p in read(connections_path)['plans']} if connections_path.is_file() else set()
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -191,6 +194,11 @@ def main(target_name='world-inventory-reconciled-20261011-pass52.json'):
             entry['content'] = 'Source-centred exact-floor apartment exterior, closed recessed portal and source entrance path, roof treatment and accepted facade modules'
             entry['missingDependencies'] = ['Compounds/forecourts, roof outlets/fittings, side/rear contacts and upstream road/drain acceptance',
                 'More varied facade artwork, street services, landscape and runtime acceptance']
+        if item['id'] in connections:
+            entry['roadEntranceApproachEvidence'] = connections_path.relative_to(ROOT).as_posix()
+            entry['roadEntranceApproachAcceptance'] = 'Saved source-fitted road/pavement/entrance ramps and omitted-slot shoulders, with measured wall-frame closures; static support only'
+            entry['missingDependencies'] = ['Final contact/art acceptance, drain structure/outfalls, compounds and forecourt finish',
+                'Varied facade artwork, street services, landscape and runtime navigation/admission']
         parcels.append(entry)
     road_journal = next((read(ROOT / e['journal']) for e in saved.get('city/road-ribbons',[])),{})
     ribbon_ids = {f['canonicalId'].split(':')[0] for m in road_journal.get('meshes',[]) for f in m.get('features',[])}

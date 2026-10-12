@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "pass": 53,
+  "districtId": "town-centre",
+  "sourceIds": ["arcade-crescent", "arcade-crescent-2", "arcade-crescent-3", "arcade-crescent-4", "arcade-crescent-6", "arcade-crescent-8"],
+  "matchedAfterImagesInspected": 15,
+  "improvements": ["Five source entrance road/pavement ramps and omitted-slot shoulders now have continuous static support", "Measured frame-depth closures remove visible wall-bay gaps without moving the shells or blocking portals"],
+  "remainingDefects": ["Raised shoulder facets, sharp side ridges and visible ramp/forecourt joints need refined fitted profile", "Drain bridges lack culvert/outfall structure and detailing", "Forecourts and wider context remain sparse", "Repetitive concrete/window grammar requires varied approved exterior artwork", "Compound gates, utility/service details, planting and roof fittings incomplete", "Arcade9 previous short gate leaves remain unfinished", "Shadow-side approaches remain dark under unchanged matched software daylight", "Rear/side and high roof coverage not visually accepted"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; editor-authored static content only",
+  "nextArea": "Arcade Crescent shoulder/contact refinement and compound/service dressing, then adjoining source-ready ordinary parcels"
+}
