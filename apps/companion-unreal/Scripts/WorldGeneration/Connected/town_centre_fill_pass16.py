@@ -19,8 +19,8 @@ import unreal
 
 ROOT = Path("C:/dev/cribtest-game")
 OUT = ROOT / "output/cribtest11-visible-world-2026-10-11"
-RECEIPT_NAME = "town-centre-street-pass-18-corner-fabric-grounded.json"
-OWNER = "cribtest11-world-generation-20261010/town-centre-street-pass-18-corner-fabric-grounded"
+RECEIPT_NAME = "town-centre-street-pass-20-corner-fabric-civic-ground-fix.json"
+OWNER = "cribtest11-world-generation-20261010/town-centre-street-pass-20-corner-fabric-civic-ground-fix"
 LABEL_PREFIX = "TC_Fill16_"
 CLEAR_PREFIXES = ["TC_Fill13_", "TC_Fill14_", "TC_Fill16_"]
 
@@ -58,6 +58,7 @@ REGION_PLACEMENTS = [
         "group": "civic",
         "anchorLocationCm": [-25220.0, -1800.0, 0.0],
         "anchorYaw": 350.0,
+        "sourceTrimCm": {"minY": -450.0, "maxY": 450.0},
         "sourceIds": ["civic-street-2", "civic-street-4"],
     },
     {
@@ -101,14 +102,6 @@ GROUND_SLABS = [
         "yaw": 34.0,
         "scale": [20.0, 18.0, 1.0],
         "sourceIds": ["market-road-7", "market-road-8"],
-    },
-    {
-        "id": "civic_ground_a",
-        "asset": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
-        "locationCm": [-25240.0, -1750.0, -5.0],
-        "yaw": 350.0,
-        "scale": [20.0, 24.0, 1.0],
-        "sourceIds": ["civic-street-2", "civic-street-4"],
     },
     {
         "id": "civic_ground_b",
@@ -166,12 +159,19 @@ def clone_region(source_region, target_id, target_anchor_cm, target_anchor_yaw):
     anchor_snapshot = next(
         item for item in snapshots if item["label"] == HELPER.SOURCE_REGIONS[source_region]["anchorLabel"]
     )
+    placement = next(item for item in REGION_PLACEMENTS if item["id"] == target_id)
+    trim = placement.get("sourceTrimCm")
     yaw_delta = target_anchor_yaw - anchor_snapshot["rotation"]["yaw"]
     created = []
     for snapshot in snapshots:
         dx = snapshot["locationCm"][0] - anchor_snapshot["locationCm"][0]
         dy = snapshot["locationCm"][1] - anchor_snapshot["locationCm"][1]
         dz = snapshot["locationCm"][2] - anchor_snapshot["locationCm"][2]
+        if trim:
+            if dx < trim.get("minX", float("-inf")) or dx > trim.get("maxX", float("inf")):
+                continue
+            if dy < trim.get("minY", float("-inf")) or dy > trim.get("maxY", float("inf")):
+                continue
         rx, ry = rotate_xy(dx, dy, yaw_delta)
         location_cm = [
             target_anchor_cm[0] + rx,
