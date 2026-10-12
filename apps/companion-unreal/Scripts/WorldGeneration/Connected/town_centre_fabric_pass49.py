@@ -48,7 +48,8 @@ def plan_data():
         assert p['district'] == 'town-centre' and p['floors'] >= 1
         height = p['floors']*300
         civic = p['style'] == 'civic'
-        assert civic or p['style'] == 'corner-shop'
+        residential = p['kind'] in ('apartment','townhouse')
+        assert civic or p['style'] in ('corner-shop','urban-apartment')
         centre = BASE.ue_xy_from_source(p['x'], p['z'])
         entrance = BASE.ue_xy_from_source(p['entrance'][0], p['entrance'][2])
         inward = BASE.normalize2(BASE.sub2(centre, entrance))
@@ -87,8 +88,8 @@ def plan_data():
                 ('right',[0,-width/2,0],90,m), ('left',[depth,width/2,0],-90,m)):
                 wall_origin = BASE.transform_local(origin, yaw, local)
                 for bay in range(count):
-                    portal = civic and wall == 'front' and floor == 0 and bay == central
-                    shop = not civic and wall == 'front' and floor == 0
+                    portal = residential and wall == 'front' and floor == 0 and bay == central
+                    shop = not residential and wall == 'front' and floor == 0
                     inset = 180 if portal else 0
                     add('ShopBay' if portal or shop else 'ResidentialBay', wall, floor, bay,
                         wall_origin, angle, [inset,-bay*390,floor*300])
@@ -97,11 +98,11 @@ def plan_data():
                     elif not portal:
                         add('Window1300',wall,floor,bay,wall_origin,angle,[0,-bay*390-130,floor*300+102.5])
                     if wall == 'front' and floor > 0:
-                        if not civic and bay in (0,count-1):
+                        if not civic and (bay in (0,count-1) or residential and (bay+p['variant'])%3==0):
                             add('Balcony3900',wall,floor,bay,wall_origin,angle,[0,-bay*390,floor*300])
                         if (bay+p['variant'])%3 == 0:
                             add('ACServiceAssembly',wall,floor,bay,wall_origin,angle,[0,-bay*390-294,floor*300+155])
-        if civic:
+        if residential:
             # A recessed central portal and modest portico distinguish the civic frontage.
             for y in (door_y-195,door_y+195):
                 KIT.box(vertices,faces,0,205,y-12,y+12,0,288)
@@ -110,7 +111,7 @@ def plan_data():
         plans.append({'parcelId':pid,'roadId':BASE.parcel_road(p,roads)['id'],'sourceParcel':p,
                       'originCm':origin,'yaw':yaw,'widthCm':width,'depthCm':depth,'floors':p['floors'],
                       'sourceCentreCm':list(centre),'sourceEntranceCm':list(entrance),
-                      'doorLocalCm':[180 if civic else 0,door_y,0],
+                      'doorLocalCm':[180 if residential else 0,door_y,0],
                       'silhouette':'recessed portico and coping parapet' if civic else 'corner balconies and corrugated shed roof',
                       'vertices':vertices,'faces':faces})
         pose = BASE.nearest_road_pose({'x':p['entrance'][0],'z':p['entrance'][2]},BASE.parcel_road(p,roads))
@@ -212,6 +213,7 @@ def execute(pid):
                 KIT.box(v,f,0,d,y-12,y+12,height,height+70)
                 KIT.box(v,f,-20,d+20,y-20,y+20,height+70,height+78)
             fitted(plan,'coping-parapet',(v,f),IMPORT.MATERIAL)
+        if plan['sourceParcel']['kind'] in ('apartment','townhouse'):
             door = BASE.transform_local(plan['originCm'],plan['yaw'],plan['doorLocalCm'])
             portal_origin = BASE.transform_local(door,plan['yaw'],[0,140,0])
             for role in ('surround','door'):
@@ -227,7 +229,7 @@ def execute(pid):
             link['transform']['locationCm'] = [*source,0]
             delta = BASE.sub2(door[:2],source)
             link['transform']['rotation']['yaw'] = math.degrees(math.atan2(delta[1],delta[0]))
-        else:
+        if not civic:
             fitted(plan,'corrugated-roof',ROOF.roof_geometry(plan['depthCm'],plan['widthCm'],70),metal,[0,0,height],False)
             for i in range(plan['widthCm']//390):
                 gutter = lookup['Gutter3900']

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 52,
+  "sourceIds": ["arcade-crescent-2", "arcade-crescent-3", "arcade-crescent-4", "arcade-crescent-6", "arcade-crescent-8", "arcade-crescent"],
+  "matchedAfterImagesInspected": 10,
+  "improvements": ["Five formerly empty source parcels have source-centred exact-floor apartment exteriors", "Closed recessed residential portals and source-to-door support retained", "Street views now contain adjoining low-rise and taller apartment mass"],
+  "remainingDefects": ["Repetitive plaster/window grammar and material treatment; not final Lagos visual acceptance", "Narrow exposed wall-bay/frame seams need fitted closure after native bounds inspection", "Sparse surrounding blocks and empty forecourts; compounds, services and landscape incomplete", "Upstream pavement/road/drain slots and forecourt seams remain unfinished", "Roof outlets, gutter end fittings and ground outfalls incomplete", "Shadow-side approaches are dark under unchanged matched daylight; no target GPU lighting acceptance", "Side/rear and upper roof views not accepted", "Arcade9 previous short static gate leaves remain unfinished"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "nextArea": "Arcade Crescent source roadside omissions and road-to-entrance joins, then compound/service dressing and adjoining ordinary parcel density"
+}

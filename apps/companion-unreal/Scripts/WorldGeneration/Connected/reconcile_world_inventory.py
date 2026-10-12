@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass51.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass52.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -56,7 +56,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass51.json'):
             if source in selection['parcelIds']:
                 frontage.add(source)
                 frontage_evidence.setdefault(source,[]).append(path.relative_to(ROOT).as_posix())
-    current_path = OUT / 'town-centre-street-pass-51-saved-readback.json'
+    current_path = OUT / 'town-centre-street-pass-52-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-51-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-50-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-49-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-48-saved-readback.json'
@@ -80,7 +81,7 @@ def main(target_name='world-inventory-reconciled-20261011-pass51.json'):
     apron_path = OUT / 'town-centre-street-pass-38-fitted-aprons.json'
     apron_parcels = {p['parcelId'] for p in read(apron_path)['plans']} if apron_path.is_file() else set()
     shells, shell_evidence = {}, {}
-    for number in (41,43,49,50):
+    for number in (41,43,49,50,52):
         shell_path = OUT / f'town-centre-street-pass-{number}-parcel-frontage.json'
         if shell_path.is_file():
             for plan in read(shell_path)['plans']:
@@ -102,6 +103,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass51.json'):
     arcade = {p['parcelId']:p for p in read(arcade_path)['plans']} if arcade_path.is_file() else {}
     arcade_compound_path = OUT / 'town-centre-street-pass-51-compounds.json'
     arcade_compounds = {p['parcelId'] for p in read(arcade_compound_path)['plans']} if arcade_compound_path.is_file() else set()
+    apartments_path = OUT / 'town-centre-street-pass-52-parcel-frontage.json'
+    apartments = {p['parcelId'] for p in read(apartments_path)['plans']} if apartments_path.is_file() else set()
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -183,6 +186,11 @@ def main(target_name='world-inventory-reconciled-20261011-pass51.json'):
             entry['compoundAcceptance'] = 'Saved source-fitted boundary and static open pedestrian leaves; canopy/path clearance preserved, gate artwork and rear/side contacts unfinished'
             entry['missingDependencies'] = ['Gate leaf proportions/fittings, rear/side boundary contacts, forecourt and road/drain acceptance',
                 'Roof drainage, street services, varied finishes, adjoining density and runtime acceptance']
+        if item['id'] in apartments:
+            entry['exteriorFabricEvidence'] = apartments_path.relative_to(ROOT).as_posix()
+            entry['content'] = 'Source-centred exact-floor apartment exterior, closed recessed portal and source entrance path, roof treatment and accepted facade modules'
+            entry['missingDependencies'] = ['Compounds/forecourts, roof outlets/fittings, side/rear contacts and upstream road/drain acceptance',
+                'More varied facade artwork, street services, landscape and runtime acceptance']
         parcels.append(entry)
     road_journal = next((read(ROOT / e['journal']) for e in saved.get('city/road-ribbons',[])),{})
     ribbon_ids = {f['canonicalId'].split(':')[0] for m in road_journal.get('meshes',[]) for f in m.get('features',[])}
