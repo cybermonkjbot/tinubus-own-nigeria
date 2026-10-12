@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 42,
+  "previewSet": "previews/town-centre-roofs42-after",
+  "inspectedImages": 12,
+  "improvements": ["Six retained exact-floor shells gain supported continuous roof caps", "Unit-scale accepted gutters and height-fitted straight pipe inputs persist after reload"],
+  "remainingDefects": ["Roof material mostly reads dark/plain with weak corrugation visibility", "Sun-facing roof shows broad reflective/textured appearance requiring finish review", "Gutter end caps, junction fittings and pipe ground gullies/outfalls unfinished", "Thin pipe and gutter contact requires close-up rendered inspection", "Sparse neighbouring blocks and undifferentiated forecourts", "All-closed shop fronts and missing signage/services/foliage", "Existing source junction/entrance gaps, Market floor parity and asphalt/Garden material defects remain"],
+  "sourcePositionsPreserved": true,
+  "finishedNeighbourhood": false,
+  "workingDrainage": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "newDestinationTraversalVerified": false,
+  "nextArea": "Town Centre close-up roof/outlet finish, forecourt boundaries and adjoining exact-floor parcels"
+}

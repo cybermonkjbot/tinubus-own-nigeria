@@ -1,0 +1,1866 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:22:57.596849+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "parcelId": "station-road-3",
+      "sourceFloors": 3,
+      "roofBaseCm": 900,
+      "roofRiseCm": 70,
+      "widthCm": 2340,
+      "depthCm": 1560,
+      "overhangCm": 35,
+      "roofPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_roof",
+      "pipePackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_pipe",
+      "gutterEaveHeightCm": 912,
+      "outletBottomCm": 10,
+      "outletAcceptance": "Straight pipe stops above support; ground gully/outfall unfinished"
+    },
+    {
+      "parcelId": "station-road-7",
+      "sourceFloors": 1,
+      "roofBaseCm": 300,
+      "roofRiseCm": 100,
+      "widthCm": 1170,
+      "depthCm": 1950,
+      "overhangCm": 35,
+      "roofPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_roof",
+      "pipePackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_pipe",
+      "gutterEaveHeightCm": 312,
+      "outletBottomCm": 10,
+      "outletAcceptance": "Straight pipe stops above support; ground gully/outfall unfinished"
+    },
+    {
+      "parcelId": "station-road-8",
+      "sourceFloors": 3,
+      "roofBaseCm": 900,
+      "roofRiseCm": 70,
+      "widthCm": 2340,
+      "depthCm": 1950,
+      "overhangCm": 35,
+      "roofPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_roof",
+      "pipePackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_pipe",
+      "gutterEaveHeightCm": 912,
+      "outletBottomCm": 10,
+      "outletAcceptance": "Straight pipe stops above support; ground gully/outfall unfinished"
+    },
+    {
+      "parcelId": "college-lane-6",
+      "sourceFloors": 1,
+      "roofBaseCm": 300,
+      "roofRiseCm": 100,
+      "widthCm": 2340,
+      "depthCm": 1560,
+      "overhangCm": 35,
+      "roofPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_roof",
+      "pipePackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_pipe",
+      "gutterEaveHeightCm": 312,
+      "outletBottomCm": 10,
+      "outletAcceptance": "Straight pipe stops above support; ground gully/outfall unfinished"
+    },
+    {
+      "parcelId": "college-lane-7",
+      "sourceFloors": 1,
+      "roofBaseCm": 300,
+      "roofRiseCm": 100,
+      "widthCm": 1950,
+      "depthCm": 1560,
+      "overhangCm": 35,
+      "roofPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_roof",
+      "pipePackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_pipe",
+      "gutterEaveHeightCm": 312,
+      "outletBottomCm": 10,
+      "outletAcceptance": "Straight pipe stops above support; ground gully/outfall unfinished"
+    },
+    {
+      "parcelId": "college-lane-17",
+      "sourceFloors": 2,
+      "roofBaseCm": 600,
+      "roofRiseCm": 70,
+      "widthCm": 1950,
+      "depthCm": 1560,
+      "overhangCm": 35,
+      "roofPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_roof",
+      "pipePackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_pipe",
+      "gutterEaveHeightCm": 612,
+      "outletBottomCm": 10,
+      "outletAcceptance": "Straight pipe stops above support; ground gully/outfall unfinished"
+    }
+  ],
+  "createdActors": [
+    {
+      "label": "TC_Roof42_0",
+      "sourceId": "station-road-3:roof-cap",
+      "parcelId": "station-road-3",
+      "role": "corrugated-roof",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_roof",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_station_road_3_roof.obj",
+        "sourceObjSha256": "d9ee3cb13a55b28fa5a28cacda57fe80cd4ef54c047fea9a981ddc63b24cfe50",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_roof",
+        "boundsCm": [
+          [
+            -35.0,
+            -1205.0,
+            0.0
+          ],
+          [
+            1595.0,
+            1205.0,
+            83.5
+          ]
+        ],
+        "uvProbesVerified": 12876,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -41589.71906669203,
+          17693.515272396922,
+          900
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 177.5395854614083,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_1",
+      "sourceId": "station-road-3:eave-gutter:0",
+      "parcelId": "station-road-3",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -41604.97842390975,
+          16523.091352606618,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 177.5395854614083,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_2",
+      "sourceId": "station-road-3:eave-gutter:1",
+      "parcelId": "station-road-3",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -41588.23606010821,
+          16912.731819260604,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 177.5395854614083,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_3",
+      "sourceId": "station-road-3:eave-gutter:2",
+      "parcelId": "station-road-3",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -41571.49369630667,
+          17302.372285914593,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 177.5395854614083,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_4",
+      "sourceId": "station-road-3:eave-gutter:3",
+      "parcelId": "station-road-3",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -41554.75133250513,
+          17692.01275256858,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 177.5395854614083,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_5",
+      "sourceId": "station-road-3:eave-gutter:4",
+      "parcelId": "station-road-3",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -41538.008968703594,
+          18081.653219222564,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 177.5395854614083,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_6",
+      "sourceId": "station-road-3:eave-gutter:5",
+      "parcelId": "station-road-3",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -41521.266604902055,
+          18471.293685876553,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 177.5395854614083,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_7",
+      "sourceId": "station-road-3:eave-pipe:-1",
+      "parcelId": "station-road-3",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_station_road_3_pipe.obj",
+        "sourceObjSha256": "edf2277a01c8b041201ca1f2b24c2e8c0d0eff83d08f1754e0d0e9b36042c32f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            912.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -41505.382823859574,
+          18840.95259013803,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 177.5395854614083,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_8",
+      "sourceId": "station-road-3:eave-pipe:1",
+      "parcelId": "station-road-3",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_station_road_3_pipe.obj",
+        "sourceObjSha256": "edf2277a01c8b041201ca1f2b24c2e8c0d0eff83d08f1754e0d0e9b36042c32f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            912.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -41604.11984115069,
+          16543.072914999128,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 177.5395854614083,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_9",
+      "sourceId": "station-road-7:roof-cap",
+      "parcelId": "station-road-7",
+      "role": "corrugated-roof",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_roof",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_station_road_7_roof.obj",
+        "sourceObjSha256": "a22cb76f9eb984ea4734aa8cbbc318d1a6d0ee9bc2f70edd2920c74dfc6c769d",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_roof",
+        "boundsCm": [
+          [
+            -35.0,
+            -620.0,
+            0.0
+          ],
+          [
+            1985.0,
+            620.0,
+            113.5
+          ]
+        ],
+        "uvProbesVerified": 6636,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -37959.44269695534,
+          31494.98401761195,
+          300
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 153.1071071461477,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_10",
+      "sourceId": "station-road-7:eave-gutter:0",
+      "parcelId": "station-road-7",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -38192.83740884298,
+          30957.41829282763,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 153.1071071461477,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_11",
+      "sourceId": "station-road-7:eave-gutter:1",
+      "parcelId": "station-road-7",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -38016.431015887756,
+          31305.241214045498,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 153.1071071461477,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_12",
+      "sourceId": "station-road-7:eave-gutter:2",
+      "parcelId": "station-road-7",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -37840.024622932535,
+          31653.06413526336,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 153.1071071461477,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_13",
+      "sourceId": "station-road-7:eave-pipe:-1",
+      "parcelId": "station-road-7",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_station_road_7_pipe.obj",
+        "sourceObjSha256": "f057e90f3c493a140bbcdab047ebd66bb5a68c68740c2febf4dc816230dd2d42",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            312.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -37672.66471166733,
+          31983.04998359826,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 153.1071071461477,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_14",
+      "sourceId": "station-road-7:eave-pipe:1",
+      "parcelId": "station-road-7",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_station_road_7_pipe.obj",
+        "sourceObjSha256": "f057e90f3c493a140bbcdab047ebd66bb5a68c68740c2febf4dc816230dd2d42",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            312.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -38183.790927152964,
+          30975.2553657106,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 153.1071071461477,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_15",
+      "sourceId": "station-road-8:roof-cap",
+      "parcelId": "station-road-8",
+      "role": "corrugated-roof",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_roof",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_station_road_8_roof.obj",
+        "sourceObjSha256": "0151a450c7b7369d337c2251046371d3fd6b1f71db6b0e069265b16b421c1a70",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_roof",
+        "boundsCm": [
+          [
+            -35.0,
+            -1205.0,
+            0.0
+          ],
+          [
+            1985.0,
+            1205.0,
+            83.5
+          ]
+        ],
+        "uvProbesVerified": 12876,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -34778.44741911028,
+          29881.232575182832,
+          900
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -26.907165216419198,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_16",
+      "sourceId": "station-road-8:eave-gutter:0",
+      "parcelId": "station-road-8",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -34280.17926188458,
+          30940.408596198653,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -26.907165216419198,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_17",
+      "sourceId": "station-road-8:eave-gutter:1",
+      "parcelId": "station-road-8",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -34456.67229195771,
+          30592.629628554543,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -26.907165216419198,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_18",
+      "sourceId": "station-road-8:eave-gutter:2",
+      "parcelId": "station-road-8",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -34633.16532203084,
+          30244.85066091043,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -26.907165216419198,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_19",
+      "sourceId": "station-road-8:eave-gutter:3",
+      "parcelId": "station-road-8",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -34809.65835210398,
+          29897.07169326632,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -26.907165216419198,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_20",
+      "sourceId": "station-road-8:eave-gutter:4",
+      "parcelId": "station-road-8",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -34986.151382177115,
+          29549.29272562221,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -26.907165216419198,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_21",
+      "sourceId": "station-road-8:eave-gutter:5",
+      "parcelId": "station-road-8",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -35162.64441225025,
+          29201.513757978097,
+          912
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -26.907165216419198,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_22",
+      "sourceId": "station-road-8:eave-pipe:-1",
+      "parcelId": "station-road-8",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_station_road_8_pipe.obj",
+        "sourceObjSha256": "edf2277a01c8b041201ca1f2b24c2e8c0d0eff83d08f1754e0d0e9b36042c32f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            912.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -35330.08651770425,
+          28871.569609187532,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -26.907165216419198,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_23",
+      "sourceId": "station-road-8:eave-pipe:1",
+      "parcelId": "station-road-8",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_station_road_8_pipe.obj",
+        "sourceObjSha256": "edf2277a01c8b041201ca1f2b24c2e8c0d0eff83d08f1754e0d0e9b36042c32f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            912.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -34289.23018650371,
+          30922.573777345107,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -26.907165216419198,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_24",
+      "sourceId": "college-lane-6:roof-cap",
+      "parcelId": "college-lane-6",
+      "role": "corrugated-roof",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_roof",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_college_lane_6_roof.obj",
+        "sourceObjSha256": "94652d11c2f8b5f38b83c406182a58586265493397ca88c09f9c3a2224c44f67",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_roof",
+        "boundsCm": [
+          [
+            -35.0,
+            -1205.0,
+            0.0
+          ],
+          [
+            1595.0,
+            1205.0,
+            113.5
+          ]
+        ],
+        "uvProbesVerified": 12876,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -54476.79154728229,
+          48626.22243528227,
+          300
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.44757005373374,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_25",
+      "sourceId": "college-lane-6:eave-gutter:0",
+      "parcelId": "college-lane-6",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -53492.16007917284,
+          47993.27230137864,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.44757005373374,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_26",
+      "sourceId": "college-lane-6:eave-gutter:1",
+      "parcelId": "college-lane-6",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -53813.771296813975,
+          48213.87652773749,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.44757005373374,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_27",
+      "sourceId": "college-lane-6:eave-gutter:2",
+      "parcelId": "college-lane-6",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -54135.38251445511,
+          48434.48075409634,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.44757005373374,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_28",
+      "sourceId": "college-lane-6:eave-gutter:3",
+      "parcelId": "college-lane-6",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -54456.99373209624,
+          48655.08498045519,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.44757005373374,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_29",
+      "sourceId": "college-lane-6:eave-gutter:4",
+      "parcelId": "college-lane-6",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -54778.604949737375,
+          48875.689206814044,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.44757005373374,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_30",
+      "sourceId": "college-lane-6:eave-gutter:5",
+      "parcelId": "college-lane-6",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -55100.21616737851,
+          49096.29343317289,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.44757005373374,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_31",
+      "sourceId": "college-lane-6:eave-pipe:-1",
+      "parcelId": "college-lane-6",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_college_lane_6_pipe.obj",
+        "sourceObjSha256": "f057e90f3c493a140bbcdab047ebd66bb5a68c68740c2febf4dc816230dd2d42",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            312.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -55405.33450206369,
+          49305.58462228257,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.44757005373374,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_32",
+      "sourceId": "college-lane-6:eave-pipe:1",
+      "parcelId": "college-lane-6",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_college_lane_6_pipe.obj",
+        "sourceObjSha256": "f057e90f3c493a140bbcdab047ebd66bb5a68c68740c2febf4dc816230dd2d42",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            312.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -53508.65296212879,
+          48004.58533862781,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.44757005373374,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_33",
+      "sourceId": "college-lane-7:roof-cap",
+      "parcelId": "college-lane-7",
+      "role": "corrugated-roof",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_roof",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_college_lane_7_roof.obj",
+        "sourceObjSha256": "7f9b5fc1b953323fd2cf950f71ad819480b46d7a34a8a26484c5937ca486b38c",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_roof",
+        "boundsCm": [
+          [
+            -35.0,
+            -1010.0,
+            0.0
+          ],
+          [
+            1595.0,
+            1010.0,
+            113.5
+          ]
+        ],
+        "uvProbesVerified": 10812,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -47214.05897522724,
+          49273.21190363464,
+          300
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 64.80396750250452,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_34",
+      "sourceId": "college-lane-7:eave-gutter:0",
+      "parcelId": "college-lane-7",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -48111.19417790567,
+          49656.615643985635,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 64.80396750250452,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_35",
+      "sourceId": "college-lane-7:eave-gutter:1",
+      "parcelId": "college-lane-7",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -47758.30012972299,
+          49490.58615637202,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 64.80396750250452,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_36",
+      "sourceId": "college-lane-7:eave-gutter:2",
+      "parcelId": "college-lane-7",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -47405.40608154031,
+          49324.55666875839,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 64.80396750250452,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_37",
+      "sourceId": "college-lane-7:eave-gutter:3",
+      "parcelId": "college-lane-7",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -47052.51203335764,
+          49158.527181144775,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 64.80396750250452,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_38",
+      "sourceId": "college-lane-7:eave-gutter:4",
+      "parcelId": "college-lane-7",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -46699.61798517496,
+          48992.49769353115,
+          312
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 64.80396750250452,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_39",
+      "sourceId": "college-lane-7:eave-pipe:-1",
+      "parcelId": "college-lane-7",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_college_lane_7_pipe.obj",
+        "sourceObjSha256": "f057e90f3c493a140bbcdab047ebd66bb5a68c68740c2febf4dc816230dd2d42",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            312.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -46364.821067668316,
+          48834.982538615666,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 64.80396750250452,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_40",
+      "sourceId": "college-lane-7:eave-pipe:1",
+      "parcelId": "college-lane-7",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_college_lane_7_pipe.obj",
+        "sourceObjSha256": "f057e90f3c493a140bbcdab047ebd66bb5a68c68740c2febf4dc816230dd2d42",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            312.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -48093.09704722964,
+          49648.1013112875,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 64.80396750250452,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_41",
+      "sourceId": "college-lane-17:roof-cap",
+      "parcelId": "college-lane-17",
+      "role": "corrugated-roof",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_roof",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_college_lane_17_roof.obj",
+        "sourceObjSha256": "fd10630142270b2960727dcbd9797751205ab34f0327214cf5e6b5b9f93a54d2",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_roof",
+        "boundsCm": [
+          [
+            -35.0,
+            -1010.0,
+            0.0
+          ],
+          [
+            1595.0,
+            1010.0,
+            83.5
+          ]
+        ],
+        "uvProbesVerified": 10812,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -24674.008980581886,
+          52848.55595062445,
+          600
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 145.2637152629725,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_42",
+      "sourceId": "college-lane-17:eave-gutter:0",
+      "parcelId": "college-lane-17",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -25200.801624763317,
+          52027.37417413624,
+          612
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 145.2637152629725,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_43",
+      "sourceId": "college-lane-17:eave-gutter:1",
+      "parcelId": "college-lane-17",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -24978.579600075547,
+          52347.869683845296,
+          612
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 145.2637152629725,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_44",
+      "sourceId": "college-lane-17:eave-gutter:2",
+      "parcelId": "college-lane-17",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -24756.357575387778,
+          52668.36519355435,
+          612
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 145.2637152629725,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_45",
+      "sourceId": "college-lane-17:eave-gutter:3",
+      "parcelId": "college-lane-17",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -24534.135550700008,
+          52988.86070326341,
+          612
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 145.2637152629725,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_46",
+      "sourceId": "college-lane-17:eave-gutter:4",
+      "parcelId": "college-lane-17",
+      "role": "gutter",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Gutter3900",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Corrugated_Metal"
+      ],
+      "sourceFBXSha256": "38d5a0f93719fdd568a6dafe516fea1c2b321d5d27035e099be8a170a8066d4f",
+      "transform": {
+        "locationCm": [
+          -24311.91352601224,
+          53309.35621297247,
+          612
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 145.2637152629725,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_47",
+      "sourceId": "college-lane-17:eave-pipe:-1",
+      "parcelId": "college-lane-17",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_college_lane_17_pipe.obj",
+        "sourceObjSha256": "a3f8d02c3e50c321fcba39d11ed16b03742335b9c148ead543ea2a159819b664",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            612.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -24101.087502590508,
+          53613.41605551696,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 145.2637152629725,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Roof42_48",
+      "sourceId": "college-lane-17:eave-pipe:1",
+      "parcelId": "college-lane-17",
+      "role": "fitted-pipe",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_pipe",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_ac_paint"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/roofs42-import-source/SM_college_lane_17_pipe.obj",
+        "sourceObjSha256": "a3f8d02c3e50c321fcba39d11ed16b03742335b9c148ead543ea2a159819b664",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_pipe",
+        "boundsCm": [
+          [
+            -5.0,
+            -5.0,
+            10.0
+          ],
+          [
+            5.0,
+            5.0,
+            612.0
+          ]
+        ],
+        "uvProbesVerified": 180,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -25189.405623497278,
+          52043.809841300805,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 145.2637152629725,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_roof.uasset": "2fe9b5d4192b1dee68036fa1f89303957925502f1be5d41c5702fd77dfab0979",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_3_pipe.uasset": "0b20daaf7a3ff8b3824d7ddaf2e45f42ee8451721b9c75552802f51438c3826f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_roof.uasset": "6df3fd0d7a5c5f16589cb7643a525af4afa67fdd2ba7a1343c2f9f03ccd4fff3",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_7_pipe.uasset": "f04e13c3438d6bef33c124ccf7621dc7161897bd61841155a8d36c45c02ef1ac",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_roof.uasset": "2fc691a6ed0a6808a9e5107d60d486e75d2b7fe92ce093040a7a22dc2ae98415",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_station_road_8_pipe.uasset": "db784ce419081480d7f57d7dfce59c508c6f17ff81a611274a9dc4d7541e7aac",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_roof.uasset": "8c824f754771d2a368ec3da3e43a4a7f19295917b6f6b055c216ad377d45bf36",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_6_pipe.uasset": "eac61807f20a920d0cb4cc9f48aec260ec01c1922c955ee13ec54907b6d5920d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_roof.uasset": "5c62cfe017e1f14e4366b6230f1629cf85b0531410c1252c50fa035835bd29c5",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_7_pipe.uasset": "726817f00ce4fee7c0349fa97e40fdf3e3360b435a7bfadeaedb907514cefca7",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_roof.uasset": "be91a7fe8d45801d42e4aa89cf412ca0b30fadf7b4787f756d91e23ebb3ff13f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Roofs42/Meshes/SM_college_lane_17_pipe.uasset": "4334c635124a968d78f8ba8aedc6ff120689e0576bff287736d7d156cc072800",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "2d38aacc47a51c8682abe5917900a01440bcaeb7981a27b0961bab7e3bcc0e20",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "0105111113dca6eed6022e0e4cad71c233071d1519419c15e74a8fa3fe67fd5e"
+  },
+  "visualAcceptance": "pending captures",
+  "limitations": [
+    "Fitted supported roof cap is new geometry with existing accepted metal material, not imported sheet artwork",
+    "Straight rainwater pipes only; gutter end caps, junction fittings and ground gullies/outfalls unfinished",
+    "No functional weather drainage or runtime traversal established"
+  ]
+}
