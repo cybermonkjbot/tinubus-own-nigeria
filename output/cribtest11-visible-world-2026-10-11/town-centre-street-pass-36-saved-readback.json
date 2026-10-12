@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T05:50:43.536276+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "graphPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/PCG/PCG_MarketRoadKerbs34",
+  "safeReloadCompleted": true,
+  "roadsideInstances": 36624,
+  "pcgInstances": 1141,
+  "supportInstances": 11250,
+  "maximumRoadsideLocationErrorCm": 0,
+  "roadIds": [
+    "civic-street",
+    "cross-town-road",
+    "garden-avenue",
+    "library-lane",
+    "market-road",
+    "unity-avenue"
+  ],
+  "oldBatchAbsent": true,
+  "dirtyPackages": [],
+  "gameWorld": "None",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "d8ae816999d6ecfac09d0cbfb6c4313ac96112123985122e8c2fdab0fab0a3c1",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "c1301cd7fd929201c431fea54a60179f6da6cde5dfb3c46ceac1faa1ebbb60e7",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/PCG/PCG_MarketRoadKerbs34.uasset": "f363de7f1f3d2144e4dae1ce470d529a9361685e2d5851e92a991d954c307eec"
+  },
+  "visualAcceptance": "pending matched captures",
+  "runtimeTraversal": "not-inspected"
+}

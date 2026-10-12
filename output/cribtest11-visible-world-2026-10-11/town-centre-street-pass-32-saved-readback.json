@@ -1,0 +1,92 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T05:34:33.151943+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "receiptSha256": "102d5d52e66ec219b2ed5948c8acdb1a6618f1b8f1850139c09c9177a0863d4d",
+  "safeReloadCompleted": true,
+  "readbackInstances": 20081,
+  "maximumLocationErrorCm": 0,
+  "collisionProfile": "BlockAll",
+  "batches": [
+    {
+      "actorLabel": "TC_Roadside32_0",
+      "roadId": "civic-street",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Drain1000",
+      "instances": 1591
+    },
+    {
+      "actorLabel": "TC_Roadside32_1",
+      "roadId": "market-road",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Drain1000",
+      "instances": 1141
+    },
+    {
+      "actorLabel": "TC_Roadside32_2",
+      "roadId": "unity-avenue",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Drain1000",
+      "instances": 1834
+    },
+    {
+      "actorLabel": "TC_Roadside32_3",
+      "roadId": "civic-street",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_DrainCover1000",
+      "instances": 1591
+    },
+    {
+      "actorLabel": "TC_Roadside32_4",
+      "roadId": "market-road",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_DrainCover1000",
+      "instances": 1141
+    },
+    {
+      "actorLabel": "TC_Roadside32_5",
+      "roadId": "unity-avenue",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_DrainCover1000",
+      "instances": 1834
+    },
+    {
+      "actorLabel": "TC_Roadside32_6",
+      "roadId": "civic-street",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Kerb1000",
+      "instances": 1592
+    },
+    {
+      "actorLabel": "TC_Roadside32_7",
+      "roadId": "market-road",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Kerb1000",
+      "instances": 1141
+    },
+    {
+      "actorLabel": "TC_Roadside32_8",
+      "roadId": "unity-avenue",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Kerb1000",
+      "instances": 1838
+    },
+    {
+      "actorLabel": "TC_Roadside32_9",
+      "roadId": "civic-street",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
+      "instances": 1584
+    },
+    {
+      "actorLabel": "TC_Roadside32_10",
+      "roadId": "market-road",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
+      "instances": 1144
+    },
+    {
+      "actorLabel": "TC_Roadside32_11",
+      "roadId": "unity-avenue",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
+      "instances": 3650
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "d47e21a8a84586db6533c1b7c69ee370990f3691d09dbe7e96e8b25999f9d37d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "2fd5a622a064260db0cbf8f2efda6c0590f584cafa7d34aa960a620f6adf1e87"
+  },
+  "dirtyPackages": [],
+  "gameWorld": "None",
+  "runtimeTraversal": "not-inspected"
+}

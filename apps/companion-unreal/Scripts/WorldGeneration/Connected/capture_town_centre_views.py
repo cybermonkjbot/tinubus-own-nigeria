@@ -28,6 +28,26 @@ sys.path.insert(0, str(SCRIPTS))
 from mcp_client import UnrealMcp
 
 EXTRA_CAMERAS = {
+    "garden-avenue-source-centre": {
+        "id": "garden-avenue-source-centre", "locationCm": [-13977, 56303, 165],
+        "rotation": {"pitch": 2, "yaw": 122.76542573358401, "roll": 0}, "fov": 68,
+    },
+    "cross-town-road-source-centre": {
+        "id": "cross-town-road-source-centre", "locationCm": [-83127, -34740, 165],
+        "rotation": {"pitch": 2, "yaw": 100.43562939272802, "roll": 0}, "fov": 68,
+    },
+    "library-lane-source-centre": {
+        "id": "library-lane-source-centre", "locationCm": [-75560, -24240, 165],
+        "rotation": {"pitch": 2, "yaw": 30.094, "roll": 0}, "fov": 68,
+    },
+    "garden-avenue-13-approach": {
+        "id": "garden-avenue-13-approach", "locationCm": [-14710, 52919, 165],
+        "rotation": {"pitch": 3, "yaw": -150.546, "roll": 0}, "fov": 68,
+    },
+    "cross-town-road-18-approach": {
+        "id": "cross-town-road-18-approach", "locationCm": [-81327, -35600, 165],
+        "rotation": {"pitch": 3, "yaw": 14.024, "roll": 0}, "fov": 68,
+    },
     "market-road-4-approach": {
         "id": "market-road-4-approach", "locationCm": [-2643.17690078647, -17468.289404179212, 165],
         "rotation": {"pitch": 3, "yaw": 165.01927308927304, "roll": 0}, "fov": 68,

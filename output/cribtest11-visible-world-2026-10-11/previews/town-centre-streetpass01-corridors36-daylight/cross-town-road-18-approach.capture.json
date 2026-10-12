@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T05:51:54.614126+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "camera": "cross-town-road-18-approach",
+  "cameraConfig": {
+    "id": "cross-town-road-18-approach",
+    "locationCm": [
+      -81327,
+      -35600,
+      165
+    ],
+    "rotation": {
+      "pitch": 3,
+      "yaw": 14.024,
+      "roll": 0
+    },
+    "fov": 68
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-corridors36-daylight/cross-town-road-18-approach.png",
+  "imageSha256": "bdb630d5b5e670744efd68076771280859914cc8096e070a50c545d55fe63923",
+  "width": 705,
+  "height": 486,
+  "warmupNativeFrames": 42,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -81327,
+      "y": -35600,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 3,
+      "yaw": 14.02400016784668,
+      "roll": 0
+    },
+    "cameraFOV": 68,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-36-saved-readback.json",
+  "receiptSha256": "ccc7188d2c92a9ab70e4ca9b46c7da0ec103148d7bb1dd1d3354018021badd78",
+  "scriptSha256": "e5ab30aa5feda958b53676e2795fc0c692579415d58c0a918f484dda066074a5"
+}

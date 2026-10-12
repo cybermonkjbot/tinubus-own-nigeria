@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "previewSets": [
+    "previews/town-centre-streetpass01-pcg34-daylight",
+    "previews/town-centre-streetpass01-corridors36-daylight"
+  ],
+  "inspectedImages": 20,
+  "improvements": [
+    "Real native PCG Market Road kerbs match reviewed source transforms and survive reload without duplicates",
+    "Library Lane source views show coherent source-centred kerbs and pavements beside the carriageway",
+    "Paving undersides have saved hidden subbases; prior gap is not visible in inspected approaches",
+    "Garden Avenue and Cross Town Road have saved source-centred roadside modules with preserved entrance exclusions"
+  ],
+  "remainingDefects": [
+    "Intersection and entrance exclusions need fitted ramps, corners and continuous pedestrian transitions",
+    "Under-one-metre segment remainders and 14cm pavement outer margin remain",
+    "Covered drains are not excavated through existing inland support",
+    "Market junction is an empty concrete expanse, not a finished junction",
+    "Sparse surrounding blocks, uniform ground fields and isolated structures do not meet Lagos street density",
+    "Blank building side/back walls and repetitive stacked merged silhouettes remain",
+    "Canonical floor parity remains incorrect, especially market-road-10 and market-road-12",
+    "Garden library approach exposes insufficient native destination/context geometry",
+    "Garden Avenue source-centre exposes a brown-to-grey carriageway material discontinuity",
+    "Cinema saved-entrance view is partly occluded by existing posts and does not establish destination quality",
+    "Warm brown asphalt and missing approved business signage, roadside services, foliage and activity dressing",
+    "Dark shop bays remain unstocked in current parcel views; no interior acceptance",
+    "Source boardwalk decking/edge modules and approved sand/beach finishes remain missing"
+  ],
+  "sourcePositionsPreserved": true,
+  "nativeSafeReloadVerified": true,
+  "newDestinationTraversalVerified": false,
+  "finishedNeighbourhood": false,
+  "runtimeTraversal": "not-inspected; no active game world",
+  "trafficAndResidents": "No working simulation established; visible vehicles remain static",
+  "nextArea": "Town Centre fitted exterior transitions and exact-floor ordinary block fabric"
+}
