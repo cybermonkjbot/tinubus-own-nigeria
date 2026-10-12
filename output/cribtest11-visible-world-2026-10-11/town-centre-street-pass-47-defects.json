@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 47,
+  "parcelIds": ["station-road-4", "station-road-10", "college-lane-10"],
+  "matchedImagesInspected": 6,
+  "improvements": ["Three source-defined road-to-entrance central ramps join retained doorway paths", "Fitted shoulders reduce omitted roadside surface gaps without duplicate drain-cover footprint surfaces"],
+  "remainingDefects": ["Shoulder triangulation shows faceted shading and segmented seams", "Concrete crossing finish remains plain", "Some kerb/drain end transitions still require close-up contact correction", "College Lane10 heavily shaded; complete surface acceptance absent", "No excavated drainage structure, culvert edge or inlet/outlet acceptance", "Existing road ribbon seams and brown asphalt remain", "Compound fittings/rear-side review and varied dense surrounding streets incomplete", "Apartment roofs/rainwater and prior Market/Garden/pass42 visual defects remain"],
+  "sourcePositionsPreserved": true,
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "workingDrainage": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "nextArea": "Town Centre shoulder surface/contact corrections, compound fittings and remaining adjoining exterior parcels"
+}

@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass46.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass47.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -56,7 +56,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass46.json'):
             if source in selection['parcelIds']:
                 frontage.add(source)
                 frontage_evidence.setdefault(source,[]).append(path.relative_to(ROOT).as_posix())
-    current_path = OUT / 'town-centre-street-pass-46-saved-readback.json'
+    current_path = OUT / 'town-centre-street-pass-47-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-46-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-45-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-44-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-43-saved-readback.json'
@@ -87,6 +88,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass46.json'):
     entrances = {p['parcelId'] for p in read(entrance_path)['plans']} if entrance_path.is_file() else set()
     compound_path = OUT / 'town-centre-street-pass-46-compounds.json'
     compounds = {p['parcelId'] for p in read(compound_path)['plans']} if compound_path.is_file() else set()
+    approach_path = OUT / 'town-centre-street-pass-47-entrance-approaches.json'
+    approaches = {p['parcelId'] for p in read(approach_path)['plans']} if approach_path.is_file() else set()
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -144,6 +147,11 @@ def main(target_name='world-inventory-reconciled-20261011-pass46.json'):
             entry['compoundAcceptance'] = 'Saved canonical parcel-fitted walls and static open pedestrian gate; final art and walking acceptance incomplete'
             entry['missingDependencies'] = ['Roof/rainwater finish, varied finishes and street services',
                 'Road/drain shoulders, forecourt finish, accessible lobby and runtime acceptance']
+        if item['id'] in approaches:
+            entry['roadEntranceApproachEvidence'] = approach_path.relative_to(ROOT).as_posix()
+            entry['roadEntranceApproachAcceptance'] = 'Saved static source entrance ramp and omitted roadside shoulders; drainage structure and runtime traversal unaccepted'
+            entry['missingDependencies'] = ['Roof/rainwater finish, varied exterior and street services',
+                'Crossing/drain structure detail, forecourt finish, accessible lobby and runtime acceptance']
         parcels.append(entry)
     road_journal = next((read(ROOT / e['journal']) for e in saved.get('city/road-ribbons',[])),{})
     ribbon_ids = {f['canonicalId'].split(':')[0] for m in road_journal.get('meshes',[]) for f in m.get('features',[])}
