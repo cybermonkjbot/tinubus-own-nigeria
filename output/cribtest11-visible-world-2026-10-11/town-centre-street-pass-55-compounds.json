@@ -1,0 +1,377 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T07:42:37.145768+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "parcelId": "arcade-crescent-2",
+      "roadId": "arcade-crescent",
+      "sourceParcel": {
+        "id": "arcade-crescent-2",
+        "name": "Arcade Crescent 2",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "civic",
+        "x": 285.86,
+        "z": -425.25,
+        "width": 28.19,
+        "depth": 23.2,
+        "floors": 4,
+        "units": 16,
+        "yaw": -1.9259776620476232,
+        "garden": 3,
+        "variant": 5,
+        "street": "Arcade Crescent",
+        "entrance": [
+          272.17,
+          0,
+          -430.33
+        ]
+      },
+      "centreCm": [
+        -42525.0,
+        28586.0
+      ],
+      "yaw": -290.35039147180237,
+      "halfDepthCm": 1160.0,
+      "halfWidthCm": 1409.5,
+      "frontCm": -1138.0,
+      "gateCentreCm": -94.29493442092236,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -43033.0,
+        27217.0
+      ],
+      "doorCentreCm": [
+        -42618.756803877906,
+        27772.821260898567,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -975.1669855249522,
+          -1169.8608252019442
+        ],
+        [
+          -974.8329946121677,
+          1170.1391509625971
+        ],
+        [
+          974.8329946121677,
+          -1170.1391509625971
+        ],
+        [
+          975.1669855249522,
+          1169.8608252019442
+        ]
+      ]
+    },
+    {
+      "parcelId": "arcade-crescent-3",
+      "roadId": "arcade-crescent",
+      "sourceParcel": {
+        "id": "arcade-crescent-3",
+        "name": "Arcade Crescent 3",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": 257.13,
+        "z": -508.64,
+        "width": 27.54,
+        "depth": 23.04,
+        "floors": 7,
+        "units": 28,
+        "yaw": 1.342965777737712,
+        "garden": 3,
+        "variant": 0,
+        "street": "Arcade Crescent",
+        "entrance": [
+          271.27,
+          0,
+          -505.36
+        ]
+      },
+      "centreCm": [
+        -50864.0,
+        25713.0
+      ],
+      "yaw": -103.05372890512493,
+      "halfDepthCm": 1152.0,
+      "halfWidthCm": 1377.0,
+      "frontCm": -1130.0,
+      "gateCentreCm": -95.38680607614309,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -50536.0,
+        27127.0
+      ],
+      "doorCentreCm": [
+        -50874.313156158496,
+        26531.500848386884,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -975.1220374828695,
+          -1169.8982913122206
+        ],
+        [
+          -974.8779519085555,
+          1170.1016959574808
+        ],
+        [
+          974.877951908552,
+          -1170.1016959574818
+        ],
+        [
+          975.1220374828661,
+          1169.89829131222
+        ]
+      ]
+    }
+  ],
+  "createdActors": [
+    {
+      "label": "TC_Compound55_arcade-crescent-2_boundary",
+      "sourceId": "arcade-crescent-2:boundary",
+      "parcelId": "arcade-crescent-2",
+      "roadId": "arcade-crescent",
+      "role": "boundary",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_2_boundary",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds55-import-source/SM_arcade_crescent_2_boundary.obj",
+        "sourceObjSha256": "7991806a821b5b0ddeb1a8ea0c88acf13b863b2eab92f30ac1db1c3c54749f8f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_2_boundary",
+        "boundsCm": [
+          [
+            -1153.0,
+            -1402.5,
+            -3.0
+          ],
+          [
+            1153.0,
+            1402.5,
+            180.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42525.0,
+          28586.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -290.35039147180237,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound55_arcade-crescent-2_open-gate",
+      "sourceId": "arcade-crescent-2:open-gate",
+      "parcelId": "arcade-crescent-2",
+      "roadId": "arcade-crescent",
+      "role": "open-gate",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_2_open_gate",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds55-import-source/SM_arcade_crescent_2_open_gate.obj",
+        "sourceObjSha256": "0a873643c81a964cf7b171938151250a710275624bc498132d898fb6eeb35a04",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_2_open_gate",
+        "boundsCm": [
+          [
+            -1118.0,
+            -241.29493713378906,
+            0.0
+          ],
+          [
+            -988.0,
+            52.7050666809082,
+            170.0
+          ]
+        ],
+        "uvProbesVerified": 1080,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42525.0,
+          28586.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -290.35039147180237,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound55_arcade-crescent-3_boundary",
+      "sourceId": "arcade-crescent-3:boundary",
+      "parcelId": "arcade-crescent-3",
+      "roadId": "arcade-crescent",
+      "role": "boundary",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_3_boundary",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds55-import-source/SM_arcade_crescent_3_boundary.obj",
+        "sourceObjSha256": "61c06035d48c4d3627ba7a19c2a17ffccaf4428923febcb9b3c158af12db8cd5",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_3_boundary",
+        "boundsCm": [
+          [
+            -1145.0,
+            -1370.0,
+            -3.0
+          ],
+          [
+            1145.0,
+            1370.0,
+            180.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -50864.0,
+          25713.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -103.05372890512493,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound55_arcade-crescent-3_open-gate",
+      "sourceId": "arcade-crescent-3:open-gate",
+      "parcelId": "arcade-crescent-3",
+      "roadId": "arcade-crescent",
+      "role": "open-gate",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_3_open_gate",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds55-import-source/SM_arcade_crescent_3_open_gate.obj",
+        "sourceObjSha256": "d8a9af70bacbc32e880507fd580ebaa1babb17e3a486a30d780cf58e13f42e4b",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_3_open_gate",
+        "boundsCm": [
+          [
+            -1110.0,
+            -242.38681030273438,
+            0.0
+          ],
+          [
+            -980.0,
+            51.61319351196289,
+            170.0
+          ]
+        ],
+        "uvProbesVerified": 1080,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -50864.0,
+          25713.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -103.05372890512493,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_2_boundary.uasset": "3c390a30aa6edcf9a92de4033a3bc7d85d9e3b9556a9670337810e38e43f22d8",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_2_open_gate.uasset": "780e578f5f97e08354fe07ea08f1d347cce60231a91756c45e474b19f6058bb5",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_3_boundary.uasset": "942b3e532268dec3ecefb49e618a31da17b3b99e09112ac3d3c0b1e2333dad92",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds55/Meshes/SM_arcade_crescent_3_open_gate.uasset": "6307081312b399ce63646e6337d687ef32b91ddbb0d41f0c297b9ea5abbbeed7",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "636113d88f419b8d75bcaf0142a45a0edf3746dcc7f74c36accbc76c361e57ef",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "6033edce2960fa64cb778a9709406e965220b4bbaff940f11132345c156fbebe"
+  },
+  "cameras": [
+    {
+      "id": "arcade-crescent-2-compound",
+      "locationCm": [
+        -43650.25771099518,
+        26776.369129710274,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -319.05039147180236,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-3-compound",
+      "locationCm": [
+        -49980.560859687364,
+        27643.344956171797,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -131.75372890512492,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ],
+  "visualAcceptance": "pending",
+  "limitations": [
+    "Static open gates, not interactive access control",
+    "Source-fitted boundary geometry with reused materials; final art acceptance pending",
+    "Ground-supported boundaries; no excavation, landscape or gameplay navigation claim"
+  ]
+}

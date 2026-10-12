@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T07:43:19.720786+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "camera": "arcade-crescent-2-compound",
+  "cameraConfig": {
+    "id": "arcade-crescent-2-compound",
+    "locationCm": [
+      -43650.25771099518,
+      26776.369129710274,
+      165
+    ],
+    "rotation": {
+      "pitch": 3,
+      "yaw": -319.05039147180236,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-compounds55-after/arcade-crescent-2-compound.png",
+  "imageSha256": "2c488ac5a74303e4a92c0bc84f3bf9751f354d20a1c8a0a391e629963ecdee4a",
+  "width": 705,
+  "height": 486,
+  "warmupNativeFrames": 42,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -43650.25771099518,
+      "y": 26776.369129710274,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 3,
+      "yaw": -319.0503845214844,
+      "roll": 0
+    },
+    "cameraFOV": 78,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-55-saved-readback.json",
+  "receiptSha256": "17b148c8a05f350be1dcd543616821dc89c964f40b5ecb6dced7681522363302",
+  "scriptSha256": "8f562b55fc8f81441a2d07c1c0112e252ab64896a4faa0ad4539cdb261420f2c"
+}

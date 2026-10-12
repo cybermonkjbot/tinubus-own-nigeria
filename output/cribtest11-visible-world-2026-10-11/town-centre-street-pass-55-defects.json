@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 55,
+  "sourceIds": ["arcade-crescent-2", "arcade-crescent-3", "arcade-crescent"],
+  "matchedAfterImagesInspected": 2,
+  "improvements": ["Two canonical apartment parcels now have supported boundary walls, coping/posts and static open pedestrian leaves", "Source paths and recessed portal canopies remain clear in reviewed frontage views"],
+  "remainingDefects": ["Gate hinges/stops and final finishes incomplete", "Rear/side boundary contacts not visually accepted", "Plain repetitive concrete, empty forecourts and sparse wider context", "Drain crossing joints/outfalls, utilities, planting and roof fittings incomplete", "Arcade4/6/8 require canopy-aware fitted boundary designs; default layout fails clearance", "Previous Arcade9 short gate leaf design remains unfinished", "No runtime traversal/navigation or target GPU rendering acceptance"],
+  "failureEvidence": "Read-only compound preflight reports Canopy intersects boundary for arcade-crescent-4/6/8 in editor-20261011-181531.log; no mutation of those parcels",
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "nextArea": "Canopy-aware Arcade4/6/8 compound designs, street-service dressing and adjoining ordinary parcel density"
+}

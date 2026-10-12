@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass54.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass55.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -56,7 +56,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass54.json'):
             if source in selection['parcelIds']:
                 frontage.add(source)
                 frontage_evidence.setdefault(source,[]).append(path.relative_to(ROOT).as_posix())
-    current_path = OUT / 'town-centre-street-pass-54-saved-readback.json'
+    current_path = OUT / 'town-centre-street-pass-55-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-54-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-53-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-52-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-51-saved-readback.json'
@@ -111,6 +112,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass54.json'):
     connections = {p['parcelId'] for p in read(connections_path)['plans']} if connections_path.is_file() else set()
     arcade_shoulders_path = OUT / 'town-centre-street-pass-54-refined-shoulders.json'
     arcade_shoulders = {p['parcelId'] for p in read(arcade_shoulders_path)['plans']} if arcade_shoulders_path.is_file() else set()
+    apartment_compounds_path = OUT / 'town-centre-street-pass-55-compounds.json'
+    apartment_compounds = {p['parcelId'] for p in read(apartment_compounds_path)['plans']} if apartment_compounds_path.is_file() else set()
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -205,6 +208,9 @@ def main(target_name='world-inventory-reconciled-20261011-pass54.json'):
         if item['id'] in arcade_shoulders:
             entry['refinedShoulderEvidence'] = arcade_shoulders_path.relative_to(ROOT).as_posix()
             entry['refinedShoulderAcceptance'] = 'Source footprint/profile retained with 15cm tessellation; coarse visible shoulder facets reduced, final joints and drainage remain incomplete'
+        if item['id'] in apartment_compounds:
+            entry['compoundEvidence'] = apartment_compounds_path.relative_to(ROOT).as_posix()
+            entry['compoundAcceptance'] = 'Saved canonical boundary with clear source path and static open pedestrian leaves; finishes, fittings and side/rear acceptance incomplete'
         parcels.append(entry)
     road_journal = next((read(ROOT / e['journal']) for e in saved.get('city/road-ribbons',[])),{})
     ribbon_ids = {f['canonicalId'].split(':')[0] for m in road_journal.get('meshes',[]) for f in m.get('features',[])}
