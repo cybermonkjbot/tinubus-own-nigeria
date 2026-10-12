@@ -1,0 +1,1803 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T05:25:02.333761+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "safeReloadCompleted": true,
+  "receiptSha256": "287ea88194112495bbfecd1ce5a75071e04be8ead79000be8b12f40c715eb56c",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "42b4de7edeccfdde9977da666d63b9061836cd7908da5931964fdf17d89651e8",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "26976c78627c2893572d002d3060f28fd54280e68149f571945649f3b10ae0e2"
+  },
+  "openingReadback": [
+    {
+      "sourceId": "civic-street-2:r0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 0,
+      "locationCm": [
+        -25566.68791906002,
+        3123.701466699739,
+        747.0
+      ],
+      "yaw": -175.04345703125,
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000004,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:r0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 1,
+      "locationCm": [
+        -25600.38398843715,
+        3512.2430666713917,
+        747.0
+      ],
+      "yaw": -175.04345703125,
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000004,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:r0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 0,
+      "locationCm": [
+        -25634.080057814277,
+        3900.784666643044,
+        747.0
+      ],
+      "yaw": -175.04345703125,
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000004,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:r0:upper:ResidentialBay:228:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 2,
+      "locationCm": [
+        -25260.357520328227,
+        -9968.845937109976,
+        747.0
+      ],
+      "yaw": -177.04954528808597,
+      "scale": [
+        1.0000000000000009,
+        1.0000000000000009,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:r0:upper:ResidentialBay:234:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 3,
+      "locationCm": [
+        -25280.431715449453,
+        -9579.362912203582,
+        747.0
+      ],
+      "yaw": -177.04954528808597,
+      "scale": [
+        1.0000000000000009,
+        1.0000000000000009,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:r0:upper:ResidentialBay:240:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 1,
+      "locationCm": [
+        -25300.50591057068,
+        -9189.879887297187,
+        747.0
+      ],
+      "yaw": -177.04954528808597,
+      "scale": [
+        1.0000000000000009,
+        1.0000000000000009,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:r1:upper:ResidentialBay:299:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 0,
+      "locationCm": [
+        -25320.580105691904,
+        -8800.396862390793,
+        747.0
+      ],
+      "yaw": -177.04954528808597,
+      "scale": [
+        1.0000000000000009,
+        1.0000000000000009,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:r1:upper:ResidentialBay:305:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 4,
+      "locationCm": [
+        -25340.65430081313,
+        -8410.913837484399,
+        747.0
+      ],
+      "yaw": -177.04954528808597,
+      "scale": [
+        1.0000000000000009,
+        1.0000000000000009,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:r1:upper:ResidentialBay:311:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 2,
+      "locationCm": [
+        -25360.728495934356,
+        -8021.4308125780035,
+        747.0
+      ],
+      "yaw": -177.04954528808597,
+      "scale": [
+        1.0000000000000009,
+        1.0000000000000009,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:r2:upper:ResidentialBay:370:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 5,
+      "locationCm": [
+        -25380.80269105558,
+        -7631.94778767161,
+        747.0
+      ],
+      "yaw": -177.04954528808597,
+      "scale": [
+        1.0000000000000009,
+        1.0000000000000009,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:r2:upper:ResidentialBay:376:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 1,
+      "locationCm": [
+        -25400.876886176808,
+        -7242.464762765216,
+        747.0
+      ],
+      "yaw": -177.04954528808597,
+      "scale": [
+        1.0000000000000009,
+        1.0000000000000009,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:r2:upper:ResidentialBay:382:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 6,
+      "locationCm": [
+        -25420.951081298033,
+        -6852.981737858821,
+        747.0
+      ],
+      "yaw": -177.04954528808597,
+      "scale": [
+        1.0000000000000009,
+        1.0000000000000009,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:r0:upper:ResidentialBay:480:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 2,
+      "locationCm": [
+        -7427.6059812875,
+        -22943.14682852468,
+        747.0
+      ],
+      "yaw": 144.44024658203125,
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000004,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:r0:upper:ResidentialBay:486:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 7,
+      "locationCm": [
+        -7200.800854469642,
+        -22625.87811836067,
+        747.0
+      ],
+      "yaw": 144.44024658203125,
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000004,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:r0:upper:ResidentialBay:492:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 8,
+      "locationCm": [
+        -6973.995727651785,
+        -22308.60940819666,
+        747.0
+      ],
+      "yaw": 144.44024658203125,
+      "scale": [
+        1.0000000000000004,
+        1.0000000000000004,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:r0:upper:ResidentialBay:551:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 3,
+      "locationCm": [
+        -7961.716830747138,
+        -29407.714146526938,
+        747.0
+      ],
+      "yaw": -36.79426956176761,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:r0:upper:ResidentialBay:557:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 4,
+      "locationCm": [
+        -8195.304791367824,
+        -29720.022751360473,
+        747.0
+      ],
+      "yaw": -36.79426956176761,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:r0:upper:ResidentialBay:563:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 5,
+      "locationCm": [
+        -8428.892751988511,
+        -30032.331356194005,
+        747.0
+      ],
+      "yaw": -36.79426956176761,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:r1:upper:ResidentialBay:622:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 9,
+      "locationCm": [
+        -8662.480712609198,
+        -30344.63996102754,
+        747.0
+      ],
+      "yaw": -36.79426956176761,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:r1:upper:ResidentialBay:628:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 3,
+      "locationCm": [
+        -8896.068673229885,
+        -30656.948565861076,
+        747.0
+      ],
+      "yaw": -36.79426956176761,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:r1:upper:ResidentialBay:634:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 6,
+      "locationCm": [
+        -9129.65663385057,
+        -30969.257170694607,
+        747.0
+      ],
+      "yaw": -36.79426956176761,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:r2:upper:ResidentialBay:693:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 4,
+      "locationCm": [
+        -9363.24459447126,
+        -31281.565775528143,
+        747.0
+      ],
+      "yaw": -36.79426956176761,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:r2:upper:ResidentialBay:699:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 7,
+      "locationCm": [
+        -9596.832555091947,
+        -31593.874380361678,
+        747.0
+      ],
+      "yaw": -36.79426956176761,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:r2:upper:ResidentialBay:705:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 5,
+      "locationCm": [
+        -9830.420515712633,
+        -31906.18298519521,
+        747.0
+      ],
+      "yaw": -36.79426956176761,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:r0:upper:ResidentialBay:764:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 8,
+      "locationCm": [
+        -12230.802703096415,
+        -29542.89662804925,
+        747.0
+      ],
+      "yaw": 143.21250915527344,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:r0:upper:ResidentialBay:770:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 10,
+      "locationCm": [
+        -11997.25168943526,
+        -29230.560392530784,
+        747.0
+      ],
+      "yaw": 143.21250915527344,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:r0:upper:ResidentialBay:776:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 9,
+      "locationCm": [
+        -11763.700675774104,
+        -28918.22415701232,
+        747.0
+      ],
+      "yaw": 143.21250915527344,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:r1:upper:ResidentialBay:835:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 10,
+      "locationCm": [
+        -11530.149662112948,
+        -28605.88792149385,
+        747.0
+      ],
+      "yaw": 143.21250915527344,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:r1:upper:ResidentialBay:841:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 11,
+      "locationCm": [
+        -11296.598648451793,
+        -28293.551685975384,
+        747.0
+      ],
+      "yaw": 143.21250915527344,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:r1:upper:ResidentialBay:847:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 6,
+      "locationCm": [
+        -11063.047634790637,
+        -27981.21545045692,
+        747.0
+      ],
+      "yaw": 143.21250915527344,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:rear0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 7,
+      "locationCm": [
+        -26810.936880854937,
+        3929.2103251688777,
+        747.0
+      ],
+      "yaw": 4.956545352935793,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:rear0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 11,
+      "locationCm": [
+        -26777.240811477808,
+        3540.6687251972253,
+        747.0
+      ],
+      "yaw": 4.956545352935793,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:rear0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 12,
+      "locationCm": [
+        -26743.54474210068,
+        3152.1271252255724,
+        747.0
+      ],
+      "yaw": 4.956545352935793,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:left:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 12,
+      "locationCm": [
+        -26591.56682919205,
+        2904.3314150368465,
+        747.0
+      ],
+      "yaw": 94.95654296875004,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:left:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 8,
+      "locationCm": [
+        -26203.025229220395,
+        2938.0274844139744,
+        747.0
+      ],
+      "yaw": 94.95654296875004,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:left:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 13,
+      "locationCm": [
+        -25814.48362924874,
+        2971.723553791102,
+        747.0
+      ],
+      "yaw": 94.95654296875004,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:right:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 9,
+      "locationCm": [
+        -25786.057970722908,
+        4148.58037683177,
+        747.0
+      ],
+      "yaw": -85.04345703125,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:right:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 13,
+      "locationCm": [
+        -26174.59957069456,
+        4114.884307454642,
+        747.0
+      ],
+      "yaw": -85.04345703125,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-2:right:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 14,
+      "locationCm": [
+        -26563.141170666215,
+        4081.1882380775137,
+        747.0
+      ],
+      "yaw": -85.04345703125,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:rear0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 15,
+      "locationCm": [
+        -26596.091554390954,
+        -6783.376648253701,
+        747.0
+      ],
+      "yaw": 2.950448989868165,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:rear0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 14,
+      "locationCm": [
+        -26576.01735926973,
+        -7172.859673160096,
+        747.0
+      ],
+      "yaw": 2.950448989868165,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:rear0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 15,
+      "locationCm": [
+        -26555.943164148503,
+        -7562.34269806649,
+        747.0
+      ],
+      "yaw": 2.950448989868165,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:rear1:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 16,
+      "locationCm": [
+        -26535.868969027277,
+        -7951.825722972884,
+        747.0
+      ],
+      "yaw": 2.950448989868165,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:rear1:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 10,
+      "locationCm": [
+        -26515.79477390605,
+        -8341.308747879277,
+        747.0
+      ],
+      "yaw": 2.950448989868165,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:rear1:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 11,
+      "locationCm": [
+        -26495.720578784825,
+        -8730.791772785671,
+        747.0
+      ],
+      "yaw": 2.950448989868165,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:rear2:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 16,
+      "locationCm": [
+        -26475.6463836636,
+        -9120.274797692065,
+        747.0
+      ],
+      "yaw": 2.950448989868165,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:rear2:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 12,
+      "locationCm": [
+        -26455.572188542374,
+        -9509.75782259846,
+        747.0
+      ],
+      "yaw": 2.950448989868165,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:rear2:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 17,
+      "locationCm": [
+        -26435.497993421148,
+        -9899.240847504854,
+        747.0
+      ],
+      "yaw": 2.950448989868165,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:left:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 17,
+      "locationCm": [
+        -26292.287521704868,
+        -10152.20479906871,
+        747.0
+      ],
+      "yaw": 92.95043945312501,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:left:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 13,
+      "locationCm": [
+        -25902.804496798475,
+        -10132.130603947484,
+        747.0
+      ],
+      "yaw": 92.95043945312501,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:left:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 18,
+      "locationCm": [
+        -25513.32147189208,
+        -10112.056408826258,
+        747.0
+      ],
+      "yaw": 92.95043945312501,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:right:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 19,
+      "locationCm": [
+        -25564.161553014314,
+        -6600.017786294968,
+        747.0
+      ],
+      "yaw": -87.0495529174805,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:right:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 20,
+      "locationCm": [
+        -25953.644577920706,
+        -6620.091981416193,
+        747.0
+      ],
+      "yaw": -87.0495529174805,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "civic-street-6:right:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 21,
+      "locationCm": [
+        -26343.127602827102,
+        -6640.166176537419,
+        747.0
+      ],
+      "yaw": -87.0495529174805,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:rear0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 18,
+      "locationCm": [
+        -7850.200149204535,
+        -21522.437791021748,
+        747.0
+      ],
+      "yaw": -35.55975341796877,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:rear0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 22,
+      "locationCm": [
+        -8077.0052760223925,
+        -21839.70650118576,
+        747.0
+      ],
+      "yaw": -35.55975341796877,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:rear0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 19,
+      "locationCm": [
+        -8303.81040284025,
+        -22156.97521134977,
+        747.0
+      ],
+      "yaw": -35.55975341796877,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:left:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 23,
+      "locationCm": [
+        -8349.257583997483,
+        -22444.08939373173,
+        747.0
+      ],
+      "yaw": 54.44025039672854,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:left:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 14,
+      "locationCm": [
+        -8031.988873833473,
+        -22670.894520549587,
+        747.0
+      ],
+      "yaw": 54.44025039672854,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:left:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 15,
+      "locationCm": [
+        -7714.720163669461,
+        -22897.699647367444,
+        747.0
+      ],
+      "yaw": 54.44025039672854,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:right:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 20,
+      "locationCm": [
+        -6928.5485464945505,
+        -22021.4952258147,
+        747.0
+      ],
+      "yaw": -125.55975341796875,
+      "scale": [
+        0.9999999999999998,
+        0.9999999999999998,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:right:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 21,
+      "locationCm": [
+        -7245.817256658562,
+        -21794.69009899684,
+        747.0
+      ],
+      "yaw": -125.55975341796875,
+      "scale": [
+        0.9999999999999998,
+        0.9999999999999998,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-6:right:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 22,
+      "locationCm": [
+        -7563.085966822573,
+        -21567.884972178985,
+        747.0
+      ],
+      "yaw": -125.55975341796875,
+      "scale": [
+        0.9999999999999998,
+        0.9999999999999998,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:rear0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 16,
+      "locationCm": [
+        -8971.35735475226,
+        -32711.049735335113,
+        747.0
+      ],
+      "yaw": 143.2057342529297,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:rear0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 23,
+      "locationCm": [
+        -8737.769394131572,
+        -32398.741130501578,
+        747.0
+      ],
+      "yaw": 143.2057342529297,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:rear0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 24,
+      "locationCm": [
+        -8504.181433510887,
+        -32086.432525668046,
+        747.0
+      ],
+      "yaw": 143.2057342529297,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:rear1:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 24,
+      "locationCm": [
+        -8270.5934728902,
+        -31774.123920834514,
+        747.0
+      ],
+      "yaw": 143.2057342529297,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:rear1:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 17,
+      "locationCm": [
+        -8037.005512269513,
+        -31461.81531600098,
+        747.0
+      ],
+      "yaw": 143.2057342529297,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:rear1:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 25,
+      "locationCm": [
+        -7803.417551648826,
+        -31149.506711167447,
+        747.0
+      ],
+      "yaw": 143.2057342529297,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:rear2:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 18,
+      "locationCm": [
+        -7569.829591028139,
+        -30837.19810633391,
+        747.0
+      ],
+      "yaw": 143.2057342529297,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:rear2:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 25,
+      "locationCm": [
+        -7336.241630407452,
+        -30524.889501500376,
+        747.0
+      ],
+      "yaw": 143.2057342529297,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:rear2:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 19,
+      "locationCm": [
+        -7102.653669786765,
+        -30212.580896666845,
+        747.0
+      ],
+      "yaw": 143.2057342529297,
+      "scale": [
+        1.0000000000000002,
+        1.0000000000000002,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:left:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 26,
+      "locationCm": [
+        -7051.031230984151,
+        -29926.512506570925,
+        747.0
+      ],
+      "yaw": -126.79426574707028,
+      "scale": [
+        0.9999999999999994,
+        0.9999999999999994,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:left:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 26,
+      "locationCm": [
+        -7363.339835817685,
+        -29692.924545950238,
+        747.0
+      ],
+      "yaw": -126.79426574707028,
+      "scale": [
+        0.9999999999999994,
+        0.9999999999999994,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:left:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 27,
+      "locationCm": [
+        -7675.648440651219,
+        -29459.33658532955,
+        747.0
+      ],
+      "yaw": -126.79426574707028,
+      "scale": [
+        0.9999999999999994,
+        0.9999999999999994,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:right:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 28,
+      "locationCm": [
+        -9882.042954515246,
+        -32192.25137529113,
+        747.0
+      ],
+      "yaw": 53.20573043823245,
+      "scale": [
+        0.9999999999999998,
+        0.9999999999999998,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:right:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 29,
+      "locationCm": [
+        -9569.734349681712,
+        -32425.839335911816,
+        747.0
+      ],
+      "yaw": 53.20573043823245,
+      "scale": [
+        0.9999999999999998,
+        0.9999999999999998,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-7:right:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 30,
+      "locationCm": [
+        -9257.425744848177,
+        -32659.427296532504,
+        747.0
+      ],
+      "yaw": 53.20573043823245,
+      "scale": [
+        0.9999999999999998,
+        0.9999999999999998,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:rear0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 31,
+      "locationCm": [
+        -11922.206003458983,
+        -27176.45033096729,
+        747.0
+      ],
+      "yaw": -36.787475585937514,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:rear0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 27,
+      "locationCm": [
+        -12155.757017120139,
+        -27488.786566485756,
+        747.0
+      ],
+      "yaw": -36.787475585937514,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:rear0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 20,
+      "locationCm": [
+        -12389.308030781294,
+        -27801.12280200422,
+        747.0
+      ],
+      "yaw": -36.787475585937514,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:rear1:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 28,
+      "locationCm": [
+        -12622.85904444245,
+        -28113.45903752269,
+        747.0
+      ],
+      "yaw": -36.787475585937514,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:rear1:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 29,
+      "locationCm": [
+        -12856.410058103605,
+        -28425.795273041156,
+        747.0
+      ],
+      "yaw": -36.787475585937514,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:rear1:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 32,
+      "locationCm": [
+        -13089.961071764761,
+        -28738.13150855962,
+        747.0
+      ],
+      "yaw": -36.787475585937514,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:left:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 30,
+      "locationCm": [
+        -13141.549669032709,
+        -29024.20600345899,
+        747.0
+      ],
+      "yaw": 53.21250915527343,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:left:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 21,
+      "locationCm": [
+        -12829.213433514244,
+        -29257.757017120144,
+        747.0
+      ],
+      "yaw": 53.21250915527343,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:left:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 31,
+      "locationCm": [
+        -12516.877197995776,
+        -29491.3080307813,
+        747.0
+      ],
+      "yaw": 53.21250915527343,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:right:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 32,
+      "locationCm": [
+        -11011.459037522689,
+        -27695.140955557552,
+        747.0
+      ],
+      "yaw": -126.78749084472658,
+      "scale": [
+        0.9999999999999996,
+        0.9999999999999996,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:right:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 33,
+      "locationCm": [
+        -11323.795273041154,
+        -27461.589941896396,
+        747.0
+      ],
+      "yaw": -126.78749084472658,
+      "scale": [
+        0.9999999999999996,
+        0.9999999999999996,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-8:right:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 22,
+      "locationCm": [
+        -11636.131508559622,
+        -27228.03892823524,
+        747.0
+      ],
+      "yaw": -126.78749084472658,
+      "scale": [
+        0.9999999999999996,
+        0.9999999999999996,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-11:front0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 33,
+      "locationCm": [
+        -17466.2197066819,
+        -40989.40285824708,
+        747.0
+      ],
+      "yaw": -40.38110733032228,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-11:front0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 34,
+      "locationCm": [
+        -17718.888529525986,
+        -41286.48612260672,
+        747.0
+      ],
+      "yaw": -40.38110733032228,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-11:front0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 34,
+      "locationCm": [
+        -17971.55735237007,
+        -41583.569386966374,
+        747.0
+      ],
+      "yaw": -40.38110733032228,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-11:rear0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 35,
+      "locationCm": [
+        -17164.530500239158,
+        -42440.60361028518,
+        747.0
+      ],
+      "yaw": 139.61889648437497,
+      "scale": [
+        0.9999999999999997,
+        0.9999999999999997,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-11:rear0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 35,
+      "locationCm": [
+        -16911.86167739507,
+        -42143.520345925535,
+        747.0
+      ],
+      "yaw": 139.61889648437497,
+      "scale": [
+        0.9999999999999997,
+        0.9999999999999997,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-11:rear0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 36,
+      "locationCm": [
+        -16659.192854550987,
+        -41846.437081565884,
+        747.0
+      ],
+      "yaw": 139.61889648437497,
+      "scale": [
+        0.9999999999999997,
+        0.9999999999999997,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-11:return:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 37,
+      "locationCm": [
+        -16589.774727441476,
+        -41564.15863104476,
+        747.0
+      ],
+      "yaw": -130.38110351562497,
+      "scale": [
+        0.9999999999999994,
+        0.9999999999999994,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-11:return:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 36,
+      "locationCm": [
+        -16886.857991801124,
+        -41311.48980820068,
+        747.0
+      ],
+      "yaw": -130.38110351562497,
+      "scale": [
+        0.9999999999999994,
+        0.9999999999999994,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-11:return:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 23,
+      "locationCm": [
+        -17183.94125616077,
+        -41058.820985356586,
+        747.0
+      ],
+      "yaw": -130.38110351562497,
+      "scale": [
+        0.9999999999999994,
+        0.9999999999999994,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-12:front0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 38,
+      "locationCm": [
+        -20521.985138549226,
+        -39583.42281685116,
+        747.0
+      ],
+      "yaw": 139.58502197265622,
+      "scale": [
+        0.9999999999999997,
+        0.9999999999999997,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-12:front0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 24,
+      "locationCm": [
+        -20269.14073407846,
+        -39286.488973835876,
+        747.0
+      ],
+      "yaw": 139.58502197265622,
+      "scale": [
+        0.9999999999999997,
+        0.9999999999999997,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-12:front0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_2",
+      "instanceIndex": 37,
+      "locationCm": [
+        -20016.296329607696,
+        -38989.5551308206,
+        747.0
+      ],
+      "yaw": 139.58502197265622,
+      "scale": [
+        0.9999999999999997,
+        0.9999999999999997,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-12:rear0:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 25,
+      "locationCm": [
+        -20822.81639049662,
+        -38132.043969736544,
+        747.0
+      ],
+      "yaw": -40.41497802734376,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-12:rear0:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 39,
+      "locationCm": [
+        -21075.660794967385,
+        -38428.97781275182,
+        747.0
+      ],
+      "yaw": -40.41497802734376,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-12:rear0:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 40,
+      "locationCm": [
+        -21328.50519943815,
+        -38725.91165576711,
+        747.0
+      ],
+      "yaw": -40.41497802734376,
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-12:return:upper:ResidentialBay:40:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 26,
+      "locationCm": [
+        -21398.090188080234,
+        -39008.14901926755,
+        747.0
+      ],
+      "yaw": 49.585018157959006,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-12:return:upper:ResidentialBay:46:intermediate-window",
+      "actorLabel": "TC_Openings31_1",
+      "instanceIndex": 27,
+      "locationCm": [
+        -21101.156345064952,
+        -39260.99342373831,
+        747.0
+      ],
+      "yaw": 49.585018157959006,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    },
+    {
+      "sourceId": "market-road-12:return:upper:ResidentialBay:52:intermediate-window",
+      "actorLabel": "TC_Openings31_0",
+      "instanceIndex": 41,
+      "locationCm": [
+        -20804.22250204967,
+        -39513.83782820908,
+        747.0
+      ],
+      "yaw": 49.585018157959006,
+      "scale": [
+        0.9999999999999999,
+        0.9999999999999999,
+        1.0
+      ]
+    }
+  ],
+  "finalRoofComponentCounts": {
+    "TC_Courtyard25_10": 416,
+    "TC_Market30_10": 156
+  },
+  "loadedLevels": [
+    {
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+      "actorCount": 5
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "actorCount": 0
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_5a62e6998dd9baf710a1fbd3/Maps/L_places_civic_reception_27b4c84ac2",
+      "actorCount": 0
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_34c6499a40284513f0b4bf2e/Maps/L_city_landmarks_9fd4befe70",
+      "actorCount": 11
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_c58c0f7905cfbecf99734bf7/Maps/L_city_signatures_college_lane_16_b1decfaf70",
+      "actorCount": 5
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_b30bccaf7052d9499ce79057/Maps/L_city_road_ribbons_5368c24a99",
+      "actorCount": 178
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_3512ca59ea863ccf542795b7/Maps/L_city_signatures_library_lane_3_951aeda12a",
+      "actorCount": 3
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+      "actorCount": 0
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_79ff80ea1e0f606e6a4d71ec/Maps/L_places_pool_courtyard_75767f2c76",
+      "actorCount": 61
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_8a7214b59aa169bc7ccb240a/Maps/L_city_dance_again_exterior_b95522161c",
+      "actorCount": 0
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_6e86afa65ef2e664f76b9e64/Maps/L_city_signatures_garden_avenue_3_0d2e29b359",
+      "actorCount": 4
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402",
+      "actorCount": 0
+    },
+    {
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+      "actorCount": 17377
+    }
+  ],
+  "dirtyPackages": [],
+  "gameWorld": "None",
+  "runtimeTraversal": "not-inspected"
+}

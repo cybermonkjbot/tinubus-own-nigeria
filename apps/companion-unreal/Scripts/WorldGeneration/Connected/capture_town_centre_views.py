@@ -28,6 +28,22 @@ sys.path.insert(0, str(SCRIPTS))
 from mcp_client import UnrealMcp
 
 EXTRA_CAMERAS = {
+    "market-road-4-approach": {
+        "id": "market-road-4-approach", "locationCm": [-2643.17690078647, -17468.289404179212, 165],
+        "rotation": {"pitch": 3, "yaw": 165.01927308927304, "roll": 0}, "fov": 68,
+    },
+    "market-road-10-approach": {
+        "id": "market-road-10-approach", "locationCm": [-15649.06209337225, -35635.1495430235, 165],
+        "rotation": {"pitch": 3, "yaw": 140.90274439931437, "roll": 0}, "fov": 68,
+    },
+    "market-road-11-approach": {
+        "id": "market-road-11-approach", "locationCm": [-19132.15352781376, -40169.83620225807, 165],
+        "rotation": {"pitch": 3, "yaw": -40.38110881892708, "roll": 0}, "fov": 68,
+    },
+    "market-road-12-approach": {
+        "id": "market-road-12-approach", "locationCm": [-18856.53610916024, -40403.97417448046, 165],
+        "rotation": {"pitch": 3, "yaw": 139.58501981356213, "roll": 0}, "fov": 68,
+    },
     "market-road-source-centre": {
         "id": "market-road-source-centre",
         "locationCm": [-7870.0, -25900.0, 165.0],

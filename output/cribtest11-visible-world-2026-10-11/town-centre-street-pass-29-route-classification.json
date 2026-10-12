@@ -1,0 +1,1835 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T05:14:46.676138+00:00",
+  "pid": 13584,
+  "districtId": "town-centre",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "decisions": [
+    {
+      "label": "TC_Ground22_square-walking-connection_0_asphalt",
+      "sourceIds": [
+        "square-walking-connection",
+        "square-walking-connection:segment:0"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_square-walking-connection_0_support"
+    },
+    {
+      "label": "TC_Ground22_square-walking-connection_1_asphalt",
+      "sourceIds": [
+        "square-walking-connection",
+        "square-walking-connection:segment:1"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_square-walking-connection_1_support"
+    },
+    {
+      "label": "TC_Ground22_square-walking-connection_2_asphalt",
+      "sourceIds": [
+        "square-walking-connection",
+        "square-walking-connection:segment:2"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_square-walking-connection_2_support"
+    },
+    {
+      "label": "TC_Ground22_square-walking-connection_3_asphalt",
+      "sourceIds": [
+        "square-walking-connection",
+        "square-walking-connection:segment:3"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_square-walking-connection_3_support"
+    },
+    {
+      "label": "TC_Ground22_west-square-walking-connection_0_asphalt",
+      "sourceIds": [
+        "west-square-walking-connection",
+        "west-square-walking-connection:segment:0"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_west-square-walking-connection_0_support"
+    },
+    {
+      "label": "TC_Ground22_west-square-walking-connection_1_asphalt",
+      "sourceIds": [
+        "west-square-walking-connection",
+        "west-square-walking-connection:segment:1"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_west-square-walking-connection_1_support"
+    },
+    {
+      "label": "TC_Ground22_west-square-walking-connection_2_asphalt",
+      "sourceIds": [
+        "west-square-walking-connection",
+        "west-square-walking-connection:segment:2"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_west-square-walking-connection_2_support"
+    },
+    {
+      "label": "TC_Ground22_west-square-walking-connection_4_asphalt",
+      "sourceIds": [
+        "west-square-walking-connection",
+        "west-square-walking-connection:segment:4"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_west-square-walking-connection_4_support"
+    },
+    {
+      "label": "TC_Ground22_east-square-walking-connection_0_asphalt",
+      "sourceIds": [
+        "east-square-walking-connection",
+        "east-square-walking-connection:segment:0"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-square-walking-connection_0_support"
+    },
+    {
+      "label": "TC_Ground22_east-square-walking-connection_1_asphalt",
+      "sourceIds": [
+        "east-square-walking-connection",
+        "east-square-walking-connection:segment:1"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-square-walking-connection_1_support"
+    },
+    {
+      "label": "TC_Ground22_east-square-walking-connection_3_asphalt",
+      "sourceIds": [
+        "east-square-walking-connection",
+        "east-square-walking-connection:segment:3"
+      ],
+      "kind": "retained",
+      "sourceWidthMetres": 0,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-square-walking-connection_3_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_32_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:32"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_32_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_33_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:33"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_33_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_34_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:34"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_34_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_35_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:35"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_35_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_36_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:36"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_36_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_37_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:37"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_37_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_38_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:38"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_38_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_39_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:39"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_39_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_40_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:40"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_40_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_41_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:41"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_41_support"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_42_asphalt",
+      "sourceIds": [
+        "cove-beach-walk",
+        "cove-beach-walk:segment:42"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_cove-beach-walk_42_support"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_0_asphalt",
+      "sourceIds": [
+        "east-cove-beach-walk",
+        "east-cove-beach-walk:segment:0"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-cove-beach-walk_0_support"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_1_asphalt",
+      "sourceIds": [
+        "east-cove-beach-walk",
+        "east-cove-beach-walk:segment:1"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-cove-beach-walk_1_support"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_5_asphalt",
+      "sourceIds": [
+        "east-cove-beach-walk",
+        "east-cove-beach-walk:segment:5"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-cove-beach-walk_5_support"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_6_asphalt",
+      "sourceIds": [
+        "east-cove-beach-walk",
+        "east-cove-beach-walk:segment:6"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-cove-beach-walk_6_support"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_7_asphalt",
+      "sourceIds": [
+        "east-cove-beach-walk",
+        "east-cove-beach-walk:segment:7"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-cove-beach-walk_7_support"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_8_asphalt",
+      "sourceIds": [
+        "east-cove-beach-walk",
+        "east-cove-beach-walk:segment:8"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-cove-beach-walk_8_support"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_9_asphalt",
+      "sourceIds": [
+        "east-cove-beach-walk",
+        "east-cove-beach-walk:segment:9"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-cove-beach-walk_9_support"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_10_asphalt",
+      "sourceIds": [
+        "east-cove-beach-walk",
+        "east-cove-beach-walk:segment:10"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-cove-beach-walk_10_support"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_11_asphalt",
+      "sourceIds": [
+        "east-cove-beach-walk",
+        "east-cove-beach-walk:segment:11"
+      ],
+      "kind": "boardwalk",
+      "sourceWidthMetres": 3.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_east-cove-beach-walk_11_support"
+    },
+    {
+      "label": "TC_Ground22_beach-access-0-34_0_asphalt",
+      "sourceIds": [
+        "beach-access-0-34",
+        "beach-access-0-34:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_beach-access-0-34_0_support"
+    },
+    {
+      "label": "TC_Ground22_sand-path-0-34_0_asphalt",
+      "sourceIds": [
+        "sand-path-0-34",
+        "sand-path-0-34:segment:0"
+      ],
+      "kind": "sand-path",
+      "sourceWidthMetres": 2.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_sand-path-0-34_0_support"
+    },
+    {
+      "label": "TC_Ground22_beach-access-0-42_0_asphalt",
+      "sourceIds": [
+        "beach-access-0-42",
+        "beach-access-0-42:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_beach-access-0-42_0_support"
+    },
+    {
+      "label": "TC_Ground22_sand-path-0-42_0_asphalt",
+      "sourceIds": [
+        "sand-path-0-42",
+        "sand-path-0-42:segment:0"
+      ],
+      "kind": "sand-path",
+      "sourceWidthMetres": 2.4,
+      "action": "remove-invalid-asphalt-overlay",
+      "supportRetained": "TC_Ground22_sand-path-0-42_0_support"
+    },
+    {
+      "label": "TC_Ground22_beach-access-2-2_0_asphalt",
+      "sourceIds": [
+        "beach-access-2-2",
+        "beach-access-2-2:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_beach-access-2-2_0_support"
+    },
+    {
+      "label": "TC_Ground22_beach-access-2-10_0_asphalt",
+      "sourceIds": [
+        "beach-access-2-10",
+        "beach-access-2-10:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_beach-access-2-10_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-path_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-path",
+        "neighbourhood-park-18-path:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-path_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-path_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-path",
+        "neighbourhood-park-26-path:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-path_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-path_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-path",
+        "neighbourhood-park-27-path:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-path_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-path_1_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-path",
+        "neighbourhood-park-27-path:segment:1"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-path_1_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-path_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-path",
+        "neighbourhood-park-33-path:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-path_0_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-approach_0_asphalt",
+      "sourceIds": [
+        "civic-square-approach",
+        "civic-square-approach:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-approach_0_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_0_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_0_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_1_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:1"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_1_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_2_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:2"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_2_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_3_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:3"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_3_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_4_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:4"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_4_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_5_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:5"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_5_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_6_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:6"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_6_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_7_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:7"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_7_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_8_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:8"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_8_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_9_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:9"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_9_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_10_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:10"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_10_support"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_11_asphalt",
+      "sourceIds": [
+        "civic-square-loop",
+        "civic-square-loop:segment:11"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_civic-square-loop_11_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-approach_0_asphalt",
+      "sourceIds": [
+        "college-green-approach",
+        "college-green-approach:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-approach_0_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_0_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_0_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_1_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:1"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_1_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_2_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:2"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_2_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_3_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:3"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_3_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_4_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:4"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_4_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_5_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:5"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_5_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_6_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:6"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_6_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_7_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:7"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_7_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_8_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:8"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_8_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_9_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:9"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_9_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_10_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:10"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_10_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_11_asphalt",
+      "sourceIds": [
+        "college-green-loop",
+        "college-green-loop:segment:11"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-loop_11_support"
+    },
+    {
+      "label": "TC_Ground22_college-green-garden-path_0_asphalt",
+      "sourceIds": [
+        "college-green-garden-path",
+        "college-green-garden-path:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_college-green-garden-path_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-approach_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-approach",
+        "neighbourhood-park-18-approach:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-approach_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_1_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:1"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_1_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_2_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:2"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_2_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_3_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:3"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_3_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_4_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:4"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_4_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_5_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:5"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_5_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_6_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:6"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_6_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_7_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:7"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_7_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_8_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:8"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_8_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_9_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:9"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_9_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_10_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:10"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_10_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_11_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:11"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_11_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_12_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:12"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_12_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_13_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-loop",
+        "neighbourhood-park-18-loop:segment:13"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-loop_13_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-garden-path_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-18-garden-path",
+        "neighbourhood-park-18-garden-path:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-18-garden-path_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-24-approach_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-24-approach",
+        "neighbourhood-park-24-approach:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-24-approach_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-approach_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-approach",
+        "neighbourhood-park-26-approach:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-approach_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-approach_1_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-approach",
+        "neighbourhood-park-26-approach:segment:1"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-approach_1_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_1_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:1"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_1_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_2_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:2"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_2_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_3_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:3"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_3_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_4_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:4"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_4_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_5_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:5"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_5_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_6_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:6"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_6_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_7_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:7"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_7_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_8_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:8"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_8_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_9_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:9"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_9_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_10_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:10"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_10_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_11_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:11"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_11_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_12_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:12"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_12_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_13_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-loop",
+        "neighbourhood-park-26-loop:segment:13"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-loop_13_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-garden-path_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-26-garden-path",
+        "neighbourhood-park-26-garden-path:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-26-garden-path_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-approach_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-approach",
+        "neighbourhood-park-27-approach:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-approach_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-approach_1_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-approach",
+        "neighbourhood-park-27-approach:segment:1"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 3,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-approach_1_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_1_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:1"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_1_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_2_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:2"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_2_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_3_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:3"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_3_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_4_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:4"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_4_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_9_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:9"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_9_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_10_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:10"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_10_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_11_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:11"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_11_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_12_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:12"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_12_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_13_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-loop",
+        "neighbourhood-park-27-loop:segment:13"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-loop_13_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-garden-path_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-27-garden-path",
+        "neighbourhood-park-27-garden-path:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-27-garden-path_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_0_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_1_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:1"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_1_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_2_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:2"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_2_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_3_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:3"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_3_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_4_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:4"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_4_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_5_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:5"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_5_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_6_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:6"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_6_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_7_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:7"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_7_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_8_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:8"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_8_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_9_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:9"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_9_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_10_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:10"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_10_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_11_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:11"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_11_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_12_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:12"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_12_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_13_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-loop",
+        "neighbourhood-park-33-loop:segment:13"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-loop_13_support"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-garden-path_0_asphalt",
+      "sourceIds": [
+        "neighbourhood-park-33-garden-path",
+        "neighbourhood-park-33-garden-path:segment:0"
+      ],
+      "kind": "path",
+      "sourceWidthMetres": 2.5,
+      "action": "concrete-pedestrian-surface",
+      "supportRetained": "TC_Ground22_neighbourhood-park-33-garden-path_0_support"
+    }
+  ],
+  "pedestrianMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+  "classification": [
+    {
+      "roadId": "market-road",
+      "kind": "avenue",
+      "widthMetres": 20,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "garden-avenue",
+      "kind": "boulevard",
+      "widthMetres": 24,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "unity-avenue",
+      "kind": "boulevard",
+      "widthMetres": 24,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "cross-town-road",
+      "kind": "avenue",
+      "widthMetres": 18,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "west-bridge-approach",
+      "kind": "avenue",
+      "widthMetres": 20,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "east-bridge-approach",
+      "kind": "avenue",
+      "widthMetres": 20,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "west-lagoon-drive",
+      "kind": "quay",
+      "widthMetres": 14,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "east-lagoon-drive",
+      "kind": "quay",
+      "widthMetres": 14,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "college-lane",
+      "kind": "residential",
+      "widthMetres": 11,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "garden-south-road",
+      "kind": "residential",
+      "widthMetres": 11,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "civic-street",
+      "kind": "street",
+      "widthMetres": 13,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "theatre-street",
+      "kind": "street",
+      "widthMetres": 12,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "station-road",
+      "kind": "street",
+      "widthMetres": 13,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "library-lane",
+      "kind": "street",
+      "widthMetres": 10,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "arcade-crescent",
+      "kind": "street",
+      "widthMetres": 10,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "old-town-lane",
+      "kind": "street",
+      "widthMetres": 9,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "market-approach",
+      "kind": "market",
+      "widthMetres": 12,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "foundry-road",
+      "kind": "service",
+      "widthMetres": 14,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "west-lagoon-bridge",
+      "kind": "bridge",
+      "widthMetres": 28,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "east-lagoon-bridge",
+      "kind": "bridge",
+      "widthMetres": 28,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "square-walking-connection",
+      "kind": "retained",
+      "widthMetres": 0,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "west-square-walking-connection",
+      "kind": "retained",
+      "widthMetres": 0,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "east-square-walking-connection",
+      "kind": "retained",
+      "widthMetres": 0,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "cove-beach-walk",
+      "kind": "boardwalk",
+      "widthMetres": 3.4,
+      "state": "partial-native",
+      "finish": "missing-approved-finish"
+    },
+    {
+      "roadId": "east-cove-beach-walk",
+      "kind": "boardwalk",
+      "widthMetres": 3.4,
+      "state": "partial-native",
+      "finish": "missing-approved-finish"
+    },
+    {
+      "roadId": "beach-access-0-34",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "sand-path-0-34",
+      "kind": "sand-path",
+      "widthMetres": 2.4,
+      "state": "partial-native",
+      "finish": "missing-approved-finish"
+    },
+    {
+      "roadId": "beach-access-0-42",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "sand-path-0-42",
+      "kind": "sand-path",
+      "widthMetres": 2.4,
+      "state": "partial-native",
+      "finish": "missing-approved-finish"
+    },
+    {
+      "roadId": "beach-access-2-2",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "beach-access-2-10",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-18-path",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-26-path",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-27-path",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-33-path",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "civic-square-approach",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "civic-square-loop",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "college-green-approach",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "college-green-loop",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "college-green-garden-path",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-18-approach",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-18-loop",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-18-garden-path",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-24-approach",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-26-approach",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-26-loop",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-26-garden-path",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-27-approach",
+      "kind": "path",
+      "widthMetres": 3,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-27-loop",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-27-garden-path",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-33-loop",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    },
+    {
+      "roadId": "neighbourhood-park-33-garden-path",
+      "kind": "path",
+      "widthMetres": 2.5,
+      "state": "partial-native",
+      "finish": "native-surface-present"
+    }
+  ],
+  "missingDependencies": [
+    "Approved native boardwalk decking and edge modules at source route transforms",
+    "Licensed native-ready sand path surface and source-defined beach terrain"
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "7576dd76d67512eb43d57e2eca128b7d05d0f7852f07f79eefcb056dbf5f2b25",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "26b601fb2188516a1daacf2832b2606e1e0160e964e8376b6b65bc40b413d09f"
+  },
+  "playableAcceptance": "not-established",
+  "limitations": [
+    "Concrete path finish is partial; junctions, drainage and terrain not accepted",
+    "Bounds-clipped route coverage is not a complete district or full route"
+  ]
+}

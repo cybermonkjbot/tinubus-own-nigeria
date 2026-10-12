@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "previewSets": [
+    "previews/town-centre-streetpass01-market30-daylight",
+    "previews/town-centre-streetpass01-openings31-daylight"
+  ],
+  "inspectedImages": 18,
+  "verifiedImprovements": [
+    "Intermediate dark apertures now contain aligned window assemblies in matched Market and Civic views",
+    "Four entrance-aligned parcel fronts/rear wings are saved and survive reload",
+    "Lower roof sheets trapped beneath upper stacks removed with identity checks"
+  ],
+  "remainingDefects": [
+    "Source floor parity is incorrect, especially market-road-10 (one floor) and market-road-12 (ten floors)",
+    "Merged parapets and repetitive stacked silhouettes remain",
+    "Four parcel approach frames do not cover complete taller rooflines",
+    "Dark open shop bays have fixtures but need appropriate stock and interior inspection",
+    "Pavement patches lack coherent kerbs, drain transitions and corner joins",
+    "Market junction still reads as an empty concrete expanse",
+    "Uniform concrete ground, surface seams and sparse adjoining blocks remain",
+    "Warm brown asphalt, missing approved signage/services and insufficient street-life dressing",
+    "Boardwalk decking/edge modules and licensed native-ready sand/beach finishes missing"
+  ],
+  "sourcePositionsPreserved": true,
+  "newDestinationTraversalVerified": false,
+  "runtimeTraversal": "not-inspected; no active game world",
+  "trafficAndResidents": "no working simulation established; danfo is static",
+  "finishedNeighbourhood": false,
+  "nextArea": "Town Centre exterior transitions and exact-floor adjoining fabric"
+}

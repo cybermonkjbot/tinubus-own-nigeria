@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "pid": 13584,
+  "phase": "read-only removal identity preflight",
+  "failure": "Static actors retain legacy instanceIndex metadata in source receipt; inferred ISM lookup returned None",
+  "mutationStarted": false,
+  "dirtyMapPackagesAfterFailure": [],
+  "repair": "Use actorLabel presence to distinguish native ISM records from static label records",
+  "editorRestarted": false
+}
