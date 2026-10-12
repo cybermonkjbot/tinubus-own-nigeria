@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-22-canonical-ground.json",
+  "previewSet": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-ground22-daylight",
+  "status": "partial native support; not accepted as a finished neighbourhood",
+  "observations": [
+    {"camera": "market-road-frontage-a", "defect": "Canonical parcel support appears behind the row, but the cloned frontage foreground and right side still end over blue void."},
+    {"camera": "market-road-frontage-b", "defect": "Additional foreground support is visible. Unsupported road-end cuts and extensive right-side void remain."},
+    {"camera": "civic-street-approach", "defect": "Canonical support now fills the foreground beneath the plain civic side wall. Overlapping entrance and parcel slabs produce visible seams; the right approach remains open."},
+    {"camera": "civic-terrace-open-a", "defect": "Useful frontage remains, but the foreground is still unsupported. The old clone placement does not meet the canonical road or footprint support."},
+    {"camera": "civic-terrace-open-b", "defect": "Pass21 trim did not resolve the dominant copied side wall. Ground support still ends at the right edge."}
+  ],
+  "introducedOrExposedIssues": [
+    "Visible support seams at parcel/entrance intersections need a bounded join treatment.",
+    "Canonical support is not continuous district terrain and must not be represented as such.",
+    "Old proof-camera-aligned clones remain spatially disconnected from canonical frontage relationships."
+  ],
+  "nextActions": [
+    "Audit TC_Fill16 placements against canonical parcel boundaries and entrance-to-road poses before more cloning.",
+    "Reanchor only owned filler to source-defined frontage relationships and add dimensioned local threshold support.",
+    "Replace long blank civic side walls with parcel-level corner-facing exterior treatments.",
+    "Review road intersections and surface seams at junction cameras."
+  ],
+  "runtimeAcceptance": "not-established"
+}

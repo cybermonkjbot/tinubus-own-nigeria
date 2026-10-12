@@ -19,8 +19,8 @@ import unreal
 
 ROOT = Path("C:/dev/cribtest-game")
 OUT = ROOT / "output/cribtest11-visible-world-2026-10-11"
-RECEIPT_NAME = "town-centre-street-pass-20-corner-fabric-civic-ground-fix.json"
-OWNER = "cribtest11-world-generation-20261010/town-centre-street-pass-20-corner-fabric-civic-ground-fix"
+RECEIPT_NAME = "town-centre-street-pass-21-civic-face-b-trimmed.json"
+OWNER = "cribtest11-world-generation-20261010/town-centre-street-pass-21-civic-face-b-trimmed"
 LABEL_PREFIX = "TC_Fill16_"
 CLEAR_PREFIXES = ["TC_Fill13_", "TC_Fill14_", "TC_Fill16_"]
 
@@ -66,6 +66,7 @@ REGION_PLACEMENTS = [
         "group": "civic",
         "anchorLocationCm": [-24980.0, -4350.0, 0.0],
         "anchorYaw": 18.0,
+        "sourceTrimCm": {"minY": -450.0, "maxY": 450.0},
         "sourceIds": ["civic-street-4", "civic-street-5"],
     },
     {
