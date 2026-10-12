@@ -1,0 +1,1475 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T03:04:06.587019+00:00",
+  "pid": 13584,
+  "owner": "cribtest11-world-generation-20261010/town-centre-street-pass-12-filler-buildings-facing",
+  "mode": "bounded-filler-building-pass",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "24f5515d7b9198d28fc2beedee451804f065c5ee641a4064de874b29afab37f8",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "84f91e3dfc82bd1b20326284cf6a041a6412a01a883472b31f3f2b7bef8e7844"
+  },
+  "districtId": "town-centre",
+  "districtBounds": {
+    "minX": -556.625,
+    "maxX": 573.92,
+    "minZ": -992.69,
+    "maxZ": 28.855
+  },
+  "districtParcelCount": 138,
+  "districtSelectionPath": "output/cribtest11-visible-world-2026-10-11/town-centre-district-selection.json",
+  "districtSelectionSha256": "2fdc9ad04dbf6ef064d70661e78bf6204401a4a6f9e469f36d37d269a3321c8e",
+  "targetPlacements": [
+    {
+      "id": "market_extension_a",
+      "group": "market",
+      "anchorLabel": "TC_FrontageStructure_4800",
+      "anchorLocationCm": [
+        -7369.1514,
+        -27466.1615,
+        0.0
+      ],
+      "anchorYaw": 143.2127799987793,
+      "sourceIds": [
+        "market-road-7",
+        "market-road-8"
+      ]
+    },
+    {
+      "id": "market_extension_b",
+      "group": "market",
+      "anchorLabel": "TC_FrontageStructure_4800",
+      "anchorLocationCm": [
+        -6662.5144,
+        -26521.1408,
+        0.0
+      ],
+      "anchorYaw": 143.2127799987793,
+      "sourceIds": [
+        "market-road-8",
+        "market-road-9"
+      ]
+    },
+    {
+      "id": "market_extension_c",
+      "group": "market",
+      "anchorLabel": "TC_FrontageStructure_4800",
+      "anchorLocationCm": [
+        -5955.8773,
+        -25576.1202,
+        0.0
+      ],
+      "anchorYaw": 143.2127799987793,
+      "sourceIds": [
+        "market-road-9",
+        "market-road-10"
+      ]
+    },
+    {
+      "id": "civic_opposite_extension_a",
+      "group": "civic",
+      "anchorLabel": "TC_FrontageStructure_402",
+      "anchorLocationCm": [
+        -25132.6056,
+        -1268.7259,
+        0.0
+      ],
+      "anchorYaw": -177.0398864746094,
+      "sourceIds": [
+        "civic-street-2",
+        "civic-street-4"
+      ]
+    },
+    {
+      "id": "civic_opposite_extension_b",
+      "group": "civic",
+      "anchorLabel": "TC_FrontageStructure_402",
+      "anchorLocationCm": [
+        -25193.5416,
+        -90.3003,
+        0.0
+      ],
+      "anchorYaw": -177.0398864746094,
+      "sourceIds": [
+        "civic-street-4",
+        "civic-street-5"
+      ]
+    },
+    {
+      "id": "civic_return_a",
+      "group": "civic",
+      "anchorLabel": "TC_FrontageStructure_402",
+      "anchorLocationCm": [
+        -24050.0,
+        -5900.0,
+        0.0
+      ],
+      "anchorYaw": -177.0398864746094,
+      "sourceIds": [
+        "civic-street-2",
+        "civic-street-5"
+      ]
+    },
+    {
+      "id": "civic_return_b",
+      "group": "civic",
+      "anchorLabel": "TC_FrontageStructure_402",
+      "anchorLocationCm": [
+        -24010.0,
+        -4720.0,
+        0.0
+      ],
+      "anchorYaw": -177.0398864746094,
+      "sourceIds": [
+        "civic-street-4",
+        "civic-street-6"
+      ]
+    }
+  ],
+  "createdActorCount": 111,
+  "createdActors": [
+    {
+      "label": "TC_Fill12_market_extension_a_TC_FrontageStructure_4800",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_111",
+      "sourceLabel": "TC_FrontageStructure_4800",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        0.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_ShopBay_4801",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_112",
+      "sourceLabel": "TC_ShopBay_4801",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        0.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_OpenShopInterior_4836",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_113",
+      "sourceLabel": "TC_OpenShopInterior_4836",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_OpenShopInterior.SM_OpenShopInterior",
+      "locationCm": [
+        -7252.376629802359,
+        -27309.992831422434,
+        0.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_ResidentialBay_V3Left_4802",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_114",
+      "sourceLabel": "TC_ResidentialBay_V3Left_4802",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        300.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_Window1300_4803",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_115",
+      "sourceLabel": "TC_Window1300_4803",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -7291.301553201572,
+        -27362.049054281622,
+        402.50000000000006
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_Balcony3900_4804",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_116",
+      "sourceLabel": "TC_Balcony3900_4804",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        300.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_FrontageStructure_4839",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_117",
+      "sourceLabel": "TC_FrontageStructure_4839",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        644.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_ResidentialBay_V3Left_4840",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_118",
+      "sourceLabel": "TC_ResidentialBay_V3Left_4840",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        644.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_ResidentialBay_V3Left_4841",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_119",
+      "sourceLabel": "TC_ResidentialBay_V3Left_4841",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        944.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_Window1300_4842",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_120",
+      "sourceLabel": "TC_Window1300_4842",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -7291.301553201572,
+        -27362.049054281622,
+        1047.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_Balcony3900_4843",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_121",
+      "sourceLabel": "TC_Balcony3900_4843",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        944.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_RoofSheetPanel_4819",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_122",
+      "sourceLabel": "TC_RoofSheetPanel_4819",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        612.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_RoofSheetPanel_4820",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_123",
+      "sourceLabel": "TC_RoofSheetPanel_4820",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -7315.255352216472,
+        -27394.0836529642,
+        612.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_RoofSheetPanel_4821",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_124",
+      "sourceLabel": "TC_RoofSheetPanel_4821",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -7261.359304432947,
+        -27322.005805928402,
+        612.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_RoofSheetPanel_4858",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_125",
+      "sourceLabel": "TC_RoofSheetPanel_4858",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -7369.1514,
+        -27466.1615,
+        1256.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_RoofSheetPanel_4859",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_126",
+      "sourceLabel": "TC_RoofSheetPanel_4859",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -7315.255352216472,
+        -27394.0836529642,
+        1256.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_a_TC_RoofSheetPanel_4860",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_127",
+      "sourceLabel": "TC_RoofSheetPanel_4860",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -7261.359304432947,
+        -27322.005805928402,
+        1256.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_FrontageStructure_4800",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_128",
+      "sourceLabel": "TC_FrontageStructure_4800",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        0.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_ShopBay_4801",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_129",
+      "sourceLabel": "TC_ShopBay_4801",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        0.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_OpenShopInterior_4836",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_130",
+      "sourceLabel": "TC_OpenShopInterior_4836",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_OpenShopInterior.SM_OpenShopInterior",
+      "locationCm": [
+        -6545.73962980236,
+        -26364.972131422437,
+        0.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_ResidentialBay_V3Left_4802",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_131",
+      "sourceLabel": "TC_ResidentialBay_V3Left_4802",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        300.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_Window1300_4803",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_132",
+      "sourceLabel": "TC_Window1300_4803",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -6584.664553201572,
+        -26417.028354281625,
+        402.50000000000006
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_Balcony3900_4804",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_133",
+      "sourceLabel": "TC_Balcony3900_4804",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        300.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_FrontageStructure_4839",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_134",
+      "sourceLabel": "TC_FrontageStructure_4839",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        644.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_ResidentialBay_V3Left_4840",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_135",
+      "sourceLabel": "TC_ResidentialBay_V3Left_4840",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        644.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_ResidentialBay_V3Left_4841",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_136",
+      "sourceLabel": "TC_ResidentialBay_V3Left_4841",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        944.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_Window1300_4842",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_137",
+      "sourceLabel": "TC_Window1300_4842",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -6584.664553201572,
+        -26417.028354281625,
+        1047.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_Balcony3900_4843",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_138",
+      "sourceLabel": "TC_Balcony3900_4843",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        944.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_RoofSheetPanel_4819",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_139",
+      "sourceLabel": "TC_RoofSheetPanel_4819",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        612.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_RoofSheetPanel_4820",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_140",
+      "sourceLabel": "TC_RoofSheetPanel_4820",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -6608.618352216472,
+        -26449.062952964203,
+        612.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_RoofSheetPanel_4821",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_141",
+      "sourceLabel": "TC_RoofSheetPanel_4821",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -6554.722304432948,
+        -26376.985105928405,
+        612.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_RoofSheetPanel_4858",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_142",
+      "sourceLabel": "TC_RoofSheetPanel_4858",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -6662.5144,
+        -26521.1408,
+        1256.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_RoofSheetPanel_4859",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_143",
+      "sourceLabel": "TC_RoofSheetPanel_4859",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -6608.618352216472,
+        -26449.062952964203,
+        1256.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_b_TC_RoofSheetPanel_4860",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_144",
+      "sourceLabel": "TC_RoofSheetPanel_4860",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -6554.722304432948,
+        -26376.985105928405,
+        1256.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_FrontageStructure_4800",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_145",
+      "sourceLabel": "TC_FrontageStructure_4800",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        0.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_ShopBay_4801",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_146",
+      "sourceLabel": "TC_ShopBay_4801",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        0.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_OpenShopInterior_4836",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_147",
+      "sourceLabel": "TC_OpenShopInterior_4836",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_OpenShopInterior.SM_OpenShopInterior",
+      "locationCm": [
+        -5839.10252980236,
+        -25419.951531422437,
+        0.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_ResidentialBay_V3Left_4802",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_148",
+      "sourceLabel": "TC_ResidentialBay_V3Left_4802",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        300.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_Window1300_4803",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_149",
+      "sourceLabel": "TC_Window1300_4803",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -5878.027453201572,
+        -25472.007754281625,
+        402.50000000000006
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_Balcony3900_4804",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_150",
+      "sourceLabel": "TC_Balcony3900_4804",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        300.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_FrontageStructure_4839",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_151",
+      "sourceLabel": "TC_FrontageStructure_4839",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        644.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_ResidentialBay_V3Left_4840",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_152",
+      "sourceLabel": "TC_ResidentialBay_V3Left_4840",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        644.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_ResidentialBay_V3Left_4841",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_153",
+      "sourceLabel": "TC_ResidentialBay_V3Left_4841",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        944.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_Window1300_4842",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_154",
+      "sourceLabel": "TC_Window1300_4842",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -5878.027453201572,
+        -25472.007754281625,
+        1047.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_Balcony3900_4843",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_155",
+      "sourceLabel": "TC_Balcony3900_4843",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        944.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_RoofSheetPanel_4819",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_156",
+      "sourceLabel": "TC_RoofSheetPanel_4819",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        612.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_RoofSheetPanel_4820",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_157",
+      "sourceLabel": "TC_RoofSheetPanel_4820",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -5901.981252216472,
+        -25504.042352964203,
+        612.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_RoofSheetPanel_4821",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_158",
+      "sourceLabel": "TC_RoofSheetPanel_4821",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -5848.085204432948,
+        -25431.964505928405,
+        612.0
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_RoofSheetPanel_4858",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_159",
+      "sourceLabel": "TC_RoofSheetPanel_4858",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -5955.8773,
+        -25576.1202,
+        1256.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_RoofSheetPanel_4859",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_160",
+      "sourceLabel": "TC_RoofSheetPanel_4859",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -5901.981252216472,
+        -25504.042352964203,
+        1256.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_market_extension_c_TC_RoofSheetPanel_4860",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_161",
+      "sourceLabel": "TC_RoofSheetPanel_4860",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -5848.085204432948,
+        -25431.964505928405,
+        1256.5
+      ],
+      "yaw": 143.2127799987793
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_FrontageStructure_402",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_162",
+      "sourceLabel": "TC_FrontageStructure_402",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_ShopBay_V3Right_403",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_163",
+      "sourceLabel": "TC_ShopBay_V3Right_403",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_OpenShopInterior_438",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_164",
+      "sourceLabel": "TC_OpenShopInterior_438",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_OpenShopInterior.SM_OpenShopInterior",
+      "locationCm": [
+        -25142.67554555854,
+        -1073.9860833305574,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_ResidentialBay_404",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_165",
+      "sourceLabel": "TC_ResidentialBay_404",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        300.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_Window1300_405",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_166",
+      "sourceLabel": "TC_Window1300_405",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -25139.31889703903,
+        -1138.8993555537047,
+        402.50000000000006
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_Balcony3900_406",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_167",
+      "sourceLabel": "TC_Balcony3900_406",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        300.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_FrontageStructure_441",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_168",
+      "sourceLabel": "TC_FrontageStructure_441",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        644.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_ResidentialBay_442",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_169",
+      "sourceLabel": "TC_ResidentialBay_442",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        644.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_ResidentialBay_V3Left_443",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_170",
+      "sourceLabel": "TC_ResidentialBay_V3Left_443",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        944.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_Window1300_V3Curtain_444",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_171",
+      "sourceLabel": "TC_Window1300_V3Curtain_444",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300_V3Curtain.SM_Window1300_V3Curtain",
+      "locationCm": [
+        -25139.31889703903,
+        -1138.8993555537047,
+        1047.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_Balcony3900_445",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_172",
+      "sourceLabel": "TC_Balcony3900_445",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        944.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_RoofSheetPanel_421",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_173",
+      "sourceLabel": "TC_RoofSheetPanel_421",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        612.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_RoofSheetPanel_422",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_174",
+      "sourceLabel": "TC_RoofSheetPanel_422",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -25137.253267180862,
+        -1178.8459846141038,
+        612.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_RoofSheetPanel_460",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_175",
+      "sourceLabel": "TC_RoofSheetPanel_460",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -25132.6056,
+        -1268.7259,
+        1256.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_a_TC_RoofSheetPanel_461",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_176",
+      "sourceLabel": "TC_RoofSheetPanel_461",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -25137.253267180862,
+        -1178.8459846141038,
+        1256.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_FrontageStructure_402",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_177",
+      "sourceLabel": "TC_FrontageStructure_402",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_ShopBay_V3Right_403",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_178",
+      "sourceLabel": "TC_ShopBay_V3Right_403",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_OpenShopInterior_438",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_179",
+      "sourceLabel": "TC_OpenShopInterior_438",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_OpenShopInterior.SM_OpenShopInterior",
+      "locationCm": [
+        -25203.611545558542,
+        104.43951666944236,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_ResidentialBay_404",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_180",
+      "sourceLabel": "TC_ResidentialBay_404",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        300.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_Window1300_405",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_181",
+      "sourceLabel": "TC_Window1300_405",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -25200.25489703903,
+        39.52624444629521,
+        402.50000000000006
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_Balcony3900_406",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_182",
+      "sourceLabel": "TC_Balcony3900_406",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        300.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_FrontageStructure_441",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_183",
+      "sourceLabel": "TC_FrontageStructure_441",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        644.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_ResidentialBay_442",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_184",
+      "sourceLabel": "TC_ResidentialBay_442",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        644.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_ResidentialBay_V3Left_443",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_185",
+      "sourceLabel": "TC_ResidentialBay_V3Left_443",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        944.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_Window1300_V3Curtain_444",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_186",
+      "sourceLabel": "TC_Window1300_V3Curtain_444",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300_V3Curtain.SM_Window1300_V3Curtain",
+      "locationCm": [
+        -25200.25489703903,
+        39.52624444629521,
+        1047.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_Balcony3900_445",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_187",
+      "sourceLabel": "TC_Balcony3900_445",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        944.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_RoofSheetPanel_421",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_188",
+      "sourceLabel": "TC_RoofSheetPanel_421",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        612.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_RoofSheetPanel_422",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_189",
+      "sourceLabel": "TC_RoofSheetPanel_422",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -25198.189267180864,
+        -0.4203846141038099,
+        612.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_RoofSheetPanel_460",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_190",
+      "sourceLabel": "TC_RoofSheetPanel_460",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -25193.5416,
+        -90.3003,
+        1256.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_opposite_extension_b_TC_RoofSheetPanel_461",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_191",
+      "sourceLabel": "TC_RoofSheetPanel_461",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -25198.189267180864,
+        -0.4203846141038099,
+        1256.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_FrontageStructure_402",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_192",
+      "sourceLabel": "TC_FrontageStructure_402",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_ShopBay_V3Right_403",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_193",
+      "sourceLabel": "TC_ShopBay_V3Right_403",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_OpenShopInterior_438",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_194",
+      "sourceLabel": "TC_OpenShopInterior_438",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_OpenShopInterior.SM_OpenShopInterior",
+      "locationCm": [
+        -24060.06994555854,
+        -5705.260183330558,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_ResidentialBay_404",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_195",
+      "sourceLabel": "TC_ResidentialBay_404",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        300.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_Window1300_405",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_196",
+      "sourceLabel": "TC_Window1300_405",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -24056.71329703903,
+        -5770.173455553705,
+        402.50000000000006
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_Balcony3900_406",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_197",
+      "sourceLabel": "TC_Balcony3900_406",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        300.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_FrontageStructure_441",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_198",
+      "sourceLabel": "TC_FrontageStructure_441",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        644.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_ResidentialBay_442",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_199",
+      "sourceLabel": "TC_ResidentialBay_442",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        644.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_ResidentialBay_V3Left_443",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_200",
+      "sourceLabel": "TC_ResidentialBay_V3Left_443",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        944.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_Window1300_V3Curtain_444",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_201",
+      "sourceLabel": "TC_Window1300_V3Curtain_444",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300_V3Curtain.SM_Window1300_V3Curtain",
+      "locationCm": [
+        -24056.71329703903,
+        -5770.173455553705,
+        1047.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_Balcony3900_445",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_202",
+      "sourceLabel": "TC_Balcony3900_445",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        944.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_RoofSheetPanel_421",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_203",
+      "sourceLabel": "TC_RoofSheetPanel_421",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        612.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_RoofSheetPanel_422",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_204",
+      "sourceLabel": "TC_RoofSheetPanel_422",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -24054.647667180863,
+        -5810.120084614104,
+        612.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_RoofSheetPanel_460",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_205",
+      "sourceLabel": "TC_RoofSheetPanel_460",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -24050.0,
+        -5900.0,
+        1256.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_a_TC_RoofSheetPanel_461",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_206",
+      "sourceLabel": "TC_RoofSheetPanel_461",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -24054.647667180863,
+        -5810.120084614104,
+        1256.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_FrontageStructure_402",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_207",
+      "sourceLabel": "TC_FrontageStructure_402",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_ShopBay_V3Right_403",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_208",
+      "sourceLabel": "TC_ShopBay_V3Right_403",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_OpenShopInterior_438",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_209",
+      "sourceLabel": "TC_OpenShopInterior_438",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_OpenShopInterior.SM_OpenShopInterior",
+      "locationCm": [
+        -24020.06994555854,
+        -4525.260183330558,
+        0.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_ResidentialBay_404",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_210",
+      "sourceLabel": "TC_ResidentialBay_404",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        300.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_Window1300_405",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_211",
+      "sourceLabel": "TC_Window1300_405",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300.SM_Window1300",
+      "locationCm": [
+        -24016.71329703903,
+        -4590.173455553705,
+        402.50000000000006
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_Balcony3900_406",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_212",
+      "sourceLabel": "TC_Balcony3900_406",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        300.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_FrontageStructure_441",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_213",
+      "sourceLabel": "TC_FrontageStructure_441",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_FrontageStructure.SM_FrontageStructure",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        644.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_ResidentialBay_442",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_214",
+      "sourceLabel": "TC_ResidentialBay_442",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        644.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_ResidentialBay_V3Left_443",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_215",
+      "sourceLabel": "TC_ResidentialBay_V3Left_443",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        944.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_Window1300_V3Curtain_444",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_216",
+      "sourceLabel": "TC_Window1300_V3Curtain_444",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Window1300_V3Curtain.SM_Window1300_V3Curtain",
+      "locationCm": [
+        -24016.71329703903,
+        -4590.173455553705,
+        1047.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_Balcony3900_445",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_217",
+      "sourceLabel": "TC_Balcony3900_445",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Balcony3900.SM_Balcony3900",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        944.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_RoofSheetPanel_421",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_218",
+      "sourceLabel": "TC_RoofSheetPanel_421",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        612.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_RoofSheetPanel_422",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_219",
+      "sourceLabel": "TC_RoofSheetPanel_422",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -24014.647667180863,
+        -4630.120084614104,
+        612.0
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_RoofSheetPanel_460",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_220",
+      "sourceLabel": "TC_RoofSheetPanel_460",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -24010.0,
+        -4720.0,
+        1256.5
+      ],
+      "yaw": -177.0398864746094
+    },
+    {
+      "label": "TC_Fill12_civic_return_b_TC_RoofSheetPanel_461",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_221",
+      "sourceLabel": "TC_RoofSheetPanel_461",
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_RoofSheetPanel.SM_RoofSheetPanel",
+      "locationCm": [
+        -24014.647667180863,
+        -4630.120084614104,
+        1256.5
+      ],
+      "yaw": -177.0398864746094
+    }
+  ],
+  "previewCameras": [
+    "market-road-frontage-a",
+    "market-road-frontage-b",
+    "civic-street-approach",
+    "civic-terrace-open-a",
+    "civic-terrace-open-b"
+  ],
+  "visualIntent": "Add ordinary pass-by buildings and side returns to the market and civic corridors so Town Centre reads as connected Lagos street fabric rather than isolated shell masses.",
+  "playableAcceptance": "not-established",
+  "runtimeAdmission": false
+}

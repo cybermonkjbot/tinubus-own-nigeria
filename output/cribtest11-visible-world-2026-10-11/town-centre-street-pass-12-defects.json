@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T03:06:30Z",
+  "districtId": "town-centre",
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-12-filler-buildings-facing.json",
+  "previewSet": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-fill12-daylight",
+  "status": "improved density but still not visually acceptable",
+  "observations": [
+    {
+      "camera": "market-road-frontage-a",
+      "imageSha256": "6bbf066b69f1f52a82dafe6aeb87adbd1e4610043071bb4e2d894273a8655ac2",
+      "defect": "More ordinary building mass now exists on the market corridor, but the right side still resolves mostly as side walls over unsupported blue ground rather than a finished street edge."
+    },
+    {
+      "camera": "market-road-frontage-b",
+      "imageSha256": "5ef2e1d4f7b3bcd76da6f6c6e9fdc78efc0524e5b4253a4ee885386e7b2c8008",
+      "defect": "The added pass-by buildings reduce the emptiness slightly, yet the corridor still falls away into void and lacks enclosing frontage on the near-right travel side."
+    },
+    {
+      "camera": "civic-street-approach",
+      "imageSha256": "5ee4b89ef7180d5c68edc5e44ae159533110d3d912e3010b909cc629674da96d",
+      "defect": "The civic approach remains dominated by a broad blank wall mass; the filler pass did not yet create a believable street-facing frontage toward this view."
+    },
+    {
+      "camera": "civic-terrace-open-a",
+      "imageSha256": "e364a04bd381c10be77d90a6d8f9ab4fe49b66d6dff1f2b001c68d71ae9ac54c",
+      "defect": "The central gap is tighter than before, but the foreground remains a large unsupported blue-ground void with shell-like enclosure."
+    },
+    {
+      "camera": "civic-terrace-open-b",
+      "imageSha256": "992975bd45879ca47e6f2c3e68e05cc2eb6b2f1ba962148a3b80b1d9a930243c",
+      "defect": "Additional filler blocks exist, but this view still reads as repeated blank massing without enough finished street frontage, pavement continuity or plot backing."
+    }
+  ],
+  "nextNeed": [
+    "Author street-facing filler parcels rather than only cloned shell stacks, especially on the camera-right side of Market Road and the main face of Civic Street.",
+    "Add complete ground support around the new buildings so pavements, curbs and plots do not terminate into blue voids.",
+    "Use more varied frontage orientation and side-return composition so the district reads as Lagos street fabric instead of repeated blank wall blocks."
+  ]
+}
