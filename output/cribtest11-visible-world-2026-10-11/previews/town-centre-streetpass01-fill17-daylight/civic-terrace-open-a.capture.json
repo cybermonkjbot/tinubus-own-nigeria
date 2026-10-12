@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T04:09:45.082146+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "camera": "civic-terrace-open-a",
+  "cameraConfig": {
+    "id": "civic-terrace-open-a",
+    "locationCm": [
+      -31600.0,
+      2200.0,
+      165.0
+    ],
+    "rotation": {
+      "pitch": 2.0,
+      "yaw": 350.0,
+      "roll": 0.0
+    },
+    "fov": 68.0
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-fill17-daylight/civic-terrace-open-a.png",
+  "imageSha256": "f3005b8ce6a448daaa783cb3c0854717ec36b3d5736800dd5ebaf004520dac9e",
+  "width": 705,
+  "height": 486,
+  "warmupNativeFrames": 54,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -31600,
+      "y": 2200,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 2,
+      "yaw": 350,
+      "roll": 0
+    },
+    "cameraFOV": 68,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-17-corner-fabric-reanchored.json",
+  "receiptSha256": "42ebff2a27e54213aca90580a2a1ab02077b33958d26cd1f1e415255614b41e3",
+  "scriptSha256": "e95667e10aca0ed2bd61c6645cb27c089b10c08b70c4000d256d980a3dd72b2b"
+}
