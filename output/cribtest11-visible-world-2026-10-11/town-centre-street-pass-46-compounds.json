@@ -1,0 +1,552 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:49:43.596338+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "sourceParcel": {
+        "id": "station-road-4",
+        "name": "Station Road 4",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": 175.01,
+        "z": -370.86,
+        "width": 21.62,
+        "depth": 23.75,
+        "floors": 9,
+        "units": 36,
+        "yaw": 3.098865636938076,
+        "garden": 3,
+        "variant": 4,
+        "street": "Station Road",
+        "entrance": [
+          175.65,
+          0,
+          -385.72
+        ]
+      },
+      "centreCm": [
+        -37086.0,
+        17501.0
+      ],
+      "yaw": -2.4480777253285737,
+      "halfDepthCm": 1187.5,
+      "halfWidthCm": 1081.0,
+      "frontCm": -1165.5,
+      "gateCentreCm": 0.36716064686955047,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -38572.0,
+        17565.0
+      ],
+      "doorCentreCm": [
+        -38060.09698850234,
+        17542.953033152186,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -975.3071001514504,
+          -974.6928030893519
+        ],
+        [
+          -974.6928030893515,
+          975.3071001514431
+        ],
+        [
+          974.6928030893446,
+          -975.3071001514471
+        ],
+        [
+          975.3071001514433,
+          974.6928030893479
+        ]
+      ]
+    },
+    {
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "sourceParcel": {
+        "id": "station-road-10",
+        "name": "Station Road 10",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "civic",
+        "x": 365.97,
+        "z": -298.22,
+        "width": 28.06,
+        "depth": 22.97,
+        "floors": 6,
+        "units": 24,
+        "yaw": 2.6473312318207967,
+        "garden": 3,
+        "variant": 1,
+        "street": "Station Road",
+        "entrance": [
+          372.84,
+          0,
+          -310.97
+        ]
+      },
+      "centreCm": [
+        -29822.000000000004,
+        36597.0
+      ],
+      "yaw": -28.319093443499014,
+      "halfDepthCm": 1148.5,
+      "halfWidthCm": 1403.0,
+      "frontCm": -1126.5,
+      "gateCentreCm": -132.62513899223828,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -31097.000000000004,
+        37284.0
+      ],
+      "doorCentreCm": [
+        -30772.827225386143,
+        36887.82226095073,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -974.9538202264232,
+          -1170.038481600454
+        ],
+        [
+          -975.0461782546955,
+          1169.9615165768905
+        ],
+        [
+          975.0461782547022,
+          -1169.961516576895
+        ],
+        [
+          974.9538202264298,
+          1170.0384816004494
+        ]
+      ]
+    },
+    {
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "sourceParcel": {
+        "id": "college-lane-10",
+        "name": "College Lane 10",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": 423.61,
+        "z": -425.8,
+        "width": 33.62,
+        "depth": 19.93,
+        "floors": 8,
+        "units": 32,
+        "yaw": 1.3250060696433286,
+        "garden": 3,
+        "variant": 3,
+        "street": "College Lane",
+        "entrance": [
+          436.19,
+          0,
+          -422.65
+        ]
+      },
+      "centreCm": [
+        -42580.0,
+        42361.0
+      ],
+      "yaw": -104.08274438022005,
+      "halfDepthCm": 996.5,
+      "halfWidthCm": 1680.9999999999998,
+      "frontCm": -974.5,
+      "gateCentreCm": -122.02257909598343,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -42265.0,
+        43619.0
+      ],
+      "doorCentreCm": [
+        -42579.69926854657,
+        43165.00554075243,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -779.317343418702,
+          -1560.3411416247448
+        ],
+        [
+          -780.6825072485838,
+          1559.658559709809
+        ],
+        [
+          780.6825072485749,
+          -1559.6585597098037
+        ],
+        [
+          779.3173434186931,
+          1560.34114162475
+        ]
+      ]
+    }
+  ],
+  "createdActors": [
+    {
+      "label": "TC_Compound46_station-road-4_boundary",
+      "sourceId": "station-road-4:boundary",
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "role": "boundary",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_4_boundary",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds46-import-source/SM_station_road_4_boundary.obj",
+        "sourceObjSha256": "6a55e2116b0e1781caba2fb1406ff71b4d0cb1742698e9cf6e2a4604803657a9",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_4_boundary",
+        "boundsCm": [
+          [
+            -1180.5,
+            -1074.0,
+            -3.0
+          ],
+          [
+            1180.5,
+            1074.0,
+            180.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -37086.0,
+          17501.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -2.4480777253285737,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound46_station-road-4_open-gate",
+      "sourceId": "station-road-4:open-gate",
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "role": "open-gate",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_4_open_gate",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds46-import-source/SM_station_road_4_open_gate.obj",
+        "sourceObjSha256": "a5275d0c1226619cbe120432eb70e2726c8c088de8b5fc1934f15e01d7e06292",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_4_open_gate",
+        "boundsCm": [
+          [
+            -1145.5,
+            -146.63284301757812,
+            0.0
+          ],
+          [
+            -1015.5,
+            147.36715698242188,
+            170.0
+          ]
+        ],
+        "uvProbesVerified": 1080,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -37086.0,
+          17501.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -2.4480777253285737,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound46_station-road-10_boundary",
+      "sourceId": "station-road-10:boundary",
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "role": "boundary",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_10_boundary",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds46-import-source/SM_station_road_10_boundary.obj",
+        "sourceObjSha256": "cd2a48feb73425638ce2ba25ce424d2cf7847e69fac560ad3a22ab6a07db7c37",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_10_boundary",
+        "boundsCm": [
+          [
+            -1141.5,
+            -1396.0,
+            -3.0
+          ],
+          [
+            1141.5,
+            1396.0,
+            180.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -29822.000000000004,
+          36597.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.319093443499014,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound46_station-road-10_open-gate",
+      "sourceId": "station-road-10:open-gate",
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "role": "open-gate",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_10_open_gate",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds46-import-source/SM_station_road_10_open_gate.obj",
+        "sourceObjSha256": "18474b4d1ce965f830a34221324f477c58ed6a33e6da72d5362d4a4d7225379d",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_10_open_gate",
+        "boundsCm": [
+          [
+            -1106.5,
+            -279.6251525878906,
+            0.0
+          ],
+          [
+            -976.5,
+            14.374860763549805,
+            170.0
+          ]
+        ],
+        "uvProbesVerified": 1080,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -29822.000000000004,
+          36597.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.319093443499014,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound46_college-lane-10_boundary",
+      "sourceId": "college-lane-10:boundary",
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "role": "boundary",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_college_lane_10_boundary",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds46-import-source/SM_college_lane_10_boundary.obj",
+        "sourceObjSha256": "987c903e8090a485c7bfd64de9cffd0868ef2a2e3e2a4fd6385cedd371447383",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_college_lane_10_boundary",
+        "boundsCm": [
+          [
+            -989.5,
+            -1674.0,
+            -3.0
+          ],
+          [
+            989.5,
+            1674.0,
+            180.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42580.0,
+          42361.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -104.08274438022005,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound46_college-lane-10_open-gate",
+      "sourceId": "college-lane-10:open-gate",
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "role": "open-gate",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_college_lane_10_open_gate",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds46-import-source/SM_college_lane_10_open_gate.obj",
+        "sourceObjSha256": "e84501d4cc46dc1c9f9ce1e7433b8d1db98dbce606efa7e99af82f7f55f378a5",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_college_lane_10_open_gate",
+        "boundsCm": [
+          [
+            -954.5,
+            -269.0225830078125,
+            0.0
+          ],
+          [
+            -824.5,
+            24.977420806884766,
+            170.0
+          ]
+        ],
+        "uvProbesVerified": 1080,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42580.0,
+          42361.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -104.08274438022005,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_4_boundary.uasset": "f880fc76e19c81ce285e478cbc18847a26908ab38b92ad9b7dfe2968c1707f64",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_4_open_gate.uasset": "45f847cf4c328a470deb9a16e756f0ae34fc1c780823f4402347b3b56210c378",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_10_boundary.uasset": "ec51b7b1abe88982a4dfa125fe53e3d258bd3607a1a31913c72235d273cf9a5c",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_station_road_10_open_gate.uasset": "77288ecc74e3ecda389e97c5a4bad1cb8c84bbae8c681835ab9c51d470de2f56",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_college_lane_10_boundary.uasset": "e063cae8fd79bd57dad7cf0b9592368656c7570c64e6523a94a4f81170d2dcdd",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds46/Meshes/SM_college_lane_10_open_gate.uasset": "5bc46df5279d70e06944f57e713b53ea4c4ee10d8189d3da7407122c8818bdd5",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "66cee1aeb93cb924963a33dbee01a2ec1fdf627c91b58e7004f1b2896ce2bf10",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "b5080cb2244454e2c695dccd1e28956856429b47027d4d28f78bbd417cc5b004"
+  },
+  "cameras": [
+    {
+      "id": "station-road-4-compound",
+      "locationCm": [
+        -39177.34229554338,
+        18111.25374619992,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -31.148077725328573,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "station-road-10-compound",
+      "locationCm": [
+        -31466.219558647223,
+        37923.0669575488,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -57.01909344349902,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "college-lane-10-compound",
+      "locationCm": [
+        -41725.70872070721,
+        44130.82278425658,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -132.78274438022004,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ],
+  "visualAcceptance": "pending",
+  "limitations": [
+    "Static open gates, not interactive access control",
+    "Source-fitted boundary geometry with reused materials; final art acceptance pending",
+    "Ground-supported boundaries; no excavation, landscape or gameplay navigation claim"
+  ]
+}

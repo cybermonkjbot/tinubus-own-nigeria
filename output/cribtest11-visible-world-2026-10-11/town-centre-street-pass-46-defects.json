@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 46,
+  "parcelIds": ["station-road-4", "station-road-10", "college-lane-10"],
+  "matchedImagesInspected": 6,
+  "improvements": ["Canonical parcel-fitted supported walls and coping define three apartment forecourts", "Static open gates preserve fitted 2.8m source entrance gaps"],
+  "remainingDefects": ["Plain repetitive boundary finishes", "Rear/side contact requires additional rendered views", "Gate hinge/latch/endcap fittings unfinished", "College Lane10 heavily shaded; finish acceptance incomplete", "Approach ground/material boundaries and upstream road/drain cuts remain", "Apartment facade/roof/rainwater, neighbouring density, utilities/services/signage/foliage incomplete", "Pass42 roof finish/outlets, Market floor parity, warm asphalt and Garden material break unchanged"],
+  "preMutationFailure": "Reversed canonical parcel yaw caught by front-clearance assertion before import; corrected to source rotation/axis basis",
+  "sourcePositionsPreserved": true,
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "interactiveGate": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "nextArea": "Town Centre perimeter/contact inspection, gate fittings, forecourt detail and road/drain shoulders"
+}
