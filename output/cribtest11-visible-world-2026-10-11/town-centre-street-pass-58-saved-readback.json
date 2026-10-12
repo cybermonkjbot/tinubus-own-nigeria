@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T08:02:03.988296+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_3_boundary.uasset": "21aa69df7bdd40aaaa84d83bb67f5d4dd72a39d7d4cafd4c704eabe15e96bef9",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_3_open_gate.uasset": "da8a442466548b6b443e3bfd9780acf6f69e460bb56d6665789a4a41db434dfc",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_4_boundary.uasset": "9d80332943318c847c941aae07690524de0bb6ebcd62a1fc3454d544f80b456f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_4_open_gate.uasset": "2e24f259ba5e7e270f52caf42307212172d9be358d5c25dd3522a53b222d8c09",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_7_boundary.uasset": "c2a087d20ae6ba45b9ad30f264522c7efcffb05b5e87beecd5bd235192453f1d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_7_open_gate.uasset": "b88a9878a81b1ab6858943827813ba1b1c93183aae1213b5dedae24beb1f2e66",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "c57fb0bf4bad6ec4150614189a115242ca29a8ac9ad2de8e543ed61aa19d9417",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "1825e4a6eaab8d07a279abc6ee20301787e253d8b50bc4604a10102a158c5d83"
+  },
+  "safeReloadCompleted": true,
+  "newCompoundActors": 6,
+  "retainedEntranceActors": 2114,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

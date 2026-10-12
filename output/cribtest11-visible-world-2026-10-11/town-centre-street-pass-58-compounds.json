@@ -1,0 +1,558 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T08:01:31.288818+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "parcelId": "old-town-lane-3",
+      "roadId": "old-town-lane",
+      "sourceParcel": {
+        "id": "old-town-lane-3",
+        "name": "Old Town Lane 3",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": -260.25,
+        "z": -422.9,
+        "width": 21.71,
+        "depth": 22.39,
+        "floors": 10,
+        "units": 40,
+        "yaw": 0.7785645567877099,
+        "garden": 3,
+        "variant": 2,
+        "street": "Old Town Lane",
+        "entrance": [
+          -250.28,
+          0,
+          -412.79
+        ]
+      },
+      "centreCm": [
+        -42290.0,
+        -26025.0
+      ],
+      "yaw": -135.39153681759072,
+      "halfDepthCm": 1119.5,
+      "halfWidthCm": 1085.5,
+      "frontCm": -1097.5,
+      "gateCentreCm": 0.15188519364572978,
+      "gateClearWidthCm": 500,
+      "sourceEntranceCm": [
+        -41279.0,
+        -25028.0
+      ],
+      "doorCentreCm": [
+        -41723.944495114345,
+        -25466.7830480999,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -975.1349228385288,
+          -974.8650584879401
+        ],
+        [
+          -974.8650584879349,
+          975.1349228385288
+        ],
+        [
+          974.8650584879401,
+          -975.134922838534
+        ],
+        [
+          975.1349228385341,
+          974.865058487935
+        ]
+      ],
+      "gateMode": "sliding",
+      "requiredWallClearanceCm": 40
+    },
+    {
+      "parcelId": "old-town-lane-4",
+      "roadId": "old-town-lane",
+      "sourceParcel": {
+        "id": "old-town-lane-4",
+        "name": "Old Town Lane 4",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": -223.74,
+        "z": -385.88,
+        "width": 28.36,
+        "depth": 24.11,
+        "floors": 7,
+        "units": 28,
+        "yaw": -2.363028096802083,
+        "garden": 3,
+        "variant": 2,
+        "street": "Old Town Lane",
+        "entrance": [
+          -234.31,
+          0,
+          -396.6
+        ]
+      },
+      "centreCm": [
+        -38588.0,
+        -22374.0
+      ],
+      "yaw": -315.3915368175907,
+      "halfDepthCm": 1205.5,
+      "halfWidthCm": 1418.0,
+      "frontCm": -1183.5,
+      "gateCentreCm": 0.2507104066010577,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -39660.0,
+        -23431.0
+      ],
+      "doorCentreCm": [
+        -39154.096502236265,
+        -22932.175375805724,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -975.2891371408491,
+          -1364.79342721712
+        ],
+        [
+          -974.7108191056467,
+          1365.2065115279822
+        ],
+        [
+          974.7108191056492,
+          -1365.2065115279797
+        ],
+        [
+          975.2891371408518,
+          1364.7934272171228
+        ]
+      ],
+      "gateMode": "sliding",
+      "requiredWallClearanceCm": 40
+    },
+    {
+      "parcelId": "old-town-lane-7",
+      "roadId": "old-town-lane",
+      "sourceParcel": {
+        "id": "old-town-lane-7",
+        "name": "Old Town Lane 7",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "civic",
+        "x": -266.83,
+        "z": -526.74,
+        "width": 21.88,
+        "depth": 18.73,
+        "floors": 4,
+        "units": 16,
+        "yaw": 1.338727807629863,
+        "garden": 3,
+        "variant": 3,
+        "street": "Old Town Lane",
+        "entrance": [
+          -254.8,
+          0,
+          -523.9
+        ]
+      },
+      "centreCm": [
+        -52674.0,
+        -26683.0
+      ],
+      "yaw": -103.29654670600728,
+      "halfDepthCm": 936.5,
+      "halfWidthCm": 1094.0,
+      "frontCm": -914.5,
+      "gateCentreCm": -0.21643040210783676,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -52390.0,
+        -25480.0
+      ],
+      "doorCentreCm": [
+        -52536.143547242464,
+        -26099.05171596013,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -779.7692295106067,
+          -975.1845716111611
+        ],
+        [
+          -780.2307268012412,
+          974.8153737786471
+        ],
+        [
+          780.2307268012394,
+          -974.8153737786549
+        ],
+        [
+          779.7692295106049,
+          975.184571611153
+        ]
+      ],
+      "gateMode": "sliding",
+      "requiredWallClearanceCm": 40
+    }
+  ],
+  "createdActors": [
+    {
+      "label": "TC_Compound58_old-town-lane-3_boundary",
+      "sourceId": "old-town-lane-3:boundary",
+      "parcelId": "old-town-lane-3",
+      "roadId": "old-town-lane",
+      "role": "boundary",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_3_boundary",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds58-import-source/SM_old_town_lane_3_boundary.obj",
+        "sourceObjSha256": "e9255434facadc957b44736c3eac8376d8d2427643d088c47831506dd1ebf5be",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_3_boundary",
+        "boundsCm": [
+          [
+            -1112.5,
+            -1078.5,
+            -3.0
+          ],
+          [
+            1112.5,
+            1078.5,
+            180.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42290.0,
+          -26025.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -135.39153681759072,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound58_old-town-lane-3_open-gate",
+      "sourceId": "old-town-lane-3:open-gate",
+      "parcelId": "old-town-lane-3",
+      "roadId": "old-town-lane",
+      "role": "open-gate",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_3_open_gate",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds58-import-source/SM_old_town_lane_3_open_gate.obj",
+        "sourceObjSha256": "e44eb9c8154d7338b3a78f7544fc0ce33648c9d3d5faf3a4610c5262503527fa",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_3_open_gate",
+        "boundsCm": [
+          [
+            -1117.5,
+            -534.84814453125,
+            0.0
+          ],
+          [
+            -1109.5,
+            539.15185546875,
+            172.0
+          ]
+        ],
+        "uvProbesVerified": 1944,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42290.0,
+          -26025.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -135.39153681759072,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound58_old-town-lane-4_boundary",
+      "sourceId": "old-town-lane-4:boundary",
+      "parcelId": "old-town-lane-4",
+      "roadId": "old-town-lane",
+      "role": "boundary",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_4_boundary",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds58-import-source/SM_old_town_lane_4_boundary.obj",
+        "sourceObjSha256": "1cd43f39301d88d95dfcdd0418772e8ab0052b628021ce6f2208ff702deda81c",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_4_boundary",
+        "boundsCm": [
+          [
+            -1198.5,
+            -1411.0,
+            -3.0
+          ],
+          [
+            1198.5,
+            1411.0,
+            180.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -38588.0,
+          -22374.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -315.3915368175907,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound58_old-town-lane-4_open-gate",
+      "sourceId": "old-town-lane-4:open-gate",
+      "parcelId": "old-town-lane-4",
+      "roadId": "old-town-lane",
+      "role": "open-gate",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_4_open_gate",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds58-import-source/SM_old_town_lane_4_open_gate.obj",
+        "sourceObjSha256": "8714b7d83f46afcd2e92e993b268552288e022a654902bb920e2a953e3c8e672",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_4_open_gate",
+        "boundsCm": [
+          [
+            -1203.5,
+            -314.7492980957031,
+            0.0
+          ],
+          [
+            -1195.5,
+            319.2507019042969,
+            172.0
+          ]
+        ],
+        "uvProbesVerified": 1296,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -38588.0,
+          -22374.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -315.3915368175907,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound58_old-town-lane-7_boundary",
+      "sourceId": "old-town-lane-7:boundary",
+      "parcelId": "old-town-lane-7",
+      "roadId": "old-town-lane",
+      "role": "boundary",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_7_boundary",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds58-import-source/SM_old_town_lane_7_boundary.obj",
+        "sourceObjSha256": "709bb5448cf34d98b2038ebf28040f2ca8e5999c5d6012285ba369fc329f9c01",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_7_boundary",
+        "boundsCm": [
+          [
+            -929.5,
+            -1087.0,
+            -3.0
+          ],
+          [
+            929.5,
+            1087.0,
+            180.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -52674.0,
+          -26683.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -103.29654670600728,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Compound58_old-town-lane-7_open-gate",
+      "sourceId": "old-town-lane-7:open-gate",
+      "parcelId": "old-town-lane-7",
+      "roadId": "old-town-lane",
+      "role": "open-gate",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_7_open_gate",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/compounds58-import-source/SM_old_town_lane_7_open_gate.obj",
+        "sourceObjSha256": "8dbfb10419f9cc2ce5fc42cbd8a8c9d942ec696feb0568444acc4682428d3551",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_7_open_gate",
+        "boundsCm": [
+          [
+            -934.5,
+            -315.2164306640625,
+            0.0
+          ],
+          [
+            -926.5,
+            318.7835693359375,
+            172.0
+          ]
+        ],
+        "uvProbesVerified": 1296,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -52674.0,
+          -26683.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -103.29654670600728,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_3_boundary.uasset": "21aa69df7bdd40aaaa84d83bb67f5d4dd72a39d7d4cafd4c704eabe15e96bef9",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_3_open_gate.uasset": "da8a442466548b6b443e3bfd9780acf6f69e460bb56d6665789a4a41db434dfc",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_4_boundary.uasset": "9d80332943318c847c941aae07690524de0bb6ebcd62a1fc3454d544f80b456f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_4_open_gate.uasset": "2e24f259ba5e7e270f52caf42307212172d9be358d5c25dd3522a53b222d8c09",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_7_boundary.uasset": "c2a087d20ae6ba45b9ad30f264522c7efcffb05b5e87beecd5bd235192453f1d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds58/Meshes/SM_old_town_lane_7_open_gate.uasset": "b88a9878a81b1ab6858943827813ba1b1c93183aae1213b5dedae24beb1f2e66",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "c57fb0bf4bad6ec4150614189a115242ca29a8ac9ad2de8e543ed61aa19d9417",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "1825e4a6eaab8d07a279abc6ee20301787e253d8b50bc4604a10102a158c5d83"
+  },
+  "cameras": [
+    {
+      "id": "old-town-lane-3-compound",
+      "locationCm": [
+        -40467.05810732999,
+        -24957.434035003374,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -164.0915368175907,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "old-town-lane-4-compound",
+      "locationCm": [
+        -40472.23661325889,
+        -23501.889815954222,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -344.0915368175907,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "old-town-lane-7-compound",
+      "locationCm": [
+        -51739.332033233106,
+        -24988.027728508878,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -131.99654670600728,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ],
+  "visualAcceptance": "pending",
+  "limitations": [
+    "Static open gates, not interactive access control",
+    "Source-fitted boundary geometry with reused materials; final art acceptance pending",
+    "Ground-supported boundaries; no excavation, landscape or gameplay navigation claim"
+  ]
+}

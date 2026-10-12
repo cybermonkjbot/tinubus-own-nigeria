@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass57.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass58.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -56,7 +56,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass57.json'):
             if source in selection['parcelIds']:
                 frontage.add(source)
                 frontage_evidence.setdefault(source,[]).append(path.relative_to(ROOT).as_posix())
-    current_path = OUT / 'town-centre-street-pass-57-saved-readback.json'
+    current_path = OUT / 'town-centre-street-pass-58-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-57-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-56-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-55-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-54-saved-readback.json'
@@ -120,6 +121,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass57.json'):
     sliding_compounds = {p['parcelId'] for p in read(sliding_compounds_path)['plans']} if sliding_compounds_path.is_file() else set()
     oldtown_path = OUT / 'town-centre-street-pass-57-parcel-frontage.json'
     oldtown = {p['parcelId'] for p in read(oldtown_path)['plans']} if oldtown_path.is_file() else set()
+    oldtown_compounds_path = OUT / 'town-centre-street-pass-58-compounds.json'
+    oldtown_compounds = {p['parcelId'] for p in read(oldtown_compounds_path)['plans']} if oldtown_compounds_path.is_file() else set()
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -224,6 +227,11 @@ def main(target_name='world-inventory-reconciled-20261011-pass57.json'):
             entry['exteriorFabricEvidence'] = oldtown_path.relative_to(ROOT).as_posix()
             entry['content'] = 'Source-centred exact-floor Old Town Lane apartment exterior, sealed frame, closed portal and source-to-door support'
             entry['missingDependencies'] = ['Road/pavement/drain contacts, compounds and forecourt/services',
+                'Varied facade finishes, roof outlets, landscape and runtime navigation/admission']
+        if item['id'] in oldtown_compounds:
+            entry['compoundEvidence'] = oldtown_compounds_path.relative_to(ROOT).as_posix()
+            entry['compoundAcceptance'] = 'Saved source-fitted boundary with static stored sliding panels; entrance and canopy gaps preserved, finish and rear/side contacts incomplete'
+            entry['missingDependencies'] = ['Road/pavement/drain contacts, gate guides/fittings, rear/side contacts and forecourt/services',
                 'Varied facade finishes, roof outlets, landscape and runtime navigation/admission']
         parcels.append(entry)
     road_journal = next((read(ROOT / e['journal']) for e in saved.get('city/road-ribbons',[])),{})

@@ -1,0 +1,249 @@
+{
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "plans": [
+    {
+      "parcelId": "old-town-lane-3",
+      "roadId": "old-town-lane",
+      "sourceParcel": {
+        "id": "old-town-lane-3",
+        "name": "Old Town Lane 3",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": -260.25,
+        "z": -422.9,
+        "width": 21.71,
+        "depth": 22.39,
+        "floors": 10,
+        "units": 40,
+        "yaw": 0.7785645567877099,
+        "garden": 3,
+        "variant": 2,
+        "street": "Old Town Lane",
+        "entrance": [
+          -250.28,
+          0,
+          -412.79
+        ]
+      },
+      "centreCm": [
+        -42290.0,
+        -26025.0
+      ],
+      "yaw": -135.39153681759072,
+      "halfDepthCm": 1119.5,
+      "halfWidthCm": 1085.5,
+      "frontCm": -1097.5,
+      "gateCentreCm": 0.15188519364572978,
+      "gateClearWidthCm": 500,
+      "sourceEntranceCm": [
+        -41279.0,
+        -25028.0
+      ],
+      "doorCentreCm": [
+        -41723.944495114345,
+        -25466.7830480999,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -975.1349228385288,
+          -974.8650584879401
+        ],
+        [
+          -974.8650584879349,
+          975.1349228385288
+        ],
+        [
+          974.8650584879401,
+          -975.134922838534
+        ],
+        [
+          975.1349228385341,
+          974.865058487935
+        ]
+      ],
+      "gateMode": "sliding",
+      "requiredWallClearanceCm": 40
+    },
+    {
+      "parcelId": "old-town-lane-4",
+      "roadId": "old-town-lane",
+      "sourceParcel": {
+        "id": "old-town-lane-4",
+        "name": "Old Town Lane 4",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": -223.74,
+        "z": -385.88,
+        "width": 28.36,
+        "depth": 24.11,
+        "floors": 7,
+        "units": 28,
+        "yaw": -2.363028096802083,
+        "garden": 3,
+        "variant": 2,
+        "street": "Old Town Lane",
+        "entrance": [
+          -234.31,
+          0,
+          -396.6
+        ]
+      },
+      "centreCm": [
+        -38588.0,
+        -22374.0
+      ],
+      "yaw": -315.3915368175907,
+      "halfDepthCm": 1205.5,
+      "halfWidthCm": 1418.0,
+      "frontCm": -1183.5,
+      "gateCentreCm": 0.2507104066010577,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -39660.0,
+        -23431.0
+      ],
+      "doorCentreCm": [
+        -39154.096502236265,
+        -22932.175375805724,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -975.2891371408491,
+          -1364.79342721712
+        ],
+        [
+          -974.7108191056467,
+          1365.2065115279822
+        ],
+        [
+          974.7108191056492,
+          -1365.2065115279797
+        ],
+        [
+          975.2891371408518,
+          1364.7934272171228
+        ]
+      ],
+      "gateMode": "sliding",
+      "requiredWallClearanceCm": 40
+    },
+    {
+      "parcelId": "old-town-lane-7",
+      "roadId": "old-town-lane",
+      "sourceParcel": {
+        "id": "old-town-lane-7",
+        "name": "Old Town Lane 7",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "civic",
+        "x": -266.83,
+        "z": -526.74,
+        "width": 21.88,
+        "depth": 18.73,
+        "floors": 4,
+        "units": 16,
+        "yaw": 1.338727807629863,
+        "garden": 3,
+        "variant": 3,
+        "street": "Old Town Lane",
+        "entrance": [
+          -254.8,
+          0,
+          -523.9
+        ]
+      },
+      "centreCm": [
+        -52674.0,
+        -26683.0
+      ],
+      "yaw": -103.29654670600728,
+      "halfDepthCm": 936.5,
+      "halfWidthCm": 1094.0,
+      "frontCm": -914.5,
+      "gateCentreCm": -0.21643040210783676,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -52390.0,
+        -25480.0
+      ],
+      "doorCentreCm": [
+        -52536.143547242464,
+        -26099.05171596013,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -779.7692295106067,
+          -975.1845716111611
+        ],
+        [
+          -780.2307268012412,
+          974.8153737786471
+        ],
+        [
+          780.2307268012394,
+          -974.8153737786549
+        ],
+        [
+          779.7692295106049,
+          975.184571611153
+        ]
+      ],
+      "gateMode": "sliding",
+      "requiredWallClearanceCm": 40
+    }
+  ],
+  "previewPoses": [
+    {
+      "id": "old-town-lane-3-compound",
+      "locationCm": [
+        -40467.05810732999,
+        -24957.434035003374,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -164.0915368175907,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "old-town-lane-4-compound",
+      "locationCm": [
+        -40472.23661325889,
+        -23501.889815954222,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -344.0915368175907,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "old-town-lane-7-compound",
+      "locationCm": [
+        -51739.332033233106,
+        -24988.027728508878,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -131.99654670600728,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ],
+  "deferredParcels": {
+    "old-town-lane-6": "Shell/front clearance below40cm; needs a different boundary layout",
+    "old-town-lane-10": "Shell/front clearance below40cm; needs a different boundary layout"
+  }
+}

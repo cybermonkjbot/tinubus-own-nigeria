@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 58,
+  "sourceIds": ["old-town-lane", "old-town-lane-3", "old-town-lane-4", "old-town-lane-7"],
+  "matchedAfterImagesInspected": 3,
+  "gateOpeningsCm": {"old-town-lane-3": 500, "old-town-lane-4": 280, "old-town-lane-7": 280},
+  "remainingDefects": ["Static stored gates lack final tracks/guides/stops/mechanism and finish", "Rear/side and ground contacts not visually accepted", "Road/pavement/drain entrance contacts and paving seams incomplete", "Repeated facade grammar/plain concrete and sparse wider context", "Services, planting and roof/outfall fittings incomplete", "Parcels6/10 need a different boundary layout because shell/front clearance is below40cm", "Shadow-side software views dark; target GPU and runtime acceptance outstanding"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; editor-authored static content only",
+  "nextArea": "Old Town Lane road/pavement/drain entrance contacts and separately fitted6/10 frontage returns"
+}
