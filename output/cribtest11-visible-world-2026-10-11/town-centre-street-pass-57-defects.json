@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 57,
+  "sourceIds": ["old-town-lane", "old-town-lane-3", "old-town-lane-4", "old-town-lane-6", "old-town-lane-7", "old-town-lane-10"],
+  "matchedAfterImagesInspected": 10,
+  "improvements": ["Five empty foreground parcels now have source-centred exact-floor exterior density", "Accepted facade modules and closed portals retained", "Depth-sealing frame posts avoid introducing earlier exposed bay seams"],
+  "remainingDefects": ["Repeated facade grammar and plain plaster", "Sparse wider context and forecourts", "Road/pavement/drain-to-source-entrance contacts incomplete", "Visible source-path and paving seams", "Compounds, services and planting incomplete", "Roof/gutter/outfall fittings incomplete", "Dark shadow-side software views", "Rear and upper roof views not inspected; target GPU acceptance outstanding"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; editor-authored static content only",
+  "nextArea": "Measured Old Town Lane compounds and entrance contacts, then adjoining ordinary density"
+}

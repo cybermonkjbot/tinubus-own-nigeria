@@ -30,6 +30,7 @@ READBACK = OUT / 'town-centre-street-pass-49-saved-readback.json'
 PREFIX = 'TC_Fabric49_'
 TAG = 'Baddie.TownCentreFabric49'
 SOURCE_DIRECTORY = 'fabric49-import-source'
+SEALED_FRAME = False
 
 
 def guard(pid):
@@ -74,6 +75,14 @@ def plan_data():
         for y in range(-width//2, width//2+1, 390):
             for x in (0, depth):
                 KIT.box(vertices, faces, x-12, x+12, y-12, y+12, 0, height)
+        if SEALED_FRAME:
+            # Match the accepted 3.5..28.5cm bay depth without exposed post seams.
+            for x in range(0, depth+1, 390):
+                for y in (-width/2,width/2):
+                    KIT.box(vertices,faces,x-16,x+16,y-30,y+30,0,height)
+            for y in range(-width//2,width//2+1,390):
+                for x in (0,depth):
+                    KIT.box(vertices,faces,x-30,x+30,y-16,y+16,0,height)
 
         def add(mod, wall, floor, bay, wall_origin, angle, local):
             row = {'sourceId':f'{pid}:{wall}:floor:{floor}:bay:{bay}:{mod}',
