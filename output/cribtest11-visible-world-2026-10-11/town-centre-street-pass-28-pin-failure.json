@@ -1,0 +1,1 @@
+{"schemaVersion":1,"pid":13584,"stage":"owned material graph before save or actor assignment","error":"ComponentMask exposes input None, not Input; connection assertion failed","sourceMaterialChanged":false,"roadActorsChanged":false,"recovery":"Resume unsaved owned derivative only, using inspected WorldPosition XY output directly into Divide A"}

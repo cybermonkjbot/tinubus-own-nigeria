@@ -1,0 +1,1 @@
+{"schemaVersion":1,"pid":13584,"stage":"before material creation","error":"The local Yaba fresh-package helper rejects Connected/TownCentre namespace","mutations":false,"correction":"Use explicit asset-registry and disk-path freshness checks for the owned Connected material package"}

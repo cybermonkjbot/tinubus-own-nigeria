@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-28-asphalt-metres.json",
+  "previewSet": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-asphalt28-daylight",
+  "verifiedImprovements": ["Oversized rocky asphalt sampling removed in matched source-centred road view", "Exposed slab sides reduced", "No foreground blue void returned in inspected fixed views"],
+  "remainingDefects": ["Warm brown asphalt appearance requires reference comparison", "Uniform tiled concrete land dominates fixed views", "Sparse adjoining buildings and unfinished distant context", "Market Road junction view is not a complete junction", "Path versus road surface classification not reconciled", "Drain and pavement heights, crossings and corner joins incomplete", "Dark middle-floor openings and repetitive building bands remain"],
+  "runtimeTraversal": "not-inspected",
+  "finishedNeighbourhood": false
+}

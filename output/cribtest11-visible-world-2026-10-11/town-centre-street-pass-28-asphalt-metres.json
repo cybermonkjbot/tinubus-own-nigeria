@@ -1,0 +1,1446 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T05:10:31.239410+00:00",
+  "pid": 13584,
+  "districtId": "town-centre",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "materialPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28",
+  "sourceMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+  "textureInputs": [
+    {
+      "property": "<MaterialProperty.MP_BASE_COLOR: 5>",
+      "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_base_color.T_Asphalt_base_color",
+      "samplerType": "<MaterialSamplerType.SAMPLERTYPE_COLOR: 0>"
+    },
+    {
+      "property": "<MaterialProperty.MP_ROUGHNESS: 8>",
+      "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_roughness.T_Asphalt_roughness",
+      "samplerType": "<MaterialSamplerType.SAMPLERTYPE_MASKS: 4>"
+    },
+    {
+      "property": "<MaterialProperty.MP_NORMAL: 10>",
+      "texture": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Surfaces/S_asphalt_197722e3d58220610757ab50/Textures/T_Asphalt_normal_gl.T_Asphalt_normal_gl",
+      "samplerType": "<MaterialSamplerType.SAMPLERTYPE_NORMAL: 3>"
+    }
+  ],
+  "physicalPeriodMetres": [
+    2,
+    2
+  ],
+  "coordinateBasis": "WorldXY centimetres divided by 200",
+  "changedActors": [
+    {
+      "label": "TC_Ground22_market-road_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-road_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-avenue_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_12_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_13_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_14_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_15_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_16_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_17_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_18_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_12_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_13_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_14_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_15_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_16_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_17_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_18_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_19_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_20_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_21_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_22_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_23_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_24_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cross-town-road_25_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-bridge-approach_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-bridge-approach_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-bridge-approach_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-bridge-approach_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-bridge-approach_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-bridge-approach_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-bridge-approach_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-bridge-approach_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-bridge-approach_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-lagoon-drive_14_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-lagoon-drive_15_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-lagoon-drive_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-lagoon-drive_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-lagoon-drive_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-lane_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-south-road_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_garden-south-road_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_12_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_13_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-street_14_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_theatre-street_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_theatre-street_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_theatre-street_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_theatre-street_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_theatre-street_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_theatre-street_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_theatre-street_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_station-road_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_station-road_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_station-road_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_station-road_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_station-road_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_station-road_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_station-road_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_station-road_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_library-lane_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_library-lane_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_library-lane_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_library-lane_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_library-lane_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_library-lane_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_library-lane_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_library-lane_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_arcade-crescent_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_arcade-crescent_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_arcade-crescent_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_arcade-crescent_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_arcade-crescent_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_arcade-crescent_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_arcade-crescent_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_arcade-crescent_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_old-town-lane_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_old-town-lane_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_old-town-lane_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_old-town-lane_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_old-town-lane_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_old-town-lane_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_old-town-lane_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-approach_14_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-approach_15_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_market-approach_16_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_foundry-road_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_foundry-road_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_foundry-road_12_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_foundry-road_13_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-lagoon-bridge_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-lagoon-bridge_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_square-walking-connection_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_square-walking-connection_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_square-walking-connection_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_square-walking-connection_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-square-walking-connection_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-square-walking-connection_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-square-walking-connection_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_west-square-walking-connection_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-square-walking-connection_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-square-walking-connection_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-square-walking-connection_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_32_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_33_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_34_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_35_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_36_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_37_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_38_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_39_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_40_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_41_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_cove-beach-walk_42_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_east-cove-beach-walk_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_beach-access-0-34_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_sand-path-0-34_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_beach-access-0-42_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_sand-path-0-42_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_beach-access-2-2_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_beach-access-2-10_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-path_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-path_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-path_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-path_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-path_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-approach_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_civic-square-loop_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-approach_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-loop_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_college-green-garden-path_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-approach_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_12_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-loop_13_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-18-garden-path_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-24-approach_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-approach_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-approach_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_12_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-loop_13_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-26-garden-path_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-approach_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-approach_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_12_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-loop_13_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-27-garden-path_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_1_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_2_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_3_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_4_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_5_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_6_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_7_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_8_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_9_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_10_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_11_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_12_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-loop_13_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    },
+    {
+      "label": "TC_Ground22_neighbourhood-park-33-garden-path_0_asphalt",
+      "previousMaterial": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM",
+      "newMaterial": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28"
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28.uasset": "c20cdaa2d8b9e2ea264ef5e4c4d15e95dc901ef49050fe4f6e7ef7aef8bed19d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "5169845495e997b8c8659739b10d4d8e0985c7d9c8400084ffb18ca74eee8146",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "8cb0b40e6b2591040b4f4a64e3188d24da0cc8e053651f511ee5b36b4a2e85b1"
+  },
+  "playableAcceptance": "not-established",
+  "visualAcceptance": "pending matched and source-road captures"
+}

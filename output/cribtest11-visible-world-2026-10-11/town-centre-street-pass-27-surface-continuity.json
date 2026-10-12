@@ -1,0 +1,2840 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T05:05:41.660994+00:00",
+  "pid": 13584,
+  "districtId": "town-centre",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "removedLegacyRoadOverlays": [
+    {
+      "label": "TC_Road_market-road_market-core_0_3",
+      "locationCm": [
+        864.9283183057341,
+        -9669.35640220421,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -1539.8035832477067,
+        -9803.527577008612,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1064.6519545329966,
+        646.9136798480777,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_0_4",
+      "locationCm": [
+        712.144538304543,
+        -10657.61604246508,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -1692.5873632488979,
+        -10791.787217269482,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1064.6519545329966,
+        646.9136798480777,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_1_0",
+      "locationCm": [
+        503.4857119875269,
+        -11956.14406377131,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -1901.6858785332497,
+        -11830.100251352862,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1095.2638536891172,
+        741.5138768096112,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_1_1",
+      "locationCm": [
+        244.97632903658814,
+        -12922.152810587984,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -2160.1952614841884,
+        -12796.108998169537,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1095.2638536891172,
+        741.5138768096112,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_1_2",
+      "locationCm": [
+        -13.533053914354241,
+        -13888.161557404663,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -2418.704644435131,
+        -13762.117744986215,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1095.2638536891172,
+        741.5138768096112,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_1_3",
+      "locationCm": [
+        -272.0424368652966,
+        -14854.170304221338,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -2677.214027386073,
+        -14728.12649180289,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1095.2638536891172,
+        741.5138768096112,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_1_4",
+      "locationCm": [
+        -530.5518198162354,
+        -15820.179051038012,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -2935.723410337012,
+        -15694.135238619565,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1095.2638536891172,
+        741.5138768096112,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_1_5",
+      "locationCm": [
+        -789.0612027671777,
+        -16786.187797854687,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -3194.2327932879543,
+        -16660.14398543624,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1095.2638536891172,
+        741.5138768096112,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_2_0",
+      "locationCm": [
+        -1367.5793792295517,
+        -18714.52399375659,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -3626.9111915590283,
+        -17880.16364936502,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1112.534062922652,
+        956.4859140490917,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_2_1",
+      "locationCm": [
+        -1901.204467920059,
+        -19560.245144444005,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -4160.536280249536,
+        -18725.884800052434,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1112.534062922652,
+        956.4859140490917,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_2_2",
+      "locationCm": [
+        -2434.829556610566,
+        -20405.96629513142,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -4694.161368940043,
+        -19571.60595073985,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1112.534062922652,
+        956.4859140490917,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_3_0",
+      "locationCm": [
+        -3484.5225978870803,
+        -22065.434319827484,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -5692.15980408095,
+        -21102.586778247954,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1104.327883362609,
+        988.1802700110748,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_3_1",
+      "locationCm": [
+        -4065.8775790875916,
+        -22879.084358746768,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -6273.514785281462,
+        -21916.23681716724,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1104.327883362609,
+        988.1802700110748,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_3_2",
+      "locationCm": [
+        -4647.232560288103,
+        -23692.734397666052,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -6854.869766481973,
+        -22729.886856086523,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1104.327883362609,
+        988.1802700110748,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_3_3",
+      "locationCm": [
+        -5228.587541488614,
+        -24506.384436585337,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -7436.224747682484,
+        -23543.536895005807,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1104.327883362609,
+        988.1802700110748,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_3_4",
+      "locationCm": [
+        -5809.942522689125,
+        -25320.03447550462,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -8017.579728882995,
+        -24357.18693392509,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1104.327883362609,
+        988.1802700110748,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_4_0",
+      "locationCm": [
+        -6797.641809100729,
+        -26701.853422023778,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -8983.902390958863,
+        -25691.406941149828,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1100.2878055341935,
+        999.2777288324978,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_4_1",
+      "locationCm": [
+        -7396.486784473229,
+        -27502.718389088208,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -9582.747366331363,
+        -26492.271908214258,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1100.2878055341935,
+        999.2777288324978,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_4_2",
+      "locationCm": [
+        -7995.331759845729,
+        -28303.583356152638,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -10181.592341703863,
+        -27293.136875278688,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1100.2878055341935,
+        999.2777288324978,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_4_3",
+      "locationCm": [
+        -8594.176735218232,
+        -29104.448323217064,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -10780.437317076367,
+        -28094.001842343114,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1100.2878055341935,
+        999.2777288324978,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_4_4",
+      "locationCm": [
+        -9193.021710590732,
+        -29905.313290281494,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -11379.282292448866,
+        -28894.866809407544,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1100.2878055341935,
+        999.2777288324978,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_5_0",
+      "locationCm": [
+        -10294.584669549846,
+        -31378.283343138515,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -12466.979355047772,
+        -30338.360868663814,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1097.5037076630742,
+        1005.9681715987535,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_5_1",
+      "locationCm": [
+        -10904.206285037906,
+        -32170.975897619588,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -13076.600970535832,
+        -31131.053423144887,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1097.5037076630742,
+        1005.9681715987535,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_5_2",
+      "locationCm": [
+        -11513.827900525968,
+        -32963.668452100654,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -13686.222586023894,
+        -31923.74597762595,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1097.5037076630742,
+        1005.9681715987517,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_5_3",
+      "locationCm": [
+        -12123.449516014029,
+        -33756.36100658173,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -14295.844201511954,
+        -32716.438532107022,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1097.5037076630742,
+        1005.9681715987517,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_6_0",
+      "locationCm": [
+        -12961.012883086352,
+        -34844.64594410171,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -15104.535588302393,
+        -33746.44385217121,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1091.344691010885,
+        1018.7751220444643,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_market-road_market-core_6_1",
+      "locationCm": [
+        -13591.816426104804,
+        -35620.588525814666,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -15735.339131320845,
+        -34522.38643388417,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1091.3446910108842,
+        1018.7751220444625,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_8_0",
+      "locationCm": [
+        -82646.97501005711,
+        -41765.6278017719,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -80711.25719834765,
+        -40766.08097309896,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        994.424409874584,
+        703.4322582475579,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_8_1",
+      "locationCm": [
+        -82889.61246104332,
+        -40795.51076379199,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -80953.89464933386,
+        -39795.96393511904,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        994.424409874584,
+        703.4322582475579,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_8_2",
+      "locationCm": [
+        -83132.24991202951,
+        -39825.39372581208,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81196.53210032005,
+        -38825.846897139134,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        994.424409874584,
+        703.4322582475579,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_8_3",
+      "locationCm": [
+        -83374.88736301572,
+        -38855.27668783216,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81439.16955130626,
+        -37855.72985915922,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        994.424409874584,
+        703.4322582475579,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_8_4",
+      "locationCm": [
+        -83617.52481400192,
+        -37885.159649852256,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81681.80700229247,
+        -36885.61282117931,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        994.424409874584,
+        703.4322582475579,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_8_5",
+      "locationCm": [
+        -83860.16226498812,
+        -36915.04261187234,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81924.44445327866,
+        -35915.495783199396,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        994.424409874584,
+        703.4322582475579,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_9_0",
+      "locationCm": [
+        -84345.50573170141,
+        -34964.42099235766,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82350.74421972308,
+        -34088.62203163131,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        975.6788397804194,
+        654.7471809584458,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_9_1",
+      "locationCm": [
+        -84526.63647613859,
+        -33980.96196757848,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82531.87496416026,
+        -33105.163006852126,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        975.6788397804194,
+        654.747180958444,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_9_2",
+      "locationCm": [
+        -84707.76722057577,
+        -32997.502942799285,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82713.00570859744,
+        -32121.70398207293,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        975.6788397804194,
+        654.7471809584422,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_9_3",
+      "locationCm": [
+        -84888.89796501295,
+        -32014.043918020103,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82894.13645303462,
+        -31138.244957293748,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        975.6788397804194,
+        654.7471809584422,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_10_0",
+      "locationCm": [
+        -85238.21687199648,
+        -29955.954819750074,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -83101.38237009292,
+        -29531.64877365367,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        917.2059813436354,
+        531.6780123902354,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_10_1",
+      "locationCm": [
+        -85202.66789681495,
+        -28956.586884321114,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -83065.83339491139,
+        -28532.28083822471,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        917.2059813436354,
+        531.6780123902354,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_10_2",
+      "locationCm": [
+        -85167.1189216334,
+        -27957.218948892154,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -83030.28441972984,
+        -27532.91290279575,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        917.2059813436354,
+        531.6780123902354,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_10_3",
+      "locationCm": [
+        -85131.56994645187,
+        -26957.851013463194,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82994.7354445483,
+        -26533.54496736679,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        917.2059813436354,
+        531.6780123902354,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_11_0",
+      "locationCm": [
+        -85052.67743361254,
+        -25042.541170685556,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82878.60595435277,
+        -24902.86113507333,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        970.7340939668793,
+        642.9795628911452,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_11_1",
+      "locationCm": [
+        -84886.04399590919,
+        -24056.522257358247,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82711.97251664942,
+        -23916.84222174602,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        970.7340939668793,
+        642.9795628911452,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_11_2",
+      "locationCm": [
+        -84719.41055820585,
+        -23070.503344030938,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82545.33907894608,
+        -22930.823308418712,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        970.7340939668793,
+        642.9795628911452,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_11_3",
+      "locationCm": [
+        -84552.7771205025,
+        -22084.48443070363,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82378.70564124273,
+        -21944.804395091403,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        970.7340939668793,
+        642.9795628911452,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_11_4",
+      "locationCm": [
+        -84386.14368279916,
+        -21098.465517376324,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82212.07220353938,
+        -20958.7854817641,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        970.7340939668793,
+        642.9795628911452,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_12_0",
+      "locationCm": [
+        -84114.7231807256,
+        -19495.933217729496,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81937.37633515606,
+        -19423.42098863805,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        980.8593010515906,
+        667.4912672981991,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_12_1",
+      "locationCm": [
+        -83917.73627009566,
+        -18515.527099306895,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81740.38942452612,
+        -18443.014870215447,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        980.8593010515906,
+        667.4912672981991,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_12_2",
+      "locationCm": [
+        -83720.74935946571,
+        -17535.120980884294,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81543.40251389617,
+        -17462.608751792846,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        980.8593010515906,
+        667.4912672981991,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_12_3",
+      "locationCm": [
+        -83523.76244883577,
+        -16554.714862461693,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81346.41560326623,
+        -16482.202633370245,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        980.8593010515906,
+        667.4912672981991,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_cross-town-road_library-cross-town_12_4",
+      "locationCm": [
+        -83326.77553820582,
+        -15574.308744039097,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81149.42869263628,
+        -15501.796514947651,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        980.8593010515906,
+        667.4912672981991,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_0_0",
+      "locationCm": [
+        -84473.39840016281,
+        -29307.31323477109,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -83395.91717584386,
+        -29997.761317718723,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        694.9257356683956,
+        694.9257874538816,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_0_1",
+      "locationCm": [
+        -83647.78842968735,
+        -28743.07199500612,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -82570.3072053684,
+        -29433.520077953755,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        694.9257356683956,
+        694.9257874538816,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_0_2",
+      "locationCm": [
+        -82822.1784592119,
+        -28178.830755241153,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -81744.69723489294,
+        -28869.278838188788,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        694.9257356683956,
+        694.9257874538816,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_1_0",
+      "locationCm": [
+        -81329.67614080041,
+        -27158.82017779076,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -80252.91519802915,
+        -27850.391010119805,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        694.7891376601619,
+        694.7891897326554,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_1_1",
+      "locationCm": [
+        -80503.47849811956,
+        -26595.43979543032,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -79426.7175553483,
+        -27287.010627759366,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        694.7891376601619,
+        694.7891897326554,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_1_2",
+      "locationCm": [
+        -79677.2808554387,
+        -26032.05941306988,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -78600.51991266744,
+        -26723.630245398926,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        694.7891376601619,
+        694.7891897326554,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_1_3",
+      "locationCm": [
+        -78851.08321275785,
+        -25468.67903070944,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -77774.32226998659,
+        -26160.249863038487,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        694.7891376601619,
+        694.7891897326554,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_1_4",
+      "locationCm": [
+        -78024.88557007698,
+        -24905.298648349002,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -76948.12462730572,
+        -25596.869480678048,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        694.7891376601619,
+        694.7891897326554,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_1_5",
+      "locationCm": [
+        -77198.68792739612,
+        -24341.918265988563,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -76121.92698462486,
+        -25033.48909831761,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        694.7891376601619,
+        694.7891897326554,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_2_0",
+      "locationCm": [
+        -75980.7233348128,
+        -23514.112353360393,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -74957.41469459728,
+        -24282.567798305765,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        683.3201289265126,
+        683.3202009918168,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_2_1",
+      "locationCm": [
+        -75115.541396029,
+        -23012.654266575162,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -74092.23275581347,
+        -23781.109711520534,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        683.3201289265126,
+        683.3202009918168,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_2_2",
+      "locationCm": [
+        -74250.35945724521,
+        -22511.196179789928,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -73227.05081702968,
+        -23279.6516247353,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        683.3201289265126,
+        683.3202009918168,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_2_3",
+      "locationCm": [
+        -73385.17751846141,
+        -22009.738093004697,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -72361.86887824588,
+        -22778.19353795007,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        683.3201289265126,
+        683.3202009918168,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_2_4",
+      "locationCm": [
+        -72519.9955796776,
+        -21508.280006219466,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -71496.68693946207,
+        -22276.735451164837,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        683.3201289265126,
+        683.3202009918168,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_2_5",
+      "locationCm": [
+        -71654.8136408938,
+        -21006.821919434235,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -70631.50500067827,
+        -21775.277364379606,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        683.3201289265126,
+        683.3202009918168,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_3_0",
+      "locationCm": [
+        -70187.69753578235,
+        -20193.606169329356,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -69414.14735778859,
+        -21213.069001477623,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        607.325063675089,
+        607.3252071840616,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_3_1",
+      "locationCm": [
+        -69218.21740387456,
+        -19948.436281626906,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -68444.6672258808,
+        -20967.899113775173,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        607.325063675089,
+        607.3252071840616,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_3_2",
+      "locationCm": [
+        -68248.73727196675,
+        -19703.266393924456,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -67475.18709397299,
+        -20722.729226072723,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        607.325063675089,
+        607.3252071840616,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_3_3",
+      "locationCm": [
+        -67279.25714005895,
+        -19458.096506222006,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -66505.70696206519,
+        -20477.559338370273,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        607.325063675089,
+        607.3252071840616,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_4_0",
+      "locationCm": [
+        -65437.361312786146,
+        -19377.618519194,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -65856.42891927429,
+        -20586.77801454531,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        706.2100281813473,
+        706.2100422897602,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_4_1",
+      "locationCm": [
+        -64695.5478672486,
+        -20048.224820998355,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -65114.61547373675,
+        -21257.384316349668,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        706.2100281813509,
+        706.2100422897602,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_library-lane_library-cross-town_4_2",
+      "locationCm": [
+        -63953.73442171105,
+        -20718.83112280271,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -64372.80202819919,
+        -21927.99061815402,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        706.2100281813473,
+        706.2100422897602,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_0_0",
+      "locationCm": [
+        -24014.704357359453,
+        8085.518983819691,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -25497.13353052005,
+        7454.971365775399,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.8007425678334,
+        554.3328610442368,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_0_1",
+      "locationCm": [
+        -23928.234201828927,
+        7089.264542322679,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -25410.663374989523,
+        6458.716924278387,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.8007425678334,
+        554.3328610442368,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_0_2",
+      "locationCm": [
+        -23841.764046298398,
+        6093.010100825664,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -25324.193219458994,
+        5462.462482781372,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.8007425678334,
+        554.3328610442368,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_0_3",
+      "locationCm": [
+        -23755.293890767873,
+        5096.75565932865,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -25237.723063928468,
+        4466.208041284358,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.8007425678334,
+        554.3328610442368,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_1_0",
+      "locationCm": [
+        -23663.672093308363,
+        4041.146440293629,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -25146.339566757222,
+        3411.1593648423086,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.6336052971237,
+        554.104327675308,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_1_1",
+      "locationCm": [
+        -23577.578624861824,
+        3044.8593758935913,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -25060.246098310683,
+        2414.872300442271,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.6336052971237,
+        554.104327675308,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_1_2",
+      "locationCm": [
+        -23491.48515641528,
+        2048.5723114935536,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24974.15262986414,
+        1418.5852360422332,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.6336052971237,
+        554.1043276753078,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_1_3",
+      "locationCm": [
+        -23405.391687968742,
+        1052.2852470935159,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24888.0591614176,
+        422.2981716421957,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.6336052971237,
+        554.1043276753079,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_1_4",
+      "locationCm": [
+        -23319.2982195222,
+        55.99818269347816,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24801.965692971058,
+        -573.988892757842,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.6336052971237,
+        554.1043276753078,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_1_5",
+      "locationCm": [
+        -23233.20475107566,
+        -940.2888817065586,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24715.87222452452,
+        -1570.2759571578788,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        690.6336052971237,
+        554.1043276753078,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_2_0",
+      "locationCm": [
+        -23072.3195913811,
+        -2808.927400395127,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24575.856167872767,
+        -3387.342748748405,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        674.9533275042086,
+        532.8993165768015,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_2_1",
+      "locationCm": [
+        -23020.67894466232,
+        -3807.593132062368,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24524.215521153987,
+        -4386.008480415647,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        674.9533275042086,
+        532.8993165768015,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_2_2",
+      "locationCm": [
+        -22969.03829794354,
+        -4806.258863729609,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24472.57487443521,
+        -5384.674212082888,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        674.9533275042086,
+        532.8993165768015,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_2_3",
+      "locationCm": [
+        -22917.39765122476,
+        -5804.92459539685,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24420.93422771643,
+        -6383.339943750128,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        674.9533275042086,
+        532.8993165768015,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_2_4",
+      "locationCm": [
+        -22865.75700450598,
+        -6803.590327064092,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24369.293580997648,
+        -7382.00567541737,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        674.9533275042086,
+        532.8993165768015,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_2_5",
+      "locationCm": [
+        -22814.1163577872,
+        -7802.256058731333,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24317.652934278867,
+        -8380.67140708461,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        674.9533275042086,
+        532.8993165768011,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_civic-street_civic-node_2_6",
+      "locationCm": [
+        -22762.475711068422,
+        -8800.921790398574,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -24266.01228756009,
+        -9379.337138751853,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        674.9533275042086,
+        532.8993165768006,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_station-road_civic-node_0_0",
+      "locationCm": [
+        -40988.94537214324,
+        4010.394754276542,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -39452.37464039569,
+        4494.271741118996,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        655.2194947302269,
+        506.8040561003927,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_station-road_civic-node_0_1",
+      "locationCm": [
+        -40978.43500381509,
+        5010.339518829867,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -39441.86427206754,
+        5494.216505672322,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        655.2194947302269,
+        506.8040561003927,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_station-road_civic-node_0_2",
+      "locationCm": [
+        -40967.92463548693,
+        6010.284283383193,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -39431.35390373938,
+        6494.161270225647,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        655.2194947302269,
+        506.8040561003927,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_station-road_civic-node_1_0",
+      "locationCm": [
+        -40952.93927293871,
+        7435.959673327805,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -39416.092378129375,
+        7918.958818227509,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        655.5010934963211,
+        507.1722622970915,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_station-road_civic-node_1_1",
+      "locationCm": [
+        -40941.85770233426,
+        8435.898270839141,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -39405.01080752492,
+        8918.897415738847,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        655.5010934963211,
+        507.17226229709195,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_1_3",
+      "locationCm": [
+        -14140.027281819252,
+        -1252.4346650834777,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -14328.52384708614,
+        1612.4442049727575,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        627.9637697513044,
+        1247.3965507088224,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_1_4",
+      "locationCm": [
+        -15134.055334810597,
+        -1143.3098289267427,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -15322.551900077486,
+        1721.5690411294925,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        627.9637697513044,
+        1247.3965507088224,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_2_0",
+      "locationCm": [
+        -17041.955538323295,
+        -632.6295317346339,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -15495.819860319349,
+        1786.5699971210106,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1180.4172001607621,
+        1221.659334890453,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_2_1",
+      "locationCm": [
+        -17777.90715088641,
+        44.40460622722094,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -16231.771472882465,
+        2463.6041350828655,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1180.4172001607621,
+        1221.659334890453,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_2_2",
+      "locationCm": [
+        -18513.858763449523,
+        721.4387441890749,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -16967.723085445577,
+        3140.6382730447194,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1180.4172001607621,
+        1221.6593348904528,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_2_3",
+      "locationCm": [
+        -19249.81037601264,
+        1398.4728821509289,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -17703.674698008694,
+        3817.6724110065734,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1180.4172001607621,
+        1221.6593348904532,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_2_4",
+      "locationCm": [
+        -19985.761988575752,
+        2075.507020112783,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -18439.626310571806,
+        4494.706548968427,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1180.4172001607621,
+        1221.6593348904528,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_3_0",
+      "locationCm": [
+        -21199.38524530003,
+        3201.799036476601,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -19894.769416405186,
+        5759.344624380972,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1122.1334322908806,
+        1258.9567138446027,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_3_1",
+      "locationCm": [
+        -21997.436553632324,
+        3804.3885395955276,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -20692.82072473748,
+        6361.934127499899,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1122.1334322908806,
+        1258.9567138446027,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_3_2",
+      "locationCm": [
+        -22795.487861964615,
+        4406.978042714454,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -21490.872033069772,
+        6964.523630618825,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1122.1334322908806,
+        1258.9567138446023,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_3_3",
+      "locationCm": [
+        -23593.539170296906,
+        5009.567545833383,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -22288.923341402064,
+        7567.113133737754,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1122.1334322908806,
+        1258.9567138446023,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_3_4",
+      "locationCm": [
+        -24391.5904786292,
+        5612.157048952309,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -23086.97464973436,
+        8169.70263685668,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1122.1334322908806,
+        1258.9567138446032,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_4_0",
+      "locationCm": [
+        -24803.963824942035,
+        6473.536499595015,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -25660.01646556644,
+        9214.017437622515,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        648.7817921657443,
+        1253.9149066247464,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_4_1",
+      "locationCm": [
+        -25795.817951261062,
+        6346.157568433242,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -26651.87059188547,
+        9086.638506460742,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        648.7817921657443,
+        1253.9149066247464,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_4_2",
+      "locationCm": [
+        -26787.672077580093,
+        6218.778637271469,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -27643.7247182045,
+        8959.25957529897,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        648.7817921657443,
+        1253.9149066247464,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_4_3",
+      "locationCm": [
+        -27779.526203899124,
+        6091.3997061097,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -28635.57884452353,
+        8831.8806441372,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        648.7817921657443,
+        1253.9149066247464,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_5_0",
+      "locationCm": [
+        -28771.15308709355,
+        5982.089790836495,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -30033.927463068034,
+        8560.551109257689,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        812.5222185674902,
+        1291.4986874844435,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_5_1",
+      "locationCm": [
+        -29732.10838869427,
+        5705.386143723788,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -30994.882764668753,
+        8283.847462144982,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        812.5222185674902,
+        1291.4986874844435,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_5_2",
+      "locationCm": [
+        -30693.063690294985,
+        5428.682496611082,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -31955.83806626947,
+        8007.143815032275,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        812.522218567492,
+        1291.4986874844444,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_5_3",
+      "locationCm": [
+        -31654.018991895704,
+        5151.978849498375,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -32916.79336787019,
+        7730.440167919568,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        812.522218567492,
+        1291.4986874844444,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_5_4",
+      "locationCm": [
+        -32614.974293496423,
+        4875.275202385668,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -33877.74866947091,
+        7453.736520806861,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        812.5222185674938,
+        1291.4986874844444,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_5_5",
+      "locationCm": [
+        -33575.929595097135,
+        4598.571555272962,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -34838.70397107162,
+        7177.032873694155,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        812.5222185674938,
+        1291.4986874844444,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_6_0",
+      "locationCm": [
+        -34501.88545890595,
+        4335.193217428661,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -35926.21578386716,
+        6828.052022216445,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        875.4653663468343,
+        1298.327592752963,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_6_1",
+      "locationCm": [
+        -35443.280379355165,
+        3997.8868229555956,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -36867.61070431638,
+        6490.745627743379,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        875.4653663468343,
+        1298.327592752963,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_6_2",
+      "locationCm": [
+        -36384.675299804374,
+        3660.580428482528,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -37809.00562476559,
+        6153.439233270312,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        875.4653663468343,
+        1298.327592752963,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_6_3",
+      "locationCm": [
+        -37326.07022025359,
+        3323.2740340094633,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -38750.400545214805,
+        5816.132838797247,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        875.4653663468343,
+        1298.327592752963,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_6_4",
+      "locationCm": [
+        -38267.4651407028,
+        2985.9676395363967,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -39691.795465664014,
+        5478.826444324181,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        875.4653663468343,
+        1298.327592752963,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_unity-avenue_civic-node_7_0",
+      "locationCm": [
+        -39323.812820280145,
+        2617.5051906128137,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -41015.14746178137,
+        4937.515756465911,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        976.3953112160307,
+        1297.6530739484215,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_6_1",
+      "locationCm": [
+        -6815.646531790429,
+        39268.23249541653,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -4453.506450466108,
+        40900.21170221214,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1299.2155818297442,
+        954.3241413306096,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_6_2",
+      "locationCm": [
+        -7232.101326444939,
+        40177.38891980634,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -4869.961245120618,
+        41809.36812660195,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1299.2155818297442,
+        954.3241413306096,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_6_3",
+      "locationCm": [
+        -7648.556121099449,
+        41086.54534419616,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -5286.4160397751275,
+        42718.524550991766,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1299.2155818297442,
+        954.3241413306096,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_6_4",
+      "locationCm": [
+        -8065.0109157539555,
+        41995.70176858597,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -5702.870834429634,
+        43627.680975381576,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1299.2155818297442,
+        954.3241413306096,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_7_0",
+      "locationCm": [
+        -8518.227973460263,
+        42989.52126035098,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -6238.591283861342,
+        44734.89183952509,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1295.4604608443642,
+        996.2890578454026,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_7_1",
+      "locationCm": [
+        -8978.578031711739,
+        43877.258734984025,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -6698.941342112817,
+        45622.629314158134,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1295.4604608443642,
+        996.2890578454026,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_7_2",
+      "locationCm": [
+        -9438.928089963214,
+        44764.99620961708,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -7159.291400364293,
+        46510.36678879119,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1295.4604608443642,
+        996.2890578454026,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_7_3",
+      "locationCm": [
+        -9899.27814821469,
+        45652.733684250124,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -7619.641458615768,
+        47398.10426342423,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1295.4604608443642,
+        996.2890578454026,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_7_4",
+      "locationCm": [
+        -10359.628206466166,
+        46540.47115888317,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -8079.991516867245,
+        48285.84173805728,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1295.4604608443642,
+        996.2890578454026,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_7_5",
+      "locationCm": [
+        -10819.978264717642,
+        47428.208633516224,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -8540.34157511872,
+        49173.57921269033,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1295.4604608443642,
+        996.2890578454026,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_7_6",
+      "locationCm": [
+        -11280.328322969119,
+        48315.94610814927,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -9000.691633370197,
+        50061.31668732338,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1295.4604608443642,
+        996.2890578454026,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_8_0",
+      "locationCm": [
+        -11760.302845057153,
+        49243.62093925618,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -9543.853626856293,
+        51068.56333789481,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1290.8080947318704,
+        1025.2154834562607,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_8_1",
+      "locationCm": [
+        -12251.777218509927,
+        50114.512976330356,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -10035.32800030907,
+        51939.45537496899,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1290.8080947318704,
+        1025.2154834562607,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_8_2",
+      "locationCm": [
+        -12743.2515919627,
+        50985.405013404525,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -10526.802373761842,
+        52810.34741204316,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1290.8080947318704,
+        1025.2154834562607,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_8_3",
+      "locationCm": [
+        -13234.725965415475,
+        51856.2970504787,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -11018.276747214615,
+        53681.23944911733,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1290.8080947318704,
+        1025.2154834562607,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_8_4",
+      "locationCm": [
+        -13726.20033886825,
+        52727.18908755287,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -11509.751120667392,
+        54552.1314861915,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1290.8080947318704,
+        1025.2154834562607,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_8_5",
+      "locationCm": [
+        -14217.674712321024,
+        53598.081124627046,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -12001.225494120165,
+        55423.02352326568,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1290.8080947318704,
+        1025.2154834562607,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_8_6",
+      "locationCm": [
+        -14709.149085773797,
+        54468.97316170122,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -12492.699867572937,
+        56293.915560339854,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1290.8080947318704,
+        1025.2154834562607,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_9_0",
+      "locationCm": [
+        -15271.134844125912,
+        55470.09183866455,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -13164.361361209845,
+        57420.62186583507,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1279.672881396542,
+        1069.8880316025316,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_9_1",
+      "locationCm": [
+        -15812.335728684362,
+        56310.98517467879,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -13705.562245768295,
+        58261.51520184931,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1279.672881396542,
+        1069.8880316025316,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_9_2",
+      "locationCm": [
+        -16353.536613242812,
+        57151.87851069302,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -14246.763130326744,
+        59102.40853786354,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1279.672881396542,
+        1069.8880316025316,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_9_3",
+      "locationCm": [
+        -16894.73749780126,
+        57992.77184670726,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -14787.964014885194,
+        59943.30187387778,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1279.672881396542,
+        1069.8880316025316,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_9_4",
+      "locationCm": [
+        -17435.93838235971,
+        58833.665182721496,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -15329.164899443644,
+        60784.195209892016,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1279.672881396542,
+        1069.8880316025316,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_10_0",
+      "locationCm": [
+        -18178.969320568598,
+        60010.78195469451,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -16334.542216216434,
+        62211.04342823423,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1240.6580873397925,
+        1154.3514537666051,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    },
+    {
+      "label": "TC_Road_garden-avenue_garden-node_10_1",
+      "locationCm": [
+        -18821.736081650786,
+        60776.843891386256,
+        0.0
+      ],
+      "boundsCentreCm": [
+        -16977.308977298624,
+        62977.10536492598,
+        -32.0
+      ],
+      "boundsExtentCm": [
+        1240.6580873397934,
+        1154.3514537666051,
+        12.0
+      ],
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Meshes/SM_RoadStraight10m"
+    }
+  ],
+  "retainedRoadAuthority": "TC_Ground22 source-centred carriageways and original canonical road-ribbon level",
+  "groundActor": "TC_Inland24_Ground",
+  "groundInstances": 2964,
+  "previousGroundTopCm": -24,
+  "newGroundTopCm": -5,
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "e26c776beb58b0073f59412b35815a9bf5f390a38b5466f8b82e3986ab455844",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "dc7c84bca1f0c366a8e27dc07240f1f5a79fa33294f07331b334e46bd8249eff"
+  },
+  "limitations": [
+    "Road intersections and surface materials still require detailed review",
+    "Legacy pavement/drain module heights are not reconciled by this pass"
+  ],
+  "playableAcceptance": "not-established"
+}

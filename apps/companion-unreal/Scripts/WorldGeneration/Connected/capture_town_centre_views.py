@@ -28,6 +28,12 @@ sys.path.insert(0, str(SCRIPTS))
 from mcp_client import UnrealMcp
 
 EXTRA_CAMERAS = {
+    "market-road-source-centre": {
+        "id": "market-road-source-centre",
+        "locationCm": [-7870.0, -25900.0, 165.0],
+        "rotation": {"pitch": 2.0, "yaw": 54.4, "roll": 0.0},
+        "fov": 68.0,
+    },
     "market-road-frontage-a": {
         "id": "market-road-frontage-a",
         "locationCm": [-9800.0, -24800.0, 165.0],
