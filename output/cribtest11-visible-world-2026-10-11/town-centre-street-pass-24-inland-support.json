@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T04:56:59.484905+00:00",
+  "pid": 13584,
+  "districtId": "town-centre",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "bounds": {
+    "minX": -556.625,
+    "maxX": 573.92,
+    "minZ": -992.69,
+    "maxZ": 28.855
+  },
+  "minimumSourceSouthBankZ": 43.91,
+  "groundTopCm": -24.0,
+  "actorLabel": "TC_Inland24_Ground",
+  "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
+  "tileDimensionsCm": [
+    1964.5096153846155,
+    1983.4122807017543
+  ],
+  "instanceCount": 2964,
+  "gridCounts": [
+    52,
+    57
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "0096a7c7203a9abf18c9bfe745fa9b9c19855c901d67c8b16d8d533717296257",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "90fb82f4132f2e3a24af855bc29f3f5858c9a0ac96cbab8960d2e19e14b56fd9"
+  },
+  "playableAcceptance": "not-established",
+  "limitations": [
+    "Flat inland support; terrain finish and district-edge continuation remain incomplete",
+    "No coastline change or distant substitute district",
+    "Navigation and runtime collision unverified"
+  ]
+}

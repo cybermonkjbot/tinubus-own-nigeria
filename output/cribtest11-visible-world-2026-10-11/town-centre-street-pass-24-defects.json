@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-24-inland-support.json",
+  "previewSet": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-inland24-daylight",
+  "status": "ground void repair verified in five matched views; district incomplete",
+  "observations": [
+    {"camera": "market-road-frontage-a", "improvement": "Foreground and right-side ground present", "defect": "Thin side-on frontage, uniform land finish, raised road slab cuts and sparse context"},
+    {"camera": "market-road-frontage-b", "improvement": "Foreground blue void removed", "defect": "Sparse side-on blocks, visible support edges and unfinished parcel-depth buildings"},
+    {"camera": "civic-street-approach", "improvement": "Ground fills foreground and right-side approach", "defect": "Blank building back dominates; tiled surface seams and raised support joins"},
+    {"camera": "civic-terrace-open-a", "improvement": "Large foreground gap closed", "defect": "Empty ground expanse, blank side walls and insufficient near-world street context"},
+    {"camera": "civic-terrace-open-b", "improvement": "Foreground and road-surround ground continuous in image", "defect": "Blank right wall, exposed slab edges and thin distant frontage strips"}
+  ],
+  "acceptance": {"finishedNeighbourhood": false, "runtimeTraversal": "not-inspected", "navigation": "not-built", "trafficAndResidents": "not-established"},
+  "next": "Parcel-depth exterior bodies and corner returns, coherent surface joins and source-aligned street approaches within Town Centre"
+}

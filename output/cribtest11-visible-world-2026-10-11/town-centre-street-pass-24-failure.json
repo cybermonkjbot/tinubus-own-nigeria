@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "pid": 13584,
+  "operation": "inland-support-pass24-first-attempt",
+  "error": "AttributeError: Actor has no attribute add_instance_component",
+  "stage": "component attachment after owned empty actor creation",
+  "mapSaved": false,
+  "recovery": "Remove only empty TC_Inland24_Ground actor, save owned detail map, release exception references, use existing SubobjectDataSubsystem instancing pattern."
+}
