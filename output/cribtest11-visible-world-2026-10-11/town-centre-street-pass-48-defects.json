@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 48,
+  "matchedAfterImagesInspected": 3,
+  "improvements": ["Coarse bilinear shoulder triangle fans replaced by clipped 15cm cells", "Station Road4/10 matched views show substantially reduced faceting with unchanged ramps and footprint"],
+  "remainingDefects": ["Thin surface seams and plain concrete", "Kerb/drain-end gaps require close-up correction", "College Lane10 heavily shaded; finish acceptance incomplete", "Underground drainage/culvert/inlet/outlet structure unfinished", "Road ribbon seams and brown asphalt remain", "Compound rear/side contacts and gate fittings unfinished", "Sparse repetitive adjoining blocks, roofs/rainwater, services/signage/foliage and prior Market/Garden/pass42 defects remain"],
+  "captureFailurePreserved": "Legacy fixed camera list StopIteration at 2026.10.12-07.00.29 UTC; corrected direct-pose wrapper completed all captures",
+  "sourcePositionsPreserved": true,
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "workingDrainage": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "nextArea": "Town Centre close-up drain/end contacts, compound fittings and varied adjoining exterior fabric"
+}

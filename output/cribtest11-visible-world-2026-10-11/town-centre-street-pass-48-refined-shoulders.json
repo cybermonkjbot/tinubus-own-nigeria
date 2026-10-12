@@ -1,0 +1,442 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:59:54.987415+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          180,
+          15
+        ],
+        [
+          286,
+          15
+        ],
+        [
+          490.3413012122966,
+          -1
+        ]
+      ],
+      "footprintSource": "town-centre-street-pass-47-entrance-approaches.json",
+      "polygonCount": 12,
+      "gridStepCm": 15,
+      "vertices": 1744,
+      "triangles": 872
+    },
+    {
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          180,
+          15
+        ],
+        [
+          286,
+          15
+        ],
+        [
+          691.9903224036083,
+          -1
+        ]
+      ],
+      "footprintSource": "town-centre-street-pass-47-entrance-approaches.json",
+      "polygonCount": 8,
+      "gridStepCm": 15,
+      "vertices": 1464,
+      "triangles": 732
+    },
+    {
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          180,
+          15
+        ],
+        [
+          286,
+          15
+        ],
+        [
+          853.9750851438037,
+          -1
+        ]
+      ],
+      "footprintSource": "town-centre-street-pass-47-entrance-approaches.json",
+      "polygonCount": 4,
+      "gridStepCm": 15,
+      "vertices": 552,
+      "triangles": 276
+    }
+  ],
+  "createdActors": [
+    {
+      "label": "TC_Shoulder48_station-road-4",
+      "sourceId": "station-road-4:shoulders",
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "role": "shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48/Meshes/SM_station_road_4_shoulders",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/shoulders48-import-source/SM_station_road_4_shoulders.obj",
+        "sourceObjSha256": "9784e6c369db59591c6e45275fd3a760cd6a856952a51ce739e61ffd5d28c846",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48/Meshes/SM_station_road_4_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -117.7404556274414,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            182.25955200195312,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 2616,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -39061.89378626275,
+          17585.94444689447,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -2.448077725328473,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Shoulder48_station-road-10",
+      "sourceId": "station-road-10:shoulders",
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "role": "shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48/Meshes/SM_station_road_10_shoulders",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/shoulders48-import-source/SM_station_road_10_shoulders.obj",
+        "sourceObjSha256": "6209a5362d2f6e9a90dc793ff52e6c1e5241cc7b255ca7171669b95d1196f37d",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48/Meshes/SM_station_road_10_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -144.86769104003906,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            155.13230895996094,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 2196,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -31706.172448563644,
+          37612.26747358096,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.31909344349892,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Shoulder48_college-lane-10",
+      "sourceId": "college-lane-10:shoulders",
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "role": "shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48/Meshes/SM_college_lane_10_shoulders",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/shoulders48-import-source/SM_college_lane_10_shoulders.obj",
+        "sourceObjSha256": "726d46993bdbaf2b536251df46d8828bdcf93093ff03e84543f006a171ae82bf",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48/Meshes/SM_college_lane_10_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            90.0,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            121.00658416748047,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 828,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42057.20829983799,
+          44447.30915447685,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -104.08274438022009,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "removedActors": [
+    {
+      "label": "TC_Approach47_station-road-4_shoulders",
+      "sourceId": "station-road-4:shoulders",
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "role": "shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Approaches47/Meshes/SM_station_road_4_shoulders",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/approaches47-import-source/SM_station_road_4_shoulders.obj",
+        "sourceObjSha256": "7c6f0a00753fc17bd61508b59d92b8bf562c97dd03e36466f0811e7e228f3ef5",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Approaches47/Meshes/SM_station_road_4_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -117.7404556274414,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            182.25955200195312,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 432,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -39061.89378626275,
+          17585.94444689447,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -2.448077725328473,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Approach47_station-road-10_shoulders",
+      "sourceId": "station-road-10:shoulders",
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "role": "shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Approaches47/Meshes/SM_station_road_10_shoulders",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/approaches47-import-source/SM_station_road_10_shoulders.obj",
+        "sourceObjSha256": "0e358776bf4b81c9ba8d22f0cc0c3f9c5dbd56c7acdf6229037ce131983aafc4",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Approaches47/Meshes/SM_station_road_10_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -144.86769104003906,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            155.13230895996094,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 288,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -31706.172448563644,
+          37612.26747358096,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.31909344349892,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Approach47_college-lane-10_shoulders",
+      "sourceId": "college-lane-10:shoulders",
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "role": "shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Approaches47/Meshes/SM_college_lane_10_shoulders",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/approaches47-import-source/SM_college_lane_10_shoulders.obj",
+        "sourceObjSha256": "3e3d49ab8bee5993ad8f391f6b0ae64ccc203bfc89a8b7922c7b617b20b0e378",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Approaches47/Meshes/SM_college_lane_10_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            90.0,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            121.00658416748047,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 144,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42057.20829983799,
+          44447.30915447685,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -104.08274438022009,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48/Meshes/SM_station_road_4_shoulders.uasset": "75973acb5dcd2aaef9814f00988c3c7bff4c6c41e8025964990315217ac32fb0",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48/Meshes/SM_station_road_10_shoulders.uasset": "2f23603d66c869c1144d663c01855a8c0b1d9054073de0d499b3ecc3342e53e0",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48/Meshes/SM_college_lane_10_shoulders.uasset": "72193ef36c8026cf80d61e18ac613a8f910ae12bdc422d78353405b6527baa11",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "c3fc0d252a8634ac5056c255c94802f7c47bd53e485cce044e189b2165445264",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "18930b00b7be70da0761d0a9972d790fb200ad04aa3aa83c24f33e62d00657de"
+  },
+  "cameras": [
+    {
+      "id": "station-road-4-road-approach",
+      "locationCm": [
+        -39698.486351952626,
+        17913.434760199136,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": -20.448077725328474,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "station-road-10-road-approach",
+      "locationCm": [
+        -32136.06552634367,
+        38184.71130635132,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": -46.31909344349892,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "college-lane-10-road-approach",
+      "locationCm": [
+        -41608.06480827609,
+        45004.776753524166,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": -122.08274438022009,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ],
+  "visualAcceptance": "pending",
+  "limitations": [
+    "Same bilinear profile/footprint with 15cm tessellation; edge normals and finish still require visual review",
+    "Static support only; no drainage excavation or runtime movement acceptance"
+  ]
+}
