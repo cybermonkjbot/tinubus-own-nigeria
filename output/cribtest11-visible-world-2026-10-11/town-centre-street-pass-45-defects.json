@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "passes": [43, 44, 45],
+  "correctedBlockImagesInspected": 10,
+  "matchedEntranceImagesInspected": 16,
+  "fixedDefects": ["498 identity-matched original frontage actors overlapped new source-centred apartment shells", "Eight provisional residential shop shutters replaced with closed double-door portals"],
+  "remainingDefects": ["Apartment facade grammar, finishes and rooflines remain repetitive", "Sparse surrounding blocks and undifferentiated ground", "Apartment roofs/rainwater routes unfinished; upper roof inspection incomplete", "Pass42 shop roof materials, gutter fittings and ground outfalls unaccepted", "Compound boundaries, gates, services, signs and accepted foliage coverage missing", "Several entrance views remain too dark for complete finish acceptance", "Fitted entrance paths remain visually plain with ground material boundaries", "Upstream drain/road transition shoulders and junction corners incomplete", "Market floor parity, warm asphalt and Garden material discontinuity remain", "Closed portals have no lobby, door action or admitted access"],
+  "sourcePositionsPreserved": true,
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; editor-only static content",
+  "nextArea": "Town Centre apartment compounds/varied finishes, source-defined shoulders, remaining College Lane and Arcade Crescent parcels"
+}

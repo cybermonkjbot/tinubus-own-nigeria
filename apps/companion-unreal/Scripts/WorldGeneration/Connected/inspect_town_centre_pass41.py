@@ -10,10 +10,10 @@ ROOT = Path('C:/dev/cribtest-game')
 OUT = ROOT / 'output/cribtest11-visible-world-2026-10-11'
 
 
-def execute(expected_pid, roof_pass=None):
+def execute(expected_pid, roof_pass=None, shell_pass=41, cleanup_pass=None):
     assert os.getpid() == expected_pid
     assert Path(unreal.Paths.project_dir()).resolve() == ROOT / 'apps/companion-unreal'
-    receipt = json.loads((OUT / 'town-centre-street-pass-41-parcel-frontage.json').read_text())
+    receipt = json.loads((OUT / f'town-centre-street-pass-{shell_pass}-parcel-frontage.json').read_text())
     roof = json.loads((OUT / f'town-centre-street-pass-{roof_pass}-roof-details.json').read_text()) if roof_pass else None
     editor = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
     assert editor.get_editor_world().get_path_name().split('.')[0] == receipt['mapPackage']
@@ -70,6 +70,10 @@ def execute(expected_pid, roof_pass=None):
                     roof_vertices += 1
     files=dict(receipt['files'])
     if roof:files.update(roof['files'])
+    if cleanup_pass:
+        cleanup=json.loads((OUT/f'town-centre-street-pass-{cleanup_pass}-superseded-frontage.json').read_text())
+        assert all(r['label'] not in actors for r in cleanup['removedActors'])
+        files.update(cleanup['files'])
     for path,digest in files.items():
         assert hashlib.sha256((ROOT/path).read_bytes()).hexdigest() == digest
     result = {'schemaVersion':1,'recordedAt':datetime.now(timezone.utc).isoformat(),'pid':expected_pid,
@@ -79,6 +83,6 @@ def execute(expected_pid, roof_pass=None):
               'roofActors':len(roof['createdActors']) if roof else 0,'roofVertexInstances':roof_vertices,
               'dirtyPackages':[],'gameWorld':str(editor.get_game_world()),'visualAcceptance':'pending captures',
               'runtimeTraversal':'not-inspected'}
-    with (OUT/f'town-centre-street-pass-{roof_pass or 41}-saved-readback.json').open('x',encoding='utf-8') as stream:
+    with (OUT/f'town-centre-street-pass-{cleanup_pass or roof_pass or shell_pass}-saved-readback.json').open('x',encoding='utf-8') as stream:
         json.dump(result,stream,indent=2);stream.write('\n')
     print(json.dumps(result))

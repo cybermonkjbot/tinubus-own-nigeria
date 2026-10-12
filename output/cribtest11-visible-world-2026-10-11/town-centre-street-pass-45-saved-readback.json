@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:42:54.700110+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround.uasset": "50a9eb2a936dc6cc5c688d72fe0e9dad31d97de37840e289ba2427d6f9a1c7e4",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door.uasset": "6348644da0d516d6923a05cf16365a2ef2d043149bbcefa84bcd1aae21920256",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_1_threshold.uasset": "872c0e80f101f59e104fa539d6eade3f1cd62bc40d79d6d2680724aff896a2a8",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_4_threshold.uasset": "341e19c8af545dd360b35b048f150186688332df9becf9781304a2ffc9745dc1",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_9_threshold.uasset": "771df695526cbd1975f4b2b0ba8628382af9cffeea12fe76d621589f54b4a360",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_10_threshold.uasset": "2a2fb168f48f28dc1b9499e945e509077bc5ed2a0b3c2fea6adb0460d1663588",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_12_threshold.uasset": "2e41c452dc6c25aa06467ae9a1a4f46545d5c8fe043345926fc12ecb97ecb25d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_8_threshold.uasset": "72775eb79d020d72783ea1f510d4813471bd72bb90e816fedb69cb634c5b4140",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_10_threshold.uasset": "91d723ffa9a1947ee4bc2df25dbfb6331cd66b08d2cdf87dab4b32b36577c92f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_12_threshold.uasset": "8d1652608e98aa2fe2673c281f504c624ebb20f97fbcccc9a7233b8d7e285a7f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "fa5f08b54a905fb90a019c16221ce59844389f94d1a050ab2902f4b8fa5a97e6",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "0bc2b0a5d71c997441a559839d4580288217224760581491e663ab55ac8c7522"
+  },
+  "safeReloadCompleted": true,
+  "retainedShellActors": 3087,
+  "newEntranceActors": 24,
+  "removedProvisionalShutters": 8,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

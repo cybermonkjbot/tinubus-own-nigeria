@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:35:16.497256+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "safeReloadCompleted": true,
+  "actors": 3095,
+  "frameVertexInstances": 19188,
+  "sourceFloors": {
+    "station-road-1": 8,
+    "station-road-4": 9,
+    "station-road-9": 9,
+    "station-road-10": 6,
+    "station-road-12": 7,
+    "college-lane-8": 7,
+    "college-lane-10": 8,
+    "college-lane-12": 9
+  },
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks43/Meshes/SM_station_road_1_frame.uasset": "bb8805a2f97971aafc27bc0ece5e9d7a90187054e4fe65f29d4a515d0adb38ad",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks43/Meshes/SM_station_road_4_frame.uasset": "14601194864c029ed7a061ac32160eca24a4ac15662d00b6955d0de8415aedd8",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks43/Meshes/SM_station_road_9_frame.uasset": "3fffb5b6684662a4d65d739dd25d43b47bbbc7fe7c8e626cd22d76767305cdeb",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks43/Meshes/SM_station_road_10_frame.uasset": "96aeb4a4dd8d46761eba8e75d2b072b7722aca04441ee9cb948e1dd28cb79206",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks43/Meshes/SM_station_road_12_frame.uasset": "bea25fb004f7a511eacc4b592fdddb37b7914a6f21f150e0696eee600ed5ae16",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks43/Meshes/SM_college_lane_8_frame.uasset": "e8195bd260778365adfc68585c550b47c06b813feb197eba24bdc4cc2f2d9e1b",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks43/Meshes/SM_college_lane_10_frame.uasset": "93bfe129653fe5e268d76e5fa72d1614ad70063c33d51191514f77df04b8219f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks43/Meshes/SM_college_lane_12_frame.uasset": "39e262a0cce44f9c55aa6629c4473b6da79410c3ee0b5b99c864304c4588e6e1",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "805dc315f2b42a71c9e58d45578f285e4314592e9b754639e7d3fd6838086cdc",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "c8964eafd64c1eb60d99d1842f1824776b2a912af05fbf1dd0988e64fa64f420"
+  },
+  "roofActors": 0,
+  "roofVertexInstances": 0,
+  "dirtyPackages": [],
+  "gameWorld": "None",
+  "visualAcceptance": "pending captures",
+  "runtimeTraversal": "not-inspected"
+}

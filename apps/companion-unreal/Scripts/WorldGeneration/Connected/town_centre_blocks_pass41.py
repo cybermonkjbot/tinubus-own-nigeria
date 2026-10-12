@@ -23,18 +23,29 @@ def box(vertices, faces, x0, x1, y0, y1, z0, z1):
         faces.extend([[offset+q[0],offset+q[i],offset+q[i+1]] for i in (1,2)])
 
 
-def execute(expected_pid):
+def execute(expected_pid, focus=FOCUS, pass_number=41):
     BASE.ensure_identity(expected_pid)
     assert BASE.active_world_package() == BASE.TARGET_MAP and not BASE.dirty_names()
-    target = OUT / 'town-centre-street-pass-41-parcel-frontage.json'
+    target = OUT / f'town-centre-street-pass-{pass_number}-parcel-frontage.json'
+    namespace = NS if pass_number == 41 else f'/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks{pass_number}'
+    prefix = f'TC_Block{pass_number}_'
     assert not target.exists()
-    assert not any(a.get_actor_label().startswith('TC_Block41_') for a in BASE.actors().get_all_level_actors())
+    assert not any(a.get_actor_label().startswith(prefix) for a in BASE.actors().get_all_level_actors())
     parcels, roads = BASE.canonical()
     lookup = BASE.v3_modules()
+    original, _ = BASE.frontage_rows(parcels, roads, BASE.load_frontage_data(), lookup)
+    labels = {a.get_actor_label() for a in BASE.actors().get_all_level_actors()}
+    # Older frontage has module/index labels but no parcel tags. Require explicit reconciliation.
+    conflicts = [{'label': 'TC_'+r['module']+'_'+str(i), 'sourceId': r['sourceId']}
+                 for i,r in enumerate(original) if r['sourceId'].split(':')[0] in focus
+                 and 'TC_'+r['module']+'_'+str(i) in labels]
+    assert not conflicts, 'Existing original frontage must be reconciled before shell authoring: '+json.dumps(conflicts)
     plans, rows = [], []
-    for pid in FOCUS:
+    for pid in focus:
         p = parcels[pid]
-        assert p['district'] == 'town-centre' and p['kind'] == 'shop'
+        assert p['district'] == 'town-centre' and p['kind'] in {'shop','apartment','townhouse'}
+        assert not any(str(t).startswith('Baddie.Source:'+pid+':') and not a.get_actor_label().startswith('TC_Ground22_')
+                       for a in BASE.actors().get_all_level_actors() for t in a.tags), 'Parcel already has authored content'
         centre = BASE.ue_xy_from_source(p['x'], p['z'])
         entrance = BASE.ue_xy_from_source(p['entrance'][0], p['entrance'][2])
         inward = BASE.normalize2(BASE.sub2(centre, entrance))
@@ -70,7 +81,7 @@ def execute(expected_pid):
                              'module':module, 'transform':{'locationCm':BASE.transform_local(wall_origin,yaw+angle,position),
                              'rotation':{'pitch':0,'yaw':yaw+angle,'roll':0},'scale':[1,1,1]}}
                         rows.append(BASE.upgrade_frontage_row(r,pid,lookup))
-                    shop = wall == 'front' and floor == 0
+                    shop = wall == 'front' and floor == 0 and (p['kind']=='shop' or bay==count//2)
                     add('ShopBay' if shop else 'ResidentialBay',[0,-bay*390,floor*300])
                     if shop:
                         add('Shutter2800',[0,-bay*390-55,0])
@@ -90,9 +101,9 @@ def execute(expected_pid):
     BASE.make_level_current(BASE.DETAIL_MAP)
     created, files = [], {}
     for plan in plans:
-        package = NS+'/Meshes/SM_'+plan['parcelId'].replace('-','_')+'_frame'
+        package = namespace+'/Meshes/SM_'+plan['parcelId'].replace('-','_')+'_frame'
         mesh, asset = IMPORT.import_section(package,0,0,0,0,supplied_geometry=(plan['vertices'],plan['faces']),
-                                           source_directory='blocks41-import-source',vertical_uv=True)
+                                           source_directory=f'blocks{pass_number}-import-source',vertical_uv=True)
         files.update(BASE.package_files(package))
         rows.append({'sourceId':plan['parcelId']+':structural-frame','parcelId':plan['parcelId'],'module':'StructuralFrame',
                      'mesh':package,'materials':[IMPORT.MATERIAL], 'asset':asset,
@@ -100,8 +111,8 @@ def execute(expected_pid):
     for index,row in enumerate(rows):
         t = row['transform']
         actor = BASE.actors().spawn_actor_from_class(unreal.StaticMeshActor,unreal.Vector(*t['locationCm']),BASE.rotator(t['rotation']))
-        actor.set_actor_label(f'TC_Block41_{index}')
-        actor.tags = ['Baddie.TownCentreBlocks41','Baddie.Source:'+row['sourceId'],'Baddie.NoRuntimeAuthority']
+        actor.set_actor_label(prefix+str(index))
+        actor.tags = [f'Baddie.TownCentreBlocks{pass_number}','Baddie.Source:'+row['sourceId'],'Baddie.NoRuntimeAuthority']
         c = actor.get_component_by_class(unreal.StaticMeshComponent)
         c.set_static_mesh(BASE.assets().load_asset(row['mesh']))
         for slot,path in enumerate(row['materials']):c.set_material(slot,BASE.assets().load_asset(path))
@@ -116,7 +127,7 @@ def execute(expected_pid):
     receipt = {'schemaVersion':1,'recordedAt':datetime.now(timezone.utc).isoformat(),'pid':expected_pid,
                'mapPackage':BASE.TARGET_MAP,'detailLevelPackage':BASE.DETAIL_MAP,'source':BASE.district_selection()['source'],
                'plans':plans,'createdActors':created,'files':files,'visualAcceptance':'pending',
-               'limitations':['Closed pass-by shop shells; no destination interiors or activity simulation',
+               'limitations':['Closed pass-by shells; apartment entrance shutter is provisional, not admitted residential access',
                               'Roof finish, rainwater routes, signage and forecourt dressing remain',
                               'Frame UV0 U=(X+Z)/271,V=1-Y/271; measured mapping, not final frame artwork'],
                'runtimeTraversal':'not-inspected'}

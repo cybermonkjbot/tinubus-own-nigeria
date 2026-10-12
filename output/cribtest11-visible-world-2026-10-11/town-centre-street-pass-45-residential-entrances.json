@@ -1,0 +1,1880 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:42:23.787487+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "parcelId": "station-road-1",
+      "roadId": "station-road",
+      "sourceEntranceCm": [
+        -41303.0,
+        9908.0
+      ],
+      "doorCentreCm": [
+        -41676.953317506064,
+        10107.092664709999,
+        0
+      ],
+      "shutter": {
+        "label": "TC_Block43_7",
+        "sourceId": "station-road-1:front:floor:0:bay:3:Shutter2800",
+        "parcelId": "station-road-1",
+        "module": "Shutter2800",
+        "transform": {
+          "locationCm": [
+            -41678.48108408385,
+            9967.10100092503,
+            0
+          ],
+          "rotation": {
+            "pitch": 0,
+            "yaw": 179.37474061123532,
+            "roll": 0
+          },
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+        "materials": [
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+        ],
+        "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+      },
+      "yaw": 179.37474061123532
+    },
+    {
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "sourceEntranceCm": [
+        -38572.0,
+        17565.0
+      ],
+      "doorCentreCm": [
+        -38060.09698850234,
+        17542.953033152186,
+        0
+      ],
+      "shutter": {
+        "label": "TC_Block43_456",
+        "sourceId": "station-road-4:front:floor:0:bay:2:Shutter2800",
+        "parcelId": "station-road-4",
+        "module": "Shutter2800",
+        "transform": {
+          "locationCm": [
+            -38054.072963229206,
+            17682.823369962778,
+            0
+          ],
+          "rotation": {
+            "pitch": 0,
+            "yaw": -2.4661272789734183,
+            "roll": 0
+          },
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+        "materials": [
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+        ],
+        "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+      },
+      "yaw": -2.4661272789734183
+    },
+    {
+      "parcelId": "station-road-9",
+      "roadId": "station-road",
+      "sourceEntranceCm": [
+        -33280.0,
+        38461.0
+      ],
+      "doorCentreCm": [
+        -33657.25326823378,
+        38664.163649152215,
+        0
+      ],
+      "shutter": {
+        "label": "TC_Block43_850",
+        "sourceId": "station-road-9:front:floor:0:bay:3:Shutter2800",
+        "parcelId": "station-road-9",
+        "module": "Shutter2800",
+        "transform": {
+          "locationCm": [
+            -33723.63415171928,
+            38540.901415245455,
+            0
+          ],
+          "rotation": {
+            "pitch": 0,
+            "yaw": 151.69603312714762,
+            "roll": 0
+          },
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+        "materials": [
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+        ],
+        "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+      },
+      "yaw": 151.69603312714762
+    },
+    {
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "sourceEntranceCm": [
+        -31097.000000000004,
+        37284.0
+      ],
+      "doorCentreCm": [
+        -30772.827225386143,
+        36887.82226095073,
+        0
+      ],
+      "shutter": {
+        "label": "TC_Block43_1294",
+        "sourceId": "station-road-10:front:floor:0:bay:3:Shutter2800",
+        "parcelId": "station-road-10",
+        "module": "Shutter2800",
+        "transform": {
+          "locationCm": [
+            -30706.418666368478,
+            37011.069586638536,
+            0
+          ],
+          "rotation": {
+            "pitch": 0,
+            "yaw": -28.31683202246247,
+            "roll": 0
+          },
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+        "materials": [
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+        ],
+        "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+      },
+      "yaw": -28.31683202246247
+    },
+    {
+      "parcelId": "station-road-12",
+      "roadId": "station-road",
+      "sourceEntranceCm": [
+        -28795.999999999996,
+        42239.0
+      ],
+      "doorCentreCm": [
+        -28528.947209965496,
+        41873.39334359593,
+        0
+      ],
+      "shutter": {
+        "label": "TC_Block43_1581",
+        "sourceId": "station-road-12:front:floor:0:bay:2:Shutter2800",
+        "parcelId": "station-road-12",
+        "module": "Shutter2800",
+        "transform": {
+          "locationCm": [
+            -28462.483816517375,
+            41996.61110745878,
+            0
+          ],
+          "rotation": {
+            "pitch": 0,
+            "yaw": -28.34232676000059,
+            "roll": 0
+          },
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+        "materials": [
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+        ],
+        "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+      },
+      "yaw": -28.34232676000059
+    },
+    {
+      "parcelId": "college-lane-8",
+      "roadId": "college-lane",
+      "sourceEntranceCm": [
+        -48650.0,
+        46219.0
+      ],
+      "doorCentreCm": [
+        -48855.58077877193,
+        45782.61849561795,
+        0
+      ],
+      "shutter": {
+        "label": "TC_Block43_1913",
+        "sourceId": "college-lane-8:front:floor:0:bay:2:Shutter2800",
+        "parcelId": "college-lane-8",
+        "module": "Shutter2800",
+        "transform": {
+          "locationCm": [
+            -48728.93130519948,
+            45722.9535071924,
+            0
+          ],
+          "rotation": {
+            "pitch": 0,
+            "yaw": -115.2252807312825,
+            "roll": 0
+          },
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+        "materials": [
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+        ],
+        "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+      },
+      "yaw": -115.2252807312825
+    },
+    {
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "sourceEntranceCm": [
+        -42265.0,
+        43619.0
+      ],
+      "doorCentreCm": [
+        -42579.69926854657,
+        43165.00554075243,
+        0
+      ],
+      "shutter": {
+        "label": "TC_Block43_2199",
+        "sourceId": "college-lane-10:front:floor:0:bay:4:Shutter2800",
+        "parcelId": "college-lane-10",
+        "module": "Shutter2800",
+        "transform": {
+          "locationCm": [
+            -42443.892028601505,
+            43130.9997533258,
+            0
+          ],
+          "rotation": {
+            "pitch": 0,
+            "yaw": -104.05767446730596,
+            "roll": 0
+          },
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+        "materials": [
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+        ],
+        "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+      },
+      "yaw": -104.05767446730596
+    },
+    {
+      "parcelId": "college-lane-12",
+      "roadId": "college-lane",
+      "sourceEntranceCm": [
+        -37206.0,
+        42359.0
+      ],
+      "doorCentreCm": [
+        -37267.20504320023,
+        41900.9738296049,
+        0
+      ],
+      "shutter": {
+        "label": "TC_Block43_2628",
+        "sourceId": "college-lane-12:front:floor:0:bay:2:Shutter2800",
+        "parcelId": "college-lane-12",
+        "module": "Shutter2800",
+        "transform": {
+          "locationCm": [
+            -37128.43849657408,
+            41882.43075711262,
+            0
+          ],
+          "rotation": {
+            "pitch": 0,
+            "yaw": -97.61122140842339,
+            "roll": 0
+          },
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+        "materials": [
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+          "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+        ],
+        "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+      },
+      "yaw": -97.61122140842339
+    }
+  ],
+  "createdActors": [
+    {
+      "label": "TC_Entrance45_0",
+      "sourceId": "station-road-1:source-entrance-door-link",
+      "parcelId": "station-road-1",
+      "roadId": "station-road",
+      "role": "threshold-link",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_1_threshold",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_station_road_1_threshold.obj",
+        "sourceObjSha256": "c5184ebb051baf56c6f6d7f62571177f0029d6c0162a483e7b4ce2c47d5ce1bf",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_1_threshold",
+        "boundsCm": [
+          [
+            0.0,
+            -90.0,
+            -12.0
+          ],
+          [
+            423.64959716796875,
+            90.0,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 36,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -41303.0,
+          9908.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 151.96917254226537,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_1",
+      "sourceId": "station-road-1:residential-surround",
+      "parcelId": "station-road-1",
+      "roadId": "station-road",
+      "role": "surround",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_surround.obj",
+        "sourceObjSha256": "7c65e0419906b308ab27fd9ec997e59a55a7ef82ab5a2aecb3b4661a64031e8f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+        "boundsCm": [
+          [
+            -100.0,
+            -305.0,
+            0.0
+          ],
+          [
+            28.0,
+            25.0,
+            265.0
+          ]
+        ],
+        "uvProbesVerified": 144,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -41678.48108408385,
+          9967.10100092503,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 179.37474061123532,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_2",
+      "sourceId": "station-road-1:residential-door",
+      "parcelId": "station-road-1",
+      "roadId": "station-road",
+      "role": "door",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_door.obj",
+        "sourceObjSha256": "32d32b3b3c1f49b80cbb8aef5b0734051b561ea9f80a39a435e34ff944365e15",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+        "boundsCm": [
+          [
+            7.0,
+            -258.0,
+            1.0
+          ],
+          [
+            19.0,
+            -22.0,
+            233.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -41678.48108408385,
+          9967.10100092503,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 179.37474061123532,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_3",
+      "sourceId": "station-road-4:source-entrance-door-link",
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "role": "threshold-link",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_4_threshold",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_station_road_4_threshold.obj",
+        "sourceObjSha256": "bc5f37bfa94610400051728922df49d1aa38429c100915b27100734c2040c0e5",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_4_threshold",
+        "boundsCm": [
+          [
+            0.0,
+            -90.0,
+            -12.0
+          ],
+          [
+            512.3775634765625,
+            90.0,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 36,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -38572.0,
+          17565.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -2.466127278973559,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_4",
+      "sourceId": "station-road-4:residential-surround",
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "role": "surround",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_surround.obj",
+        "sourceObjSha256": "7c65e0419906b308ab27fd9ec997e59a55a7ef82ab5a2aecb3b4661a64031e8f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+        "boundsCm": [
+          [
+            -100.0,
+            -305.0,
+            0.0
+          ],
+          [
+            28.0,
+            25.0,
+            265.0
+          ]
+        ],
+        "uvProbesVerified": 144,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -38054.072963229206,
+          17682.823369962778,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -2.4661272789734183,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_5",
+      "sourceId": "station-road-4:residential-door",
+      "parcelId": "station-road-4",
+      "roadId": "station-road",
+      "role": "door",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_door.obj",
+        "sourceObjSha256": "32d32b3b3c1f49b80cbb8aef5b0734051b561ea9f80a39a435e34ff944365e15",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+        "boundsCm": [
+          [
+            7.0,
+            -258.0,
+            1.0
+          ],
+          [
+            19.0,
+            -22.0,
+            233.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -38054.072963229206,
+          17682.823369962778,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -2.4661272789734183,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_6",
+      "sourceId": "station-road-9:source-entrance-door-link",
+      "parcelId": "station-road-9",
+      "roadId": "station-road",
+      "role": "threshold-link",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_9_threshold",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_station_road_9_threshold.obj",
+        "sourceObjSha256": "6f4bde29d1e0b61773357180ee554442cf33ec466c5689b65d0f3563e1e4f7ad",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_9_threshold",
+        "boundsCm": [
+          [
+            0.0,
+            -90.0,
+            -12.0
+          ],
+          [
+            428.4804382324219,
+            90.0,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 36,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -33280.0,
+          38461.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 151.69603312714736,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_7",
+      "sourceId": "station-road-9:residential-surround",
+      "parcelId": "station-road-9",
+      "roadId": "station-road",
+      "role": "surround",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_surround.obj",
+        "sourceObjSha256": "7c65e0419906b308ab27fd9ec997e59a55a7ef82ab5a2aecb3b4661a64031e8f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+        "boundsCm": [
+          [
+            -100.0,
+            -305.0,
+            0.0
+          ],
+          [
+            28.0,
+            25.0,
+            265.0
+          ]
+        ],
+        "uvProbesVerified": 144,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -33723.63415171928,
+          38540.901415245455,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 151.69603312714762,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_8",
+      "sourceId": "station-road-9:residential-door",
+      "parcelId": "station-road-9",
+      "roadId": "station-road",
+      "role": "door",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_door.obj",
+        "sourceObjSha256": "32d32b3b3c1f49b80cbb8aef5b0734051b561ea9f80a39a435e34ff944365e15",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+        "boundsCm": [
+          [
+            7.0,
+            -258.0,
+            1.0
+          ],
+          [
+            19.0,
+            -22.0,
+            233.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -33723.63415171928,
+          38540.901415245455,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 151.69603312714762,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_9",
+      "sourceId": "station-road-10:source-entrance-door-link",
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "role": "threshold-link",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_10_threshold",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_station_road_10_threshold.obj",
+        "sourceObjSha256": "27272509984f9850a0338078f725d64337d4ee1bd04ee32e42a090fee36d8d33",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_10_threshold",
+        "boundsCm": [
+          [
+            0.0,
+            -90.0,
+            -12.0
+          ],
+          [
+            511.9031066894531,
+            90.0,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 36,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -31097.000000000004,
+          37284.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -50.708223744653985,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_10",
+      "sourceId": "station-road-10:residential-surround",
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "role": "surround",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_surround.obj",
+        "sourceObjSha256": "7c65e0419906b308ab27fd9ec997e59a55a7ef82ab5a2aecb3b4661a64031e8f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+        "boundsCm": [
+          [
+            -100.0,
+            -305.0,
+            0.0
+          ],
+          [
+            28.0,
+            25.0,
+            265.0
+          ]
+        ],
+        "uvProbesVerified": 144,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -30706.418666368478,
+          37011.069586638536,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.31683202246247,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_11",
+      "sourceId": "station-road-10:residential-door",
+      "parcelId": "station-road-10",
+      "roadId": "station-road",
+      "role": "door",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_door.obj",
+        "sourceObjSha256": "32d32b3b3c1f49b80cbb8aef5b0734051b561ea9f80a39a435e34ff944365e15",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+        "boundsCm": [
+          [
+            7.0,
+            -258.0,
+            1.0
+          ],
+          [
+            19.0,
+            -22.0,
+            233.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -30706.418666368478,
+          37011.069586638536,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.31683202246247,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_12",
+      "sourceId": "station-road-12:source-entrance-door-link",
+      "parcelId": "station-road-12",
+      "roadId": "station-road",
+      "role": "threshold-link",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_12_threshold",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_station_road_12_threshold.obj",
+        "sourceObjSha256": "b9b75742ed6b70533d8dd51aa2a11ca028fe23d934405fc68c9beea2580d5991",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_12_threshold",
+        "boundsCm": [
+          [
+            0.0,
+            -90.0,
+            -12.0
+          ],
+          [
+            452.7531433105469,
+            90.0,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 36,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -28795.999999999996,
+          42239.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -53.854208915139914,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_13",
+      "sourceId": "station-road-12:residential-surround",
+      "parcelId": "station-road-12",
+      "roadId": "station-road",
+      "role": "surround",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_surround.obj",
+        "sourceObjSha256": "7c65e0419906b308ab27fd9ec997e59a55a7ef82ab5a2aecb3b4661a64031e8f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+        "boundsCm": [
+          [
+            -100.0,
+            -305.0,
+            0.0
+          ],
+          [
+            28.0,
+            25.0,
+            265.0
+          ]
+        ],
+        "uvProbesVerified": 144,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -28462.483816517375,
+          41996.61110745878,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.34232676000059,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_14",
+      "sourceId": "station-road-12:residential-door",
+      "parcelId": "station-road-12",
+      "roadId": "station-road",
+      "role": "door",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_door.obj",
+        "sourceObjSha256": "32d32b3b3c1f49b80cbb8aef5b0734051b561ea9f80a39a435e34ff944365e15",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+        "boundsCm": [
+          [
+            7.0,
+            -258.0,
+            1.0
+          ],
+          [
+            19.0,
+            -22.0,
+            233.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -28462.483816517375,
+          41996.61110745878,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.34232676000059,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_15",
+      "sourceId": "college-lane-8:source-entrance-door-link",
+      "parcelId": "college-lane-8",
+      "roadId": "college-lane",
+      "role": "threshold-link",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_8_threshold",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_college_lane_8_threshold.obj",
+        "sourceObjSha256": "e1d9d5193c2e6e7225d68ae9e7a55289433f482caa3c1a9637a84434f23857ae",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_8_threshold",
+        "boundsCm": [
+          [
+            0.0,
+            -90.0,
+            -12.0
+          ],
+          [
+            482.3818664550781,
+            90.0,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 36,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -48650.0,
+          46219.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -115.22528073128272,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_16",
+      "sourceId": "college-lane-8:residential-surround",
+      "parcelId": "college-lane-8",
+      "roadId": "college-lane",
+      "role": "surround",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_surround.obj",
+        "sourceObjSha256": "7c65e0419906b308ab27fd9ec997e59a55a7ef82ab5a2aecb3b4661a64031e8f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+        "boundsCm": [
+          [
+            -100.0,
+            -305.0,
+            0.0
+          ],
+          [
+            28.0,
+            25.0,
+            265.0
+          ]
+        ],
+        "uvProbesVerified": 144,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -48728.93130519948,
+          45722.9535071924,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -115.2252807312825,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_17",
+      "sourceId": "college-lane-8:residential-door",
+      "parcelId": "college-lane-8",
+      "roadId": "college-lane",
+      "role": "door",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_door.obj",
+        "sourceObjSha256": "32d32b3b3c1f49b80cbb8aef5b0734051b561ea9f80a39a435e34ff944365e15",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+        "boundsCm": [
+          [
+            7.0,
+            -258.0,
+            1.0
+          ],
+          [
+            19.0,
+            -22.0,
+            233.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -48728.93130519948,
+          45722.9535071924,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -115.2252807312825,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_18",
+      "sourceId": "college-lane-10:source-entrance-door-link",
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "role": "threshold-link",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_10_threshold",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_college_lane_10_threshold.obj",
+        "sourceObjSha256": "f138fa674ab7884a93c0c2469f9a24bbb788f0099be734e6884929085222713e",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_10_threshold",
+        "boundsCm": [
+          [
+            0.0,
+            -90.0,
+            -12.0
+          ],
+          [
+            552.4007568359375,
+            90.0,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 36,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42265.0,
+          43619.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -124.72887385551844,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_19",
+      "sourceId": "college-lane-10:residential-surround",
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "role": "surround",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_surround.obj",
+        "sourceObjSha256": "7c65e0419906b308ab27fd9ec997e59a55a7ef82ab5a2aecb3b4661a64031e8f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+        "boundsCm": [
+          [
+            -100.0,
+            -305.0,
+            0.0
+          ],
+          [
+            28.0,
+            25.0,
+            265.0
+          ]
+        ],
+        "uvProbesVerified": 144,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42443.892028601505,
+          43130.9997533258,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -104.05767446730596,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_20",
+      "sourceId": "college-lane-10:residential-door",
+      "parcelId": "college-lane-10",
+      "roadId": "college-lane",
+      "role": "door",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_door.obj",
+        "sourceObjSha256": "32d32b3b3c1f49b80cbb8aef5b0734051b561ea9f80a39a435e34ff944365e15",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+        "boundsCm": [
+          [
+            7.0,
+            -258.0,
+            1.0
+          ],
+          [
+            19.0,
+            -22.0,
+            233.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -42443.892028601505,
+          43130.9997533258,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -104.05767446730596,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_21",
+      "sourceId": "college-lane-12:source-entrance-door-link",
+      "parcelId": "college-lane-12",
+      "roadId": "college-lane",
+      "role": "threshold-link",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_12_threshold",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_college_lane_12_threshold.obj",
+        "sourceObjSha256": "836779169755f0d01f3dafcd43327b6d464aca05fd2ba68e1e5fd33a039588eb",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_12_threshold",
+        "boundsCm": [
+          [
+            0.0,
+            -90.0,
+            -12.0
+          ],
+          [
+            462.097412109375,
+            90.0,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 36,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -37206.0,
+          42359.0,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -97.61122140842346,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_22",
+      "sourceId": "college-lane-12:residential-surround",
+      "parcelId": "college-lane-12",
+      "roadId": "college-lane",
+      "role": "surround",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_surround.obj",
+        "sourceObjSha256": "7c65e0419906b308ab27fd9ec997e59a55a7ef82ab5a2aecb3b4661a64031e8f",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround",
+        "boundsCm": [
+          [
+            -100.0,
+            -305.0,
+            0.0
+          ],
+          [
+            28.0,
+            25.0,
+            265.0
+          ]
+        ],
+        "uvProbesVerified": 144,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -37128.43849657408,
+          41882.43075711262,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -97.61122140842339,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Entrance45_23",
+      "sourceId": "college-lane-12:residential-door",
+      "parcelId": "college-lane-12",
+      "roadId": "college-lane",
+      "role": "door",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel"
+      ],
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/entrances45-import-source/SM_residential_door.obj",
+        "sourceObjSha256": "32d32b3b3c1f49b80cbb8aef5b0734051b561ea9f80a39a435e34ff944365e15",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door",
+        "boundsCm": [
+          [
+            7.0,
+            -258.0,
+            1.0
+          ],
+          [
+            19.0,
+            -22.0,
+            233.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=(Xcm+Zcm)/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "transform": {
+        "locationCm": [
+          -37128.43849657408,
+          41882.43075711262,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -97.61122140842339,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "removedActors": [
+    {
+      "label": "TC_Block43_7",
+      "sourceId": "station-road-1:front:floor:0:bay:3:Shutter2800",
+      "parcelId": "station-road-1",
+      "module": "Shutter2800",
+      "transform": {
+        "locationCm": [
+          -41678.48108408385,
+          9967.10100092503,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 179.37474061123532,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+      ],
+      "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+    },
+    {
+      "label": "TC_Block43_456",
+      "sourceId": "station-road-4:front:floor:0:bay:2:Shutter2800",
+      "parcelId": "station-road-4",
+      "module": "Shutter2800",
+      "transform": {
+        "locationCm": [
+          -38054.072963229206,
+          17682.823369962778,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -2.4661272789734183,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+      ],
+      "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+    },
+    {
+      "label": "TC_Block43_850",
+      "sourceId": "station-road-9:front:floor:0:bay:3:Shutter2800",
+      "parcelId": "station-road-9",
+      "module": "Shutter2800",
+      "transform": {
+        "locationCm": [
+          -33723.63415171928,
+          38540.901415245455,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 151.69603312714762,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+      ],
+      "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+    },
+    {
+      "label": "TC_Block43_1294",
+      "sourceId": "station-road-10:front:floor:0:bay:3:Shutter2800",
+      "parcelId": "station-road-10",
+      "module": "Shutter2800",
+      "transform": {
+        "locationCm": [
+          -30706.418666368478,
+          37011.069586638536,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.31683202246247,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+      ],
+      "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+    },
+    {
+      "label": "TC_Block43_1581",
+      "sourceId": "station-road-12:front:floor:0:bay:2:Shutter2800",
+      "parcelId": "station-road-12",
+      "module": "Shutter2800",
+      "transform": {
+        "locationCm": [
+          -28462.483816517375,
+          41996.61110745878,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -28.34232676000059,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+      ],
+      "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+    },
+    {
+      "label": "TC_Block43_1913",
+      "sourceId": "college-lane-8:front:floor:0:bay:2:Shutter2800",
+      "parcelId": "college-lane-8",
+      "module": "Shutter2800",
+      "transform": {
+        "locationCm": [
+          -48728.93130519948,
+          45722.9535071924,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -115.2252807312825,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+      ],
+      "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+    },
+    {
+      "label": "TC_Block43_2199",
+      "sourceId": "college-lane-10:front:floor:0:bay:4:Shutter2800",
+      "parcelId": "college-lane-10",
+      "module": "Shutter2800",
+      "transform": {
+        "locationCm": [
+          -42443.892028601505,
+          43130.9997533258,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -104.05767446730596,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+      ],
+      "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+    },
+    {
+      "label": "TC_Block43_2628",
+      "sourceId": "college-lane-12:front:floor:0:bay:2:Shutter2800",
+      "parcelId": "college-lane-12",
+      "module": "Shutter2800",
+      "transform": {
+        "locationCm": [
+          -37128.43849657408,
+          41882.43075711262,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -97.61122140842339,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Shutter2800",
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_painted_steel",
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Materials/M_aluminium"
+      ],
+      "sourceFBXSha256": "e7ca42a3e37e737138aff36286966adafeb0ba5aea76767d89909b71b0db3db6"
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround.uasset": "50a9eb2a936dc6cc5c688d72fe0e9dad31d97de37840e289ba2427d6f9a1c7e4",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door.uasset": "6348644da0d516d6923a05cf16365a2ef2d043149bbcefa84bcd1aae21920256",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_1_threshold.uasset": "872c0e80f101f59e104fa539d6eade3f1cd62bc40d79d6d2680724aff896a2a8",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_4_threshold.uasset": "341e19c8af545dd360b35b048f150186688332df9becf9781304a2ffc9745dc1",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_9_threshold.uasset": "771df695526cbd1975f4b2b0ba8628382af9cffeea12fe76d621589f54b4a360",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_10_threshold.uasset": "2a2fb168f48f28dc1b9499e945e509077bc5ed2a0b3c2fea6adb0460d1663588",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_station_road_12_threshold.uasset": "2e41c452dc6c25aa06467ae9a1a4f46545d5c8fe043345926fc12ecb97ecb25d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_8_threshold.uasset": "72775eb79d020d72783ea1f510d4813471bd72bb90e816fedb69cb634c5b4140",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_10_threshold.uasset": "91d723ffa9a1947ee4bc2df25dbfb6331cd66b08d2cdf87dab4b32b36577c92f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_college_lane_12_threshold.uasset": "8d1652608e98aa2fe2673c281f504c624ebb20f97fbcccc9a7233b8d7e285a7f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "fa5f08b54a905fb90a019c16221ce59844389f94d1a050ab2902f4b8fa5a97e6",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "0bc2b0a5d71c997441a559839d4580288217224760581491e663ab55ac8c7522"
+  },
+  "cameras": [
+    {
+      "id": "station-road-1-entrance",
+      "locationCm": [
+        -41029.72017596474,
+        9850.014348840006,
+        165
+      ],
+      "rotation": {
+        "pitch": 0,
+        "yaw": 158.33722961123533,
+        "roll": 0
+      },
+      "fov": 68
+    },
+    {
+      "id": "station-road-4-entrance",
+      "locationCm": [
+        -38698.73779284949,
+        17820.690180510654,
+        165
+      ],
+      "rotation": {
+        "pitch": 0,
+        "yaw": -23.503638278973416,
+        "roll": 0
+      },
+      "fov": 68
+    },
+    {
+      "id": "station-road-9-entrance",
+      "locationCm": [
+        -33203.50161703365,
+        38135.85555813604,
+        165
+      ],
+      "rotation": {
+        "pitch": 0,
+        "yaw": 130.65852212714762,
+        "roll": 0
+      },
+      "fov": 68
+    },
+    {
+      "id": "station-road-10-entrance",
+      "locationCm": [
+        -31226.460239262284,
+        37416.232223689556,
+        165
+      ],
+      "rotation": {
+        "pitch": 0,
+        "yaw": -49.35434302246247,
+        "roll": 0
+      },
+      "fov": 68
+    },
+    {
+      "id": "station-road-12-entrance",
+      "locationCm": [
+        -28982.345053885638,
+        42402.00510578872,
+        165
+      ],
+      "rotation": {
+        "pitch": 0,
+        "yaw": -49.379837760000584,
+        "roll": 0
+      },
+      "fov": 68
+    },
+    {
+      "id": "college-lane-8-entrance",
+      "locationCm": [
+        -48352.40498684536,
+        46264.08928644442,
+        165
+      ],
+      "rotation": {
+        "pitch": 0,
+        "yaw": -136.2627917312825,
+        "roll": 0
+      },
+      "fov": 68
+    },
+    {
+      "id": "college-lane-10-entrance",
+      "locationCm": [
+        -42179.30232702106,
+        43734.814534378376,
+        165
+      ],
+      "rotation": {
+        "pitch": 0,
+        "yaw": -125.09518546730595,
+        "roll": 0
+      },
+      "fov": 68
+    },
+    {
+      "id": "college-lane-12-entrance",
+      "locationCm": [
+        -36933.31480193936,
+        42512.13445234721,
+        165
+      ],
+      "rotation": {
+        "pitch": 0,
+        "yaw": -118.64873240842338,
+        "roll": 0
+      },
+      "fov": 68
+    }
+  ],
+  "visualAcceptance": "pending",
+  "limitations": [
+    "Closed steel doors; no lobby, opening action or admitted residential access",
+    "Native authored portal geometry reuses existing concrete/steel materials; final artwork acceptance pending",
+    "Source entrance to doorway support only; upstream road/drain transition remains incomplete"
+  ],
+  "runtimeTraversal": "not-inspected"
+}
