@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 50,
+  "sourceIds": ["arcade-crescent-1", "arcade-crescent-7", "arcade-crescent-9", "arcade-crescent"],
+  "matchedAfterImagesInspected": 6,
+  "improvements": ["Three empty source parcels now have exact-floor low-rise exteriors", "Shop sheet roof contrasts with townhouse parapets and recessed closed portals", "Two source-entrance-to-door paths physically reach the new residential portals"],
+  "remainingDefects": ["Sparse adjoining blocks and empty forecourts", "Townhouse facade grammar and silhouettes still similar", "Dark shop frontage and similarly distressed closed shutters", "No business signs, street services, compound boundaries or landscape dressing", "Road/pavement gaps, seams and drain-to-entrance transitions remain", "Townhouse roof drainage and shop gutter end fittings/outfalls unfinished", "Side/rear ground-contact review remains; wide views crop some edges"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "nextArea": "Town Centre Arcade Crescent compounds/forecourts, adjoining apartment parcels and source road entrance contacts"
+}

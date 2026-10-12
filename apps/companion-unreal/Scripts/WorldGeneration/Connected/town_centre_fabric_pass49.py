@@ -27,6 +27,9 @@ NS = '/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Fabric49'
 PREPARED = OUT / 'town-centre-street-pass-49-shop-preflight.json'
 RECEIPT = OUT / 'town-centre-street-pass-49-parcel-frontage.json'
 READBACK = OUT / 'town-centre-street-pass-49-saved-readback.json'
+PREFIX = 'TC_Fabric49_'
+TAG = 'Baddie.TownCentreFabric49'
+SOURCE_DIRECTORY = 'fabric49-import-source'
 
 
 def guard(pid):
@@ -42,7 +45,8 @@ def plan_data():
         signatures = json.loads((ROOT/'output/cribtest11-world-generation/coverage.json').read_text())['city']['architecture']
         assert pid not in {s['parcelId'] for s in signatures}, 'Signature buildings require source-specific detailing'
         p = parcels[pid]
-        assert p['district'] == 'town-centre' and p['floors'] == 3
+        assert p['district'] == 'town-centre' and p['floors'] >= 1
+        height = p['floors']*300
         civic = p['style'] == 'civic'
         assert civic or p['style'] == 'corner-shop'
         centre = BASE.ue_xy_from_source(p['x'], p['z'])
@@ -55,7 +59,7 @@ def plan_data():
         central = n//2
         door_y = width/2-central*390-195
         vertices, faces = [], []
-        for floor in range(4):
+        for floor in range(p['floors']+1):
             z = floor*300
             KIT.box(vertices, faces, 0, depth, -width/2, width/2, z-12, z)
             if floor:
@@ -65,10 +69,10 @@ def plan_data():
                     KIT.box(vertices, faces, 0, depth, y-28.5, y+12, z-20, z)
         for x in range(0, depth+1, 390):
             for y in (-width/2, width/2):
-                KIT.box(vertices, faces, x-12, x+12, y-12, y+12, 0, 900)
+                KIT.box(vertices, faces, x-12, x+12, y-12, y+12, 0, height)
         for y in range(-width//2, width//2+1, 390):
             for x in (0, depth):
-                KIT.box(vertices, faces, x-12, x+12, y-12, y+12, 0, 900)
+                KIT.box(vertices, faces, x-12, x+12, y-12, y+12, 0, height)
 
         def add(mod, wall, floor, bay, wall_origin, angle, local):
             row = {'sourceId':f'{pid}:{wall}:floor:{floor}:bay:{bay}:{mod}',
@@ -77,7 +81,7 @@ def plan_data():
                                 'rotation':{'pitch':0, 'yaw':yaw+angle, 'roll':0}, 'scale':[1,1,1]}}
             rows.append(BASE.upgrade_frontage_row(row, pid, lookup))
 
-        for floor in range(3):
+        for floor in range(p['floors']):
             for wall, local, angle, count in (
                 ('front',[0,width/2,0],0,n), ('rear',[depth,-width/2,0],180,n),
                 ('right',[0,-width/2,0],90,m), ('left',[depth,width/2,0],-90,m)):
@@ -104,12 +108,12 @@ def plan_data():
                 KIT.box(vertices,faces,-105,-75,y-15,y+15,0,285)
             KIT.box(vertices,faces,-120,210,door_y-225,door_y+225,285,300)
         plans.append({'parcelId':pid,'roadId':BASE.parcel_road(p,roads)['id'],'sourceParcel':p,
-                      'originCm':origin,'yaw':yaw,'widthCm':width,'depthCm':depth,'floors':3,
+                      'originCm':origin,'yaw':yaw,'widthCm':width,'depthCm':depth,'floors':p['floors'],
                       'sourceCentreCm':list(centre),'sourceEntranceCm':list(entrance),
                       'doorLocalCm':[180 if civic else 0,door_y,0],
                       'silhouette':'recessed portico and coping parapet' if civic else 'corner balconies and corrugated shed roof',
                       'vertices':vertices,'faces':faces})
-        pose = BASE.nearest_road_pose({'x':p['entrance'][0],'z':p['entrance'][2]},roads['college-lane'])
+        pose = BASE.nearest_road_pose({'x':p['entrance'][0],'z':p['entrance'][2]},BASE.parcel_road(p,roads))
         start = BASE.add2(pose['point'],BASE.mul2(pose['direction'],-800))
         target = BASE.transform_local(origin,yaw,[0,0,400])
         cameras.append({'id':pid+'-street','locationCm':[*start,165],
@@ -124,7 +128,7 @@ def original_removals():
     original,_ = BASE.frontage_rows(parcels,roads,BASE.load_frontage_data(),BASE.v3_modules())
     actors = {a.get_actor_label():a for a in BASE.actors().get_all_level_actors()}
     removals = []
-    assert not any(label.startswith('TC_Fabric49_') for label in actors)
+    assert not any(label.startswith(PREFIX) for label in actors)
     for index,row in enumerate(original):
         if row['sourceId'].split(':')[0] not in FOCUS:
             continue
@@ -182,7 +186,7 @@ def execute(pid):
     def fitted(plan, role, geometry, material, local=(0,0,0), vertical=True):
         package = NS+'/Meshes/SM_'+plan['parcelId'].replace('-','_')+'_'+role
         mesh,asset = IMPORT.import_section(package,0,0,0,0,supplied_geometry=geometry,
-                                          source_directory='fabric49-import-source',vertical_uv=vertical)
+                                          source_directory=SOURCE_DIRECTORY,vertical_uv=vertical)
         mesh.set_material(0,BASE.assets().load_asset(material))
         assert BASE.assets().save_loaded_asset(mesh)
         files.update(BASE.package_files(package))
@@ -196,16 +200,17 @@ def execute(pid):
     # Import and verify every replacement dependency before removing any old actor.
     for plan in plans:
         parcel_id = plan['parcelId']; civic = plan['sourceParcel']['style'] == 'civic'
+        height = plan['floors']*300
         fitted(plan,'StructuralFrame',(plan['vertices'],plan['faces']),IMPORT.MATERIAL)
         if civic:
             v,f = [],[]
             w,d = plan['widthCm'],plan['depthCm']
             for x in (0,d):
-                KIT.box(v,f,x-12,x+12,-w/2,w/2,900,970)
-                KIT.box(v,f,x-20,x+20,-w/2-20,w/2+20,970,978)
+                KIT.box(v,f,x-12,x+12,-w/2,w/2,height,height+70)
+                KIT.box(v,f,x-20,x+20,-w/2-20,w/2+20,height+70,height+78)
             for y in (-w/2,w/2):
-                KIT.box(v,f,0,d,y-12,y+12,900,970)
-                KIT.box(v,f,-20,d+20,y-20,y+20,970,978)
+                KIT.box(v,f,0,d,y-12,y+12,height,height+70)
+                KIT.box(v,f,-20,d+20,y-20,y+20,height+70,height+78)
             fitted(plan,'coping-parapet',(v,f),IMPORT.MATERIAL)
             door = BASE.transform_local(plan['originCm'],plan['yaw'],plan['doorLocalCm'])
             portal_origin = BASE.transform_local(door,plan['yaw'],[0,140,0])
@@ -223,14 +228,14 @@ def execute(pid):
             delta = BASE.sub2(door[:2],source)
             link['transform']['rotation']['yaw'] = math.degrees(math.atan2(delta[1],delta[0]))
         else:
-            fitted(plan,'corrugated-roof',ROOF.roof_geometry(plan['depthCm'],plan['widthCm'],70),metal,[0,0,900],False)
+            fitted(plan,'corrugated-roof',ROOF.roof_geometry(plan['depthCm'],plan['widthCm'],70),metal,[0,0,height],False)
             for i in range(plan['widthCm']//390):
                 gutter = lookup['Gutter3900']
                 rows.append({'sourceId':parcel_id+f':gutter:{i}','parcelId':parcel_id,'module':'Gutter3900',**gutter,
-                             'transform':{'locationCm':BASE.transform_local(plan['originCm'],plan['yaw'],[-35,plan['widthCm']/2-i*390,912]),
+                             'transform':{'locationCm':BASE.transform_local(plan['originCm'],plan['yaw'],[-35,plan['widthCm']/2-i*390,height+12]),
                                           'rotation':{'pitch':0,'yaw':plan['yaw'],'roll':0},'scale':[1,1,1]}})
             for side in (-1,1):
-                fitted(plan,'pipe_'+str(side),ROOF.pipe_geometry(912),pipe_material,[-35,side*(plan['widthCm']/2-20),0])
+                fitted(plan,'pipe_'+str(side),ROOF.pipe_geometry(height+12),pipe_material,[-35,side*(plan['widthCm']/2-20),0])
     for row in rows:
         assert BASE.assets().load_asset(row['mesh'])
         for material in row['materials']:
@@ -240,8 +245,8 @@ def execute(pid):
     for i,row in enumerate(rows):
         t = row['transform']
         a = BASE.actors().spawn_actor_from_class(unreal.StaticMeshActor,unreal.Vector(*t['locationCm']),BASE.rotator(t['rotation']))
-        a.set_actor_label('TC_Fabric49_'+str(i))
-        a.tags = ['Baddie.TownCentreFabric49','Baddie.Source:'+row['sourceId'],'Baddie.NoRuntimeAuthority']
+        a.set_actor_label(PREFIX+str(i))
+        a.tags = [TAG,'Baddie.Source:'+row['sourceId'],'Baddie.NoRuntimeAuthority']
         c = a.get_component_by_class(unreal.StaticMeshComponent)
         c.set_static_mesh(BASE.assets().load_asset(row['mesh']))
         for slot,material in enumerate(row['materials']):
