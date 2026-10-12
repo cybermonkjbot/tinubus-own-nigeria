@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-26-return-details.json",
+  "previewSet": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-returns26-daylight",
+  "status": "courtyard returns visually improved; neighbourhood partial",
+  "observations": [
+    {"camera": "market-road-frontage-a", "improvement": "Deeper residential return with balcony and ground-floor windows", "defect": "Dark middle-floor opening, repeated stacked bands, sparse right-side context and raised slab edges"},
+    {"camera": "market-road-frontage-b", "improvement": "Central block no longer reads as a thin side-on strip", "defect": "Uniform vacant ground expanse and sparse surrounding fabric"},
+    {"camera": "civic-street-approach", "improvement": "Blank wall replaced with residential windows, balcony and AC detail; projecting pipes removed", "defect": "Ground surface seams, repetitive finish and unfinished right-side context"},
+    {"camera": "civic-terrace-open-a", "improvement": "Opposing return masses have residential detail", "defect": "Large empty ground area and incomplete surrounding blocks"},
+    {"camera": "civic-terrace-open-b", "improvement": "Right corner has balcony and window detail; projecting downpipe removed", "defect": "Raised road edges, repetitive distant frontage and sparse context"}
+  ],
+  "missingReplacement": "Dimensioned corner downpipe routing for new courtyard wings",
+  "unverified": ["Courtyard passage traversal", "Corner mesh joins outside the five views", "Collision geometry and navigation", "Runtime gameplay"],
+  "next": ["Resolve ground/road/threshold height joins", "Fill dark middle-floor openings", "Populate adjoining canonical parcels with varied ordinary exterior buildings"],
+  "finishedNeighbourhood": false
+}
