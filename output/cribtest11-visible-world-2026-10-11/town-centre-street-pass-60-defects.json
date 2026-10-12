@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 60,
+  "sourceIds": ["old-town-lane", "old-town-lane-4", "old-town-lane-6", "old-town-lane-7", "old-town-lane-10"],
+  "matchedAfterImagesInspected": 4,
+  "improvements": ["Four stretched road-centre support modules replaced with fitted road-edge-to-entrance slabs", "Parcel7 narrow pale support strip removed from carriageway in matched view", "Source positions and16approach actors retained"],
+  "remainingDefects": ["Parcel7 triangular dark/contact shape remains; exact surface/shadow attribution and junction acceptance incomplete", "Parcel3 requires measured short transition", "Paving/material joints, drain structure/outfalls and forecourt finish incomplete", "Parcels6/10 need distinct fitted boundary layouts", "Sparse wider context, repeated facade grammar and missing services/planting", "Dark shadow-side software captures; GPU and runtime acceptance outstanding"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; editor-authored static content only",
+  "nextArea": "Parcel3 short transition and parcel7 junction-contact inspection"
+}

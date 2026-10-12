@@ -1,0 +1,20 @@
+{
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Supports60/Meshes/SM_old_town_lane_4_edge_support.uasset": "0800322c26ecf843b496fcb6f4892ae03dd994e64d78a8bbe39990242cbfa805",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Supports60/Meshes/SM_old_town_lane_6_edge_support.uasset": "64949f6b021e55df020a0098b3def0ce502cae4a4d68926015db8215240397db",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Supports60/Meshes/SM_old_town_lane_7_edge_support.uasset": "4ad39937937cdd3c5269afb81fad74ed15a7e300c232f2da491652a688736da5",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Supports60/Meshes/SM_old_town_lane_10_edge_support.uasset": "7d5fdec3e5497c8f7cfc16ec8da4c7b09a500b4480227eb625f4f46f81dadfdb",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "0817123ce2b6293c9a602851f7d04a579e69af636f3451b58a46cd07ef639bb1",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "b014ac5937b87ea243de3fa83eca5e6a81f0b2648dc950ecfdce2dde73051cc2"
+  },
+  "safeReloadCompleted": true,
+  "updatedSupportActors": 4,
+  "retainedApproachActors": 16,
+  "uvProbes": 144,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}
