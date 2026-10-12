@@ -1,0 +1,8 @@
+{
+  "pass": 62,
+  "operation": "prepare before native mutations",
+  "failure": "Initial rear posts intruded on the required20cm shell clearance for old-town-lane-6",
+  "nativeMutations": false,
+  "captureAttempt": "No capture occurred because preflight file did not exist",
+  "repair": "Rear coping and posts fitted to12..24cm inset instead of37cm; canonical shell and parcel unchanged"
+}

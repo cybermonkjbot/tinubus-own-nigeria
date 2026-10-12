@@ -35,7 +35,7 @@ execute=COMPOUND.execute
 inspect_saved=COMPOUND.inspect_saved
 
 
-def inspect_mesh_contract(pid):
+def inspect_mesh_contract(pid,target=None):
     COMPOUND.BASE.ensure_identity(pid)
     assert not COMPOUND.BASE.dirty_names()
     data=json.loads(COMPOUND.TARGET.read_text())
@@ -54,6 +54,6 @@ def inspect_mesh_contract(pid):
             probes+=1
     result={'pid':pid,'verifiedAssetCount':len(data['createdActors']),'uvProbes':probes,
             'sourceHashesMatched':True,'staticTriangleCollisionMatched':True,'runtimeTraversal':'not-inspected'}
-    with (COMPOUND.OUT/'town-centre-street-pass-58-mesh-readback.json').open('x',encoding='utf-8') as stream:
+    with (target or COMPOUND.OUT/'town-centre-street-pass-58-mesh-readback.json').open('x',encoding='utf-8') as stream:
         json.dump(result,stream,indent=2);stream.write('\n')
     print(json.dumps(result))

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 62,
+  "sourceIds": ["old-town-lane", "old-town-lane-6", "old-town-lane-10"],
+  "matchedAfterImagesInspected": 4,
+  "frontTreatment": "Open forecourts; source-fitted side/rear boundary only",
+  "remainingDefects": ["Rear contacts not rendered or accepted", "Plain concrete and side passage finish incomplete", "Sparse wider context and repeated facade grammar", "Road intersection contacts3/7 and paving joins unresolved", "Drain structure/outfalls, services and planting incomplete", "Target GPU and runtime traversal unaccepted"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; editor-authored static content only",
+  "nextArea": "Adjoining Old Town ordinary exterior density and junction/support contacts"
+}

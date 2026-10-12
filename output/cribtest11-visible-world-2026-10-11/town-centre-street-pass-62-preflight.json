@@ -1,0 +1,218 @@
+{
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "plans": [
+    {
+      "parcelId": "old-town-lane-6",
+      "roadId": "old-town-lane",
+      "sourceParcel": {
+        "id": "old-town-lane-6",
+        "name": "Old Town Lane 6",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": -198.41,
+        "z": -452.34,
+        "width": 27.21,
+        "depth": 24.44,
+        "floors": 9,
+        "units": 36,
+        "yaw": -1.3851649300947748,
+        "garden": 3,
+        "variant": 2,
+        "street": "Old Town Lane",
+        "entrance": [
+          -213.37,
+          0,
+          -449.53
+        ]
+      },
+      "centreCm": [
+        -45234.0,
+        -19841.0
+      ],
+      "yaw": -259.3641044239643,
+      "halfDepthCm": 1222.0,
+      "halfWidthCm": 1360.5,
+      "sideStartCm": -1070.046105648877,
+      "shellCornersLocalCm": [
+        [
+          -1169.9538925341906,
+          -1170.0461056488728
+        ],
+        [
+          -1170.046105648877,
+          1169.9538925341876
+        ],
+        [
+          1170.0461056488734,
+          -1169.953892534187
+        ],
+        [
+          1169.953892534187,
+          1170.0461056488734
+        ]
+      ],
+      "canopyCornersLocalCm": [
+        [
+          -1289.9834479264912,
+          -420.0508351089004
+        ],
+        [
+          -1290.0011812177756,
+          29.94916454168782
+        ],
+        [
+          -959.9834481827279,
+          -420.0378306952863
+        ],
+        [
+          -960.0011814740121,
+          29.962168955301934
+        ]
+      ],
+      "lateralWallClearanceCm": 153.45389435112656,
+      "rearWallClearanceCm": 27.953894351126564,
+      "frontTreatment": "Open forecourt; no front wall or gate",
+      "sourceEntranceCm": [
+        -44953.0,
+        -21337.0
+      ]
+    },
+    {
+      "parcelId": "old-town-lane-10",
+      "roadId": "old-town-lane",
+      "sourceParcel": {
+        "id": "old-town-lane-10",
+        "name": "Old Town Lane 10",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": -189.39,
+        "z": -584.3,
+        "width": 29.89,
+        "depth": 28.51,
+        "floors": 10,
+        "units": 40,
+        "yaw": -1.866128586306036,
+        "garden": 3,
+        "variant": 5,
+        "street": "Old Town Lane",
+        "entrance": [
+          -205.9,
+          0,
+          -589.32
+        ]
+      },
+      "centreCm": [
+        -58429.99999999999,
+        -18939.0
+      ],
+      "yaw": -286.9212920240507,
+      "halfDepthCm": 1425.5,
+      "halfWidthCm": 1494.5,
+      "sideStartCm": -1265.2136953938073,
+      "shellCornersLocalCm": [
+        [
+          -1364.786271146211,
+          -1365.2136953938073
+        ],
+        [
+          -1365.2136953938073,
+          1364.786271146211
+        ],
+        [
+          1365.2136953938073,
+          -1364.786271146211
+        ],
+        [
+          1364.786271146211,
+          1365.2136953938073
+        ]
+      ],
+      "canopyCornersLocalCm": [
+        [
+          -1484.9647545260882,
+          -225.23249724512533
+        ],
+        [
+          -1485.0352090723918,
+          224.7674972394941
+        ],
+        [
+          -1154.9647585707019,
+          -225.18083057783218
+        ],
+        [
+          -1155.0352131170055,
+          224.8191639067872
+        ]
+      ],
+      "lateralWallClearanceCm": 92.28630460619274,
+      "rearWallClearanceCm": 36.28630460619274,
+      "frontTreatment": "Open forecourt; no front wall or gate",
+      "sourceEntranceCm": [
+        -58932.00000000001,
+        -20590.0
+      ]
+    }
+  ],
+  "previewPoses": [
+    {
+      "id": "old-town-lane-6-side-left",
+      "locationCm": [
+        -43849.569676474195,
+        -21738.11845159421,
+        165
+      ],
+      "rotation": {
+        "pitch": 2,
+        "yaw": -269.3641044239643,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "old-town-lane-6-side-right",
+      "locationCm": [
+        -45835.8487175634,
+        -22111.12860015556,
+        165
+      ],
+      "rotation": {
+        "pitch": 2,
+        "yaw": -249.3641044239643,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "old-town-lane-10-side-left",
+      "locationCm": [
+        -58008.911435869784,
+        -21487.09323347828,
+        165
+      ],
+      "rotation": {
+        "pitch": 2,
+        "yaw": -296.9212920240507,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "old-town-lane-10-side-right",
+      "locationCm": [
+        -60198.81029888279,
+        -20820.862065058227,
+        165
+      ],
+      "rotation": {
+        "pitch": 2,
+        "yaw": -276.9212920240507,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ]
+}
