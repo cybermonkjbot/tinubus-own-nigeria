@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass50.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass51.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -56,7 +56,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass50.json'):
             if source in selection['parcelIds']:
                 frontage.add(source)
                 frontage_evidence.setdefault(source,[]).append(path.relative_to(ROOT).as_posix())
-    current_path = OUT / 'town-centre-street-pass-50-saved-readback.json'
+    current_path = OUT / 'town-centre-street-pass-51-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-50-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-49-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-48-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-47-saved-readback.json'
@@ -99,6 +100,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass50.json'):
     fabric = {p['parcelId'] for p in read(fabric_path)['plans']} if fabric_path.is_file() else set()
     arcade_path = OUT / 'town-centre-street-pass-50-parcel-frontage.json'
     arcade = {p['parcelId']:p for p in read(arcade_path)['plans']} if arcade_path.is_file() else {}
+    arcade_compound_path = OUT / 'town-centre-street-pass-51-compounds.json'
+    arcade_compounds = {p['parcelId'] for p in read(arcade_compound_path)['plans']} if arcade_compound_path.is_file() else set()
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -175,6 +178,11 @@ def main(target_name='world-inventory-reconciled-20261011-pass50.json'):
             entry['content'] = 'Source-centred low-rise exterior with '+plan['silhouette']
             entry['missingDependencies'] = ['Forecourt and road/drain contact acceptance, roof outlets and fittings',
                 'Varied finishes, compounds, street services, adjoining block density and runtime acceptance']
+        if item['id'] in arcade_compounds:
+            entry['compoundEvidence'] = arcade_compound_path.relative_to(ROOT).as_posix()
+            entry['compoundAcceptance'] = 'Saved source-fitted boundary and static open pedestrian leaves; canopy/path clearance preserved, gate artwork and rear/side contacts unfinished'
+            entry['missingDependencies'] = ['Gate leaf proportions/fittings, rear/side boundary contacts, forecourt and road/drain acceptance',
+                'Roof drainage, street services, varied finishes, adjoining density and runtime acceptance']
         parcels.append(entry)
     road_journal = next((read(ROOT / e['journal']) for e in saved.get('city/road-ribbons',[])),{})
     ribbon_ids = {f['canonicalId'].split(':')[0] for m in road_journal.get('meshes',[]) for f in m.get('features',[])}

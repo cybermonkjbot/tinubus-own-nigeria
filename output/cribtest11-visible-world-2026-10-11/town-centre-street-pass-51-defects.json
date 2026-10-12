@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 51,
+  "sourceIds": ["arcade-crescent-7", "arcade-crescent-9", "arcade-crescent"],
+  "matchedAfterImagesInspected": 2,
+  "improvements": ["Canonical parcel-fitted walls, coping and posts now bound two townhouse parcels", "Source-entrance paths and recessed portal canopies remain clear in reviewed front views"],
+  "remainingDefects": ["Arcade9 wide opening uses short static pedestrian leaves; complete sliding/folding gate replacement needed", "Gate hinges, guides, stops and final finish unfinished", "Rear/side boundary contact not visually accepted", "Plain repetitive concrete and sparse forecourt/context", "Pavement seams and upstream road/drain transitions remain", "Townhouse roof drainage, signs, services and landscape dressing remain"],
+  "failureEvidence": "Canopy intersects boundary preflight assertion in editor-20261011-181531.log before mutation; 520cm opening superseded by 720cm source-fitted opening",
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "nextArea": "Arcade9 fitted sliding/folding gate, compound fittings and adjoining Arcade Crescent exterior density"
+}

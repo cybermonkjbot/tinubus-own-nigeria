@@ -1,0 +1,13 @@
+{
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "verifiedAssetCount": 4,
+  "uvProbes": 3312,
+  "sourceHashesMatched": true,
+  "staticTriangleCollisionMatched": true,
+  "gateClearWidthsCm": {
+    "arcade-crescent-7": 280,
+    "arcade-crescent-9": 720
+  },
+  "runtimeTraversal": "not-inspected"
+}

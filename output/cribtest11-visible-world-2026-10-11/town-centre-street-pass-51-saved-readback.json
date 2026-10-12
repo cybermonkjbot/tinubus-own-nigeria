@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T07:19:49.336644+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/ArcadeCompounds51/Meshes/SM_arcade_crescent_7_boundary.uasset": "4748adb13ced20a19e7865f3119ce5898d7c9e6ab10bd07e248926416a22e7e4",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/ArcadeCompounds51/Meshes/SM_arcade_crescent_7_open_gate.uasset": "1dbdc7cc46c213d906fe015931b1771b3253c81a512cbd27bee45f0d229876ff",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/ArcadeCompounds51/Meshes/SM_arcade_crescent_9_boundary.uasset": "58fa2481abc37f8e44596bdae3e7d9b9507e2e786d04977e7d6e3f1bf37bf84e",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/ArcadeCompounds51/Meshes/SM_arcade_crescent_9_open_gate.uasset": "23c3a1077a17ad294147ba18a28361c645a0df7fb4a1e789bda9f2b6cd64f886",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "d5845bfbefa8a1f99da81c064c9fc00a671d23c2ec3f2b45b5b9e7cad1c6395e",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "1fbd21b54815dc065a97957bff78961423333991d851f970791c78758638968f"
+  },
+  "safeReloadCompleted": true,
+  "newCompoundActors": 4,
+  "retainedEntranceActors": 271,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

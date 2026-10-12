@@ -1,0 +1,166 @@
+{
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "plans": [
+    {
+      "parcelId": "arcade-crescent-7",
+      "roadId": "arcade-crescent",
+      "sourceParcel": {
+        "id": "arcade-crescent-7",
+        "name": "Arcade Crescent 7",
+        "district": "town-centre",
+        "kind": "townhouse",
+        "style": "civic",
+        "x": 213.01,
+        "z": -592.91,
+        "width": 28.69,
+        "depth": 26.78,
+        "floors": 2,
+        "units": 8,
+        "yaw": 2.3610021454590364,
+        "garden": 3,
+        "variant": 0,
+        "street": "Arcade Crescent",
+        "entrance": [
+          224.54,
+          0,
+          -604.56
+        ]
+      },
+      "centreCm": [
+        -59291.0,
+        21301.0
+      ],
+      "yaw": -44.72454164386474,
+      "halfDepthCm": 1339.0,
+      "halfWidthCm": 1434.5,
+      "frontCm": -1317.0,
+      "gateCentreCm": -0.48620363533409167,
+      "gateClearWidthCm": 280,
+      "sourceEntranceCm": [
+        -60455.99999999999,
+        22454.0
+      ],
+      "doorCentreCm": [
+        -59994.650283022114,
+        21997.40238311116,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -1169.4959962633638,
+          -1365.431841844901
+        ],
+        [
+          -1170.5038442770363,
+          1364.567972118899
+        ],
+        [
+          1170.5038442770335,
+          -1364.5679721188963
+        ],
+        [
+          1169.4959962633611,
+          1365.4318418449038
+        ]
+      ]
+    },
+    {
+      "parcelId": "arcade-crescent-9",
+      "roadId": "arcade-crescent",
+      "sourceParcel": {
+        "id": "arcade-crescent-9",
+        "name": "Arcade Crescent 9",
+        "district": "town-centre",
+        "kind": "townhouse",
+        "style": "civic",
+        "x": 153.4,
+        "z": -635,
+        "width": 27.06,
+        "depth": 25.77,
+        "floors": 2,
+        "units": 8,
+        "yaw": 2.698698595984344,
+        "garden": 3,
+        "variant": 0,
+        "street": "Arcade Crescent",
+        "entrance": [
+          160.21,
+          0,
+          -649.35
+        ]
+      },
+      "centreCm": [
+        -63500.0,
+        15340.0
+      ],
+      "yaw": -25.37596027221619,
+      "halfDepthCm": 1288.5,
+      "halfWidthCm": 1353.0,
+      "frontCm": -1266.5,
+      "gateCentreCm": -104.65081140803758,
+      "gateClearWidthCm": 720,
+      "sourceEntranceCm": [
+        -64935.0,
+        16021.0
+      ],
+      "doorCentreCm": [
+        -64477.999113832644,
+        15588.279546766453,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -1170.2326398220534,
+          -1169.7673139112424
+        ],
+        [
+          -1169.7673139112408,
+          1170.23263982205
+        ],
+        [
+          1169.7673139112335,
+          -1170.2326398220516
+        ],
+        [
+          1170.2326398220462,
+          1169.767313911241
+        ]
+      ]
+    }
+  ],
+  "previewPoses": [
+    {
+      "id": "arcade-crescent-7-compound",
+      "locationCm": [
+        -60536.11785301862,
+        23265.399429013236,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -73.42454164386474,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-9-compound",
+      "locationCm": [
+        -65324.64098188044,
+        16665.16885177188,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -54.07596027221619,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ],
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  }
+}
