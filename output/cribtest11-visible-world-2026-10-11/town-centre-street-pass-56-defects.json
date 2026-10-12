@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 56,
+  "sourceIds": ["arcade-crescent", "arcade-crescent-4", "arcade-crescent-6", "arcade-crescent-8"],
+  "matchedAfterImagesInspected": 3,
+  "improvements": ["Three source-fitted compound boundaries resolve previous canopy overlap preflight failures", "Split sliding panels park parallel to front walls outside clear entrance paths", "Saved building centres, floors, entrances and road relationships retained"],
+  "remainingDefects": ["Sliding tracks, guide brackets, end stops, motor/access fittings and final finish incomplete", "Panels are static parked geometry; no working gate mechanism", "Side/rear and ground contacts not visually accepted", "Plain repetitive concrete, sparse forecourt and wider context", "Drain joints/outfalls, roof fittings, utilities, planting and street services incomplete", "Previous Arcade9 short gate leaves still require replacement", "Dark shadow-facing software views; target GPU lighting and runtime traversal unaccepted"],
+  "gateOpeningsCm": {"arcade-crescent-4": 720, "arcade-crescent-6": 700, "arcade-crescent-8": 730},
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; editor-authored static content only",
+  "nextArea": "Arcade street-service and compound finish dressing, adjoining ordinary block density; Arcade9 fitted gate replacement"
+}

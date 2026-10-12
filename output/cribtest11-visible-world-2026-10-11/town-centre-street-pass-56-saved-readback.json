@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T07:48:09.274119+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds56/Meshes/SM_arcade_crescent_4_boundary.uasset": "91eaba0789ce5eabb9ed0b2708d46e7bfbc5e78f7e5e94a81421eaf199337a3d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds56/Meshes/SM_arcade_crescent_4_open_gate.uasset": "29f3a5a9031a9f18cbcf29d0dde93a134f2fcb1eaa5e2bcd1cd613639603efe3",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds56/Meshes/SM_arcade_crescent_6_boundary.uasset": "015462f1d32f796e8f02a0909cda01b463002cfdb2e4448f89dca9126a299a37",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds56/Meshes/SM_arcade_crescent_6_open_gate.uasset": "8c1a74a44e591521f8951c710b7d88e59845ee3bcf7b02700cb85cdf035fb5d1",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds56/Meshes/SM_arcade_crescent_8_boundary.uasset": "8631cf43c1834cc58aec92bf9852323ba7fead5c02678069757596fae0e5d714",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Compounds56/Meshes/SM_arcade_crescent_8_open_gate.uasset": "ef55cda6ef1eae03b595a533b648ca3263d7c2c0a05f190d9633547452042320",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "8d57c6666113ba852504ccd5b3fa82e62d545e3781687efd850cf81cd1c2f354",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "b97f9b45f516485d7049a148e4ed5009a9c58df7a08f1890f1f67d3ec91df78a"
+  },
+  "safeReloadCompleted": true,
+  "newCompoundActors": 6,
+  "retainedEntranceActors": 1503,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

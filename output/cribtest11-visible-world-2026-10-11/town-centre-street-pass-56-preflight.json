@@ -1,0 +1,245 @@
+{
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "plans": [
+    {
+      "parcelId": "arcade-crescent-4",
+      "roadId": "arcade-crescent",
+      "sourceParcel": {
+        "id": "arcade-crescent-4",
+        "name": "Arcade Crescent 4",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": 308.8,
+        "z": -496.66,
+        "width": 26.51,
+        "depth": 18.32,
+        "floors": 5,
+        "units": 20,
+        "yaw": -1.7986268758520814,
+        "garden": 3,
+        "variant": 5,
+        "street": "Arcade Crescent",
+        "entrance": [
+          296.95,
+          0,
+          -499.41
+        ]
+      },
+      "centreCm": [
+        -49666.0,
+        30880.0
+      ],
+      "yaw": -283.05372890512496,
+      "halfDepthCm": 916.0,
+      "halfWidthCm": 1325.5,
+      "frontCm": -894.0,
+      "gateCentreCm": -101.83306611807231,
+      "gateClearWidthCm": 720,
+      "sourceEntranceCm": [
+        -49941.0,
+        29695.0
+      ],
+      "doorCentreCm": [
+        -49611.6839319958,
+        30251.45026866877,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -780.2346678951785,
+          -1169.8435207387765
+        ],
+        [
+          -779.7653007222679,
+          1170.1564321873877
+        ],
+        [
+          779.7653007222643,
+          -1170.1564321873886
+        ],
+        [
+          780.2346678951749,
+          1169.8435207387756
+        ]
+      ],
+      "gateMode": "sliding",
+      "requiredWallClearanceCm": 40
+    },
+    {
+      "parcelId": "arcade-crescent-6",
+      "roadId": "arcade-crescent",
+      "sourceParcel": {
+        "id": "arcade-crescent-6",
+        "name": "Arcade Crescent 6",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": 303.92,
+        "z": -571.22,
+        "width": 19.11,
+        "depth": 21.03,
+        "floors": 10,
+        "units": 40,
+        "yaw": -1.0450277928057061,
+        "garden": 3,
+        "variant": 5,
+        "street": "Arcade Crescent",
+        "entrance": [
+          292.23,
+          0,
+          -564.44
+        ]
+      },
+      "centreCm": [
+        -57122.0,
+        30392.0
+      ],
+      "yaw": -239.8756820016388,
+      "halfDepthCm": 1051.5,
+      "halfWidthCm": 955.5,
+      "frontCm": -1029.5,
+      "gateCentreCm": -112.61783677911784,
+      "gateClearWidthCm": 700,
+      "sourceEntranceCm": [
+        -56444.00000000001,
+        29223.0
+      ],
+      "doorCentreCm": [
+        -56554.46058829744,
+        29802.12796628055,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -975.1540641781824,
+          -779.8073807785966
+        ],
+        [
+          -974.8458977743238,
+          780.1925887834175
+        ],
+        [
+          974.8458977743268,
+          -780.1925887834193
+        ],
+        [
+          975.1540641781855,
+          779.8073807785947
+        ]
+      ],
+      "gateMode": "sliding",
+      "requiredWallClearanceCm": 40
+    },
+    {
+      "parcelId": "arcade-crescent-8",
+      "roadId": "arcade-crescent",
+      "sourceParcel": {
+        "id": "arcade-crescent-8",
+        "name": "Arcade Crescent 8",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": 254.38,
+        "z": -634.69,
+        "width": 25.02,
+        "depth": 26.48,
+        "floors": 6,
+        "units": 24,
+        "yaw": -0.7805905081307568,
+        "garden": 3,
+        "variant": 4,
+        "street": "Arcade Crescent",
+        "entrance": [
+          242.95,
+          0,
+          -623.15
+        ]
+      },
+      "centreCm": [
+        -63469.00000000001,
+        25438.0
+      ],
+      "yaw": -224.72454164386474,
+      "halfDepthCm": 1324.0,
+      "halfWidthCm": 1251.0,
+      "frontCm": -1302.0,
+      "gateCentreCm": -99.0506543630033,
+      "gateClearWidthCm": 730,
+      "sourceEntranceCm": [
+        -62315.0,
+        24295.0
+      ],
+      "doorCentreCm": [
+        -62628.3960487472,
+        24879.869193523456,
+        0
+      ],
+      "shellCornersLocalCm": [
+        [
+          -1170.0220389018962,
+          -1169.977960682957
+        ],
+        [
+          -1169.977960682952,
+          1170.0220389019012
+        ],
+        [
+          1169.977960682957,
+          -1170.0220389018962
+        ],
+        [
+          1170.0220389019014,
+          1169.9779606829622
+        ]
+      ],
+      "gateMode": "sliding",
+      "requiredWallClearanceCm": 40
+    }
+  ],
+  "previewPoses": [
+    {
+      "id": "arcade-crescent-4-compound",
+      "locationCm": [
+        -50489.85539861399,
+        29178.10051214333,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -311.75372890512494,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-6-compound",
+      "locationCm": [
+        -56480.89323363195,
+        28475.39816575596,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -268.5756820016388,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-8-compound",
+      "locationCm": [
+        -62165.17990385744,
+        23554.185914564016,
+        165
+      ],
+      "rotation": {
+        "pitch": 3,
+        "yaw": -253.42454164386473,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ]
+}

@@ -23,6 +23,7 @@ SOURCE_DIRECTORY='compounds46-import-source'
 READBACK=OUT/'town-centre-street-pass-46-saved-readback.json'
 GATE_WIDTHS={}
 FRONT_CLEARANCE=130
+GATE_MODE='swing'
 
 
 def local(point,centre,yaw):
@@ -56,7 +57,11 @@ def plans():
         # Measure all shell corners in the exact canonical parcel frame.
         corners=[local(BASE.transform_local(shell['originCm'],shell['yaw'],[x,y,0]),centre,yaw)
                  for x in (0,shell['depthCm']) for y in (-shell['widthCm']/2,shell['widthCm']/2)]
-        assert min(c[0] for c in corners)-front>FRONT_CLEARANCE, 'Canopy/front clearance insufficient'
+        # Sliding leaves park outside the wall, so only the wall/post depth needs clearance.
+        required_clearance=40 if GATE_MODE=='sliding' else FRONT_CLEARANCE
+        assert min(c[0] for c in corners)-front>required_clearance, 'Canopy/front clearance insufficient'
+        if GATE_MODE=='sliding':
+            assert abs(gate)+gap+45<w-12, 'Sliding storage exceeds source parcel'
         if not ENTRANCE_RECEIPT:
             canopy=[local(BASE.transform_local(shell['originCm'],shell['yaw'],[x,y,0]),centre,yaw)
                     for x in (-120,210) for y in (shell['doorLocalCm'][1]-225,shell['doorLocalCm'][1]+225)]
@@ -66,7 +71,7 @@ def plans():
         result.append({'parcelId':pid,'roadId':shell['roadId'],'sourceParcel':p,'centreCm':centre,'yaw':yaw,
                        'halfDepthCm':d,'halfWidthCm':w,'frontCm':front,'gateCentreCm':gate,'gateClearWidthCm':gap,
                        'sourceEntranceCm':doors[pid]['sourceEntranceCm'],'doorCentreCm':doors[pid]['doorCentreCm'],
-                       'shellCornersLocalCm':corners})
+                       'shellCornersLocalCm':corners,**({'gateMode':'sliding','requiredWallClearanceCm':40} if GATE_MODE=='sliding' else {})})
     assert len(result)==len(FOCUS)
     return result
 
@@ -110,13 +115,24 @@ def execute(expected_pid):
             box(x-15,x+15,y-15,y+15,-3,height+25)
         steel_v,steel_f=[],[]
         # Open leaves park perpendicular to the wall, outside the clear 2.8m path.
-        for y in (g-half_gap-5,g+half_gap+5):
+        for y in (() if GATE_MODE=='sliding' else (g-half_gap-5,g+half_gap+5)):
             for x in (front+20,front+145):
                 KIT.KIT.box(steel_v,steel_f,x,x+5,y-2,y+2,0,170)
             for z in (12,75,165):
                 KIT.KIT.box(steel_v,steel_f,front+20,front+150,y-2,y+2,z,z+5)
             for x in range(int(front+30),int(front+145),12):
                 KIT.KIT.box(steel_v,steel_f,x,x+2,y-2,y+2,12,170)
+        if GATE_MODE=='sliding':
+            # Two half-width panels store along the street side, clear of the entrance.
+            for lo,hi in ((g-half_gap-35-half_gap,g-half_gap-35),(g+half_gap+35,g+half_gap+35+half_gap)):
+                for y in (lo,hi):
+                    KIT.KIT.box(steel_v,steel_f,front-18,front-14,y,y+4,8,172)
+                for z in (12,80,168):
+                    KIT.KIT.box(steel_v,steel_f,front-18,front-14,lo,hi+4,z,z+4)
+                for y in range(math.ceil(lo+12),math.floor(hi),12):
+                    KIT.KIT.box(steel_v,steel_f,front-18,front-14,y,y+2,12,172)
+                for y in (lo+18,hi-18):
+                    KIT.KIT.box(steel_v,steel_f,front-20,front-12,y-5,y+5,0,8)
         for role,geometry,material in (('boundary',(concrete_v,concrete_f),KIT.IMPORT.MATERIAL),
                                         ('open-gate',(steel_v,steel_f),steel)):
             package=NS+'/Meshes/SM_'+pid.replace('-','_')+'_'+role.replace('-','_')
