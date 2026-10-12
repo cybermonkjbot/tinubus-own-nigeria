@@ -25,14 +25,14 @@ def geometry(length, width, start_top, end_top):
     return vertices,faces
 
 
-def import_section(package, length, width, start_top, end_top, recover=False, supplied_geometry=None, source_directory='crossings37-import-source'):
+def import_section(package, length, width, start_top, end_top, recover=False, supplied_geometry=None, source_directory='crossings37-import-source', vertical_uv=False):
     existing = BASE.assets().load_asset(package) if BASE.assets().does_asset_exist(package) else None
     assert not existing or recover
     vertices,faces = supplied_geometry if supplied_geometry is not None else geometry(length,width,start_top,end_top)
     lines = ['# Native centimetres; inverse installed FBX Y reflection', 'o EntranceCrossing']
     lines += [f'v {x:.9f} {-y:.9f} {z:.9f}' for x,y,z in vertices]
     # The installed OBJ importer flips V; the native contract verifies that explicitly.
-    lines += [f'vt {x/271:.9f} {y/271:.9f}' for x,y,z in vertices]
+    lines += [f'vt {(x + (z if vertical_uv else 0))/271:.9f} {y/271:.9f}' for x,y,z in vertices]
     lines += ['f '+' '.join(f'{i+1}/{i+1}' for i in reversed(f)) for f in faces]
     filename = OUT / source_directory / (package.rsplit('/',1)[1]+'.obj')
     filename.parent.mkdir(parents=True,exist_ok=True)
@@ -71,17 +71,18 @@ def import_section(package, length, width, start_top, end_top, recover=False, su
         if not desc.is_vertex_instance_valid(vi): continue
         p = desc.get_vertex_position(desc.get_vertex_instance_vertex(vi))
         uv = desc.get_vertex_instance_uv(vi,0)
-        assert abs(uv.x-p.x/271) < .0001 and abs(uv.y-(1-p.y/271)) < .0001
+        assert abs(uv.x-(p.x + (p.z if vertical_uv else 0))/271) < .0001 and abs(uv.y-(1-p.y/271)) < .0001
         verified += 1
     assert verified >= 8
     body = mesh.get_editor_property('body_setup')
     body.set_editor_property('collision_trace_flag',unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE)
     mesh.set_material(0,BASE.assets().load_asset(MATERIAL))
-    BASE.assets().set_metadata_tag(mesh,'Baddie.Crossings37.Geometry','Source entrance exclusion; native cm; UV0 U=Xcm/271,V=1-Ycm/271; static triangle collision')
+    uv_basis = 'U=(Xcm+Zcm)/271; V=1-Ycm/271' if vertical_uv else 'U=Xcm/271; V=1-Ycm/271'
+    BASE.assets().set_metadata_tag(mesh,'Baddie.Crossings37.Geometry','Source-fitted geometry; native cm; '+uv_basis+'; static triangle collision')
     assert BASE.assets().save_loaded_asset(mesh)
     return mesh, {'sourceObj':filename.relative_to(ROOT).as_posix(),'sourceObjSha256':BASE.sha(filename),
                   'package':package,'boundsCm':[[getattr(b.min,a) for a in ('x','y','z')],[getattr(b.max,a) for a in ('x','y','z')]],
-                  'uvProbesVerified':verified,'nativeUVBasis':'U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)',
+                  'uvProbesVerified':verified,'nativeUVBasis':uv_basis+' (installed OBJ V flip)',
                   'collision':'CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics'}
 
 

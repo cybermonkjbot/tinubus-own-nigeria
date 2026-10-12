@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass40.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass41.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -56,7 +56,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass40.json'):
             if source in selection['parcelIds']:
                 frontage.add(source)
                 frontage_evidence.setdefault(source,[]).append(path.relative_to(ROOT).as_posix())
-    current_path = OUT / 'town-centre-street-pass-40-saved-readback.json'
+    current_path = OUT / 'town-centre-street-pass-41-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-40-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-38-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-37-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-36-saved-readback.json'
@@ -68,6 +69,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass40.json'):
     crossing_parcels = {p['parcelId'] for p in read(crossing_path)['plans']} if crossing_path.is_file() else set()
     apron_path = OUT / 'town-centre-street-pass-38-fitted-aprons.json'
     apron_parcels = {p['parcelId'] for p in read(apron_path)['plans']} if apron_path.is_file() else set()
+    shell_path = OUT / 'town-centre-street-pass-41-parcel-frontage.json'
+    shells = {p['parcelId']:p for p in read(shell_path)['plans']} if shell_path.is_file() else {}
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -106,6 +109,11 @@ def main(target_name='world-inventory-reconciled-20261011-pass40.json'):
         if item['id'] in apron_parcels:
             entry['entranceApronEvidence'] = apron_path.relative_to(ROOT).as_posix()
             entry['entranceApronAcceptance'] = 'Saved fitted pavement-band sides; drain/kerb shoulders and runtime traversal remain incomplete'
+        if item['id'] in shells:
+            entry['exactFloorShellEvidence'] = shell_path.relative_to(ROOT).as_posix()
+            entry['nativeShellFloors'] = shells[item['id']]['floors']
+            entry['content'] = 'Source-centred exact-floor structural frame and accepted exterior wall bays; partial pass-by shell'
+            entry['missingDependencies'] = ['Roof/rainwater finishes, forecourt and street dressing, rendered final acceptance']
         parcels.append(entry)
     road_journal = next((read(ROOT / e['journal']) for e in saved.get('city/road-ribbons',[])),{})
     ribbon_ids = {f['canonicalId'].split(':')[0] for m in road_journal.get('meshes',[]) for f in m.get('features',[])}

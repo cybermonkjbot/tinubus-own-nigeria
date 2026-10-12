@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:16:46.718544+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "safeReloadCompleted": true,
+  "actors": 462,
+  "frameVertexInstances": 7164,
+  "sourceFloors": {
+    "station-road-3": 3,
+    "station-road-7": 1,
+    "station-road-8": 3,
+    "college-lane-6": 1,
+    "college-lane-7": 1,
+    "college-lane-17": 2
+  },
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks41/Meshes/SM_station_road_3_frame.uasset": "f8532359dac980427fe5b404632b59d508a61915013de4d89ab7d832fa1c6a89",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks41/Meshes/SM_station_road_7_frame.uasset": "fc848db8d32e313fa4ef45ad51c1f03211feeadf02a73915d25d0570749d8597",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks41/Meshes/SM_station_road_8_frame.uasset": "fa75b00c351035746b5458aa4d9bf368a9bc6e5ddda5bf0c8e0dddbbc787f331",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks41/Meshes/SM_college_lane_6_frame.uasset": "aeb30a24d80b164823a14dfad4bbf419daa5c35b108b0702a68ecb27ea63aa57",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks41/Meshes/SM_college_lane_7_frame.uasset": "f13ab832dc32ad9c005befd803b47bcfe4dc6e790abe315eb191550028ee7102",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Blocks41/Meshes/SM_college_lane_17_frame.uasset": "671a4741728b0155c5e5db466f9f894ff6d15b36c62dee66756a8fb7c719dd63",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "0ddadcb6a2ae22362fc9a44a516c35da772100f7111501f41aa77aaa15e437b5",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "97c2ef1263de9ba0f8dc018d367db0bbde1fc2f707307218e725bd318bb449e3"
+  },
+  "dirtyPackages": [],
+  "gameWorld": "None",
+  "visualAcceptance": "pending captures",
+  "runtimeTraversal": "not-inspected"
+}

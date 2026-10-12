@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:17:40.649457+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "camera": "college-lane-7-frontage",
+  "cameraConfig": {
+    "id": "college-lane-7-frontage",
+    "locationCm": [
+      -47724.91893711531,
+      48187.38406307255,
+      165
+    ],
+    "rotation": {
+      "pitch": 3,
+      "yaw": 64.80396750250452,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-blocks41-after/college-lane-7-frontage.png",
+  "imageSha256": "0a1a48795754638f001d1e05cfb38e69dfbd1c55a538c2f34a690ffa8651ca71",
+  "width": 705,
+  "height": 486,
+  "warmupNativeFrames": 58,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -47724.91893711531,
+      "y": 48187.38406307255,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 3,
+      "yaw": 64.80397033691406,
+      "roll": 0
+    },
+    "cameraFOV": 78,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-41-saved-readback.json",
+  "receiptSha256": "759c6c646ff6f6f84ed8ee6bca3c2bee8d4e896ca8b2f7c8daf69c8a03d3d1e2",
+  "scriptSha256": "8f562b55fc8f81441a2d07c1c0112e252ab64896a4faa0ad4539cdb261420f2c"
+}

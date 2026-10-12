@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 41,
+  "previewSets": ["previews/town-centre-blocks41-before", "previews/town-centre-blocks41-after"],
+  "inspectedImages": 16,
+  "improvements": ["Six previously ground-only parcels now have full-depth exact-floor shells", "Side/rear windows and front balcony/AC variants preserve accepted individual modules", "Station Road matched approach gains near-road building mass on both sides"],
+  "remainingDefects": ["Sparse neighbouring blocks and large empty concrete surroundings", "All ground shop shutters closed; no active businesses established", "Plain roofs and missing rainwater routes", "Unfinished forecourt/entrance boundaries and street services/signage/foliage", "Provisional structural frame surfacing", "Close-front views crop wider facades; corner views provide full silhouettes", "College source-centre sightline unchanged, new parcels elsewhere along source road", "Older Market floor-count defects remain", "Existing asphalt/Garden material defects and fitted junction/drain-band gaps remain"],
+  "sourcePositionsPreserved": true,
+  "finishedNeighbourhood": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "newDestinationTraversalVerified": false,
+  "nextArea": "Town Centre roof/rainwater/forecourt completion, adjoining exact-floor parcels and fitted junctions"
+}
