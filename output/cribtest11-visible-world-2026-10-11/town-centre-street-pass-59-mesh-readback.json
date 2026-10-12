@@ -1,0 +1,9 @@
+{
+  "pid": 13584,
+  "verifiedAssetCount": 16,
+  "uvProbes": 10032,
+  "sourceHashesMatched": true,
+  "staticTriangleCollisionMatched": true,
+  "shoulderGridStepCm": 15,
+  "runtimeTraversal": "not-inspected"
+}

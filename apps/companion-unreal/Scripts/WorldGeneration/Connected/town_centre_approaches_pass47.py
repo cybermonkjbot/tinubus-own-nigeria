@@ -15,6 +15,12 @@ IMPORT=APRON.IMPORT
 NS='/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Approaches47'
 FOCUS=('station-road-4','station-road-10','college-lane-10')
 TARGET=OUT/'town-centre-street-pass-47-entrance-approaches.json'
+PREFIX='TC_Approach47_'
+TAG='Baddie.TownCentreApproaches47'
+SOURCE_DIRECTORY='approaches47-import-source'
+READBACK=OUT/'town-centre-street-pass-47-saved-readback.json'
+RETAINED_RECEIPT=OUT/'town-centre-street-pass-46-compounds.json'
+SHOULDER_GEOMETRY=None
 
 
 def plans():
@@ -89,7 +95,7 @@ def execute(expected_pid):
     assert BASE.active_world_package()==BASE.TARGET_MAP and not BASE.dirty_names()
     assert not TARGET.exists()
     planned=plans();actors={a.get_actor_label():a for a in BASE.actors().get_all_level_actors()}
-    assert not any(label.startswith('TC_Approach47_') for label in actors)
+    assert not any(label.startswith(PREFIX) for label in actors)
     for p in planned:
         r=p['retainedSupport'];a=actors[r['label']]
         assert a.get_outer().get_path_name().split('.')[0]==BASE.DETAIL_MAP
@@ -103,14 +109,14 @@ def execute(expected_pid):
         sections.append((0,0,0,0,'shoulders'))
         for index,(a,b,z0,z1,role) in enumerate(sections):
             package=NS+'/Meshes/SM_'+pid.replace('-','_')+'_'+role.replace('-','_')
-            geometry=(p['shoulderVertices'],p['shoulderFaces']) if role=='shoulders' else None
-            mesh,asset=IMPORT.import_section(package,b-a,180,z0,z1,supplied_geometry=geometry,source_directory='approaches47-import-source')
+            geometry=(SHOULDER_GEOMETRY(p) if SHOULDER_GEOMETRY else (p['shoulderVertices'],p['shoulderFaces'])) if role=='shoulders' else None
+            mesh,asset=IMPORT.import_section(package,b-a,180,z0,z1,supplied_geometry=geometry,source_directory=SOURCE_DIRECTORY)
             files.update(BASE.package_files(package))
             t={'locationCm':[*BASE.add2(p['startCm'],BASE.mul2(p['direction'],a)),0],
                'rotation':{'pitch':0,'yaw':yaw,'roll':0},'scale':[1,1,1]}
             actor=BASE.actors().spawn_actor_from_class(unreal.StaticMeshActor,unreal.Vector(*t['locationCm']),BASE.rotator(t['rotation']))
-            actor.set_actor_label('TC_Approach47_'+pid+'_'+role)
-            actor.tags=['Baddie.TownCentreApproaches47','Baddie.Source:'+pid+':'+role,'Baddie.Source:'+p['roadId'],'Baddie.NoRuntimeAuthority']
+            actor.set_actor_label(PREFIX+pid+'_'+role)
+            actor.tags=[TAG,'Baddie.Source:'+pid+':'+role,'Baddie.Source:'+p['roadId'],'Baddie.NoRuntimeAuthority']
             c=actor.get_component_by_class(unreal.StaticMeshComponent);c.set_static_mesh(mesh);c.set_material(0,BASE.assets().load_asset(IMPORT.MATERIAL))
             c.set_collision_profile_name('BlockAll');c.set_mobility(unreal.ComponentMobility.STATIC)
             rows.append({'label':actor.get_actor_label(),'sourceId':pid+':'+role,'parcelId':pid,'roadId':p['roadId'],
@@ -135,7 +141,7 @@ def inspect_saved(expected_pid):
     BASE.ensure_identity(expected_pid)
     assert BASE.active_world_package()==BASE.TARGET_MAP and not BASE.dirty_names()
     receipt=json.loads(TARGET.read_text());actors={a.get_actor_label():a for a in BASE.actors().get_all_level_actors()}
-    prior=json.loads((OUT/'town-centre-street-pass-46-compounds.json').read_text())
+    prior=json.loads(RETAINED_RECEIPT.read_text())
     for r in receipt['createdActors']+prior['createdActors']:
         a=actors[r['label']];t=a.get_actor_transform();c=a.get_component_by_class(unreal.StaticMeshComponent)
         assert a.get_outer().get_path_name().split('.')[0]==BASE.DETAIL_MAP
@@ -151,5 +157,5 @@ def inspect_saved(expected_pid):
             'mapPackage':BASE.TARGET_MAP,'detailLevelPackage':BASE.DETAIL_MAP,'files':receipt['files'],
             'safeReloadCompleted':True,'newApproachActors':len(receipt['createdActors']),'retainedCompoundActors':len(prior['createdActors']),
             'dirtyPackages':[],'gameWorld':None,'runtimeTraversal':'not-inspected'}
-    with (OUT/'town-centre-street-pass-47-saved-readback.json').open('x',encoding='utf-8') as stream:json.dump(result,stream,indent=2);stream.write('\n')
+    with READBACK.open('x',encoding='utf-8') as stream:json.dump(result,stream,indent=2);stream.write('\n')
     print(json.dumps(result))

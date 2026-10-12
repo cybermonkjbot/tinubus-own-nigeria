@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 59,
+  "sourceIds": ["old-town-lane", "old-town-lane-4", "old-town-lane-6", "old-town-lane-7", "old-town-lane-10"],
+  "matchedAfterImagesInspected": 4,
+  "remainingDefects": ["Parcel7 retained Ground22 support tongue visibly extends into carriageway; source support runs to road centre", "Parcel3 needs a short profile; existing470cm approach guard correctly rejects it", "Paving/material seams and entrance/forecourt finish incomplete", "Drain structure/outfalls and physical service details incomplete", "Parcels6/10 boundaries need separately fitted layouts", "Repeated facade grammar and sparse wider context", "Dark software-shadow views; target GPU, rear/side and runtime acceptance outstanding"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; editor-authored static content only",
+  "nextArea": "Ground22 road-centre support intersection repair and parcel3 short transition"
+}
