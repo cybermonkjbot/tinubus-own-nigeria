@@ -10,11 +10,11 @@ ROOT = Path('C:/dev/cribtest-game')
 OUT = ROOT / 'output/cribtest11-visible-world-2026-10-11'
 
 
-def execute(expected_pid):
+def execute(expected_pid, roadside_passes=(32,35), support_passes=(33,36), pass_number=36):
     assert os.getpid() == expected_pid
     assert Path(unreal.Paths.project_dir()).resolve() == ROOT / 'apps/companion-unreal'
-    receipts = [json.loads((OUT / f'town-centre-street-pass-{n}-roadside-corridors.json').read_text()) for n in (32,35)]
-    supports = [json.loads((OUT / f'town-centre-street-pass-{n}-pavement-support.json').read_text()) for n in (33,36)]
+    receipts = [json.loads((OUT / f'town-centre-street-pass-{n}-roadside-corridors.json').read_text()) for n in roadside_passes]
+    supports = [json.loads((OUT / f'town-centre-street-pass-{n}-pavement-support.json').read_text()) for n in support_passes]
     pcg_receipt = json.loads((OUT / 'town-centre-street-pass-34-pcg-saved.json').read_text())
     editor = unreal.get_editor_subsystem(unreal.UnrealEditorSubsystem)
     assert editor.get_editor_world().get_path_name().split('.')[0] == supports[-1]['mapPackage']
@@ -85,7 +85,7 @@ def execute(expected_pid):
               'maximumRoadsideLocationErrorCm':maximum_error,'roadIds':sorted({i for r in receipts for i in r['roadIds']}),
               'oldBatchAbsent':True,'dirtyPackages':[],'gameWorld':str(editor.get_game_world()),'files':files,
               'visualAcceptance':'pending matched captures','runtimeTraversal':'not-inspected'}
-    target = OUT / 'town-centre-street-pass-36-saved-readback.json'
+    target = OUT / f'town-centre-street-pass-{pass_number}-saved-readback.json'
     with target.open('x',encoding='utf-8') as stream:
         json.dump(result,stream,indent=2)
         stream.write('\n')

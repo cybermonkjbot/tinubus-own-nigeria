@@ -28,6 +28,26 @@ sys.path.insert(0, str(SCRIPTS))
 from mcp_client import UnrealMcp
 
 EXTRA_CAMERAS = {
+    "college-lane-source-centre": {
+        "id": "college-lane-source-centre", "locationCm": [-42000, 45000, 165],
+        "rotation": {"pitch": 2, "yaw": -14.082744380220033, "roll": 0}, "fov": 68,
+    },
+    "theatre-street-source-centre": {
+        "id": "theatre-street-source-centre", "locationCm": [-69000, 10000, 165],
+        "rotation": {"pitch": 2, "yaw": 119.09997080949751, "roll": 0}, "fov": 68,
+    },
+    "station-road-source-centre": {
+        "id": "station-road-source-centre", "locationCm": [-39000, 24000, 165],
+        "rotation": {"pitch": 2, "yaw": 67.581867513375485, "roll": 0}, "fov": 68,
+    },
+    "arcade-crescent-source-centre": {
+        "id": "arcade-crescent-source-centre", "locationCm": [-58860, 26180, 165],
+        "rotation": {"pitch": 2, "yaw": -134.72454164386477, "roll": 0}, "fov": 68,
+    },
+    "old-town-lane-source-centre": {
+        "id": "old-town-lane-source-centre", "locationCm": [-47260, -22800, 165],
+        "rotation": {"pitch": 2, "yaw": -165.79323388223963, "roll": 0}, "fov": 68,
+    },
     "garden-avenue-source-centre": {
         "id": "garden-avenue-source-centre", "locationCm": [-13977, 56303, 165],
         "rotation": {"pitch": 2, "yaw": 122.76542573358401, "roll": 0}, "fov": 68,

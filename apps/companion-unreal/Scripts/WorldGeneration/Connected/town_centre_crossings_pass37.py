@@ -25,16 +25,16 @@ def geometry(length, width, start_top, end_top):
     return vertices,faces
 
 
-def import_section(package, length, width, start_top, end_top, recover=False):
+def import_section(package, length, width, start_top, end_top, recover=False, supplied_geometry=None, source_directory='crossings37-import-source'):
     existing = BASE.assets().load_asset(package) if BASE.assets().does_asset_exist(package) else None
     assert not existing or recover
-    vertices,faces = geometry(length,width,start_top,end_top)
+    vertices,faces = supplied_geometry if supplied_geometry is not None else geometry(length,width,start_top,end_top)
     lines = ['# Native centimetres; inverse installed FBX Y reflection', 'o EntranceCrossing']
     lines += [f'v {x:.9f} {-y:.9f} {z:.9f}' for x,y,z in vertices]
     # The installed OBJ importer flips V; the native contract verifies that explicitly.
     lines += [f'vt {x/271:.9f} {y/271:.9f}' for x,y,z in vertices]
     lines += ['f '+' '.join(f'{i+1}/{i+1}' for i in reversed(f)) for f in faces]
-    filename = OUT / 'crossings37-import-source' / (package.rsplit('/',1)[1]+'.obj')
+    filename = OUT / source_directory / (package.rsplit('/',1)[1]+'.obj')
     filename.parent.mkdir(parents=True,exist_ok=True)
     source_text = '\n'.join(lines)+'\n'
     if filename.exists():

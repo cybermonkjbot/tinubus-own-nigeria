@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass37.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass40.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -42,7 +42,7 @@ def main(target_name='world-inventory-reconciled-20261011-pass37.json'):
     ground = read(OUT / 'town-centre-street-pass-22-canonical-ground.json')
     route_kinds = {r['roadId']:r['kind'] for r in read(OUT / 'town-centre-street-pass-29-route-classification.json')['classification']}
     roadside = []
-    for number in (32,35):
+    for number in (32,35,39):
         path = OUT / f'town-centre-street-pass-{number}-roadside-corridors.json'
         if path.is_file(): roadside.append((path,read(path)))
     frontage = set()
@@ -56,7 +56,9 @@ def main(target_name='world-inventory-reconciled-20261011-pass37.json'):
             if source in selection['parcelIds']:
                 frontage.add(source)
                 frontage_evidence.setdefault(source,[]).append(path.relative_to(ROOT).as_posix())
-    current_path = OUT / 'town-centre-street-pass-37-saved-readback.json'
+    current_path = OUT / 'town-centre-street-pass-40-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-38-saved-readback.json'
+    if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-37-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-36-saved-readback.json'
     if not current_path.is_file(): current_path = OUT / 'town-centre-street-pass-34-saved-readback.json'
     current = read(current_path)
@@ -64,6 +66,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass37.json'):
                  'evidence':current_path.relative_to(ROOT).as_posix()}
     crossing_path = OUT / 'town-centre-street-pass-37-entrance-crossings.json'
     crossing_parcels = {p['parcelId'] for p in read(crossing_path)['plans']} if crossing_path.is_file() else set()
+    apron_path = OUT / 'town-centre-street-pass-38-fitted-aprons.json'
+    apron_parcels = {p['parcelId'] for p in read(apron_path)['plans']} if apron_path.is_file() else set()
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -99,6 +103,9 @@ def main(target_name='world-inventory-reconciled-20261011-pass37.json'):
         if item['id'] in crossing_parcels:
             entry['entranceCrossingEvidence'] = crossing_path.relative_to(ROOT).as_posix()
             entry['entranceCrossingAcceptance'] = 'Saved static 1.8m source entrance crossing; side joins and runtime walking remain unaccepted'
+        if item['id'] in apron_parcels:
+            entry['entranceApronEvidence'] = apron_path.relative_to(ROOT).as_posix()
+            entry['entranceApronAcceptance'] = 'Saved fitted pavement-band sides; drain/kerb shoulders and runtime traversal remain incomplete'
         parcels.append(entry)
     road_journal = next((read(ROOT / e['journal']) for e in saved.get('city/road-ribbons',[])),{})
     ribbon_ids = {f['canonicalId'].split(':')[0] for m in road_journal.get('meshes',[]) for f in m.get('features',[])}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "passes": [38, 39, 40],
+  "previewSets": ["previews/town-centre-streetpass01-aprons38-after", "previews/town-centre-streetpass01-corridors39-before", "previews/town-centre-streetpass01-corridors39-after"],
+  "improvements": [
+    "Four Market parcel crossing lanes retain fitted pavement-side apron geometry",
+    "Five additional canonical corridors have native accepted kerb/drain/cover/paving modules and hidden paving support",
+    "Current roadside, PCG and support source transforms persist after safe reload"
+  ],
+  "remainingDefects": [
+    "Long corridors remain sparse concrete expanses, not convincing Lagos neighbourhood density",
+    "Roadside junction/entrance conflict omissions remain unfinished, including corners and under-one-metre end pieces",
+    "Aprons leave tapered drain/kerb-band side gaps and faceted shoulder transitions",
+    "Market junction remains an open concrete field",
+    "Canonical floor parity remains wrong, especially market-road-10 and market-road-12",
+    "Repetitive silhouettes, blank building sides/backs, missing compound gates and parcel-scale variation",
+    "Missing approved signage, roadside services, foliage and everyday activity context",
+    "Warm brown asphalt and Garden Avenue material discontinuity",
+    "Covered drain beds remain unexcavated; outer pavement margins remain unresolved",
+    "Boardwalk/beach/shore inputs remain named dependencies; no invented coastlines",
+    "Interiors remain deferred and unaccepted"
+  ],
+  "sourcePositionsPreserved": true,
+  "finishedNeighbourhood": false,
+  "newDestinationTraversalVerified": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "trafficAndResidents": "No working simulation established",
+  "nextArea": "Town Centre fitted junction/entrance transitions and exact-floor ordinary exterior blocks"
+}

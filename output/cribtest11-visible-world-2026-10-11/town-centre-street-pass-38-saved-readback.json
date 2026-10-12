@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:05:02.396028+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Aprons38/Meshes/SM_market_road_4_apron.uasset": "56f06e0368a0a6b5ebf1bd6bf0f5b87706d6efd6b5dea12ce3344126d5fd3c08",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Aprons38/Meshes/SM_market_road_10_apron.uasset": "9897e15c44c80ec85654aaeb800d66d521b6d4c8842b6514cf2621f773972cb6",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Aprons38/Meshes/SM_market_road_11_apron.uasset": "d1ad1d1c03d67cedc8e5f4aba4e490d126730e03bb1650a76dffe276edb99e7d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Aprons38/Meshes/SM_market_road_12_apron.uasset": "2a639f14fd79e306a821a324a017bedfe8b8e2673855cfac9ca180894abc048d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "862aaa7eb9c2599b2eb06b47c90ac69130600da18b0a29656403b4f0b4162043",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "d17870a367971e29133f92595092971b64558e687a2dc1514ca1be7557ddab5d"
+  },
+  "safeReloadCompleted": true,
+  "actors": 4,
+  "vertexInstancesVerified": 792,
+  "crossingCentreLanePreserved": true,
+  "gameWorld": "None",
+  "dirtyPackages": [],
+  "visualAcceptance": "pending matched captures",
+  "runtimeTraversal": "not-inspected"
+}
