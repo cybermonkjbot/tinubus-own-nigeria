@@ -1,8 +1,9 @@
 """Bounded filler-building pass for Town Centre streetpass01.
 
-This clones already accepted frontage-v3 exemplar stacks already present in the
-streetpass detail level, placing them into the specific Market Road and Civic
-Street gaps that still read as empty shells and voids in the saved previews.
+This pass stops cloning isolated shell stacks and instead reuses complete
+street-facing frontage regions already accepted in the detail level, including
+their pavement, kerb and drain support. The target is ordinary pass-by Lagos
+street massing, not new hero destinations.
 """
 
 import gc
@@ -19,59 +20,57 @@ import unreal
 
 ROOT = Path("C:/dev/cribtest-game")
 OUT = ROOT / "output/cribtest11-visible-world-2026-10-11"
-RECEIPT_NAME = "town-centre-street-pass-12-filler-buildings-facing.json"
-OWNER = "cribtest11-world-generation-20261010/town-centre-street-pass-12-filler-buildings-facing"
-LABEL_PREFIX = "TC_Fill12_"
-CLEAR_PREFIXES = ["TC_Fill11_", "TC_Fill12_"]
+RECEIPT_NAME = "town-centre-street-pass-13-filler-frontage-regions.json"
+OWNER = "cribtest11-world-generation-20261010/town-centre-street-pass-13-filler-frontage-regions"
+LABEL_PREFIX = "TC_Fill13_"
+CLEAR_PREFIXES = ["TC_Fill11_", "TC_Fill12_", "TC_Fill13_"]
 
 MODULE_PATH = ROOT / "apps/companion-unreal/Scripts/WorldGeneration/Connected/town_centre_street_pass.py"
 SPEC = importlib.util.spec_from_file_location("town_centre_street_pass", MODULE_PATH)
 BASE = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(BASE)
 
-MARKET_GROUP = [
-    "TC_FrontageStructure_4800",
-    "TC_ShopBay_4801",
-    "TC_OpenShopInterior_4836",
-    "TC_ResidentialBay_V3Left_4802",
-    "TC_Window1300_4803",
-    "TC_Balcony3900_4804",
-    "TC_FrontageStructure_4839",
-    "TC_ResidentialBay_V3Left_4840",
-    "TC_ResidentialBay_V3Left_4841",
-    "TC_Window1300_4842",
-    "TC_Balcony3900_4843",
-    "TC_RoofSheetPanel_4819",
-    "TC_RoofSheetPanel_4820",
-    "TC_RoofSheetPanel_4821",
-    "TC_RoofSheetPanel_4858",
-    "TC_RoofSheetPanel_4859",
-    "TC_RoofSheetPanel_4860",
-]
+REGION_LABEL_TOKENS = (
+    "FrontageStructure",
+    "ShopBay",
+    "OpenShopInterior",
+    "ResidentialBay",
+    "Window",
+    "Balcony",
+    "RoofSheetPanel",
+    "Drain",
+    "DrainCover",
+    "Kerb",
+    "Pavement",
+)
 
-CIVIC_GROUP = [
-    "TC_FrontageStructure_402",
-    "TC_ShopBay_V3Right_403",
-    "TC_OpenShopInterior_438",
-    "TC_ResidentialBay_404",
-    "TC_Window1300_405",
-    "TC_Balcony3900_406",
-    "TC_FrontageStructure_441",
-    "TC_ResidentialBay_442",
-    "TC_ResidentialBay_V3Left_443",
-    "TC_Window1300_V3Curtain_444",
-    "TC_Balcony3900_445",
-    "TC_RoofSheetPanel_421",
-    "TC_RoofSheetPanel_422",
-    "TC_RoofSheetPanel_460",
-    "TC_RoofSheetPanel_461",
-]
+SOURCE_REGIONS = {
+    "market": {
+        "anchorLabel": "TC_FrontageStructure_4698",
+        "bounds": {
+            "minX": -8200.0,
+            "maxX": -6400.0,
+            "minY": -23750.0,
+            "maxY": -21650.0,
+        },
+    },
+    "civic": {
+        "anchorLabel": "TC_FrontageStructure_224",
+        "bounds": {
+            "minX": -25150.0,
+            "maxX": -24850.0,
+            "minY": -4900.0,
+            "maxY": -3150.0,
+        },
+    },
+}
+REGION_SNAPSHOT_CACHE = {}
 
 PLACEMENTS = [
     {
         "id": "market_extension_a",
         "group": "market",
-        "anchorLabel": "TC_FrontageStructure_4800",
+        "anchorLabel": "TC_FrontageStructure_4698",
         "anchorLocationCm": [-7369.1514, -27466.1615, 0.0],
         "anchorYaw": 143.2127799987793,
         "sourceIds": ["market-road-7", "market-road-8"],
@@ -79,7 +78,7 @@ PLACEMENTS = [
     {
         "id": "market_extension_b",
         "group": "market",
-        "anchorLabel": "TC_FrontageStructure_4800",
+        "anchorLabel": "TC_FrontageStructure_4698",
         "anchorLocationCm": [-6662.5144, -26521.1408, 0.0],
         "anchorYaw": 143.2127799987793,
         "sourceIds": ["market-road-8", "market-road-9"],
@@ -87,7 +86,7 @@ PLACEMENTS = [
     {
         "id": "market_extension_c",
         "group": "market",
-        "anchorLabel": "TC_FrontageStructure_4800",
+        "anchorLabel": "TC_FrontageStructure_4698",
         "anchorLocationCm": [-5955.8773, -25576.1202, 0.0],
         "anchorYaw": 143.2127799987793,
         "sourceIds": ["market-road-9", "market-road-10"],
@@ -95,7 +94,7 @@ PLACEMENTS = [
     {
         "id": "civic_opposite_extension_a",
         "group": "civic",
-        "anchorLabel": "TC_FrontageStructure_402",
+        "anchorLabel": "TC_FrontageStructure_224",
         "anchorLocationCm": [-25132.6056, -1268.7259, 0.0],
         "anchorYaw": -177.0398864746094,
         "sourceIds": ["civic-street-2", "civic-street-4"],
@@ -103,7 +102,7 @@ PLACEMENTS = [
     {
         "id": "civic_opposite_extension_b",
         "group": "civic",
-        "anchorLabel": "TC_FrontageStructure_402",
+        "anchorLabel": "TC_FrontageStructure_224",
         "anchorLocationCm": [-25193.5416, -90.3003, 0.0],
         "anchorYaw": -177.0398864746094,
         "sourceIds": ["civic-street-4", "civic-street-5"],
@@ -111,16 +110,16 @@ PLACEMENTS = [
     {
         "id": "civic_return_a",
         "group": "civic",
-        "anchorLabel": "TC_FrontageStructure_402",
-        "anchorLocationCm": [-24050.0, -5900.0, 0.0],
+        "anchorLabel": "TC_FrontageStructure_224",
+        "anchorLocationCm": [-24888.8617, -5982.4282, 0.0],
         "anchorYaw": -177.0398864746094,
         "sourceIds": ["civic-street-2", "civic-street-5"],
     },
     {
         "id": "civic_return_b",
         "group": "civic",
-        "anchorLabel": "TC_FrontageStructure_402",
-        "anchorLocationCm": [-24010.0, -4720.0, 0.0],
+        "anchorLabel": "TC_FrontageStructure_224",
+        "anchorLocationCm": [-24827.9257, -7160.8538, 0.0],
         "anchorYaw": -177.0398864746094,
         "sourceIds": ["civic-street-4", "civic-street-6"],
     },
@@ -178,6 +177,42 @@ def snapshot_actor(label):
     }
 
 
+def snapshot_region(region_id):
+    if region_id in REGION_SNAPSHOT_CACHE:
+        return REGION_SNAPSHOT_CACHE[region_id]
+    spec = SOURCE_REGIONS[region_id]
+    bounds = spec["bounds"]
+    snapshots = []
+    for actor in BASE.actors().get_all_level_actors():
+        label = actor.get_actor_label()
+        if not label.startswith("TC_"):
+            continue
+        if not any(token in label for token in REGION_LABEL_TOKENS):
+            continue
+        location = actor.get_actor_location()
+        if not (
+            bounds["minX"] <= location.x <= bounds["maxX"]
+            and bounds["minY"] <= location.y <= bounds["maxY"]
+        ):
+            continue
+        component = actor.get_component_by_class(unreal.StaticMeshComponent)
+        if component is None or component.get_editor_property("static_mesh") is None:
+            continue
+        snapshots.append(snapshot_actor(label))
+    assert snapshots, region_id
+    assert any(item["label"] == spec["anchorLabel"] for item in snapshots), region_id
+    REGION_SNAPSHOT_CACHE[region_id] = sorted(
+        snapshots,
+        key=lambda item: (
+            item["locationCm"][0],
+            item["locationCm"][1],
+            item["locationCm"][2],
+            item["label"],
+        ),
+    )
+    return REGION_SNAPSHOT_CACHE[region_id]
+
+
 def rotate_xy(dx, dy, yaw_delta):
     radians = math.radians(yaw_delta)
     cos_yaw = math.cos(radians)
@@ -229,12 +264,14 @@ def clear_prior_fills():
     return len(doomed)
 
 
-def clone_group(group_labels, target_id, target_anchor_cm, target_anchor_yaw):
-    anchor_snapshot = snapshot_actor(group_labels[0])
+def clone_region(source_region, target_id, target_anchor_cm, target_anchor_yaw):
+    snapshots = snapshot_region(source_region)
+    anchor_snapshot = next(
+        item for item in snapshots if item["label"] == SOURCE_REGIONS[source_region]["anchorLabel"]
+    )
     created = []
     yaw_delta = target_anchor_yaw - anchor_snapshot["rotation"]["yaw"]
-    for source_label in group_labels:
-        snapshot = snapshot_actor(source_label)
+    for snapshot in snapshots:
         dx = snapshot["locationCm"][0] - anchor_snapshot["locationCm"][0]
         dy = snapshot["locationCm"][1] - anchor_snapshot["locationCm"][1]
         dz = snapshot["locationCm"][2] - anchor_snapshot["locationCm"][2]
@@ -244,13 +281,14 @@ def clone_group(group_labels, target_id, target_anchor_cm, target_anchor_yaw):
             target_anchor_cm[1] + ry,
             target_anchor_cm[2] + dz,
         ]
-        label = f"{LABEL_PREFIX}{target_id}_{source_label}"
+        label = f"{LABEL_PREFIX}{target_id}_{snapshot['label']}"
         actor = spawn_snapshot(snapshot, label, location_cm, snapshot["rotation"]["yaw"] + yaw_delta)
         created.append(
             {
                 "label": label,
                 "actor": actor.get_path_name(),
-                "sourceLabel": source_label,
+                "sourceLabel": snapshot["label"],
+                "sourceRegion": source_region,
                 "mesh": snapshot["mesh"],
                 "locationCm": location_cm,
                 "yaw": snapshot["rotation"]["yaw"] + yaw_delta,
@@ -284,6 +322,7 @@ def save_receipt(created):
         "districtSelectionPath": str(BASE.DISTRICT_SELECTION.relative_to(ROOT)).replace("\\", "/"),
         "districtSelectionSha256": sha(BASE.DISTRICT_SELECTION),
         "targetPlacements": PLACEMENTS,
+        "sourceRegions": SOURCE_REGIONS,
         "createdActorCount": len(created),
         "createdActors": created,
         "previewCameras": [
@@ -293,7 +332,7 @@ def save_receipt(created):
             "civic-terrace-open-a",
             "civic-terrace-open-b",
         ],
-        "visualIntent": "Add ordinary pass-by buildings and side returns to the market and civic corridors so Town Centre reads as connected Lagos street fabric rather than isolated shell masses.",
+        "visualIntent": "Add ordinary pass-by buildings with grounded frontage support to the market and civic corridors so Town Centre reads as connected Lagos street fabric rather than isolated shell masses.",
         "playableAcceptance": "not-established",
         "runtimeAdmission": False,
     }
@@ -311,15 +350,11 @@ def execute(expected_pid):
     assert not BASE.dirty_names(), "Expected clean packages before filler pass"
     BASE.make_level_current(BASE.DETAIL_MAP)
     removed = clear_prior_fills()
-    group_lookup = {
-        "market": MARKET_GROUP,
-        "civic": CIVIC_GROUP,
-    }
     created = []
     for placement in PLACEMENTS:
         created.extend(
-            clone_group(
-                group_lookup[placement["group"]],
+            clone_region(
+                placement["group"],
                 placement["id"],
                 placement["anchorLocationCm"],
                 placement["anchorYaw"],

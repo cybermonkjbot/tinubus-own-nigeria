@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T03:29:30Z",
+  "districtId": "town-centre",
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-13-filler-frontage-regions.json",
+  "previewSet": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-fill13-daylight",
+  "status": "saved and grounded more geometry but still visually unacceptable",
+  "observations": [
+    {
+      "camera": "market-road-frontage-a",
+      "imageSha256": "f668305e440b907943076f5789724b0ee4018d2f1780128a204169a8bfeb6507",
+      "defect": "The new pass added more supported frontage mass and reused real pavement pieces, but this camera still sees a near blank side wall and large blue-ground void instead of a finished right-hand street edge."
+    },
+    {
+      "camera": "market-road-frontage-b",
+      "imageSha256": "fa2154a10354453fc4e8e86ea057293c8121af01e8036f2f6b58e67120ad657c",
+      "defect": "Street mass is denser than fill12, yet the corridor still falls into exposed void and the pass-by buildings still read mostly as side-facing shells rather than mixed Lagos frontage."
+    },
+    {
+      "camera": "civic-street-approach",
+      "imageSha256": "52fb8d037bb15eb3a8da96bc6ad33b41da06ce1a3a8a81b0f560735633d683eb",
+      "defect": "The broad wall problem remains. The camera still resolves a long unarticulated facade plane instead of visible shopfront rhythm, setbacks and street-facing detail."
+    },
+    {
+      "camera": "civic-terrace-open-a",
+      "imageSha256": "6b9bd71bc496f146059be8f4253a1f31f87d345aa251b8f881a5f411532cd731",
+      "defect": "The cloned civic regions close part of the gap, but the foreground still reads as unsupported blue void with shell blocks rather than backed parcels and usable pavement continuity."
+    },
+    {
+      "camera": "civic-terrace-open-b",
+      "imageSha256": "4534cd6cac47a1a9e5dc5f96cc33870b35e8e81d1294d4d2a7fc0d819252a3c0",
+      "defect": "This remains too close to a plain wall face. The new southern extension is better aligned to the civic row, but the visible composition still lacks the front-facing street life and plot support needed for acceptance."
+    }
+  ],
+  "whatImproved": [
+    "The fill batch now reuses accepted Town Centre frontage regions instead of isolated shell labels.",
+    "Ground support pieces including pavement, kerb and drains were cloned with the filler batch.",
+    "The saved pass increased filler/support actor coverage from 111 replacement actors in fill12 to 787 in fill13."
+  ],
+  "nextNeed": [
+    "Use opposite-side or mirrored frontage families for the missing Market Road edge so the camera sees shopfront-facing buildings rather than side walls.",
+    "Author parcel backing and bounded ground slabs behind the new rows so the visible world stops dropping into blue void.",
+    "Break the civic wall reads with shorter frontage segments, setbacks and street-facing detail instead of one repeated long facade plane."
+  ]
+}
