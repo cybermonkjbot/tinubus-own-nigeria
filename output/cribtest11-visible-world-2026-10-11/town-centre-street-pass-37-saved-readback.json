@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T06:00:02.249966+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "safeReloadCompleted": true,
+  "actors": 15,
+  "uvVertexInstancesVerified": 540,
+  "parcelIds": [
+    "market-road-4",
+    "market-road-10",
+    "market-road-11",
+    "market-road-12"
+  ],
+  "sourceSectionContinuityVerified": true,
+  "collision": "BlockAll, complex-as-simple static surfaces",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_0.uasset": "5ed1909a268d0c29e5075995fb8c8abe10d7fdd3968ae0c13dd78fc1c3cdf843",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_1.uasset": "ccf0c0d52413febcb50ab15c0e3cc96f6d5c3e9486676326f0e81e91f7ba601f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_2.uasset": "f5eee14f0f4578167acc0792a735d400d9ac40fd0c26ef0ec4e304ef49c43081",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_3.uasset": "a90af6fc98822105dab001f6c660025dbf7d1f03a299d6da3cfe6877d4edf642",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_0.uasset": "979978a4ac733a05a57436373b79a16835e9f0b1730d8b1c886aa6001a945a6b",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_1.uasset": "aca121f64eb0212b7034b3cc42b7ec3c49d5e16adcbb1de068a2d63d5b9da6f3",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_2.uasset": "0051bc9d4079c923a183c9577506d6066c38f34bd66508c53a5ede37f2fb7631",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_3.uasset": "781d74e7e610a8811b7cd40b1b0883555fe87810a3640f7a59a77b25fced81b3",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_0.uasset": "7546acabc82a91496ce8a25b157d39b71708298f2eb00fbcbc86c773d3780080",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_1.uasset": "5f7b1f6b50b6531d4dbebcd77f4b200a2c0d0288735c3211f82b5d92b4a8ec78",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_2.uasset": "9441381ecb88198f5cfefeae5528993bb094fa7dff8134b83b77c701548828f6",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_3.uasset": "a97ed9c3144ac49ec1147a126ad3e193b3f7cf84d793929e42bf1e7ddf97e3aa",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_0.uasset": "1df9bc993a1a4914fad51ac1d371a70d779498a0bd1f0b13bb7a0808565f2cb4",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_1.uasset": "a85785375452671ca873ded1965b6adaea2eb797735255b796f25ed2f5553c78",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_2.uasset": "c83f83f5632205993f488822de3c325461e1f59a8dc15939fa9b50303a8b5692",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "b78b29edb4a9946cb180c0e981edb8ad08b7b13c934d66e015d3ea367775f0da",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "b0a72864b768836b49f9dc18fe64d04519282a6a712e8dc99e4dbb0d2631a0ca"
+  },
+  "dirtyPackages": [],
+  "gameWorld": "None",
+  "visualAcceptance": "pending matched captures",
+  "runtimeTraversal": "not-inspected"
+}

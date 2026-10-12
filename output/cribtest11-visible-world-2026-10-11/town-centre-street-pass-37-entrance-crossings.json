@@ -1,0 +1,921 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T05:59:17.056397+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "parcelId": "market-road-4",
+      "roadId": "market-road",
+      "entrance": [
+        -170.03,
+        0,
+        -43.82
+      ],
+      "startCm": [
+        -3342.8041929477386,
+        -17281.094652591448
+      ],
+      "direction": [
+        -0.9660087468166756,
+        0.25850938295094067
+      ],
+      "lengthCm": 1075.7623163110702,
+      "widthCm": 180,
+      "excludedSourceIds": [
+        "market-road:segment:1:metre:60:side:-1:Kerb1000:11",
+        "market-road:segment:1:metre:60:side:-1:Drain1000:54",
+        "market-road:segment:1:metre:60:side:-1:DrainCover1000:54",
+        "market-road:segment:1:metre:60:side:-1:Pavement1000:186",
+        "market-road:segment:1:metre:61:side:-1:Kerb1000:11",
+        "market-road:segment:1:metre:61:side:-1:Drain1000:54",
+        "market-road:segment:1:metre:61:side:-1:DrainCover1000:54",
+        "market-road:segment:1:metre:61:side:-1:Pavement1000:186",
+        "market-road:segment:1:metre:62:side:-1:Kerb1000:11",
+        "market-road:segment:1:metre:62:side:-1:Drain1000:54",
+        "market-road:segment:1:metre:62:side:-1:DrainCover1000:54",
+        "market-road:segment:1:metre:62:side:-1:Pavement1000:186"
+      ],
+      "retainedEntranceSupport": "TC_Ground22_market-road-4_entrance",
+      "oldSupport": {
+        "label": "TC_Ground22_market-road-4_entrance",
+        "sourceIds": [
+          "market-road-4",
+          "market-road"
+        ],
+        "role": "entrance-support",
+        "centreCm": [
+          -3379.3977230655314,
+          -17271.302017771195
+        ],
+        "lengthCm": 2075.7623163110707,
+        "widthCm": 180,
+        "yaw": 165.01836742760915,
+        "topCm": -1,
+        "locationCm": [
+          -4408.423131606883,
+          -17089.658221991805,
+          -1.0
+        ],
+        "scale": [
+          10.410041071563263,
+          1.8108649287995158,
+          1.0
+        ],
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
+        "material": null
+      }
+    },
+    {
+      "parcelId": "market-road-10",
+      "roadId": "market-road",
+      "entrance": [
+        -345,
+        0,
+        -170.46
+      ],
+      "startCm": [
+        -16232.719579283255,
+        -35161.15738837676
+      ],
+      "direction": [
+        -0.7759425817129553,
+        0.6308035430184532
+      ],
+      "lengthCm": 1048.119332388439,
+      "widthCm": 180,
+      "excludedSourceIds": [
+        "market-road:segment:6:metre:22:side:-1:Kerb1000:11",
+        "market-road:segment:6:metre:22:side:-1:Drain1000:54",
+        "market-road:segment:6:metre:22:side:-1:DrainCover1000:54",
+        "market-road:segment:6:metre:22:side:-1:Pavement1000:186",
+        "market-road:segment:6:metre:23:side:-1:Kerb1000:11",
+        "market-road:segment:6:metre:23:side:-1:Drain1000:54",
+        "market-road:segment:6:metre:23:side:-1:DrainCover1000:54",
+        "market-road:segment:6:metre:23:side:-1:Pavement1000:186",
+        "market-road:segment:6:metre:24:side:-1:Kerb1000:11",
+        "market-road:segment:6:metre:24:side:-1:Drain1000:54",
+        "market-road:segment:6:metre:24:side:-1:DrainCover1000:54",
+        "market-road:segment:6:metre:24:side:-1:Pavement1000:186"
+      ],
+      "retainedEntranceSupport": "TC_Ground22_market-road-10_entrance",
+      "oldSupport": {
+        "label": "TC_Ground22_market-road-10_entrance",
+        "sourceIds": [
+          "market-road-10",
+          "market-road"
+        ],
+        "role": "entrance-support",
+        "centreCm": [
+          -16251.388498785149,
+          -35145.980465697605
+        ],
+        "lengthCm": 2048.11933238844,
+        "widthCm": 180,
+        "yaw": 140.89056860573797,
+        "topCm": -1,
+        "locationCm": [
+          -17105.505996652755,
+          -34568.312573126954,
+          -1.0
+        ],
+        "scale": [
+          10.271410267971767,
+          1.8108649287995158,
+          1.0
+        ],
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
+        "material": null
+      }
+    },
+    {
+      "parcelId": "market-road-11",
+      "roadId": "market-road",
+      "entrance": [
+        -413.36,
+        0,
+        -177.61
+      ],
+      "startCm": [
+        -18344.229842391513,
+        -40839.629468228355
+      ],
+      "direction": [
+        0.7615363552608564,
+        -0.6481221949725303
+      ],
+      "lengthCm": 765.8594870257169,
+      "widthCm": 180,
+      "excludedSourceIds": [
+        "market-road:segment:7:metre:23:side:1:Kerb1000:11",
+        "market-road:segment:7:metre:23:side:1:Drain1000:54",
+        "market-road:segment:7:metre:23:side:1:DrainCover1000:54",
+        "market-road:segment:7:metre:23:side:1:Pavement1000:186",
+        "market-road:segment:7:metre:24:side:1:Kerb1000:11",
+        "market-road:segment:7:metre:24:side:1:Drain1000:54",
+        "market-road:segment:7:metre:24:side:1:DrainCover1000:54",
+        "market-road:segment:7:metre:24:side:1:Pavement1000:186",
+        "market-road:segment:7:metre:25:side:1:Kerb1000:11",
+        "market-road:segment:7:metre:25:side:1:Drain1000:54",
+        "market-road:segment:7:metre:25:side:1:DrainCover1000:54",
+        "market-road:segment:7:metre:25:side:1:Pavement1000:186"
+      ],
+      "retainedEntranceSupport": "TC_Ground22_market-road-11_entrance",
+      "oldSupport": {
+        "label": "TC_Ground22_market-road-11_entrance",
+        "sourceIds": [
+          "market-road-11",
+          "market-road"
+        ],
+        "role": "entrance-support",
+        "centreCm": [
+          -18433.383098826183,
+          -40763.75363662791
+        ],
+        "lengthCm": 1765.8594870257175,
+        "widthCm": 180,
+        "yaw": -40.40017258684736,
+        "topCm": -1,
+        "locationCm": [
+          -17700.293705298474,
+          -41268.76994518948,
+          -1.0
+        ],
+        "scale": [
+          8.855864489926772,
+          1.8108649287995158,
+          1.0
+        ],
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
+        "material": null
+      }
+    },
+    {
+      "parcelId": "market-road-12",
+      "roadId": "market-road",
+      "entrance": [
+        -392.37,
+        0,
+        -202.27
+      ],
+      "startCm": [
+        -19867.175860002033,
+        -39543.23621552474
+      ],
+      "direction": [
+        -0.761536355260856,
+        0.6481221949725309
+      ],
+      "lengthCm": 472.4976522948988,
+      "widthCm": 180,
+      "excludedSourceIds": [
+        "market-road:segment:7:metre:23:side:-1:Kerb1000:11",
+        "market-road:segment:7:metre:23:side:-1:Drain1000:54",
+        "market-road:segment:7:metre:23:side:-1:DrainCover1000:54",
+        "market-road:segment:7:metre:23:side:-1:Pavement1000:186",
+        "market-road:segment:7:metre:24:side:-1:Kerb1000:11",
+        "market-road:segment:7:metre:24:side:-1:Drain1000:54",
+        "market-road:segment:7:metre:24:side:-1:DrainCover1000:54",
+        "market-road:segment:7:metre:24:side:-1:Pavement1000:186",
+        "market-road:segment:7:metre:25:side:-1:Kerb1000:11",
+        "market-road:segment:7:metre:25:side:-1:Drain1000:54",
+        "market-road:segment:7:metre:25:side:-1:DrainCover1000:54",
+        "market-road:segment:7:metre:25:side:-1:Pavement1000:186"
+      ],
+      "retainedEntranceSupport": "TC_Ground22_market-road-12_entrance",
+      "oldSupport": {
+        "label": "TC_Ground22_market-road-12_entrance",
+        "sourceIds": [
+          "market-road-12",
+          "market-road"
+        ],
+        "role": "entrance-support",
+        "centreCm": [
+          -19666.31975237059,
+          -39714.179205248634
+        ],
+        "lengthCm": 1472.4976522948994,
+        "widthCm": 180,
+        "yaw": 139.5998274131526,
+        "topCm": -1,
+        "locationCm": [
+          -20287.370177770983,
+          -39304.51611448618,
+          -1.0
+        ],
+        "scale": [
+          7.384641737504805,
+          1.8108649287995158,
+          1.0
+        ],
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
+        "material": null
+      }
+    }
+  ],
+  "createdActors": [
+    {
+      "sourceId": "market-road-4:entrance-crossing:road-ramp",
+      "actorLabel": "TC_Crossing37_market-road-4_0",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_0",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -3342.8041929477386,
+        -17281.094652591448,
+        0
+      ],
+      "yaw": 165.01836742760915,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "road-ramp",
+      "lengthCm": 180,
+      "widthCm": 180,
+      "topStartCm": 0,
+      "topEndCm": 15
+    },
+    {
+      "sourceId": "market-road-4:entrance-crossing:crossing-deck",
+      "actorLabel": "TC_Crossing37_market-road-4_1",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_1",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -3516.68576737474,
+        -17234.56296366028,
+        0
+      ],
+      "yaw": 165.01836742760915,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "crossing-deck",
+      "lengthCm": 120,
+      "widthCm": 180,
+      "topStartCm": 15,
+      "topEndCm": 15
+    },
+    {
+      "sourceId": "market-road-4:entrance-crossing:entrance-ramp",
+      "actorLabel": "TC_Crossing37_market-road-4_2",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_2",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -3632.606816992741,
+        -17203.541837706165,
+        0
+      ],
+      "yaw": 165.01836742760915,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "entrance-ramp",
+      "lengthCm": 180,
+      "widthCm": 180,
+      "topStartCm": 15,
+      "topEndCm": -1
+    },
+    {
+      "sourceId": "market-road-4:entrance-crossing:entrance-link",
+      "actorLabel": "TC_Crossing37_market-road-4_3",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_3",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -3806.4883914197426,
+        -17157.010148774996,
+        0
+      ],
+      "yaw": 165.01836742760915,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "entrance-link",
+      "lengthCm": 595.7623163110702,
+      "widthCm": 180,
+      "topStartCm": -1,
+      "topEndCm": -1
+    },
+    {
+      "sourceId": "market-road-10:entrance-crossing:road-ramp",
+      "actorLabel": "TC_Crossing37_market-road-10_0",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_0",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -16232.719579283255,
+        -35161.15738837676,
+        0
+      ],
+      "yaw": 140.89056860573797,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "road-ramp",
+      "lengthCm": 180,
+      "widthCm": 180,
+      "topStartCm": 0,
+      "topEndCm": 15
+    },
+    {
+      "sourceId": "market-road-10:entrance-crossing:crossing-deck",
+      "actorLabel": "TC_Crossing37_market-road-10_1",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_1",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -16372.389243991587,
+        -35047.612750633445,
+        0
+      ],
+      "yaw": 140.89056860573797,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "crossing-deck",
+      "lengthCm": 120,
+      "widthCm": 180,
+      "topStartCm": 15,
+      "topEndCm": 15
+    },
+    {
+      "sourceId": "market-road-10:entrance-crossing:entrance-ramp",
+      "actorLabel": "TC_Crossing37_market-road-10_2",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_2",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -16465.502353797143,
+        -34971.916325471226,
+        0
+      ],
+      "yaw": 140.89056860573797,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "entrance-ramp",
+      "lengthCm": 180,
+      "widthCm": 180,
+      "topStartCm": 15,
+      "topEndCm": -1
+    },
+    {
+      "sourceId": "market-road-10:entrance-crossing:entrance-link",
+      "actorLabel": "TC_Crossing37_market-road-10_3",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_3",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -16605.172018505473,
+        -34858.37168772791,
+        0
+      ],
+      "yaw": 140.89056860573797,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "entrance-link",
+      "lengthCm": 568.119332388439,
+      "widthCm": 180,
+      "topStartCm": -1,
+      "topEndCm": -1
+    },
+    {
+      "sourceId": "market-road-11:entrance-crossing:road-ramp",
+      "actorLabel": "TC_Crossing37_market-road-11_0",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_0",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -18344.229842391513,
+        -40839.629468228355,
+        0
+      ],
+      "yaw": -40.40017258684736,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "road-ramp",
+      "lengthCm": 180,
+      "widthCm": 180,
+      "topStartCm": 0,
+      "topEndCm": 15
+    },
+    {
+      "sourceId": "market-road-11:entrance-crossing:crossing-deck",
+      "actorLabel": "TC_Crossing37_market-road-11_1",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_1",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -18207.15329844456,
+        -40956.29146332341,
+        0
+      ],
+      "yaw": -40.40017258684736,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "crossing-deck",
+      "lengthCm": 120,
+      "widthCm": 180,
+      "topStartCm": 15,
+      "topEndCm": 15
+    },
+    {
+      "sourceId": "market-road-11:entrance-crossing:entrance-ramp",
+      "actorLabel": "TC_Crossing37_market-road-11_2",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_2",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -18115.768935813256,
+        -41034.066126720114,
+        0
+      ],
+      "yaw": -40.40017258684736,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "entrance-ramp",
+      "lengthCm": 180,
+      "widthCm": 180,
+      "topStartCm": 15,
+      "topEndCm": -1
+    },
+    {
+      "sourceId": "market-road-11:entrance-crossing:entrance-link",
+      "actorLabel": "TC_Crossing37_market-road-11_3",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_3",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -17978.6923918663,
+        -41150.72812181517,
+        0
+      ],
+      "yaw": -40.40017258684736,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "entrance-link",
+      "lengthCm": 285.85948702571693,
+      "widthCm": 180,
+      "topStartCm": -1,
+      "topEndCm": -1
+    },
+    {
+      "sourceId": "market-road-12:entrance-crossing:road-ramp",
+      "actorLabel": "TC_Crossing37_market-road-12_0",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_0",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -19867.175860002033,
+        -39543.23621552474,
+        0
+      ],
+      "yaw": 139.5998274131526,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "road-ramp",
+      "lengthCm": 180,
+      "widthCm": 180,
+      "topStartCm": 0,
+      "topEndCm": 15
+    },
+    {
+      "sourceId": "market-road-12:entrance-crossing:crossing-deck",
+      "actorLabel": "TC_Crossing37_market-road-12_1",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_1",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -20004.252403948987,
+        -39426.574220429684,
+        0
+      ],
+      "yaw": 139.5998274131526,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "crossing-deck",
+      "lengthCm": 120,
+      "widthCm": 180,
+      "topStartCm": 15,
+      "topEndCm": 15
+    },
+    {
+      "sourceId": "market-road-12:entrance-crossing:entrance-ramp",
+      "actorLabel": "TC_Crossing37_market-road-12_2",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_2",
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete",
+      "locationCm": [
+        -20095.63676658029,
+        -39348.79955703298,
+        0
+      ],
+      "yaw": 139.5998274131526,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "role": "entrance-ramp",
+      "lengthCm": 172.49765229489878,
+      "widthCm": 180,
+      "topStartCm": 15,
+      "topEndCm": -1
+    }
+  ],
+  "nativeAssets": [
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_4_0.obj",
+      "sourceObjSha256": "39db610d1a42d2db20be30289058a08665e64d9d3e3e3e0805548985c451f2cc",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_0",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          180.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_4_1.obj",
+      "sourceObjSha256": "f67e0c90bf57f3bc7aac9dfd050d36d5f50aa43d742dd73f03d2c513637bf4d4",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_1",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          120.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_4_2.obj",
+      "sourceObjSha256": "b360c3b7a848fc1d0dc7a694dd629c7529d251584c58e14d7876226f09178a69",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_2",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          180.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_4_3.obj",
+      "sourceObjSha256": "5cace4f6eacba9c19de4f2af31da912a83e168408e0e56c9cffb80a06447920e",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_3",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          595.7623291015625,
+          90.0,
+          -1.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_10_0.obj",
+      "sourceObjSha256": "39db610d1a42d2db20be30289058a08665e64d9d3e3e3e0805548985c451f2cc",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_0",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          180.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_10_1.obj",
+      "sourceObjSha256": "f67e0c90bf57f3bc7aac9dfd050d36d5f50aa43d742dd73f03d2c513637bf4d4",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_1",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          120.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_10_2.obj",
+      "sourceObjSha256": "b360c3b7a848fc1d0dc7a694dd629c7529d251584c58e14d7876226f09178a69",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_2",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          180.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_10_3.obj",
+      "sourceObjSha256": "c051c9a8d61d2e0cba33aec21c826cf2fb91f335cbcbe1736de36c7a7cc52468",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_3",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          568.1193237304688,
+          90.0,
+          -1.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_11_0.obj",
+      "sourceObjSha256": "39db610d1a42d2db20be30289058a08665e64d9d3e3e3e0805548985c451f2cc",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_0",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          180.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_11_1.obj",
+      "sourceObjSha256": "f67e0c90bf57f3bc7aac9dfd050d36d5f50aa43d742dd73f03d2c513637bf4d4",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_1",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          120.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_11_2.obj",
+      "sourceObjSha256": "b360c3b7a848fc1d0dc7a694dd629c7529d251584c58e14d7876226f09178a69",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_2",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          180.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_11_3.obj",
+      "sourceObjSha256": "6149bd66f96a0958300bbaa099d12f56211deaca17bc247243439fb8f3151067",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_3",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          285.8594970703125,
+          90.0,
+          -1.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_12_0.obj",
+      "sourceObjSha256": "39db610d1a42d2db20be30289058a08665e64d9d3e3e3e0805548985c451f2cc",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_0",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          180.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_12_1.obj",
+      "sourceObjSha256": "f67e0c90bf57f3bc7aac9dfd050d36d5f50aa43d742dd73f03d2c513637bf4d4",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_1",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          120.0,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    },
+    {
+      "sourceObj": "output/cribtest11-visible-world-2026-10-11/crossings37-import-source/SM_market_road_12_2.obj",
+      "sourceObjSha256": "a88f08087ee1a6445d2afaca675f70e87a692b82173d10f7d983c291c54f2127",
+      "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_2",
+      "boundsCm": [
+        [
+          0.0,
+          -90.0,
+          -12.0
+        ],
+        [
+          172.49765014648438,
+          90.0,
+          15.0
+        ]
+      ],
+      "uvProbesVerified": 36,
+      "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+      "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_0.uasset": "5ed1909a268d0c29e5075995fb8c8abe10d7fdd3968ae0c13dd78fc1c3cdf843",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_1.uasset": "ccf0c0d52413febcb50ab15c0e3cc96f6d5c3e9486676326f0e81e91f7ba601f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_2.uasset": "f5eee14f0f4578167acc0792a735d400d9ac40fd0c26ef0ec4e304ef49c43081",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_4_3.uasset": "a90af6fc98822105dab001f6c660025dbf7d1f03a299d6da3cfe6877d4edf642",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_0.uasset": "979978a4ac733a05a57436373b79a16835e9f0b1730d8b1c886aa6001a945a6b",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_1.uasset": "aca121f64eb0212b7034b3cc42b7ec3c49d5e16adcbb1de068a2d63d5b9da6f3",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_2.uasset": "0051bc9d4079c923a183c9577506d6066c38f34bd66508c53a5ede37f2fb7631",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_10_3.uasset": "781d74e7e610a8811b7cd40b1b0883555fe87810a3640f7a59a77b25fced81b3",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_0.uasset": "7546acabc82a91496ce8a25b157d39b71708298f2eb00fbcbc86c773d3780080",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_1.uasset": "5f7b1f6b50b6531d4dbebcd77f4b200a2c0d0288735c3211f82b5d92b4a8ec78",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_2.uasset": "9441381ecb88198f5cfefeae5528993bb094fa7dff8134b83b77c701548828f6",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_11_3.uasset": "a97ed9c3144ac49ec1147a126ad3e193b3f7cf84d793929e42bf1e7ddf97e3aa",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_0.uasset": "1df9bc993a1a4914fad51ac1d371a70d779498a0bd1f0b13bb7a0808565f2cb4",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_1.uasset": "a85785375452671ca873ded1965b6adaea2eb797735255b796f25ed2f5553c78",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Crossings37/Meshes/SM_market_road_12_2.uasset": "c83f83f5632205993f488822de3c325461e1f59a8dc15939fa9b50303a8b5692",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "b78b29edb4a9946cb180c0e981edb8ad08b7b13c934d66e015d3ea367775f0da",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "b0a72864b768836b49f9dc18fe64d04519282a6a712e8dc99e4dbb0d2631a0ca"
+  },
+  "limitations": [
+    "1.8m crossing lane only; wider exclusion side joins still need fitted apron work",
+    "Drain excavation and junction mitering remain unresolved",
+    "No runtime walking/navigation or accessibility acceptance"
+  ],
+  "visualAcceptance": "pending matched views",
+  "runtimeTraversal": "not-inspected"
+}

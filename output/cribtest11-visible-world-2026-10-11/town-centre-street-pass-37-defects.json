@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "beforePreviewSet": "previews/town-centre-streetpass01-crossings37-before",
+  "afterPreviewSet": "previews/town-centre-streetpass01-crossings37-after",
+  "inspectedImages": 10,
+  "improvements": [
+    "Four saved Market Road entrance cut centres now contain supported textured ramp/deck/link geometry",
+    "All crossing actor transforms, section centreline joins, UVs and static collision flags survive safe reload",
+    "Existing source-centre and junction views retain their placements"
+  ],
+  "remainingDefects": [
+    "1.8m crossing lanes do not fill wider exclusion side areas; fitted side aprons and shoulders remain",
+    "No capsule traversal, navigation or accessibility acceptance",
+    "Saved mesh metadata description predates corrected importer V-flip and collision wording; native receipt/readback supplies actual contract",
+    "Market junction remains an open concrete field without finished corner transitions",
+    "Sparse blocks, oversized uniform ground and repeated silhouettes do not meet Lagos street density",
+    "Canonical floor parity remains wrong, notably market-road-10 and market-road-12",
+    "Blank side/back walls, dark unstocked shops, missing signage/services/foliage/activity dressing",
+    "Warm brown asphalt and existing Garden Avenue material discontinuity",
+    "Covered drain beds remain unexcavated",
+    "Boardwalk decking/edge and approved sand/beach finish dependencies remain"
+  ],
+  "sourcePositionsPreserved": true,
+  "newDestinationTraversalVerified": false,
+  "finishedNeighbourhood": false,
+  "runtimeTraversal": "not-inspected; no active game world",
+  "trafficAndResidents": "No working simulation established",
+  "nextArea": "Town Centre entrance side aprons, fitted junctions and exact-floor ordinary blocks"
+}
