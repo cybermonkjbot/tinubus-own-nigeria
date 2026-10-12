@@ -1,0 +1,1380 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T00:45:25.223523+00:00",
+  "pid": 13732,
+  "owner": "cribtest11-world-generation-20261010/town-centre-street-pass-01",
+  "mode": "cleanup-all-closed-instance-boxes",
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "connectedDistrictLevelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.umap": "b7a42c669ce3e892cd0603944f830b3418d7df6d4c25680aedb300557beb50b9"
+  },
+  "districtId": "town-centre",
+  "districtSelectionPath": "output/cribtest11-visible-world-2026-10-11/town-centre-district-selection.json",
+  "districtSelectionSha256": "2fdc9ad04dbf6ef064d70661e78bf6204401a4a6f9e469f36d37d269a3321c8e",
+  "removedClosedInstanceBoxCount": 85,
+  "removedClosedInstanceBoxes": [
+    {
+      "label": "instances_box__1__1_1293c72907c0_159ea2007c",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_23",
+      "canonicalId": "instances:box:-1:-1:1293c72907c0",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -11707.28125,
+        -9290.0087890625,
+        1201.7169799804688
+      ],
+      "extent": [
+        11707.28125,
+        9290.0087890625,
+        1788.9229125976562
+      ]
+    },
+    {
+      "label": "instances_box__1__1_210f45143b7b_6adc072805",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_40",
+      "canonicalId": "instances:box:-1:-1:210f45143b7b",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -11014.2978515625,
+        -551.0,
+        164.99996948242188
+      ],
+      "extent": [
+        11014.2978515625,
+        707.0,
+        998.9002990722656
+      ]
+    },
+    {
+      "label": "instances_box__1__1_8cbbc18eccce_f96cb2ed8f",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_93",
+      "canonicalId": "instances:box:-1:-1:8cbbc18eccce",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -11019.2705078125,
+        -4594.9765625,
+        1155.0000343322754
+      ],
+      "extent": [
+        11019.2705078125,
+        4594.9765625,
+        1219.5849266052246
+      ]
+    },
+    {
+      "label": "instances_box__1__1_af6c675f1564_f6293ac832",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_61",
+      "canonicalId": "instances:box:-1:-1:af6c675f1564",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -11538.150390625,
+        -9212.0087890625,
+        2045.4269714355469
+      ],
+      "extent": [
+        11538.150390625,
+        9388.0087890625,
+        2612.168243408203
+      ]
+    },
+    {
+      "label": "instances_box__1__1_d06bc95ee593_65dc2fff52",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_7",
+      "canonicalId": "instances:box:-1:-1:d06bc95ee593",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -2330.538818359375,
+        -5846.0,
+        329.99998474121094
+      ],
+      "extent": [
+        2330.538818359375,
+        5846.0,
+        473.7147979736328
+      ]
+    },
+    {
+      "label": "instances_box__1__2_b82ed4d0f7e7_0388d01bfd",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_6",
+      "canonicalId": "instances:box:-1:-2:b82ed4d0f7e7",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -14343.173828125,
+        -2213.36474609375,
+        1319.999963760376
+      ],
+      "extent": [
+        14343.173828125,
+        2213.36474609375,
+        1383.305944442749
+      ]
+    },
+    {
+      "label": "instances_box__1__3_75e00c8e7845_0fc81f76a9",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_59",
+      "canonicalId": "instances:box:-1:-3:75e00c8e7845",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -35997.67578125,
+        -10072.3916015625,
+        2137.552490234375
+      ],
+      "extent": [
+        35997.67578125,
+        10072.3916015625,
+        2566.022216796875
+      ]
+    },
+    {
+      "label": "instances_box__1__4_09b39949f0aa_d723af1bd5",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_80",
+      "canonicalId": "instances:box:-1:-4:09b39949f0aa",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -43917.609375,
+        -7092.0,
+        990.0
+      ],
+      "extent": [
+        43917.609375,
+        7092.0,
+        1673.474609375
+      ]
+    },
+    {
+      "label": "instances_box__1__4_0b68ef7cb0ed_8a3e5eb4f9",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_90",
+      "canonicalId": "instances:box:-1:-4:0b68ef7cb0ed",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -40572.76953125,
+        -10694.75,
+        494.9999694824219
+      ],
+      "extent": [
+        40572.76953125,
+        10694.75,
+        690.0389709472656
+      ]
+    },
+    {
+      "label": "instances_box__1__4_304678d0144f_e77a427852",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_104",
+      "canonicalId": "instances:box:-1:-4:304678d0144f",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -45135.953125,
+        -10331.6669921875,
+        1349.6930236816406
+      ],
+      "extent": [
+        45135.953125,
+        10331.6669921875,
+        2145.6114196777344
+      ]
+    },
+    {
+      "label": "instances_box__1__4_efe54ed29821_ed8a5816e2",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_58",
+      "canonicalId": "instances:box:-1:-4:efe54ed29821",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -44995.5703125,
+        -10704.75,
+        1969.508804321289
+      ],
+      "extent": [
+        44995.5703125,
+        10704.75,
+        2314.194808959961
+      ]
+    },
+    {
+      "label": "instances_box__1__5_2d0c1b946ea3_27176ccaba",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_89",
+      "canonicalId": "instances:box:-1:-5:2d0c1b946ea3",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -48694.02734375,
+        -3962.5,
+        495.0000305175781
+      ],
+      "extent": [
+        48694.02734375,
+        3962.5,
+        1009.3017272949219
+      ]
+    },
+    {
+      "label": "instances_box__1__5_6e0af8bb6849_f4ac6583f1",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_57",
+      "canonicalId": "instances:box:-1:-5:6e0af8bb6849",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -48484.14453125,
+        -3972.5,
+        909.7506713867188
+      ],
+      "extent": [
+        48484.14453125,
+        3972.5,
+        909.7506713867188
+      ]
+    },
+    {
+      "label": "instances_box__2__1_2a4ee788f784_4e87f3c0f5",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_37",
+      "canonicalId": "instances:box:-2:-1:2a4ee788f784",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -11802.5185546875,
+        -19558.060546875,
+        1516.86962890625
+      ],
+      "extent": [
+        11802.5185546875,
+        19558.060546875,
+        2232.872314453125
+      ]
+    },
+    {
+      "label": "instances_box__2__1_d6c81d2fe1b9_a8225c1291",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_79",
+      "canonicalId": "instances:box:-2:-1:d6c81d2fe1b9",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -7430.87744140625,
+        -14677.0771484375,
+        1484.999984741211
+      ],
+      "extent": [
+        7430.87744140625,
+        14677.0771484375,
+        1925.863784790039
+      ]
+    },
+    {
+      "label": "instances_box__2__2_11b62bcddcee_a8ce429cd5",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_78",
+      "canonicalId": "instances:box:-2:-2:11b62bcddcee",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -13636.2431640625,
+        -12852.25,
+        329.99998474121094
+      ],
+      "extent": [
+        13636.2431640625,
+        12852.25,
+        776.0145416259766
+      ]
+    },
+    {
+      "label": "instances_box__2__2_b8ea2ead0b10_b0c84a6a6d",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_19",
+      "canonicalId": "instances:box:-2:-2:b8ea2ead0b10",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -22369.845703125,
+        -13530.2333984375,
+        1649.9999694824219
+      ],
+      "extent": [
+        22369.845703125,
+        13530.2333984375,
+        1960.8498840332031
+      ]
+    },
+    {
+      "label": "instances_box__2__3_6c435b6cd49b_de48333e6b",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_102",
+      "canonicalId": "instances:box:-2:-3:6c435b6cd49b",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -28015.115234375,
+        -22408.5,
+        178.459716796875
+      ],
+      "extent": [
+        28015.115234375,
+        22408.5,
+        943.3226318359375
+      ]
+    },
+    {
+      "label": "instances_box__2__3_7a639df934c6_f25c06764c",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_54",
+      "canonicalId": "instances:box:-2:-3:7a639df934c6",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -36058.79296875,
+        -24385.560546875,
+        2109.241500854492
+      ],
+      "extent": [
+        36058.79296875,
+        24385.560546875,
+        2613.593460083008
+      ]
+    },
+    {
+      "label": "instances_box__2__3_a868e14f09a7_f7cdbd93a8",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_35",
+      "canonicalId": "instances:box:-2:-3:a868e14f09a7",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -36332.3671875,
+        -22433.25,
+        660.0000610351562
+      ],
+      "extent": [
+        36332.3671875,
+        22433.25,
+        1645.1737670898438
+      ]
+    },
+    {
+      "label": "instances_box__2__3_cdce1731e7c8_694b112e2c",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_2",
+      "canonicalId": "instances:box:-2:-3:cdce1731e7c8",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -30844.845703125,
+        -17029.080078125,
+        825.0000305175781
+      ],
+      "extent": [
+        30844.845703125,
+        17029.080078125,
+        1551.0895690917969
+      ]
+    },
+    {
+      "label": "instances_box__2__3_e9a648d5d1fb_79ae903a02",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_18",
+      "canonicalId": "instances:box:-2:-3:e9a648d5d1fb",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -33213.85546875,
+        -24375.560546875,
+        1365.7746887207031
+      ],
+      "extent": [
+        33213.85546875,
+        24375.560546875,
+        2283.351531982422
+      ]
+    },
+    {
+      "label": "instances_box__2__3_eaa28819da73_f8519f194c",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_87",
+      "canonicalId": "instances:box:-2:-3:eaa28819da73",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -25792.486328125,
+        -21213.6796875,
+        1649.9999389648438
+      ],
+      "extent": [
+        25792.486328125,
+        21213.6796875,
+        2136.8147583007812
+      ]
+    },
+    {
+      "label": "instances_box__2__4_0ed2a2801e18_f55d252eaf",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_34",
+      "canonicalId": "instances:box:-2:-4:0ed2a2801e18",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -39882.71484375,
+        -15033.2021484375,
+        990.0
+      ],
+      "extent": [
+        39882.71484375,
+        15033.2021484375,
+        1568.186279296875
+      ]
+    },
+    {
+      "label": "instances_box__2__4_21bd2affe4c6_06f354ba03",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_101",
+      "canonicalId": "instances:box:-2:-4:21bd2affe4c6",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -43124.953125,
+        -22853.58984375,
+        989.9999847412109
+      ],
+      "extent": [
+        43124.953125,
+        22853.58984375,
+        1336.423599243164
+      ]
+    },
+    {
+      "label": "instances_box__2__4_4e04886acea8_edc20427ec",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_53",
+      "canonicalId": "instances:box:-2:-4:4e04886acea8",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -43745.8984375,
+        -24371.447265625,
+        1680.3814697265625
+      ],
+      "extent": [
+        43745.8984375,
+        24371.447265625,
+        1680.3814697265625
+      ]
+    },
+    {
+      "label": "instances_box__2__4_81ef3b3107fe_e738268a72",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_17",
+      "canonicalId": "instances:box:-2:-4:81ef3b3107fe",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -43529.36328125,
+        -14248.75,
+        330.0000066757202
+      ],
+      "extent": [
+        43529.36328125,
+        14248.75,
+        358.2839288711548
+      ]
+    },
+    {
+      "label": "instances_box__2__4_8c58a31f351b_7649e79929",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_1",
+      "canonicalId": "instances:box:-2:-4:8c58a31f351b",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -39696.7578125,
+        -24361.447265625,
+        1451.8417663574219
+      ],
+      "extent": [
+        39696.7578125,
+        24361.447265625,
+        1819.3108215332031
+      ]
+    },
+    {
+      "label": "instances_box__2__4_b04494e316b2_fbbdee2738",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_77",
+      "canonicalId": "instances:box:-2:-4:b04494e316b2",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -43894.3984375,
+        -19126.923828125,
+        1461.1524200439453
+      ],
+      "extent": [
+        43894.3984375,
+        19126.923828125,
+        1763.8859100341797
+      ]
+    },
+    {
+      "label": "instances_box__3__3_010c3646c7f4_7d77544803",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_50",
+      "canonicalId": "instances:box:-3:-3:010c3646c7f4",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -34195.3984375,
+        -27033.0703125,
+        1552.247314453125
+      ],
+      "extent": [
+        34195.3984375,
+        27033.0703125,
+        1552.247314453125
+      ]
+    },
+    {
+      "label": "instances_box__3__3_9dd5e1714de0_bf16bfbdc2",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_32",
+      "canonicalId": "instances:box:-3:-3:9dd5e1714de0",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -34483.0390625,
+        -25149.5,
+        825.0
+      ],
+      "extent": [
+        34483.0390625,
+        25149.5,
+        1650.34814453125
+      ]
+    },
+    {
+      "label": "instances_box__3__3_e4c91ff844b5_8eaf7e78b3",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_14",
+      "canonicalId": "instances:box:-3:-3:e4c91ff844b5",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -32534.775390625,
+        -27023.0703125,
+        989.9999389648438
+      ],
+      "extent": [
+        32534.775390625,
+        27023.0703125,
+        1761.6404418945312
+      ]
+    },
+    {
+      "label": "instances_box__3__4_1b3a41e0d2fb_d02fb5a07b",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_13",
+      "canonicalId": "instances:box:-3:-4:1b3a41e0d2fb",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -42023.0078125,
+        -27831.25,
+        825.0
+      ],
+      "extent": [
+        42023.0078125,
+        27831.25,
+        1164.7362060546875
+      ]
+    },
+    {
+      "label": "instances_box__3__4_3a3b029281a0_65928d3dd8",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_75",
+      "canonicalId": "instances:box:-3:-4:3a3b029281a0",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -38200.7109375,
+        -27120.25,
+        165.0
+      ],
+      "extent": [
+        38200.7109375,
+        27120.25,
+        375.10894775390625
+      ]
+    },
+    {
+      "label": "instances_box__3__4_4b6e33880ba5_33057a1911",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_49",
+      "canonicalId": "instances:box:-3:-4:4b6e33880ba5",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -41925.66015625,
+        -27841.25,
+        1330.863525390625
+      ],
+      "extent": [
+        41925.66015625,
+        27841.25,
+        1330.863525390625
+      ]
+    },
+    {
+      "label": "instances_box__3__4_75f78974aece_59908868d0",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_0",
+      "canonicalId": "instances:box:-3:-4:75f78974aece",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -38559.8671875,
+        -24508.630859375,
+        1154.9999694824219
+      ],
+      "extent": [
+        38559.8671875,
+        24508.630859375,
+        1428.8699035644531
+      ]
+    },
+    {
+      "label": "instances_box_0__1_0639564acd1e_27bc79fa89",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_109",
+      "canonicalId": "instances:box:0:-1:0639564acd1e",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -8475.169921875,
+        3422.75,
+        824.9999694824219
+      ],
+      "extent": [
+        8475.169921875,
+        3422.75,
+        1446.8467102050781
+      ]
+    },
+    {
+      "label": "instances_box_0__1_21e5ea60bda3_e591c9d8e1",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_43",
+      "canonicalId": "instances:box:0:-1:21e5ea60bda3",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -3400.0,
+        5500.0,
+        990.0
+      ],
+      "extent": [
+        3400.0,
+        5500.0,
+        990.0
+      ]
+    },
+    {
+      "label": "instances_box_0__1_5cabd3d8a82a_ea2cd5ed0b",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_65",
+      "canonicalId": "instances:box:0:-1:5cabd3d8a82a",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -10217.6318359375,
+        5568.92041015625,
+        1722.266845703125
+      ],
+      "extent": [
+        10217.6318359375,
+        5568.92041015625,
+        1722.266845703125
+      ]
+    },
+    {
+      "label": "instances_box_0__1_ddf895c66111_3fe18cb5d0",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_27",
+      "canonicalId": "instances:box:0:-1:ddf895c66111",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -10666.0966796875,
+        5558.92041015625,
+        1155.0
+      ],
+      "extent": [
+        10666.0966796875,
+        5558.92041015625,
+        1788.922119140625
+      ]
+    },
+    {
+      "label": "instances_box_0__2_22c532299095_df6adacf97",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_64",
+      "canonicalId": "instances:box:0:-2:22c532299095",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -22463.828125,
+        12304.25,
+        1830.2770080566406
+      ],
+      "extent": [
+        22463.828125,
+        12304.25,
+        2680.5721130371094
+      ]
+    },
+    {
+      "label": "instances_box_0__2_43651778cff8_c507e790c4",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_96",
+      "canonicalId": "instances:box:0:-2:43651778cff8",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -22530.201171875,
+        12294.25,
+        795.7666625976562
+      ],
+      "extent": [
+        22530.201171875,
+        12294.25,
+        1860.1264038085938
+      ]
+    },
+    {
+      "label": "instances_box_0__2_49c961b5d758_e08d00109c",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_26",
+      "canonicalId": "instances:box:0:-2:49c961b5d758",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -14642.9140625,
+        6161.26611328125,
+        990.0000133514404
+      ],
+      "extent": [
+        14642.9140625,
+        6161.26611328125,
+        1027.2045764923096
+      ]
+    },
+    {
+      "label": "instances_box_0__2_4ca21dba6120_724455da4a",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_108",
+      "canonicalId": "instances:box:0:-2:4ca21dba6120",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -19164.228515625,
+        9290.9208984375,
+        1484.9999504089355
+      ],
+      "extent": [
+        19164.228515625,
+        9290.9208984375,
+        1534.3674812316895
+      ]
+    },
+    {
+      "label": "instances_box_0__2_89fe78859d31_c02bebb0b1",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_9",
+      "canonicalId": "instances:box:0:-2:89fe78859d31",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -18382.158203125,
+        1396.89892578125,
+        1649.9999923706055
+      ],
+      "extent": [
+        18382.158203125,
+        1396.89892578125,
+        1727.1801834106445
+      ]
+    },
+    {
+      "label": "instances_box_0__3_95ef31674b8d_de20595836",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_42",
+      "canonicalId": "instances:box:0:-3:95ef31674b8d",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -33322.00390625,
+        11367.75,
+        777.9052734375
+      ],
+      "extent": [
+        33322.00390625,
+        11367.75,
+        1624.622802734375
+      ]
+    },
+    {
+      "label": "instances_box_0__3_fc6e71c933d1_8057a5a1ac",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_63",
+      "canonicalId": "instances:box:0:-3:fc6e71c933d1",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -35855.16015625,
+        11377.75,
+        1138.6587677001953
+      ],
+      "extent": [
+        35855.16015625,
+        11377.75,
+        1430.3539276123047
+      ]
+    },
+    {
+      "label": "instances_box_0__4_4016ccd4b353_7a5cc557ec",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_94",
+      "canonicalId": "instances:box:0:-4:4016ccd4b353",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -38912.15234375,
+        7966.7861328125,
+        989.9999942779541
+      ],
+      "extent": [
+        38912.15234375,
+        7966.7861328125,
+        1044.8922176361084
+      ]
+    },
+    {
+      "label": "instances_box_0__4_4a8b343f4890_264373718b",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_62",
+      "canonicalId": "instances:box:0:-4:4a8b343f4890",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -46746.59375,
+        10041.734741210938,
+        1580.8349609375
+      ],
+      "extent": [
+        46746.59375,
+        10951.265258789062,
+        1580.8349609375
+      ]
+    },
+    {
+      "label": "instances_box_0__4_639761432022_98e68645a2",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_107",
+      "canonicalId": "instances:box:0:-4:639761432022",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -41480.265625,
+        10486.5,
+        165.00000381469727
+      ],
+      "extent": [
+        41480.265625,
+        10486.5,
+        214.8532371520996
+      ]
+    },
+    {
+      "label": "instances_box_0__4_69aabbf7b6cb_737c7d38f0",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_24",
+      "canonicalId": "instances:box:0:-4:69aabbf7b6cb",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -47177.98046875,
+        592.45263671875,
+        989.9999694824219
+      ],
+      "extent": [
+        47177.98046875,
+        852.5999755859375,
+        1582.3081359863281
+      ]
+    },
+    {
+      "label": "instances_box_0__4_ec147d08ad59_4f5f853863",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_8",
+      "canonicalId": "instances:box:0:-4:ec147d08ad59",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -42253.75,
+        3791.25,
+        990.0000381469727
+      ],
+      "extent": [
+        42253.75,
+        3791.25,
+        1071.9889755249023
+      ]
+    },
+    {
+      "label": "instances_box_1__1_17df7f2ffdd8_498f6eaef1",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_70",
+      "canonicalId": "instances:box:1:-1:17df7f2ffdd8",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -6505.01806640625,
+        23017.75,
+        1470.552490234375
+      ],
+      "extent": [
+        6505.01806640625,
+        23017.75,
+        1470.552490234375
+      ]
+    },
+    {
+      "label": "instances_box_1__1_3192d6183e7a_3f285a8f1b",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_12",
+      "canonicalId": "instances:box:1:-1:3192d6183e7a",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -6606.39453125,
+        23007.75,
+        494.9999694824219
+      ],
+      "extent": [
+        6606.39453125,
+        23007.75,
+        917.5035705566406
+      ]
+    },
+    {
+      "label": "instances_box_1__1_451471e62d8d_e351f0e276",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_30",
+      "canonicalId": "instances:box:1:-1:451471e62d8d",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -4810.92822265625,
+        17381.0703125,
+        1320.000015258789
+      ],
+      "extent": [
+        4810.92822265625,
+        17381.0703125,
+        1551.804916381836
+      ]
+    },
+    {
+      "label": "instances_box_1__2_1cd264b00bf1_83c1dea704",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_11",
+      "canonicalId": "instances:box:1:-2:1cd264b00bf1",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -22623.5703125,
+        21853.798828125,
+        1154.9999694824219
+      ],
+      "extent": [
+        22623.5703125,
+        21853.798828125,
+        1716.4062805175781
+      ]
+    },
+    {
+      "label": "instances_box_1__2_5028f08a7ad1_ed788f6089",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_112",
+      "canonicalId": "instances:box:1:-2:5028f08a7ad1",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -19910.447265625,
+        20277.201171875,
+        1387.9280700683594
+      ],
+      "extent": [
+        19910.447265625,
+        20277.201171875,
+        1835.3216857910156
+      ]
+    },
+    {
+      "label": "instances_box_1__2_806779489ab8_208dac25ec",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_85",
+      "canonicalId": "instances:box:1:-2:806779489ab8",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -15651.341796875,
+        19000.0,
+        989.9999389648438
+      ],
+      "extent": [
+        15651.341796875,
+        19000.0,
+        1416.3433227539062
+      ]
+    },
+    {
+      "label": "instances_box_1__2_8ad6c26b992f_39ad13d749",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_69",
+      "canonicalId": "instances:box:1:-2:8ad6c26b992f",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -22073.619140625,
+        21863.798828125,
+        2189.7258224487305
+      ],
+      "extent": [
+        22073.619140625,
+        21863.798828125,
+        2332.2819900512695
+      ]
+    },
+    {
+      "label": "instances_box_1__2_8ff25ed3ee6a_8be6b32684",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_29",
+      "canonicalId": "instances:box:1:-2:8ff25ed3ee6a",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -17567.224609375,
+        15415.75,
+        494.99998474121094
+      ],
+      "extent": [
+        17567.224609375,
+        15415.75,
+        949.4482574462891
+      ]
+    },
+    {
+      "label": "instances_box_1__2_e9cc0faf89f2_a63e3d59b1",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_99",
+      "canonicalId": "instances:box:1:-2:e9cc0faf89f2",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -21773.603515625,
+        20698.765625,
+        1269.2301025390625
+      ],
+      "extent": [
+        21773.603515625,
+        20698.765625,
+        1926.3487548828125
+      ]
+    },
+    {
+      "label": "instances_box_1__3_04dcfa25fc12_e1cba950e9",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_98",
+      "canonicalId": "instances:box:1:-3:04dcfa25fc12",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -29604.552734375,
+        16020.6611328125,
+        1566.9568099975586
+      ],
+      "extent": [
+        29604.552734375,
+        16020.6611328125,
+        1820.6244888305664
+      ]
+    },
+    {
+      "label": "instances_box_1__3_33d9d0a403a9_2469c4e1c0",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_111",
+      "canonicalId": "instances:box:1:-3:33d9d0a403a9",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -32623.607421875,
+        13311.4365234375,
+        990.0000305175781
+      ],
+      "extent": [
+        32623.607421875,
+        13311.4365234375,
+        1635.0907897949219
+      ]
+    },
+    {
+      "label": "instances_box_1__3_f0cc2251e7e5_966fd6abe5",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_45",
+      "canonicalId": "instances:box:1:-3:f0cc2251e7e5",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -27798.24609375,
+        24601.5,
+        909.4589538574219
+      ],
+      "extent": [
+        27798.24609375,
+        24601.5,
+        1628.6455383300781
+      ]
+    },
+    {
+      "label": "instances_box_1__3_f7a9a4eb1c27_8125145f00",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_68",
+      "canonicalId": "instances:box:1:-3:f7a9a4eb1c27",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -32288.009765625,
+        24611.5,
+        1890.2037658691406
+      ],
+      "extent": [
+        32288.009765625,
+        24611.5,
+        2360.6077575683594
+      ]
+    },
+    {
+      "label": "instances_box_1__4_13fdc2d5b816_193b9d0155",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_67",
+      "canonicalId": "instances:box:1:-4:13fdc2d5b816",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -47961.23828125,
+        24330.75,
+        2027.9145812988281
+      ],
+      "extent": [
+        47961.23828125,
+        24330.75,
+        2654.723114013672
+      ]
+    },
+    {
+      "label": "instances_box_1__4_2a6a5e7b11e5_8dbf487a03",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_110",
+      "canonicalId": "instances:box:1:-4:2a6a5e7b11e5",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -42962.23828125,
+        20414.046875,
+        1485.0000305175781
+      ],
+      "extent": [
+        42962.23828125,
+        20414.046875,
+        1869.8083190917969
+      ]
+    },
+    {
+      "label": "instances_box_1__4_3326dd46eb4a_1d70501e48",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_97",
+      "canonicalId": "instances:box:1:-4:3326dd46eb4a",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -41420.00390625,
+        13384.5859375,
+        1485.0000114440918
+      ],
+      "extent": [
+        41420.00390625,
+        13384.5859375,
+        1492.4223518371582
+      ]
+    },
+    {
+      "label": "instances_box_1__4_5c0d52a1a8be_d58e55154e",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_44",
+      "canonicalId": "instances:box:1:-4:5c0d52a1a8be",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -48177.18359375,
+        19771.5,
+        1297.337890625
+      ],
+      "extent": [
+        48177.18359375,
+        19771.5,
+        2380.790283203125
+      ]
+    },
+    {
+      "label": "instances_box_1__4_69a596ff1722_351867a7e1",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_28",
+      "canonicalId": "instances:box:1:-4:69a596ff1722",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -44275.17578125,
+        24320.75,
+        990.0000152587891
+      ],
+      "extent": [
+        44275.17578125,
+        24320.75,
+        1342.747055053711
+      ]
+    },
+    {
+      "label": "instances_box_1__4_8885ae2bf15b_94f7e6b76c",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_10",
+      "canonicalId": "instances:box:1:-4:8885ae2bf15b",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -39798.8203125,
+        21247.75,
+        825.0
+      ],
+      "extent": [
+        39798.8203125,
+        21247.75,
+        1105.77783203125
+      ]
+    },
+    {
+      "label": "instances_box_1__4_a90757d743c2_12ca5f4f61",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_84",
+      "canonicalId": "instances:box:1:-4:a90757d743c2",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -46165.10546875,
+        23789.328125,
+        1310.5315551757812
+      ],
+      "extent": [
+        46165.10546875,
+        23789.328125,
+        2118.5953979492188
+      ]
+    },
+    {
+      "label": "instances_box_1__5_0192db2c365d_d8fc2d4d6c",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_66",
+      "canonicalId": "instances:box:1:-5:0192db2c365d",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -49914.9921875,
+        17189.38671875,
+        1454.1097412109375
+      ],
+      "extent": [
+        49914.9921875,
+        17189.38671875,
+        1454.1097412109375
+      ]
+    },
+    {
+      "label": "instances_box_1__5_045123774c50_dffb670177",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_83",
+      "canonicalId": "instances:box:1:-5:045123774c50",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -50206.6875,
+        17179.38671875,
+        824.9999389648438
+      ],
+      "extent": [
+        50206.6875,
+        17179.38671875,
+        1544.3367309570312
+      ]
+    },
+    {
+      "label": "instances_box_1_0_784e303a05a8_c00b22f484",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_71",
+      "canonicalId": "instances:box:1:0:784e303a05a8",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        1004.705078125,
+        22740.25,
+        1005.9999504089355
+      ],
+      "extent": [
+        1004.705078125,
+        22740.25,
+        1085.2463874816895
+      ]
+    },
+    {
+      "label": "instances_box_1_0_cce5d73fc782_a9fbe5fe67",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_46",
+      "canonicalId": "instances:box:1:0:cce5d73fc782",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        1239.023681640625,
+        22730.25,
+        495.0000305175781
+      ],
+      "extent": [
+        1239.023681640625,
+        22730.25,
+        1146.9226989746094
+      ]
+    },
+    {
+      "label": "instances_box_2__1_3f9e6e378c4c_e15fd45d96",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_48",
+      "canonicalId": "instances:box:2:-1:3f9e6e378c4c",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -10737.096435546875,
+        26817.16796875,
+        1015.5579528808594
+      ],
+      "extent": [
+        11293.050048828125,
+        26817.16796875,
+        1420.9689025878906
+      ]
+    },
+    {
+      "label": "instances_box_2__1_5e3655f76d3f_adc0224253",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_74",
+      "canonicalId": "instances:box:2:-1:5e3655f76d3f",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -10658.401412963867,
+        28706.0,
+        1238.4188232421875
+      ],
+      "extent": [
+        11115.344680786133,
+        28706.0,
+        1238.4188232421875
+      ]
+    },
+    {
+      "label": "instances_box_2__1_81a1be875615_f6486715f1",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_100",
+      "canonicalId": "instances:box:2:-1:81a1be875615",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -8509.681640625,
+        28696.0,
+        495.0
+      ],
+      "extent": [
+        8509.681640625,
+        28696.0,
+        1085.243896484375
+      ]
+    },
+    {
+      "label": "instances_box_2__2_167c52c52379_de34247711",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_31",
+      "canonicalId": "instances:box:2:-2:167c52c52379",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -23706.921875,
+        25547.75,
+        165.00003051757812
+      ],
+      "extent": [
+        23706.921875,
+        25547.75,
+        883.2460632324219
+      ]
+    },
+    {
+      "label": "instances_box_2__2_36ff88a1dd3a_9c22ee392a",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_113",
+      "canonicalId": "instances:box:2:-2:36ff88a1dd3a",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -13171.2802734375,
+        27179.5,
+        330.0
+      ],
+      "extent": [
+        13171.2802734375,
+        27179.5,
+        853.0823974609375
+      ]
+    },
+    {
+      "label": "instances_box_2__2_3b6ceb6fb8d5_7e8da1f981",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_73",
+      "canonicalId": "instances:box:2:-2:3b6ceb6fb8d5",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -23643.767578125,
+        27189.5,
+        395.24330139160156
+      ],
+      "extent": [
+        23643.767578125,
+        27189.5,
+        887.1480560302734
+      ]
+    },
+    {
+      "label": "instances_box_2__4_1567950b0752_94d13809b8",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_47",
+      "canonicalId": "instances:box:2:-4:1567950b0752",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -41522.0390625,
+        27946.75,
+        660.0000152587891
+      ],
+      "extent": [
+        41522.0390625,
+        27946.75,
+        907.9095306396484
+      ]
+    },
+    {
+      "label": "instances_box_2__4_8069e0245c32_0a484f5a74",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_86",
+      "canonicalId": "instances:box:2:-4:8069e0245c32",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -40978.0625,
+        25185.76953125,
+        1485.0
+      ],
+      "extent": [
+        40978.0625,
+        25185.76953125,
+        1760.068603515625
+      ]
+    },
+    {
+      "label": "instances_box_2__4_ca7504973d74_e979bf0c4d",
+      "actor": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.L_city_districts_town_centre_c904bd18ec:PersistentLevel.StaticMeshActor_72",
+      "canonicalId": "instances:box:2:-4:ca7504973d74",
+      "levelPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+      "origin": [
+        -41464.91796875,
+        27956.75,
+        1662.2095947265625
+      ],
+      "extent": [
+        41464.91796875,
+        27956.75,
+        1662.2095947265625
+      ]
+    }
+  ],
+  "playableAcceptance": "not-established",
+  "runtimeAdmission": false
+}
