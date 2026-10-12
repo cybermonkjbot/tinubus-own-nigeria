@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T03:51:30Z",
+  "districtId": "town-centre",
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-15-detail-and-backing-cleaned.json",
+  "previewSet": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-streetpass01-fill15-daylight",
+  "status": "saved augmentation but still not visually acceptable",
+  "observations": [
+    {
+      "camera": "market-road-frontage-a",
+      "imageSha256": "b174af98c01c2fb8ab4150cb2eb8c5ec7c694fbc3890df588b243380548f61eb",
+      "defect": "The cleaned pass removes the camera-blocking danfo regression, but the right-hand building edge still reads primarily as a plain side wall with wide unsupported void beyond it."
+    },
+    {
+      "camera": "market-road-frontage-b",
+      "imageSha256": "b54ef2b3a4e33e7cf783afccb8cd783e479325e619cf2a6389ef053f4334b7ec",
+      "defect": "Extra detail pieces and backing slabs are either too hidden or too small to change the corridor read. The street still falls into open blue void and shell massing."
+    },
+    {
+      "camera": "civic-street-approach",
+      "imageSha256": "1bb9d2a7d7b5a0eec611cf4f8baf63ecb477d9cbf4ad07ab41973f8432d3a630",
+      "defect": "This view remains dominated by one long blank wall plane. The cloned AC, gutter and patch details are not reading strongly enough at this distance and angle."
+    },
+    {
+      "camera": "civic-terrace-open-a",
+      "imageSha256": "0a24b92990509ac3763c006ada5199ce6a941f6d518ef61d6cc54bd2538538ae",
+      "defect": "The bounded backing slabs do not visibly resolve the large foreground void from this camera. The gap still reads as unsupported world edge rather than finished parcel ground."
+    },
+    {
+      "camera": "civic-terrace-open-b",
+      "imageSha256": "66458890b5f8c05c17f9193735780a1e9821602b044ec6efb4fabe44f510bf84",
+      "defect": "The cleaned pass preserves the same wall-dominant read. The strategy of adding source-region detail to the shell clones is not enough for acceptance."
+    }
+  ],
+  "whatImproved": [
+    "The pass preserved the fill13 shell massing while adding 175 saved augmentation actors from accepted source-region detail pieces and bounded backing slabs.",
+    "The temporary market-camera danfo regression introduced during the first fill14 attempt was removed in the cleaned pass15 rerun."
+  ],
+  "nextNeed": [
+    "Replace the current shell-dominant composition in the failed cameras with a different close-range edge strategy: shorter staggered masses, explicit corner turns, or alternate accepted building assets rather than repeated SM_FrontageStructure walls.",
+    "Author visibly readable near-ground parcel backing, not just hidden slabs behind the shell line, so the void disappears from pedestrian-height views.",
+    "For Civic Street, build a frontage rhythm the camera can actually read, instead of relying on source-row micro-details that vanish at this angle."
+  ]
+}
