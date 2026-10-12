@@ -1,0 +1,838 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T07:38:15.767520+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "parcelId": "arcade-crescent-2",
+      "roadId": "arcade-crescent",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          180,
+          15
+        ],
+        [
+          286,
+          15
+        ],
+        [
+          1033.1909919998864,
+          -1
+        ]
+      ],
+      "footprintSource": "town-centre-street-pass-53-connections.json",
+      "polygonCount": 12,
+      "gridStepCm": 15,
+      "vertices": 1744,
+      "triangles": 872
+    },
+    {
+      "parcelId": "arcade-crescent-3",
+      "roadId": "arcade-crescent",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          180,
+          15
+        ],
+        [
+          286,
+          15
+        ],
+        [
+          542.2040179513037,
+          -1
+        ]
+      ],
+      "footprintSource": "town-centre-street-pass-53-connections.json",
+      "polygonCount": 16,
+      "gridStepCm": 15,
+      "vertices": 2056,
+      "triangles": 1028
+    },
+    {
+      "parcelId": "arcade-crescent-4",
+      "roadId": "arcade-crescent",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          180,
+          15
+        ],
+        [
+          286,
+          15
+        ],
+        [
+          1093.8249733817124,
+          -1
+        ]
+      ],
+      "footprintSource": "town-centre-street-pass-53-connections.json",
+      "polygonCount": 16,
+      "gridStepCm": 15,
+      "vertices": 2056,
+      "triangles": 1028
+    },
+    {
+      "parcelId": "arcade-crescent-6",
+      "roadId": "arcade-crescent",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          180,
+          15
+        ],
+        [
+          286,
+          15
+        ],
+        [
+          919.4708395018694,
+          -1
+        ]
+      ],
+      "footprintSource": "town-centre-street-pass-53-connections.json",
+      "polygonCount": 16,
+      "gridStepCm": 15,
+      "vertices": 2056,
+      "triangles": 1028
+    },
+    {
+      "parcelId": "arcade-crescent-8",
+      "roadId": "arcade-crescent",
+      "profile": [
+        [
+          0,
+          0
+        ],
+        [
+          180,
+          15
+        ],
+        [
+          286,
+          15
+        ],
+        [
+          628.298213635415,
+          -1
+        ]
+      ],
+      "footprintSource": "town-centre-street-pass-53-connections.json",
+      "polygonCount": 12,
+      "gridStepCm": 15,
+      "vertices": 1744,
+      "triangles": 872
+    }
+  ],
+  "createdActors": [
+    {
+      "label": "TC_Shoulder54_arcade-crescent-2",
+      "parcelId": "arcade-crescent-2",
+      "sourceId": "arcade-crescent-2:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_2_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/shoulders54-import-source/SM_arcade_crescent_2_shoulders.obj",
+        "sourceObjSha256": "c984d27ebb845870f002a301c76a5c61e19991568b1839547df94045a4714431",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_2_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -170.8111572265625,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            129.1888427734375,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 2616,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -43392.30290013516,
+          26248.2972324267,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 69.6496085281975,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Shoulder54_arcade-crescent-3",
+      "parcelId": "arcade-crescent-3",
+      "sourceId": "arcade-crescent-3:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_3_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/shoulders54-import-source/SM_arcade_crescent_3_shoulders.obj",
+        "sourceObjSha256": "25bb4ae60644253fdf1f3b45b41a9b69cfdfaf494b78cc358e62b62f6e6ef5fa",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_3_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -102.62355041503906,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            197.37644958496094,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 3084,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -50413.53526991812,
+          27655.192755505515,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -103.05372890512496,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Shoulder54_arcade-crescent-4",
+      "parcelId": "arcade-crescent-4",
+      "sourceId": "arcade-crescent-4:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_4_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/shoulders54-import-source/SM_arcade_crescent_4_shoulders.obj",
+        "sourceObjSha256": "257778fbb6854303748d8155ec9dac0229aa83f5d3740b12b8f3f3ad4aae0c24",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_4_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -197.77249145507812,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            102.22750854492188,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 3084,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -50188.05641361375,
+          28629.440897516324,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 76.94627109487516,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Shoulder54_arcade-crescent-6",
+      "parcelId": "arcade-crescent-6",
+      "sourceId": "arcade-crescent-6:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_6_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/shoulders54-import-source/SM_arcade_crescent_6_shoulders.obj",
+        "sourceObjSha256": "0c456140b238283441c510e7378c71f2ff22e4cfe354d058df506b429da664f1",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_6_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -101.99089813232422,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            198.0091094970703,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 3084,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -55982.537917499125,
+          28427.71428334955,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 120.1243179983612,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Shoulder54_arcade-crescent-8",
+      "parcelId": "arcade-crescent-8",
+      "sourceId": "arcade-crescent-8:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_8_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/shoulders54-import-source/SM_arcade_crescent_8_shoulders.obj",
+        "sourceObjSha256": "1ca273ac01fe77b198c9b1339e7badcbc9ba5ef91f756f6b5ea06b792d861ecd",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_8_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -170.5693359375,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            129.4306640625,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 2616,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -61868.59529923559,
+          23852.867114553905,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 135.27545835613512,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "removedActors": [
+    {
+      "label": "TC_Connections53_arcade-crescent-2_shoulders",
+      "parcelId": "arcade-crescent-2",
+      "sourceId": "arcade-crescent-2:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_2_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/connections53-import-source/SM_arcade_crescent_2_shoulders.obj",
+        "sourceObjSha256": "4a0503647e0912ca0d7f95eb292e4c6a872adb8d22d68da66eddb4c4e4e9f62e",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_2_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -170.8111572265625,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            129.1888427734375,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 432,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -43392.30290013516,
+          26248.2972324267,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 69.6496085281975,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Connections53_arcade-crescent-3_shoulders",
+      "parcelId": "arcade-crescent-3",
+      "sourceId": "arcade-crescent-3:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_3_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/connections53-import-source/SM_arcade_crescent_3_shoulders.obj",
+        "sourceObjSha256": "5f7e6b0f5e7f1a8ce7fd8f0a958b22e3fe8cddac93dccc27b96f71a3fa233215",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_3_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -102.62355041503906,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            197.37644958496094,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -50413.53526991812,
+          27655.192755505515,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": -103.05372890512496,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Connections53_arcade-crescent-4_shoulders",
+      "parcelId": "arcade-crescent-4",
+      "sourceId": "arcade-crescent-4:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_4_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/connections53-import-source/SM_arcade_crescent_4_shoulders.obj",
+        "sourceObjSha256": "92f0cba835fdff939e354d69791949dd2f1b1b9397a4f2cc153e366c110fb231",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_4_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -197.77249145507812,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            102.22750854492188,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -50188.05641361375,
+          28629.440897516324,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 76.94627109487516,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Connections53_arcade-crescent-6_shoulders",
+      "parcelId": "arcade-crescent-6",
+      "sourceId": "arcade-crescent-6:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_6_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/connections53-import-source/SM_arcade_crescent_6_shoulders.obj",
+        "sourceObjSha256": "ca4f4b3557a006bd8e93d30592f6f85fc10d642d47bb4264f5f903e3fca526a5",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_6_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -101.99089813232422,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            198.0091094970703,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 576,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -55982.537917499125,
+          28427.71428334955,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 120.1243179983612,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    },
+    {
+      "label": "TC_Connections53_arcade-crescent-8_shoulders",
+      "parcelId": "arcade-crescent-8",
+      "sourceId": "arcade-crescent-8:shoulders",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_8_shoulders",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/connections53-import-source/SM_arcade_crescent_8_shoulders.obj",
+        "sourceObjSha256": "40e802a40288fc4998a1728f0749751d273a42c8bd8b88232e9fbd171e61f3a7",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Connections53/Meshes/SM_arcade_crescent_8_shoulders",
+        "boundsCm": [
+          [
+            0.0,
+            -170.5693359375,
+            -12.0
+          ],
+          [
+            285.70001220703125,
+            129.4306640625,
+            15.0
+          ]
+        ],
+        "uvProbesVerified": 432,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete"
+      ],
+      "transform": {
+        "locationCm": [
+          -61868.59529923559,
+          23852.867114553905,
+          0
+        ],
+        "rotation": {
+          "pitch": 0,
+          "yaw": 135.27545835613512,
+          "roll": 0
+        },
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      }
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_2_shoulders.uasset": "1f4af8a22c1e09a15da5369fbda12a6cf3adf9e99575bbfb553e71f1536cee30",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_3_shoulders.uasset": "7087b79ef2e7f2877ce24a43a7814a4d7639ffcda014990c43483f08165faca7",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_4_shoulders.uasset": "6de4aae14c2a5bdaff1c12d4458ead94e1dff9664bad5edec2db15398a04f069",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_6_shoulders.uasset": "467d45fb34e097d30676f95202d4bc23ad14bf760b4fde35971bb890b436f738",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_8_shoulders.uasset": "794ada838fa2ae740ca41e9780939dbf9bc438f874384f65850c4d195d0262af",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "60e1843d2315f742879edc2e4ae8c752eadae417480066882944a34674587c78",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "aea9712af9caf663ceaf44540c2a0e369245d244b2133bb4b0edd1bb1cfd337a"
+  },
+  "cameras": [
+    {
+      "id": "arcade-crescent-2-street",
+      "locationCm": [
+        -42816.11633966317,
+        25501.297200611807,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": 91.26893516264404,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-2-approach",
+      "locationCm": [
+        -43458.561776752926,
+        26932.492392220127,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": 51.20648181513653,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-3-street",
+      "locationCm": [
+        -49521.275984800086,
+        27961.580366418002,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": -130.83320042080518,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-3-approach",
+      "locationCm": [
+        -50148.072686712585,
+        27471.713473562155,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": -121.49465425216492,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-4-street",
+      "locationCm": [
+        -49521.66179571934,
+        27961.669819046037,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": 98.4499299750292,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-4-approach",
+      "locationCm": [
+        -50338.014916283515,
+        29311.30756606259,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": 58.49982964315268,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-6-street",
+      "locationCm": [
+        -55039.648184269,
+        28396.747349868605,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": 144.13386353185166,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-6-approach",
+      "locationCm": [
+        -56440.81062963397,
+        28619.542372382253,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": 101.6780508229487,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-8-street",
+      "locationCm": [
+        -60950.386960871845,
+        24069.416063660792,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": 162.0925435710653,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-8-approach",
+      "locationCm": [
+        -62209.4100708692,
+        23768.16970609818,
+        165
+      ],
+      "rotation": {
+        "pitch": 5,
+        "yaw": 116.83943026437719,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-2-road-approach",
+      "locationCm": [
+        -43899.62218516422,
+        25743.196110830628,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": 51.649608528197504,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-3-road-approach",
+      "locationCm": [
+        -49974.47562940793,
+        28220.63650343723,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": -121.05372890512496,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-4-road-approach",
+      "locationCm": [
+        -50627.11605412393,
+        28063.997149584608,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": 58.94627109487516,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-6-road-approach",
+      "locationCm": [
+        -55915.798836721224,
+        27714.94090064161,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": 102.1243179983612,
+        "roll": 0
+      },
+      "fov": 78
+    },
+    {
+      "id": "arcade-crescent-8-road-approach",
+      "locationCm": [
+        -61617.881249052974,
+        23182.31326508242,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": 117.27545835613512,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ],
+  "visualAcceptance": "pending",
+  "limitations": [
+    "Same bilinear profile/footprint with 15cm tessellation; edge normals and finish still require visual review",
+    "Static support only; no drainage excavation or runtime movement acceptance"
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T07:38:49.239007+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_2_shoulders.uasset": "1f4af8a22c1e09a15da5369fbda12a6cf3adf9e99575bbfb553e71f1536cee30",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_3_shoulders.uasset": "7087b79ef2e7f2877ce24a43a7814a4d7639ffcda014990c43483f08165faca7",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_4_shoulders.uasset": "6de4aae14c2a5bdaff1c12d4458ead94e1dff9664bad5edec2db15398a04f069",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_6_shoulders.uasset": "467d45fb34e097d30676f95202d4bc23ad14bf760b4fde35971bb890b436f738",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders54/Meshes/SM_arcade_crescent_8_shoulders.uasset": "794ada838fa2ae740ca41e9780939dbf9bc438f874384f65850c4d195d0262af",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "60e1843d2315f742879edc2e4ae8c752eadae417480066882944a34674587c78",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "aea9712af9caf663ceaf44540c2a0e369245d244b2133bb4b0edd1bb1cfd337a"
+  },
+  "safeReloadCompleted": true,
+  "replacedShoulderActors": 5,
+  "retainedRampActors": 1523,
+  "uvProbes": 14484,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "districtId": "town-centre",
+  "pass": 54,
+  "sourceIds": ["arcade-crescent", "arcade-crescent-2", "arcade-crescent-3", "arcade-crescent-4", "arcade-crescent-6", "arcade-crescent-8"],
+  "matchedAfterImagesInspected": 5,
+  "improvements": ["15cm tessellation reduces coarse shoulder facets and raised angular shading", "Source footprint/profile and all retained building/connection transforms unchanged"],
+  "remainingDefects": ["Ramp/forecourt material joints and fine boundary seams remain", "Drain crossings lack culvert/outfall detailing", "Plain repetitive facade materials, sparse forecourts and surrounding blocks", "Compound/service/planting and roof fittings incomplete", "Previous Arcade9 short gate leaves remain unfinished", "Shadow-side views remain dark in unchanged software daylight", "Runtime capsule traversal/navigation and target-GPU rendering not accepted"],
+  "finishedNeighbourhood": false,
+  "newDestinationRouteComplete": false,
+  "runtimeTraversal": "not inspected; no active game world",
+  "nextArea": "Source-fitted Arcade apartment compound boundaries and exterior street-service dressing"
+}

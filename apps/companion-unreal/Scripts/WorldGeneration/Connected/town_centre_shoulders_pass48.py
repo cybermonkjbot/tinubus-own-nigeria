@@ -14,6 +14,11 @@ BASE=PRIOR.BASE
 IMPORT=PRIOR.IMPORT
 NS='/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Shoulders48'
 TARGET=OUT/'town-centre-street-pass-48-refined-shoulders.json'
+READBACK=OUT/'town-centre-street-pass-48-saved-readback.json'
+PREFIX='TC_Shoulder48_'
+TAG='Baddie.TownCentreShoulders48'
+OLD_TAG='Baddie.TownCentreApproaches47'
+SOURCE_DIRECTORY='shoulders48-import-source'
 
 
 def geometry(plan):
@@ -61,14 +66,15 @@ def geometry(plan):
 def execute(expected_pid):
     BASE.ensure_identity(expected_pid)
     assert BASE.active_world_package()==BASE.TARGET_MAP and not BASE.dirty_names()
-    assert not TARGET.exists()
+    assert not TARGET.exists() and not READBACK.exists()
     prior=json.loads(PRIOR.TARGET.read_text())
-    old={r['parcelId']:r for r in prior['createdActors'] if r['role']=='shoulders'}
+    old={r['parcelId']:r for r in prior['createdActors'] if r.get('role')=='shoulders' or r['sourceId'].endswith(':shoulders')}
+    assert len(old)==len(prior['plans']) and old
     actors={a.get_actor_label():a for a in BASE.actors().get_all_level_actors()}
     for r in old.values():
         a=actors[r['label']];c=a.get_component_by_class(unreal.StaticMeshComponent);t=a.get_actor_transform()
         assert a.get_outer().get_path_name().split('.')[0]==BASE.DETAIL_MAP
-        assert 'Baddie.TownCentreApproaches47' in [str(tag) for tag in a.tags]
+        assert OLD_TAG in [str(tag) for tag in a.tags]
         assert c.get_editor_property('static_mesh').get_path_name().split('.')[0]==r['mesh']
         assert max(abs(v-e) for v,e in zip(BASE.vector(t.translation),r['transform']['locationCm']))<.05
         assert abs((t.rotation.rotator().yaw-r['transform']['rotation']['yaw']+180)%360-180)<.001
@@ -79,18 +85,18 @@ def execute(expected_pid):
         pid=plan['parcelId'];r=old[pid]
         vertices,faces=geometry(plan)
         package=NS+'/Meshes/SM_'+pid.replace('-','_')+'_shoulders'
-        mesh,asset=IMPORT.import_section(package,0,0,0,0,supplied_geometry=(vertices,faces),source_directory='shoulders48-import-source')
+        mesh,asset=IMPORT.import_section(package,0,0,0,0,supplied_geometry=(vertices,faces),source_directory=SOURCE_DIRECTORY)
         files.update(BASE.package_files(package))
-        rows.append({**r,'label':'TC_Shoulder48_'+pid,'mesh':package,'asset':asset})
+        rows.append({**r,'label':PREFIX+pid,'mesh':package,'asset':asset})
         planned.append({'parcelId':pid,'roadId':plan['roadId'],'profile':plan['profile'],
-                        'footprintSource':'town-centre-street-pass-47-entrance-approaches.json',
+                        'footprintSource':PRIOR.TARGET.name,
                         'polygonCount':len(plan['shoulderPolygons']),'gridStepCm':15,'vertices':len(vertices),'triangles':len(faces)})
     for r in old.values():assert BASE.actors().destroy_actor(actors[r['label']])
     actors.clear()
     for r in rows:
         t=r['transform']
         a=BASE.actors().spawn_actor_from_class(unreal.StaticMeshActor,unreal.Vector(*t['locationCm']),BASE.rotator(t['rotation']))
-        a.set_actor_label(r['label']);a.tags=['Baddie.TownCentreShoulders48','Baddie.Source:'+r['sourceId'],'Baddie.NoRuntimeAuthority']
+        a.set_actor_label(r['label']);a.tags=[TAG,'Baddie.Source:'+r['sourceId'],'Baddie.NoRuntimeAuthority']
         c=a.get_component_by_class(unreal.StaticMeshComponent);c.set_static_mesh(BASE.assets().load_asset(r['mesh']))
         for i,path in enumerate(r['materials']):c.set_material(i,BASE.assets().load_asset(path))
         c.set_collision_profile_name('BlockAll');c.set_mobility(unreal.ComponentMobility.STATIC)
@@ -102,7 +108,7 @@ def execute(expected_pid):
     files.update(BASE.package_files(BASE.TARGET_MAP,True));files.update(BASE.package_files(BASE.DETAIL_MAP,True))
     receipt={'schemaVersion':1,'recordedAt':datetime.now(timezone.utc).isoformat(),'pid':expected_pid,
              'mapPackage':BASE.TARGET_MAP,'detailLevelPackage':BASE.DETAIL_MAP,'source':prior['source'],'plans':planned,
-             'createdActors':rows,'removedActors':list(old.values()),'files':files,'cameras':prior['cameras'],
+             'createdActors':rows,'removedActors':list(old.values()),'files':files,'cameras':prior.get('cameras',prior.get('previewPoses',[])),
              'visualAcceptance':'pending','limitations':['Same bilinear profile/footprint with 15cm tessellation; edge normals and finish still require visual review',
                             'Static support only; no drainage excavation or runtime movement acceptance']}
     with TARGET.open('x',encoding='utf-8') as stream:json.dump(receipt,stream,indent=2);stream.write('\n')
@@ -116,7 +122,8 @@ def inspect_saved(expected_pid):
     removed={r['label'] for r in receipt['removedActors']}
     actors={a.get_actor_label():a for a in BASE.actors().get_all_level_actors()}
     assert not removed.intersection(actors)
-    retained=[r for r in prior['createdActors'] if r['label'] not in removed]
+    retained=[r for r in prior['createdActors'] if r['label'] not in removed]+prior.get('retainedApartmentActors',[])
+    uv_probes=0
     for r in receipt['createdActors']+retained:
         a=actors[r['label']];t=a.get_actor_transform();c=a.get_component_by_class(unreal.StaticMeshComponent)
         assert a.get_outer().get_path_name().split('.')[0]==BASE.DETAIL_MAP
@@ -126,10 +133,21 @@ def inspect_saved(expected_pid):
         assert c.get_editor_property('static_mesh').get_path_name().split('.')[0]==r['mesh']
         assert [c.get_material(i).get_path_name().split('.')[0] for i in range(len(r['materials']))]==r['materials']
         assert str(c.get_collision_profile_name())=='BlockAll'
+        if r in receipt['createdActors']:
+            assert BASE.sha(ROOT/r['asset']['sourceObj'])==r['asset']['sourceObjSha256']
+            mesh=c.get_editor_property('static_mesh')
+            assert mesh.get_editor_property('body_setup').get_editor_property('collision_trace_flag')==unreal.CollisionTraceFlag.CTF_USE_COMPLEX_AS_SIMPLE
+            d=mesh.get_static_mesh_description(0)
+            for i in range(d.get_vertex_instance_count()):
+                vi=unreal.VertexInstanceID(i)
+                if not d.is_vertex_instance_valid(vi):continue
+                p=d.get_vertex_position(d.get_vertex_instance_vertex(vi));uv=d.get_vertex_instance_uv(vi,0)
+                assert abs(uv.x-p.x/271)<.0001 and abs(uv.y-(1-p.y/271))<.0001
+                uv_probes+=1
     for path,digest in receipt['files'].items():assert BASE.sha(ROOT/path)==digest
     result={'schemaVersion':1,'recordedAt':datetime.now(timezone.utc).isoformat(),'pid':expected_pid,
             'mapPackage':BASE.TARGET_MAP,'detailLevelPackage':BASE.DETAIL_MAP,'files':receipt['files'],'safeReloadCompleted':True,
-            'replacedShoulderActors':len(receipt['createdActors']),'retainedRampActors':len(retained),
+            'replacedShoulderActors':len(receipt['createdActors']),'retainedRampActors':len(retained),'uvProbes':uv_probes,
             'dirtyPackages':[],'gameWorld':None,'runtimeTraversal':'not-inspected'}
-    with (OUT/'town-centre-street-pass-48-saved-readback.json').open('x',encoding='utf-8') as stream:json.dump(result,stream,indent=2);stream.write('\n')
+    with READBACK.open('x',encoding='utf-8') as stream:json.dump(result,stream,indent=2);stream.write('\n')
     print(json.dumps(result))
