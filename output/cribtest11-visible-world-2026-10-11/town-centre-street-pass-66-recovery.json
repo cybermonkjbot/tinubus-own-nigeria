@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-13",
+  "editorPid": 13584,
+  "failure": "finish stopped at exact rounded-coordinate dictionary lookup before original batch removal or map save",
+  "failedRoundedCoordinateCm": [1684.58, 6621.65, 15.0],
+  "nativeNearestCoordinateCm": [1684.5766590681887, 6621.644811548736, 15.0],
+  "sourceIdAuthority": "town-centre-street-pass-66-pcg-request.json expectedRows",
+  "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000",
+  "nativeCountsMatched": 16543,
+  "originalBatchesRetained": 12,
+  "correction": "One-to-one spatial neighbour matching, unchanged 0.05cm position, 0.001degree yaw, 0.001 unit-scale guards and exact mesh/material/count identity",
+  "retryOperation": "finish only; do not regenerate",
+  "failureLog": "apps/companion-unreal/Saved/Bridge/editor-20261011-181531.log"
+}

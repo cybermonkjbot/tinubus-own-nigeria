@@ -29,6 +29,9 @@ REQUEST=OUT/'town-centre-street-pass-65-pcg-request-v2.json'
 READBACK=OUT/'town-centre-street-pass-65-saved-readback.json'
 GRAPH=NS+'/PCG/PCG_ResidentialSplineGrammar65_variants02'
 SPLINE_TAG='Baddie.NativeGrammar65.Facade'
+GENERATION_TAG='Baddie.NativeGrammar65'
+ANCHOR_SUFFIX='_Anchors65_variants02'
+ASSET_READBACK=OUT/'town-centre-street-pass-65-mesh-spline-readback.json'
 
 
 def write(path,data):
@@ -55,7 +58,7 @@ def new_graph(package):
     return graph
 
 
-def spawner(graph,module,mesh,materials):
+def spawner(graph,module,mesh,materials,tags=None):
     node,settings=graph.add_node_of_type(unreal.PCGStaticMeshSpawnerSettings)
     node.set_editor_property('node_title','Accepted '+module)
     settings.set_mesh_selector_type(unreal.PCGMeshSelectorWeighted)
@@ -68,7 +71,7 @@ def spawner(graph,module,mesh,materials):
     body=descriptor.get_editor_property('body_instance')
     body.set_editor_property('collision_profile_name','BlockAll')
     descriptor.set_editor_property('body_instance',body)
-    descriptor.set_editor_property('component_tags',['Baddie.NativeGrammar65.Generated',module])
+    descriptor.set_editor_property('component_tags',tags if tags is not None else [GENERATION_TAG+'.Generated',module])
     entry=unreal.PCGMeshSelectorWeightedEntry();entry.set_editor_property('descriptor',descriptor)
     entry.set_editor_property('weight',1)
     settings.get_editor_property('mesh_selector_parameters').set_editor_property('mesh_entries',[entry])
@@ -155,7 +158,7 @@ def schedule(pid,prepared,plans,rows,removed,files):
         parcel=plan['parcelId'];parcel_rows=[r for r in rows if r['parcelId']==parcel]
         actor=BASE.actors().spawn_actor_from_class(unreal.Actor,unreal.Vector())
         label=FABRIC.PREFIX+parcel+'_V2';actor.set_actor_label(label)
-        actor.tags=['Baddie.NativeGrammar65','Baddie.Source:'+parcel,'Baddie.NoRuntimeAuthority']
+        actor.tags=[GENERATION_TAG,'Baddie.Source:'+parcel,'Baddie.NoRuntimeAuthority']
         for key,items in spline_runs(parcel_rows):
             first=items[0][1]['transform'];angle=math.radians(first['rotation']['yaw']-90)
             direction=[math.cos(angle),math.sin(angle)]
@@ -173,7 +176,7 @@ def schedule(pid,prepared,plans,rows,removed,files):
         pcg=add_component(actor,unreal.PCGComponent)
         pcg.set_editor_property('generation_trigger',unreal.PCGComponentGenerationTrigger.GENERATE_ON_DEMAND)
         pcg.set_editor_property('regenerate_in_editor',False);pcg.set_graph(graph)
-        aux_package=NS+'/PCG/PCG_'+parcel.replace('-','_')+'_Anchors65_variants02'
+        aux_package=NS+'/PCG/PCG_'+parcel.replace('-','_')+ANCHOR_SUFFIX
         aux=new_graph(aux_package)
         groups=defaultdict(list)
         for row in parcel_rows:
@@ -330,7 +333,7 @@ def inspect_asset_contract(pid):
             assert max(abs(v-e) for v,e in zip(BASE.vector(spline.get_location_at_spline_point(i,unreal.SplineCoordinateSpace.WORLD)),run[key]))<.05
     graph=BASE.assets().load_asset(GRAPH)
     grammars=[n.get_settings() for n in graph.get_editor_property('nodes') if isinstance(n.get_settings(),unreal.PCGSubdivideSplineSettings)]
-    assert len(grammars)==9
+    assert len(grammars)==len(variant_pairs(data['expectedRows']))
     for settings in grammars:
         assert settings.get_editor_property('grammar_selection').get_editor_property('grammar_string')=='[Bay]*'
         assert not settings.get_editor_property('accept_incomplete_subdivision')
@@ -339,7 +342,7 @@ def inspect_asset_contract(pid):
     result={'pid':pid,'sourceObjHashesMatched':True,'fittedAssetCount':len(checked),'uvProbes':probes,
         'splineRunsVerified':len(data['splineRuns']),'nativeVariantGrammarBranches':len(grammars),
         'collision':'static complex-as-simple fitted meshes and BlockAll generated instances','runtimeTraversal':'not-inspected'}
-    write(OUT/'town-centre-street-pass-65-mesh-spline-readback.json',result)
+    write(ASSET_READBACK,result)
     print(json.dumps(result))
 
 

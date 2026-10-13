@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-13",
+  "passes": [66, 67],
+  "matchedImagesInspected": 12,
+  "visualAcceptance": "partial exterior and crossing content only",
+  "remainingDefects": [
+    "Parcel5 abnormal pale triangular patch remains near road approach; root cause unresolved",
+    "Pavement/contact/material seams and empty forecourts",
+    "Repetitive facade finish and deeply shaded parcel8/10 views",
+    "Garden Avenue sparse/void-looking surroundings; Cross Town sparse adjoining context",
+    "Flat inland support is not realistic finished terrain; approved heightfield, ground finishes and initialized native Landscape outstanding",
+    "No completed district, destination-to-destination traversal, resident or traffic behavior"
+  ],
+  "nextArea": "Native source blocks68, then local ground/contact defect correction and district density",
+  "runtimeTraversal": "not-inspected"
+}

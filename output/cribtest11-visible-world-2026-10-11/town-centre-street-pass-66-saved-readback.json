@@ -1,0 +1,16 @@
+{
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/NativeRoads66/PCG/PCG_CanonicalRoadEdgeGrammar66.uasset": "43c81ca4987806a77f512fad16119c58f3c4bd241d0f2019d7c2bde6ef8575a2",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "658bc4f9eea0ac32a823e969c5e4554f98a8a4a85cf84f2d1e728efb782c5ad3",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "c80f35426cc9d14f69b96056feb4398ffc2523e8023cfca30dd10bcde4070ff7"
+  },
+  "safeReloadCompleted": true,
+  "nativeRoadEdgeInstances": 16543,
+  "splineRuns": 475,
+  "maximumLocationErrorCm": 0.010650305110175395,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

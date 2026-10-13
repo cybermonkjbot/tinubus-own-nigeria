@@ -1,0 +1,32 @@
+{
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_5_road_ramp.uasset": "78d0149f24ef4faf5adec1665047ff5af62a8d0074fab38255f590f9dbf75162",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_5_pavement_deck.uasset": "fd23df645efd78eaa3d540e81be2816a535c9f7ff51b42f6c8063453670b7174",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_5_entrance_ramp.uasset": "f522d4f0cb506d87a7affb1eb47d0424435bc2add4af9f2ea2748de7d0379973",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_5_shoulders.uasset": "7a43fbbe7e00ec53e8e9e8b22a70597ebd0a2420db6f360e418ca77c003869e1",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_8_road_ramp.uasset": "21dce78d0d89e418d68e71636b27d37cb74630e9b6183407e2c70606862fd56d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_8_pavement_deck.uasset": "e6c2c9f5f1ca5bad82d2da0d6241bf09b1d3a49e0195204eb16f716d27a1b4f9",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_8_entrance_ramp.uasset": "5140cc7872abb2031cbbb46c4f1328464933377ac3d0ddd6afd93c19cf5a4bee",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_8_shoulders.uasset": "713728057bfc12829e0db1706fdf1c51d10b61164b14f751a24d29121254f204",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_10_road_ramp.uasset": "e1f471465a426518425b91b03b9543dbef597054ff8058deabe45feaad5fe2be",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_10_pavement_deck.uasset": "d09dc94be28d5173fc2f67bfd3cdacbbe7d2c284fb22e7775f9cf79946901b5f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_10_entrance_ramp.uasset": "9a86a3f2800e5c491105524acc29d1b87f66435915da2452f7d98f80a1c6b3d4",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_10_shoulders.uasset": "f698a13f95837ac985d8cf49ad1072ca0237c911e604c07014abdcfe79dd9f1d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "22b04615a47659ef0e251ce2e1144b3c29bba7a7b0948733ecfb25e5638936e1",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "cc928adef26c2068f6dbe21537a00c8b98c2de58af9a275276ff24855a87afaa",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_5_edge_support.uasset": "cb2a5c6237c88a57cf349d78b04e30abb23d701fc15b322170310fa10b606b20",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_8_edge_support.uasset": "fbb891916f1ac40363b87ed3b774d99b4f00688215c36b223cfa8350588c68a0",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/LibraryConnections67/Meshes/SM_library_lane_10_edge_support.uasset": "5715cd87a0856acd7ae88a4d133385aa29c24200bf6ae1350ef48a58748d9a1d"
+  },
+  "safeReloadCompleted": true,
+  "newApproachActors": 12,
+  "updatedSupportActors": 3,
+  "retainedNativeFacadeInstances": 861,
+  "retainedNativeRoadInstances": 16543,
+  "uvProbes": 6252,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}
