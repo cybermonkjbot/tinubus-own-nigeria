@@ -31,6 +31,7 @@ PREFIX = 'TC_Fabric49_'
 TAG = 'Baddie.TownCentreFabric49'
 SOURCE_DIRECTORY = 'fabric49-import-source'
 SEALED_FRAME = False
+ROW_AUTHOR = None
 
 
 def guard(pid):
@@ -251,6 +252,9 @@ def execute(pid):
         assert BASE.assets().load_asset(row['mesh'])
         for material in row['materials']:
             assert BASE.assets().load_asset(material)
+    if ROW_AUTHOR is not None:
+        ROW_AUTHOR(pid, prepared, plans, rows, removed, files)
+        return
     BASE.make_level_current(BASE.DETAIL_MAP)
     created = []
     for i,row in enumerate(rows):

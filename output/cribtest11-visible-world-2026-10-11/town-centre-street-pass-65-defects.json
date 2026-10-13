@@ -1,0 +1,20 @@
+{
+  "pass": 65,
+  "recordedDate": "2026-10-13",
+  "inspectedImages": 8,
+  "nativeGeneration": "861 source-matched PCG instances; safely reloaded",
+  "visualAcceptance": "partial exterior content; not finished Lagos street",
+  "remainingDefects": [
+    "Facade finish/window grammar remains repetitive across the neighbourhood",
+    "Empty forecourts and sparse adjoining blocks; services, planting and approved signage incomplete",
+    "Conspicuous source-support/paving seams; road-to-source contacts5/8 not finished",
+    "Parcel8 matched views deeply shaded; final roof/rear/full-height silhouette inspection incomplete",
+    "343 often-short variant spline runs need consolidation for larger-scale generation",
+    "No World Partition conversion, Level Instance migration or full native road/terrain generator in this batch"
+  ],
+  "preservedFailureEvidence": "town-centre-street-pass-65-pcg-request.json and town-centre-street-pass-65-recovery.json",
+  "nextArea": "Library Lane source road and entrance continuity, parcel10 short transition, then Library2 exterior",
+  "runtimeTraversal": "not-inspected",
+  "wholeDistrictComplete": false,
+  "wholeGameComplete": false
+}

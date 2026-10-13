@@ -1,0 +1,22 @@
+{
+  "pass": 63,
+  "recordedDate": "2026-10-12",
+  "inspectedImages": 8,
+  "visualAcceptance": "partial exterior output only",
+  "remainingDefects": [
+    "Repeated plaster/window grammar and patterned shutter surface remain below final Lagos street fidelity",
+    "Apartment matched views are deeply shaded; no lighting change made to hide this",
+    "Sparse surrounding blocks, blank forecourts and unfinished entrance/pavement contacts",
+    "Boundary treatments, service dressing, approved fictional business signage and planting incomplete",
+    "Roof/rear contacts, gutter end fittings, ground gullies and outfalls unaccepted",
+    "Old Town3/7 retained road-contact defects remain unresolved"
+  ],
+  "nextDependencies": [
+    "Library9 approach uses saved roadside35 ledger; prepared as pass64",
+    "Library10 measured310.607380cm approach needs separately fitted short transition",
+    "Accepted inspectable service-prop manifests and replacement art where rejected"
+  ],
+  "runtimeTraversal": "not-inspected",
+  "wholeDistrictComplete": false,
+  "failureEvidence": "apps/companion-unreal/Saved/Bridge/editor-20261011-181531.log"
+}

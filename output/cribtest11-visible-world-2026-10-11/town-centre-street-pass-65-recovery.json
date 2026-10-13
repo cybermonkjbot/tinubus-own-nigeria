@@ -1,0 +1,6 @@
+{
+  "reason": "Initial base-only spline branch lost source panel/window pairing; transform guard rejected before any old actor removal",
+  "originalRequestSha256": "1a4bd662213742a6aac2fe730f443e73eb11858da32c1ba3a525b571e94e4020",
+  "retainedOldActorCount": 332,
+  "newGraph": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/NativeGrammar65/PCG/PCG_ResidentialSplineGrammar65_variants02"
+}

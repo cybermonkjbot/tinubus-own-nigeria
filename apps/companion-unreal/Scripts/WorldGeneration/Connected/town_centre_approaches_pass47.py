@@ -20,6 +20,7 @@ TAG='Baddie.TownCentreApproaches47'
 SOURCE_DIRECTORY='approaches47-import-source'
 READBACK=OUT/'town-centre-street-pass-47-saved-readback.json'
 RETAINED_RECEIPT=OUT/'town-centre-street-pass-46-compounds.json'
+ROADSIDE_RECEIPT=OUT/'town-centre-street-pass-39-roadside-corridors.json'
 SHOULDER_GEOMETRY=None
 MIN_APPROACH_LENGTH=470
 PROFILE_BREAKS=(180,286)
@@ -27,7 +28,7 @@ PROFILE_BREAKS=(180,286)
 
 def plans():
     parcels,roads=BASE.canonical()
-    prior=json.loads((OUT/'town-centre-street-pass-39-roadside-corridors.json').read_text())
+    prior=json.loads(ROADSIDE_RECEIPT.read_text())
     ground=json.loads((OUT/'town-centre-street-pass-22-canonical-ground.json').read_text())
     supports={r['label']:r for r in ground['createdActors']}
     result=[]

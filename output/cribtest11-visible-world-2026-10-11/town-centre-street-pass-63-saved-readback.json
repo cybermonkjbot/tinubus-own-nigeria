@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T08:27:01.725832+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "safeReloadCompleted": true,
+  "createdActors": 420,
+  "removedActors": 166,
+  "sourceFloors": {
+    "library-lane-9": 2,
+    "library-lane-10": 5
+  },
+  "uvProbes": 36420,
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Library63/Meshes/SM_library_lane_9_StructuralFrame.uasset": "340ca4ff8c34c14a0d173d6fcad0e3766236b77e143b90ace449ed7abadd7aa8",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Library63/Meshes/SM_library_lane_9_corrugated-roof.uasset": "86e06656f32ed472ac2dffd5db4cfb982abc14faf480eb36fd025fca898a3443",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Library63/Meshes/SM_library_lane_9_pipe_-1.uasset": "6758f2f11197f4a20a7c123acfbdc10d2e54c76b2ee4273742cc214c80d426fe",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Library63/Meshes/SM_library_lane_9_pipe_1.uasset": "ae4b599ae727ad1f559881fe8d552c96d11e67206f6c5d24dd7716190c8c16e4",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Library63/Meshes/SM_library_lane_10_StructuralFrame.uasset": "2711b057b56f0a4e30f12c7b2d0a2864ab75d44c4b7dc5f74d5cdfe811d77331",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_surround.uasset": "50a9eb2a936dc6cc5c688d72fe0e9dad31d97de37840e289ba2427d6f9a1c7e4",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Entrances45/Meshes/SM_residential_door.uasset": "6348644da0d516d6923a05cf16365a2ef2d043149bbcefa84bcd1aae21920256",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Library63/Meshes/SM_library_lane_10_source-door-link.uasset": "26395ed35afab2a5a80c51714276add9ccc7022e847a2bf8efe30000dfc5de64",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Library63/Meshes/SM_library_lane_10_corrugated-roof.uasset": "6c77c1c8569f7a6b2913ec76b9753354d08c3defa7354d7ba12100db20412158",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Library63/Meshes/SM_library_lane_10_pipe_-1.uasset": "92cf87b511fa69a15a36108c645edc329b9a73705a3b8ff9ad367d5078ffbdb5",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Library63/Meshes/SM_library_lane_10_pipe_1.uasset": "641b2f118775f7aaf71d26afcd7ef314aaec1c33018961243e7521cefe6d53c9",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "7398d0e691b41e9dcd8a4ded0a539b582697c19fe8ee3083702f2fb113912e32",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "bb39ecd377f30b3c2dfd69da98e93a8bbce1d7f24048652794eafaaec24c3e57"
+  },
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

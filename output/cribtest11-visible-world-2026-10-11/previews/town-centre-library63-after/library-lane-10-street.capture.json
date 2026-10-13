@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-12T08:27:33.283691+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "camera": "library-lane-10-street",
+  "cameraConfig": {
+    "id": "library-lane-10-street",
+    "locationCm": [
+      -57458.41870264657,
+      -30394.15202583366,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": -116.74549056624012,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-library63-after/library-lane-10-street.png",
+  "imageSha256": "4da75ab6ffeeb40185eb98306690c0549c430dbf67f08af014bb15a832e9a4cf",
+  "width": 705,
+  "height": 486,
+  "warmupNativeFrames": 59,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -57458.41870264657,
+      "y": -30394.15202583366,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 5,
+      "yaw": -116.74549102783203,
+      "roll": 0
+    },
+    "cameraFOV": 78,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-63-saved-readback.json",
+  "receiptSha256": "9fd6792ed13234bbcef4086c9218c2dceba3a7e8ce1c10474c8587648e56d74d",
+  "scriptSha256": "8f562b55fc8f81441a2d07c1c0112e252ab64896a4faa0ad4539cdb261420f2c"
+}

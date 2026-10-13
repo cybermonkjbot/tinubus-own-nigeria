@@ -1,0 +1,12 @@
+{
+  "pass": 64,
+  "inspectedImages": 2,
+  "visualAcceptance": "partial static crossing support",
+  "remainingDefects": [
+    "Shoulder, paving, forecourt and drain structure/outfall finishes remain unfinished",
+    "library-lane-10 requires its own measured310.607380cm short approach",
+    "No walking, navigation or destination-to-destination traversal acceptance"
+  ],
+  "runtimeTraversal": "not-inspected",
+  "wholeDistrictComplete": false
+}
