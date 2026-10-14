@@ -1,6 +1,6 @@
 # Library Lane native street tools
 
-The Windows editor has saved, additive street-detail and park-biome layers. Open **Tools > Baddie World > Open detailed town centre**. The menu includes **Street-by-street detail** and **Park biomes**, with cameras, native graph/asset editing and generation controls. Regeneration does not save automatically. Startup only registers the menu; it never opens a map or generates content.
+The Windows editor has saved, additive street-detail, park-biome and forecourt layers. Open **Tools > Baddie World > Open detailed town centre**. The menu includes **Street-by-street detail**, **Park biomes** and **Building forecourts**, with cameras, native graph/asset editing and generation controls. Regeneration does not save automatically. Startup only registers the menu; it never opens a map or generates content.
 
 - Parent: `/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane`
 - Additive levels: `L_LibraryLane_Dressing` and `L_LibraryLane_StreetEdges` under that root's `Maps` folder.
@@ -21,7 +21,19 @@ Edit the points and mesh spawners in the saved native graphs, then use Generate 
 
 Receipts and genuine before/after views are in `output/unreal-eye-level-20261014` and `output/unreal-biomes-20261014`. This verifies native persistence and bounded scenery, not a completed town: broad ground remains visually tiled/ungraded, building coverage remains sparse, and runtime/performance acceptance is still deferred. See `docs/engineering/unreal-eye-level-biomes-2026-10-14.md`.
 
-Session status: editor PID 13584 stopped after the successful October 14 saved-parent reopen/readback. It has not been restarted. The final planting-shortcut and temporary biome-visibility source corrections are on the VM but still need hot-reload/interaction verification after an authorized reopen. The retained ensure reports do not establish the later termination's cause; details and timestamps are in the engineering record above.
+Session status: Joshua authorized reopening. The existing interactive Windows desktop task reopened UE 5.8.3 in PID 10904; the planting shortcut and temporary biome visibility corrections were exercised successfully. The earlier PID 13584 termination remains unexplained. A separate noninteractive startup failed because no Windows desktop was signed in; recovery required the existing Windows App connection, not new graphics settings.
+
+## Forecourts and park ground
+
+`L_TownCentre_Forecourts` adds 1,047 CPU PCG instances around the accepted Library Lane 2/4 and Garden Avenue 5/7/14 shells. Compound walls, coping, piers, inward-folded gates, drainage grates, planted beds, pots, seating and ground treatments follow the recorded parcel frames. Entrances retain a 4.8-metre clear gate opening. Each compound has its own native graph, camera, generation and hide/show controls.
+
+Two fitted, non-colliding park surfaces cover approximately 3,956 and 7,597 square metres inside the existing park paths. Their material uses world-space variation rather than the underlying tiled paving. The underlying support remains flat; this is not Landscape/heightfield authoring or runtime terrain.
+
+The saved parent reopened with 1,047 compound, 1,914 biome and 2,056 earlier street instances, both park surfaces, and unchanged protected actor transforms. `add_biomes.py` now marks authored splines as edited. Its guarded `restore_saved_boundaries()` repairs only the confirmed template reset and preserves possible hand edits. Both corrected 12/14-point boundaries survived reopening.
+
+`add_forecourts.py` surveys accepted shell handoff data and current native actors, guards source hashes and fingerprints, creates the additive layer and provides per-site generation/readback. `export_forecourt_kit.py` authors the original 14-mesh kit in an isolated Blender worker; its optional third argument is a comma-separated asset selection. `import_worldkit.py` checks native bounds, material slots and triangle counts. The first planter recipe was rejected for topology loss; `SM_FC_BedPlanter` is the accepted replacement. Do not import or reference the rejected `SM_FC_Bed` asset. Accepted manifests are retained in `kit/converted` and `kit-completion/converted` under `output/unreal-forecourts-20261014`.
+
+Evidence and handoff: `output/unreal-forecourts-20261014/evidence`, `reopened-state.json`, and `docs/engineering/unreal-forecourts-ground-2026-10-14.md`. The wider map still needs adjoining buildings, continuous terrain and runtime/performance verification.
 
 ## Source tools
 
