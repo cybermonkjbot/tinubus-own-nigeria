@@ -1,0 +1,54 @@
+{
+  "batch": "water-connections",
+  "destination": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/ConnectionsV5",
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "manifest_sha256": "2ad6dc4521df5abecfeb987cd275f24a01728a0a1e7bd22be8a03365a3bdd70f",
+  "asset_ids": [
+    "SM_WallTap_A",
+    "SM_HoseCoil_A"
+  ],
+  "created": [
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/ConnectionsV5/Materials/M_LagosConnections_Opaque.M_LagosConnections_Opaque",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/ConnectionsV5/Meshes/SM_WallTap_A.SM_WallTap_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/ConnectionsV5/Meshes/SM_HoseCoil_A.SM_HoseCoil_A"
+  ],
+  "meshes": [
+    {
+      "id": "SM_WallTap_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/ConnectionsV5/Meshes/SM_WallTap_A.SM_WallTap_A",
+      "triangles": [
+        308,
+        196,
+        132
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_HoseCoil_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/ConnectionsV5/Meshes/SM_HoseCoil_A.SM_HoseCoil_A",
+      "triangles": [
+        880,
+        456,
+        256
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    }
+  ],
+  "world_placement": "none",
+  "native_visual_acceptance": "pending",
+  "status": "imported-native-visual-acceptance-pending",
+  "reused_textures": [
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Textures/T_DetailAtlas_BC.T_DetailAtlas_BC",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Textures/T_DetailAtlas_ORM.T_DetailAtlas_ORM"
+  ]
+}
