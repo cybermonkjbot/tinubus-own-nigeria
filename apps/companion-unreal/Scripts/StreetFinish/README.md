@@ -21,6 +21,8 @@ Edit the points and mesh spawners in the saved native graphs, then use Generate 
 
 Receipts and genuine before/after views are in `output/unreal-eye-level-20261014` and `output/unreal-biomes-20261014`. This verifies native persistence and bounded scenery, not a completed town: broad ground remains visually tiled/ungraded, building coverage remains sparse, and runtime/performance acceptance is still deferred. See `docs/engineering/unreal-eye-level-biomes-2026-10-14.md`.
 
+Session status: editor PID 13584 stopped after the successful October 14 saved-parent reopen/readback. It has not been restarted. The final planting-shortcut and temporary biome-visibility source corrections are on the VM but still need hot-reload/interaction verification after an authorized reopen. The retained ensure reports do not establish the later termination's cause; details and timestamps are in the engineering record above.
+
 ## Source tools
 
 `build_street.py` creates the parent-map copy, additive level and everyday graph. It refuses to overwrite completed graphs or existing maps. `add_canopy_pass.py` adds the planting/shade graph. These are initial-authoring scripts, not a replacement for accepted native graph edits. Run only against the intended, already-open Windows editor.
