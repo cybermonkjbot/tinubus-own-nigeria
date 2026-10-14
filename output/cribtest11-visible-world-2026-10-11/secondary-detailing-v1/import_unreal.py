@@ -33,6 +33,8 @@ def import_file(path, destination, name, options=None):
     task.automated = True
     task.replace_existing = False
     task.save = False
+    if path.suffix.lower() == '.fbx':
+        task.factory = unreal.FbxFactory()
     if options is not None:
         task.options = options
     unreal.AssetToolsHelpers.get_asset_tools().import_asset_tasks([task])
@@ -156,7 +158,7 @@ def make_weather_decal(name, channel, tint, destination, textures, receipt):
     return mat
 
 
-def import_batch(batch, destination=DEFAULT_DESTINATION, include_close_plastic=False):
+def import_batch(batch, destination=DEFAULT_DESTINATION, include_close_plastic=False, asset_ids=None):
     manifest=json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'))
     available=sorted({asset['batch'] for asset in manifest['assets']})
     if batch not in available:
@@ -164,8 +166,13 @@ def import_batch(batch, destination=DEFAULT_DESTINATION, include_close_plastic=F
     if not re.fullmatch(r'/Game/[A-Za-z0-9_/]+', destination) or '..' in destination:
         raise ValueError('Destination must be an explicit /Game content folder')
     assets=[a for a in manifest['assets'] if a['batch']==batch]
+    if asset_ids is not None:
+        requested=set(asset_ids)
+        if not requested or not requested.issubset({a['id'] for a in assets}):
+            raise ValueError('Asset selection must be a nonempty subset of the named batch')
+        assets=[a for a in assets if a['id'] in requested]
     receipt={'batch':batch,'destination':destination,'engine':unreal.SystemLibrary.get_engine_version(),
-             'manifest_sha256':sha(ROOT/'manifest.json'),'created':[],'meshes':[],
+             'manifest_sha256':sha(ROOT/'manifest.json'),'asset_ids':[a['id'] for a in assets],'created':[],'meshes':[],
              'world_placement':'none','native_visual_acceptance':'pending','status':'preflight'}
     receipt_path=ROOT/'receipts'/f'{batch}-{uuid.uuid4().hex}.json'
     try:
@@ -178,9 +185,11 @@ def import_batch(batch, destination=DEFAULT_DESTINATION, include_close_plastic=F
             if unreal.EditorAssetLibrary.does_asset_exist(destination+'/Meshes/'+asset['id']):
                 raise RuntimeError(f'Refusing to overwrite mesh {asset["id"]}')
         subsystem=unreal.get_editor_subsystem(unreal.StaticMeshEditorSubsystem)
-        for method in ('import_lod','get_lod_count','set_lod_screen_sizes','get_lod_screen_sizes','get_number_triangles','get_number_materials'):
+        for method in ('import_lod','get_lod_count','set_lod_screen_sizes','get_lod_screen_sizes','get_number_materials'):
             if not hasattr(subsystem,method):
                 raise RuntimeError(f'Installed StaticMeshEditorSubsystem lacks {method}')
+        if not hasattr(unreal.StaticMesh, 'get_num_triangles'):
+            raise RuntimeError('Installed StaticMesh lacks get_num_triangles')
         textures={Path(r['file']).stem:texture(r,destination,receipt) for r in manifest['textures']}
         materials={name:make_material(name,destination,textures,receipt) for name in sorted({a['material'] for a in assets})}
         if include_close_plastic and batch=='litter':
@@ -201,6 +210,7 @@ def import_batch(batch, destination=DEFAULT_DESTINATION, include_close_plastic=F
             required_property(options,'mesh_type_to_import',unreal.FBXImportType.FBXIT_STATIC_MESH)
             data=options.static_mesh_import_data
             for name,value in [('combine_meshes',True),('auto_generate_collision',False),('generate_lightmap_u_vs',False),
+                               ('remove_degenerates',False),
                                ('convert_scene',True),('convert_scene_unit',True),('import_uniform_scale',1.0),
                                ('import_mesh_lo_ds',False)]:
                 required_property(data,name,value)
@@ -222,7 +232,7 @@ def import_batch(batch, destination=DEFAULT_DESTINATION, include_close_plastic=F
                 raise RuntimeError(f'Cannot set explicit LOD thresholds for {asset["id"]}')
             unreal.EditorAssetLibrary.set_metadata_tag(mesh,'LagosKitManifestSHA256',receipt['manifest_sha256'])
             unreal.EditorAssetLibrary.set_metadata_tag(mesh,'LagosKitCollisionPolicy',asset['collision'])
-            counts=[subsystem.get_number_triangles(mesh,i) for i in range(3)]
+            counts=[mesh.get_num_triangles(i) for i in range(3)]
             if counts != [r['triangles'] for r in asset['lods']]:
                 raise RuntimeError(f'Imported triangle counts differ for {asset["id"]}: {counts}')
             receipt['meshes'].append({'id':asset['id'],'path':mesh.get_path_name(),'triangles':counts,
