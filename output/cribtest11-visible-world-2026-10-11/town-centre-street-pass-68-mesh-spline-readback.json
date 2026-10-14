@@ -1,0 +1,10 @@
+{
+  "pid": 13584,
+  "sourceObjHashesMatched": true,
+  "fittedAssetCount": 19,
+  "uvProbes": 42000,
+  "splineRunsVerified": 466,
+  "nativeVariantGrammarBranches": 9,
+  "collision": "static complex-as-simple fitted meshes and BlockAll generated instances",
+  "runtimeTraversal": "not-inspected"
+}

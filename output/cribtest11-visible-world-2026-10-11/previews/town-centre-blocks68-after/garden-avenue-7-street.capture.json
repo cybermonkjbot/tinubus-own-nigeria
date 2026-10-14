@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T00:25:46.186510+00:00",
+  "pid": 13584,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "camera": "garden-avenue-7-street",
+  "cameraConfig": {
+    "id": "garden-avenue-7-street",
+    "locationCm": [
+      -3410.758781938053,
+      33519.02998557388,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": 179.92873577447023,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-blocks68-after/garden-avenue-7-street.png",
+  "imageSha256": "93b1205f1b4f0142c14c6578b3c1885d96635a3eabdc56976ccf466b1cb83490",
+  "width": 705,
+  "height": 486,
+  "warmupNativeFrames": 41,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -3410.758781938053,
+      "y": 33519.02998557388,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 5,
+      "yaw": 179.92874145507812,
+      "roll": 0
+    },
+    "cameraFOV": 78,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "receipt": "output/cribtest11-visible-world-2026-10-11/town-centre-street-pass-68-saved-readback.json",
+  "receiptSha256": "2bebf58b1d47795ea998d4a329e7a3a7f3331567d3c16a566c27b6b7e3995776",
+  "scriptSha256": "8f562b55fc8f81441a2d07c1c0112e252ab64896a4faa0ad4539cdb261420f2c"
+}
