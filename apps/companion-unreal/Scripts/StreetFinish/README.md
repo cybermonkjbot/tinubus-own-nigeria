@@ -35,6 +35,14 @@ The saved parent reopened with 1,047 compound, 1,914 biome and 2,056 earlier str
 
 Evidence and handoff: `output/unreal-forecourts-20261014/evidence`, `reopened-state.json`, and `docs/engineering/unreal-forecourts-ground-2026-10-14.md`. The wider map still needs adjoining buildings, continuous terrain and runtime/performance verification.
 
+## Adjoining buildings and ground
+
+After the October 14 VM restart, `L_TownCentre_Adjoining` adds nine source-fitted buildings on Unity Avenue and Theatre Street: 2,451 exterior instances across 988 persisted facade splines, nine per-building anchor graphs and one shared CPU facade grammar. Sixteen fitted surfaces cover approximately 13,542 m², with 441 additional grass, groundcover, shrub, fern-pot and planted-bed instances. Roads, shoulders, entrance strips and occupied/landmark parcels are excluded.
+
+`Tools > Baddie World > Adjoining buildings` provides per-building cameras, spline selection, shared grammar editing, building-specific anchor editing, regeneration and hide/show. The shared grammar action affects all nine buildings; generation never saves automatically. `add_adjoining.py` and `add_adjoining_ground.py` retain guarded survey/import/install/readback phases and use the existing Windows native helper modules. Completed imports and layers are not silently replaced.
+
+All new geometry and the earlier 5,017 scenery instances survived reopening, with 12/14-point park boundaries and unchanged protected source transforms. These are decorative, non-colliding exteriors and flat ground treatments, not completed terrain or runtime gameplay. Evidence: `output/unreal-adjoining-20261014`; details: `docs/engineering/unreal-adjoining-buildings-2026-10-14.md`.
+
 ## Source tools
 
 `build_street.py` creates the parent-map copy, additive level and everyday graph. It refuses to overwrite completed graphs or existing maps. `add_canopy_pass.py` adds the planting/shade graph. These are initial-authoring scripts, not a replacement for accepted native graph edits. Run only against the intended, already-open Windows editor.
