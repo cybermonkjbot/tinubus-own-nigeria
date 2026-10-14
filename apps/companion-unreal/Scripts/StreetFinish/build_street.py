@@ -36,7 +36,7 @@ def ground(location):
     return hit[5].z
 
 
-def make_graph(name, placements):
+def make_graph(name, placements, scope='Library Lane parcels 9/10; fixed editor-authored points, no gameplay authority', cast_shadow=True):
     path = ROOT + '/PCG/' + name
     graph = u.load_asset(path)
     if graph:
@@ -85,7 +85,7 @@ def make_graph(name, placements):
         descriptor.set_editor_properties({
             'static_mesh': mesh, 'component_class': u.HierarchicalInstancedStaticMeshComponent,
             'mobility': u.ComponentMobility.STATIC, 'use_default_collision': False,
-            'body_instance': body, 'can_ever_affect_navigation': False, 'cast_shadow': True,
+            'body_instance': body, 'can_ever_affect_navigation': False, 'cast_shadow': cast_shadow,
             'instance_start_cull_distance': 14000, 'instance_end_cull_distance': 18000,
             'component_tags': [OWNER, 'Baddie.NoRuntimeAuthority']})
         if material:
@@ -99,11 +99,11 @@ def make_graph(name, placements):
         graph.add_edge(point_node, 'Out', spawn_node, 'In')
         graph.add_edge(spawn_node, 'Out', graph.get_output_node(), 'Out')
     u.EditorAssetLibrary.set_metadata_tag(graph, 'StreetFinishOwner', OWNER)
-    u.EditorAssetLibrary.set_metadata_tag(graph, 'Scope', 'Library Lane parcels 9/10; fixed editor-authored points, no gameplay authority')
+    u.EditorAssetLibrary.set_metadata_tag(graph, 'Scope', scope)
     if not u.EditorAssetLibrary.save_loaded_asset(graph):
         raise RuntimeError('PCG graph save failed')
     actor = u.get_editor_subsystem(u.EditorActorSubsystem).spawn_actor_from_class(
-        u.PCGVolume, u.Vector(0, 0, 0), u.Rotator(0, 0, 0))
+        u.PCGVolume, u.Vector(0, 0, 0), u.Rotator(pitch=0, yaw=0, roll=0))
     actor.set_actor_label('Library Lane: ' + name.removeprefix('PCG_LibraryLane_'))
     actor.set_folder_path('StreetFinish_20261014/Generators')
     actor.tags = [OWNER, 'Baddie.NoRuntimeAuthority']

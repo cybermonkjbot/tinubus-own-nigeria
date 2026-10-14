@@ -1,0 +1,18 @@
+{
+  "source_graph": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/PCG/PCG_LibraryLane_PlantingAndShade",
+  "active_graph": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/PCG/PCG_LibraryLane_PlantingAndShadeFull",
+  "changed": [
+    {
+      "original": "SM_WK_broadleaf_tree",
+      "replacement": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree.SM_SF2_broadleaf_tree"
+    },
+    {
+      "original": "SM_WK_shrub_cluster",
+      "replacement": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster.SM_SF2_shrub_cluster"
+    }
+  ],
+  "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing.L_LibraryLane_Dressing:PersistentLevel.PCGVolume_1",
+  "point_transforms": "unchanged",
+  "generation": "pending",
+  "visual_review": "pending"
+}

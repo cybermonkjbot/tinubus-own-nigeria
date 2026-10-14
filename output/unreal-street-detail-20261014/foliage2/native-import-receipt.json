@@ -1,0 +1,90 @@
+{
+  "assets": [
+    {
+      "id": "SM_SF2_broadleaf_tree",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree.SM_SF2_broadleaf_tree",
+      "native_triangles": [
+        154288,
+        77050,
+        30857
+      ],
+      "source_triangles": [
+        154288,
+        77050,
+        30857
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EA8AE75A40) {min: {x: -264.154083, y: -272.258057, z: 0.000000}, max: {x: 270.646698, y: 262.806915, z: 675.915955}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "World kit | bark",
+          "source": "World kit | bark"
+        },
+        {
+          "slot": "World kit | leaf-light",
+          "source": "World kit | leaf-light"
+        },
+        {
+          "slot": "World kit | leaf",
+          "source": "World kit | leaf"
+        },
+        {
+          "slot": "World_kit___bark",
+          "source": "World kit | bark"
+        },
+        {
+          "slot": "World_kit___leaf-light",
+          "source": "World kit | leaf-light"
+        },
+        {
+          "slot": "World_kit___leaf",
+          "source": "World kit | leaf"
+        }
+      ]
+    },
+    {
+      "id": "SM_SF2_shrub_cluster",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster.SM_SF2_shrub_cluster",
+      "native_triangles": [
+        86296,
+        43148,
+        17258
+      ],
+      "source_triangles": [
+        86296,
+        43148,
+        17258
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E6FD95D280) {min: {x: -66.117821, y: -61.889580, z: 0.000000}, max: {x: 66.096909, y: 60.184124, z: 103.638634}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "World kit | bark",
+          "source": "World kit | bark"
+        },
+        {
+          "slot": "World kit | leaf-light",
+          "source": "World kit | leaf-light"
+        },
+        {
+          "slot": "World kit | leaf",
+          "source": "World kit | leaf"
+        },
+        {
+          "slot": "World_kit___bark",
+          "source": "World kit | bark"
+        },
+        {
+          "slot": "World_kit___leaf-light",
+          "source": "World kit | leaf-light"
+        },
+        {
+          "slot": "World_kit___leaf",
+          "source": "World kit | leaf"
+        }
+      ]
+    }
+  ],
+  "source_kind": "native fuller foliage variant from retained recipes; not archived v06",
+  "visual_review": "pending"
+}

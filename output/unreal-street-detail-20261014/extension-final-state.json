@@ -1,0 +1,3759 @@
+{
+  "map": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane",
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "generators": [
+    {
+      "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing.L_LibraryLane_Dressing:PersistentLevel.PCGVolume_0",
+      "label": "Library Lane: Everyday",
+      "graph": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/PCG/PCG_LibraryLane_Everyday.PCG_LibraryLane_Everyday",
+      "authored_points": 23,
+      "components": [
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_A.SM_BeverageCrate_A",
+          "transforms": [
+            {
+              "location": [
+                -56105.35067227889,
+                -29701.255018444517,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55901.98828008465,
+                -30045.947253804796,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -65.5986785888672,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_B.SM_BeverageCrate_B",
+          "transforms": [
+            {
+              "location": [
+                -56105.35067227889,
+                -29701.255018444517,
+                27.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55933.16276572809,
+                -30075.207319506484,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -48.59868240356445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_CoolerBox_A.SM_CoolerBox_A",
+          "transforms": [
+            {
+              "location": [
+                -56043.922334414136,
+                -29831.637374840728,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55270.68031905443,
+                -31036.946375140997,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_HandledBucket_A.SM_HandledBucket_A",
+          "transforms": [
+            {
+              "location": [
+                -58345.825405146286,
+                -31747.53231338109,
+                0.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Maintained.SM_PlasticChair_Maintained",
+          "transforms": [
+            {
+              "location": [
+                -56272.938564993696,
+                -29517.439082749563,
+                -5.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -45.598682403564446,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55432.17991650448,
+                -30829.131842387695,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -35.59868240356446,
+                "roll": -0.0
+              },
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Worn.SM_PlasticChair_Worn",
+          "transforms": [
+            {
+              "location": [
+                -55709.813466653766,
+                -30382.342617380247,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -74.59867858886719,
+                "roll": -0.0
+              },
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticStool_A.SM_PlasticStool_A",
+          "transforms": [
+            {
+              "location": [
+                -56163.16959615794,
+                -29755.71575697668,
+                -5.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -65.5986785888672,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -58208.1751492202,
+                -31968.114286904503,
+                0.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 147.4062194824219,
+                "roll": -0.0
+              },
+              "scale": [
+                1.000000000000001,
+                1.000000000000001,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_StackedStools_A.SM_StackedStools_A",
+          "transforms": [
+            {
+              "location": [
+                -56447.67531925172,
+                -29158.13271543609,
+                -5.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55606.380824551175,
+                -30470.669790677413,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -48.59868240356445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_WallBulkheadLight_A.SM_WallBulkheadLight_A",
+          "transforms": [
+            {
+              "location": [
+                -56413.64351650919,
+                -29112.846554171378,
+                245.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55995.68345066442,
+                -29771.412711333312,
+                245.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55577.72338481966,
+                -30429.97886849525,
+                245.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55159.763318974896,
+                -31088.545025657186,
+                245.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -58229.39224812823,
+                -32011.193687015544,
+                245.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Materials/M_LagosWaterfront_Opaque.M_LagosWaterfront_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WheeledBin_A.SM_WheeledBin_A",
+          "transforms": [
+            {
+              "location": [
+                -56308.907051413174,
+                -29389.84885177772,
+                -5.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -47.598682403564474,
+                "roll": -0.0
+              },
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55045.349820279516,
+                -31354.668213892037,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -65.5986785888672,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -58663.453524110206,
+                -30892.619239257616,
+                -5.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WovenBasket_A.SM_WovenBasket_A",
+          "transforms": [
+            {
+              "location": [
+                -55469.22009534664,
+                -30699.85298020946,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        }
+      ],
+      "instances": 23
+    },
+    {
+      "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing.L_LibraryLane_Dressing:PersistentLevel.PCGVolume_1",
+      "label": "Library Lane: PlantingAndShade",
+      "graph": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/PCG/PCG_LibraryLane_PlantingAndShadeFull.PCG_LibraryLane_PlantingAndShadeFull",
+      "authored_points": 47,
+      "components": [
+        {
+          "mesh": "/Engine/BasicShapes/Cube.Cube",
+          "transforms": [
+            {
+              "location": [
+                -56718.89143864868,
+                -29486.60009064899,
+                -1.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -56125.72396400928,
+                -30495.883174845363,
+                4.156641457337855
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -55473.45439714633,
+                -31467.657024248165,
+                -1.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -58444.38159402856,
+                -30463.366994708682,
+                -1.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -57947.445197367975,
+                -31190.246780423025,
+                -1.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -57083.14852651241,
+                -32607.812036182244,
+                -1.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -58539.89657378964,
+                -30826.03335466124,
+                0.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9,
+                0.9,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -57660.99014249707,
+                -32210.635638724263,
+                2.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9,
+                0.9,
+                0.1
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil.M_PlantingBed_Soil"
+          ]
+        },
+        {
+          "mesh": "/Engine/BasicShapes/Cube.Cube",
+          "transforms": [
+            {
+              "location": [
+                -56718.89143864868,
+                -29420.60009064899,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56718.89143864868,
+                -29552.60009064899,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56652.89143864868,
+                -29486.60009064899,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56784.89143864868,
+                -29486.60009064899,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56125.72396400928,
+                -30429.883174845363,
+                9.156641457337855
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56125.72396400928,
+                -30561.883174845363,
+                9.156641457337855
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56059.72396400928,
+                -30495.883174845363,
+                9.156641457337855
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56191.72396400928,
+                -30495.883174845363,
+                9.156641457337855
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55473.45439714633,
+                -31401.657024248165,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55473.45439714633,
+                -31533.657024248165,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55407.45439714633,
+                -31467.657024248165,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55539.45439714633,
+                -31467.657024248165,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58444.38159402856,
+                -30397.366994708682,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58444.38159402856,
+                -30529.366994708682,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58378.38159402856,
+                -30463.366994708682,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58510.38159402856,
+                -30463.366994708682,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57947.445197367975,
+                -31124.246780423025,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57947.445197367975,
+                -31256.246780423025,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57881.445197367975,
+                -31190.246780423025,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58013.445197367975,
+                -31190.246780423025,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57083.14852651241,
+                -32541.812036182244,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57083.14852651241,
+                -32673.812036182244,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57017.14852651241,
+                -32607.812036182244,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57149.14852651241,
+                -32607.812036182244,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 0.0,
+                "roll": -0.0
+              },
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone.M_PlantingEdge_Stone"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree.SM_SF2_broadleaf_tree",
+          "transforms": [
+            {
+              "location": [
+                -56718.89143864868,
+                -29486.60009064899,
+                1.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -56125.72396400928,
+                -30495.883174845363,
+                6.156641457337855
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -10.598682403564455,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9600000000000001,
+                0.9600000000000001,
+                0.96
+              ]
+            },
+            {
+              "location": [
+                -55473.45439714633,
+                -31467.657024248165,
+                1.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 36.401317596435554,
+                "roll": -0.0
+              },
+              "scale": [
+                1.06,
+                1.06,
+                1.06
+              ]
+            },
+            {
+              "location": [
+                -58444.38159402856,
+                -30463.366994708682,
+                1.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -96.59378051757814,
+                "roll": -0.0
+              },
+              "scale": [
+                1.04,
+                1.04,
+                1.04
+              ]
+            },
+            {
+              "location": [
+                -57083.14852651241,
+                -32607.812036182244,
+                1.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -2.593780517578126,
+                "roll": -0.0
+              },
+              "scale": [
+                0.96,
+                0.96,
+                0.96
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster.SM_SF2_shrub_cluster",
+          "transforms": [
+            {
+              "location": [
+                -58539.89657378964,
+                -30826.03335466124,
+                6.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.8199999999999998,
+                0.8199999999999998,
+                0.82
+              ]
+            },
+            {
+              "location": [
+                -57660.99014249707,
+                -32210.635638724263,
+                8.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.8199999999999998,
+                0.8199999999999998,
+                0.82
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_corrugated_awning.SM_WK_corrugated_awning",
+          "transforms": [
+            {
+              "location": [
+                -56330.50626117963,
+                -29240.11083343413,
+                225.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -56121.52622825725,
+                -29569.393912015097,
+                225.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55703.566162412484,
+                -30227.960069177036,
+                225.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55285.60609656772,
+                -30886.52622633897,
+                225.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55076.62606364534,
+                -31215.809304919938,
+                225.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.59868240356444,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_galvanised.M_WK_galvanised",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_galvanised.M_WK_galvanised",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_palm_tree.SM_WK_palm_tree",
+          "transforms": [
+            {
+              "location": [
+                -57947.445197367975,
+                -31190.246780423025,
+                1.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -49.59378051757813,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_street_bench.SM_WK_street_bench",
+          "transforms": [
+            {
+              "location": [
+                -58633.68230148874,
+                -30678.28614731047,
+                -5.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -57567.20441479797,
+                -32358.38284607503,
+                -3.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_wood.M_WK_wood",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_wood.M_WK_wood",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel"
+          ]
+        }
+      ],
+      "instances": 47
+    },
+    {
+      "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_StreetEdges.L_LibraryLane_StreetEdges:PersistentLevel.PCGVolume_0",
+      "label": "Library Lane: StreetEdges",
+      "graph": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/PCG/PCG_LibraryLane_StreetEdges.PCG_LibraryLane_StreetEdges",
+      "authored_points": 117,
+      "components": [
+        {
+          "mesh": "/Engine/BasicShapes/Cube.Cube",
+          "transforms": [
+            {
+              "location": [
+                -55253.54190752816,
+                -35210.6490403817,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.5999999999999996,
+                1.1999999999999997,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -55886.994543229346,
+                -34212.836689761396,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.5999999999999996,
+                1.1999999999999997,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -56520.447178930524,
+                -33215.024339141084,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.5999999999999996,
+                1.1999999999999997,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -54037.831892619935,
+                -34438.86593636099,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.5999999999999996,
+                1.1999999999999997,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -54671.28452832112,
+                -33441.05358574069,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.5999999999999996,
+                1.1999999999999997,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -55304.7371640223,
+                -32443.24123512038,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.5999999999999996,
+                1.1999999999999997,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -53612.00867689833,
+                -37800.81592947835,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.645538330078125,
+                "roll": -0.0
+              },
+              "scale": [
+                3.6,
+                1.2,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -54317.92504067813,
+                -36686.513124736506,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.645538330078125,
+                "roll": -0.0
+              },
+              "scale": [
+                3.6,
+                1.2,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -52395.56359284925,
+                -37030.19192421195,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.645538330078125,
+                "roll": -0.0
+              },
+              "scale": [
+                3.6,
+                1.2,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -53101.479956629046,
+                -35915.88911947011,
+                20.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.645538330078125,
+                "roll": -0.0
+              },
+              "scale": [
+                3.6,
+                1.2,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -54745.87218549941,
+                -31373.057108970344,
+                0.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.40132141113284,
+                "roll": -0.0
+              },
+              "scale": [
+                1.8,
+                0.8,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -53758.0229497565,
+                -30746.117010203197,
+                0.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.40132141113284,
+                "roll": -0.0
+              },
+              "scale": [
+                1.8,
+                0.8,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -58448.82897193219,
+                -31206.474783625374,
+                2.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999998,
+                0.6499999999999999,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -57821.8042825736,
+                -32194.270328733146,
+                2.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999998,
+                0.6499999999999999,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -57403.78782300121,
+                -32852.80069213833,
+                0.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9999999999999998,
+                0.6499999999999999,
+                0.1
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil.M_PlantingBed_Soil"
+          ]
+        },
+        {
+          "mesh": "/Engine/BasicShapes/Cube.Cube",
+          "transforms": [
+            {
+              "location": [
+                -55198.666108244106,
+                -35175.81160860299,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55308.417706812215,
+                -35245.48647216041,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55154.38921708106,
+                -35366.83400757477,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55352.69459797526,
+                -35054.46407318863,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55832.11874394529,
+                -34177.99925798269,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55941.8703425134,
+                -34247.674121540105,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55787.84185278224,
+                -34369.021656954465,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55986.14723367645,
+                -34056.65172256833,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56465.57137964647,
+                -33180.186907362375,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56575.32297821458,
+                -33249.86177091979,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56421.29448848342,
+                -33371.20930633415,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56619.59986937763,
+                -33058.839371948015,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53982.95609333588,
+                -34404.02850458228,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54092.70769190399,
+                -34473.7033681397,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53938.67920217283,
+                -34595.05090355406,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54136.98458306704,
+                -34282.68096916792,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54616.408729037066,
+                -33406.21615396198,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54726.160327605176,
+                -33475.891017519396,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54572.13183787402,
+                -33597.238552933755,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54770.437218768224,
+                -33284.86861854762,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55249.861364738244,
+                -32408.403803341665,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55359.612963306354,
+                -32478.07866689909,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55205.584473575196,
+                -32599.42620231345,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55403.8898544694,
+                -32287.056267927306,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                1.1999999999999997,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53557.099697410005,
+                -37766.03081812952,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.09999999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53666.91765638666,
+                -37835.601040827176,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.09999999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53513.00489844397,
+                -37957.09533263743,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999999,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53711.01245535269,
+                -37644.536526319265,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999999,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54263.0160611898,
+                -36651.72801338768,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.09999999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54372.834020166454,
+                -36721.298236085335,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.09999999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54218.92126222377,
+                -36842.79252789559,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999999,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54416.92881913249,
+                -36530.233721577424,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999999,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -52340.65461336092,
+                -36995.40681286312,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.09999999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -52450.472572337574,
+                -37064.977035560776,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.09999999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -52296.55981439489,
+                -37186.47132737103,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999999,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -52494.56737130361,
+                -36873.912521052865,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999999,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53046.57097714072,
+                -35881.10400812128,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.09999999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53156.38893611737,
+                -35950.674230818935,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                3.7999999999999994,
+                0.09999999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53002.476178174686,
+                -36072.16852262919,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999999,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53200.483735083406,
+                -35759.609716311024,
+                24.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999999,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54769.985267539174,
+                -31335.062908432057,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                2.0,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54721.75910345964,
+                -31411.05130950863,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                2.0,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54665.66220658525,
+                -31322.15171355306,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                0.8,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -54826.082164413565,
+                -31423.96250438763,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                0.8,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53782.13603179627,
+                -30708.12280966491,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                2.0,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53733.909867716735,
+                -30784.111210741485,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                2.0,
+                0.1,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53677.812970842344,
+                -30695.211614785912,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                0.8,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -53838.23292867066,
+                -30797.022405620482,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                0.1,
+                0.8,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58480.48908779307,
+                -31226.571725275182,
+                6.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                1.1999999999999997,
+                0.09999999999999998,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58417.168856071316,
+                -31186.377841975565,
+                6.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                1.1999999999999997,
+                0.09999999999999998,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58478.30448635191,
+                -31160.039947029418,
+                6.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999998,
+                0.6499999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58419.35345751247,
+                -31252.90962022133,
+                6.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999998,
+                0.6499999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57853.46439843447,
+                -32214.367270382954,
+                6.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                1.1999999999999997,
+                0.09999999999999998,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57790.14416671272,
+                -32174.173387083338,
+                6.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                1.1999999999999997,
+                0.09999999999999998,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57851.279796993316,
+                -32147.83549213719,
+                6.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999998,
+                0.6499999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57792.32876815388,
+                -32240.705165329102,
+                6.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999998,
+                0.6499999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57435.44793886208,
+                -32872.89763378813,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                1.1999999999999997,
+                0.09999999999999998,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57372.12770714033,
+                -32832.70375048852,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                1.1999999999999997,
+                0.09999999999999998,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57433.263337420925,
+                -32806.365855542375,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999998,
+                0.6499999999999999,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57374.31230858149,
+                -32899.23552873428,
+                4.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.09999999999999998,
+                0.6499999999999999,
+                0.18
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone.M_PlantingEdge_Stone"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree.SM_SF2_broadleaf_tree",
+          "transforms": [
+            {
+              "location": [
+                -55253.54190752816,
+                -35210.6490403817,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9099999999999999,
+                0.9099999999999999,
+                0.91
+              ]
+            },
+            {
+              "location": [
+                -55886.994543229346,
+                -34212.836689761396,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 13.409072875976568,
+                "roll": -0.0
+              },
+              "scale": [
+                1.02,
+                1.02,
+                1.02
+              ]
+            },
+            {
+              "location": [
+                -56520.447178930524,
+                -33215.024339141084,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 84.40907287597658,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9600000000000002,
+                0.9600000000000002,
+                0.96
+              ]
+            },
+            {
+              "location": [
+                -54037.831892619935,
+                -34438.86593636099,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 155.40907287597656,
+                "roll": -0.0
+              },
+              "scale": [
+                1.06,
+                1.06,
+                1.06
+              ]
+            },
+            {
+              "location": [
+                -54671.28452832112,
+                -33441.05358574069,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": -133.59092712402344,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9099999999999997,
+                0.9099999999999997,
+                0.91
+              ]
+            },
+            {
+              "location": [
+                -55304.7371640223,
+                -32443.24123512038,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -62.590942382812514,
+                "roll": -0.0
+              },
+              "scale": [
+                1.02,
+                1.02,
+                1.02
+              ]
+            },
+            {
+              "location": [
+                -53612.00867689833,
+                -37800.81592947835,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 8.354461669921879,
+                "roll": -0.0
+              },
+              "scale": [
+                0.96,
+                0.96,
+                0.96
+              ]
+            },
+            {
+              "location": [
+                -54317.92504067813,
+                -36686.513124736506,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 79.35446166992189,
+                "roll": -0.0
+              },
+              "scale": [
+                1.0600000000000003,
+                1.0600000000000003,
+                1.06
+              ]
+            },
+            {
+              "location": [
+                -52395.56359284925,
+                -37030.19192421195,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 150.3544616699219,
+                "roll": -0.0
+              },
+              "scale": [
+                0.9100000000000007,
+                0.9100000000000007,
+                0.91
+              ]
+            },
+            {
+              "location": [
+                -53101.479956629046,
+                -35915.88911947011,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": -138.6455078125,
+                "roll": -0.0
+              },
+              "scale": [
+                1.0199999999999998,
+                1.0199999999999998,
+                1.02
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster.SM_SF2_shrub_cluster",
+          "transforms": [
+            {
+              "location": [
+                -55317.21401360987,
+                -35110.352964151774,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -55189.86980144645,
+                -35310.94511661163,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.409072875976555,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -55950.66664931105,
+                -34112.54061353147,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -55823.32243714764,
+                -34313.13276599132,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.409072875976555,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -56584.11928501223,
+                -33114.72826291116,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -56456.77507284882,
+                -33315.32041537101,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.409072875976555,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -54101.50399870164,
+                -34338.569860131065,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -53974.15978653823,
+                -34539.16201259092,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.409072875976555,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -54734.95663440283,
+                -33340.75750951076,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -54607.612422239414,
+                -33541.34966197061,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.409072875976555,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -55368.409270104006,
+                -32342.94515889045,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -55241.06505794059,
+                -32543.53731135031,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.409072875976555,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -53675.58515733281,
+                -37700.4592100443,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -53548.43219646385,
+                -37901.1726489124,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.35446166992189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -54381.50152111261,
+                -36586.156405302456,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -54254.34856024365,
+                -36786.86984417056,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.35446166992189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -52459.14007328373,
+                -36929.8352047779,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -52331.98711241477,
+                -37130.548643646,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.35446166992189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -53165.056437063526,
+                -35815.532400036056,
+                25.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.64553833007811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -53037.903476194566,
+                -36016.24583890416,
+                25.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 59.35446166992189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -54796.02453020994,
+                -31404.886377262836,
+                5.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -54695.71984078887,
+                -31341.227840677853,
+                5.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 149.40132141113284,
+                "roll": -0.0
+              },
+              "scale": [
+                0.6400000000000005,
+                0.6400000000000005,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -53808.17529446704,
+                -30777.94627849569,
+                5.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                0.64,
+                0.64,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -53707.870605045966,
+                -30714.287741910706,
+                5.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 149.40132141113284,
+                "roll": -0.0
+              },
+              "scale": [
+                0.6400000000000005,
+                0.6400000000000005,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -58431.14366328036,
+                -31234.335685582948,
+                7.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.6399999999999999,
+                0.6399999999999999,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -58466.51428058402,
+                -31178.6138816678,
+                7.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": -120.59378051757811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.6399999999999999,
+                0.6399999999999999,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -57804.118973921766,
+                -32222.13123069072,
+                7.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.6399999999999999,
+                0.6399999999999999,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -57839.48959122543,
+                -32166.40942677557,
+                7.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": -120.59378051757811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.6399999999999999,
+                0.6399999999999999,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -57386.102514349375,
+                -32880.6615940959,
+                5.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 122.40621948242189,
+                "roll": -0.0
+              },
+              "scale": [
+                0.6399999999999999,
+                0.6399999999999999,
+                0.62
+              ]
+            },
+            {
+              "location": [
+                -57421.47313165304,
+                -32824.93979018075,
+                5.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": -120.59378051757811,
+                "roll": -0.0
+              },
+              "scale": [
+                0.6399999999999999,
+                0.6399999999999999,
+                0.62
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_street_bench.SM_WK_street_bench",
+          "transforms": [
+            {
+              "location": [
+                -54419.26833825619,
+                -31159.85549821037,
+                -5.0
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -54089.985259675224,
+                -30950.87546528799,
+                -5.000000000000028
+              ],
+              "rotation": {
+                "pitch": 0.0,
+                "yaw": 32.401321411132834,
+                "roll": -0.0
+              },
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_wood.M_WK_wood",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_wood.M_WK_wood",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel"
+          ]
+        }
+      ],
+      "instances": 117
+    },
+    {
+      "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_StreetEdges.L_LibraryLane_StreetEdges:PersistentLevel.PCGVolume_1",
+      "label": "Library Lane: SurfaceSeparation",
+      "graph": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/PCG/PCG_LibraryLane_SurfaceSeparation.PCG_LibraryLane_SurfaceSeparation",
+      "authored_points": 2,
+      "components": [
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000.SM_Pavement1000",
+          "transforms": [
+            {
+              "location": [
+                -57858.66887468277,
+                -28824.401497775263,
+                1.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -54.40285873413083,
+                "roll": -0.0
+              },
+              "scale": [
+                37.173637774329165,
+                10.060360715552864,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -53901.02256223932,
+                -35059.214642361665,
+                1.0
+              ],
+              "rotation": {
+                "pitch": -0.0,
+                "yaw": -57.590927124023445,
+                "roll": -0.0
+              },
+              "scale": [
+                36.99541344053473,
+                10.060360715552864,
+                1.0
+              ]
+            }
+          ],
+          "collision": "<CollisionEnabled.NO_COLLISION: 0>",
+          "affects_navigation": false,
+          "materials": [
+            "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28.M_Asphalt_WorldMetres28"
+          ]
+        }
+      ],
+      "instances": 2
+    }
+  ],
+  "meshes": {
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_A.SM_BeverageCrate_A": {
+      "lods": 3,
+      "triangles": [
+        1012,
+        252,
+        204
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_B.SM_BeverageCrate_B": {
+      "lods": 3,
+      "triangles": [
+        1012,
+        252,
+        204
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_CoolerBox_A.SM_CoolerBox_A": {
+      "lods": 3,
+      "triangles": [
+        364,
+        80,
+        80
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_HandledBucket_A.SM_HandledBucket_A": {
+      "lods": 3,
+      "triangles": [
+        2188,
+        236,
+        148
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Maintained.SM_PlasticChair_Maintained": {
+      "lods": 3,
+      "triangles": [
+        904,
+        192,
+        144
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Worn.SM_PlasticChair_Worn": {
+      "lods": 3,
+      "triangles": [
+        904,
+        192,
+        144
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticStool_A.SM_PlasticStool_A": {
+      "lods": 3,
+      "triangles": [
+        412,
+        92,
+        60
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_StackedStools_A.SM_StackedStools_A": {
+      "lods": 3,
+      "triangles": [
+        1236,
+        276,
+        180
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_WallBulkheadLight_A.SM_WallBulkheadLight_A": {
+      "lods": 3,
+      "triangles": [
+        596,
+        140,
+        100
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Materials/M_LagosWaterfront_Opaque.M_LagosWaterfront_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WheeledBin_A.SM_WheeledBin_A": {
+      "lods": 3,
+      "triangles": [
+        364,
+        84,
+        60
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WovenBasket_A.SM_WovenBasket_A": {
+      "lods": 3,
+      "triangles": [
+        528,
+        264,
+        176
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+      ]
+    },
+    "/Engine/BasicShapes/Cube.Cube": {
+      "lods": 1,
+      "triangles": [
+        48
+      ],
+      "materials": [
+        "/Engine/EngineMaterials/WorldGridMaterial.WorldGridMaterial"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree.SM_SF2_broadleaf_tree": {
+      "lods": 3,
+      "triangles": [
+        154288,
+        77050,
+        30857
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster.SM_SF2_shrub_cluster": {
+      "lods": 3,
+      "triangles": [
+        86296,
+        43148,
+        17258
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_bark.M_WK_bark",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf_light.M_WK_leaf_light",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Materials/M_WK_leaf.M_WK_leaf"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_corrugated_awning.SM_WK_corrugated_awning": {
+      "lods": 3,
+      "triangles": [
+        4764,
+        2382,
+        952
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_galvanised.M_WK_galvanised",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_galvanised.M_WK_galvanised",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_palm_tree.SM_WK_palm_tree": {
+      "lods": 3,
+      "triangles": [
+        140628,
+        70314,
+        28124
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_street_bench.SM_WK_street_bench": {
+      "lods": 3,
+      "triangles": [
+        2868,
+        1434,
+        572
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_wood.M_WK_wood",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_wood.M_WK_wood",
+        "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel"
+      ]
+    },
+    "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000.SM_Pavement1000": {
+      "lods": 1,
+      "triangles": [
+        48
+      ],
+      "materials": [
+        "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v2/ISM_v1/Materials/M_Concrete.M_Concrete"
+      ]
+    }
+  },
+  "dirty_maps": [],
+  "loaded_actors": 14153,
+  "instances": 189
+}

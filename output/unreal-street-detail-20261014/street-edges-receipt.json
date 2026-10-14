@@ -1,0 +1,1956 @@
+{
+  "layer": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_StreetEdges",
+  "graph": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/PCG/PCG_LibraryLane_StreetEdges",
+  "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_StreetEdges.L_LibraryLane_StreetEdges:PersistentLevel.PCGVolume_0",
+  "placements": [
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55253.54190752816,
+        -35210.6490403817,
+        20.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55198.666108244106,
+        -35175.81160860299,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55308.417706812215,
+        -35245.48647216041,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55154.38921708106,
+        -35366.83400757477,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55352.69459797526,
+        -35054.46407318863,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -55317.21401360987,
+        -35110.352964151774,
+        25.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.08"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -55189.86980144645,
+        -35310.94511661163,
+        25.0
+      ],
+      "yaw": 59.40907287597658,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.08"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -55253.54190752816,
+        -35210.6490403817,
+        25.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.91,
+        0.91,
+        0.91
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.08"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55886.994543229346,
+        -34212.836689761396,
+        20.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55832.11874394529,
+        -34177.99925798269,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55941.8703425134,
+        -34247.674121540105,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55787.84185278224,
+        -34369.021656954465,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55986.14723367645,
+        -34056.65172256833,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -55950.66664931105,
+        -34112.54061353147,
+        25.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.24"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -55823.32243714764,
+        -34313.13276599132,
+        25.0
+      ],
+      "yaw": 59.40907287597658,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.24"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -55886.994543229346,
+        -34212.836689761396,
+        25.0
+      ],
+      "yaw": 13.409072875976577,
+      "scale": [
+        1.02,
+        1.02,
+        1.02
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.24"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -56520.447178930524,
+        -33215.024339141084,
+        20.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -56465.57137964647,
+        -33180.186907362375,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -56575.32297821458,
+        -33249.86177091979,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -56421.29448848342,
+        -33371.20930633415,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -56619.59986937763,
+        -33058.839371948015,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -56584.11928501223,
+        -33114.72826291116,
+        25.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.4"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -56456.77507284882,
+        -33315.32041537101,
+        25.0
+      ],
+      "yaw": 59.40907287597658,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.4"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -56520.447178930524,
+        -33215.024339141084,
+        25.0
+      ],
+      "yaw": 84.40907287597658,
+      "scale": [
+        0.96,
+        0.96,
+        0.96
+      ],
+      "source": "library-lane:segment:6:shoulder:-1:0.4"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54037.831892619935,
+        -34438.86593636099,
+        20.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53982.95609333588,
+        -34404.02850458228,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54092.70769190399,
+        -34473.7033681397,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53938.67920217283,
+        -34595.05090355406,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54136.98458306704,
+        -34282.68096916792,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.08",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -54101.50399870164,
+        -34338.569860131065,
+        25.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.08"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -53974.15978653823,
+        -34539.16201259092,
+        25.0
+      ],
+      "yaw": 59.40907287597658,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.08"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -54037.831892619935,
+        -34438.86593636099,
+        25.0
+      ],
+      "yaw": 155.40907287597656,
+      "scale": [
+        1.06,
+        1.06,
+        1.06
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.08"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54671.28452832112,
+        -33441.05358574069,
+        20.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54616.408729037066,
+        -33406.21615396198,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54726.160327605176,
+        -33475.891017519396,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54572.13183787402,
+        -33597.238552933755,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54770.437218768224,
+        -33284.86861854762,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.24",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -54734.95663440283,
+        -33340.75750951076,
+        25.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.24"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -54607.612422239414,
+        -33541.34966197061,
+        25.0
+      ],
+      "yaw": 59.40907287597658,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.24"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -54671.28452832112,
+        -33441.05358574069,
+        25.0
+      ],
+      "yaw": 226.40907287597656,
+      "scale": [
+        0.91,
+        0.91,
+        0.91
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.24"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55304.7371640223,
+        -32443.24123512038,
+        20.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55249.861364738244,
+        -32408.403803341665,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55359.612963306354,
+        -32478.07866689909,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55205.584473575196,
+        -32599.42620231345,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -55403.8898544694,
+        -32287.056267927306,
+        24.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.4",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -55368.409270104006,
+        -32342.94515889045,
+        25.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.4"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -55241.06505794059,
+        -32543.53731135031,
+        25.0
+      ],
+      "yaw": 59.40907287597658,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.4"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -55304.7371640223,
+        -32443.24123512038,
+        25.0
+      ],
+      "yaw": 297.40907287597656,
+      "scale": [
+        1.02,
+        1.02,
+        1.02
+      ],
+      "source": "library-lane:segment:6:shoulder:1:0.4"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53612.00867689833,
+        -37800.81592947835,
+        20.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53557.099697410005,
+        -37766.03081812952,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53666.91765638666,
+        -37835.601040827176,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53513.00489844397,
+        -37957.09533263743,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53711.01245535269,
+        -37644.536526319265,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -53675.58515733281,
+        -37700.4592100443,
+        25.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.43"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -53548.43219646385,
+        -37901.1726489124,
+        25.0
+      ],
+      "yaw": 59.354461669921875,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.43"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -53612.00867689833,
+        -37800.81592947835,
+        25.0
+      ],
+      "yaw": 368.3544616699219,
+      "scale": [
+        0.96,
+        0.96,
+        0.96
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.43"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54317.92504067813,
+        -36686.513124736506,
+        20.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54263.0160611898,
+        -36651.72801338768,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54372.834020166454,
+        -36721.298236085335,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54218.92126222377,
+        -36842.79252789559,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54416.92881913249,
+        -36530.233721577424,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -54381.50152111261,
+        -36586.156405302456,
+        25.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.73"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -54254.34856024365,
+        -36786.86984417056,
+        25.0
+      ],
+      "yaw": 59.354461669921875,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.73"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -54317.92504067813,
+        -36686.513124736506,
+        25.0
+      ],
+      "yaw": 439.3544616699219,
+      "scale": [
+        1.06,
+        1.06,
+        1.06
+      ],
+      "source": "library-lane:segment:7:shoulder:-1:0.73"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -52395.56359284925,
+        -37030.19192421195,
+        20.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -52340.65461336092,
+        -36995.40681286312,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -52450.472572337574,
+        -37064.977035560776,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -52296.55981439489,
+        -37186.47132737103,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -52494.56737130361,
+        -36873.912521052865,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.43",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -52459.14007328373,
+        -36929.8352047779,
+        25.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.43"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -52331.98711241477,
+        -37130.548643646,
+        25.0
+      ],
+      "yaw": 59.354461669921875,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.43"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -52395.56359284925,
+        -37030.19192421195,
+        25.0
+      ],
+      "yaw": 510.3544616699219,
+      "scale": [
+        0.91,
+        0.91,
+        0.91
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.43"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53101.479956629046,
+        -35915.88911947011,
+        20.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.6,
+        1.2,
+        0.1
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53046.57097714072,
+        -35881.10400812128,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53156.38893611737,
+        -35950.674230818935,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        3.8,
+        0.1,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53002.476178174686,
+        -36072.16852262919,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53200.483735083406,
+        -35759.609716311024,
+        24.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.1,
+        1.2,
+        0.18
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.73",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -53165.056437063526,
+        -35815.532400036056,
+        25.0
+      ],
+      "yaw": -57.645538330078125,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.73"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -53037.903476194566,
+        -36016.24583890416,
+        25.0
+      ],
+      "yaw": 59.354461669921875,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.73"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_broadleaf_tree",
+      "location": [
+        -53101.479956629046,
+        -35915.88911947011,
+        25.0
+      ],
+      "yaw": 581.3544616699219,
+      "scale": [
+        1.02,
+        1.02,
+        1.02
+      ],
+      "source": "library-lane:segment:7:shoulder:1:0.73"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54745.87218549941,
+        -31373.057108970344,
+        0.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        1.8,
+        0.8,
+        0.1
+      ],
+      "source": "TC_Library63_28",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54769.985267539174,
+        -31335.062908432057,
+        4.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        2.0,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_28",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54721.75910345964,
+        -31411.05130950863,
+        4.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        2.0,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_28",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54665.66220658525,
+        -31322.15171355306,
+        4.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        0.1,
+        0.8,
+        0.18
+      ],
+      "source": "TC_Library63_28",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -54826.082164413565,
+        -31423.96250438763,
+        4.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        0.1,
+        0.8,
+        0.18
+      ],
+      "source": "TC_Library63_28",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -54796.02453020994,
+        -31404.886377262836,
+        5.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_28"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -54695.71984078887,
+        -31341.227840677853,
+        5.0
+      ],
+      "yaw": 149.4013214111328,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_28"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53758.0229497565,
+        -30746.117010203197,
+        0.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        1.8,
+        0.8,
+        0.1
+      ],
+      "source": "TC_Library63_34",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53782.13603179627,
+        -30708.12280966491,
+        4.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        2.0,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_34",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53733.909867716735,
+        -30784.111210741485,
+        4.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        2.0,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_34",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53677.812970842344,
+        -30695.211614785912,
+        4.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        0.1,
+        0.8,
+        0.18
+      ],
+      "source": "TC_Library63_34",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -53838.23292867066,
+        -30797.022405620482,
+        4.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        0.1,
+        0.8,
+        0.18
+      ],
+      "source": "TC_Library63_34",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -53808.17529446704,
+        -30777.94627849569,
+        5.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_34"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -53707.870605045966,
+        -30714.287741910706,
+        5.0
+      ],
+      "yaw": 149.4013214111328,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_34"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_street_bench",
+      "location": [
+        -54419.26833825619,
+        -31159.85549821037,
+        -5.0
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "TC_Library63_30"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_street_bench",
+      "location": [
+        -54089.985259675224,
+        -30950.87546528799,
+        -5.000000000000028
+      ],
+      "yaw": 32.4013214111328,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "TC_Library63_32"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -58448.82897193219,
+        -31206.474783625374,
+        2.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        1.0,
+        0.65,
+        0.1
+      ],
+      "source": "TC_Library63_101",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -58480.48908779307,
+        -31226.571725275182,
+        6.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        1.2,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_101",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -58417.168856071316,
+        -31186.377841975565,
+        6.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        1.2,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_101",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -58478.30448635191,
+        -31160.039947029418,
+        6.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        0.1,
+        0.65,
+        0.18
+      ],
+      "source": "TC_Library63_101",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -58419.35345751247,
+        -31252.90962022133,
+        6.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        0.1,
+        0.65,
+        0.18
+      ],
+      "source": "TC_Library63_101",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -58431.14366328036,
+        -31234.335685582948,
+        7.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_101"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -58466.51428058402,
+        -31178.6138816678,
+        7.0
+      ],
+      "yaw": -120.59378051757812,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_101"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57821.8042825736,
+        -32194.270328733146,
+        2.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        1.0,
+        0.65,
+        0.1
+      ],
+      "source": "TC_Library63_96",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57853.46439843447,
+        -32214.367270382954,
+        6.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        1.2,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_96",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57790.14416671272,
+        -32174.173387083338,
+        6.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        1.2,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_96",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57851.279796993316,
+        -32147.83549213719,
+        6.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        0.1,
+        0.65,
+        0.18
+      ],
+      "source": "TC_Library63_96",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57792.32876815388,
+        -32240.705165329102,
+        6.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        0.1,
+        0.65,
+        0.18
+      ],
+      "source": "TC_Library63_96",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -57804.118973921766,
+        -32222.13123069072,
+        7.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_96"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -57839.48959122543,
+        -32166.40942677557,
+        7.0
+      ],
+      "yaw": -120.59378051757812,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_96"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57403.78782300121,
+        -32852.80069213833,
+        0.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        1.0,
+        0.65,
+        0.1
+      ],
+      "source": "TC_Library63_92",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57435.44793886208,
+        -32872.89763378813,
+        4.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        1.2,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_92",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57372.12770714033,
+        -32832.70375048852,
+        4.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        1.2,
+        0.1,
+        0.18
+      ],
+      "source": "TC_Library63_92",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57433.263337420925,
+        -32806.365855542375,
+        4.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        0.1,
+        0.65,
+        0.18
+      ],
+      "source": "TC_Library63_92",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Engine/BasicShapes/Cube",
+      "location": [
+        -57374.31230858149,
+        -32899.23552873428,
+        4.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        0.1,
+        0.65,
+        0.18
+      ],
+      "source": "TC_Library63_92",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -57386.102514349375,
+        -32880.6615940959,
+        5.0
+      ],
+      "yaw": -237.59378051757812,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_92"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -57421.47313165304,
+        -32824.93979018075,
+        5.0
+      ],
+      "yaw": -120.59378051757812,
+      "scale": [
+        0.64,
+        0.64,
+        0.62
+      ],
+      "source": "TC_Library63_92"
+    }
+  ],
+  "accepted_tree_beds": [
+    {
+      "source": "library-lane:segment:6:shoulder:-1:0.08",
+      "location": [
+        -55253.54190752816,
+        -35210.6490403817,
+        15.0
+      ],
+      "road_clearance_cm": 220.00000012795064
+    },
+    {
+      "source": "library-lane:segment:6:shoulder:-1:0.24",
+      "location": [
+        -55886.994543229346,
+        -34212.836689761396,
+        15.0
+      ],
+      "road_clearance_cm": 220.00000012795522
+    },
+    {
+      "source": "library-lane:segment:6:shoulder:-1:0.4",
+      "location": [
+        -56520.447178930524,
+        -33215.024339141084,
+        15.0
+      ],
+      "road_clearance_cm": 220.0000001279498
+    },
+    {
+      "source": "library-lane:segment:6:shoulder:1:0.08",
+      "location": [
+        -54037.831892619935,
+        -34438.86593636099,
+        15.0
+      ],
+      "road_clearance_cm": 219.9999998720486
+    },
+    {
+      "source": "library-lane:segment:6:shoulder:1:0.24",
+      "location": [
+        -54671.28452832112,
+        -33441.05358574069,
+        15.0
+      ],
+      "road_clearance_cm": 219.99999987204404
+    },
+    {
+      "source": "library-lane:segment:6:shoulder:1:0.4",
+      "location": [
+        -55304.7371640223,
+        -32443.24123512038,
+        15.0
+      ],
+      "road_clearance_cm": 219.99999987204768
+    },
+    {
+      "source": "library-lane:segment:7:shoulder:-1:0.43",
+      "location": [
+        -53612.00867689833,
+        -37800.81592947835,
+        15.0
+      ],
+      "road_clearance_cm": 219.9999998357156
+    },
+    {
+      "source": "library-lane:segment:7:shoulder:-1:0.73",
+      "location": [
+        -54317.92504067813,
+        -36686.513124736506,
+        15.0
+      ],
+      "road_clearance_cm": 219.99999983571547
+    },
+    {
+      "source": "library-lane:segment:7:shoulder:1:0.43",
+      "location": [
+        -52395.56359284925,
+        -37030.19192421195,
+        15.0
+      ],
+      "road_clearance_cm": 220.00000016428697
+    },
+    {
+      "source": "library-lane:segment:7:shoulder:1:0.73",
+      "location": [
+        -53101.479956629046,
+        -35915.88911947011,
+        15.0
+      ],
+      "road_clearance_cm": 220.00000016428672
+    }
+  ],
+  "rejected": [
+    {
+      "source": "library-lane:segment:7:shoulder:-1:0.13",
+      "reason": "uneven support",
+      "centre_z": 0.0,
+      "corner_z": [
+        15.0,
+        -2.0,
+        2.842170943040401e-14,
+        2.842170943040401e-14
+      ]
+    },
+    {
+      "source": "library-lane:segment:7:shoulder:1:0.13",
+      "reason": "uneven support",
+      "centre_z": 0.0,
+      "corner_z": [
+        -2.0,
+        15.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "generation": "pending",
+  "visual_review": "pending",
+  "collision": "decorative, no collision or navigation changes"
+}

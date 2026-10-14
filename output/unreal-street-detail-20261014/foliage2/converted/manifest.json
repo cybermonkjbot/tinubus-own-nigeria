@@ -1,0 +1,128 @@
+{
+  "pid": 5816,
+  "blender": "5.2.2 LTS",
+  "scene": "StreetFinish_20261014_Conversion",
+  "source": "C:\\dev\\cribtest-game\\output\\unreal-street-detail-20261014\\worldkit\\recipes\\world-kit",
+  "source_sha256": null,
+  "source_kind": "native fuller foliage variant from retained recipes; not archived v06",
+  "units": "metres",
+  "forward": "-Y",
+  "up": "Z",
+  "materials": {
+    "World kit | bark": {
+      "name": "World kit | bark",
+      "base_color": [
+        0.1899999976158142,
+        0.09000000357627869,
+        0.04399999976158142,
+        1.0
+      ],
+      "roughness": 0.9100000262260437,
+      "metallic": 0.0,
+      "base_color_linked": false
+    },
+    "World kit | leaf-light": {
+      "name": "World kit | leaf-light",
+      "base_color": [
+        0.1599999964237213,
+        0.28999999165534973,
+        0.07000000029802322,
+        1.0
+      ],
+      "roughness": 0.7300000190734863,
+      "metallic": 0.0,
+      "base_color_linked": false
+    },
+    "World kit | leaf": {
+      "name": "World kit | leaf",
+      "base_color": [
+        0.07999999821186066,
+        0.20999999344348907,
+        0.06599999964237213,
+        1.0
+      ],
+      "roughness": 0.6899999976158142,
+      "metallic": 0.0,
+      "base_color_linked": false
+    }
+  },
+  "assets": [
+    {
+      "id": "SM_SF2_broadleaf_tree",
+      "source_id": "broadleaf-tree",
+      "materials": [
+        "World kit | bark",
+        "World kit | leaf-light",
+        "World kit | leaf"
+      ],
+      "bounds": {
+        "min": [
+          -2.7064669132232666,
+          -2.7225804328918457,
+          0.0
+        ],
+        "max": [
+          2.64154052734375,
+          2.6280691623687744,
+          6.759159564971924
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_SF2_broadleaf_tree_LOD0.fbx",
+          "triangles": 154288,
+          "sha256": "1730993ea55ff9c4f59a4be95a4ed9a2245a2533cb20b4fba80f27d420f49df7"
+        },
+        {
+          "file": "SM_SF2_broadleaf_tree_LOD1.fbx",
+          "triangles": 77050,
+          "sha256": "1bb36024210ee7ea596416978fa37089850ed90c16cfeac4f07512eab0461a3a"
+        },
+        {
+          "file": "SM_SF2_broadleaf_tree_LOD2.fbx",
+          "triangles": 30857,
+          "sha256": "e25eff5fc22e84f46f678d60b768820ad9f3ab4eb233bad72ebc780c002860fa"
+        }
+      ]
+    },
+    {
+      "id": "SM_SF2_shrub_cluster",
+      "source_id": "shrub-cluster",
+      "materials": [
+        "World kit | bark",
+        "World kit | leaf-light",
+        "World kit | leaf"
+      ],
+      "bounds": {
+        "min": [
+          -0.660969078540802,
+          -0.6188957691192627,
+          0.0
+        ],
+        "max": [
+          0.6611782312393188,
+          0.6018412709236145,
+          1.0363863706588745
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_SF2_shrub_cluster_LOD0.fbx",
+          "triangles": 86296,
+          "sha256": "0798e9162052eb89a44a2cf763e963aeab705beef20186574d143bc6ca431ab0"
+        },
+        {
+          "file": "SM_SF2_shrub_cluster_LOD1.fbx",
+          "triangles": 43148,
+          "sha256": "7091205c6137b00ec17d06d7104a43496bb0fe1cf9c0d26c707c349b76e27f90"
+        },
+        {
+          "file": "SM_SF2_shrub_cluster_LOD2.fbx",
+          "triangles": 17258,
+          "sha256": "bc14fcfbbdafeb995ff31fdf0756f742cc74f8e972aecd11fb9d31ff0a09f053"
+        }
+      ]
+    }
+  ],
+  "renders": "none"
+}

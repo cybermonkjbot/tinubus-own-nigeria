@@ -64,12 +64,12 @@ def reconstruct(source, names):
     return [bpy.data.collections['Asset | ' + name] for name in names]
 
 
-def main():
+def main(names=None, refine_callback=None, prefix='SM_WK_', source_kind=None):
     source, destination = map(Path, sys.argv[sys.argv.index('--') + 1:])
     if bpy.data.filepath or not bpy.app.background:
         raise RuntimeError('Requires a new, isolated background conversion process')
-    names = ['broadleaf-tree', 'palm-tree', 'shrub-cluster',
-             'corrugated-awning', 'street-bench', 'vendor-canopy']
+    names = names or ['broadleaf-tree', 'palm-tree', 'shrub-cluster',
+                      'corrugated-awning', 'street-bench', 'vendor-canopy']
     expected = 'b33ed8f9404057a7d260f199abb05b7e51fcca325ac1524a018d4f5c9d076f8d'
     recipes = source.is_dir()
     if not recipes and hashlib.sha256(source.read_bytes()).hexdigest() != expected:
@@ -83,6 +83,8 @@ def main():
     scene.unit_settings.scale_length = 1.0
     if recipes:
         collections = reconstruct(source, names)
+        if refine_callback:
+            refine_callback()
     else:
         with bpy.data.libraries.load(str(source), link=False) as (available, loaded):
             wanted = ['Asset | ' + name for name in names]
@@ -96,7 +98,7 @@ def main():
     report = {'pid': os.getpid(), 'blender': bpy.app.version_string,
               'scene': scene.name, 'source': str(source),
               'source_sha256': None if recipes else expected,
-              'source_kind': 'bounded retained-recipe reconstruction; not archived v06' if recipes else 'archived v06',
+              'source_kind': source_kind or ('bounded retained-recipe reconstruction; not archived v06' if recipes else 'archived v06'),
               'units': 'metres', 'forward': '-Y', 'up': 'Z',
               'materials': {}, 'assets': [], 'renders': 'none'}
     for name, collection in zip(names, collections):
@@ -125,7 +127,7 @@ def main():
                 face_materials.append(local_slots[poly.material_index] if local_slots else 0)
                 uv_faces.append([tuple(uv.data[i].uv) for i in poly.loop_indices] if uv else [(0, 0)] * len(poly.vertices))
             evaluated.to_mesh_clear()
-        mesh = bpy.data.meshes.new('SM_WK_' + name.replace('-', '_'))
+        mesh = bpy.data.meshes.new(prefix + name.replace('-', '_'))
         mesh.from_pydata(verts, [], faces)
         mesh.update()
         for mat in slots:

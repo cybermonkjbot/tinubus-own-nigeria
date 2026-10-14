@@ -1,0 +1,42 @@
+{
+  "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_StreetEdges.L_LibraryLane_StreetEdges:PersistentLevel.PCGVolume_1",
+  "placements": [
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000.SM_Pavement1000",
+      "location": [
+        -57858.66887468277,
+        -28824.401497775263,
+        1.0
+      ],
+      "yaw": -54.402858734130845,
+      "scale": [
+        37.17363777432917,
+        10.060360715552866,
+        1.0
+      ],
+      "material": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28.M_Asphalt_WorldMetres28",
+      "source_actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_847",
+      "render_separation_cm": 1
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_Pavement1000.SM_Pavement1000",
+      "location": [
+        -53901.02256223932,
+        -35059.214642361665,
+        1.0
+      ],
+      "yaw": -57.59092712402342,
+      "scale": [
+        36.99541344053474,
+        10.060360715552866,
+        1.0
+      ],
+      "material": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Materials/M_Asphalt_WorldMetres28.M_Asphalt_WorldMetres28",
+      "source_actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_849",
+      "render_separation_cm": 1
+    }
+  ],
+  "generation": "pending",
+  "visual_review": "pending",
+  "collision": "unchanged original; overlay disabled"
+}
