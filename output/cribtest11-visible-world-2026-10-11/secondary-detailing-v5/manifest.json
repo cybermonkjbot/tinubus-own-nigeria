@@ -1,0 +1,1049 @@
+{
+  "schema_version": 1,
+  "kit": "LagosConnectionsV5",
+  "status": "exported-unplaced-native-acceptance-pending",
+  "blender_version": "5.2.2 LTS",
+  "blend": "LagosConnectionsV5.blend",
+  "blend_sha256": "a0b792900c5fe13388a0b8e42cc3b53c99b735c8212f0ab3a5e5f28d191a2891",
+  "author_script_sha256": "959264175c16a532c2193c851ae79e719a0ea0abf6e63ecc4eccc9c6064bb212",
+  "geometry_helper_sha256": "4bc47f01cb4ea1ec749cc07bead1ed859ce997002288c7c25c5a1962292c30e4",
+  "shared_importer_sha256_at_authoring": "6ea4d306f1bd277074caea5fbb204b2a127f469935cefeb7e83eba119a791081",
+  "assets": [
+    {
+      "id": "SM_Downpipe1m_A",
+      "batch": "water-connections",
+      "kind": "straight",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_Downpipe1m_A.fbx",
+          "sha256": "6a6239d842e2562e001af3d328d49efd9fe6031870bad183c456aa87c0086c2d",
+          "bytes": 23692,
+          "triangles": 320,
+          "dimensions_metres": [
+            0.11,
+            0.11,
+            1.0
+          ]
+        },
+        {
+          "file": "fbx/SM_Downpipe1m_A_LOD1.fbx",
+          "sha256": "061e4e094dc9eb0022b9f59205fb8b50bd822d1ad6e6ff5f5399c1d1d4bd21a5",
+          "bytes": 21708,
+          "triangles": 192,
+          "dimensions_metres": [
+            0.11,
+            0.11,
+            1.0
+          ]
+        },
+        {
+          "file": "fbx/SM_Downpipe1m_A_LOD2.fbx",
+          "sha256": "57549d640829787dcf4f118b436b0478133261d575d47b45f79b6ccc7b10375a",
+          "bytes": 20540,
+          "triangles": 128,
+          "dimensions_metres": [
+            0.11,
+            0.11,
+            1.0
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_DownpipeElbow90_A",
+      "batch": "water-connections",
+      "kind": "elbow",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_DownpipeElbow90_A.fbx",
+          "sha256": "c013bbbc8e3c0755046742f9d8c3a6a18b9757180593bf0500993b439668c867",
+          "bytes": 43004,
+          "triangles": 1040,
+          "dimensions_metres": [
+            0.1,
+            0.18,
+            0.18
+          ]
+        },
+        {
+          "file": "fbx/SM_DownpipeElbow90_A_LOD1.fbx",
+          "sha256": "67c15d8acfda3101fdbcc5437c00b4bdb96364363bef35d8ee2c619116c181f1",
+          "bytes": 26492,
+          "triangles": 336,
+          "dimensions_metres": [
+            0.1,
+            0.18,
+            0.18
+          ]
+        },
+        {
+          "file": "fbx/SM_DownpipeElbow90_A_LOD2.fbx",
+          "sha256": "98552ada5fddd7a5d35266c675e99e79ccc8f3c1e79bb256f93c4a6883f9ce39",
+          "bytes": 22428,
+          "triangles": 160,
+          "dimensions_metres": [
+            0.1,
+            0.18,
+            0.18
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_DownpipeClip_A",
+      "batch": "water-connections",
+      "kind": "clip",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_DownpipeClip_A.fbx",
+          "sha256": "3e8a201b79f8413b8530527d6c2a571cb87c36fb69e82800d3bb822225749e3a",
+          "bytes": 22012,
+          "triangles": 224,
+          "dimensions_metres": [
+            0.19,
+            0.114,
+            0.038
+          ]
+        },
+        {
+          "file": "fbx/SM_DownpipeClip_A_LOD1.fbx",
+          "sha256": "7ab257befdf3236dd3afb4e4265904ad4fe2bc196df53f3f017746e88b530d04",
+          "bytes": 20396,
+          "triangles": 120,
+          "dimensions_metres": [
+            0.19,
+            0.114,
+            0.038
+          ]
+        },
+        {
+          "file": "fbx/SM_DownpipeClip_A_LOD2.fbx",
+          "sha256": "ff635147f31527fbb62c96b2eb42c88c7926ae19147be8a59de3fced45ca4216",
+          "bytes": 19900,
+          "triangles": 88,
+          "dimensions_metres": [
+            0.19,
+            0.114,
+            0.038
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_DrainWallOutlet_A",
+      "batch": "water-connections",
+      "kind": "outlet",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_DrainWallOutlet_A.fbx",
+          "sha256": "2aa1106ba2bde589aa43d837e84686ffa37539e33b42db0d46cfe8f9a810159b",
+          "bytes": 21820,
+          "triangles": 184,
+          "dimensions_metres": [
+            0.205,
+            0.17,
+            0.17
+          ]
+        },
+        {
+          "file": "fbx/SM_DrainWallOutlet_A_LOD1.fbx",
+          "sha256": "017320f1c7f31df98a8709189db4793883b22d3c44a6ab94c511be1219778865",
+          "bytes": 20620,
+          "triangles": 120,
+          "dimensions_metres": [
+            0.205,
+            0.17,
+            0.17
+          ]
+        },
+        {
+          "file": "fbx/SM_DrainWallOutlet_A_LOD2.fbx",
+          "sha256": "f0b6a39d9237620db7f69c6195f8946388362ddfb2575442373616f654fb2c78",
+          "bytes": 20060,
+          "triangles": 88,
+          "dimensions_metres": [
+            0.205,
+            0.17,
+            0.17
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_WallTap_A",
+      "batch": "water-connections",
+      "kind": "tap",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_WallTap_A.fbx",
+          "sha256": "dde1ce9257bf2019c9ff03f9512267deedb64227fab88bae43507a0691d7e2bf",
+          "bytes": 25692,
+          "triangles": 308,
+          "dimensions_metres": [
+            0.07,
+            0.13002,
+            0.08226
+          ]
+        },
+        {
+          "file": "fbx/SM_WallTap_A_LOD1.fbx",
+          "sha256": "6abe1fc4788c6c2ec67c0c7e5490ce191d9ecc1dc47cc30f6884e43d3fa28240",
+          "bytes": 23036,
+          "triangles": 196,
+          "dimensions_metres": [
+            0.07,
+            0.13002,
+            0.08146
+          ]
+        },
+        {
+          "file": "fbx/SM_WallTap_A_LOD2.fbx",
+          "sha256": "930032df7f79f604fcf0076511de06739defe13edc2eec3a04d9f20de1d781d4",
+          "bytes": 21676,
+          "triangles": 132,
+          "dimensions_metres": [
+            0.07,
+            0.13002,
+            0.08226
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_WaterStopValve_A",
+      "batch": "water-connections",
+      "kind": "valve",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_WaterStopValve_A.fbx",
+          "sha256": "915893ba85d8030bad1ebb22aaffedd844be5608c58e69841cc24e3cf8de5a71",
+          "bytes": 26060,
+          "triangles": 384,
+          "dimensions_metres": [
+            0.104,
+            0.2,
+            0.116
+          ]
+        },
+        {
+          "file": "fbx/SM_WaterStopValve_A_LOD1.fbx",
+          "sha256": "112ebbe42c671288691d422f6c752b0970c48de64e4e3f982dbdf493877b62c5",
+          "bytes": 23468,
+          "triangles": 248,
+          "dimensions_metres": [
+            0.104,
+            0.2,
+            0.116
+          ]
+        },
+        {
+          "file": "fbx/SM_WaterStopValve_A_LOD2.fbx",
+          "sha256": "603814f459cb1867aa5aa5c0d96b0d313e32c6d8cba1137eb291273475933960",
+          "bytes": 22220,
+          "triangles": 176,
+          "dimensions_metres": [
+            0.104,
+            0.2,
+            0.116
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_HoseCoil_A",
+      "batch": "water-connections",
+      "kind": "hose",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_HoseCoil_A.fbx",
+          "sha256": "716b12454647d848f17d9ccf67912813819bf0b07e2c294436c9857b3c2dab64",
+          "bytes": 33484,
+          "triangles": 880,
+          "dimensions_metres": [
+            0.431,
+            0.342,
+            0.06853
+          ]
+        },
+        {
+          "file": "fbx/SM_HoseCoil_A_LOD1.fbx",
+          "sha256": "3a616a340c2dcb4ee7cb4857b92b3b6e14e38f95a6f8c32f001523b778513a60",
+          "bytes": 26364,
+          "triangles": 456,
+          "dimensions_metres": [
+            0.431,
+            0.342,
+            0.06946
+          ]
+        },
+        {
+          "file": "fbx/SM_HoseCoil_A_LOD2.fbx",
+          "sha256": "418ecb99b5f46ce8863d0155b9a36065099525cca53b9fcf9afc9c4641ec63ef",
+          "bytes": 22844,
+          "triangles": 256,
+          "dimensions_metres": [
+            0.431,
+            0.342,
+            0.07
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_ACDrainTube_A",
+      "batch": "water-connections",
+      "kind": "acdrain",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_ACDrainTube_A.fbx",
+          "sha256": "ee8a6e203343282918813ad78c8922992862221aee5386aac54ae90c41245317",
+          "bytes": 24828,
+          "triangles": 264,
+          "dimensions_metres": [
+            0.021,
+            0.06866,
+            0.58066
+          ]
+        },
+        {
+          "file": "fbx/SM_ACDrainTube_A_LOD1.fbx",
+          "sha256": "157bdc087c24ab6a4c7da6fd00dd1e706975afb0d22d8650ea447ee643934448",
+          "bytes": 22252,
+          "triangles": 144,
+          "dimensions_metres": [
+            0.016,
+            0.05866,
+            0.58066
+          ]
+        },
+        {
+          "file": "fbx/SM_ACDrainTube_A_LOD2.fbx",
+          "sha256": "0111387812e9eb463b135db0d216e7d325634bbc209e9d4e9a8ceb3fd0b6a917",
+          "bytes": 21036,
+          "triangles": 96,
+          "dimensions_metres": [
+            0.016,
+            0.05866,
+            0.58066
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_CableJunctionBox_A",
+      "batch": "cable-fittings",
+      "kind": "junction",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_CableJunctionBox_A.fbx",
+          "sha256": "41a59d30b57e1fd2365eb403a12048ddc6b02867b0706b1c5bc3e0680ffb194d",
+          "bytes": 24924,
+          "triangles": 440,
+          "dimensions_metres": [
+            0.16,
+            0.077,
+            0.26
+          ]
+        },
+        {
+          "file": "fbx/SM_CableJunctionBox_A_LOD1.fbx",
+          "sha256": "67f70c544d9e1c278125af98cf9be4759f6642ec0a31845331029d0af8d9cae8",
+          "bytes": 22060,
+          "triangles": 232,
+          "dimensions_metres": [
+            0.16,
+            0.077,
+            0.26
+          ]
+        },
+        {
+          "file": "fbx/SM_CableJunctionBox_A_LOD2.fbx",
+          "sha256": "f8d4ab6766390a0a30f8e34c5492c422859fbf488a2cf48217fd234de1452360",
+          "bytes": 21164,
+          "triangles": 168,
+          "dimensions_metres": [
+            0.16,
+            0.077,
+            0.26
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_CableClip_A",
+      "batch": "cable-fittings",
+      "kind": "cableclip",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_CableClip_A.fbx",
+          "sha256": "b66339e93791e5730e3728e5d79da5c08cf2cb8a02f767652bd2e07e3daf7429",
+          "bytes": 21308,
+          "triangles": 172,
+          "dimensions_metres": [
+            0.036,
+            0.02,
+            0.024
+          ]
+        },
+        {
+          "file": "fbx/SM_CableClip_A_LOD1.fbx",
+          "sha256": "7d135175b5775c14273d318bf0ba8c8434e82e7ce75632adaf2f0afcf6473721",
+          "bytes": 20172,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.036,
+            0.02,
+            0.024
+          ]
+        },
+        {
+          "file": "fbx/SM_CableClip_A_LOD2.fbx",
+          "sha256": "f94ff6371cdcce2113542abf1fcc3aa36a52b39bbd5b26c85107c60b5a54a3de",
+          "bytes": 19772,
+          "triangles": 76,
+          "dimensions_metres": [
+            0.036,
+            0.02,
+            0.024
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_PorcelainInsulator_A",
+      "batch": "cable-fittings",
+      "kind": "insulator",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_PorcelainInsulator_A.fbx",
+          "sha256": "46dafb995119aea1453a82ea9e67a8ef70918dde3692dc64c89ccea05deb14ca",
+          "bytes": 25836,
+          "triangles": 464,
+          "dimensions_metres": [
+            0.058,
+            0.058,
+            0.107
+          ]
+        },
+        {
+          "file": "fbx/SM_PorcelainInsulator_A_LOD1.fbx",
+          "sha256": "fa451f3b8bd15fe14c021994a9e7548fcf7abe10b9b6a5a152b5f3d237e7ec09",
+          "bytes": 23004,
+          "triangles": 280,
+          "dimensions_metres": [
+            0.058,
+            0.058,
+            0.107
+          ]
+        },
+        {
+          "file": "fbx/SM_PorcelainInsulator_A_LOD2.fbx",
+          "sha256": "61a9c346ecdcf44afad7a1c708c94f2f9d5dfde83ce59f6dc348f0a14bde8d1a",
+          "bytes": 21548,
+          "triangles": 184,
+          "dimensions_metres": [
+            0.058,
+            0.058,
+            0.107
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_CableDripLoop_A",
+      "batch": "cable-fittings",
+      "kind": "driploop",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_CableDripLoop_A.fbx",
+          "sha256": "0bcc129e54fa6e453b7cc8f2b9c5e793bf7e2d102880dacfbd26436f89f9024c",
+          "bytes": 55468,
+          "triangles": 1360,
+          "dimensions_metres": [
+            0.2316,
+            0.16098,
+            0.22961
+          ]
+        },
+        {
+          "file": "fbx/SM_CableDripLoop_A_LOD1.fbx",
+          "sha256": "30920a434675028d46f8a2b7cd3558aea0ab6dcc19acc139c4dba1da15bd6610",
+          "bytes": 30620,
+          "triangles": 432,
+          "dimensions_metres": [
+            0.23159,
+            0.16096,
+            0.22957
+          ]
+        },
+        {
+          "file": "fbx/SM_CableDripLoop_A_LOD2.fbx",
+          "sha256": "c1ec1d5e8cf0b173e65db3fe42504f179cd724705420a650c95837fe36128819",
+          "bytes": 23356,
+          "triangles": 160,
+          "dimensions_metres": [
+            0.23152,
+            0.16096,
+            0.22938
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_CorrugatedRoofPatch_A",
+      "batch": "repair-hardware",
+      "kind": "roofpatch",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_CorrugatedRoofPatch_A.fbx",
+          "sha256": "3440c3ef62fb147c1be03fe304e2663164ae6dcc0bf0d053bfdeababa1ab1549",
+          "bytes": 22156,
+          "triangles": 276,
+          "dimensions_metres": [
+            0.58,
+            0.4,
+            0.029
+          ]
+        },
+        {
+          "file": "fbx/SM_CorrugatedRoofPatch_A_LOD1.fbx",
+          "sha256": "ea690b72781432035108e4ed943c5279d35e79d494384c6edf5b03f8ec2783fd",
+          "bytes": 20492,
+          "triangles": 132,
+          "dimensions_metres": [
+            0.58,
+            0.4,
+            0.029
+          ]
+        },
+        {
+          "file": "fbx/SM_CorrugatedRoofPatch_A_LOD2.fbx",
+          "sha256": "8a4cf48d8cf5593a159e5e4f1cf29f09d02856f889b89a7c4bdb07c029808b93",
+          "bytes": 19852,
+          "triangles": 100,
+          "dimensions_metres": [
+            0.58,
+            0.4,
+            0.029
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_RoofRidgeCap_A",
+      "batch": "repair-hardware",
+      "kind": "ridgecap",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_RoofRidgeCap_A.fbx",
+          "sha256": "b66e290b7491fc091c90f3e846054871cba3e0f68b517a48e28523b3dce5f020",
+          "bytes": 18924,
+          "triangles": 20,
+          "dimensions_metres": [
+            0.24,
+            0.84,
+            0.091
+          ]
+        },
+        {
+          "file": "fbx/SM_RoofRidgeCap_A_LOD1.fbx",
+          "sha256": "f416165b93ac7750fa0a02e29d9093d2b7e0b491a95a12ef0e8bf4968befdb2e",
+          "bytes": 18924,
+          "triangles": 20,
+          "dimensions_metres": [
+            0.24,
+            0.84,
+            0.091
+          ]
+        },
+        {
+          "file": "fbx/SM_RoofRidgeCap_A_LOD2.fbx",
+          "sha256": "c73172c7b72d24fd91e30f9323b8b3ee4246a566850594e7632a027cda7b2c83",
+          "bytes": 18924,
+          "triangles": 20,
+          "dimensions_metres": [
+            0.24,
+            0.84,
+            0.091
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_RoofBoltStrip_A",
+      "batch": "repair-hardware",
+      "kind": "boltstrip",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_RoofBoltStrip_A.fbx",
+          "sha256": "f35ae5ecf05de267f25bdfe4dde0bfc8e18f23d5cb2f970a7df6eba5d9b21d11",
+          "bytes": 20764,
+          "triangles": 144,
+          "dimensions_metres": [
+            0.3,
+            0.027,
+            0.017
+          ]
+        },
+        {
+          "file": "fbx/SM_RoofBoltStrip_A_LOD1.fbx",
+          "sha256": "20d71cfa9d8a4708bc726dd682c1129692ce9caa97a44e5fc11981bea187deb4",
+          "bytes": 20780,
+          "triangles": 144,
+          "dimensions_metres": [
+            0.3,
+            0.027,
+            0.017
+          ]
+        },
+        {
+          "file": "fbx/SM_RoofBoltStrip_A_LOD2.fbx",
+          "sha256": "6d8a4194fed7cab729df395f63ad2fff5d58b87bf353268584e2cfa94e25cf35",
+          "bytes": 20780,
+          "triangles": 144,
+          "dimensions_metres": [
+            0.3,
+            0.027,
+            0.017
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_ShutterHasp_A",
+      "batch": "repair-hardware",
+      "kind": "hasp",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_ShutterHasp_A.fbx",
+          "sha256": "70647689a02b173ab900a62fbe50d084cd3a67454406bd65887a3c47fd90debe",
+          "bytes": 22252,
+          "triangles": 212,
+          "dimensions_metres": [
+            0.13,
+            0.032,
+            0.044
+          ]
+        },
+        {
+          "file": "fbx/SM_ShutterHasp_A_LOD1.fbx",
+          "sha256": "f7f276a960dd35509410b2121ed2b76657e573d50f7d903337bc5d5c7e2c5353",
+          "bytes": 20460,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.13,
+            0.032,
+            0.044
+          ]
+        },
+        {
+          "file": "fbx/SM_ShutterHasp_A_LOD2.fbx",
+          "sha256": "92ce51de0ba808872ad99ae69fd72f03ca5bc29b87ce867c7a0194632758e8fe",
+          "bytes": 19900,
+          "triangles": 76,
+          "dimensions_metres": [
+            0.13,
+            0.032,
+            0.044
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_DoorHinge_A",
+      "batch": "repair-hardware",
+      "kind": "hinge",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_DoorHinge_A.fbx",
+          "sha256": "407d76adb2660c01997fd515c3918592d4e8fe46e93a597bc4c870b7678f257b",
+          "bytes": 21100,
+          "triangles": 180,
+          "dimensions_metres": [
+            0.123,
+            0.014,
+            0.11
+          ]
+        },
+        {
+          "file": "fbx/SM_DoorHinge_A_LOD1.fbx",
+          "sha256": "7c5794132cd41ecf1bb4195923b7a8226c5bf8029127356c50834b8486e93539",
+          "bytes": 19516,
+          "triangles": 68,
+          "dimensions_metres": [
+            0.123,
+            0.014,
+            0.11
+          ]
+        },
+        {
+          "file": "fbx/SM_DoorHinge_A_LOD2.fbx",
+          "sha256": "f71d221ecec739cde8d429060916d73664ef758d5b40e380c663987d0537bbbb",
+          "bytes": 19308,
+          "triangles": 52,
+          "dimensions_metres": [
+            0.123,
+            0.014,
+            0.11
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_CounterSupportBracket_A",
+      "batch": "repair-hardware",
+      "kind": "bracket",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_CounterSupportBracket_A.fbx",
+          "sha256": "9654ae020211badb460ad3c2d4976ba360e112bde5600a57505e75701b411ea4",
+          "bytes": 19548,
+          "triangles": 52,
+          "dimensions_metres": [
+            0.03,
+            0.26,
+            0.308
+          ]
+        },
+        {
+          "file": "fbx/SM_CounterSupportBracket_A_LOD1.fbx",
+          "sha256": "338453005f673f0e180d1e416bfae1a5b19ea84208541ce73786721a873ca57a",
+          "bytes": 19356,
+          "triangles": 44,
+          "dimensions_metres": [
+            0.03,
+            0.26,
+            0.308
+          ]
+        },
+        {
+          "file": "fbx/SM_CounterSupportBracket_A_LOD2.fbx",
+          "sha256": "f0153484f2b7889aa57068f55d1196862834e146401e8c0729a7c384b39a3bfa",
+          "bytes": 19244,
+          "triangles": 36,
+          "dimensions_metres": [
+            0.03,
+            0.26,
+            0.308
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_DrainCatchScreen_A",
+      "batch": "repair-hardware",
+      "kind": "catchscreen",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_DrainCatchScreen_A.fbx",
+          "sha256": "c845cab541599155615a4d4ff2c0536e1516ff6375486a93b720b3e90c45d26e",
+          "bytes": 20892,
+          "triangles": 188,
+          "dimensions_metres": [
+            0.312,
+            0.03,
+            0.17
+          ]
+        },
+        {
+          "file": "fbx/SM_DrainCatchScreen_A_LOD1.fbx",
+          "sha256": "70936f2517d4551e3b8f4177a9178063702d1719833182af1e5e0ef407deb4ab",
+          "bytes": 20476,
+          "triangles": 148,
+          "dimensions_metres": [
+            0.312,
+            0.03,
+            0.17
+          ]
+        },
+        {
+          "file": "fbx/SM_DrainCatchScreen_A_LOD2.fbx",
+          "sha256": "f37ae981aa7ec15a61b624c550c95308c6ab79018cd40120e29801c4f33a71c1",
+          "bytes": 20012,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.312,
+            0.03,
+            0.17
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    },
+    {
+      "id": "SM_AccessCoverHandle_A",
+      "batch": "repair-hardware",
+      "kind": "handle",
+      "material": "M_LagosConnections_Opaque",
+      "lods": [
+        {
+          "file": "fbx/SM_AccessCoverHandle_A.fbx",
+          "sha256": "3e2a3879ceeb5048614e42ee2446a7a289e9d76c086a2df4a9eef7b58dd6dceb",
+          "bytes": 20044,
+          "triangles": 108,
+          "dimensions_metres": [
+            0.12,
+            0.03,
+            0.042
+          ]
+        },
+        {
+          "file": "fbx/SM_AccessCoverHandle_A_LOD1.fbx",
+          "sha256": "b71240bf1c3e14a40ca630151d6a67f4a5c67abab7589de61d8866a668d79897",
+          "bytes": 19772,
+          "triangles": 84,
+          "dimensions_metres": [
+            0.12,
+            0.03,
+            0.04133
+          ]
+        },
+        {
+          "file": "fbx/SM_AccessCoverHandle_A_LOD2.fbx",
+          "sha256": "cd8b3499fc92a8a640457f057aa9a7a1c9d75ba34e13cdd421a651a937bc9e89",
+          "bytes": 19452,
+          "triangles": 60,
+          "dimensions_metres": [
+            0.12,
+            0.03,
+            0.042
+          ]
+        }
+      ],
+      "collision": "none",
+      "nanite_default": false,
+      "lod_screen_sizes": [
+        1,
+        0.12,
+        0.035
+      ],
+      "pivot": "local contact or attachment origin; metres; Z up",
+      "placement": "none"
+    }
+  ],
+  "textures": [
+    {
+      "file": "../secondary-detailing-v2/textures/T_DetailAtlas_BC.png",
+      "sha256": "8d020ae94816a9322161c5991a62e0ceb62fd385721bb11b33f2f0a26d894234",
+      "bytes": 6085369,
+      "srgb": true
+    },
+    {
+      "file": "../secondary-detailing-v2/textures/T_DetailAtlas_ORM.png",
+      "sha256": "70ae19b55ed3d800fca0b148297c67f79fec20a601cf3931be6c504dad5b428a",
+      "bytes": 4285676,
+      "srgb": false
+    }
+  ],
+  "surface_provenance": "../secondary-detailing-v2/manifest.json",
+  "coordinate_contract": {
+    "units": "metres",
+    "axis_forward": "-Y",
+    "axis_up": "Z",
+    "convert_scene_unit": true
+  },
+  "performance": {
+    "materials": 1,
+    "new_external_texture_bytes": 0,
+    "shared_atlas": 2048,
+    "tick": false,
+    "physics": false,
+    "measured_fps": null
+  },
+  "workbench_restored": true,
+  "acceptance": {
+    "fbx_id_inspection": "done",
+    "native_import": "not-run",
+    "rendered_geometry": "not-run",
+    "world_placement": "none"
+  }
+}

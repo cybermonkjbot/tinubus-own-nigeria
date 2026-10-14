@@ -1,0 +1,527 @@
+{
+  "status": "artifact-inspection-complete-native-visual-acceptance-pending",
+  "manifest_sha256": "2ad6dc4521df5abecfeb987cd275f24a01728a0a1e7bd22be8a03365a3bdd70f",
+  "assets": 20,
+  "fbx": 60,
+  "total_triangles_by_lod": [
+    7220,
+    3612,
+    2308
+  ],
+  "saved_library": {
+    "scenes": [
+      "LagosConnectionsV5"
+    ],
+    "objects": 60,
+    "materials": 1,
+    "images": 2
+  },
+  "packed_images": [
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "color_space": "Non-Color"
+    },
+    {
+      "size": [
+        2048,
+        2048
+      ],
+      "packed": true,
+      "color_space": "sRGB"
+    }
+  ],
+  "workbench_scene_unchanged": true,
+  "files": [
+    {
+      "id": "SM_Downpipe1m_A",
+      "fbx_version": 7400,
+      "triangles": 320,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_Downpipe1m_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 192,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_Downpipe1m_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 128,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DownpipeElbow90_A",
+      "fbx_version": 7400,
+      "triangles": 1040,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DownpipeElbow90_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 336,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DownpipeElbow90_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 160,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DownpipeClip_A",
+      "fbx_version": 7400,
+      "triangles": 224,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DownpipeClip_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 120,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DownpipeClip_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 88,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DrainWallOutlet_A",
+      "fbx_version": 7400,
+      "triangles": 184,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DrainWallOutlet_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 120,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DrainWallOutlet_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 88,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_WallTap_A",
+      "fbx_version": 7400,
+      "triangles": 308,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_WallTap_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 196,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_WallTap_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 132,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_WaterStopValve_A",
+      "fbx_version": 7400,
+      "triangles": 384,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_WaterStopValve_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 248,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_WaterStopValve_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 176,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_HoseCoil_A",
+      "fbx_version": 7400,
+      "triangles": 880,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_HoseCoil_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 456,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_HoseCoil_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 256,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_ACDrainTube_A",
+      "fbx_version": 7400,
+      "triangles": 264,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_ACDrainTube_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 144,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_ACDrainTube_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 96,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CableJunctionBox_A",
+      "fbx_version": 7400,
+      "triangles": 440,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CableJunctionBox_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 232,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CableJunctionBox_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 168,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CableClip_A",
+      "fbx_version": 7400,
+      "triangles": 172,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CableClip_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 108,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CableClip_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 76,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_PorcelainInsulator_A",
+      "fbx_version": 7400,
+      "triangles": 464,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_PorcelainInsulator_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 280,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_PorcelainInsulator_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 184,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CableDripLoop_A",
+      "fbx_version": 7400,
+      "triangles": 1360,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CableDripLoop_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 432,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CableDripLoop_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 160,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CorrugatedRoofPatch_A",
+      "fbx_version": 7400,
+      "triangles": 276,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CorrugatedRoofPatch_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 132,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CorrugatedRoofPatch_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 100,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_RoofRidgeCap_A",
+      "fbx_version": 7400,
+      "triangles": 20,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_RoofRidgeCap_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 20,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_RoofRidgeCap_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 20,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_RoofBoltStrip_A",
+      "fbx_version": 7400,
+      "triangles": 144,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_RoofBoltStrip_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 144,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_RoofBoltStrip_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 144,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_ShutterHasp_A",
+      "fbx_version": 7400,
+      "triangles": 212,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_ShutterHasp_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 108,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_ShutterHasp_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 76,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DoorHinge_A",
+      "fbx_version": 7400,
+      "triangles": 180,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DoorHinge_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 68,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DoorHinge_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 52,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CounterSupportBracket_A",
+      "fbx_version": 7400,
+      "triangles": 52,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CounterSupportBracket_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 44,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_CounterSupportBracket_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 36,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DrainCatchScreen_A",
+      "fbx_version": 7400,
+      "triangles": 188,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DrainCatchScreen_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 148,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_DrainCatchScreen_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 108,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_AccessCoverHandle_A",
+      "fbx_version": 7400,
+      "triangles": 108,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_AccessCoverHandle_A_LOD1",
+      "fbx_version": 7400,
+      "triangles": 84,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "id": "SM_AccessCoverHandle_A_LOD2",
+      "fbx_version": 7400,
+      "triangles": 60,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    }
+  ],
+  "limitations": [
+    "No rendered geometry review",
+    "No v5 Unreal import",
+    "No in-world placement",
+    "No target-device performance measurement",
+    "No self-intersection or UV-distortion acceptance"
+  ]
+}

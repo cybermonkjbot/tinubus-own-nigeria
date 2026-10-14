@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "kit": "LagosConnectionsV5",
+  "status": "unplaced-attachment-recipes-not-a-zone-layout",
+  "authority": "Fit only to primary-owner-approved anchors. Do not modify buildings, roof volumes, water, routes or terrain.",
+  "local_units": "metres",
+  "local_frames": {
+    "downpipe": {"asset": "SM_Downpipe1m_A", "centerline": [[0, 0, 0], [0, 0, 1]], "outer_radius": 0.05, "bore_radius": 0.046, "socket_top_outer_radius": 0.055},
+    "elbow": {"asset": "SM_DownpipeElbow90_A", "port_centers": [[0, 0, 0], [0, 0.13, 0.13]], "centerline_tangents": [[0, 0, 1], [0, 1, 0]], "outer_radius": 0.05, "bore_radius": 0.046},
+    "clip": {"asset": "SM_DownpipeClip_A", "bore_axis": "+Z", "bore_radius": 0.051, "axial_span": [0, 0.038], "note": "Fits bare pipe, not the enlarged top socket. Mount tabs require a supported attachment."},
+    "outlet": {"asset": "SM_DrainWallOutlet_A", "port_centers": [[0, 0.03, 0.085], [0, -0.13, 0.085]], "outward_axis": "-Y", "note": "Use an existing opening; do not cut a new drainage route."},
+    "tap": {"asset": "SM_WallTap_A", "wall_plate_rear_y": 0.0275, "supply_center": [0, 0.015, 0.11], "mouth_center": [0, -0.09, 0.08]},
+    "valve": {"asset": "SM_WaterStopValve_A", "port_centers": [[0, 0.1, 0.055], [0, -0.1, 0.055]], "bore_radius": 0.021},
+    "ac_drain": {"asset": "SM_ACDrainTube_A", "inlet_center": [0, 0, 0.6], "mouth_center": [0, -0.045, 0.025], "note": "Connect to the actual AC outlet. Particle endpoint must use the tube mouth, not the object origin."},
+    "junction_box": {"asset": "SM_CableJunctionBox_A", "rear_surface_y": 0.034, "cable_port_centers": [[-0.04, 0, 0], [0.04, 0, 0]]},
+    "drip_loop": {"asset": "SM_CableDripLoop_A", "ends": [[-0.11, 0, 0.35], [0.11, 0, 0.35]], "note": "Short accessory only. Long wire spans must follow actual approved pole/building anchors."},
+    "roof_patch": {"asset": "SM_CorrugatedRoofPatch_A", "footprint": [0.58, 0.4], "corrugation_axis": "X", "sheet_thickness": 0.001, "lowest_surface_z": 0.004},
+    "ridge_cap": {"asset": "SM_RoofRidgeCap_A", "ridge_axis": "Y", "ridge_length": 0.84, "feet_z": 0, "peak_z": 0.09},
+    "hinge": {"asset": "SM_DoorHinge_A", "hinge_axis": "+Z", "leaf_rear_surface_y": 0.002, "note": "Art only; no door animation, constraint or opening authority."},
+    "bracket": {"asset": "SM_CounterSupportBracket_A", "wall_plate_rear_y": 0.008, "top_support_z": 0.308, "outward_axis": "-Y"},
+    "catch_screen": {"asset": "SM_DrainCatchScreen_A", "outside_dimensions": [0.312, 0.03, 0.17], "note": "Match an approved existing opening. Do not claim drainage behavior or change traversability."},
+    "cover_handle": {"asset": "SM_AccessCoverHandle_A", "foot_contact_z": 0, "note": "Accessory on an existing cover, not a new access hole."}
+  },
+  "detailing_and_polish_manifest": {
+    "decal_placements": [
+      "Confine damp streaks to real downpipe joints, outlet mouths and AC drip paths; keep unrelated walls dry.",
+      "Apply rust selectively at exposed roof-patch edges, fasteners and existing damaged hinge surfaces. Do not turn every maintained fitting rusty.",
+      "Keep generator soot at primary-authored exhaust anchors; these fittings do not justify new generators.",
+      "Reuse earlier poster and warning assets only on approved public-wall or fence surfaces. Do not cover utility labels or project through fittings."
+    ],
+    "vertex_painting_notes": [
+      "New prop material has no vertex-color blending. Paint primary receiver meshes only through their existing material contract; do not pretend this kit supplies that shader.",
+      "Blend dust on low, exposed receiver surfaces with a soft height falloff; reduce coverage where runoff visibly washes the surface.",
+      "Concentrate algae near persistently damp, shaded receiving surfaces rather than coating exposed pipework uniformly.",
+      "For waterfront anchors, align weathering to the primary waterline and wetting exposure; do not invent a ground-level dust band over water."
+    ],
+    "scatter_clutter_prop_lists": [
+      {"recipe": "serviced_wall_tap", "v5": ["SM_WallTap_A", "SM_WaterStopValve_A", "SM_HoseCoil_A"], "earlier_kit_props": ["bucket", "jerrycan"], "placement": "Existing service wall; use a supported landing or ground surface already supplied by primary."},
+      {"recipe": "patched_shop_roof", "v5": ["SM_CorrugatedRoofPatch_A", "SM_RoofBoltStrip_A", "SM_RoofRidgeCap_A"], "placement": "Existing roof only; rotate to its slope and fit the support contact."},
+      {"recipe": "repaired_counter", "v5": ["SM_CounterSupportBracket_A", "SM_DoorHinge_A", "SM_ShutterHasp_A"], "earlier_kit_props": ["tool tray", "padlock"], "placement": "Existing counter and shutter; keep access clear."},
+      {"recipe": "utility_service_point", "v5": ["SM_CableJunctionBox_A", "SM_CableClip_A", "SM_PorcelainInsulator_A", "SM_CableDripLoop_A"], "placement": "Approved wall or pole anchors. No live electricity or arbitrary wiring topology."},
+      {"recipe": "maintained_drain_opening", "v5": ["SM_DrainWallOutlet_A", "SM_DrainCatchScreen_A", "SM_AccessCoverHandle_A"], "placement": "Existing compatible drain or cover; no new opening, obstruction or collision."}
+    ],
+    "micro_storytelling_vignettes": [
+      {"id": "morning_water_setup", "fictional_scene": "A coiled hose and rinsed bucket sit beside a recently serviced tap. The wall is washed clean directly below the mouth, with older damp staining at the margins.", "constraint": "Do not imply access to water is absent everywhere else."},
+      {"id": "roof_repair_in_progress", "fictional_scene": "A small replacement patch contrasts with the older sheet. A bolt strip and tool tray remain on an existing safe ledge; the repaired area is newer, not uniformly decayed.", "constraint": "No new roof structure or unsupported overhead clutter."},
+      {"id": "shop_closing", "fictional_scene": "A polished contact mark sits behind the shutter hasp. A replacement hinge and reinforced counter bracket show continued maintenance and daily use.", "constraint": "Keep the shop's primary identity and opening state unchanged."},
+      {"id": "waterfront_household_maintenance", "fictional_scene": "On a primary-approved Makoko household landing, a bucket and hose are kept neatly beside a repaired fitting. Wear follows splash exposure; the surrounding waterway stays open.", "constraint": "Original fictional vignette, not a surveyed household. No added walkway, filled water or landmark."}
+    ],
+    "micro_vfx_hooks": [
+      {"hook": "ac_condensation", "asset": "SM_ACDrainTube_A", "state": "Endpoint recipe only; Niagara not authored", "policy": "Only when the existing AC is active; pooled nearby emitter, no per-fitting tick."},
+      {"hook": "tap_drip", "asset": "SM_WallTap_A", "state": "Optional art direction, no default leak", "policy": "Primary-owned state; a maintained tap need not drip."}
+    ]
+  }
+}
