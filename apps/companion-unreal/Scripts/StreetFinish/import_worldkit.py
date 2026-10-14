@@ -10,8 +10,12 @@ ROOT = Path('C:/dev/cribtest-game/output/unreal-street-detail-20261014/worldkit/
 DESTINATION = '/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit'
 
 
-def run(asset_ids=None):
-    manifest = json.loads((ROOT / 'manifest.json').read_text())
+def run(asset_ids=None, source_root=None, destination=None):
+    root = Path(source_root) if source_root else ROOT
+    destination = destination or DESTINATION
+    if not destination.startswith('/Game/BaddieGeneratedWorld/StreetFinish_20261014/'):
+        raise ValueError('Native street imports must stay in the owned folder')
+    manifest = json.loads((root / 'manifest.json').read_text())
     # The freestanding canopy has a recorded 64-triangle FBX discrepancy per LOD.
     # Keep its source for repair; the accepted wall awning supplies this street's shade.
     accepted = asset_ids or [a['id'] for a in manifest['assets'] if a['id'] != 'SM_WK_vendor_canopy']
@@ -21,24 +25,24 @@ def run(asset_ids=None):
     tools = u.AssetToolsHelpers.get_asset_tools()
     mesh_editor = u.get_editor_subsystem(u.StaticMeshEditorSubsystem)
     for asset in manifest['assets']:
-        existing = u.load_asset(DESTINATION + '/Meshes/' + asset['id'])
+        existing = u.load_asset(destination + '/Meshes/' + asset['id'])
         if existing and (u.EditorAssetLibrary.get_metadata_tag(existing, 'StreetFinishOwner') != 'Baddie.StreetFinish.20261014'
                          or u.EditorAssetLibrary.get_metadata_tag(existing, 'StreetFinishSourceSHA256') != asset['lods'][0]['sha256']):
             raise RuntimeError('Refusing to overwrite ' + asset['id'])
         for lod in asset['lods']:
-            if hashlib.sha256((ROOT / lod['file']).read_bytes()).hexdigest() != lod['sha256']:
+            if hashlib.sha256((root / lod['file']).read_bytes()).hexdigest() != lod['sha256']:
                 raise RuntimeError('Source hash changed: ' + lod['file'])
     materials = {}
     for name, source in manifest['materials'].items():
         identifier = 'M_WK_' + re.sub('[^A-Za-z0-9_]', '_', name.split(' | ')[-1])
-        path = DESTINATION + '/Materials/' + identifier
+        path = destination + '/Materials/' + identifier
         mat = u.load_asset(path)
         if mat:
             if u.EditorAssetLibrary.get_metadata_tag(mat, 'StreetFinishOwner') != 'Baddie.StreetFinish.20261014':
                 raise RuntimeError('Material ownership mismatch')
             materials[name] = mat
             continue
-        mat = tools.create_asset(identifier, DESTINATION + '/Materials', u.Material, u.MaterialFactoryNew())
+        mat = tools.create_asset(identifier, destination + '/Materials', u.Material, u.MaterialFactoryNew())
         if mat is None:
             raise RuntimeError('Could not create material ' + path)
         mat.set_editor_property('two_sided', 'leaf' in name or 'sage' in name)
@@ -55,8 +59,8 @@ def run(asset_ids=None):
     receipt = {'assets': [], 'source_kind': manifest['source_kind'], 'visual_review': 'pending'}
     for source in manifest['assets']:
         task = u.AssetImportTask()
-        task.filename = str(ROOT / source['lods'][0]['file'])
-        task.destination_path = DESTINATION + '/Meshes'
+        task.filename = str(root / source['lods'][0]['file'])
+        task.destination_path = destination + '/Meshes'
         task.destination_name = source['id']
         task.automated = True
         task.replace_existing = False
@@ -74,7 +78,7 @@ def run(asset_ids=None):
             'remove_degenerates': False, 'generate_lightmap_u_vs': False,
             'normal_import_method': u.FBXNormalImportMethod.FBXNIM_IMPORT_NORMALS})
         task.options = options
-        mesh = u.load_asset(DESTINATION + '/Meshes/' + source['id'])
+        mesh = u.load_asset(destination + '/Meshes/' + source['id'])
         if not mesh:
             tools.import_asset_tasks([task])
             if len(task.imported_object_paths) != 1:
@@ -101,7 +105,7 @@ def run(asset_ids=None):
                 raise RuntimeError('Ambiguous imported material slot: ' + imported)
             mesh.set_material(index, materials[candidates[0]])
         for level in range(mesh_editor.get_lod_count(mesh), 3):
-            if mesh_editor.import_lod(mesh, level, str(ROOT / source['lods'][level]['file'])) != level:
+            if mesh_editor.import_lod(mesh, level, str(root / source['lods'][level]['file'])) != level:
                 raise RuntimeError('LOD import failed ' + source['id'])
         # The native LOD importer adds punctuation-normalized aliases for FBX slots.
         # Bind every alias after LOD import so distant assets never use WorldGridMaterial.
@@ -123,7 +127,7 @@ def run(asset_ids=None):
                   'source_triangles': original, 'bounds_cm': str(bounds),
                   'topology_match': native == original, 'material_aliases': aliases}
         receipt['assets'].append(record)
-        (ROOT.parent / 'native-import-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
+        (root.parent / 'native-import-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
         if native != original:
             raise RuntimeError('Topology mismatch; source cleanup required: ' + json.dumps(record))
         if not u.EditorAssetLibrary.save_loaded_asset(mesh):
