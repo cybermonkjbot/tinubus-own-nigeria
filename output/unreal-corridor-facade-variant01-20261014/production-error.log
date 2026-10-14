@@ -1,0 +1,4 @@
+C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\author_facade.py:70: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\author_facade.py:202: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes=True

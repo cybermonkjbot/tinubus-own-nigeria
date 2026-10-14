@@ -1,0 +1,12 @@
+00:28.203  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\early-front.png'
+01:41.000  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\front.png'
+02:32.360  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\reverse.png'
+03:19.125  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\grazing.png'
+03:53.172  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\player165.png'
+04:48.110  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\close.png'
+04:48.125  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\CorridorFacadeVariant01.blend"
+Info: Saved as "CorridorFacadeVariant01.blend"
+OWNED_FACADE_JOB_COMPLETE 11544
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

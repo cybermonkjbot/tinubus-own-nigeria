@@ -1,0 +1,6 @@
+{
+  "job": "corridor-facade-variant01",
+  "action": "finish",
+  "remove_opaque_seal_panels": true,
+  "observedDefect": "early-front: full-panel rubber seal meshes obscure framed glazing; remove only those owned meshes before final stills"
+}

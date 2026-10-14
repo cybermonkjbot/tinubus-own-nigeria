@@ -1,0 +1,148 @@
+{
+  "kind": "editable-environment-art-unplaced",
+  "canonicalParcel": null,
+  "units": "metres",
+  "axes": {
+    "up": "+Z",
+    "street_face": "+Y",
+    "frontage_run": "+X"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "wallDatum": "left edge X0 / exterior Y0 / ground floor Z0; wall inward to Y-0.25",
+  "dimensions": {
+    "bay": 3.9,
+    "storey": 3,
+    "storeys": 2,
+    "wall": 0.25,
+    "window": [
+      1.3,
+      1.35
+    ],
+    "windowSillZ": 4.025,
+    "windowFrameY": -0.11,
+    "glassThickness": 0.006,
+    "sourceShopAperture": [
+      2.8,
+      2.5
+    ],
+    "shopFrameY": -0.15,
+    "thresholdTopZ": 0.04
+  },
+  "sourcePins": {
+    "output\\cribtest11-visible-world-2026-10-11\\parent-realism-kit\\kit-contract.json": "37314e3e16633b7f5edc9b2c11e105561813bfe2e6c3c1bed6ba942b04f991ff",
+    "output\\cribtest11-visible-world-2026-10-11\\parent-realism-kit\\author_yaba_frontage.py": "2bc71471cb5f3abc28aa06623de9c23800cf524028ade6003b0f64207682d460"
+  },
+  "authoredNotSurveyed": [
+    "two-storey assembly",
+    "entrance leaf/transom/pull design",
+    "green paint",
+    "canopy",
+    "sectional returns",
+    "forecourt support",
+    "hood"
+  ],
+  "materials": {
+    "mode": "authored constants and procedural microrelief; no scans",
+    "grainScalePerMetre": 180,
+    "bumpDistanceM": 0.0004,
+    "bitmapDependencies": []
+  },
+  "attachments": {
+    "horizontal": [
+      3.9,
+      0,
+      0
+    ],
+    "storey": [
+      0,
+      0,
+      3
+    ],
+    "stageCollectionExcluded": "InspectionStage_NotWorldContent"
+  },
+  "poses": {
+    "front": [
+      [
+        1.95,
+        10.5,
+        3.1
+      ],
+      [
+        1.95,
+        0,
+        3
+      ]
+    ],
+    "reverse": [
+      [
+        6,
+        -7,
+        3.8
+      ],
+      [
+        1.95,
+        -0.1,
+        3
+      ]
+    ],
+    "grazing": [
+      [
+        -4,
+        6,
+        3.3
+      ],
+      [
+        1.95,
+        0,
+        3
+      ]
+    ],
+    "player165": [
+      [
+        4.8,
+        6.7,
+        1.65
+      ],
+      [
+        1.95,
+        0,
+        2.55
+      ]
+    ],
+    "close": [
+      [
+        3.8,
+        3.4,
+        4.65
+      ],
+      [
+        1.95,
+        0,
+        4.7
+      ]
+    ]
+  },
+  "renderer": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "samples": 24,
+    "view": "AgX",
+    "finalResolution": [
+      800,
+      800
+    ],
+    "playerHeightM": 1.65,
+    "playerHorizontalFovDegrees": 78
+  },
+  "limits": [
+    "sectional facade, not a full building",
+    "no photographic reconstruction",
+    "no branding or canonical assignment",
+    "static closed entrance, not a playable door",
+    "no Unreal import/collision/navigation/coverage/performance/release acceptance"
+  ]
+}
