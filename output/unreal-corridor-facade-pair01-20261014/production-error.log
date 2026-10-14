@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\unreal-corridor-facade-pair01-20261014\author_pair01.py", line 133, in <module>
+    assert pin(geometry(o,3.9))==before
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-corridor-facade-pair01-20261014\author_pair01.py', exiting.

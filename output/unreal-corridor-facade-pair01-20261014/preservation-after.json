@@ -1,0 +1,12 @@
+{
+  "inputFileCount": 91,
+  "sha256MismatchCount": 0,
+  "all91Unchanged": true,
+  "comparison": "PowerShell Get-FileHash SHA256 compared each actual input file against preservation-before.json after owned Blender PID8704 exited",
+  "ownedProcessExited": true,
+  "preservedBlenderPID": 6116,
+  "preservedUnrealPID": 10404,
+  "preservedUnrealSession": 2,
+  "blendCreated": false,
+  "imagesCreated": false
+}
