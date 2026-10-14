@@ -1,0 +1,9 @@
+C:\dev\cribtest-game\output\unreal-corridor-facade-variant03-20261014\author_variant03.py:92: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  material_pins={m.name:material_state(m) for m in bpy.data.materials if m.use_nodes}
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\unreal-corridor-facade-variant03-20261014\author_variant03.py", line 293, in <module>
+    'authoredNotSurveyed':axes,'ownedObjects':new,'material':{'newSingleUser':metal.name,'base':[.135,.105,.073],'roughness':.46,'metallic':0},
+                                                                              ^^^^^^^^^^
+ReferenceError: StructRNA of type Material has been removed
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant03-20261014\author_variant03.py', exiting.

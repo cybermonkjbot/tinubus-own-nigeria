@@ -1,0 +1,33 @@
+{
+  "variant": 3,
+  "kind": "authored-open-slatted-shutter-facade-unplaced",
+  "contractMethod": "Manual evidence reconciliation after final script contract emission failed on stale Material reference; no regeneration or additional Blender process",
+  "blendSHA256": "192219a35a20d6b584da07827e4e2c74f18cbcb18da52392a40442ba8f453979",
+  "inputSHA256": "dce613cebc5efed46930e98aedb3aab7f13d13619c44650b27b5659f6611ffa5",
+  "kitSHA256": "37314e3e16633b7f5edc9b2c11e105561813bfe2e6c3c1bed6ba942b04f991ff",
+  "units": "metres",
+  "origin": [0, 0, 0],
+  "axes": ["+Xrun", "+Ystreet", "+Zup"],
+  "bayM": 3.9,
+  "storeyM": 3,
+  "storeys": 2,
+  "wallM": 0.25,
+  "windowM": [1.3, 1.35],
+  "shopM": [2.8, 2.5],
+  "ownedCollection": "Variant03_OpenSlattedShutters",
+  "ownedGeometryInventory": "attachment-readback.json: ownedGeometry keys",
+  "authoredLeaves": {"widthM": 0.64, "heightM": 1.30, "frameDepthM": 0.028, "slatDepthM": 0.012, "slatsPerLeaf": 15, "heldOpenDegreesFromClosed": 120},
+  "hingeAndContactEvidence": "attachment-readback.json: hingeAxes, plateContacts, clearancesM, glassGrilleSeparationM",
+  "material": {"newSingleUser": "V03_MutedBronzeCoatedMetal", "base": [0.135, 0.105, 0.073], "roughness": 0.46, "metallic": 0},
+  "poses": {
+    "front": [[1.95, 10.5, 3.1], [1.95, 0, 3]],
+    "grazing": [[-4, 6, 3.3], [1.95, 0, 3]],
+    "reverse": [[6, -7, 3.8], [1.95, -0.1, 3]],
+    "player165": [[4.8, 6.7, 1.65], [1.95, 0, 2.55]],
+    "hinge": [[-0.5, 3.5, 5.0], [1.24, 0.075, 4.72]]
+  },
+  "lensesMm": {"front": 42, "grazing": 42, "reverse": 42, "player165": 22.23, "hinge": 42},
+  "renderer": "CyclesCPU24samples6threadsAgX800square",
+  "limits": ["Authored not surveyed", "Static held-open state, no animation/mechanical/load claims", "No full rooms/stock/signage/parcel assignment", "No Unreal/collision/navigation/gameplay/performance acceptance", "Kit provenance external/untracked"],
+  "Pair01": "Frozen; neither script imported nor executed"
+}
