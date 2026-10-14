@@ -59,7 +59,7 @@ def legacy_state():
 
 
 LEGACY_COVERAGE = 'Actor transforms; static mesh/material paths and instance counts; world spline point positions only'
-STATE_COVERAGE = 'Actor identity/transforms/tags; scene attachments/relative and world transforms; primitive body/collision/navigation/render flags; supported shapes/mesh and brush body setup; billboard/arrow state; every ISM local/world transform; spline point transforms/tangents/types'
+STATE_COVERAGE = 'Required captured fields, not verified capability: actor identity/transforms/tags; scene attachments/relative and world transforms; primitive body/collision/navigation/render flags; mesh and actual brush body settings; brush triangles and tessellated simple collision separately; billboard/arrow state; every ISM local/world transform; spline point transforms/tangents/types'
 
 
 def transform_record(value):
@@ -84,6 +84,7 @@ def properties(obj, names):
 
 
 def brush_geometry(component, collision=False):
+    """Read geometry only; tessellated collision is not BodySetup settings."""
     mesh = u.DynamicMesh()
     if collision:
         mesh, _, outcome = u.GeometryScript_SceneUtils.copy_collision_meshes_from_object(
@@ -100,6 +101,24 @@ def brush_geometry(component, collision=False):
             raise RuntimeError('Brush triangle IDs have gaps: ' + component.get_path_name())
         triangles.append([AD['STREET']['vec'](p) for p in (a, b, c)])
     return triangles
+
+
+def brush_body_settings(component):
+    try:
+        body = component.get_editor_property('brush_body_setup')
+        if not isinstance(body, u.BodySetup):
+            raise RuntimeError('Actual BrushBodySetup object is unavailable')
+        settings = properties(body, ('agg_geom', 'collision_trace_flag', 'default_instance',
+            'double_sided_geometry', 'bGenerateMirroredCollision', 'bGenerateNonMirroredCollision'))
+        if any(value is None for value in settings.values()):
+            raise RuntimeError('Required BrushBodySetup field is missing')
+        for name in ('bGenerateMirroredCollision', 'bGenerateNonMirroredCollision'):
+            if type(settings[name]) is not bool:
+                raise RuntimeError('Required BrushBodySetup flag is not an observed Boolean: ' + name)
+        return {'object': body.get_path_name(), 'settings': settings}
+    except Exception as error:
+        raise RuntimeError('Required actual BrushBodySetup settings cannot be read; '
+                           'geometry is insufficient: ' + component.get_path_name()) from error
 
 
 def state():
@@ -146,6 +165,7 @@ def state():
                     record['arrow'] = properties(component, ('arrow_color', 'arrow_size', 'arrow_length',
                         'screen_size', 'is_screen_size_scaled', 'treat_as_a_sprite', 'use_in_editor_scaling'))
                 elif isinstance(component, u.BrushComponent):
+                    record['brushBodySettings'] = brush_body_settings(component)
                     record['brushGeometry'] = brush_geometry(component)
                     record['brushCollisionGeometry'] = brush_geometry(component, collision=True)
                 elif isinstance(component, u.SplineComponent):
