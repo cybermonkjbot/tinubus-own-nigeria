@@ -1,14 +1,27 @@
 # Library Lane native street tools
 
-The Windows editor has a saved, additive street-dressing pass. Open **Tools > Baddie World > Open Library Lane**. The menu provides six review cameras, direct editing of the active graphs, generator selection, regeneration and temporary hide/show comparisons. Regeneration does not save automatically. Startup only registers the menu; it never opens a map or generates content.
+The Windows editor has saved, additive street-detail and park-biome layers. Open **Tools > Baddie World > Open detailed town centre**. The menu includes **Street-by-street detail** and **Park biomes**, with cameras, native graph/asset editing and generation controls. Regeneration does not save automatically. Startup only registers the menu; it never opens a map or generates content.
 
 - Parent: `/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane`
 - Additive levels: `L_LibraryLane_Dressing` and `L_LibraryLane_StreetEdges` under that root's `Maps` folder.
 - Active graphs: `PCG_LibraryLane_Everyday`, `PCG_LibraryLane_PlantingAndShadeFull`, `PCG_LibraryLane_StreetEdges` and `PCG_LibraryLane_SurfaceSeparation` under its `PCG` folder. The original `PCG_LibraryLane_PlantingAndShade` remains unchanged as a fallback.
-- Output: **189 persisted instances** across four CPU PCG generators: 23 everyday/fixture, 47 planting/shade, 117 street-edge and two render-surface instances.
+- Earlier Library Lane output: **189 persisted instances** across four CPU PCG generators: 23 everyday/fixture, 47 planting/shade, 117 street-edge and two render-surface instances.
 - Vegetation/seating total: 16 trees, 32 shrub clusters and four benches. The continuation adds ten trees, 30 shrub clusters, 15 edged beds and two benches. Two proposed roadside beds were omitted because their corners crossed uneven existing ground.
 
 Edit the points and mesh spawners in the saved native graphs, then use Generate on the PCG component or the menu. The authored point lists keep the existing central shop approaches and road corridor clear. No new collision, navigation, service activation, NPC or traffic authority is added. This is scenery, not completed gameplay.
+
+## October 14 continuation
+
+- `L_TownCentre_EyeLevel`: 1,867 additional instances across 18 street graphs, including pots, troughs, wall baskets, unpowered fixtures and low plants in retained beds. Two bridge decks and three narrow/short transition segments remain deliberately clear. The seven native-only plant meshes retain three LODs.
+- `L_TownCentre_Biomes`: actual PCG Biome Core and closed biome splines for College Green and Neighbourhood Park 18. The two cores retain 649 and 1,265 instances respectively: 60 trees/palms, 304 shrubs, 1,042 grass clumps and 508 low plants in total.
+- Biome source is under `Biomes`: two definitions, three generator data assets, three surface-sampling graphs and one shared plant palette. Density, spacing, seed, variation, exclusions and culling remain editable; these are not baked lists of authored point coordinates.
+- `add_biomes.py` creates the layer once and refuses replacement. Native templates retain their original assets. World queries use the existing WorldStatic support, explicit vertical ray bounds and CPU execution. Native template scale multipliers are normalized before setting centimetre extents.
+- Biome generation requires local data before the core spawner. The menu's **Regenerate biome** performs that sequence asynchronously, one job at a time. Boundary editing selects the spline; plant palette and density actions open the actual assets.
+- The saved parent was reopened with all **3,970** added/retained scenery instances: 189 earlier, 1,867 eye-level and 1,914 biome. The biome audit found no path-root encroachment, missing/default materials, collision or navigation additions, or changed protected actor transforms. Debug bypass and local-preview spawning are off.
+
+Receipts and genuine before/after views are in `output/unreal-eye-level-20261014` and `output/unreal-biomes-20261014`. This verifies native persistence and bounded scenery, not a completed town: broad ground remains visually tiled/ungraded, building coverage remains sparse, and runtime/performance acceptance is still deferred. See `docs/engineering/unreal-eye-level-biomes-2026-10-14.md`.
+
+Session status: editor PID 13584 stopped after the successful October 14 saved-parent reopen/readback. It has not been restarted. The final planting-shortcut and temporary biome-visibility source corrections are on the VM but still need hot-reload/interaction verification after an authorized reopen. The retained ensure reports do not establish the later termination's cause; details and timestamps are in the engineering record above.
 
 ## Source tools
 

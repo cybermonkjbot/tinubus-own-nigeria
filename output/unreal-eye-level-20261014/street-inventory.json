@@ -1,0 +1,4791 @@
+{
+  "map": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane",
+  "frontages": {
+    "station-road": [
+      {
+        "label": "TC_Block41_0",
+        "parcel": "3",
+        "bay": 0,
+        "kind": "ShopBay",
+        "location": [
+          -41639.946158096645,
+          16524.59387243496,
+          0.0
+        ],
+        "yaw": 177.53958129882812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:station-road-3:front:floor:0:bay:0:ShopBay"
+      },
+      {
+        "label": "TC_Block41_2",
+        "parcel": "3",
+        "bay": 1,
+        "kind": "ShopBay",
+        "location": [
+          -41623.20379429511,
+          16914.234339088947,
+          0.0
+        ],
+        "yaw": 177.53958129882812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:station-road-3:front:floor:0:bay:1:ShopBay"
+      },
+      {
+        "label": "TC_Block41_4",
+        "parcel": "3",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -41606.46143049357,
+          17303.874805742937,
+          0.0
+        ],
+        "yaw": 177.53958129882812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:station-road-3:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block41_6",
+        "parcel": "3",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -41589.71906669203,
+          17693.515272396922,
+          0.0
+        ],
+        "yaw": 177.53958129882812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:station-road-3:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Block41_8",
+        "parcel": "3",
+        "bay": 4,
+        "kind": "ShopBay",
+        "location": [
+          -41572.97670289049,
+          18083.15573905091,
+          0.0
+        ],
+        "yaw": 177.53958129882812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:station-road-3:front:floor:0:bay:4:ShopBay"
+      },
+      {
+        "label": "TC_Block41_10",
+        "parcel": "3",
+        "bay": 5,
+        "kind": "ShopBay",
+        "location": [
+          -41556.23433908895,
+          18472.796205704897,
+          0.0
+        ],
+        "yaw": 177.53958129882812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:station-road-3:front:floor:0:bay:5:ShopBay"
+      },
+      {
+        "label": "TC_Block41_130",
+        "parcel": "7",
+        "bay": 0,
+        "kind": "ShopBay",
+        "location": [
+          -38224.05228638817,
+          30973.249635785152,
+          0.0
+        ],
+        "yaw": 153.1071014404297,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:station-road-7:front:floor:0:bay:0:ShopBay"
+      },
+      {
+        "label": "TC_Block41_132",
+        "parcel": "7",
+        "bay": 1,
+        "kind": "ShopBay",
+        "location": [
+          -38047.64589343295,
+          31321.072557003015,
+          0.0
+        ],
+        "yaw": 153.1071014404297,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:station-road-7:front:floor:0:bay:1:ShopBay"
+      },
+      {
+        "label": "TC_Block41_134",
+        "parcel": "7",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -37871.23950047773,
+          31668.895478220882,
+          0.0
+        ],
+        "yaw": 153.1071014404297,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:station-road-7:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block41_162",
+        "parcel": "8",
+        "bay": 0,
+        "kind": "ShopBay",
+        "location": [
+          -34248.96832889088,
+          30924.569478115165,
+          0.0
+        ],
+        "yaw": -26.907165527343757,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:station-road-8:front:floor:0:bay:0:ShopBay"
+      },
+      {
+        "label": "TC_Block41_164",
+        "parcel": "8",
+        "bay": 1,
+        "kind": "ShopBay",
+        "location": [
+          -34425.461358964014,
+          30576.790510471055,
+          0.0
+        ],
+        "yaw": -26.907165527343757,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:station-road-8:front:floor:0:bay:1:ShopBay"
+      },
+      {
+        "label": "TC_Block41_166",
+        "parcel": "8",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -34601.95438903715,
+          30229.011542826942,
+          0.0
+        ],
+        "yaw": -26.907165527343757,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:station-road-8:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block41_168",
+        "parcel": "8",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -34778.44741911028,
+          29881.232575182832,
+          0.0
+        ],
+        "yaw": -26.907165527343757,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:station-road-8:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Block41_170",
+        "parcel": "8",
+        "bay": 4,
+        "kind": "ShopBay",
+        "location": [
+          -34954.940449183414,
+          29533.453607538722,
+          0.0
+        ],
+        "yaw": -26.907165527343757,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:station-road-8:front:floor:0:bay:4:ShopBay"
+      },
+      {
+        "label": "TC_Block41_172",
+        "parcel": "8",
+        "bay": 5,
+        "kind": "ShopBay",
+        "location": [
+          -35131.43347925655,
+          29185.67463989461,
+          0.0
+        ],
+        "yaw": -26.907165527343757,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:station-road-8:front:floor:0:bay:5:ShopBay"
+      },
+      {
+        "label": "TC_Block43_0",
+        "parcel": "1",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -41691.84904163942,
+          8742.173942806548,
+          0.0
+        ],
+        "yaw": 179.37474060058594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:station-road-1:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2",
+        "parcel": "1",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -41687.59312045846,
+          9132.15072049325,
+          0.0
+        ],
+        "yaw": 179.37474060058594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:station-road-1:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_4",
+        "parcel": "1",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -41683.33719927751,
+          9522.12749817995,
+          0.0
+        ],
+        "yaw": 179.37474060058594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:station-road-1:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_6",
+        "parcel": "1",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -41679.08127809655,
+          9912.104275866644,
+          0.0
+        ],
+        "yaw": 179.37474060058594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:station-road-1:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Block43_8",
+        "parcel": "1",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -41674.82535691559,
+          10302.081053553353,
+          0.0
+        ],
+        "yaw": 179.37474060058594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:station-road-1:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_10",
+        "parcel": "1",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -41670.56943573463,
+          10692.057831240047,
+          0.0
+        ],
+        "yaw": 179.37474060058594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:station-road-1:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_451",
+        "parcel": "4",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -38018.143955350155,
+          18517.050021654526,
+          0.0
+        ],
+        "yaw": -2.4661273956298833,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:station-road-4:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_453",
+        "parcel": "4",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -38034.92516861103,
+          18127.41122625359,
+          0.0
+        ],
+        "yaw": -2.4661273956298833,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:station-road-4:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_455",
+        "parcel": "4",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -38051.7063818719,
+          17737.772430852652,
+          0.0
+        ],
+        "yaw": -2.4661273956298833,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:station-road-4:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block43_457",
+        "parcel": "4",
+        "bay": 3,
+        "kind": "ResidentialBay",
+        "location": [
+          -38068.48759513278,
+          17348.133635451715,
+          0.0
+        ],
+        "yaw": -2.4661273956298833,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:station-road-4:front:floor:0:bay:3:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_459",
+        "parcel": "4",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -38085.26880839365,
+          16958.49484005078,
+          0.0
+        ],
+        "yaw": -2.4661273956298833,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:station-road-4:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_843",
+        "parcel": "9",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -34304.466882217406,
+          37462.35686856132,
+          0.0
+        ],
+        "yaw": 151.69602966308594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:station-road-9:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_845",
+        "parcel": "9",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -34119.54870679351,
+          37805.73023444443,
+          0.0
+        ],
+        "yaw": 151.69602966308594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:station-road-9:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_847",
+        "parcel": "9",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -33934.63053136962,
+          38149.103600327544,
+          0.0
+        ],
+        "yaw": 151.69602966308594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:station-road-9:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_849",
+        "parcel": "9",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -33749.712355945725,
+          38492.476966210656,
+          0.0
+        ],
+        "yaw": 151.69602966308594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:station-road-9:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Block43_851",
+        "parcel": "9",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -33564.79418052183,
+          38835.850332093774,
+          0.0
+        ],
+        "yaw": 151.69602966308594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:station-road-9:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_853",
+        "parcel": "9",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -33379.87600509793,
+          39179.223697976886,
+          0.0
+        ],
+        "yaw": 151.69602966308594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:station-road-9:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_855",
+        "parcel": "9",
+        "bay": 6,
+        "kind": "ResidentialBay",
+        "location": [
+          -33194.957829674044,
+          39522.59706386,
+          0.0
+        ],
+        "yaw": 151.69602966308594,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:station-road-9:front:floor:0:bay:6:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1287",
+        "parcel": "10",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -30125.34377496389,
+          38089.48368640687,
+          0.0
+        ],
+        "yaw": -28.316831588745128,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:station-road-10:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1289",
+        "parcel": "10",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -30310.339046513105,
+          37746.15185056226,
+          0.0
+        ],
+        "yaw": -28.316831588745128,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:station-road-10:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1291",
+        "parcel": "10",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -30495.33431806232,
+          37402.82001471765,
+          0.0
+        ],
+        "yaw": -28.316831588745128,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:station-road-10:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1293",
+        "parcel": "10",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -30680.329589611534,
+          37059.488178873034,
+          0.0
+        ],
+        "yaw": -28.316831588745128,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:station-road-10:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Block43_1295",
+        "parcel": "10",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -30865.32486116075,
+          36716.15634302842,
+          0.0
+        ],
+        "yaw": -28.316831588745128,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:station-road-10:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1297",
+        "parcel": "10",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -31050.320132709967,
+          36372.82450718381,
+          0.0
+        ],
+        "yaw": -28.316831588745128,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:station-road-10:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1576",
+        "parcel": "12",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -28066.077148451794,
+          42731.517056212186,
+          0.0
+        ],
+        "yaw": -28.34232711791993,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:station-road-12:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1578",
+        "parcel": "12",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -28251.225173057275,
+          42388.267571165685,
+          0.0
+        ],
+        "yaw": -28.34232711791993,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:station-road-12:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1580",
+        "parcel": "12",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -28436.373197662757,
+          42045.018086119184,
+          0.0
+        ],
+        "yaw": -28.34232711791993,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:station-road-12:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block43_1582",
+        "parcel": "12",
+        "bay": 3,
+        "kind": "ResidentialBay",
+        "location": [
+          -28621.521222268235,
+          41701.76860107268,
+          0.0
+        ],
+        "yaw": -28.34232711791993,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:station-road-12:front:floor:0:bay:3:ResidentialBay"
+      }
+    ],
+    "college-lane": [
+      {
+        "label": "TC_Block41_304",
+        "parcel": "6",
+        "bay": 0,
+        "kind": "ShopBay",
+        "location": [
+          -53511.95789435889,
+          47964.409756205714,
+          0.0
+        ],
+        "yaw": -124.44757080078126,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:college-lane-6:front:floor:0:bay:0:ShopBay"
+      },
+      {
+        "label": "TC_Block41_306",
+        "parcel": "6",
+        "bay": 1,
+        "kind": "ShopBay",
+        "location": [
+          -53833.56911200003,
+          48185.01398256457,
+          0.0
+        ],
+        "yaw": -124.44757080078126,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:college-lane-6:front:floor:0:bay:1:ShopBay"
+      },
+      {
+        "label": "TC_Block41_308",
+        "parcel": "6",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -54155.18032964116,
+          48405.61820892341,
+          0.0
+        ],
+        "yaw": -124.44757080078126,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:college-lane-6:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block41_310",
+        "parcel": "6",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -54476.79154728229,
+          48626.22243528227,
+          0.0
+        ],
+        "yaw": -124.44757080078126,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:college-lane-6:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Block41_312",
+        "parcel": "6",
+        "bay": 4,
+        "kind": "ShopBay",
+        "location": [
+          -54798.40276492343,
+          48846.82666164112,
+          0.0
+        ],
+        "yaw": -124.44757080078126,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:college-lane-6:front:floor:0:bay:4:ShopBay"
+      },
+      {
+        "label": "TC_Block41_314",
+        "parcel": "6",
+        "bay": 5,
+        "kind": "ShopBay",
+        "location": [
+          -55120.01398256456,
+          49067.430887999966,
+          0.0
+        ],
+        "yaw": -124.44757080078126,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:college-lane-6:front:floor:0:bay:5:ShopBay"
+      },
+      {
+        "label": "TC_Block41_344",
+        "parcel": "7",
+        "bay": 0,
+        "kind": "ShopBay",
+        "location": [
+          -48096.29409568394,
+          49688.28562266869,
+          0.0
+        ],
+        "yaw": 64.80397033691406,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:college-lane-7:front:floor:0:bay:0:ShopBay"
+      },
+      {
+        "label": "TC_Block41_346",
+        "parcel": "7",
+        "bay": 1,
+        "kind": "ShopBay",
+        "location": [
+          -47743.40004750126,
+          49522.25613505507,
+          0.0
+        ],
+        "yaw": 64.80397033691406,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:college-lane-7:front:floor:0:bay:1:ShopBay"
+      },
+      {
+        "label": "TC_Block41_348",
+        "parcel": "7",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -47390.50599931858,
+          49356.22664744145,
+          0.0
+        ],
+        "yaw": 64.80397033691406,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:college-lane-7:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block41_350",
+        "parcel": "7",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -47037.61195113591,
+          49190.197159827825,
+          0.0
+        ],
+        "yaw": 64.80397033691406,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:college-lane-7:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Block41_352",
+        "parcel": "7",
+        "bay": 4,
+        "kind": "ShopBay",
+        "location": [
+          -46684.71790295323,
+          49024.16767221421,
+          0.0
+        ],
+        "yaw": 64.80397033691406,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:college-lane-7:front:floor:0:bay:4:ShopBay"
+      },
+      {
+        "label": "TC_Block41_380",
+        "parcel": "17",
+        "bay": 0,
+        "kind": "ShopBay",
+        "location": [
+          -25229.56404230131,
+          52047.31717635181,
+          0.0
+        ],
+        "yaw": 145.2637176513672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:college-lane-17:front:floor:0:bay:0:ShopBay"
+      },
+      {
+        "label": "TC_Block41_382",
+        "parcel": "17",
+        "bay": 1,
+        "kind": "ShopBay",
+        "location": [
+          -25007.34201761354,
+          52367.81268606087,
+          0.0
+        ],
+        "yaw": 145.2637176513672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:college-lane-17:front:floor:0:bay:1:ShopBay"
+      },
+      {
+        "label": "TC_Block41_384",
+        "parcel": "17",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -24785.11999292577,
+          52688.308195769925,
+          0.0
+        ],
+        "yaw": 145.2637176513672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:college-lane-17:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block41_386",
+        "parcel": "17",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -24562.897968238,
+          53008.80370547898,
+          0.0
+        ],
+        "yaw": 145.2637176513672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:college-lane-17:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Block41_388",
+        "parcel": "17",
+        "bay": 4,
+        "kind": "ShopBay",
+        "location": [
+          -24340.67594355023,
+          53329.29921518804,
+          0.0
+        ],
+        "yaw": 145.2637176513672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:college-lane-17:front:floor:0:bay:4:ShopBay"
+      },
+      {
+        "label": "TC_Block43_1908",
+        "parcel": "8",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -47973.557659249505,
+          45367.09446908286,
+          0.0
+        ],
+        "yaw": -115.22528076171878,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:college-lane-8:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1910",
+        "parcel": "8",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -48326.36690705847,
+          45533.30407969689,
+          0.0
+        ],
+        "yaw": -115.22528076171878,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:college-lane-8:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1912",
+        "parcel": "8",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -48679.17615486745,
+          45699.51369031093,
+          0.0
+        ],
+        "yaw": -115.22528076171878,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:college-lane-8:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block43_1914",
+        "parcel": "8",
+        "bay": 3,
+        "kind": "ResidentialBay",
+        "location": [
+          -49031.985402676415,
+          45865.72330092496,
+          0.0
+        ],
+        "yaw": -115.22528076171878,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:college-lane-8:front:floor:0:bay:3:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_1916",
+        "parcel": "8",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -49384.79465048539,
+          46031.93291153899,
+          0.0
+        ],
+        "yaw": -115.22528076171878,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:college-lane-8:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2190",
+        "parcel": "10",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -40877.25851066384,
+          42738.71870551152,
+          0.0
+        ],
+        "yaw": -104.05767822265626,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:college-lane-10:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2192",
+        "parcel": "10",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -41255.578679082224,
+          42833.44911334283,
+          0.0
+        ],
+        "yaw": -104.05767822265626,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:college-lane-10:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2194",
+        "parcel": "10",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -41633.89884750061,
+          42928.17952117415,
+          0.0
+        ],
+        "yaw": -104.05767822265626,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:college-lane-10:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2196",
+        "parcel": "10",
+        "bay": 3,
+        "kind": "ResidentialBay",
+        "location": [
+          -42012.21901591899,
+          43022.90992900546,
+          0.0
+        ],
+        "yaw": -104.05767822265626,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:college-lane-10:front:floor:0:bay:3:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2198",
+        "parcel": "10",
+        "bay": 4,
+        "kind": "ShopBay",
+        "location": [
+          -42390.53918433737,
+          43117.64033683677,
+          0.0
+        ],
+        "yaw": -104.05767822265626,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:college-lane-10:front:floor:0:bay:4:ShopBay"
+      },
+      {
+        "label": "TC_Block43_2200",
+        "parcel": "10",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -42768.85935275575,
+          43212.37074466808,
+          0.0
+        ],
+        "yaw": -104.05767822265626,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:college-lane-10:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2202",
+        "parcel": "10",
+        "bay": 6,
+        "kind": "ResidentialBay",
+        "location": [
+          -43147.17952117414,
+          43307.101152499396,
+          0.0
+        ],
+        "yaw": -104.05767822265626,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:college-lane-10:front:floor:0:bay:6:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2204",
+        "parcel": "10",
+        "bay": 7,
+        "kind": "ResidentialBay",
+        "location": [
+          -43525.49968959252,
+          43401.831560330706,
+          0.0
+        ],
+        "yaw": -104.05767822265626,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:college-lane-10:front:floor:0:bay:7:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2623",
+        "parcel": "12",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -36300.79516491101,
+          41771.834574747925,
+          0.0
+        ],
+        "yaw": -97.61122131347659,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:college-lane-12:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2625",
+        "parcel": "12",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -36687.3591162267,
+          41823.49027669072,
+          0.0
+        ],
+        "yaw": -97.61122131347659,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:college-lane-12:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2627",
+        "parcel": "12",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -37073.92306754239,
+          41875.14597863351,
+          0.0
+        ],
+        "yaw": -97.61122131347659,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:college-lane-12:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Block43_2629",
+        "parcel": "12",
+        "bay": 3,
+        "kind": "ResidentialBay",
+        "location": [
+          -37460.487018858075,
+          41926.8016805763,
+          0.0
+        ],
+        "yaw": -97.61122131347659,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:college-lane-12:front:floor:0:bay:3:ResidentialBay"
+      },
+      {
+        "label": "TC_Block43_2631",
+        "parcel": "12",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -37847.05097017376,
+          41978.4573825191,
+          0.0
+        ],
+        "yaw": -97.61122131347659,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:college-lane-12:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Fabric49_0",
+        "parcel": "18",
+        "bay": 0,
+        "kind": "ShopBay",
+        "location": [
+          -21122.262641028687,
+          51573.62584942781,
+          0.0
+        ],
+        "yaw": -34.698261260986335,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:college-lane-18:front:floor:0:bay:0:ShopBay"
+      },
+      {
+        "label": "TC_Fabric49_2",
+        "parcel": "18",
+        "bay": 1,
+        "kind": "ShopBay",
+        "location": [
+          -21344.27191871492,
+          51252.98293180567,
+          0.0
+        ],
+        "yaw": -34.698261260986335,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:college-lane-18:front:floor:0:bay:1:ShopBay"
+      },
+      {
+        "label": "TC_Fabric49_4",
+        "parcel": "18",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -21566.281196401156,
+          50932.34001418354,
+          0.0
+        ],
+        "yaw": -34.698261260986335,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:college-lane-18:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Fabric49_6",
+        "parcel": "18",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -21788.29047408739,
+          50611.697096561395,
+          0.0
+        ],
+        "yaw": -34.698261260986335,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:college-lane-18:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Fabric49_8",
+        "parcel": "18",
+        "bay": 4,
+        "kind": "ShopBay",
+        "location": [
+          -22010.299751773626,
+          50291.05417893926,
+          0.0
+        ],
+        "yaw": -34.698261260986335,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:college-lane-18:front:floor:0:bay:4:ShopBay"
+      }
+    ],
+    "arcade-crescent": [
+      {
+        "label": "TC_Arcade50_0",
+        "parcel": "1",
+        "bay": 0,
+        "kind": "ShopBay",
+        "location": [
+          -42967.120274674926,
+          24031.033167142126,
+          0.0
+        ],
+        "yaw": -110.35266876220705,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-1:front:floor:0:bay:0:ShopBay"
+      },
+      {
+        "label": "TC_Arcade50_2",
+        "parcel": "1",
+        "bay": 1,
+        "kind": "ShopBay",
+        "location": [
+          -43332.77242341946,
+          24166.67426017262,
+          0.0
+        ],
+        "yaw": -110.35266876220705,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-1:front:floor:0:bay:1:ShopBay"
+      },
+      {
+        "label": "TC_Arcade50_4",
+        "parcel": "1",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -43698.42457216399,
+          24302.315353203106,
+          0.0
+        ],
+        "yaw": -110.35266876220705,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-1:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Arcade50_6",
+        "parcel": "1",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -44064.076720908524,
+          24437.9564462336,
+          0.0
+        ],
+        "yaw": -110.35266876220705,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:arcade-crescent-1:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Arcade50_8",
+        "parcel": "1",
+        "bay": 4,
+        "kind": "ShopBay",
+        "location": [
+          -44429.72886965306,
+          24573.59753926409,
+          0.0
+        ],
+        "yaw": -110.35266876220705,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-1:front:floor:0:bay:4:ShopBay"
+      },
+      {
+        "label": "TC_Arcade50_10",
+        "parcel": "1",
+        "bay": 5,
+        "kind": "ShopBay",
+        "location": [
+          -44795.38101839759,
+          24709.23863229458,
+          0.0
+        ],
+        "yaw": -110.35266876220705,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-1:front:floor:0:bay:5:ShopBay"
+      },
+      {
+        "label": "TC_Arcade50_48",
+        "parcel": "7",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -59162.39553352438,
+          23094.20547935883,
+          0.0
+        ],
+        "yaw": -44.70338821411133,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-7:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_50",
+        "parcel": "7",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -59436.73586626514,
+          22817.009913319816,
+          0.0
+        ],
+        "yaw": -44.70338821411133,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-7:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_52",
+        "parcel": "7",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -59711.0761990059,
+          22539.8143472808,
+          0.0
+        ],
+        "yaw": -44.70338821411133,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-7:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_54",
+        "parcel": "7",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -59857.480116651735,
+          22136.000166130667,
+          0.0
+        ],
+        "yaw": -44.70338821411133,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-7:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Arcade50_55",
+        "parcel": "7",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -60259.75686448742,
+          21985.423215202773,
+          0.0
+        ],
+        "yaw": -44.70338821411133,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-7:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_57",
+        "parcel": "7",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -60534.09719722818,
+          21708.22764916376,
+          0.0
+        ],
+        "yaw": -44.70338821411133,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-7:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_59",
+        "parcel": "7",
+        "bay": 6,
+        "kind": "ResidentialBay",
+        "location": [
+          -60808.43752996894,
+          21431.032083124745,
+          0.0
+        ],
+        "yaw": -44.70338821411133,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-7:front:floor:0:bay:6:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_154",
+        "parcel": "9",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -64055.392214234096,
+          16898.633853208685,
+          0.0
+        ],
+        "yaw": -25.387353897094734,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-9:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_156",
+        "parcel": "9",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -64222.599154063195,
+          16546.296175301555,
+          0.0
+        ],
+        "yaw": -25.387353897094734,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-9:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_158",
+        "parcel": "9",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -64389.80609389229,
+          16193.958497394426,
+          0.0
+        ],
+        "yaw": -25.387353897094734,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-9:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_160",
+        "parcel": "9",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -64394.3956439181,
+          15764.44838572002,
+          0.0
+        ],
+        "yaw": -25.387353897094734,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-9:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Arcade50_161",
+        "parcel": "9",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -64724.21997355049,
+          15489.283141580165,
+          0.0
+        ],
+        "yaw": -25.387353897094734,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-9:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Arcade50_163",
+        "parcel": "9",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -64891.42691337958,
+          15136.945463673035,
+          0.0
+        ],
+        "yaw": -25.387353897094734,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-9:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_0",
+        "parcel": "2",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -43961.11139429591,
+          28078.940769560948,
+          0.0
+        ],
+        "yaw": 69.6414337158203,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-2:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_2",
+        "parcel": "2",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -43595.47321337884,
+          27943.26202894307,
+          0.0
+        ],
+        "yaw": 69.6414337158203,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-2:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_4",
+        "parcel": "2",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -43229.835032461764,
+          27807.583288325193,
+          0.0
+        ],
+        "yaw": 69.6414337158203,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-2:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_6",
+        "parcel": "2",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -42801.57589433644,
+          27840.660631207506,
+          0.0
+        ],
+        "yaw": 69.6414337158203,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-2:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Apartments52_7",
+        "parcel": "2",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -42498.558670627615,
+          27536.22580708944,
+          0.0
+        ],
+        "yaw": 69.6414337158203,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-2:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_9",
+        "parcel": "2",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -42132.920489710545,
+          27400.547066471565,
+          0.0
+        ],
+        "yaw": 69.6414337158203,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-2:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_181",
+        "parcel": "3",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -49503.94478123003,
+          26398.401197764168,
+          0.0
+        ],
+        "yaw": -103.05970764160158,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-3:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_183",
+        "parcel": "3",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -49883.85747963792,
+          26486.528047182688,
+          0.0
+        ],
+        "yaw": -103.05970764160158,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-3:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_185",
+        "parcel": "3",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -50263.77017804581,
+          26574.65489660121,
+          0.0
+        ],
+        "yaw": -103.05970764160158,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-3:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_187",
+        "parcel": "3",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -50684.35680695455,
+          26487.437423677624,
+          0.0
+        ],
+        "yaw": -103.05970764160158,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-3:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Apartments52_188",
+        "parcel": "3",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -51023.595574861596,
+          26750.90859543825,
+          0.0
+        ],
+        "yaw": -103.05970764160158,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-3:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_190",
+        "parcel": "3",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -51403.50827326949,
+          26839.03544485677,
+          0.0
+        ],
+        "yaw": -103.05970764160158,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-3:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_518",
+        "parcel": "4",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -50982.03948651265,
+          30384.68184977782,
+          0.0
+        ],
+        "yaw": 76.93477630615234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-4:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_520",
+        "parcel": "4",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -50602.13527420632,
+          30296.51842498099,
+          0.0
+        ],
+        "yaw": 76.93477630615234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-4:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_522",
+        "parcel": "4",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -50222.23106189999,
+          30208.35500018416,
+          0.0
+        ],
+        "yaw": 76.93477630615234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-4:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_524",
+        "parcel": "4",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -49801.636038148965,
+          30295.531981067183,
+          0.0
+        ],
+        "yaw": 76.93477630615234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:arcade-crescent-4:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Apartments52_525",
+        "parcel": "4",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -49462.42263728732,
+          30032.028150590508,
+          0.0
+        ],
+        "yaw": 76.93477630615234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-4:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_527",
+        "parcel": "4",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -49082.518424981,
+          29943.86472579368,
+          0.0
+        ],
+        "yaw": 76.93477630615234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-4:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_741",
+        "parcel": "6",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -57307.56499745446,
+          29157.256855973792,
+          0.0
+        ],
+        "yaw": 120.11299896240234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-6:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_743",
+        "parcel": "6",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -56970.20032867647,
+          29352.922592014405,
+          0.0
+        ],
+        "yaw": 120.11299896240234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-6:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_745",
+        "parcel": "6",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -56723.14292268644,
+          29704.295098260245,
+          0.0
+        ],
+        "yaw": 120.11299896240234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:arcade-crescent-6:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Apartments52_746",
+        "parcel": "6",
+        "bay": 3,
+        "kind": "ResidentialBay",
+        "location": [
+          -56295.47099112048,
+          29744.254064095632,
+          0.0
+        ],
+        "yaw": 120.11299896240234,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-6:front:floor:0:bay:3:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_1136",
+        "parcel": "8",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -63461.07630829379,
+          23783.38910462014,
+          0.0
+        ],
+        "yaw": 135.27438354492185,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-8:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_1138",
+        "parcel": "8",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -63186.62844101485,
+          24060.47820246782,
+          0.0
+        ],
+        "yaw": 135.27438354492185,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:arcade-crescent-8:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_1140",
+        "parcel": "8",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -62912.18057373591,
+          24337.5673003155,
+          0.0
+        ],
+        "yaw": 135.27438354492185,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-8:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_1142",
+        "parcel": "8",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -62765.61998238667,
+          24741.324644599616,
+          0.0
+        ],
+        "yaw": 135.27438354492185,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-8:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Apartments52_1143",
+        "parcel": "8",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -62363.284839178035,
+          24891.74549601086,
+          0.0
+        ],
+        "yaw": 135.27438354492185,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:arcade-crescent-8:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Apartments52_1145",
+        "parcel": "8",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -62088.836971899094,
+          25168.83459385854,
+          0.0
+        ],
+        "yaw": 135.27438354492185,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:arcade-crescent-8:front:floor:0:bay:5:ResidentialBay"
+      }
+    ],
+    "old-town-lane": [
+      {
+        "label": "TC_OldTown57_0",
+        "parcel": "3",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -40911.175288847655,
+          -26034.61331969927,
+          0.0
+        ],
+        "yaw": -135.3994598388672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:old-town-lane-3:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_2",
+        "parcel": "3",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -41185.01756713827,
+          -25756.925713528948,
+          0.0
+        ],
+        "yaw": -135.3994598388672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-3:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_4",
+        "parcel": "3",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -41587.02335596904,
+          -25605.62685118506,
+          0.0
+        ],
+        "yaw": -135.3994598388672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-3:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_OldTown57_5",
+        "parcel": "3",
+        "bay": 3,
+        "kind": "ResidentialBay",
+        "location": [
+          -41732.7021237195,
+          -25201.5505011883,
+          0.0
+        ],
+        "yaw": -135.3994598388672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:old-town-lane-3:front:floor:0:bay:3:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_7",
+        "parcel": "3",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -42006.54440201012,
+          -24923.862895017977,
+          0.0
+        ],
+        "yaw": -135.3994598388672,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-3:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_444",
+        "parcel": "4",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -40240.64588384299,
+          -22086.577692903236,
+          0.0
+        ],
+        "yaw": 44.59632492065433,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-4:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_446",
+        "parcel": "4",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -39966.82400137226,
+          -22364.285410981407,
+          0.0
+        ],
+        "yaw": 44.59632492065433,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:old-town-lane-4:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_448",
+        "parcel": "4",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -39693.002118901524,
+          -22641.993129059578,
+          0.0
+        ],
+        "yaw": 44.59632492065433,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-4:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_450",
+        "parcel": "4",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -39291.00744347164,
+          -22793.32151676664,
+          0.0
+        ],
+        "yaw": 44.59632492065433,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-4:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_OldTown57_451",
+        "parcel": "4",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -39145.35835396006,
+          -23197.408565215916,
+          0.0
+        ],
+        "yaw": 44.59632492065433,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-4:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_453",
+        "parcel": "4",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -38871.53647148933,
+          -23475.116283294086,
+          0.0
+        ],
+        "yaw": 44.59632492065433,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-4:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_455",
+        "parcel": "4",
+        "bay": 6,
+        "kind": "ResidentialBay",
+        "location": [
+          -38597.71458901859,
+          -23752.824001372253,
+          0.0
+        ],
+        "yaw": 44.59632492065433,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-4:front:floor:0:bay:6:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_815",
+        "parcel": "6",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -46167.90194165743,
+          -21206.879629897336,
+          0.0
+        ],
+        "yaw": 100.6381530761719,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-6:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_817",
+        "parcel": "6",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -45784.60501306497,
+          -21134.883348524017,
+          0.0
+        ],
+        "yaw": 100.6381530761719,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:old-town-lane-6:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_819",
+        "parcel": "6",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -45401.308084472505,
+          -21062.887067150703,
+          0.0
+        ],
+        "yaw": 100.6381530761719,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:old-town-lane-6:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_821",
+        "parcel": "6",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -45051.24020882158,
+          -20813.984511042403,
+          0.0
+        ],
+        "yaw": 100.6381530761719,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-6:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_OldTown57_822",
+        "parcel": "6",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -44634.714227287586,
+          -20918.89450440407,
+          0.0
+        ],
+        "yaw": 100.6381530761719,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:old-town-lane-6:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_824",
+        "parcel": "6",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -44251.41729869512,
+          -20846.898223030752,
+          0.0
+        ],
+        "yaw": 100.6381530761719,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:old-town-lane-6:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1294",
+        "parcel": "7",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -51545.87064985041,
+          -26147.883966479174,
+          0.0
+        ],
+        "yaw": -103.28298950195315,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-7:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1296",
+        "parcel": "7",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -51925.43703447632,
+          -26058.277272186773,
+          0.0
+        ],
+        "yaw": -103.28298950195315,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-7:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1298",
+        "parcel": "7",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -52346.36035492951,
+          -26143.85506310633,
+          0.0
+        ],
+        "yaw": -103.28298950195315,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-7:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_OldTown57_1299",
+        "parcel": "7",
+        "bay": 3,
+        "kind": "ResidentialBay",
+        "location": [
+          -52684.569803728155,
+          -25879.063883601968,
+          0.0
+        ],
+        "yaw": -103.28298950195315,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-7:front:floor:0:bay:3:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1301",
+        "parcel": "7",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -53064.13618835407,
+          -25789.457189309564,
+          0.0
+        ],
+        "yaw": -103.28298950195315,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-7:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1443",
+        "parcel": "10",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -60133.054529866364,
+          -19847.875826668103,
+          0.0
+        ],
+        "yaw": 73.08767700195312,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:old-town-lane-10:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1445",
+        "parcel": "10",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -59759.92162179001,
+          -19961.329927125,
+          0.0
+        ],
+        "yaw": 73.08767700195312,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-10:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1447",
+        "parcel": "10",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -59386.78871371366,
+          -20074.784027581896,
+          0.0
+        ],
+        "yaw": 73.08767700195312,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-10:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1449",
+        "parcel": "10",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -58961.2923746572,
+          -20016.022939695857,
+          0.0
+        ],
+        "yaw": 73.08767700195312,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:old-town-lane-10:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_OldTown57_1450",
+        "parcel": "10",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -58640.52289756095,
+          -20301.692228495685,
+          0.0
+        ],
+        "yaw": 73.08767700195312,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-10:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1452",
+        "parcel": "10",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -58267.389989484596,
+          -20415.146328952582,
+          0.0
+        ],
+        "yaw": 73.08767700195312,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:old-town-lane-10:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_OldTown57_1454",
+        "parcel": "10",
+        "bay": 6,
+        "kind": "ResidentialBay",
+        "location": [
+          -57894.25708140824,
+          -20528.60042940948,
+          0.0
+        ],
+        "yaw": 73.08767700195312,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:old-town-lane-10:front:floor:0:bay:6:ResidentialBay"
+      }
+    ],
+    "library-lane": [
+      {
+        "label": "TC_Library63_0",
+        "parcel": "9",
+        "bay": 0,
+        "kind": "ShopBay",
+        "location": [
+          -56434.99627239028,
+          -29075.46929081138,
+          0.0
+        ],
+        "yaw": 32.40131759643556,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:library-lane-9:front:floor:0:bay:0:ShopBay"
+      },
+      {
+        "label": "TC_Library63_2",
+        "parcel": "9",
+        "bay": 1,
+        "kind": "ShopBay",
+        "location": [
+          -56226.0162394679,
+          -29404.752369392347,
+          0.0
+        ],
+        "yaw": 32.40131759643556,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:library-lane-9:front:floor:0:bay:1:ShopBay"
+      },
+      {
+        "label": "TC_Library63_4",
+        "parcel": "9",
+        "bay": 2,
+        "kind": "ShopBay",
+        "location": [
+          -56017.03620654551,
+          -29734.035447973314,
+          0.0
+        ],
+        "yaw": 32.40131759643556,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:library-lane-9:front:floor:0:bay:2:ShopBay"
+      },
+      {
+        "label": "TC_Library63_6",
+        "parcel": "9",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -55808.05617362313,
+          -30063.318526554285,
+          0.0
+        ],
+        "yaw": 32.40131759643556,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Left.SM_ShopBay_V3Left",
+        "source": "Baddie.Source:library-lane-9:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Library63_8",
+        "parcel": "9",
+        "bay": 4,
+        "kind": "ShopBay",
+        "location": [
+          -55599.07614070075,
+          -30392.601605135253,
+          0.0
+        ],
+        "yaw": 32.40131759643556,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:library-lane-9:front:floor:0:bay:4:ShopBay"
+      },
+      {
+        "label": "TC_Library63_10",
+        "parcel": "9",
+        "bay": 5,
+        "kind": "ShopBay",
+        "location": [
+          -55390.096107778365,
+          -30721.88468371622,
+          0.0
+        ],
+        "yaw": 32.40131759643556,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:library-lane-9:front:floor:0:bay:5:ShopBay"
+      },
+      {
+        "label": "TC_Library63_12",
+        "parcel": "9",
+        "bay": 6,
+        "kind": "ShopBay",
+        "location": [
+          -55181.116074855985,
+          -31051.167762297187,
+          0.0
+        ],
+        "yaw": 32.40131759643556,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay.SM_ShopBay",
+        "source": "Baddie.Source:library-lane-9:front:floor:0:bay:6:ShopBay"
+      },
+      {
+        "label": "TC_Library63_92",
+        "parcel": "10",
+        "bay": 0,
+        "kind": "ResidentialBay",
+        "location": [
+          -57429.04305978924,
+          -32939.899331707384,
+          0.0
+        ],
+        "yaw": -147.59378051757812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:library-lane-10:front:floor:0:bay:0:ResidentialBay"
+      },
+      {
+        "label": "TC_Library63_94",
+        "parcel": "10",
+        "bay": 1,
+        "kind": "ResidentialBay",
+        "location": [
+          -57638.05128957544,
+          -32610.634150004793,
+          0.0
+        ],
+        "yaw": -147.59378051757812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:library-lane-10:front:floor:0:bay:1:ResidentialBay"
+      },
+      {
+        "label": "TC_Library63_96",
+        "parcel": "10",
+        "bay": 2,
+        "kind": "ResidentialBay",
+        "location": [
+          -57847.05951936163,
+          -32281.368968302202,
+          0.0
+        ],
+        "yaw": -147.59378051757812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Right.SM_ResidentialBay_V3Right",
+        "source": "Baddie.Source:library-lane-10:front:floor:0:bay:2:ResidentialBay"
+      },
+      {
+        "label": "TC_Library63_98",
+        "parcel": "10",
+        "bay": 3,
+        "kind": "ShopBay",
+        "location": [
+          -58208.03629454903,
+          -32048.569123424008,
+          0.0
+        ],
+        "yaw": -147.59378051757812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ShopBay_V3Right.SM_ShopBay_V3Right",
+        "source": "Baddie.Source:library-lane-10:front:floor:0:bay:3:ShopBay"
+      },
+      {
+        "label": "TC_Library63_99",
+        "parcel": "10",
+        "bay": 4,
+        "kind": "ResidentialBay",
+        "location": [
+          -58265.07597893403,
+          -31622.83860489702,
+          0.0
+        ],
+        "yaw": -147.59378051757812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay_V3Left.SM_ResidentialBay_V3Left",
+        "source": "Baddie.Source:library-lane-10:front:floor:0:bay:4:ResidentialBay"
+      },
+      {
+        "label": "TC_Library63_101",
+        "parcel": "10",
+        "bay": 5,
+        "kind": "ResidentialBay",
+        "location": [
+          -58474.084208720225,
+          -31293.57342319443,
+          0.0
+        ],
+        "yaw": -147.59378051757812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:library-lane-10:front:floor:0:bay:5:ResidentialBay"
+      },
+      {
+        "label": "TC_Library63_103",
+        "parcel": "10",
+        "bay": 6,
+        "kind": "ResidentialBay",
+        "location": [
+          -58683.09243850642,
+          -30964.30824149184,
+          0.0
+        ],
+        "yaw": -147.59378051757812,
+        "mesh": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/Frontage_v3/Meshes/SM_ResidentialBay.SM_ResidentialBay",
+        "source": "Baddie.Source:library-lane-10:front:floor:0:bay:6:ResidentialBay"
+      }
+    ]
+  },
+  "roads": {
+    "market-road": [
+      {
+        "label": "TC_Ground22_market-road_0_support",
+        "location": [
+          499.00481655309113,
+          -11832.374315908537,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_1_support",
+        "location": [
+          -1243.070747916128,
+          -18362.23819866524,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_2_support",
+        "location": [
+          -3479.0752705441573,
+          -22002.569096810093,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_3_support",
+        "location": [
+          -6819.575984211722,
+          -26679.50494652559,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_4_support",
+        "location": [
+          -10322.845894211368,
+          -31364.260544404235,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_5_support",
+        "location": [
+          -12976.429491935185,
+          -34814.39025703529,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_6_support",
+        "location": [
+          -16489.927390809145,
+          -39136.1273230332,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_7_support",
+        "location": [
+          -20996.527582518713,
+          -44431.03213426837,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_8_support",
+        "location": [
+          -25047.48647940087,
+          -48896.526339713855,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_9_support",
+        "location": [
+          -27916.727941263507,
+          -51702.848568904206,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_10_support",
+        "location": [
+          -31947.54435814507,
+          -55489.186478476906,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-road_11_support",
+        "location": [
+          -33174.979401337485,
+          -56631.72294257948,
+          -2.0
+        ]
+      }
+    ],
+    "garden-avenue": [
+      {
+        "label": "TC_Ground22_garden-avenue_0_support",
+        "location": [
+          -1780.4184584544716,
+          11951.278651021614,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-avenue_1_support",
+        "location": [
+          -2208.651504030361,
+          18921.503750841377,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-avenue_2_support",
+        "location": [
+          -2870.0703820926856,
+          22688.781657716252,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-avenue_3_support",
+        "location": [
+          -3972.9299210746512,
+          28314.545630869823,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-avenue_4_support",
+        "location": [
+          -5301.559706923242,
+          34115.06649752209,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-avenue_5_support",
+        "location": [
+          -6643.267076578821,
+          38525.49284663627,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-avenue_6_support",
+        "location": [
+          -8716.398081312189,
+          43006.50020520744,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-avenue_7_support",
+        "location": [
+          -11950.105534931055,
+          49235.51883797514,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-avenue_8_support",
+        "location": [
+          -15479.198514519088,
+          55485.036199062684,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-avenue_9_support",
+        "location": [
+          -16125.226885810698,
+          56480.69501916326,
+          -2.0
+        ]
+      }
+    ],
+    "unity-avenue": [
+      {
+        "label": "TC_Ground22_unity-avenue_0_support",
+        "location": [
+          -10991.5667194089,
+          -1760.3953874842136,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_1_support",
+        "location": [
+          -16209.124848327881,
+          -1197.5781026339425,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_2_support",
+        "location": [
+          -21447.404836185193,
+          3187.42948946826,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_3_support",
+        "location": [
+          -26049.705439274905,
+          6649.561148956349,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_4_support",
+        "location": [
+          -29000.385808970015,
+          5761.943232729609,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_5_support",
+        "location": [
+          -34570.984541997444,
+          4133.82953957985,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_6_support",
+        "location": [
+          -39444.77242582918,
+          2382.2101365389526,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_7_support",
+        "location": [
+          -43353.22734119381,
+          456.0438564690878,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_8_support",
+        "location": [
+          -48973.80058862884,
+          -2559.04403263529,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_9_support",
+        "location": [
+          -54786.254334129,
+          -5589.953405435924,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_10_support",
+        "location": [
+          -59336.954343829035,
+          -7576.6617116538955,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_11_support",
+        "location": [
+          -64111.952954769135,
+          -8807.201763990839,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_12_support",
+        "location": [
+          -70210.50123170376,
+          -9945.754790404466,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_13_support",
+        "location": [
+          -76304.33533333369,
+          -10696.433324394384,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_14_support",
+        "location": [
+          -81020.31546628942,
+          -10710.279657497069,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_15_support",
+        "location": [
+          -85892.48448788968,
+          -9332.380807531847,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_16_support",
+        "location": [
+          -91775.70334603876,
+          -6822.556606175172,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_17_support",
+        "location": [
+          -97519.9837561893,
+          -3960.669660332812,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_unity-avenue_18_support",
+        "location": [
+          -100135.40900994495,
+          -2465.396712820101,
+          -2.0
+        ]
+      }
+    ],
+    "cross-town-road": [
+      {
+        "label": "TC_Ground22_cross-town-road_6_support",
+        "location": [
+          -80568.47561041861,
+          -49225.55740003857,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_7_support",
+        "location": [
+          -82616.30183713345,
+          -41758.59738807274,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_8_support",
+        "location": [
+          -84304.34814574812,
+          -35008.208976991744,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_9_support",
+        "location": [
+          -85191.31263815107,
+          -30196.74116131288,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_10_support",
+        "location": [
+          -85036.69088082654,
+          -25183.90017689,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_11_support",
+        "location": [
+          -84086.45674392956,
+          -19515.70978856919,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_12_support",
+        "location": [
+          -82947.92316151332,
+          -13849.969673309715,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_13_support",
+        "location": [
+          -82190.41041988388,
+          -8797.81296881195,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_14_support",
+        "location": [
+          -81838.38719453436,
+          -4472.2715244263745,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_15_support",
+        "location": [
+          -81351.88120916094,
+          1917.3058464865705,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_16_support",
+        "location": [
+          -80842.60157656955,
+          9328.965114982322,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_17_support",
+        "location": [
+          -80413.74340942911,
+          16796.552323580287,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_18_support",
+        "location": [
+          -80168.45739090754,
+          23351.2198334947,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_19_support",
+        "location": [
+          -80207.37955892102,
+          28012.679200734387,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_20_support",
+        "location": [
+          -80874.09571307544,
+          32777.18265857642,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_21_support",
+        "location": [
+          -82143.35301448763,
+          38654.867653236666,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_22_support",
+        "location": [
+          -83682.43839761811,
+          44928.68558350751,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_23_support",
+        "location": [
+          -85144.05331513393,
+          50867.02049565561,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_24_support",
+        "location": [
+          -86185.5792819575,
+          55771.20919273743,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cross-town-road_25_support",
+        "location": [
+          -86404.58253753647,
+          57230.50627822673,
+          -2.0
+        ]
+      }
+    ],
+    "west-bridge-approach": [
+      {
+        "label": "TC_Ground22_west-bridge-approach_0_support",
+        "location": [
+          -21860.02938018019,
+          -47324.129052678574,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_west-bridge-approach_1_support",
+        "location": [
+          -15683.180491959085,
+          -48238.851727873196,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_west-bridge-approach_2_support",
+        "location": [
+          -10852.491349693195,
+          -48700.30465770061,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_west-bridge-approach_3_support",
+        "location": [
+          -6494.846385052719,
+          -48225.673095856786,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_west-bridge-approach_4_support",
+        "location": [
+          -935.5150593067949,
+          -47318.30563090451,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_west-bridge-approach_5_support",
+        "location": [
+          2597.5638178665054,
+          -46707.75344841456,
+          -2.0
+        ]
+      }
+    ],
+    "east-bridge-approach": [
+      {
+        "label": "TC_Ground22_east-bridge-approach_0_support",
+        "location": [
+          -5511.903777313114,
+          43229.73119367662,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-bridge-approach_1_support",
+        "location": [
+          -4244.7304489882345,
+          47401.95379230907,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-bridge-approach_2_support",
+        "location": [
+          2601.3403728040553,
+          49292.89147253534,
+          -2.0
+        ]
+      }
+    ],
+    "west-lagoon-drive": [
+      {
+        "label": "TC_Ground22_west-lagoon-drive_14_support",
+        "location": [
+          1537.0003523385778,
+          -51611.552533630274,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_west-lagoon-drive_15_support",
+        "location": [
+          1797.9026718943214,
+          -47908.70502144908,
+          -2.0
+        ]
+      }
+    ],
+    "east-lagoon-drive": [
+      {
+        "label": "TC_Ground22_east-lagoon-drive_0_support",
+        "location": [
+          1447.718347398812,
+          51125.91527589564,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-lagoon-drive_1_support",
+        "location": [
+          874.0280970199024,
+          56592.155193768514,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-lagoon-drive_2_support",
+        "location": [
+          797.4340424332986,
+          57299.903640574106,
+          -2.0
+        ]
+      }
+    ],
+    "college-lane": [
+      {
+        "label": "TC_Ground22_college-lane_1_support",
+        "location": [
+          -57253.09504999526,
+          56798.25123299505,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_2_support",
+        "location": [
+          -55212.10266797278,
+          52333.13213418251,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_3_support",
+        "location": [
+          -51608.06913896737,
+          50024.67873109548,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_4_support",
+        "location": [
+          -46072.805544592615,
+          47436.34747497253,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_5_support",
+        "location": [
+          -41678.810988516976,
+          45792.829785386035,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_6_support",
+        "location": [
+          -37713.228889060316,
+          44806.237408667876,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_7_support",
+        "location": [
+          -32780.36466290825,
+          44155.609559999044,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_8_support",
+        "location": [
+          -29127.470500764986,
+          44845.83778962841,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_9_support",
+        "location": [
+          -26800.160887091184,
+          47710.15655941159,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_10_support",
+        "location": [
+          -23168.712865005466,
+          52967.482684194976,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-lane_11_support",
+        "location": [
+          -20020.8324466142,
+          57874.01768012464,
+          -2.0
+        ]
+      }
+    ],
+    "garden-south-road": [
+      {
+        "label": "TC_Ground22_garden-south-road_0_support",
+        "location": [
+          -89823.36703167415,
+          56453.04112664962,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_garden-south-road_1_support",
+        "location": [
+          -90234.22630181223,
+          56578.61815066422,
+          -2.0
+        ]
+      }
+    ],
+    "civic-street": [
+      {
+        "label": "TC_Ground22_civic-street_0_support",
+        "location": [
+          -23695.01664637339,
+          4017.569437644717,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_1_support",
+        "location": [
+          -23105.63306061101,
+          -2802.9615777121167,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_2_support",
+        "location": [
+          -22735.209027630677,
+          -9972.406545056068,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_3_support",
+        "location": [
+          -23047.47508021471,
+          -15081.450071422554,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_4_support",
+        "location": [
+          -25814.532221080473,
+          -20870.50283653114,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_5_support",
+        "location": [
+          -30293.198408826764,
+          -27212.766541260055,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_6_support",
+        "location": [
+          -34307.012104418,
+          -31658.60921870589,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_7_support",
+        "location": [
+          -39339.16965714584,
+          -34357.93107581023,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_8_support",
+        "location": [
+          -45987.5351751594,
+          -36971.975680868876,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_9_support",
+        "location": [
+          -51584.56367889768,
+          -39861.07420863306,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_10_support",
+        "location": [
+          -54526.39848368402,
+          -42328.13176838746,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_11_support",
+        "location": [
+          -58975.94137594732,
+          -46330.83894238708,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_12_support",
+        "location": [
+          -64048.637205313855,
+          -51037.95384388758,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_13_support",
+        "location": [
+          -68975.18897768974,
+          -55677.11727917833,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-street_14_support",
+        "location": [
+          -69703.79523940267,
+          -56367.64456238848,
+          -2.0
+        ]
+      }
+    ],
+    "theatre-street": [
+      {
+        "label": "TC_Ground22_theatre-street_0_support",
+        "location": [
+          -63109.749693886,
+          -2324.0854343008223,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_theatre-street_1_support",
+        "location": [
+          -66780.91692638239,
+          4197.777419036152,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_theatre-street_2_support",
+        "location": [
+          -69801.42718688847,
+          9577.964454454335,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_theatre-street_3_support",
+        "location": [
+          -72068.86950677173,
+          13651.930560599678,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_theatre-street_4_support",
+        "location": [
+          -75163.4372271611,
+          19221.786291039876,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_theatre-street_5_support",
+        "location": [
+          -78075.39871845668,
+          24469.74444357843,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_theatre-street_6_support",
+        "location": [
+          -79801.48967485735,
+          27578.29145712035,
+          -2.0
+        ]
+      }
+    ],
+    "station-road": [
+      {
+        "label": "TC_Ground22_station-road_0_support",
+        "location": [
+          -40919.468989209025,
+          7455.242380784508,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_station-road_1_support",
+        "location": [
+          -40855.41237495885,
+          13234.323812574477,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_station-road_2_support",
+        "location": [
+          -40589.821981861285,
+          19440.145017979037,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_station-road_3_support",
+        "location": [
+          -39943.81730317966,
+          24152.064312497503,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_station-road_4_support",
+        "location": [
+          -37966.89657237238,
+          29010.348045773237,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_station-road_5_support",
+        "location": [
+          -34800.8456307002,
+          35255.03248827633,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_station-road_6_support",
+        "location": [
+          -31677.531984450397,
+          41050.31574418063,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_station-road_7_support",
+        "location": [
+          -29831.18499941862,
+          44472.22445604092,
+          -2.0
+        ]
+      }
+    ],
+    "library-lane": [
+      {
+        "label": "TC_Ground22_library-lane_0_support",
+        "location": [
+          -81293.96743886906,
+          -27175.804625983103,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_library-lane_1_support",
+        "location": [
+          -75993.0250321026,
+          -23561.14199425138,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_library-lane_2_support",
+        "location": [
+          -70364.17889958376,
+          -20298.268154199868,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_library-lane_3_support",
+        "location": [
+          -66176.74282684374,
+          -19214.530913888742,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_library-lane_4_support",
+        "location": [
+          -62026.97520021636,
+          -22506.70406006229,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_library-lane_5_support",
+        "location": [
+          -57610.33838678363,
+          -28652.800640965786,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_library-lane_6_support",
+        "location": [
+          -53643.53305118224,
+          -34901.689923750404,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_library-lane_7_support",
+        "location": [
+          -51308.5505981457,
+          -38587.55101074838,
+          -2.0
+        ]
+      }
+    ],
+    "arcade-crescent": [
+      {
+        "label": "TC_Ground22_arcade-crescent_0_support",
+        "location": [
+          -43344.9387226594,
+          24839.61176217209,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_arcade-crescent_1_support",
+        "location": [
+          -49632.469035063266,
+          27171.15258973869,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_arcade-crescent_2_support",
+        "location": [
+          -54203.46629742999,
+          28220.996688801584,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_arcade-crescent_3_support",
+        "location": [
+          -58476.39932922306,
+          25472.079139458918,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_arcade-crescent_4_support",
+        "location": [
+          -62444.98666048956,
+          21416.664368674912,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_arcade-crescent_5_support",
+        "location": [
+          -64435.396599879605,
+          17855.822827717628,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_arcade-crescent_6_support",
+        "location": [
+          -66798.87153805385,
+          12863.904999057353,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_arcade-crescent_7_support",
+        "location": [
+          -68277.18001696904,
+          9645.463156447853,
+          -2.0
+        ]
+      }
+    ],
+    "old-town-lane": [
+      {
+        "label": "TC_Ground22_old-town-lane_0_support",
+        "location": [
+          -39245.530787197335,
+          -26870.790401358845,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_old-town-lane_1_support",
+        "location": [
+          -43554.28979215593,
+          -22512.511798121013,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_old-town-lane_2_support",
+        "location": [
+          -47141.93503048957,
+          -23545.544508270905,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_old-town-lane_3_support",
+        "location": [
+          -51836.538995140836,
+          -24736.948552486538,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_old-town-lane_4_support",
+        "location": [
+          -56582.7780802944,
+          -23692.279669863354,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_old-town-lane_5_support",
+        "location": [
+          -62494.82712620585,
+          -21893.79696991374,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_old-town-lane_6_support",
+        "location": [
+          -66246.40270932467,
+          -20713.46739207837,
+          -2.0
+        ]
+      }
+    ],
+    "market-approach": [
+      {
+        "label": "TC_Ground22_market-approach_14_support",
+        "location": [
+          -99771.45040345503,
+          -21770.02615189888,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-approach_15_support",
+        "location": [
+          -99816.87945797466,
+          -16802.031581234678,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_market-approach_16_support",
+        "location": [
+          -100071.81519022839,
+          -14273.352980461315,
+          -2.0
+        ]
+      }
+    ],
+    "foundry-road": [
+      {
+        "label": "TC_Ground22_foundry-road_10_support",
+        "location": [
+          -95783.0327279779,
+          36695.77803957356,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_foundry-road_11_support",
+        "location": [
+          -88275.0881131697,
+          33316.14126258865,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_foundry-road_12_support",
+        "location": [
+          -82143.62822077869,
+          30511.396662724466,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_foundry-road_13_support",
+        "location": [
+          -78569.36718845107,
+          28909.4518647367,
+          -2.0
+        ]
+      }
+    ],
+    "west-lagoon-bridge": [
+      {
+        "label": "TC_Ground22_west-lagoon-bridge_0_support",
+        "location": [
+          2900.673771327508,
+          -46289.73902902796,
+          -2.0
+        ]
+      }
+    ],
+    "east-lagoon-bridge": [
+      {
+        "label": "TC_Ground22_east-lagoon-bridge_0_support",
+        "location": [
+          2900.673771327508,
+          49710.26097097204,
+          -2.0
+        ]
+      }
+    ],
+    "square-walking-connection": [
+      {
+        "label": "TC_Ground22_square-walking-connection_0_support",
+        "location": [
+          -1017.1514545310489,
+          498.18924041669834,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_square-walking-connection_1_support",
+        "location": [
+          -3018.0541627258945,
+          498.18924041669834,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_square-walking-connection_2_support",
+        "location": [
+          -5418.655968189125,
+          498.18924041669834,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_square-walking-connection_3_support",
+        "location": [
+          -6556.590940317747,
+          -266.1283711335127,
+          -2.0
+        ]
+      }
+    ],
+    "west-square-walking-connection": [
+      {
+        "label": "TC_Ground22_west-square-walking-connection_0_support",
+        "location": [
+          701.8107595833018,
+          -16.248746336203208,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_west-square-walking-connection_1_support",
+        "location": [
+          2418.0541627258945,
+          301.8107595833018,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_west-square-walking-connection_2_support",
+        "location": [
+          2901.2755767907383,
+          301.8107595833018,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_west-square-walking-connection_4_support",
+        "location": [
+          117.17582259069391,
+          -6778.846776089208,
+          -2.0
+        ]
+      }
+    ],
+    "east-square-walking-connection": [
+      {
+        "label": "TC_Ground22_east-square-walking-connection_0_support",
+        "location": [
+          1733.6587848289835,
+          1494.9332950273752,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-square-walking-connection_1_support",
+        "location": [
+          2902.178284985584,
+          1501.8107595833017,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-square-walking-connection_3_support",
+        "location": [
+          -152.77192731694973,
+          6238.9512762739205,
+          -2.0
+        ]
+      }
+    ],
+    "cove-beach-walk": [
+      {
+        "label": "TC_Ground22_cove-beach-walk_32_support",
+        "location": [
+          -1078.2841010775405,
+          -52041.28552067093,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_33_support",
+        "location": [
+          -1784.11050445861,
+          -48008.68505586246,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_34_support",
+        "location": [
+          -1495.1642059805176,
+          -43800.01012621969,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_35_support",
+        "location": [
+          -597.7566907011487,
+          -39610.25064620316,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_36_support",
+        "location": [
+          596.4701099312622,
+          -35432.300277315895,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_37_support",
+        "location": [
+          1782.4096192738837,
+          -31265.442628259465,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_38_support",
+        "location": [
+          2658.0997526118044,
+          -27110.665363288084,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_39_support",
+        "location": [
+          2715.9016396073116,
+          -26143.980264651243,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_40_support",
+        "location": [
+          2049.0033745181167,
+          -19269.72783304212,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_41_support",
+        "location": [
+          246.71360595404423,
+          -15555.150614296752,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_cove-beach-walk_42_support",
+        "location": [
+          -1662.0991345525451,
+          -11808.572697112182,
+          -2.0
+        ]
+      }
+    ],
+    "east-cove-beach-walk": [
+      {
+        "label": "TC_Ground22_east-cove-beach-walk_0_support",
+        "location": [
+          2528.786446816763,
+          15638.313926976818,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-cove-beach-walk_1_support",
+        "location": [
+          2773.443807740691,
+          15892.09261898058,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-cove-beach-walk_5_support",
+        "location": [
+          1812.8851716351405,
+          35419.8822664728,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-cove-beach-walk_6_support",
+        "location": [
+          -1018.2049555888143,
+          39589.65308140143,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-cove-beach-walk_7_support",
+        "location": [
+          -3333.3539647712196,
+          43769.518723766894,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-cove-beach-walk_8_support",
+        "location": [
+          -4558.228448465841,
+          47972.83929813295,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-cove-beach-walk_9_support",
+        "location": [
+          -4808.00245968653,
+          52010.45105995803,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-cove-beach-walk_10_support",
+        "location": [
+          -4536.226446521223,
+          56032.5048685023,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_east-cove-beach-walk_11_support",
+        "location": [
+          -4321.920769443919,
+          57434.6693386513,
+          -2.0
+        ]
+      }
+    ],
+    "beach-access-0-34": [
+      {
+        "label": "TC_Ground22_beach-access-0-34_0_support",
+        "location": [
+          -648.0478483596715,
+          -48499.60726963138,
+          -2.0
+        ]
+      }
+    ],
+    "sand-path-0-34": [
+      {
+        "label": "TC_Ground22_sand-path-0-34_0_support",
+        "location": [
+          2907.31168558694,
+          -47879.27569616668,
+          -2.0
+        ]
+      }
+    ],
+    "beach-access-0-42": [
+      {
+        "label": "TC_Ground22_beach-access-0-42_0_support",
+        "location": [
+          -2417.452742302118,
+          -18128.03020985959,
+          -2.0
+        ]
+      }
+    ],
+    "sand-path-0-42": [
+      {
+        "label": "TC_Ground22_sand-path-0-42_0_support",
+        "location": [
+          2904.26955897031,
+          -15379.27569616668,
+          -2.0
+        ]
+      }
+    ],
+    "beach-access-2-2": [
+      {
+        "label": "TC_Ground22_beach-access-2-2_0_support",
+        "location": [
+          -514.5522074526642,
+          18848.453396578952,
+          -2.0
+        ]
+      }
+    ],
+    "beach-access-2-10": [
+      {
+        "label": "TC_Ground22_beach-access-2-10_0_support",
+        "location": [
+          -2849.4368073644278,
+          47025.10631662019,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-18-path": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-path_0_support",
+        "location": [
+          -56089.84377823456,
+          52126.880078000584,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-26-path": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-path_0_support",
+        "location": [
+          -58332.21678544406,
+          -28954.7393975792,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-27-path": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-path_0_support",
+        "location": [
+          -53261.90537979165,
+          -50298.70962839558,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-path_1_support",
+        "location": [
+          -64712.45085392002,
+          -50470.90537979165,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-33-path": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-path_0_support",
+        "location": [
+          -99307.52485453412,
+          -52072.512989955285,
+          -2.0
+        ]
+      }
+    ],
+    "civic-square-approach": [
+      {
+        "label": "TC_Ground22_civic-square-approach_0_support",
+        "location": [
+          -49607.37432276929,
+          -1038.834942098453,
+          -2.0
+        ]
+      }
+    ],
+    "civic-square-loop": [
+      {
+        "label": "TC_Ground22_civic-square-loop_0_support",
+        "location": [
+          -50525.07728808453,
+          12011.561407004585,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_1_support",
+        "location": [
+          -49066.4726188875,
+          10317.727828094556,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_2_support",
+        "location": [
+          -48533.27981230171,
+          8009.953984284911,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_3_support",
+        "location": [
+          -49055.527770842484,
+          5703.941138834297,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_4_support",
+        "location": [
+          -50496.23998818227,
+          4007.4308794242997,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_5_support",
+        "location": [
+          -52479.56238213324,
+          3374.608118145741,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_6_support",
+        "location": [
+          -54474.922711915475,
+          3988.438592995415,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_7_support",
+        "location": [
+          -55933.5273811125,
+          5682.272171905445,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_8_support",
+        "location": [
+          -56466.72018769829,
+          7990.046015715089,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_9_support",
+        "location": [
+          -55944.472229157516,
+          10296.058861165702,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_10_support",
+        "location": [
+          -54503.76001181773,
+          11992.5691205757,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_civic-square-loop_11_support",
+        "location": [
+          -52520.43761786675,
+          12625.391881854259,
+          -2.0
+        ]
+      }
+    ],
+    "college-green-approach": [
+      {
+        "label": "TC_Ground22_college-green-approach_0_support",
+        "location": [
+          -37791.14968477234,
+          43958.2182385974,
+          -2.0
+        ]
+      }
+    ],
+    "college-green-loop": [
+      {
+        "label": "TC_Ground22_college-green-loop_0_support",
+        "location": [
+          -33963.630986324395,
+          56681.77822344294,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_1_support",
+        "location": [
+          -32790.297310452566,
+          54894.490931711094,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_2_support",
+        "location": [
+          -31707.301554608734,
+          53047.90236342002,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_3_support",
+        "location": [
+          -32871.52453203173,
+          51112.295208883035,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_4_support",
+        "location": [
+          -33837.82031275006,
+          49248.83743981546,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_5_support",
+        "location": [
+          -36011.167960484476,
+          49082.434583133276,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_6_support",
+        "location": [
+          -37968.91296042585,
+          49434.397689179896,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_7_support",
+        "location": [
+          -39538.69074705845,
+          50871.97856940336,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_8_support",
+        "location": [
+          -39710.71668129921,
+          53009.26899050445,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_9_support",
+        "location": [
+          -39737.981866625225,
+          55166.64097013273,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_10_support",
+        "location": [
+          -37791.12794459806,
+          56243.87892819082,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_college-green-loop_11_support",
+        "location": [
+          -36038.02664157678,
+          57081.20555474716,
+          -2.0
+        ]
+      }
+    ],
+    "college-green-garden-path": [
+      {
+        "label": "TC_Ground22_college-green-garden-path_0_support",
+        "location": [
+          -36125.75448315971,
+          56981.003009495726,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-18-approach": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-approach_0_support",
+        "location": [
+          -56101.05432403226,
+          52115.83692476345,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-18-loop": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_0_support",
+        "location": [
+          -63520.83789646833,
+          46362.171771225236,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_1_support",
+        "location": [
+          -61715.19737558589,
+          44608.155169007754,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_2_support",
+        "location": [
+          -61227.87348283168,
+          41967.595575939034,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_3_support",
+        "location": [
+          -60544.51035312393,
+          39367.39933073646,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_4_support",
+        "location": [
+          -61901.09693400634,
+          37071.84048056265,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_5_support",
+        "location": [
+          -63637.51728758752,
+          35593.29944779474,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_6_support",
+        "location": [
+          -65648.219002619,
+          34291.3487586325,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_7_support",
+        "location": [
+          -67755.04773325585,
+          35680.346693458894,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_8_support",
+        "location": [
+          -69559.93716513278,
+          36996.2090643299,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_9_support",
+        "location": [
+          -70801.94013958443,
+          39324.72861488261,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_10_support",
+        "location": [
+          -70145.2642078788,
+          42007.2624852003,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_11_support",
+        "location": [
+          -69766.70109927744,
+          44626.956867528286,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_12_support",
+        "location": [
+          -67897.69567414506,
+          46253.605799151126,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-loop_13_support",
+        "location": [
+          -65684.88002772036,
+          46308.0450383209,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-18-garden-path": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-18-garden-path_0_support",
+        "location": [
+          -65826.7544831597,
+          46205.21163554578,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-24-approach": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-24-approach_0_support",
+        "location": [
+          -11120.955311567768,
+          -49906.43776635097,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-26-approach": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-approach_0_support",
+        "location": [
+          -65131.90537979164,
+          -29077.050149830728,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-approach_1_support",
+        "location": [
+          -58254.873118567484,
+          -28949.09462020835,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-26-loop": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_0_support",
+        "location": [
+          -66654.30941851446,
+          -31470.91153647186,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_1_support",
+        "location": [
+          -65761.34752831633,
+          -33006.79308225795,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_2_support",
+        "location": [
+          -64867.61596151533,
+          -34296.886942117766,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_3_support",
+        "location": [
+          -64883.5464707221,
+          -36110.68338839764,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_4_support",
+        "location": [
+          -65776.38915275778,
+          -37490.522228675596,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_5_support",
+        "location": [
+          -66572.06077806038,
+          -38950.70339752642,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_6_support",
+        "location": [
+          -68127.49337164861,
+          -39055.31092693815,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_7_support",
+        "location": [
+          -69458.4337928869,
+          -38595.17127199018,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_8_support",
+        "location": [
+          -70804.70823171163,
+          -37871.62871025276,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_9_support",
+        "location": [
+          -71077.98123379305,
+          -36014.1649181038,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_10_support",
+        "location": [
+          -71271.94310211962,
+          -34379.42774790713,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_11_support",
+        "location": [
+          -70794.1937282149,
+          -32681.77695256859,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_12_support",
+        "location": [
+          -69392.22779108112,
+          -31971.280218993703,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-loop_13_support",
+        "location": [
+          -68154.9126253377,
+          -31365.524985692893,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-26-garden-path": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-26-garden-path_0_support",
+        "location": [
+          -68240.7544831597,
+          -31465.327983509054,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-27-approach": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-approach_0_support",
+        "location": [
+          -55135.14042135282,
+          -51380.90537979164,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-approach_1_support",
+        "location": [
+          -55269.90537979166,
+          -41548.43329876251,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-27-loop": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_0_support",
+        "location": [
+          -51701.113194989106,
+          -50965.745044429095,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_1_support",
+        "location": [
+          -50719.87881435902,
+          -52187.14229298145,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_2_support",
+        "location": [
+          -49736.82375652503,
+          -53501.67639149019,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_3_support",
+        "location": [
+          -50115.230801077916,
+          -55316.95207828808,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_4_support",
+        "location": [
+          -50245.672637120966,
+          -55716.15020225635,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_9_support",
+        "location": [
+          -56028.581720956536,
+          -55254.08777100563,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_10_support",
+        "location": [
+          -56467.1232416237,
+          -53586.78860424099,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_11_support",
+        "location": [
+          -55596.19218816363,
+          -52070.737737010684,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_12_support",
+        "location": [
+          -54458.189493485166,
+          -51122.31559505371,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-loop_13_support",
+        "location": [
+          -53160.93963317326,
+          -50344.29855568996,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-27-garden-path": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-27-garden-path_0_support",
+        "location": [
+          -53236.75448315971,
+          -50439.921764821374,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-33-loop": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_0_support",
+        "location": [
+          -95338.9912982876,
+          -49013.625103846796,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_1_support",
+        "location": [
+          -94487.49679434027,
+          -50233.203549356695,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_2_support",
+        "location": [
+          -93589.05208991097,
+          -51389.568648828965,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_3_support",
+        "location": [
+          -93859.3355117845,
+          -53050.47114413346,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_4_support",
+        "location": [
+          -94416.48324106903,
+          -54388.15277434835,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_5_support",
+        "location": [
+          -95228.90410044735,
+          -55672.76705009166,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_6_support",
+        "location": [
+          -96666.07285617232,
+          -55587.52680078903,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_7_support",
+        "location": [
+          -97891.82421477261,
+          -55510.43286649674,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_8_support",
+        "location": [
+          -99035.484277097,
+          -54600.9151659899,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_9_support",
+        "location": [
+          -99278.95039314155,
+          -52970.648904884045,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_10_support",
+        "location": [
+          -99394.89094757341,
+          -52509.094252147974,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_11_support",
+        "location": [
+          -98951.00975410502,
+          -50051.87894792767,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_12_support",
+        "location": [
+          -97833.26257125306,
+          -49273.756213983455,
+          -2.0
+        ]
+      },
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-loop_13_support",
+        "location": [
+          -96687.35349218913,
+          -48583.51268644451,
+          -2.0
+        ]
+      }
+    ],
+    "neighbourhood-park-33-garden-path": [
+      {
+        "label": "TC_Ground22_neighbourhood-park-33-garden-path_0_support",
+        "location": [
+          -96762.7544831597,
+          -48679.582246317266,
+          -2.0
+        ]
+      }
+    ]
+  }
+}
