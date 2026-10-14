@@ -1,0 +1,412 @@
+{
+  "map": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane",
+  "proposedLayer": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Unity11Corridor01",
+  "proposedAssets": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Unity11Corridor01",
+  "sourceSHA256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+  "parcels": [
+    {
+      "parcel": {
+        "id": "unity-avenue-11",
+        "name": "Unity Avenue 11",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": -12.32,
+        "z": -399.08,
+        "width": 19.96,
+        "depth": 30.31,
+        "floors": 7,
+        "units": 28,
+        "yaw": 2.025691208885958,
+        "garden": 3,
+        "variant": 5,
+        "street": "Unity Avenue",
+        "entrance": [
+          3.99,
+          0,
+          -407.06
+        ]
+      },
+      "nativeCentreCm": [
+        -39908.0,
+        -1232.0
+      ],
+      "nativeFootprint": {
+        "centre": [
+          -39907.99999683918,
+          -1232.0000053341041,
+          -9.0
+        ],
+        "extents": [
+          998.0,
+          1515.5,
+          6.0
+        ],
+        "yaw": -26.06355667114258
+      },
+      "nativeFootprintCornersCm": [
+        [
+          -41470.37263219034,
+          -2154.895448115074
+        ],
+        [
+          -39677.35142093302,
+          -3031.8737465816557
+        ],
+        [
+          -38345.62736148802,
+          -309.104562553134
+        ],
+        [
+          -40138.64857274534,
+          567.8737359134477
+        ]
+      ],
+      "supportProbes": [
+        {
+          "xy": [
+            -39908.0,
+            -1232.0
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -41470.37263219034,
+            -2154.895448115074
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -39677.35142093302,
+            -3031.8737465816557
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -38345.62736148802,
+            -309.104562553134
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -40138.64857274534,
+            567.8737359134477
+          ],
+          "supportZ": -5.0
+        }
+      ],
+      "occupancy": []
+    },
+    {
+      "parcel": {
+        "id": "unity-avenue-13",
+        "name": "Unity Avenue 13",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "civic",
+        "x": -38.86,
+        "z": -453.15,
+        "width": 32.69,
+        "depth": 22.8,
+        "floors": 6,
+        "units": 24,
+        "yaw": 2.0628548549517025,
+        "garden": 3,
+        "variant": 4,
+        "street": "Unity Avenue",
+        "entrance": [
+          -26.17,
+          0,
+          -459.95
+        ]
+      },
+      "nativeCentreCm": [
+        -45315.0,
+        -3886.0
+      ],
+      "nativeFootprint": {
+        "centre": [
+          -45314.99999950096,
+          -3886.000004196012,
+          -9.0
+        ],
+        "extents": [
+          1634.5,
+          1140.0,
+          6.0
+        ],
+        "yaw": -28.19287681579591
+      },
+      "nativeFootprintCornersCm": [
+        [
+          -47294.16946810693,
+          -4118.547772488809
+        ],
+        [
+          -44412.99645529627,
+          -5662.958038658891
+        ],
+        [
+          -43335.830530894986,
+          -3653.4522359032158
+        ],
+        [
+          -46217.00354370564,
+          -2109.0419697331326
+        ]
+      ],
+      "supportProbes": [
+        {
+          "xy": [
+            -45315.0,
+            -3886.0
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -47294.16946810693,
+            -4118.547772488809
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -44412.99645529627,
+            -5662.958038658891
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -43335.830530894986,
+            -3653.4522359032158
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -46217.00354370564,
+            -2109.0419697331326
+          ],
+          "supportZ": -1.0
+        }
+      ],
+      "occupancy": [
+        {
+          "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_AdjoiningContinuation01.L_TownCentre_AdjoiningContinuation01:PersistentLevel.Actor_0",
+          "label": "Continuation01: unity-avenue-13"
+        }
+      ]
+    },
+    {
+      "parcel": {
+        "id": "unity-avenue-15",
+        "name": "Unity Avenue 15",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": -56.65,
+        "z": -501.44,
+        "width": 21.02,
+        "depth": 23,
+        "floors": 10,
+        "units": 40,
+        "yaw": 2.051483074993322,
+        "garden": 3,
+        "variant": 0,
+        "street": "Unity Avenue",
+        "entrance": [
+          -43.79,
+          0,
+          -508.14
+        ]
+      },
+      "nativeCentreCm": [
+        -50144.0,
+        -5665.0
+      ],
+      "nativeFootprint": {
+        "centre": [
+          -50144.00000722144,
+          -5664.999980287881,
+          -9.0
+        ],
+        "extents": [
+          1051.0,
+          1150.0,
+          6.0
+        ],
+        "yaw": -27.541322708129893
+      },
+      "nativeFootprintCornersCm": [
+        [
+          -51607.644599053325,
+          -6198.709179010641
+        ],
+        [
+          -49743.848322904654,
+          -7170.649218835306
+        ],
+        [
+          -48680.35541538955,
+          -5131.2907815651215
+        ],
+        [
+          -50544.15169153822,
+          -4159.350741740456
+        ]
+      ],
+      "supportProbes": [
+        {
+          "xy": [
+            -50144.0,
+            -5665.0
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -51607.644599053325,
+            -6198.709179010641
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -49743.848322904654,
+            -7170.649218835306
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -48680.35541538955,
+            -5131.2907815651215
+          ],
+          "blocker": "No horizontal support at <Struct 'Vector' (0x0000022D2AFC1320) {x: -48680.355415, y: -5131.290782, z: 0.000000}>"
+        },
+        {
+          "xy": [
+            -50544.15169153822,
+            -4159.350741740456
+          ],
+          "supportZ": -5.000000000000028
+        }
+      ],
+      "occupancy": [
+        {
+          "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_AdjoiningContinuation01.L_TownCentre_AdjoiningContinuation01:PersistentLevel.Actor_1",
+          "label": "Continuation01: unity-avenue-15"
+        }
+      ]
+    },
+    {
+      "parcel": {
+        "id": "unity-avenue-17",
+        "name": "Unity Avenue 17",
+        "district": "town-centre",
+        "kind": "apartment",
+        "style": "urban-apartment",
+        "x": -100.48,
+        "z": -579.45,
+        "width": 27.35,
+        "depth": 31.59,
+        "floors": 8,
+        "units": 32,
+        "yaw": 1.9819432780507698,
+        "garden": 3,
+        "variant": 3,
+        "street": "Unity Avenue",
+        "entrance": [
+          -83.25,
+          0,
+          -586.96
+        ]
+      },
+      "nativeCentreCm": [
+        -57945.00000000001,
+        -10048.0
+      ],
+      "nativeFootprint": {
+        "centre": [
+          -57945.00001250124,
+          -10047.99997395816,
+          -9.0
+        ],
+        "extents": [
+          1367.5,
+          1579.5,
+          6.0
+        ],
+        "yaw": -23.556985855102546
+      },
+      "nativeFootprintCornersCm": [
+        [
+          -59829.80120806022,
+          -10949.332849881048
+        ],
+        [
+          -57322.72782453084,
+          -12042.405605738852
+        ],
+        [
+          -56060.198816942255,
+          -9146.667098035272
+        ],
+        [
+          -58567.272200471634,
+          -8053.594342177467
+        ]
+      ],
+      "supportProbes": [
+        {
+          "xy": [
+            -57945.00000000001,
+            -10048.0
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -59829.80120806022,
+            -10949.332849881048
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -57322.72782453084,
+            -12042.405605738852
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -56060.198816942255,
+            -9146.667098035272
+          ],
+          "supportZ": -5.000000000000028
+        },
+        {
+          "xy": [
+            -58567.272200471634,
+            -8053.594342177467
+          ],
+          "supportZ": -5.0
+        }
+      ],
+      "occupancy": [
+        {
+          "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Adjoining.L_TownCentre_Adjoining:PersistentLevel.Actor_0",
+          "label": "Adjoining: unity-avenue-17"
+        }
+      ]
+    }
+  ],
+  "policy": "Only Unity11 may receive new building; 13/15/17 preserved; native authoring held on richer API gate"
+}

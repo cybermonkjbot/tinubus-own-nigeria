@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "pid": 10404,
+  "map": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane",
+  "failure": "Traceback (most recent call last):\n  File \"C:/dev/cribtest-game/apps/companion-unreal/Scripts/StreetFinish/unity11_corridor01.py\", line 51, in probe\n    snapshot = current_state()\n               ^^^^^^^^^^^^^^^\n  File \"C:/dev/cribtest-game/apps/companion-unreal/Scripts/StreetFinish/unity11_corridor01.py\", line 45, in current_state\n    return namespace['state']()\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\cribtest-game\\apps\\companion-unreal\\Scripts\\StreetFinish\\continue_adjoining01.py\", line 96, in state\n    'actorState': properties(actor, ('hidden', 'actor_enable_collision')),\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\cribtest-game\\apps\\companion-unreal\\Scripts\\StreetFinish\\continue_adjoining01.py\", line 74, in properties\n    value = obj.get_editor_property(name)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nException: ExponentialHeightFog: Failed to find property 'actor_enable_collision' for attribute 'actor_enable_collision' on 'ExponentialHeightFog'\n",
+  "nativeMutation": false
+}

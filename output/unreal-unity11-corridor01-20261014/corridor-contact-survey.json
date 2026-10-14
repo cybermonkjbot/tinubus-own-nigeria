@@ -1,0 +1,2179 @@
+{
+  "map": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane",
+  "rows": [
+    {
+      "label": "TC_Ground22_unity-avenue_6_support",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_167",
+      "frame": {
+        "centre": [
+          -37510.49978393859,
+          4891.999833483401,
+          -8.0
+        ],
+        "extents": [
+          2659.479958328291,
+          1700.0,
+          6.0
+        ],
+        "yaw": -160.2871551513672
+      },
+      "polygon": [
+        [
+          -35580.299515738596,
+          7389.430627998141
+        ],
+        [
+          -40587.541517803205,
+          5595.31186722466
+        ],
+        [
+          -39440.700052138585,
+          2394.5690389686606
+        ],
+        [
+          -34433.458050073976,
+          4188.687799742142
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -35580.299515738596,
+            7389.430627998141
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -36832.11001625475,
+            6940.90093780477
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -38083.9205167709,
+            6492.371247611401
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -39335.73101728705,
+            6043.841557418031
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -40587.541517803205,
+            5595.31186722466
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -40300.83115138705,
+            4795.12616016066
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -40014.120784970895,
+            3994.9404530966603
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -39727.41041855474,
+            3194.7547460326605
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -39440.700052138585,
+            2394.5690389686606
+          ],
+          "supportZ": -1.9999999999999716
+        },
+        {
+          "xy": [
+            -38188.88955162243,
+            2843.098729162031
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -36937.07905110628,
+            3291.628419355401
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -35685.26855059013,
+            3740.1581095487713
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -34433.458050073976,
+            4188.687799742142
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -34720.16841649013,
+            4988.873506806141
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -35006.878782906286,
+            5789.059213870141
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -35293.58914932244,
+            6589.244920934141
+          ],
+          "supportZ": -1.2000000476836874
+        }
+      ]
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_6_asphalt",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_168",
+      "frame": {
+        "centre": [
+          -37510.49982484995,
+          4891.999819283275,
+          -6.0
+        ],
+        "extents": [
+          2654.479958328291,
+          1200.0,
+          6.0
+        ],
+        "yaw": -160.2871551513672
+      },
+      "polygon": [
+        [
+          -35416.353374682,
+          6917.046607487332
+        ],
+        [
+          -40414.18142725175,
+          5126.300909848159
+        ],
+        [
+          -39604.64627501789,
+          2866.953031079219
+        ],
+        [
+          -34606.81822244814,
+          4657.698728718392
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -35416.353374682,
+            6917.046607487332
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -36665.810387824444,
+            6469.360183077539
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -37915.26740096688,
+            6021.6737586677455
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -39164.72441410931,
+            5573.987334257952
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -40414.18142725175,
+            5126.300909848159
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -40211.79763919329,
+            4561.463940155923
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -40009.41385113482,
+            3996.626970463689
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -39807.03006307635,
+            3431.790000771454
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -39604.64627501789,
+            2866.953031079219
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -38355.18926187545,
+            3314.639455489012
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -37105.73224873302,
+            3762.3258798988054
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -35856.27523559058,
+            4210.012304308599
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -34606.81822244814,
+            4657.698728718392
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -34809.202010506604,
+            5222.535698410627
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -35011.58579856507,
+            5787.372668102862
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -35213.96958662354,
+            6352.209637795097
+          ],
+          "supportZ": -1.2000000476836874
+        }
+      ]
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_7_support",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_169",
+      "frame": {
+        "centre": [
+          -42042.499821907746,
+          3000.9999082772383,
+          -8.0
+        ],
+        "extents": [
+          2288.7210141088112,
+          1700.0,
+          6.0
+        ],
+        "yaw": -153.9364471435547
+      },
+      "polygon": [
+        [
+          -40733.450446090676,
+          5533.712606570554
+        ],
+        [
+          -44845.399803387394,
+          3522.531857676957
+        ],
+        [
+          -43351.54919772482,
+          468.28720998392214
+        ],
+        [
+          -39239.5998404281,
+          2479.46795887752
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -40733.450446090676,
+            5533.712606570554
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -41761.437785414855,
+            5030.917419347155
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -42789.425124739035,
+            4528.122232123756
+          ],
+          "blocker": "No horizontal support at <Struct 'Vector' (0x0000022D29CD1E60) {x: -42789.425125, y: 4528.122232, z: 0.000000}>"
+        },
+        {
+          "xy": [
+            -43817.412464063214,
+            4025.327044900356
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -44845.399803387394,
+            3522.531857676957
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -44471.93715197175,
+            2758.9706957536982
+          ],
+          "supportZ": -1.2000000476837158
+        },
+        {
+          "xy": [
+            -44098.474500556105,
+            1995.4095338304396
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -43725.01184914046,
+            1231.848371907181
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -43351.54919772482,
+            468.28720998392214
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -42323.56185840064,
+            971.0823972073215
+          ],
+          "supportZ": -5.000000000000028
+        },
+        {
+          "xy": [
+            -41295.57451907646,
+            1473.877584430721
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -40267.58717975228,
+            1976.6727716541204
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -39239.5998404281,
+            2479.46795887752
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -39613.06249184374,
+            3243.0291208007784
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -39986.52514325939,
+            4006.590282724037
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -40359.987794675035,
+            4770.151444647296
+          ],
+          "supportZ": 0.0
+        }
+      ]
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_7_asphalt",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_170",
+      "frame": {
+        "centre": [
+          -42042.499853682755,
+          3000.9998931265495,
+          -6.0
+        ],
+        "extents": [
+          2283.7210141088112,
+          1200.0,
+          6.0
+        ],
+        "yaw": -153.9364471435547
+      },
+      "polygon": [
+        [
+          -40518.25810151486,
+          5082.3621276331505
+        ],
+        [
+          -44621.224386318354,
+          3075.575056991502
+        ],
+        [
+          -43566.74160585065,
+          919.6376586199481
+        ],
+        [
+          -39463.77532104716,
+          2926.424729261597
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -40518.25810151486,
+            5082.3621276331505
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -41543.999672715734,
+            4580.665359972739
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -42569.74124391661,
+            4078.968592312326
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -43595.48281511748,
+            3577.2718246519144
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -44621.224386318354,
+            3075.575056991502
+          ],
+          "supportZ": -1.9999999999999716
+        },
+        {
+          "xy": [
+            -44357.603691201424,
+            2536.5907073986136
+          ],
+          "supportZ": -1.2000000476837158
+        },
+        {
+          "xy": [
+            -44093.9829960845,
+            1997.606357805725
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -43830.36230096758,
+            1458.6220082128366
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -43566.74160585065,
+            919.6376586199481
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -42541.000034649776,
+            1421.3344262803603
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -41515.2584634489,
+            1923.0311939407725
+          ],
+          "supportZ": -1.0
+        },
+        {
+          "xy": [
+            -40489.51689224803,
+            2424.7279616011847
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -39463.77532104716,
+            2926.424729261597
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -39727.396016164086,
+            3465.4090788544854
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -39991.01671128101,
+            4004.3934284473735
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -40254.63740639793,
+            4543.377778040262
+          ],
+          "supportZ": 0.0
+        }
+      ]
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_8_support",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_171",
+      "frame": {
+        "centre": [
+          -46922.49968997469,
+          480.999790807256,
+          -8.0
+        ],
+        "extents": [
+          3234.44828347964,
+          1700.0,
+          6.0
+        ],
+        "yaw": -151.80712890625006
+      },
+      "polygon": [
+        [
+          -44874.92898295893,
+          3507.4019283751295
+        ],
+        [
+          -50576.370160424885,
+          451.2292739079046
+        ],
+        [
+          -48970.07039699045,
+          -2545.4023467606175
+        ],
+        [
+          -43268.6292195245,
+          510.77030770660735
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -44874.92898295893,
+            3507.4019283751295
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -46300.28927732542,
+            2743.3587647583236
+          ],
+          "supportZ": -5.000000000000028
+        },
+        {
+          "xy": [
+            -47725.64957169191,
+            1979.3156011415172
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -49151.0098660584,
+            1215.2724375247108
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -50576.370160424885,
+            451.2292739079046
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -50174.79521956628,
+            -297.928631259226
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -49773.22027870767,
+            -1047.0865364263566
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -49371.645337849055,
+            -1796.2444415934872
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -48970.07039699045,
+            -2545.4023467606175
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -47544.71010262396,
+            -1781.3591831438114
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -46119.34980825747,
+            -1017.3160195270052
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -44693.989513890985,
+            -253.2728559101988
+          ],
+          "supportZ": -5.000000000000028
+        },
+        {
+          "xy": [
+            -43268.6292195245,
+            510.77030770660735
+          ],
+          "supportZ": -1.9999999999999716
+        },
+        {
+          "xy": [
+            -43670.2041603831,
+            1259.928212873738
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -44071.779101241715,
+            2009.0861180408685
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -44473.35404210033,
+            2758.244023207999
+          ],
+          "supportZ": -1.2000000476837158
+        }
+      ]
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_8_asphalt",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_172",
+      "frame": {
+        "centre": [
+          -46922.49973542847,
+          480.99976702271306,
+          -6.0
+        ],
+        "extents": [
+          3229.4482834796404,
+          1200.0,
+          6.0
+        ],
+        "yaw": -151.80712890625006
+      },
+      "polygon": [
+        [
+          -44643.115286173335,
+          3064.358578369577
+        ],
+        [
+          -50335.74284122556,
+          12.91033497127637
+        ],
+        [
+          -49201.88418468361,
+          -2102.359044324151
+        ],
+        [
+          -43509.25662963138,
+          949.0891990741497
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -44643.115286173335,
+            3064.358578369577
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -46066.27217493639,
+            2301.496517520002
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -47489.42906369945,
+            1538.6344566704267
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -48912.585952462505,
+            775.7723958208517
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -50335.74284122556,
+            12.91033497127637
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -50052.27817709008,
+            -515.9070098525805
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -49768.813512954584,
+            -1044.7243546764373
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -49485.34884881909,
+            -1573.5416995002943
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -49201.88418468361,
+            -2102.359044324151
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -47778.72729592055,
+            -1339.4969834745757
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -46355.570407157495,
+            -576.6349226250006
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -44932.41351839444,
+            186.22713822457445
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -43509.25662963138,
+            949.0891990741497
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -43792.72129376687,
+            1477.9065438980065
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -44076.18595790236,
+            2006.7238887218634
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -44359.65062203785,
+            2535.5412335457204
+          ],
+          "supportZ": -1.2000000476837158
+        }
+      ]
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_9_support",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_173",
+      "frame": {
+        "centre": [
+          -52657.49993959535,
+          -2551.0000423128054,
+          -8.0
+        ],
+        "extents": [
+          3282.8168935850704,
+          1700.0,
+          6.0
+        ],
+        "yaw": -152.45867919921875
+      },
+      "polygon": [
+        [
+          -50532.75967055014,
+          474.28763754596275
+        ],
+        [
+          -56354.36005852224,
+          -2561.583893002282
+        ],
+        [
+          -54782.24020864056,
+          -5576.2877221715735
+        ],
+        [
+          -48960.63982066846,
+          -2540.4161916233293
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -50532.75967055014,
+            474.28763754596275
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -51988.15976754317,
+            -284.6802450910984
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -53443.55986453619,
+            -1043.6481277281596
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -54898.95996152921,
+            -1802.616010365221
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -56354.36005852224,
+            -2561.583893002282
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -55961.33009605182,
+            -3315.259850294605
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -55568.3001335814,
+            -4068.9358075869277
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -55175.27017111098,
+            -4822.611764879251
+          ],
+          "supportZ": -1.2000000476837158
+        },
+        {
+          "xy": [
+            -54782.24020864056,
+            -5576.2877221715735
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -53326.84011164753,
+            -4817.3198395345125
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -51871.44001465451,
+            -4058.3519568974516
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -50416.03991766149,
+            -3299.38407426039
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -48960.63982066846,
+            -2540.4161916233293
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -49353.66978313888,
+            -1786.7402343310064
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -49746.6997456093,
+            -1033.0642770386833
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -50139.72970807972,
+            -279.38831974636014
+          ],
+          "supportZ": -2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_9_asphalt",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_174",
+      "frame": {
+        "centre": [
+          -52657.49994850678,
+          -2551.0000468475528,
+          -6.0
+        ],
+        "extents": [
+          3277.8168935850704,
+          1200.0,
+          6.0
+        ],
+        "yaw": -152.45867919921875
+      },
+      "polygon": [
+        [
+          -50305.99897187482,
+          28.636893648258365
+        ],
+        [
+          -56118.73258387876,
+          -3002.610754988569
+        ],
+        [
+          -55009.000925138746,
+          -5130.636987343364
+        ],
+        [
+          -49196.267313134806,
+          -2099.3893387065364
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -50305.99897187482,
+            28.636893648258365
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -51759.1823748758,
+            -729.1750185109486
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -53212.36577787679,
+            -1486.9869306701555
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -54665.54918087777,
+            -2244.798842829362
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -56118.73258387876,
+            -3002.610754988569
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -55841.29966919376,
+            -3534.6173130772677
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -55563.86675450875,
+            -4066.6238711659666
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -55286.433839823745,
+            -4598.630429254666
+          ],
+          "supportZ": -1.2000000476837158
+        },
+        {
+          "xy": [
+            -55009.000925138746,
+            -5130.636987343364
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -53555.81752213776,
+            -4372.825075184157
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -52102.634119136776,
+            -3615.0131630249502
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -50649.45071613579,
+            -2857.2012508657435
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -49196.267313134806,
+            -2099.3893387065364
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -49473.700227819805,
+            -1567.3827806178376
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -49751.13314250481,
+            -1035.3762225291389
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -50028.56605718982,
+            -503.36966444044015
+          ],
+          "supportZ": -2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_10_support",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_175",
+      "frame": {
+        "centre": [
+          -57777.50028926339,
+          -5030.999822799313,
+          -8.0
+        ],
+        "extents": [
+          2439.5550622743167,
+          1700.0,
+          6.0
+        ],
+        "yaw": -156.44300842285156
+      },
+      "polygon": [
+        [
+          -56220.6742609741,
+          -2497.6775733590234
+        ],
+        [
+          -60693.173930423225,
+          -4447.667910322361
+        ],
+        [
+          -59334.32631755269,
+          -7564.322072239602
+        ],
+        [
+          -54861.82664810356,
+          -5614.331735276264
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -56220.6742609741,
+            -2497.6775733590234
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -57338.79917833638,
+            -2985.175157599858
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -58456.92409569866,
+            -3472.6727418406927
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -59575.04901306094,
+            -3960.170326081527
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -60693.173930423225,
+            -4447.667910322361
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -60353.46202720559,
+            -5226.831450801672
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -60013.75012398796,
+            -6005.994991280982
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -59674.03822077032,
+            -6785.158531760291
+          ],
+          "supportZ": -1.2000000476837442
+        },
+        {
+          "xy": [
+            -59334.32631755269,
+            -7564.322072239602
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -58216.2014001904,
+            -7076.824487998767
+          ],
+          "supportZ": -5.000000000000028
+        },
+        {
+          "xy": [
+            -57098.076482828124,
+            -6589.326903757933
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -55979.951565465846,
+            -6101.829319517099
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -54861.82664810356,
+            -5614.331735276264
+          ],
+          "supportZ": -5.0
+        },
+        {
+          "xy": [
+            -55201.538551321195,
+            -4835.168194796954
+          ],
+          "supportZ": -1.2000000476837158
+        },
+        {
+          "xy": [
+            -55541.25045453883,
+            -4056.004654317644
+          ],
+          "supportZ": -2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -55880.96235775646,
+            -3276.8411138383335
+          ],
+          "supportZ": -2.842170943040401e-14
+        }
+      ]
+    },
+    {
+      "label": "TC_Ground22_unity-avenue_10_asphalt",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_176",
+      "frame": {
+        "centre": [
+          -57777.50023664111,
+          -5030.999800477899,
+          -6.0
+        ],
+        "extents": [
+          2434.5550622743167,
+          1200.0,
+          6.0
+        ],
+        "yaw": -156.44300842285156
+      },
+      "polygon": [
+        [
+          -56025.42699199132,
+          -2958.007350750249
+        ],
+        [
+          -60488.76003155246,
+          -4904.001077087496
+        ],
+        [
+          -59529.57348129091,
+          -7103.992250205549
+        ],
+        [
+          -55066.240441729766,
+          -5157.998523868302
+        ]
+      ],
+      "edgeProbes": [
+        {
+          "xy": [
+            -56025.42699199132,
+            -2958.007350750249
+          ],
+          "supportZ": 0.0
+        },
+        {
+          "xy": [
+            -57141.260251881606,
+            -3444.5057823345605
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -58257.09351177189,
+            -3931.0042139188727
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -59372.926771662176,
+            -4417.502645503184
+          ],
+          "supportZ": 15.0
+        },
+        {
+          "xy": [
+            -60488.76003155246,
+            -4904.001077087496
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -60248.96339398707,
+            -5453.99887036701
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -60009.166756421684,
+            -6003.996663646522
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -59769.3701188563,
+            -6553.994456926035
+          ],
+          "supportZ": -1.2000000476837442
+        },
+        {
+          "xy": [
+            -59529.57348129091,
+            -7103.992250205549
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -58413.74022140062,
+            -6617.493818621237
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -57297.906961510336,
+            -6130.995387036925
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -56182.07370162005,
+            -5644.496955452614
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -55066.240441729766,
+            -5157.998523868302
+          ],
+          "supportZ": -2.0
+        },
+        {
+          "xy": [
+            -55306.03707929516,
+            -4608.000730588788
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -55545.83371686054,
+            -4058.0029373092757
+          ],
+          "supportZ": 2.842170943040401e-14
+        },
+        {
+          "xy": [
+            -55785.63035442593,
+            -3508.005144029762
+          ],
+          "supportZ": 2.842170943040401e-14
+        }
+      ]
+    }
+  ],
+  "unity11CoarseOccupancy": [
+    {
+      "sourceId": "unity-avenue-11:r0:FrontageStructure:6294",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15398"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:ShopBay:6295",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15399"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:ResidentialBay:6296",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15400"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:Window1300:6297",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15401"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:Balcony3900:6298",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15402"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:ACServiceAssembly:6299",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15403"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:Gutter3900:6300",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15404"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:ShopBay:6301",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15405"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:ResidentialBay:6302",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15406"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:Window1300:6303",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15407"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:Balcony3900:6304",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15408"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:ACServiceAssembly:6305",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15409"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:Gutter3900:6306",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15410"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:ShopBay:6307",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15411"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:ResidentialBay:6308",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15412"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:Window1300:6309",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15413"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:Balcony3900:6310",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15414"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:ACServiceAssembly:6311",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15415"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:Gutter3900:6312",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15416"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6313",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15417"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6314",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15418"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6315",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15419"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6316",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15420"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6317",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15421"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6318",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15422"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6319",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15423"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6320",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15424"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6321",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15425"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6322",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15426"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6323",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15427"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6324",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15428"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RoofSheetPanel:6325",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15429"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:RainwaterDownpipe:6326",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15430"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:PlasterRepair:6327",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15431"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:PlasterRepair:6328",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15432"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:PlasterRepair:6329",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15433"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:bay:0:Shutter2800",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15434"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:bay:1:OpenShopInterior",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15435"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:bay:2:OpenShopInterior",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15436"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:FrontageStructure:6333",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15437"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:ResidentialBay:6334",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15438"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:ResidentialBay:6335",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15439"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:Window1300:6336",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15440"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:Balcony3900:6337",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15441"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:ACServiceAssembly:6338",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15442"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:Gutter3900:6339",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15443"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:ResidentialBay:6340",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15444"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:ResidentialBay:6341",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15445"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:Window1300:6342",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15446"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:Balcony3900:6343",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15447"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:ACServiceAssembly:6344",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15448"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:Gutter3900:6345",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15449"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:ResidentialBay:6346",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15450"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:ResidentialBay:6347",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15451"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:Window1300:6348",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15452"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:Balcony3900:6349",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15453"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:ACServiceAssembly:6350",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15454"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:Gutter3900:6351",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15455"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6352",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15456"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6353",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15457"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6354",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15458"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6355",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15459"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6356",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15460"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6357",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15461"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6358",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15462"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6359",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15463"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6360",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15464"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6361",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15465"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6362",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15466"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6363",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15467"
+    },
+    {
+      "sourceId": "unity-avenue-11:r0:upper:RoofSheetPanel:6364",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15468"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:FrontageStructure:6365",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15469"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:ShopBay:6366",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15470"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:ResidentialBay:6367",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15471"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:Window1300:6368",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15472"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:Balcony3900:6369",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15473"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:ACServiceAssembly:6370",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15474"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:Gutter3900:6371",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15475"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:ShopBay:6372",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15476"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:ResidentialBay:6373",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15477"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:Window1300:6374",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15478"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:Balcony3900:6375",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15479"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:ACServiceAssembly:6376",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15480"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:Gutter3900:6377",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15481"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:ShopBay:6378",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15482"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:ResidentialBay:6379",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15483"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:Window1300:6380",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15484"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:Balcony3900:6381",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15485"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:ACServiceAssembly:6382",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15486"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:Gutter3900:6383",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15487"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6384",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15488"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6385",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15489"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6386",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15490"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6387",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15491"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6388",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15492"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6389",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15493"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6390",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15494"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6391",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15495"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6392",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15496"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6393",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15497"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6394",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15498"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6395",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15499"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RoofSheetPanel:6396",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15500"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:RainwaterDownpipe:6397",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15501"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:PlasterRepair:6398",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15502"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:PlasterRepair:6399",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15503"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:PlasterRepair:6400",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15504"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:bay:0:OpenShopInterior",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15505"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:bay:1:OpenShopInterior",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15506"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:bay:2:Shutter2800",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15507"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:FrontageStructure:6404",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15508"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:ResidentialBay:6405",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15509"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:ResidentialBay:6406",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15510"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:Window1300:6407",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15511"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:Balcony3900:6408",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15512"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:ACServiceAssembly:6409",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15513"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:Gutter3900:6410",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15514"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:ResidentialBay:6411",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15515"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:ResidentialBay:6412",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15516"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:Window1300:6413",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15517"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:Balcony3900:6414",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15518"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:ACServiceAssembly:6415",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15519"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:Gutter3900:6416",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15520"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:ResidentialBay:6417",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15521"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:ResidentialBay:6418",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15522"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:Window1300:6419",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15523"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:Balcony3900:6420",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15524"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:ACServiceAssembly:6421",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15525"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:Gutter3900:6422",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15526"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6423",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15527"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6424",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15528"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6425",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15529"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6426",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15530"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6427",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15531"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6428",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15532"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6429",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15533"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6430",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15534"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6431",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15535"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6432",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15536"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6433",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15537"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6434",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15538"
+    },
+    {
+      "sourceId": "unity-avenue-11:r1:upper:RoofSheetPanel:6435",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15539"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:1:V3_StockBottle",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15540"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:1:V3_StockJar",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15541"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:1:V3_StockTin",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15542"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:1:V3_PaperPackage",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15543"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:1:V3_TimberCrate",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15544"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:1:V3_GrainSack",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15545"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:2:V3_StockBottle",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15546"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:2:V3_StockJar",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15547"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:2:V3_StockTin",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15548"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:2:V3_PaperPackage",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15549"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:2:V3_TimberCrate",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15550"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:2:V3_GrainSack",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15551"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:3:V3_StockBottle",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15552"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:3:V3_StockJar",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15553"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:3:V3_StockTin",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15554"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:3:V3_PaperPackage",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15555"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:3:V3_TimberCrate",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15556"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:3:V3_GrainSack",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15557"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:4:V3_StockBottle",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15558"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:4:V3_StockJar",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15559"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:4:V3_StockTin",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15560"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:4:V3_PaperPackage",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15561"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:4:V3_TimberCrate",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15562"
+    },
+    {
+      "sourceId": "unity-avenue-11:bay:4:V3_GrainSack",
+      "actor": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.L_town_centre_neighbourhood_20261011_streetpass01_detail01:PersistentLevel.StaticMeshActor_15563"
+    }
+  ],
+  "unity11SignatureRecords": [],
+  "retained": {
+    "earlierScenery": 5017,
+    "adjoiningExteriors": 2451,
+    "groundDetails": 441,
+    "boundaries": [
+      [
+        "Biome: college-green",
+        12
+      ],
+      [
+        "Biome: neighbourhood-park-18",
+        14
+      ]
+    ]
+  },
+  "nativeMutation": false,
+  "limitation": "Edge ray samples only; not fitted geometry, clearance acceptance or complete contact proof"
+}

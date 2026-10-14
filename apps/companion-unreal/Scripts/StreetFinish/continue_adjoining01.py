@@ -59,7 +59,7 @@ def legacy_state():
 
 
 LEGACY_COVERAGE = 'Actor transforms; static mesh/material paths and instance counts; world spline point positions only'
-STATE_COVERAGE = 'Actor identity/transforms/tags; scene attachments/relative and world transforms; primitive body/collision/navigation/render flags; supported shapes/mesh body setup; every ISM local/world transform; spline point transforms/tangents/types'
+STATE_COVERAGE = 'Actor identity/transforms/tags; scene attachments/relative and world transforms; primitive body/collision/navigation/render flags; supported shapes/mesh and brush body setup; billboard/arrow state; every ISM local/world transform; spline point transforms/tangents/types'
 
 
 def transform_record(value):
@@ -83,6 +83,25 @@ def properties(obj, names):
     return result
 
 
+def brush_geometry(component, collision=False):
+    mesh = u.DynamicMesh()
+    if collision:
+        mesh, _, outcome = u.GeometryScript_SceneUtils.copy_collision_meshes_from_object(
+            component, mesh, False, use_complex_collision=False, sphere_resolution=16)
+    else:
+        mesh, _, outcome = u.GeometryScript_SceneUtils.copy_mesh_from_component(
+            component, mesh, u.GeometryScriptCopyMeshFromComponentOptions(), False)
+    if outcome != u.GeometryScriptOutcomePins.SUCCESS:
+        raise RuntimeError('Cannot read brush geometry: ' + component.get_path_name())
+    triangles = []
+    for i in range(mesh.get_triangle_count()):
+        valid, a, b, c = u.GeometryScript_MeshQueries.get_triangle_positions(mesh, i)
+        if not valid:
+            raise RuntimeError('Brush triangle IDs have gaps: ' + component.get_path_name())
+        triangles.append([AD['STREET']['vec'](p) for p in (a, b, c)])
+    return triangles
+
+
 def state():
     """Fail closed on unreadable state or an unsupported primitive support class."""
     rows = []
@@ -93,7 +112,8 @@ def state():
                'label': actor.get_actor_label(), 'level': actor.get_outer().get_path_name(),
                'transform': transform_record(actor.get_actor_transform()),
                'tags': sorted(str(t) for t in actor.tags),
-               'actorState': properties(actor, ('hidden', 'actor_enable_collision')),
+               'actorState': {**properties(actor, ('hidden',)),
+                              'actorEnableCollision': actor.get_actor_enable_collision()},
                'components': []}
         for component in actor.get_components_by_class(u.SceneComponent):
             parent = component.get_attach_parent()
@@ -119,6 +139,17 @@ def state():
                     record['shape'] = properties(component, ('sphere_radius',))
                 elif isinstance(component, u.CapsuleComponent):
                     record['shape'] = properties(component, ('capsule_radius', 'capsule_half_height'))
+                elif isinstance(component, u.BillboardComponent):
+                    record['billboard'] = properties(component, ('sprite', 'is_screen_size_scaled', 'screen_size',
+                        'u', 'ul', 'v', 'vl', 'opacity_mask_ref_val', 'use_in_editor_scaling'))
+                elif isinstance(component, u.ArrowComponent):
+                    record['arrow'] = properties(component, ('arrow_color', 'arrow_size', 'arrow_length',
+                        'screen_size', 'is_screen_size_scaled', 'treat_as_a_sprite', 'use_in_editor_scaling'))
+                elif isinstance(component, u.BrushComponent):
+                    record['brushGeometry'] = brush_geometry(component)
+                    record['brushCollisionGeometry'] = brush_geometry(component, collision=True)
+                elif isinstance(component, u.SplineComponent):
+                    pass  # Full spline geometry is captured below, not omitted.
                 elif not isinstance(component, u.StaticMeshComponent):
                     raise RuntimeError('Uncovered primitive support state: ' + component.get_path_name())
             if isinstance(component, u.StaticMeshComponent):
@@ -128,7 +159,7 @@ def state():
                     for i in range(component.get_num_materials())]
                 body = mesh.get_editor_property('body_setup') if mesh else None
                 record['meshSupport'] = properties(body, ('agg_geom', 'collision_trace_flag', 'default_instance',
-                    'double_sided_geometry', 'generate_mirrored_collision', 'generate_non_mirrored_collision')) if body else None
+                    'double_sided_geometry', 'bGenerateMirroredCollision', 'bGenerateNonMirroredCollision')) if body else None
                 if isinstance(component, u.SplineMeshComponent):
                     record['splineMeshSupport'] = properties(component, ('spline_params', 'forward_axis',
                         'spline_up_dir', 'spline_boundary_min', 'spline_boundary_max', 'smooth_interp_roll_scale'))

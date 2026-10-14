@@ -1,0 +1,7 @@
+{
+  "success": false,
+  "pid": 10404,
+  "map": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane",
+  "failure": "Traceback (most recent call last):\n  File \"C:/dev/cribtest-game/apps/companion-unreal/Scripts/StreetFinish/unity11_corridor01.py\", line 51, in probe\n    snapshot = current_state()\n               ^^^^^^^^^^^^^^^\n  File \"C:/dev/cribtest-game/apps/companion-unreal/Scripts/StreetFinish/unity11_corridor01.py\", line 45, in current_state\n    return namespace['state']()\n           ^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\cribtest-game\\apps\\companion-unreal\\Scripts\\StreetFinish\\continue_adjoining01.py\", line 130, in state\n    record['brush'] = properties(component, ('brush', 'brush_body_setup'))\n                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\cribtest-game\\apps\\companion-unreal\\Scripts\\StreetFinish\\continue_adjoining01.py\", line 74, in properties\n    value = obj.get_editor_property(name)\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nException: BrushComponent: Property 'Brush' for attribute 'brush' on 'BrushComponent' is protected and cannot be read\n",
+  "nativeMutation": false
+}
