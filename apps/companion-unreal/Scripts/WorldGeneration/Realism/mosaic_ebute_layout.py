@@ -17,7 +17,7 @@ def project(lon, lat, origin):
 
 def _point(lon, lat, origin):
     east, north = project(lon, lat, origin)
-    return [east * 100, -north * 100]
+    return [-north * 100, east * 100]
 
 
 def _offset_line(points, distance_cm):
@@ -50,7 +50,7 @@ def _offset_line(points, distance_cm):
                 raise ValueError("Street bend requires a purpose-built junction surface")
             delta = [component * distance_cm / denominator for component in miter]
         result.append([point[0] + delta[0], point[1] + delta[1]])
-    return [[point[0], 0, point[1]] for point in result]
+    return [[point[0], point[1], 0] for point in result]
 
 
 def _line_metrics(points):
@@ -97,10 +97,10 @@ def plan(base, config):
             identity = "osm:" + source["id"]
             location = _point(source["lon"], source["lat"], origin)
             prior = nodes.get(identity)
-            if prior and (prior["locationCm"] != [location[0], 0, location[1]]
+            if prior and (prior["locationCm"] != [location[0], location[1], 0]
                           or prior["wgs84LonLat"] != [source["lon"], source["lat"]]):
                 raise ValueError("Shared OSM node has conflicting source coordinates")
-            nodes.setdefault(identity, {"id": identity, "locationCm": [location[0], 0, location[1]],
+            nodes.setdefault(identity, {"id": identity, "locationCm": [location[0], location[1], 0],
                                         "wgs84LonLat": [source["lon"], source["lat"]],
                                         "sourceNodeId": source["id"], "runtimeId": None})
             path.append(location)
@@ -117,7 +117,7 @@ def plan(base, config):
                         "osmWayId": street["osmWayId"], "osmVersion": street["osmVersion"],
                         "sourceUrl": street["sourceUrl"], "sourceTags": street["sourceTags"],
                         "sourceNodeIds": [n["id"] for n in street["nodes"]],
-                        "centerlineCm": [[p[0], 0, p[1]] for p in path],
+                        "centerlineCm": [[p[0], p[1], 0] for p in path],
                         "mappedLengthMetres": length, "authoringCompression": 1.0,
                         "verticalDatum": None, "roadWidthMeasured": False,
                         "footwayPresenceVerified": False,
@@ -138,7 +138,7 @@ def plan(base, config):
         for frontage in street["frontages"]:
             location, tangent, yaw = _at_chainage(path, distances, frontage["chainageMetres"])
             frontages.append({**frontage, "streetId": street["id"],
-                              "locationCm": [location[0], 0, location[1]],
+                              "locationCm": [location[0], location[1], 0],
                               "tangentCm": tangent, "yaw": yaw,
                               "useIsFictional": True, "publicEntryVerified": False})
 
@@ -163,21 +163,19 @@ def plan(base, config):
         run = runs.get(frontage["run"])
         if not run or frontage["run"] not in architecture:
             raise ValueError("Missing complete imported source run: " + frontage["run"])
-        cardinal = {"east": [1, 0], "west": [-1, 0],
-                    "north": [0, -1], "south": [0, 1]}[frontage["side"]]
+        cardinal = {"east": [0, 1], "west": [0, -1],
+                    "north": [-1, 0], "south": [1, 0]}[frontage["side"]]
         dx, dy = frontage["tangentCm"]
         right = [-dy, dx]
         side_sign = 1 if cardinal[0] * right[0] + cardinal[1] * right[1] >= 0 else -1
         expects_right = side_sign == 1
-        if frontage["run"].startswith("right-") != expects_right:
-            raise ValueError("Frontage template side disagrees with its mapped street orientation")
         target_yaw = frontage["yaw"] + (0 if expects_right else 180)
         normal = [right[0] * side_sign, right[1] * side_sign]
         centre = frontage["locationCm"]
         # Keep the source cross-section between each road centerline and facade.
         wall_distance = config["designValues"]["frontageSetbackFromMappedCentrelineMetres"] * 100
         target_origin_xy = [centre[0] + normal[0] * wall_distance,
-                            centre[2] + normal[1] * wall_distance]
+                            centre[1] + normal[1] * wall_distance]
         target_origin_xy = [a - b for a, b in zip(target_origin_xy,
                                                   rotate([0, structure_centre_y, 0], target_yaw)[:2])]
         source_origin = run["originCm"]
@@ -201,7 +199,7 @@ def plan(base, config):
             row["sourceStreetNodeIds"] = streets[[s["id"] for s in streets].index(frontage["streetId"])]["sourceNodeIds"]
             row["fictionalUse"] = frontage["fictionalUse"]
             row["transform"] = {"locationCm": [target_origin_xy[0] + offset[0],
-                                                  offset[1], target_origin_xy[1] + offset[2]],
+                                                  target_origin_xy[1] + offset[1], offset[2]],
                                 "rotation": {"pitch": 0, "yaw": old["transform"]["rotation"]["yaw"] + delta_yaw,
                                              "roll": 0}, "scale": [1, 1, 1]}
             placements.append(row)
@@ -220,14 +218,16 @@ def plan(base, config):
                 row["runtimeId"] = None
                 row["authoringRole"] = "fictional_household_shutter"
                 row["streetReference"] = frontage["streetId"]
-                row["transform"] = {"locationCm": [target_origin_xy[0] + offset[0], offset[1],
-                                                      target_origin_xy[1] + offset[2]],
+                row["transform"] = {"locationCm": [target_origin_xy[0] + offset[0],
+                                                      target_origin_xy[1] + offset[1], offset[2]],
                                     "rotation": {"pitch": 0, "yaw": target_yaw, "roll": 0},
                                     "scale": [1, 1, 1]}
                 placements.append(row)
         buildings.append({"id": frontage["id"], "streetId": frontage["streetId"],
                           "sourceRun": frontage["run"], "fictionalUse": frontage["fictionalUse"],
                           "locationCm": centre, "runtimeId": None,
+                          "authoringFrame": {"originCm": [*target_origin_xy, 0], "yaw": target_yaw,
+                                             "localAxes": "X depth away from street; -Y along frontage; Z up"},
                           "householdInteriorImplemented": False, "publicEntryVerified": False})
     ids = [row["sourceId"] for row in placements]
     if len(ids) != len(set(ids)) or any(row["transform"]["scale"] != [1, 1, 1] for row in placements):

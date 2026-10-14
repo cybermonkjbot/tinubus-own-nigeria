@@ -4,12 +4,13 @@ import hashlib
 import json
 from pathlib import Path
 
-from WorldGeneration.Realism import mosaic_ebute_layout, mosaic_native
+from WorldGeneration.Realism import mosaic_ebute_detail, mosaic_ebute_layout, mosaic_native
 
 
 ROOT = Path(__file__).resolve().parents[5]
 CONFIG_PATH = Path(__file__).with_name("mosaic-ebute-metta-v1.json")
 OUTPUT_ROOT = ROOT / "output/lagos-mosaic-authoring"
+DETAIL_DOCUMENT_PATH = ROOT / "docs/world-building/lagos-mosaic-2026-10-11/ebute-metta-detail-v1.md"
 
 
 def build_packet():
@@ -23,16 +24,15 @@ def build_packet():
     if mosaic_native.sha(ROOT / config["researchDocument"]) != config["researchDocumentSha256"]:
         raise ValueError("Pinned Ebute research document changed")
     layout = mosaic_ebute_layout.plan(base, config)
-    events = [{"id": "ebute:optional-vestibule-privacy-closure",
-               "kind": "invitation-only-space-closes",
-               "publicCirculationBlocked": False,
-               "alternate": "street-facing collection point or continue on the public route",
-               "clearingCondition": "Owner chooses to restore invitation access; otherwise remains optional",
-               "interactionMayBeDeclined": True, "runtimeImplemented": False}]
-    return {"schemaVersion": 1, "documentKind": "offline-neighborhood-authoring-packet",
+    detail = mosaic_ebute_detail.plan(layout)
+    return {"schemaVersion": 2, "documentKind": "offline-neighborhood-authoring-packet",
             "runtimeRegistered": False, "engineMapSaved": False,
             "configSha256": mosaic_native.sha(CONFIG_PATH),
             "layoutSha256": mosaic_native.sha(mosaic_ebute_layout.__file__),
+            "detailPlannerSha256": mosaic_native.sha(mosaic_ebute_detail.__file__),
+            "detailDocumentPath": str(DETAIL_DOCUMENT_PATH.relative_to(ROOT)),
+            "detailDocumentSha256": mosaic_native.sha(DETAIL_DOCUMENT_PATH),
+            "sourceAccessDate": config["sourceAccessDate"],
             "sourceReceiptSha256": config["baseReceiptSha256"],
             "sourceAssetsReceiptSha256": config["assetsReceiptSha256"],
             "researchDocumentSha256": config["researchDocumentSha256"],
@@ -43,17 +43,23 @@ def build_packet():
             "osmAttribution": config["sourceAttribution"],
             "osmLicense": config["sourceLicense"],
             "layout": layout,
-            "events": events,
+            "streetLevelDetail": detail,
+            "events": detail["events"],
             "audioIntent": {"playable": False,
-                            "layers": ["street conversation", "small workroom tools", "food preparation"],
+                            "layers": ["conversation", "small workroom tools", "stock and fabric handling", "domestic room tone"],
                             "recordingsPresent": False, "rightsCleared": False,
-                            "householdAndWorkshopOcclusionAuthored": False},
+                            "householdAndWorkshopOcclusionAuthored": True,
+                            "occlusionGeometryCreated": False,
+                            "emitters": detail["audioEmitters"]},
             "assetChecklist": {
                 "reusedMeshes": sorted({p["module"] for p in layout["placements"]}),
                 "newMeshAssetsCreated": False,
                 "inheritedYabaNamedMaterialSetNeedsLocalReview": True,
-                "purposeSpecificFitoutsPending": ["cushion and furniture repair workroom", "clothing alterations room",
-                                                  "food/provisions counter", "household doors and interiors"],
+                "meshRecipes": detail["meshRecipes"],
+                "materialRecipes": detail["materialRecipes"],
+                "finishRecipes": detail["finishRecipes"],
+                "fitoutBlueprintsAuthored": True,
+                "fitoutGeometryPending": True,
                 "surfaceAndWeatherMaterialsPending": True,
                 "lightingAndSeasonalSimulationPending": True,
                 "npcTrafficAudioAndUtilitySystemsPending": True},
@@ -82,6 +88,10 @@ def export():
             "edgeCount": len(packet["layout"]["edges"]),
             "buildingCount": len(packet["layout"]["buildings"]),
             "placementCount": len(packet["layout"]["placements"]),
+            "roomVolumeCount": sum(len(p["rooms"]) for p in packet["streetLevelDetail"]["premises"]),
+            "fitoutPropCount": len(packet["streetLevelDetail"]["propPlacements"]),
+            "meshRecipeCount": len(packet["streetLevelDetail"]["meshRecipes"]),
+            "audioEmitterCount": len(packet["streetLevelDetail"]["audioEmitters"]),
             "runtimeRegistered": False, "engineMapSaved": False}
 
 
