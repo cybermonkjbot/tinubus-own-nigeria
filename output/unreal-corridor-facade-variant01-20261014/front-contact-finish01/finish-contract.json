@@ -1,0 +1,117 @@
+{
+  "inputSHA256": "ddada664e99e776e890a20abd17fd66382068d1bbae887b46c3186a5d836b281",
+  "dimensions": {
+    "bay": 3.9,
+    "storey": 3,
+    "storeys": 2,
+    "wall": 0.25,
+    "window": [
+      1.3,
+      1.35
+    ],
+    "windowSillZ": 4.025,
+    "windowFrameY": -0.11,
+    "glassThickness": 0.006,
+    "sourceShopAperture": [
+      2.8,
+      2.5
+    ],
+    "shopFrameY": -0.15,
+    "thresholdTopZ": 0.04
+  },
+  "axes": {
+    "up": "+Z",
+    "street_face": "+Y",
+    "frontage_run": "+X"
+  },
+  "origin": [
+    0,
+    0,
+    0
+  ],
+  "sourcePins": {
+    "output\\cribtest11-visible-world-2026-10-11\\parent-realism-kit\\kit-contract.json": "37314e3e16633b7f5edc9b2c11e105561813bfe2e6c3c1bed6ba942b04f991ff",
+    "output\\cribtest11-visible-world-2026-10-11\\parent-realism-kit\\author_yaba_frontage.py": "2bc71471cb5f3abc28aa06623de9c23800cf524028ade6003b0f64207682d460"
+  },
+  "authoredNotSurveyed": [
+    "two-storey assembly",
+    "entrance leaf/transom/pull design",
+    "green paint",
+    "canopy",
+    "sectional returns",
+    "forecourt support",
+    "hood"
+  ],
+  "wallTopZM": {
+    "Ground_TrueShopAperture": 2.819999933242798,
+    "Upper_TrueWindowAperture": 5.820000171661377
+  },
+  "sourceAssemblyStoreyInterfacesZM": [
+    0,
+    3,
+    6
+  ],
+  "interfaceMeaning": "Owned wall top bands removed where retained slabs already supply solid geometry; assembly height/storeys and apertures preserved, wall alone no longer overlaps slabs",
+  "matchedViews": {
+    "grazing": [
+      [
+        -4,
+        6,
+        3.3
+      ],
+      [
+        1.95,
+        0,
+        3
+      ]
+    ],
+    "reverse": [
+      [
+        6,
+        -7,
+        3.8
+      ],
+      [
+        1.95,
+        -0.1,
+        3
+      ]
+    ],
+    "player165": [
+      [
+        4.8,
+        6.7,
+        1.65
+      ],
+      [
+        1.95,
+        0,
+        2.55
+      ]
+    ]
+  },
+  "lenses": {
+    "grazing": 42,
+    "reverse": 42,
+    "player165": 22.23
+  },
+  "widePose": [
+    [
+      8,
+      11,
+      5.1
+    ],
+    [
+      1.95,
+      -0.1,
+      2.9
+    ]
+  ],
+  "wideLens": 42,
+  "renderer": "unchanged loaded Cycles CPU24samples AgX800square",
+  "limits": [
+    "Source-derived sectional facade, not photographic reconstruction",
+    "No full building/interiors",
+    "No Unreal placement/collision/navigation/gameplay acceptance"
+  ]
+}

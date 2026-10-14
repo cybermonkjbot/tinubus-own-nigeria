@@ -1,0 +1,12 @@
+00:01.437  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\contact-repair02\CorridorFacadeVariant01_ContactRepair02.blend"
+FRONT_CONTACT_CAUSE_MEASURED 11492
+00:02.281  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\front-contact-finish01\CorridorFacadeVariant01_FrontContactFinish01.blend"
+00:48.765  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\front-contact-finish01\grazing-after.png'
+02:32.547  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\front-contact-finish01\reverse-after.png'
+03:07.140  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\front-contact-finish01\player165-after.png'
+03:46.547  render           | Saved: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\front-contact-finish01\wide-after.png'
+Info: Saved as "CorridorFacadeVariant01_FrontContactFinish01.blend"
+FRONT_CONTACT_FINISH_COMPLETE 11492
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

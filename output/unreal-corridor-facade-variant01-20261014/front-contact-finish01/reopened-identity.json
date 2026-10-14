@@ -1,0 +1,25 @@
+{
+  "saved": {
+    "host": "Cribtest11",
+    "pid": 11492,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-corridor-facade-variant01-20261014\\front-contact-finish01\\CorridorFacadeVariant01_FrontContactFinish01.blend",
+    "scene": "CorridorFacadeVariant01",
+    "version": "5.2.2 LTS",
+    "engine": "CYCLES",
+    "job": "facade-front-contact-finish01",
+    "renderJob": false
+  },
+  "reopened": {
+    "host": "Cribtest11",
+    "pid": 11492,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-corridor-facade-variant01-20261014\\front-contact-finish01\\CorridorFacadeVariant01_FrontContactFinish01.blend",
+    "scene": "CorridorFacadeVariant01",
+    "version": "5.2.2 LTS",
+    "engine": "CYCLES",
+    "job": "facade-front-contact-finish01",
+    "renderJob": false
+  },
+  "blendSHA256": "dce613cebc5efed46930e98aedb3aab7f13d13619c44650b27b5659f6611ffa5",
+  "frontContactReadbackIdentical": true,
+  "returnAndProtectedPinsIdentical": true
+}

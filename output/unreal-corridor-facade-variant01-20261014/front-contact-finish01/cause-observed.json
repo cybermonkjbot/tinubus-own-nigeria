@@ -1,0 +1,14 @@
+{
+  "fourSideOverlapAreasM2": [
+    0.042804005377929555,
+    0.042804005377929555,
+    0.042804064028899025,
+    0.042804064028899025
+  ],
+  "ownedTopPenetrationsM": [
+    0.18000006675720215,
+    0.17999982833862305
+  ],
+  "cause": "Four observed same-plane outward wall/slab side overlaps within wall-top bands",
+  "scope": "Only two front-wall meshes and their contact bevels"
+}
