@@ -1,0 +1,34 @@
+{
+  "pid": 10404,
+  "host": "Cribtest11",
+  "retained": {
+    "earlierScenery": 5017,
+    "adjoiningExteriors": 2451,
+    "groundDetails": 441,
+    "boundaries": [
+      [
+        "Biome: college-green",
+        12
+      ],
+      [
+        "Biome: neighbourhood-park-18",
+        14
+      ]
+    ]
+  },
+  "source": "C:\\dev\\cribtest-game\\.git\\operations\\world-generation-20261010\\readonly-source\\packages\\assets\\city\\lagos-city-v3.json",
+  "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+  "scope": [
+    "unity-avenue-13",
+    "unity-avenue-15",
+    "theatre-street-10",
+    "theatre-street-12"
+  ],
+  "map": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane",
+  "layer": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_AdjoiningContinuation01",
+  "exclusions": [
+    "Library Lane 3 signature parcel",
+    "accepted buildings",
+    "all source roads/entrances"
+  ]
+}

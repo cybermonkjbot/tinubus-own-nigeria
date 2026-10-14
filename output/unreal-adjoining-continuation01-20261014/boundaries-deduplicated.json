@@ -1,0 +1,5446 @@
+{
+  "placements": [
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -47556.01847230943,
+        -3662.0042379954443,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:0",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -47556.01847230943,
+        -3662.0042379954443,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:1",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -47443.520963704534,
+        -3871.944441553711,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:2",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -47443.520963704534,
+        -3871.944441553711,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:3",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -47331.023455099625,
+        -4081.884645111978,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:4",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -47331.023455099625,
+        -4081.884645111978,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:5",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -47218.525946494716,
+        -4291.824848670245,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:6",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -47218.525946494716,
+        -4291.824848670245,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:7",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -47106.02843788982,
+        -4501.765052228512,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:8",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -47106.02843788982,
+        -4501.765052228512,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:9",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -46993.53092928491,
+        -4711.705255786778,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:10",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -46993.53092928491,
+        -4711.705255786778,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:11",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -46881.03342068002,
+        -4921.645459345045,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:12",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -46881.03342068002,
+        -4921.645459345045,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:13",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -46768.53591207511,
+        -5131.5856629033115,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:14",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -46768.53591207511,
+        -5131.5856629033115,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:15",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -46656.038403470215,
+        -5341.525866461579,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:16",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -46656.038403470215,
+        -5341.525866461579,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:17",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -46543.540894865306,
+        -5551.466070019846,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:18",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -46543.540894865306,
+        -5551.466070019846,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:19",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -46431.0433862604,
+        -5761.406273578113,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:20",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -46431.0433862604,
+        -5761.406273578113,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:21",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -47612.267226611875,
+        -3557.034136216311,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:22",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -46374.79463195795,
+        -5866.376375357246,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:23",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -44260.35792568808,
+        -1896.0080428003898,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:24",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -44260.35792568808,
+        -1896.0080428003898,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:25",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -44147.86041708317,
+        -2105.9482463586564,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:26",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -44147.86041708317,
+        -2105.9482463586564,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:27",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -44035.36290847827,
+        -2315.8884499169235,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:28",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -44035.36290847827,
+        -2315.8884499169235,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:29",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43922.865399873364,
+        -2525.8286534751905,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:30",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43922.865399873364,
+        -2525.8286534751905,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:31",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43810.367891268455,
+        -2735.7688570334576,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:32",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43810.367891268455,
+        -2735.7688570334576,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:33",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43697.87038266356,
+        -2945.709060591724,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:34",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43697.87038266356,
+        -2945.709060591724,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:35",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43585.37287405865,
+        -3155.6492641499913,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:36",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43585.37287405865,
+        -3155.6492641499913,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:37",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43472.87536545376,
+        -3365.5894677082574,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:38",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43472.87536545376,
+        -3365.5894677082574,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:39",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43360.37785684885,
+        -3575.5296712665254,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:40",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43360.37785684885,
+        -3575.5296712665254,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:41",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43247.880348243954,
+        -3785.4698748247915,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:42",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43247.880348243954,
+        -3785.4698748247915,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:43",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43135.382839639045,
+        -3995.4100783830586,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:44",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43135.382839639045,
+        -3995.4100783830586,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        0.9924242424242424,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:45",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -44316.606679990524,
+        -1791.0379410212563,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:46",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -43079.1340853366,
+        -4100.380180162192,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:47",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -46271.805239876034,
+        -5811.188994257401,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:48",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -46271.805239876034,
+        -5811.188994257401,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:49",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -46065.8264557122,
+        -5700.81423205771,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:50",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -46065.8264557122,
+        -5700.81423205771,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:51",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -45859.84767154836,
+        -5590.439469858019,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:52",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -45859.84767154836,
+        -5590.439469858019,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:53",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -45653.86888738453,
+        -5480.064707658328,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:54",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -45653.86888738453,
+        -5480.064707658328,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:55",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -45447.8901032207,
+        -5369.689945458637,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:56",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -45447.8901032207,
+        -5369.689945458637,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:57",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -45241.91131905686,
+        -5259.3151832589465,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:58",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -45241.91131905686,
+        -5259.3151832589465,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:59",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -45035.93253489303,
+        -5148.940421059256,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:60",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -45035.93253489303,
+        -5148.940421059256,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:61",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -44829.95375072919,
+        -5038.565658859565,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:62",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -44829.95375072919,
+        -5038.565658859565,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:63",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -44623.97496656536,
+        -4928.190896659873,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:64",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -44623.97496656536,
+        -4928.190896659873,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:65",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -44417.99618240152,
+        -4817.816134460182,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:66",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -44417.99618240152,
+        -4817.816134460182,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:67",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -44212.01739823769,
+        -4707.441372260491,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:68",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -44212.01739823769,
+        -4707.441372260491,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:69",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -44006.03861407385,
+        -4597.0666100608005,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:70",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -44006.03861407385,
+        -4597.0666100608005,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:71",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43800.05982991002,
+        -4486.69184786111,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:72",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43800.05982991002,
+        -4486.69184786111,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:73",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -43594.081045746185,
+        -4376.317085661419,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:74",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -43594.081045746185,
+        -4376.317085661419,
+        1
+      ],
+      "yaw": 28.1848544084028,
+      "scale": [
+        0.9736979166666667,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:75",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -51868.98580515134,
+        -5137.321146883459,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:78",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -51868.98580515134,
+        -5137.321146883459,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:79",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -51758.09442208464,
+        -5350.166398560719,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:80",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -51758.09442208464,
+        -5350.166398560719,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:81",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -51647.20303901796,
+        -5563.01165023798,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:82",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -51647.20303901796,
+        -5563.01165023798,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:83",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -51536.311655951264,
+        -5775.85690191524,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:84",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -51536.311655951264,
+        -5775.85690191524,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:85",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -51425.42027288457,
+        -5988.702153592501,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:86",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -51425.42027288457,
+        -5988.702153592501,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:87",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -51314.528889817884,
+        -6201.547405269762,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:88",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -51314.528889817884,
+        -6201.547405269762,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:89",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -51203.63750675119,
+        -6414.392656947022,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:90",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -51092.7461236845,
+        -6627.237908624283,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:91",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -50981.85474061781,
+        -6840.083160301543,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:92",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -50981.85474061781,
+        -6840.083160301543,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:93",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -50870.96335755112,
+        -7052.928411978804,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:94",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -50870.96335755112,
+        -7052.928411978804,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:95",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -50760.071974484425,
+        -7265.773663656065,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:96",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -50760.071974484425,
+        -7265.773663656065,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:97",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -51924.43149668468,
+        -5030.898521044828,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:98",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -50704.62628295108,
+        -7372.196289494695,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:99",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49587.994191343365,
+        -3948.935158352087,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:100",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49587.994191343365,
+        -3948.935158352087,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:101",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49477.10280827667,
+        -4161.780410029347,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:102",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49477.10280827667,
+        -4161.780410029347,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:103",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49366.211425209985,
+        -4374.625661706607,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:104",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49366.211425209985,
+        -4374.625661706607,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:105",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49255.32004214329,
+        -4587.470913383868,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:106",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49255.32004214329,
+        -4587.470913383868,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:107",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49144.4286590766,
+        -4800.316165061129,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:108",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49144.4286590766,
+        -4800.316165061129,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:109",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49033.53727600991,
+        -5013.16141673839,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:110",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49033.53727600991,
+        -5013.16141673839,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:111",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -48922.64589294322,
+        -5226.00666841565,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:112",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -48922.64589294322,
+        -5226.00666841565,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:113",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -48811.754509876526,
+        -5438.85192009291,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:114",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -48811.754509876526,
+        -5438.85192009291,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:115",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -48700.86312680984,
+        -5651.697171770171,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:116",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -48700.86312680984,
+        -5651.697171770171,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1.0,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:117",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -48423.63466914311,
+        -6183.810300963322,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:118",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -50600.94484595981,
+        -7318.17874456145,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:119",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -50600.94484595981,
+        -7318.17874456145,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:120",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -50393.58197197727,
+        -7210.143654694962,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:121",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -50393.58197197727,
+        -7210.143654694962,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:122",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -50186.219097994726,
+        -7102.108564828473,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:123",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -50186.219097994726,
+        -7102.108564828473,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:124",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49978.85622401218,
+        -6994.073474961985,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:125",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49978.85622401218,
+        -6994.073474961985,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:126",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49771.49335002964,
+        -6886.038385095497,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:127",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49771.49335002964,
+        -6886.038385095497,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:128",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49564.130476047096,
+        -6778.0032952290085,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:129",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49564.130476047096,
+        -6778.0032952290085,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:130",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49356.76760206455,
+        -6669.96820536252,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:131",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49356.76760206455,
+        -6669.96820536252,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:132",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -49149.40472808201,
+        -6561.933115496032,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:133",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -49149.40472808201,
+        -6561.933115496032,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:134",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -48942.041854099465,
+        -6453.898025629544,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:135",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -48942.041854099465,
+        -6453.898025629544,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:136",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -48734.67898011692,
+        -6345.862935763055,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:137",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -48734.67898011692,
+        -6345.862935763055,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:138",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -48527.31610613438,
+        -6237.827845896567,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:139",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -48527.31610613438,
+        -6237.827845896567,
+        1
+      ],
+      "yaw": 27.519303495331734,
+      "scale": [
+        0.9742424242424242,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:140",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70979.52521434458,
+        16780.976634221523,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:143",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70979.52521434458,
+        16780.976634221523,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:144",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70784.63040454102,
+        16889.351045922955,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:145",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70784.63040454102,
+        16889.351045922955,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:146",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70589.73559473745,
+        16997.725457624387,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:147",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70589.73559473745,
+        16997.725457624387,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:148",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70005.05116532675,
+        17322.848692728683,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:149",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70005.05116532675,
+        17322.848692728683,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:150",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -69810.15635552318,
+        17431.223104430115,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:151",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -69810.15635552318,
+        17431.223104430115,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:152",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -69615.26154571961,
+        17539.597516131547,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:153",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -69615.26154571961,
+        17539.597516131547,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:154",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -69420.36673591605,
+        17647.97192783298,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:155",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -69420.36673591605,
+        17647.97192783298,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:156",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -71271.86742904993,
+        16618.415016669376,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:157",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -69322.91933101426,
+        17702.159133683697,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:158",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -72411.2490724896,
+        18896.85016400026,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:159",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -72411.2490724896,
+        18896.85016400026,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:160",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -72216.35426268604,
+        19005.224575701694,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:161",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -72216.35426268604,
+        19005.224575701694,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:162",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -72021.45945288248,
+        19113.598987403126,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:163",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -72021.45945288248,
+        19113.598987403126,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:164",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -71826.5646430789,
+        19221.973399104558,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:165",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -71826.5646430789,
+        19221.973399104558,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:166",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -71631.66983327534,
+        19330.34781080599,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:167",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -71631.66983327534,
+        19330.34781080599,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:168",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -71436.77502347178,
+        19438.722222507422,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:169",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -71436.77502347178,
+        19438.722222507422,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:170",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -71241.8802136682,
+        19547.096634208854,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:171",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -71241.8802136682,
+        19547.096634208854,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:172",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -71046.98540386464,
+        19655.471045910286,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:173",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -71046.98540386464,
+        19655.471045910286,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:174",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70852.09059406107,
+        19763.84545761172,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:175",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70852.09059406107,
+        19763.84545761172,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:176",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70657.1957842575,
+        19872.21986931315,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:177",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70657.1957842575,
+        19872.21986931315,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        0.9291666666666667,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:178",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -72508.6964773914,
+        18842.662958149547,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:179",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -70559.74837935572,
+        19926.40707516387,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:180",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -69491.57783760628,
+        18005.465671158265,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:181",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -69491.57783760628,
+        18005.465671158265,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:182",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -69604.01684200096,
+        18207.670029474644,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:183",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -69604.01684200096,
+        18207.670029474644,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:184",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -69716.45584639563,
+        18409.874387791024,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:185",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -69716.45584639563,
+        18409.874387791024,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:186",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -69828.89485079031,
+        18612.078746107403,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:187",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -69828.89485079031,
+        18612.078746107403,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:188",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -69941.33385518499,
+        18814.283104423783,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:189",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -69941.33385518499,
+        18814.283104423783,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:190",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70053.77285957967,
+        19016.487462740162,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:191",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70053.77285957967,
+        19016.487462740162,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:192",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70166.21186397434,
+        19218.69182105654,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:193",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70166.21186397434,
+        19218.69182105654,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:194",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70278.65086836902,
+        19420.89617937292,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:195",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70278.65086836902,
+        19420.89617937292,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:196",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70391.0898727637,
+        19623.1005376893,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:197",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70391.0898727637,
+        19623.1005376893,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:198",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -70503.52887715837,
+        19825.304896005677,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:199",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -70503.52887715837,
+        19825.304896005677,
+        1
+      ],
+      "yaw": 119.07695557625847,
+      "scale": [
+        0.9640151515151516,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:200",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74906.89998206591,
+        23486.73835343017,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:203",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74906.89998206591,
+        23486.73835343017,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:204",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74710.52866248113,
+        23595.715316388603,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:205",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74710.52866248113,
+        23595.715316388603,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:206",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74514.15734289635,
+        23704.69227934703,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:207",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74514.15734289635,
+        23704.69227934703,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:208",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74317.78602331156,
+        23813.669242305456,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:209",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74317.78602331156,
+        23813.669242305456,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:210",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74121.41470372678,
+        23922.64620526388,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:211",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74121.41470372678,
+        23922.64620526388,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:212",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73925.043384142,
+        24031.623168222315,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:213",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73925.043384142,
+        24031.623168222315,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:214",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73728.67206455722,
+        24140.60013118074,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:215",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73728.67206455722,
+        24140.60013118074,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:216",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73532.30074497244,
+        24249.577094139167,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:217",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73532.30074497244,
+        24249.577094139167,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:218",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73335.92942538766,
+        24358.554057097594,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:219",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73139.55810580288,
+        24467.53102005602,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:220",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -72943.1867862181,
+        24576.507983014453,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:221",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -72943.1867862181,
+        24576.507983014453,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:222",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -72746.81546663331,
+        24685.48494597288,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:223",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -72746.81546663331,
+        24685.48494597288,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:224",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -75005.08564185831,
+        23432.24987195096,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:225",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -72648.62980684092,
+        24739.97342745209,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:226",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -76124.85401705954,
+        25681.43376934618,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:227",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -76124.85401705954,
+        25681.43376934618,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:228",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -75928.48269747476,
+        25790.410732304605,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:229",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -75928.48269747476,
+        25790.410732304605,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:230",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -75732.11137788997,
+        25899.38769526303,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:231",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -75732.11137788997,
+        25899.38769526303,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:232",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -75535.7400583052,
+        26008.364658221464,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:233",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -75535.7400583052,
+        26008.364658221464,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:234",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -75339.36873872041,
+        26117.34162117989,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:235",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -75339.36873872041,
+        26117.34162117989,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:236",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -75142.99741913563,
+        26226.318584138317,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:237",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -75142.99741913563,
+        26226.318584138317,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:238",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74946.62609955085,
+        26335.295547096743,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:239",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74946.62609955085,
+        26335.295547096743,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:240",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74750.25477996607,
+        26444.27251005517,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:241",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74750.25477996607,
+        26444.27251005517,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:242",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74553.88346038129,
+        26553.249473013602,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:243",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74553.88346038129,
+        26553.249473013602,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:244",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74357.5121407965,
+        26662.22643597203,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:245",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74357.5121407965,
+        26662.22643597203,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:246",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -74161.14082121172,
+        26771.203398930455,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:247",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -74161.14082121172,
+        26771.203398930455,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:248",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73964.76950162694,
+        26880.18036188888,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:249",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73964.76950162694,
+        26880.18036188888,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        0.935763888888889,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:250",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -76223.03967685194,
+        25626.94528786696,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:251",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -73866.58384183455,
+        26934.668843368097,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:252",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -72925.43754206675,
+        25238.767840160275,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:253",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -72925.43754206675,
+        25238.767840160275,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:254",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73036.16063615707,
+        25438.285605243545,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:255",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73036.16063615707,
+        25438.285605243545,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:256",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73146.88373024741,
+        25637.80337032682,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:257",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73146.88373024741,
+        25637.80337032682,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:258",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73257.60682433774,
+        25837.321135410093,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:259",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73257.60682433774,
+        25837.321135410093,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:260",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73368.32991842806,
+        26036.838900493367,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:261",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73368.32991842806,
+        26036.838900493367,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:262",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73479.0530125184,
+        26236.35666557664,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:263",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73479.0530125184,
+        26236.35666557664,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:264",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73589.77610660873,
+        26435.87443065991,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:265",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73589.77610660873,
+        26435.87443065991,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:266",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73700.49920069907,
+        26635.392195743185,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:267",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73700.49920069907,
+        26635.392195743185,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:268",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel",
+      "location": [
+        -73811.22229478939,
+        26834.90996082646,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:269",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping",
+      "location": [
+        -73811.22229478939,
+        26834.90996082646,
+        1
+      ],
+      "yaw": 119.02824043456084,
+      "scale": [
+        0.9507575757575758,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:270",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    }
+  ],
+  "rejected": [
+    {
+      "parcel": "unity-avenue-13",
+      "role": "WallPanel",
+      "location": [
+        -43388.102261582346,
+        -4265.942323461728,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "unity-avenue-13",
+      "role": "Coping",
+      "location": [
+        -43388.102261582346,
+        -4265.942323461728,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "unity-avenue-13",
+      "role": "WallPanel",
+      "location": [
+        -43182.123477418514,
+        -4155.567561262037,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "unity-avenue-13",
+      "role": "Coping",
+      "location": [
+        -43182.123477418514,
+        -4155.567561262037,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "unity-avenue-15",
+      "role": "WallPanel",
+      "location": [
+        -51203.63750675119,
+        -6414.392656947022,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "unity-avenue-15",
+      "role": "WallPanel",
+      "location": [
+        -51092.7461236845,
+        -6627.237908624283,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "unity-avenue-15",
+      "role": "WallPanel",
+      "location": [
+        -48589.97174374315,
+        -5864.542423447432,
+        1
+      ],
+      "reason": "Ground/road/entry clearance"
+    },
+    {
+      "parcel": "unity-avenue-15",
+      "role": "Coping",
+      "location": [
+        -48589.97174374315,
+        -5864.542423447432,
+        1
+      ],
+      "reason": "Ground/road/entry clearance"
+    },
+    {
+      "parcel": "unity-avenue-15",
+      "role": "WallPanel",
+      "location": [
+        -48479.08036067645,
+        -6077.387675124693,
+        1
+      ],
+      "reason": "Ground/road/entry clearance"
+    },
+    {
+      "parcel": "unity-avenue-15",
+      "role": "Coping",
+      "location": [
+        -48479.08036067645,
+        -6077.387675124693,
+        1
+      ],
+      "reason": "Ground/road/entry clearance"
+    },
+    {
+      "parcel": "unity-avenue-15",
+      "role": "Pier",
+      "location": [
+        -49643.43988287671,
+        -3842.5125325134563,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-10",
+      "role": "WallPanel",
+      "location": [
+        -71174.42002414814,
+        16672.60222252009,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-10",
+      "role": "Coping",
+      "location": [
+        -71174.42002414814,
+        16672.60222252009,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-10",
+      "role": "WallPanel",
+      "location": [
+        -70394.84078493388,
+        17106.09986932582,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-10",
+      "role": "Coping",
+      "location": [
+        -70394.84078493388,
+        17106.09986932582,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-10",
+      "role": "WallPanel",
+      "location": [
+        -70199.94597513032,
+        17214.47428102725,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-10",
+      "role": "Coping",
+      "location": [
+        -70199.94597513032,
+        17214.47428102725,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-10",
+      "role": "WallPanel",
+      "location": [
+        -69379.1388332116,
+        17803.26131284189,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-10",
+      "role": "Coping",
+      "location": [
+        -69379.1388332116,
+        17803.26131284189,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-12",
+      "role": "WallPanel",
+      "location": [
+        -73335.92942538766,
+        24358.554057097594,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-12",
+      "role": "WallPanel",
+      "location": [
+        -73139.55810580288,
+        24467.53102005602,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-12",
+      "role": "WallPanel",
+      "location": [
+        -72703.99135388609,
+        24839.732309993728,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-12",
+      "role": "Coping",
+      "location": [
+        -72703.99135388609,
+        24839.732309993728,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-12",
+      "role": "WallPanel",
+      "location": [
+        -72814.71444797641,
+        25039.250075077,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    },
+    {
+      "parcel": "theatre-street-12",
+      "role": "Coping",
+      "location": [
+        -72814.71444797641,
+        25039.250075077,
+        1
+      ],
+      "reason": "Unsupported boundary corner"
+    }
+  ],
+  "sourceManifest": "C:\\dev\\cribtest-game\\output\\unreal-forecourts-20261014\\kit\\converted\\manifest.json",
+  "duplicateCornerPiersRemoved": [
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -46374.79463195795,
+        -5866.376375357246,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:76",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -43079.1340853366,
+        -4100.380180162192,
+        1
+      ],
+      "yaw": -61.8151455915972,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-13:boundary:77",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -50704.62628295108,
+        -7372.196289494695,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:141",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -48423.63466914311,
+        -6183.810300963322,
+        1
+      ],
+      "yaw": -62.480696504668266,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "unity-avenue-15:boundary:142",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -69322.91933101426,
+        17702.159133683697,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:201",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -70559.74837935572,
+        19926.40707516387,
+        1
+      ],
+      "yaw": 29.07695557625847,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-10:boundary:202",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -72648.62980684092,
+        24739.97342745209,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:271",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier",
+      "location": [
+        -73866.58384183455,
+        26934.668843368097,
+        1
+      ],
+      "yaw": 29.028240434560846,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "source": "theatre-street-12:boundary:272",
+      "cull_cm": [
+        90000,
+        110000
+      ]
+    }
+  ]
+}

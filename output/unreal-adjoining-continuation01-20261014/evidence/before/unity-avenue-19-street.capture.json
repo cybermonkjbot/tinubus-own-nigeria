@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T19:28:45.994879+00:00",
+  "pid": 10404,
+  "mapPackage": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane",
+  "camera": "unity-avenue-19-street",
+  "cameraConfig": {
+    "id": "unity-avenue-19-street",
+    "locationCm": [
+      -66412.15042534069,
+      -7498.263462127269,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": -92.17454361261919,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  "image": "output/unreal-adjoining-continuation01-20261014/evidence/before/unity-avenue-19-street.png",
+  "imageSha256": "c87ff2b318693d9bae066f6b4c444902fd7506384118e10240947416a6bf4f56",
+  "width": 892,
+  "height": 490,
+  "warmupNativeFrames": 34,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -66412.15042534069,
+      "y": -7498.263462127269,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 5,
+      "yaw": -92.17454528808594,
+      "roll": 0
+    },
+    "cameraFOV": 78,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "receipt": "output/unreal-adjoining-continuation01-20261014/survey.json",
+  "receiptSha256": "9d55dd2890aab719c5be5396c7ccc0bb232c2ca09ec74d7b12bdccc457636a11",
+  "scriptSha256": "8f562b55fc8f81441a2d07c1c0112e252ab64896a4faa0ad4539cdb261420f2c"
+}

@@ -1,0 +1,21 @@
+{
+  "surfaces": 12,
+  "areaM2": 10777.232138772757,
+  "retained": {
+    "earlierScenery": 5017,
+    "adjoiningExteriors": 2451,
+    "groundDetails": 441,
+    "boundaries": [
+      [
+        "Biome: college-green",
+        12
+      ],
+      [
+        "Biome: neighbourhood-park-18",
+        14
+      ]
+    ]
+  },
+  "protectedNativeStateUnchanged": true,
+  "runtime": "not inspected"
+}

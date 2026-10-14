@@ -1,0 +1,20 @@
+{
+  "scope": ["unity-avenue-13", "unity-avenue-15", "theatre-street-10", "theatre-street-12"],
+  "savedAcceptance": "Four canonical building exteriors and fitted flat ground persisted; no complete neighborhood acceptance",
+  "repairedIntroducedDefects": ["Eight overlapping compound corner piers removed from owned PCG points"],
+  "remaining": [
+    "Large side/backdrop gaps persist outside authored source parcels; four new buildings do not make continuous dense city fabric",
+    "Repeated wall/window bays and two closely related roof profiles; restrained new finish variants are only subtle",
+    "Shadow-facing Unity Avenue 13/15 frontage remains difficult to read; no exposure or RHI adjustment made",
+    "Theatre Street 2 repeated shutters and exposed backdrop remain unchanged",
+    "Unity Avenue 19 dark frontage and surrounding sparse context remain unchanged",
+    "Straight-cut pavement ends, curb/drain transitions and broad tiled context remain",
+    "One context polygon lacks original horizontal support and remains excluded, recorded in ground-installed.json",
+    "Twenty-five boundary candidates rejected for fitted-ground/support/entry clearance; resultant wall continuity not accepted",
+    "Flat non-colliding ground overlays are not realistic terrain, Landscape, grade correction or gameplay support",
+    "No new shop interiors, working residents/traffic, accepted destination route or runtime traversal"
+  ],
+  "runtime": "Editor-authored scenery only; no PIE or gameplay/performance/release verification",
+  "nextDependencyReadyScope": "Survey Unity Avenue 11 toward the new 13/15 and retained 17; repair source-fitted corridor ground/curb contacts before more detail",
+  "signatureExcluded": "library-lane-3"
+}

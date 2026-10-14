@@ -1,0 +1,8 @@
+{
+  "phase": "ground support inspection before actor placement",
+  "pid": 10404,
+  "probeCm": [-77171.082509, 21072.630120, 0],
+  "error": "No horizontal support at native context polygon centroid",
+  "recovery": "Preserve exact prior fitted imports; exclude unsupported polygons with evidence; no map reload or editor restart",
+  "originalSceneModified": false
+}

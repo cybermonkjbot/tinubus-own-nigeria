@@ -1,0 +1,86 @@
+[
+  {
+    "id": "unity-avenue-13-street",
+    "locationCm": [
+      -46786.9107055824,
+      553.6806402851739,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": -74.2254660331409,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  {
+    "id": "unity-avenue-15-street",
+    "locationCm": [
+      -51248.26386422185,
+      -1816.105849469966,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": -77.64311117807834,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  {
+    "id": "theatre-street-10-street",
+    "locationCm": [
+      -72578.25734514123,
+      16433.09364384134,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": 55.181683595329375,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  {
+    "id": "theatre-street-12-street",
+    "locationCm": [
+      -76341.49800516108,
+      23211.051349960617,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": 54.05497886285871,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  {
+    "id": "unity-avenue-19-street",
+    "locationCm": [
+      -66412.15042534069,
+      -7498.263462127269,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": -92.17454361261919,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  {
+    "id": "theatre-street-2-street",
+    "locationCm": [
+      -61087.834388588344,
+      -4068.740767272382,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": 57.14049663236141,
+      "roll": 0
+    },
+    "fov": 78
+  }
+]

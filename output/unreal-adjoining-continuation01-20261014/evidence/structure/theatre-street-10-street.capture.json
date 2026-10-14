@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-14T19:38:45.655603+00:00",
+  "pid": 10404,
+  "mapPackage": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane",
+  "camera": "theatre-street-10-street",
+  "cameraConfig": {
+    "id": "theatre-street-10-street",
+    "locationCm": [
+      -72578.25734514123,
+      16433.09364384134,
+      165
+    ],
+    "rotation": {
+      "pitch": 5,
+      "yaw": 55.181683595329375,
+      "roll": 0
+    },
+    "fov": 78
+  },
+  "image": "output/unreal-adjoining-continuation01-20261014/evidence/structure/theatre-street-10-street.png",
+  "imageSha256": "0f571e9cdc9b5fdb1aa5c19e52e65e4cac8189e6eb22d3aeb3dcc261de42096f",
+  "width": 892,
+  "height": 490,
+  "warmupNativeFrames": 28,
+  "nativeCapture": {
+    "cameraLocation": {
+      "x": -72578.25734514123,
+      "y": 16433.09364384134,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 5,
+      "yaw": 55.18168258666992,
+      "roll": 0
+    },
+    "cameraFOV": 78,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "softwareRendering": true,
+  "nullRHI": false,
+  "receipt": "output/unreal-adjoining-continuation01-20261014/survey.json",
+  "receiptSha256": "9d55dd2890aab719c5be5396c7ccc0bb232c2ca09ec74d7b12bdccc457636a11",
+  "scriptSha256": "8f562b55fc8f81441a2d07c1c0112e252ab64896a4faa0ad4539cdb261420f2c"
+}

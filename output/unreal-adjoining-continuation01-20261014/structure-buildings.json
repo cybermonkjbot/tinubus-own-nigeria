@@ -1,0 +1,42 @@
+{
+  "protectedUnchanged": true,
+  "sites": [
+    {
+      "id": "unity-avenue-13",
+      "instances": 326,
+      "sourceFloors": 6
+    },
+    {
+      "id": "unity-avenue-15",
+      "instances": 456,
+      "sourceFloors": 10
+    },
+    {
+      "id": "theatre-street-10",
+      "instances": 151,
+      "sourceFloors": 4
+    },
+    {
+      "id": "theatre-street-12",
+      "instances": 366,
+      "sourceFloors": 9
+    }
+  ],
+  "splines": 524,
+  "maximumPositionErrorCm": 0.0005578994791784582,
+  "retainedScenery": 5017,
+  "boundaries": [
+    {
+      "label": "Biome: college-green",
+      "points": 12
+    },
+    {
+      "label": "Biome: neighbourhood-park-18",
+      "points": 14
+    }
+  ],
+  "dirtyMaps": [
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_AdjoiningContinuation01"
+  ]
+}

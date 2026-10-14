@@ -1,0 +1,41 @@
+{
+  "sites": [
+    {
+      "id": "unity-avenue-13",
+      "instances": 326
+    },
+    {
+      "id": "unity-avenue-15",
+      "instances": 456
+    },
+    {
+      "id": "theatre-street-10",
+      "instances": 151
+    },
+    {
+      "id": "theatre-street-12",
+      "instances": 366
+    }
+  ],
+  "retained": {
+    "earlierScenery": 5017,
+    "adjoiningExteriors": 2451,
+    "groundDetails": 441,
+    "boundaries": [
+      [
+        "Biome: college-green",
+        12
+      ],
+      [
+        "Biome: neighbourhood-park-18",
+        14
+      ]
+    ]
+  },
+  "protectedSceneUnchanged": true,
+  "boundaryInstances": 265,
+  "groundSurfaces": 12,
+  "groundAreaM2": 10777.232138772757,
+  "verifiedSourceSplineRuns": 524,
+  "sourceObjHashesVerified": true
+}
