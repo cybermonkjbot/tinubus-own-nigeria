@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "idPrefix": "mosaic-ebute-metta-v1",
+  "namespace": "/Game/BaddieGeneratedWorld/Realism/EbuteMettaSlice_20261014/Mosaic_v1",
+  "sourceAccessDate": "2026-10-14",
+  "sourceAttribution": "OpenStreetMap contributors",
+  "sourceLicense": "ODbL 1.0; attribution and applicable database obligations require review before distribution",
+  "coordinateContract": {
+    "source": "WGS84 longitude,latitude in decimal degrees",
+    "localProjection": "equirectangular tangent plane at the Freeman/Market junction; x east, y north in metres",
+    "engine": "UE centimetres [100*xEast, 0 local vertical, -100*yNorth]",
+    "verticalDatum": null,
+    "worldPlacement": null,
+    "horizontalAccuracy": "Map-derived planimetric geometry; not surveyed",
+    "compression": 1.0
+  },
+  "baseReceipt": "yaba-dense-street-v2-reviewed.json",
+  "baseReceiptSha256": "bd981004b5179ed75edbba9e2c46cb5e6d2d0bf5f13f1d068682e40e57117667",
+  "assetsReceipt": "frontage-v3-native-assets.json",
+  "assetsReceiptSha256": "b12b6d8f1dea57912217cb5fae0ca69988753bfced3e8115b0f6afb54feda5e8",
+  "researchDocument": "docs/world-building/lagos-mosaic-2026-10-11/ebute-metta-extension.md",
+  "researchDocumentSha256": "5896325797d3e3167ad5fa63a26ce9a7b18fc25337ac7c7a8305bf9bf873548f",
+  "streets": [
+    {
+      "id": "freeman-e2-e3",
+      "name": "Freeman Street",
+      "osmWayId": "166893832",
+      "osmVersion": 7,
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/way/166893832/full",
+      "sourceTags": {"highway": "residential", "surface": "unpaved", "source": "Bing"},
+      "walkDirection": "E2-through-E1-to-E3",
+      "nodes": [
+        {"id": "1783114230", "lon": 3.3863626, "lat": 6.4796776},
+        {"id": "5617959407", "lon": 3.3862862, "lat": 6.4798468},
+        {"id": "5617959408", "lon": 3.3861038, "lat": 6.4802533},
+        {"id": "1783114075", "lon": 3.3859825, "lat": 6.4804964},
+        {"id": "5617959409", "lon": 3.3858316, "lat": 6.4808249},
+        {"id": "5617959410", "lon": 3.3856814, "lat": 6.4811620},
+        {"id": "1783114104", "lon": 3.3855794, "lat": 6.4814099}
+      ],
+      "frontages": [
+        {"id": "freeman-01", "chainageMetres": 16, "side": "east", "run": "right-0", "fictionalUse": "household"},
+        {"id": "freeman-02", "chainageMetres": 39, "side": "west", "run": "left-1", "fictionalUse": "cushion-repair"},
+        {"id": "freeman-03", "chainageMetres": 65, "side": "east", "run": "right-3", "fictionalUse": "shared-household-workroom"},
+        {"id": "freeman-04", "chainageMetres": 89, "side": "west", "run": "left-4", "fictionalUse": "household"},
+        {"id": "freeman-05", "chainageMetres": 124, "side": "east", "run": "right-8", "fictionalUse": "household-workroom"},
+        {"id": "freeman-06", "chainageMetres": 155, "side": "west", "run": "left-8", "fictionalUse": "household"},
+        {"id": "freeman-07", "chainageMetres": 187, "side": "east", "run": "right-2", "fictionalUse": "small-workroom"}
+      ]
+    },
+    {
+      "id": "market-e1-e4",
+      "name": "Market Street",
+      "osmWayId": "108050114",
+      "osmVersion": 11,
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/way/108050114/full",
+      "sourceTags": {"highway": "residential", "surface": "unpaved"},
+      "walkDirection": "E1-to-E4",
+      "nodes": [
+        {"id": "1783114075", "lon": 3.3859825, "lat": 6.4804964},
+        {"id": "13816473533", "lon": 3.3858503, "lat": 6.4804371},
+        {"id": "5617960233", "lon": 3.3857148, "lat": 6.4803738},
+        {"id": "11928565606", "lon": 3.3855272, "lat": 6.4802892},
+        {"id": "5617960234", "lon": 3.3853454, "lat": 6.4802152},
+        {"id": "1240404281", "lon": 3.3851436, "lat": 6.4801220}
+      ],
+      "frontages": [
+        {"id": "market-01", "chainageMetres": 18, "side": "north", "run": "right-2", "fictionalUse": "food-provisions"},
+        {"id": "market-02", "chainageMetres": 53, "side": "south", "run": "left-3", "fictionalUse": "household"},
+        {"id": "market-03", "chainageMetres": 87, "side": "north", "run": "right-4", "fictionalUse": "shared-yard-workroom"}
+      ]
+    },
+    {
+      "id": "griffith-e5-e6",
+      "name": "Griffith Street",
+      "osmWayId": "108050110",
+      "osmVersion": 9,
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/way/108050110/full",
+      "sourceTags": {"highway": "residential", "surface": "unpaved", "source": "Bing"},
+      "walkDirection": "E5-through-E4-to-E6",
+      "nodes": [
+        {"id": "1240404279", "lon": 3.3855043, "lat": 6.4792538},
+        {"id": "1240404281", "lon": 3.3851436, "lat": 6.4801220},
+        {"id": "1240404267", "lon": 3.3846816, "lat": 6.4810054}
+      ],
+      "frontages": [
+        {"id": "griffith-01", "chainageMetres": 21, "side": "east", "run": "right-6", "fictionalUse": "furniture-repair"},
+        {"id": "griffith-02", "chainageMetres": 62, "side": "west", "run": "left-6", "fictionalUse": "household"},
+        {"id": "griffith-03", "chainageMetres": 128, "side": "east", "run": "right-7", "fictionalUse": "alterations"},
+        {"id": "griffith-04", "chainageMetres": 176, "side": "west", "run": "left-9", "fictionalUse": "household"}
+      ]
+    },
+    {
+      "id": "willoughby-e5-e2",
+      "name": "Willoughby Street",
+      "osmWayId": "108050115",
+      "osmVersion": 11,
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/way/108050115/full",
+      "sourceTags": {"highway": "residential", "surface": "unpaved"},
+      "walkDirection": "E5-to-E2",
+      "nodes": [
+        {"id": "1240404279", "lon": 3.3855043, "lat": 6.4792538},
+        {"id": "5617903537", "lon": 3.3858369, "lat": 6.4794164},
+        {"id": "5617903538", "lon": 3.3861709, "lat": 6.4795830},
+        {"id": "1783114230", "lon": 3.3863626, "lat": 6.4796776}
+      ],
+      "frontages": [
+        {"id": "willoughby-01", "chainageMetres": 22, "side": "north", "run": "left-7", "fictionalUse": "furniture-repair"},
+        {"id": "willoughby-02", "chainageMetres": 57, "side": "south", "run": "right-8", "fictionalUse": "household"}
+      ]
+    },
+    {
+      "id": "kadara-e3-e6",
+      "name": "Kadara Street",
+      "osmWayId": "108050112",
+      "osmVersion": 8,
+      "sourceUrl": "https://api.openstreetmap.org/api/0.6/way/108050112/full",
+      "sourceTags": {"highway": "residential", "surface": "unpaved", "source": "Bing"},
+      "walkDirection": "E6-to-E3",
+      "nodes": [
+        {"id": "1240404267", "lon": 3.3846816, "lat": 6.4810054},
+        {"id": "1783114104", "lon": 3.3855794, "lat": 6.4814099}
+      ],
+      "frontages": [
+        {"id": "kadara-01", "chainageMetres": 20, "side": "north", "run": "left-5", "fictionalUse": "household"},
+        {"id": "kadara-02", "chainageMetres": 49, "side": "south", "run": "right-9", "fictionalUse": "shared-household-workroom"}
+      ]
+    }
+  ],
+  "designValues": {
+    "carriagewayWidthMetres": 5.0,
+    "clearFootwayWidthMetres": 2.0,
+    "frontageSetbackFromMappedCentrelineMetres": 5.89,
+    "publicAccessVerified": false,
+    "vehicleAccessVerified": false,
+    "gradeAndDrainageVerified": false,
+    "buildingsAreFictionalAssemblies": true,
+    "householdInteriorsImplemented": false
+  },
+  "activityNotes": {
+    "allUsesFictional": true,
+    "dialogueAvailable": false,
+    "audioAvailable": false,
+    "residentIdentitiesAvailable": false
+  }
+}
