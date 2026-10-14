@@ -19,6 +19,17 @@ October 11, 2026. Authored manifests downstream of the existing primary-sector b
 
 Read each manifest with its linked primary blueprint and [shared art-pass contract](art-pass-contract.md). Numeric art recipes are proposals, not measured local densities or engine budgets. Primary-source historical observations remain historical; no external source was freshly verified for this handoff.
 
+## Mosaic continuation
+
+October 14, 2026. The existing mosaic dossiers supply additional primary slices beyond the completed Oshodi manifest set. These IDs belong to the coordinator's document register, not runtime sectors. Their current facade/material verification and final host transforms remain pending.
+
+| Primary slice | Manifest | Distinct focus |
+| --- | --- | --- |
+| M03 — University/Moore, Yaba assignment | [Yaba detailing](mosaic-03-yaba.md) | Binding/repair contact, study and household intervals |
+| M04 — Toyin/Emina/Amore, Ikeja | [Ikeja detailing](mosaic-04-ikeja.md) | Appliance/laundry handling, maintained compounds and office frontage |
+
+Other existing mosaic slices remain available for later detailing. This continuation uses the primary authored designs without fresh external research or a current-condition claim.
+
 ## Deferred work register
 
 | ID | Deferred dependency | Affected work | Supported work to continue now | Resume condition |
@@ -30,8 +41,8 @@ Read each manifest with its linked primary blueprint and [shared art-pass contra
 | H05 | Artwork, brand and identity approval | Campaigns, obituary/church artwork and Gala graphics | Original unnamed artwork variants and blank prop UV briefs | Approved asset provenance and scenario date |
 | H06 | Valid public access and clearance envelopes | Cluster placement at roads, loading slots and stairs | Keep clusters inside conditional existing slots | Primary admission and measured clearances accepted |
 | H07 | Existing scene and matched view available | In-world visual acceptance | Source/document review | Already-running preview or separately authorized visual session |
-| H08 | No primary blueprint beyond Sector 10 | Further zone manifests | Complete the ten documented-sector handoff | New primary zone layout and asset list supplied |
+| H08 | No deeper Oshodi Sector 11 blueprint found in this continuation | Kunle Akinosi/Ganikale/Adewale deeper-zone detailing | Continue existing mosaic primary slices; M03/M04 delivered October 14 | New deeper-zone layout and asset checklist supplied |
 
 Unresolved rows are held for later; they do not prevent another sector's supported manifest work. Do not resolve them by guessing dimensions, asserting permissions or introducing new infrastructure. Keep art-production, native placement, rendered acceptance and release status separate.
 
-Delivery: ten sector manifests including the existing Sector 02 document; shared contract and deferred register. No geometry, utilities, gameplay state, consumed assets or renderer documents changed. In-world application and visual acceptance remain pending.
+Delivery: ten Oshodi sector manifests including the existing Sector 02 document, two mosaic manifests, shared contract and deferred register. No geometry, utilities, gameplay state, consumed assets or renderer documents changed. In-world application and visual acceptance remain pending.
