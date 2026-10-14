@@ -21,7 +21,59 @@ BIOME_VIEWS = {
     'college-green': ((-36000, 48200, 165), (-3, 90, 0)),
     'neighbourhood-park-18': ((-65600, 33300, 165), (-3, 90, 0)),
 }
+FORECOURT_VIEWS = {
+    'library-lane-2': ((-80125.882, -27353.454, 165), (5, -27.196207, 0)),
+    'library-lane-4': ((-73724.867, -23176.360, 165), (5, -38.367078, 0)),
+    'garden-avenue-5': ((-1625.337, 25226.563, 165), (5, 176.608323, 0)),
+    'garden-avenue-7': ((-3410.759, 33519.030, 165), (5, 179.928736, 0)),
+    'garden-avenue-14': ((-12312.012, 53352.643, 165), (5, 42.329718, 0)),
+}
 _biome_job = None
+
+
+def view_forecourt(site):
+    if site not in FORECOURT_VIEWS:
+        return
+    VIEWS['forecourt:' + site] = FORECOURT_VIEWS[site]
+    view('forecourt:' + site)
+
+
+def forecourt_actor(site):
+    return next((a for a in generators() if a.get_actor_label() == 'Forecourt: ' + site), None)
+
+
+def edit_forecourt(site):
+    actor = forecourt_actor(site)
+    if actor:
+        u.get_editor_subsystem(u.EditorActorSubsystem).set_selected_level_actors([actor])
+        u.get_editor_subsystem(u.AssetEditorSubsystem).open_editor_for_assets([actor.pcg_component.get_graph()])
+
+
+def forecourt_visibility(site, visible):
+    actor = forecourt_actor(site)
+    if actor:
+        actor.set_is_temporarily_hidden_in_editor(not visible)
+        u.get_editor_subsystem(u.LevelEditorSubsystem).editor_invalidate_viewports()
+
+
+def regenerate_forecourt(site):
+    actor = forecourt_actor(site)
+    if not actor:
+        return
+    scene = u.get_editor_subsystem(u.EditorActorSubsystem).get_all_level_actors()
+    if any(c.get_editor_property('generation_in_progress') for a in scene for c in a.get_components_by_class(u.PCGComponent)):
+        u.log_warning('Wait for the current PCG generation to finish.')
+        return
+    actor.pcg_component.generate(True)
+
+
+def edit_ground_material(name):
+    if name not in ['M_ParkMeadow', 'M_CompactedLaterite', 'M_CompoundPlaster']:
+        return
+    path = '/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Materials/' + name
+    asset = u.load_asset(path)
+    if asset:
+        u.get_editor_subsystem(u.AssetEditorSubsystem).open_editor_for_assets([asset])
 
 
 def biome_actors(site):
@@ -266,6 +318,27 @@ def register():
             entry.set_string_command(u.ToolMenuStringCommandType.PYTHON, '',
                                     'import baddie_street_tools; baddie_street_tools.' + command)
             submenu.add_menu_entry('Actions', entry)
+    forecourts = menu.add_sub_menu('BaddieStreetTools', 'TownCentre', 'Forecourts', 'Building forecourts')
+    for site in FORECOURT_VIEWS:
+        submenu = forecourts.add_sub_menu('BaddieStreetTools', 'Sites', site.replace('-', '_'), site.replace('-', ' ').title())
+        for name, label, command in [
+                ('View', 'Walking-height view', f'view_forecourt({site!r})'),
+                ('Edit', 'Edit compound graph', f'edit_forecourt({site!r})'),
+                ('Generate', 'Regenerate compound', f'regenerate_forecourt({site!r})'),
+                ('Hide', 'Hide compound', f'forecourt_visibility({site!r}, False)'),
+                ('Show', 'Show compound', f'forecourt_visibility({site!r}, True)')]:
+            entry = u.ToolMenuEntry(name=name, type=u.MultiBlockType.MENU_ENTRY)
+            entry.set_label(label)
+            entry.set_string_command(u.ToolMenuStringCommandType.PYTHON, '',
+                'import baddie_street_tools; baddie_street_tools.' + command)
+            submenu.add_menu_entry('Actions', entry)
+    for name, label in [('M_ParkMeadow', 'Edit park ground'), ('M_CompactedLaterite', 'Edit forecourt ground'),
+                        ('M_CompoundPlaster', 'Edit compound finish')]:
+        entry = u.ToolMenuEntry(name=name, type=u.MultiBlockType.MENU_ENTRY)
+        entry.set_label(label)
+        entry.set_string_command(u.ToolMenuStringCommandType.PYTHON, '',
+            'import baddie_street_tools; baddie_street_tools.edit_ground_material(' + repr(name) + ')')
+        forecourts.add_menu_entry('Materials', entry)
     biomes = menu.add_sub_menu('BaddieStreetTools', 'TownCentre', 'Biomes', 'Park biomes')
     for name, label in [('DA_UrbanParkPlants', 'Plant palette'), ('PCG_Canopy', 'Canopy density'),
                         ('PCG_Understory', 'Understory density'), ('PCG_Groundcover', 'Groundcover density')]:

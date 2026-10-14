@@ -1,6 +1,6 @@
 # Native street detail and park biomes
 
-October 14, 2026. Authored in Windows editor PID 13584, UE 5.8.3-58210709. That editor process subsequently stopped; see session status below. Native-only continuation; no shared mobile scene or production renderer changes.
+October 14, 2026. Initially authored in Windows editor PID 13584, UE 5.8.3-58210709. The project is now reopened in PID 10904 with the saved layers retained; see the recovery and forecourt continuation below. Native-only work; no shared mobile scene or production renderer changes.
 
 ## Delivered scope
 
@@ -41,11 +41,21 @@ The saved parent reopened at 10:34:39 on October 14, 2026, and readback at 10:35
 
 The retained engine log, `Saved/Bridge/editor-20261011-181531.log`, ends at the 10:36:12 `CaptureViewport` dispatch. This does not establish why the process stopped. The two available crash contexts for PID 13584 are `Ensure` reports, not a confirmed fatal termination report: `_0000` records a realtime-override warning on October 12; `_0001` records the failed unload of the unreferenced `PCG_LocalPark` diagnostic package at 10:34:21 on October 14. The editor continued through the successful reopen/readback after that ensure. The diagnostic package remains untouched and excluded from the native checkpoint. No root cause is claimed and no reproduction or repair was attempted.
 
-Two final menu-source corrections were transferred after the editor became unavailable: the planting graph shortcut resolves by asset name, and biome hide/show uses temporary editor visibility. Their final hot-reload and interaction verification remain incomplete. Earlier menu registration and College Green's one-click sequential regeneration were verified before the final save. Reopen the existing project only with user direction, then verify those two controls and inspect the saved parent before further authoring.
+Two final menu-source corrections were transferred after the editor became unavailable: the planting graph shortcut resolves by asset name, and biome hide/show uses temporary editor visibility. They were subsequently hot-reloaded and exercised after the authorized recovery below. Earlier menu registration and College Green's one-click sequential regeneration had been verified before the previous save.
+
+## Authorized recovery and forecourt continuation
+
+Joshua approved reopening and continuing building coverage and ground treatment. An initial noninteractive launch (PID 2168) failed with `DXGI_ERROR_NOT_CURRENTLY_AVAILABLE` during swap-chain creation; there was no signed-in Windows desktop. Connecting the existing Cribtest11 device in Windows App established the interactive desktop. The existing `Baddie-Unreal-Editor-desktop` scheduled task then reopened UE 5.8.3 in PID 10904. No VM restart, graphics/RHI change, installation or build was needed. This diagnosed startup failure is separate from the still-unconfirmed earlier PID 13584 termination.
+
+The retained map had all 3,970 previous scenery instances and no dirty maps. College Green hide/show worked, and the planting shortcut opened `PCG_LibraryLane_PlantingAndShadeFull` as confirmed by the open-assets readback.
+
+The ground survey revealed a persistence defect missed by the earlier instance-count audit: both editable biome splines had reverted to the template's four-point 50-metre square, although their generated plants and core bounds remained intact. Programmatically authored spline points lacked `spline_has_been_edited`. The repair first matched the recorded 12/14-point outlines against the current canonical park-loop supports and refused any possible hand-edited boundary. It restored the points and set the editor flag. Repeated saves/reopens now retain 12 College Green points and 14 Neighbourhood Park 18 points, with all 1,914 biome instances. No plugin template was changed. A saved instance count alone does not establish generator-input persistence.
+
+The completed bounded continuation is recorded in `unreal-forecourts-ground-2026-10-14.md`: five additive compounds, fitted ground inside both park loops, new native editor controls, and matched viewport evidence. It does not add new buildings or finish the wider town.
 
 ## Remaining work and external tools
 
-These additions do not resolve the whole-map complaint. The park substrate still uses the existing broad tiled ground; it needs designed soil/grass transitions and terrain work. Streets still lack continuous adjoining building fabric, forecourts and depth. The next structural work should use the current canonical parcel/ground records and preserve source reconciliation guards, not cover missing building plots with vegetation or replace the city layout with an unrelated generated world.
+These additions do not resolve the whole-map complaint. Grass-toned surfaces now cover the two park interiors; outside them the broad ground remains tiled and flat. The five selected shells now have compounds and forecourts, but streets still lack continuous adjoining building fabric and terrain depth. Further structural work must use the accepted parcel/ground records and preserve source reconciliation guards, not cover missing building plots with vegetation or replace the city layout with an unrelated generated world.
 
 No Calysto, WorldGen, Gaea, World Creator, Nwiro or VIO installation, purchase, account creation or project upload was performed. Existing research distinguishes terrain creation, asset generation, biome distribution and streaming; they are not interchangeable. Calysto's documented DX12 setup is separate from this editor's D3D11 software-rendering configuration. Runtime infinite terrain would be a substantial architecture change. The exact VIO 3D / V3 World product link is still needed to verify its claims.
 

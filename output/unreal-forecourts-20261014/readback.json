@@ -1,0 +1,64 @@
+{
+  "protectedUnchanged": true,
+  "sites": [
+    {
+      "id": "library-lane-2",
+      "expected": 202,
+      "instances": 202,
+      "generated": true,
+      "busy": false,
+      "noCollision": true,
+      "noNavigation": true
+    },
+    {
+      "id": "library-lane-4",
+      "expected": 216,
+      "instances": 216,
+      "generated": true,
+      "busy": false,
+      "noCollision": true,
+      "noNavigation": true
+    },
+    {
+      "id": "garden-avenue-5",
+      "expected": 183,
+      "instances": 183,
+      "generated": true,
+      "busy": false,
+      "noCollision": true,
+      "noNavigation": true
+    },
+    {
+      "id": "garden-avenue-7",
+      "expected": 242,
+      "instances": 242,
+      "generated": true,
+      "busy": false,
+      "noCollision": true,
+      "noNavigation": true
+    },
+    {
+      "id": "garden-avenue-14",
+      "expected": 204,
+      "instances": 204,
+      "generated": true,
+      "busy": false,
+      "noCollision": true,
+      "noNavigation": true
+    }
+  ],
+  "parks": [
+    {
+      "label": "Park ground: college-green",
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Park_college_green.SM_FC_Park_college_green",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Materials/M_ParkMeadow.M_ParkMeadow",
+      "noCollision": true
+    },
+    {
+      "label": "Park ground: neighbourhood-park-18",
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Park_neighbourhood_park_18.SM_FC_Park_neighbourhood_park_18",
+      "material": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Materials/M_ParkMeadow.M_ParkMeadow",
+      "noCollision": true
+    }
+  ]
+}

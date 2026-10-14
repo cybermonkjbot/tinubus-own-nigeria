@@ -1,0 +1,186 @@
+{
+  "assets": [
+    {
+      "id": "SM_FC_BedPlanter",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter.SM_FC_BedPlanter",
+      "native_triangles": [
+        60,
+        60,
+        60
+      ],
+      "source_triangles": [
+        60,
+        60,
+        60
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EFDA26A480) {min: {x: -127.000008, y: -54.500019, z: 0.000000}, max: {x: 127.000008, y: 54.500019, z: 17.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "soil",
+          "source": "soil"
+        },
+        {
+          "slot": "stone",
+          "source": "stone"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Yard_library_lane_2",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Yard_library_lane_2.SM_FC_Yard_library_lane_2",
+      "native_triangles": [
+        10,
+        10,
+        10
+      ],
+      "source_triangles": [
+        10,
+        10,
+        10
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EF9074EA40) {min: {x: -353.000214, y: -1434.000122, z: 1.000000}, max: {x: 2693.000244, y: 1434.000366, z: 1.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "soil",
+          "source": "soil"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Yard_library_lane_4",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Yard_library_lane_4.SM_FC_Yard_library_lane_4",
+      "native_triangles": [
+        10,
+        10,
+        10
+      ],
+      "source_triangles": [
+        10,
+        10,
+        10
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EFE8367A80) {min: {x: -454.000214, y: -1364.000122, z: 1.000000}, max: {x: 3184.000244, y: 1364.000488, z: 1.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "soil",
+          "source": "soil"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Yard_garden_avenue_5",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Yard_garden_avenue_5.SM_FC_Yard_garden_avenue_5",
+      "native_triangles": [
+        10,
+        10,
+        10
+      ],
+      "source_triangles": [
+        10,
+        10,
+        10
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EFB0DAF380) {min: {x: -453.000214, y: -1285.000122, z: 1.000000}, max: {x: 2013.000122, y: 1285.000366, z: 1.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "soil",
+          "source": "soil"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Yard_garden_avenue_7",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Yard_garden_avenue_7.SM_FC_Yard_garden_avenue_7",
+      "native_triangles": [
+        14,
+        14,
+        14
+      ],
+      "source_triangles": [
+        14,
+        14,
+        14
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EF7C705100) {min: {x: -513.500305, y: -1851.000122, z: 1.000000}, max: {x: 2463.500244, y: 1851.000366, z: 1.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "soil",
+          "source": "soil"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Yard_garden_avenue_14",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Yard_garden_avenue_14.SM_FC_Yard_garden_avenue_14",
+      "native_triangles": [
+        12,
+        12,
+        12
+      ],
+      "source_triangles": [
+        12,
+        12,
+        12
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EFDC60A140) {min: {x: -461.000214, y: -1349.000000, z: 1.000000}, max: {x: 2801.000244, y: 1349.000366, z: 1.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "soil",
+          "source": "soil"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Park_college_green",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Park_college_green.SM_FC_Park_college_green",
+      "native_triangles": [
+        63,
+        63,
+        63
+      ],
+      "source_triangles": [
+        63,
+        63,
+        63
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EFD986E440) {min: {x: -3461.423340, y: -3636.627686, z: -4.800000}, max: {x: 3626.498779, y: 3717.772705, z: -4.800000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "soil",
+          "source": "soil"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Park_neighbourhood_park_18",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Park_neighbourhood_park_18.SM_FC_Park_neighbourhood_park_18",
+      "native_triangles": [
+        97,
+        97,
+        97
+      ],
+      "source_triangles": [
+        97,
+        97,
+        97
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EF8B1F5900) {min: {x: -4608.373535, y: -5687.782715, z: -4.800000}, max: {x: 4637.663574, y: 5327.459961, z: -4.800000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "soil",
+          "source": "soil"
+        }
+      ]
+    }
+  ],
+  "source_kind": "Original bevelled compound kit and source-fitted ground; no external assets",
+  "visual_review": "pending"
+}

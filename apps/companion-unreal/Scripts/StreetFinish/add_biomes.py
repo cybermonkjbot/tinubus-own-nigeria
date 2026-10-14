@@ -246,6 +246,9 @@ def install():
         for i in range(len(site['points'])):
             spline.set_spline_point_type(i, u.SplinePointType.LINEAR, False)
         spline.set_closed_loop(True, True)
+        # Programmatic points need the same edited flag as the spline visualizer;
+        # otherwise Blueprint reconstruction restores the template's 50m square.
+        spline.set_editor_property('spline_has_been_edited', True)
         local_graph = biome.get_component_by_class(u.PCGComponent).graph_instance
         u.PCGGraphParametersHelpers.set_bool_parameter(local_graph, 'DisallowCollisions', True)
         u.PCGGraphParametersHelpers.set_bool_parameter(local_graph, 'LocalPreview', False)
@@ -281,6 +284,51 @@ def install():
     (OUTPUT / 'installed-receipt.json').write_text(json.dumps(receipt, indent=2) + '\n')
     print(json.dumps(receipt))
     # Generation, audit, visual review and explicit saves are separate operations.
+
+
+def restore_saved_boundaries():
+    """Repair only confirmed template resets, retaining all generated instances."""
+    if KIT['world']().get_path_name().split('.')[0] != MAP:
+        raise RuntimeError('Open the saved detailed town centre')
+    if u.EditorLoadingAndSavingUtils.get_dirty_map_packages():
+        raise RuntimeError('Resolve unsaved maps first')
+    receipt = json.loads((OUTPUT / 'installed-receipt.json').read_text())
+    scene = list(u.get_editor_subsystem(u.EditorActorSubsystem).get_all_level_actors())
+    named = {a.get_actor_label(): a for a in scene}
+    before = fingerprint(scene)
+    repairs = []
+    # Validate every source and current boundary before mutating any component.
+    for site in receipt['sites']:
+        actor = named['Biome: ' + site['id']]
+        spline = actor.get_component_by_class(u.SplineComponent)
+        current = [KIT['vec'](spline.get_location_at_spline_point(i, u.SplineCoordinateSpace.WORLD))
+                   for i in range(spline.get_number_of_spline_points())]
+        segments = sorted([(int(m[1]), a) for label, a in named.items()
+                           if (m := re.fullmatch('TC_Ground22_' + site['id'] + r'-loop_(\d+)_support', label))])
+        source = [KIT['vec'](source_box(a)[0]) for _, a in segments]
+        if len(source) != len(site['polygon']) or any(math.dist(a[:2], b[:2]) > .01 for a, b in zip(source, site['polygon'])):
+            raise RuntimeError('Canonical park outline changed: ' + site['id'])
+        if len(current) == len(site['polygon']) and all(math.dist(a,b)<.01 for a,b in zip(current,site['polygon'])):
+            continue
+        centre = actor.get_actor_location()
+        template = [[centre.x+x,centre.y+y,centre.z] for x,y in [(-2500,2500),(-2500,-2500),(2500,-2500),(2500,2500)]]
+        if spline.get_editor_property('spline_has_been_edited') or len(current)!=4 or any(math.dist(a,b)>.01 for a,b in zip(current,template)):
+            raise RuntimeError('Boundary has possible hand edits; refusing to replace: ' + site['id'])
+        repairs.append((site,actor,spline,current))
+    for site,actor,spline,current in repairs:
+        actor.modify(); spline.modify()
+        spline.clear_spline_points(False)
+        for p in site['polygon']:
+            spline.add_spline_point(u.Vector(*p), u.SplineCoordinateSpace.WORLD, False)
+        for i in range(len(site['polygon'])):
+            spline.set_spline_point_type(i,u.SplinePointType.LINEAR,False)
+        spline.set_closed_loop(True,True)
+        spline.set_editor_property('spline_has_been_edited',True)
+    if fingerprint(scene)!=before:
+        raise RuntimeError('Protected actor transforms changed')
+    (OUTPUT/'boundary-restoration.json').write_text(json.dumps({'sites':[{'id':s['id'],'before':c,'restored':s['polygon']} for s,a,b,c in repairs],
+        'protectedFingerprint':before,'savedReopen':'pending'},indent=2)+'\n')
+    print(json.dumps({'restored':[s['id'] for s,a,b,c in repairs],'generation':'retained; not regenerated','save':'pending'}))
 
 
 def generate(site, stage='local'):

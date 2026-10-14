@@ -1,0 +1,168 @@
+{
+  "assets": [
+    {
+      "id": "SM_FC_WallPanel",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_WallPanel.SM_FC_WallPanel",
+      "native_triangles": [
+        204,
+        204,
+        204
+      ],
+      "source_triangles": [
+        204,
+        204,
+        204
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EF9026ABC0) {min: {x: -120.000008, y: -11.050018, z: 0.000000}, max: {x: 120.000008, y: 11.050018, z: 142.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "plaster",
+          "source": "plaster"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Coping",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Coping.SM_FC_Coping",
+      "native_triangles": [
+        68,
+        68,
+        68
+      ],
+      "source_triangles": [
+        68,
+        68,
+        68
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EFD9CC2C00) {min: {x: -120.000008, y: -13.000017, z: 142.000000}, max: {x: 120.000008, y: 13.000017, z: 152.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "stone",
+          "source": "stone"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Pier",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Pier.SM_FC_Pier",
+      "native_triangles": [
+        204,
+        204,
+        204
+      ],
+      "source_triangles": [
+        204,
+        204,
+        204
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EFE3428C00) {min: {x: -18.000004, y: -18.000004, z: 0.000000}, max: {x: 18.000004, y: 18.000004, z: 174.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "plaster",
+          "source": "plaster"
+        },
+        {
+          "slot": "stone",
+          "source": "stone"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_GateLeaf",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_GateLeaf.SM_FC_GateLeaf",
+      "native_triangles": [
+        1688,
+        1688,
+        1688
+      ],
+      "source_triangles": [
+        1688,
+        1688,
+        1688
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EF8C9AEAC0) {min: {x: -108.000008, y: -6.500014, z: 2.000000}, max: {x: 109.557190, y: 3.557199, z: 150.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "iron",
+          "source": "iron"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_DrainGrate",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_DrainGrate.SM_FC_DrainGrate",
+      "native_triangles": [
+        1428,
+        1428,
+        1428
+      ],
+      "source_triangles": [
+        1428,
+        1428,
+        1428
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EFDC5BDB80) {min: {x: -60.750004, y: -16.250008, z: -0.250000}, max: {x: 60.750004, y: 16.250008, z: 2.250000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "iron",
+          "source": "iron"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Paving",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Paving.SM_FC_Paving",
+      "native_triangles": [
+        68,
+        68,
+        68
+      ],
+      "source_triangles": [
+        68,
+        68,
+        68
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EF95B39BC0) {min: {x: -49.750008, y: -49.750008, z: -5.000000}, max: {x: 49.750008, y: 49.750008, z: 0.000000}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "paving",
+          "source": "paving"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Bed",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_Bed.SM_FC_Bed",
+      "native_triangles": [
+        344,
+        336,
+        336
+      ],
+      "source_triangles": [
+        352,
+        352,
+        352
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EF96E0A1C0) {min: {x: -127.000008, y: -54.500019, z: 0.000000}, max: {x: 127.000008, y: 54.500019, z: 17.000000}, is_valid: True}>",
+      "topology_match": false,
+      "material_aliases": [
+        {
+          "slot": "soil",
+          "source": "soil"
+        },
+        {
+          "slot": "stone",
+          "source": "stone"
+        }
+      ]
+    }
+  ],
+  "source_kind": "Original bevelled compound kit and source-fitted ground; no external assets",
+  "visual_review": "pending"
+}

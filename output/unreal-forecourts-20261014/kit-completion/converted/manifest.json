@@ -1,0 +1,366 @@
+{
+  "pid": 5389,
+  "blender": "5.2.2 LTS",
+  "source_kind": "Original bevelled compound kit and source-fitted ground; no external assets",
+  "surveySHA256": "c8716f105d811d9ec9620f5d37431051b18083a5b61b93a84cd60ae40db38ab2",
+  "units": "metres",
+  "forward": "-Y",
+  "up": "Z",
+  "materials": {
+    "plaster": {
+      "base_color": [
+        0.46,
+        0.425,
+        0.34,
+        1
+      ],
+      "roughness": 0.87,
+      "metallic": 0
+    },
+    "stone": {
+      "base_color": [
+        0.28,
+        0.3,
+        0.265,
+        1
+      ],
+      "roughness": 0.89,
+      "metallic": 0
+    },
+    "iron": {
+      "base_color": [
+        0.045,
+        0.052,
+        0.045,
+        1
+      ],
+      "roughness": 0.58,
+      "metallic": 0.25
+    },
+    "paving": {
+      "base_color": [
+        0.32,
+        0.31,
+        0.265,
+        1
+      ],
+      "roughness": 0.92,
+      "metallic": 0
+    },
+    "soil": {
+      "base_color": [
+        0.1,
+        0.066,
+        0.033,
+        1
+      ],
+      "roughness": 0.98,
+      "metallic": 0
+    }
+  },
+  "assets": [
+    {
+      "id": "SM_FC_BedPlanter",
+      "source_id": "SM_FC_BedPlanter",
+      "materials": [
+        "soil",
+        "stone"
+      ],
+      "bounds": {
+        "min": [
+          -1.2699999809265137,
+          -0.5450000166893005,
+          0.0
+        ],
+        "max": [
+          1.2699999809265137,
+          0.5450000166893005,
+          0.17000000178813934
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_FC_BedPlanter_LOD0.fbx",
+          "triangles": 60,
+          "sha256": "6a189e8946b5d7fb83e04d0058bf25921e93e35f53bb20121844c0e5ff7e7f03"
+        },
+        {
+          "file": "SM_FC_BedPlanter_LOD1.fbx",
+          "triangles": 60,
+          "sha256": "dd85c47aed284cd3943b6fcdec5b205a836a3e852b7646d34aeb84138bb279bb"
+        },
+        {
+          "file": "SM_FC_BedPlanter_LOD2.fbx",
+          "triangles": 60,
+          "sha256": "4b8ff0daf53c02b6ee82907c688e76366cf4f1712f773fd5e680e3543f81e327"
+        }
+      ]
+    },
+    {
+      "id": "SM_FC_Yard_library_lane_2",
+      "source_id": "SM_FC_Yard_library_lane_2",
+      "materials": [
+        "soil"
+      ],
+      "bounds": {
+        "min": [
+          -26.93000030517578,
+          -14.34000015258789,
+          0.009999999776482582
+        ],
+        "max": [
+          3.5299999713897705,
+          14.34000015258789,
+          0.009999999776482582
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_FC_Yard_library_lane_2_LOD0.fbx",
+          "triangles": 10,
+          "sha256": "3ab50b775aa8e3ccd0af2e65772187af3807e728fee65bbe4189baf1ae71a7cb"
+        },
+        {
+          "file": "SM_FC_Yard_library_lane_2_LOD1.fbx",
+          "triangles": 10,
+          "sha256": "c2ea6d69ff0ced5fc946ac9da3130bd7f675fad3fdad3148e0f99d96cc293166"
+        },
+        {
+          "file": "SM_FC_Yard_library_lane_2_LOD2.fbx",
+          "triangles": 10,
+          "sha256": "13bb718c64f014ab27646aa70780f7e292a8217bfcde18e83de63e144fd0db72"
+        }
+      ],
+      "surfaceAreaM2": 373.10279999999995,
+      "source": "library-lane-2"
+    },
+    {
+      "id": "SM_FC_Yard_library_lane_4",
+      "source_id": "SM_FC_Yard_library_lane_4",
+      "materials": [
+        "soil"
+      ],
+      "bounds": {
+        "min": [
+          -31.84000015258789,
+          -13.640000343322754,
+          0.009999999776482582
+        ],
+        "max": [
+          4.539999961853027,
+          13.640000343322754,
+          0.009999999776482582
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_FC_Yard_library_lane_4_LOD0.fbx",
+          "triangles": 10,
+          "sha256": "f05098a6fffac95c9b3c5d9da0a2e0c6089d1e2bb0f79b8b1fefc2c7f361f999"
+        },
+        {
+          "file": "SM_FC_Yard_library_lane_4_LOD1.fbx",
+          "triangles": 10,
+          "sha256": "962938fae5d00fdf10393b1e8ee20b9ffb535a430ee1a1007b7290d731e001c7"
+        },
+        {
+          "file": "SM_FC_Yard_library_lane_4_LOD2.fbx",
+          "triangles": 10,
+          "sha256": "0ef7bc36d8f2e20faaca04cd9525e0b214ac7e6c4f5b741a25c7391c477f3121"
+        }
+      ],
+      "surfaceAreaM2": 413.5664,
+      "source": "library-lane-4"
+    },
+    {
+      "id": "SM_FC_Yard_garden_avenue_5",
+      "source_id": "SM_FC_Yard_garden_avenue_5",
+      "materials": [
+        "soil"
+      ],
+      "bounds": {
+        "min": [
+          -20.1299991607666,
+          -12.850000381469727,
+          0.009999999776482582
+        ],
+        "max": [
+          4.53000020980835,
+          12.850000381469727,
+          0.009999999776482582
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_FC_Yard_garden_avenue_5_LOD0.fbx",
+          "triangles": 10,
+          "sha256": "b1cb9632619edf49fab8170fddfb938ce5d6044d5403ac71c57f4df40a2c9609"
+        },
+        {
+          "file": "SM_FC_Yard_garden_avenue_5_LOD1.fbx",
+          "triangles": 10,
+          "sha256": "6518df145b53258276ff3d031e839d746c24af2c50f4a4fdff3bc2f8c4cf9b3b"
+        },
+        {
+          "file": "SM_FC_Yard_garden_avenue_5_LOD2.fbx",
+          "triangles": 10,
+          "sha256": "6a034966f210e46ec3ee38f8a8930332bcf421a0ca0e5049d9415fb1561c593b"
+        }
+      ],
+      "surfaceAreaM2": 356.742,
+      "source": "garden-avenue-5"
+    },
+    {
+      "id": "SM_FC_Yard_garden_avenue_7",
+      "source_id": "SM_FC_Yard_garden_avenue_7",
+      "materials": [
+        "soil"
+      ],
+      "bounds": {
+        "min": [
+          -24.635000228881836,
+          -18.510000228881836,
+          0.009999999776482582
+        ],
+        "max": [
+          5.135000228881836,
+          18.510000228881836,
+          0.009999999776482582
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_FC_Yard_garden_avenue_7_LOD0.fbx",
+          "triangles": 14,
+          "sha256": "0520e11f42b4e35e4003ebd87a05c71d4b2bda22a5f5315d7cf3eaaef72b7581"
+        },
+        {
+          "file": "SM_FC_Yard_garden_avenue_7_LOD1.fbx",
+          "triangles": 14,
+          "sha256": "66197208d09727325d84b12cd275be876f9375d527e098bd389ecf5611180787"
+        },
+        {
+          "file": "SM_FC_Yard_garden_avenue_7_LOD2.fbx",
+          "triangles": 14,
+          "sha256": "3002949823fbd93fad4da22053749cdb7d126c5c677b0956037ff5d45584f42e"
+        }
+      ],
+      "surfaceAreaM2": 516.1854,
+      "source": "garden-avenue-7"
+    },
+    {
+      "id": "SM_FC_Yard_garden_avenue_14",
+      "source_id": "SM_FC_Yard_garden_avenue_14",
+      "materials": [
+        "soil"
+      ],
+      "bounds": {
+        "min": [
+          -28.010000228881836,
+          -13.489999771118164,
+          0.009999999776482582
+        ],
+        "max": [
+          4.610000133514404,
+          13.489999771118164,
+          0.009999999776482582
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_FC_Yard_garden_avenue_14_LOD0.fbx",
+          "triangles": 12,
+          "sha256": "ec5355dc0c9b6f13abfc190b35ca814cae26beb3c14570d0b67ed60735212a9d"
+        },
+        {
+          "file": "SM_FC_Yard_garden_avenue_14_LOD1.fbx",
+          "triangles": 12,
+          "sha256": "31f776daec34862cd2f452285ea26272b670ca5a9163b8db79bfe48a0cd9bd07"
+        },
+        {
+          "file": "SM_FC_Yard_garden_avenue_14_LOD2.fbx",
+          "triangles": 12,
+          "sha256": "141f111927b4a6fa6f51d7e0c6d6ce07cc71dd79bf7d787c152417cbcbd4de44"
+        }
+      ],
+      "surfaceAreaM2": 379.5976,
+      "source": "garden-avenue-14"
+    },
+    {
+      "id": "SM_FC_Park_college_green",
+      "source_id": "SM_FC_Park_college_green",
+      "materials": [
+        "soil"
+      ],
+      "bounds": {
+        "min": [
+          -36.26498794555664,
+          -36.366275787353516,
+          -0.04800000041723251
+        ],
+        "max": [
+          34.61423110961914,
+          37.17772674560547,
+          -0.04800000041723251
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_FC_Park_college_green_LOD0.fbx",
+          "triangles": 63,
+          "sha256": "ba3dd1c764eda31a7520a1b04f65677ca3b80a32abb0448905e6f433f25b30f9"
+        },
+        {
+          "file": "SM_FC_Park_college_green_LOD1.fbx",
+          "triangles": 63,
+          "sha256": "bdfcffc6459fee710478f7868d3175f4bacfe1cc00882dcde6580029ecea93e0"
+        },
+        {
+          "file": "SM_FC_Park_college_green_LOD2.fbx",
+          "triangles": 63,
+          "sha256": "f965a02edd760a9a8bd7f16ae897667b10c407df4543f755f2276d9bb574a48a"
+        }
+      ],
+      "surfaceAreaM2": 3956.4533928358915,
+      "source": "college-green"
+    },
+    {
+      "id": "SM_FC_Park_neighbourhood_park_18",
+      "source_id": "SM_FC_Park_neighbourhood_park_18",
+      "materials": [
+        "soil"
+      ],
+      "bounds": {
+        "min": [
+          -46.37663269042969,
+          -56.877830505371094,
+          -0.04800000041723251
+        ],
+        "max": [
+          46.083736419677734,
+          53.27459716796875,
+          -0.04800000041723251
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_FC_Park_neighbourhood_park_18_LOD0.fbx",
+          "triangles": 97,
+          "sha256": "cef94b6a9d1191746e2625c8577ac4723d0295c7973d28684170279f03d3d650"
+        },
+        {
+          "file": "SM_FC_Park_neighbourhood_park_18_LOD1.fbx",
+          "triangles": 97,
+          "sha256": "88910e2f6c7349bf4f85900db8e7217b754405f88416c8e62a0bab49b6bfa5f1"
+        },
+        {
+          "file": "SM_FC_Park_neighbourhood_park_18_LOD2.fbx",
+          "triangles": 97,
+          "sha256": "e37e88e214f24ea0aa1412bb6e5a4f9ab546698df38c9125706ba8bf8dff5d8b"
+        }
+      ],
+      "surfaceAreaM2": 7597.488473866099,
+      "source": "neighbourhood-park-18"
+    }
+  ]
+}
