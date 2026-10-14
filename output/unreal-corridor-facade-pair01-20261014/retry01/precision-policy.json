@@ -1,0 +1,7 @@
+{
+  "u": 5.960464477539063e-08,
+  "gamma32": 1.907352270798246e-06,
+  "formula": "gamma32 * (sum(abs(matrixRow[j]*local[j])) + abs(matrixTranslation) + abs(offset) + 1)",
+  "scope": "World-coordinate arithmetic only; raw/evaluated local topology/normals/materials/modifiers exact",
+  "noRoundedHashAcceptance": true
+}

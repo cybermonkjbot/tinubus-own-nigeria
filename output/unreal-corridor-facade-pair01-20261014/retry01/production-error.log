@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\unreal-corridor-facade-pair01-20261014\retry01\author_pair_retry01.py", line 208, in <module>
+    protected[o.name] = local_state(o)
+                        ~~~~~~~~~~~^^^
+  File "C:\dev\cribtest-game\output\unreal-corridor-facade-pair01-20261014\retry01\author_pair_retry01.py", line 144, in local_state
+    fields[prop.identifier]=list(value) if prop.is_array else value
+                                           ^^^^^^^^^^^^^
+AttributeError: 'StringProperty' object has no attribute 'is_array'
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-corridor-facade-pair01-20261014\retry01\author_pair_retry01.py', exiting.

@@ -1,0 +1,12 @@
+{
+  "priorFiles": 99,
+  "sha256Mismatches": 0,
+  "all99Unchanged": true,
+  "method": "Read-only PowerShell Get-FileHash SHA256 for every preservation-before.json path after PID2868 exited; new retry child excluded from prior inventory",
+  "ownedProcessExited": true,
+  "liveBlenderPID": 6116,
+  "liveUnrealPID": 10404,
+  "liveUnrealSession": 2,
+  "newBlend": false,
+  "newImages": false
+}
