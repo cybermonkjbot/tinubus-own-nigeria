@@ -1,0 +1,534 @@
+{
+  "pid": 10404,
+  "map": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane",
+  "queries": [
+    {
+      "class": "InstancedStaticMeshComponent",
+      "loadedCount": 877,
+      "sampleLimit": 1
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeCore_C_0.ISM_SM_EL_GrassClump_1",
+      "query": "worldTransform",
+      "success": true,
+      "value": {
+        "translation": [
+          -35996.66668534407,
+          52989.33331776112,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeCore_C_0.ISM_SM_EL_GrassClump_1",
+      "query": "instanceCount",
+      "success": true,
+      "value": 355
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeCore_C_0.ISM_SM_EL_GrassClump_1",
+      "query": "instance0Local",
+      "success": true,
+      "value": {
+        "translation": [
+          51.26457575601671,
+          -3206.081303450381,
+          -5.0
+        ],
+        "scale": [
+          1.2743783742189407,
+          1.2743783742189407,
+          1.2743783742189407
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.18649963780047724,
+          0.9824550295562088
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeCore_C_0.ISM_SM_EL_GrassClump_1",
+      "query": "instance0World",
+      "success": true,
+      "value": {
+        "translation": [
+          -35945.40210958805,
+          49783.25201431074,
+          -5.0
+        ],
+        "scale": [
+          1.2743783742189407,
+          1.2743783742189407,
+          1.2743783742189407
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.18649963780047724,
+          0.9824550295562088
+        ]
+      }
+    },
+    {
+      "class": "HierarchicalInstancedStaticMeshComponent",
+      "loadedCount": 583,
+      "sampleLimit": 1
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing.L_LibraryLane_Dressing:PersistentLevel.PCGVolume_0.HISM_SM_BeverageCrate_A_0",
+      "query": "worldTransform",
+      "success": true,
+      "value": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing.L_LibraryLane_Dressing:PersistentLevel.PCGVolume_0.HISM_SM_BeverageCrate_A_0",
+      "query": "instanceCount",
+      "success": true,
+      "value": 2
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing.L_LibraryLane_Dressing:PersistentLevel.PCGVolume_0.HISM_SM_BeverageCrate_A_0",
+      "query": "instance0Local",
+      "success": true,
+      "value": {
+        "translation": [
+          -56105.35067227889,
+          -29701.255018444517,
+          -3.0
+        ],
+        "scale": [
+          0.9999999999999999,
+          0.9999999999999999,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          -0.4817435981221479,
+          0.8763122192850711
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing.L_LibraryLane_Dressing:PersistentLevel.PCGVolume_0.HISM_SM_BeverageCrate_A_0",
+      "query": "instance0World",
+      "success": true,
+      "value": {
+        "translation": [
+          -56105.35067227889,
+          -29701.255018444517,
+          -3.0
+        ],
+        "scale": [
+          0.9999999999999999,
+          0.9999999999999999,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          -0.4817435981221479,
+          0.8763122192850711
+        ]
+      }
+    },
+    {
+      "class": "SplineComponent",
+      "loadedCount": 2798,
+      "sampleLimit": 1
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "worldTransform",
+      "success": true,
+      "value": {
+        "translation": [
+          -35996.66668534407,
+          52989.33331776112,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "closed",
+      "success": true,
+      "value": true
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "pointCount",
+      "success": true,
+      "value": 12
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "point0Type",
+      "success": true,
+      "value": "<SplinePointType.LINEAR: 0>"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "point0Transform:<SplineCoordinateSpace.LOCAL: 0>",
+      "success": true,
+      "value": {
+        "translation": [
+          993.666685164113,
+          3771.6666798779115,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "quaternion": [
+          -0.0,
+          0.0,
+          -0.2956548650319171,
+          0.9552948240113933
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "point0Arrive:<SplineCoordinateSpace.LOCAL: 0>",
+      "success": true,
+      "value": "<Struct 'Vector' (0x0000022D2A602E00) {x: 1871.500003, y: 218.999993, z: 0.000000}>"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "point0Leave:<SplineCoordinateSpace.LOCAL: 0>",
+      "success": true,
+      "value": "<Struct 'Vector' (0x0000022D2A602E00) {x: 1546.999992, y: -1059.000005, z: 0.000000}>"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "point0Transform:<SplineCoordinateSpace.WORLD: 1>",
+      "success": true,
+      "value": {
+        "translation": [
+          -35003.000000179956,
+          56760.99999763903,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          -0.2956548650319171,
+          0.9552948240113933
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "point0Arrive:<SplineCoordinateSpace.WORLD: 1>",
+      "success": true,
+      "value": "<Struct 'Vector' (0x0000022D2A602E00) {x: 1871.500003, y: 218.999993, z: 0.000000}>"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeSpline_C_0.BiomeSpline",
+      "query": "point0Leave:<SplineCoordinateSpace.WORLD: 1>",
+      "success": true,
+      "value": "<Struct 'Vector' (0x0000022D2A602E00) {x: 1546.999992, y: -1059.000005, z: 0.000000}>"
+    },
+    {
+      "class": "BoxComponent",
+      "loadedCount": 33,
+      "sampleLimit": 1
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeCore_C_0.Volume",
+      "query": "worldTransform",
+      "success": true,
+      "value": {
+        "translation": [
+          -35996.66668534407,
+          52989.33331776112,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_Biomes.L_TownCentre_Biomes:PersistentLevel.BP_PCGBiomeCore_C_0.Volume",
+      "query": "box_extent",
+      "success": true,
+      "value": "(X=3781.166669,Y=3921.666680,Z=1500.000000)"
+    },
+    {
+      "class": "BillboardComponent",
+      "loadedCount": 134,
+      "sampleLimit": 1
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "worldTransform",
+      "success": true,
+      "value": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          0.5,
+          0.5,
+          0.5
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "sprite",
+      "success": true,
+      "value": "<Object '/Engine/EditorResources/S_ExpoHeightFog.S_ExpoHeightFog' (0x0000022BC1F86000) Class 'Texture2D'>"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "is_screen_size_scaled",
+      "success": true,
+      "value": "True"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "screen_size",
+      "success": true,
+      "value": "0.0024999999441206455"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "u",
+      "success": true,
+      "value": "0.0"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "ul",
+      "success": true,
+      "value": "0.0"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "v",
+      "success": true,
+      "value": "0.0"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "vl",
+      "success": true,
+      "value": "0.0"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "opacity_mask_ref_val",
+      "success": true,
+      "value": "0.5"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.ExponentialHeightFog_0.Sprite",
+      "query": "use_in_editor_scaling",
+      "success": true,
+      "value": "True"
+    },
+    {
+      "class": "ArrowComponent",
+      "loadedCount": 2,
+      "sampleLimit": 1
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.SkyAtmosphere_0.ArrowComponent",
+      "query": "worldTransform",
+      "success": true,
+      "value": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.SkyAtmosphere_0.ArrowComponent",
+      "query": "arrow_color",
+      "success": true,
+      "value": "(B=255,G=200,R=150,A=255)"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.SkyAtmosphere_0.ArrowComponent",
+      "query": "arrow_size",
+      "success": true,
+      "value": "1.0"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.SkyAtmosphere_0.ArrowComponent",
+      "query": "arrow_length",
+      "success": true,
+      "value": "80.0"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.SkyAtmosphere_0.ArrowComponent",
+      "query": "screen_size",
+      "success": true,
+      "value": "0.0024999999441206455"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.SkyAtmosphere_0.ArrowComponent",
+      "query": "is_screen_size_scaled",
+      "success": true,
+      "value": "True"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.SkyAtmosphere_0.ArrowComponent",
+      "query": "treat_as_a_sprite",
+      "success": true,
+      "value": "True"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.SkyAtmosphere_0.ArrowComponent",
+      "query": "use_in_editor_scaling",
+      "success": true,
+      "value": "True"
+    },
+    {
+      "class": "BrushComponent",
+      "loadedCount": 30,
+      "sampleLimit": 1
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.PostProcessVolume_0.BrushComponent0",
+      "query": "worldTransform",
+      "success": true,
+      "value": {
+        "translation": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "quaternion": [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      }
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane:PersistentLevel.PostProcessVolume_0.BrushComponent0",
+      "query": "publicBrushProperties",
+      "success": true,
+      "value": "{}"
+    },
+    {
+      "class": "SplineMeshComponent",
+      "loadedCount": 0,
+      "sampleLimit": 1
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/Meshes/SM_743c2b60f53ad691e247eb6a.SM_743c2b60f53ad691e247eb6a:BodySetup_0",
+      "query": "agg_geom",
+      "success": true,
+      "value": "(SphereElems=,BoxElems=,SphylElems=,ConvexElems=,TaperedCapsuleElems=,LevelSetElems=,SkinnedLevelSetElems=,MLLevelSetElems=,SkinnedTriangleMeshElems=)"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/Meshes/SM_743c2b60f53ad691e247eb6a.SM_743c2b60f53ad691e247eb6a:BodySetup_0",
+      "query": "collision_trace_flag",
+      "success": true,
+      "value": "<CollisionTraceFlag.CTF_USE_DEFAULT: 0>"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/Meshes/SM_743c2b60f53ad691e247eb6a.SM_743c2b60f53ad691e247eb6a:BodySetup_0",
+      "query": "default_instance",
+      "success": true,
+      "value": "(PositionSolverIterationCount=8,VelocitySolverIterationCount=2,ProjectionSolverIterationCount=1,ObjectType=ECC_WorldStatic,CollisionEnabled=QueryAndPhysics,SleepFamily=Normal,DOFMode=Default,bUseCCD=False,bUseMACD=False,bAllowPartialIslandSleep=True,bIgnoreAnalyticCollisions=False,bNotifyRigidBodyCollision=False,bSmoothEdgeCollisions=False,bLockTranslation=True,bLockRotation=True,bLockXTranslation=False,bLockYTranslation=False,bLockZTranslation=False,bLockXRotation=False,bLockYRotation=False,bLockZRotation=False,bOverrideMaxAngularVelocity=False,bOverrideMaxDepenetrationVelocity=False,bOverrideWalkableSlopeOnInstance=False,bOverrideIterationCounts=False,bInterpolateWhenSubStepping=True,bInertiaConditioning=True,bOneWayInteraction=False,bOverrideSolverAsyncDeltaTime=False,SolverAsyncDeltaTime=0.016667,CollisionProfileName=\"BlockAll\",CollisionResponses=(ResponseArray=),MaxDepenetrationVelocity=0.000000,MassInKgOverride=100.000000,LinearDamping=0.010000,AngularDamping=0.000000,CustomDOFPlaneNormal=(X=0.000000,Y=0.000000,Z=0.000000),COMNudge=(X=0.000000,Y=0.000000,Z=0.000000),MassScale=1.000000,GravityGroupIndex=0,InertiaTensorScale=(X=1.000000,Y=1.000000,Z=1.000000),WalkableSlopeOverride=(WalkableSlopeBehavior=WalkableSlope_Default,WalkableSlopeAngle=0.000000),PhysMaterialOverride=None,MaxAngularVelocity=3600.000000,CustomSleepThresholdMultiplier=1.000000,StabilizationThresholdMultiplier=1.000000,PhysicsBlendWeight=0.000000,bSimulatePhysics=False,bOverrideMass=False,bEnableGravity=True,bUpdateKinematicFromSimulation=False,bGyroscopicTorqueEnabled=False,bAutoWeld=False,bStartAwake=True,bGenerateWakeEvents=False,bUpdateMassWhenScaleChanges=True)"
+    },
+    {
+      "object": "/Game/BaddieGeneratedWorld/Meshes/SM_743c2b60f53ad691e247eb6a.SM_743c2b60f53ad691e247eb6a:BodySetup_0",
+      "query": "double_sided_geometry",
+      "success": true,
+      "value": "False"
+    }
+  ],
+  "scope": "Representative actual loaded objects only; no complete state capture",
+  "dirtyMaps": [],
+  "dirtyContent": []
+}
