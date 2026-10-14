@@ -1,0 +1,9 @@
+{
+  "surfaces": 16,
+  "areaM2": 13542.387129020117,
+  "plantingInstances": 441,
+  "noCollision": true,
+  "noNavigation": true,
+  "roadAndEntranceMasks": "Source support rectangles subtracted before import",
+  "flatGroundOnly": true
+}

@@ -1,0 +1,64 @@
+{
+  "protectedUnchanged": true,
+  "sites": [
+    {
+      "id": "unity-avenue-17",
+      "instances": 463,
+      "sourceFloors": 8
+    },
+    {
+      "id": "unity-avenue-19",
+      "instances": 94,
+      "sourceFloors": 2
+    },
+    {
+      "id": "unity-avenue-20",
+      "instances": 413,
+      "sourceFloors": 7
+    },
+    {
+      "id": "unity-avenue-21",
+      "instances": 403,
+      "sourceFloors": 9
+    },
+    {
+      "id": "unity-avenue-22",
+      "instances": 484,
+      "sourceFloors": 9
+    },
+    {
+      "id": "theatre-street-2",
+      "instances": 75,
+      "sourceFloors": 2
+    },
+    {
+      "id": "theatre-street-4",
+      "instances": 110,
+      "sourceFloors": 2
+    },
+    {
+      "id": "theatre-street-5",
+      "instances": 102,
+      "sourceFloors": 2
+    },
+    {
+      "id": "theatre-street-6",
+      "instances": 307,
+      "sourceFloors": 6
+    }
+  ],
+  "splines": 988,
+  "maximumPositionErrorCm": 0.0005578994777083127,
+  "retainedScenery": 5017,
+  "boundaries": [
+    {
+      "label": "Biome: college-green",
+      "points": 12
+    },
+    {
+      "label": "Biome: neighbourhood-park-18",
+      "points": 14
+    }
+  ],
+  "dirtyMaps": []
+}

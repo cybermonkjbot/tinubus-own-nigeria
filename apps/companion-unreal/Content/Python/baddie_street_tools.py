@@ -29,6 +29,62 @@ FORECOURT_VIEWS = {
     'garden-avenue-14': ((-12312.012, 53352.643, 165), (5, 42.329718, 0)),
 }
 _biome_job = None
+ADJOINING_VIEWS = {
+    'unity-avenue-17': ((-59022.730, -5573.915, 165), (5, -80.620779, 0)),
+    'unity-avenue-19': ((-66412.150, -7498.263, 165), (5, -92.174544, 0)),
+    'unity-avenue-20': ((-66412.317, -7498.295, 165), (5, 113.202973, 0)),
+    'unity-avenue-21': ((-71517.135, -8384.998, 165), (5, -97.235645, 0)),
+    'unity-avenue-22': ((-71517.441, -8385.035, 165), (5, 111.360659, 0)),
+    'theatre-street-2': ((-61087.834, -4068.741, 165), (5, 57.140497, 0)),
+    'theatre-street-4': ((-64124.139, 1323.828, 165), (5, 54.317039, 0)),
+    'theatre-street-5': ((-67011.101, 6457.377, 165), (5, -172.896182, 0)),
+    'theatre-street-6': ((-67011.047, 6457.281, 165), (5, 56.269632, 0)),
+}
+
+
+def adjoining_actor(site):
+    world = u.get_editor_subsystem(u.UnrealEditorSubsystem).get_editor_world()
+    if world.get_path_name().split('.')[0] != MAP or site not in ADJOINING_VIEWS:
+        u.log_warning('Open the detailed town centre first.')
+        return None
+    return next((a for a in u.get_editor_subsystem(u.EditorActorSubsystem).get_all_level_actors()
+                 if a.get_actor_label() == 'Adjoining: ' + site), None)
+
+
+def view_adjoining(site):
+    if site in ADJOINING_VIEWS:
+        VIEWS['adjoining:' + site] = ADJOINING_VIEWS[site]
+        view('adjoining:' + site)
+
+
+def edit_adjoining(site, graph_kind='splines'):
+    actor = adjoining_actor(site)
+    if not actor:
+        return
+    u.get_editor_subsystem(u.EditorActorSubsystem).set_selected_level_actors([actor])
+    if graph_kind in ('facade', 'anchors'):
+        graphs = [c.get_graph() for c in actor.get_components_by_class(u.PCGComponent)
+                  if ('FacadeGrammar' in c.get_graph().get_name()) == (graph_kind == 'facade')]
+        u.get_editor_subsystem(u.AssetEditorSubsystem).open_editor_for_assets(graphs)
+
+
+def adjoining_visibility(site, visible):
+    actor = adjoining_actor(site)
+    if actor:
+        actor.set_is_temporarily_hidden_in_editor(not visible)
+        u.get_editor_subsystem(u.LevelEditorSubsystem).editor_invalidate_viewports()
+
+
+def regenerate_adjoining(site):
+    actor = adjoining_actor(site)
+    if not actor:
+        return
+    scene = u.get_editor_subsystem(u.EditorActorSubsystem).get_all_level_actors()
+    if any(c.get_editor_property('generation_in_progress') for a in scene for c in a.get_components_by_class(u.PCGComponent)):
+        u.log_warning('Wait for the current PCG generation to finish.')
+        return
+    for component in actor.get_components_by_class(u.PCGComponent):
+        component.generate(True)
 
 
 def view_forecourt(site):
@@ -317,6 +373,22 @@ def register():
             entry.set_label(label)
             entry.set_string_command(u.ToolMenuStringCommandType.PYTHON, '',
                                     'import baddie_street_tools; baddie_street_tools.' + command)
+            submenu.add_menu_entry('Actions', entry)
+    adjoining = menu.add_sub_menu('BaddieStreetTools', 'TownCentre', 'Adjoining', 'Adjoining buildings')
+    for site in ADJOINING_VIEWS:
+        submenu = adjoining.add_sub_menu('BaddieStreetTools', 'Sites', site.replace('-', '_'), site.replace('-', ' ').title())
+        for name, label, command in [
+                ('View', 'Walking-height view', f'view_adjoining({site!r})'),
+                ('Splines', 'Select building and splines', f'edit_adjoining({site!r})'),
+                ('Facade', 'Edit shared facade grammar', f'edit_adjoining({site!r}, "facade")'),
+                ('Anchors', 'Edit this building\'s anchors', f'edit_adjoining({site!r}, "anchors")'),
+                ('Generate', 'Regenerate building', f'regenerate_adjoining({site!r})'),
+                ('Hide', 'Hide building', f'adjoining_visibility({site!r}, False)'),
+                ('Show', 'Show building', f'adjoining_visibility({site!r}, True)')]:
+            entry = u.ToolMenuEntry(name=name, type=u.MultiBlockType.MENU_ENTRY)
+            entry.set_label(label)
+            entry.set_string_command(u.ToolMenuStringCommandType.PYTHON, '',
+                'import baddie_street_tools; baddie_street_tools.' + command)
             submenu.add_menu_entry('Actions', entry)
     forecourts = menu.add_sub_menu('BaddieStreetTools', 'TownCentre', 'Forecourts', 'Building forecourts')
     for site in FORECOURT_VIEWS:

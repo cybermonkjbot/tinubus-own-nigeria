@@ -1,0 +1,8474 @@
+{
+  "surfaces": [
+    {
+      "id": "unity-avenue-17-yard",
+      "areaM2": 551.4884829675198,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_unity_avenue_17_yard"
+    },
+    {
+      "id": "unity-avenue-19-yard",
+      "areaM2": 416.2785859683752,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_unity_avenue_19_yard"
+    },
+    {
+      "id": "unity-avenue-20-yard",
+      "areaM2": 459.8316469712317,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_unity_avenue_20_yard"
+    },
+    {
+      "id": "unity-avenue-21-yard",
+      "areaM2": 395.7604988424897,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_unity_avenue_21_yard"
+    },
+    {
+      "id": "unity-avenue-22-yard",
+      "areaM2": 393.01451499061136,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_unity_avenue_22_yard"
+    },
+    {
+      "id": "theatre-street-2-yard",
+      "areaM2": 102.91850000000261,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_theatre_street_2_yard"
+    },
+    {
+      "id": "theatre-street-4-yard",
+      "areaM2": 37.075600000001494,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_theatre_street_4_yard"
+    },
+    {
+      "id": "theatre-street-5-yard",
+      "areaM2": 437.0626747786343,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_theatre_street_5_yard"
+    },
+    {
+      "id": "theatre-street-6-yard",
+      "areaM2": 471.2934931248784,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_theatre_street_6_yard"
+    },
+    {
+      "id": "unity-avenue_10_support-verge",
+      "areaM2": 1790.639993103847,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_unity_avenue_10_support_verge"
+    },
+    {
+      "id": "unity-avenue_11_support-verge",
+      "areaM2": 1457.6981367815047,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_unity_avenue_11_support_verge"
+    },
+    {
+      "id": "unity-avenue_12_support-verge",
+      "areaM2": 1622.351383755292,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_unity_avenue_12_support_verge"
+    },
+    {
+      "id": "unity-avenue_13_support-verge",
+      "areaM2": 1678.461849548763,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_unity_avenue_13_support_verge"
+    },
+    {
+      "id": "theatre-street_0_support-verge",
+      "areaM2": 767.4171901720102,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_theatre_street_0_support_verge"
+    },
+    {
+      "id": "theatre-street_1_support-verge",
+      "areaM2": 1980.5244131751929,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_theatre_street_1_support_verge"
+    },
+    {
+      "id": "theatre-street_2_support-verge",
+      "areaM2": 980.5701648397625,
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Adjoining/Meshes/SM_AD_theatre_street_2_support_verge"
+    }
+  ],
+  "placements": [
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -55235.23057085208,
+        -1618.442599094862,
+        -4.8
+      ],
+      "yaw": 332.214894884029,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56163.169585842385,
+        -7367.75008964076,
+        -4.8
+      ],
+      "yaw": 317.52658803403904,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -54760.97386433076,
+        -6479.677495380867,
+        -4.8
+      ],
+      "yaw": 172.2949165036836,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -58426.53467606982,
+        -7623.804419520529,
+        -4.8
+      ],
+      "yaw": 317.0566198311895,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -55745.85945262557,
+        -2052.0946062926723,
+        -4.8
+      ],
+      "yaw": 179.15956422718807,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -55836.677310549814,
+        -6610.507730838226,
+        -4.8
+      ],
+      "yaw": 98.57316969010998,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -55521.320790710546,
+        -867.7714121335466,
+        -4.8
+      ],
+      "yaw": 249.40503955849306,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -58830.678285188056,
+        -3384.6854589514496,
+        -4.8
+      ],
+      "yaw": 20.1108301989454,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -57626.71177031619,
+        -2200.0049604628766,
+        -4.8
+      ],
+      "yaw": 239.04413720413504,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56154.64796829685,
+        -6771.021209242059,
+        -4.8
+      ],
+      "yaw": 116.00266569745068,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -57053.05847937349,
+        -2255.004911055633,
+        -4.8
+      ],
+      "yaw": 84.2050257883828,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -56624.814625755505,
+        -1100.87994407951,
+        -4.8
+      ],
+      "yaw": 148.90298517549368,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -53959.03204729876,
+        -6566.680044510229,
+        -4.8
+      ],
+      "yaw": 318.6700010137032,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -57857.257112472624,
+        -2836.4258610008665,
+        -4.8
+      ],
+      "yaw": 240.72721503024692,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -58340.60816136254,
+        -3076.6013820612543,
+        -4.8
+      ],
+      "yaw": 146.8732793979961,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -55913.823524392086,
+        -7555.07822065349,
+        -4.8
+      ],
+      "yaw": 300.42427901825613,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56560.23586366359,
+        -7299.9147209371795,
+        -4.8
+      ],
+      "yaw": 144.01460870040142,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -57252.701044800066,
+        -6996.866052512059,
+        -4.8
+      ],
+      "yaw": 210.90705329374185,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -54773.017656140095,
+        -5930.740846646252,
+        -4.8
+      ],
+      "yaw": 319.3630148563388,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -53344.54550762766,
+        -5679.504447443351,
+        -4.8
+      ],
+      "yaw": 252.74842883199244,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -59346.253632848624,
+        -7856.148193481892,
+        -4.8
+      ],
+      "yaw": 185.31773551627188,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -55897.55962390131,
+        -6201.558938579812,
+        -4.8
+      ],
+      "yaw": 335.34986106256844,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -53528.36116031599,
+        -6670.064722773381,
+        -4.8
+      ],
+      "yaw": 88.33556837342049,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -59629.25588938126,
+        -7841.692410866903,
+        -4.8
+      ],
+      "yaw": 313.9863880347149,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56354.7712400554,
+        -2034.7848526929884,
+        -4.8
+      ],
+      "yaw": 214.90250524143764,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -56911.86726658286,
+        -7823.245755715394,
+        -4.8
+      ],
+      "yaw": 123.11223647705883,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -55401.46030721473,
+        -7014.859012431703,
+        -4.8
+      ],
+      "yaw": 77.09827411698495,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -60596.16078877774,
+        -8352.869374935943,
+        -4.8
+      ],
+      "yaw": 253.40227880364318,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56754.76598901464,
+        -1766.4150375185536,
+        -4.8
+      ],
+      "yaw": 177.3315843561172,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -55274.09693217551,
+        -6153.009756696856,
+        -4.8
+      ],
+      "yaw": 82.49835656787712,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -54372.20029436752,
+        -5514.243431512138,
+        -4.8
+      ],
+      "yaw": 291.63461490129873,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -55119.239755543196,
+        -7355.19585389675,
+        -4.8
+      ],
+      "yaw": 90.14568902995056,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -57439.02576240273,
+        -2415.4739057044153,
+        -4.8
+      ],
+      "yaw": 359.83126304425724,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -54111.26714752177,
+        -5774.296586782704,
+        -4.8
+      ],
+      "yaw": 86.60145097507572,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56367.13738890691,
+        -1491.2234615128873,
+        -4.8
+      ],
+      "yaw": 12.453501010013444,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -53644.29721507574,
+        -6185.629805509065,
+        -4.8
+      ],
+      "yaw": 134.821252610381,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -60130.36475600882,
+        -3232.4165603169486,
+        -4.8
+      ],
+      "yaw": 10.218016837361379,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -57698.967730898396,
+        -7579.5303097555825,
+        -4.8
+      ],
+      "yaw": 236.40498461988068,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -57084.393912083164,
+        -1613.2451191714545,
+        -4.8
+      ],
+      "yaw": 303.80490852346594,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -58605.56670378055,
+        -7393.371744390964,
+        -4.8
+      ],
+      "yaw": 162.29564798043282,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56843.48305511988,
+        -2630.1527134286534,
+        -4.8
+      ],
+      "yaw": 101.05489694572904,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -57975.36015769592,
+        -1982.2985037423914,
+        -4.8
+      ],
+      "yaw": 249.3360122792899,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -59345.9648507225,
+        -8169.669638366336,
+        -4.8
+      ],
+      "yaw": 207.4442385655368,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -59682.2241947791,
+        -8186.615254664346,
+        -4.8
+      ],
+      "yaw": 92.04958986780308,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -55326.461762916144,
+        -1244.9731978877553,
+        -4.8
+      ],
+      "yaw": 34.33994302451278,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56648.9249268534,
+        -2410.533345764473,
+        -4.8
+      ],
+      "yaw": 141.48894719212112,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -57028.72696829397,
+        -6828.452210930729,
+        -4.8
+      ],
+      "yaw": 263.63571808945335,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -54475.22913710735,
+        -5810.051704050416,
+        -4.8
+      ],
+      "yaw": 63.239574437958986,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -59562.080827251135,
+        -3789.686953537319,
+        -4.8
+      ],
+      "yaw": 221.25815924224023,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -62338.710527726565,
+        -4148.43274040429,
+        -4.8
+      ],
+      "yaw": 359.21974540362066,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -54282.17288110708,
+        -6166.4050946667285,
+        -4.8
+      ],
+      "yaw": 1.1792941901703946,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -56019.991211760214,
+        -2122.5864593766946,
+        -4.8
+      ],
+      "yaw": 333.35010778378717,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -57090.56131474101,
+        -1311.6699120282356,
+        -4.8
+      ],
+      "yaw": 247.3682426274351,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -56071.97090072502,
+        -1593.6027718351215,
+        -4.8
+      ],
+      "yaw": 332.3232659323072,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -58544.14554235724,
+        -7922.1179719518495,
+        -4.8
+      ],
+      "yaw": 325.33312873297547,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -55945.90414529471,
+        -1308.4387552755506,
+        -4.8
+      ],
+      "yaw": 80.81878146582429,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -58130.17965363338,
+        -7176.11867058259,
+        -4.8
+      ],
+      "yaw": 140.43039388379583,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -55708.48378428927,
+        -6950.882765078985,
+        -4.8
+      ],
+      "yaw": 219.44228256126715,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -55763.10709384495,
+        -1754.8241173828064,
+        -4.8
+      ],
+      "yaw": 34.46865161762345,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63062.77057949017,
+        -4639.573327403839,
+        -4.8
+      ],
+      "yaw": 305.8071362008683,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -62864.32495638117,
+        -4237.223755426926,
+        -4.8
+      ],
+      "yaw": 151.36083037089287,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -63263.07353189788,
+        -9678.716056918285,
+        -4.8
+      ],
+      "yaw": 209.70601877480172,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -60873.55395482518,
+        -8258.679212424831,
+        -4.8
+      ],
+      "yaw": 223.0852716713298,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -62485.5033969195,
+        -9538.17265602676,
+        -4.8
+      ],
+      "yaw": 12.646849968827315,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -63550.62098466809,
+        -9866.158415017531,
+        -4.8
+      ],
+      "yaw": 289.11605211203704,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63697.295048329026,
+        -3911.993615922518,
+        -4.8
+      ],
+      "yaw": 341.0256132397908,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64999.37420962327,
+        -9721.001145570279,
+        -4.8
+      ],
+      "yaw": 221.95877575914702,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -62048.9925369831,
+        -9072.525679751925,
+        -4.8
+      ],
+      "yaw": 108.21571801521023,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66411.55438049762,
+        -5205.235062927862,
+        -4.8
+      ],
+      "yaw": 71.14283250021433,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64654.102208222954,
+        -4116.985367463204,
+        -4.8
+      ],
+      "yaw": 63.13906239239945,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -60813.28228882656,
+        -9312.862335840608,
+        -4.8
+      ],
+      "yaw": 10.367660431512489,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -64942.766576099166,
+        -5043.5243250635995,
+        -4.8
+      ],
+      "yaw": 12.106096915612067,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63840.66932678513,
+        -4977.880123577632,
+        -4.8
+      ],
+      "yaw": 101.49440006753542,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64496.61381964385,
+        -4534.149760251286,
+        -4.8
+      ],
+      "yaw": 100.13276709561597,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -62831.84511655056,
+        -9323.495593537482,
+        -4.8
+      ],
+      "yaw": 68.41451448625212,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64110.699767094244,
+        -9343.046567433003,
+        -4.8
+      ],
+      "yaw": 349.4123023635155,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64357.153763385715,
+        -10385.035370148546,
+        -4.8
+      ],
+      "yaw": 176.95077510041565,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61617.53001996992,
+        -8632.599627800795,
+        -4.8
+      ],
+      "yaw": 271.6288965266106,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61587.12339045253,
+        -9192.593316639528,
+        -4.8
+      ],
+      "yaw": 182.28277978909125,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -62031.73609841689,
+        -8518.251674381974,
+        -4.8
+      ],
+      "yaw": 1.0343342278300716,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63126.92299998158,
+        -9220.474265348817,
+        -4.8
+      ],
+      "yaw": 177.30075620092487,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61189.5252493011,
+        -9006.451424789178,
+        -4.8
+      ],
+      "yaw": 280.57389174757327,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -65374.115446482465,
+        -9425.992149807258,
+        -4.8
+      ],
+      "yaw": 97.5478779888063,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65078.45186183852,
+        -9147.294712979305,
+        -4.8
+      ],
+      "yaw": 229.20298879768856,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -65922.59700688568,
+        -4906.847922870116,
+        -4.8
+      ],
+      "yaw": 232.92292455727613,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64121.80446512948,
+        -9705.58370858042,
+        -4.8
+      ],
+      "yaw": 201.46347263791182,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -62412.477395065274,
+        -8708.509056170122,
+        -4.8
+      ],
+      "yaw": 155.3499266406421,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66627.1248592616,
+        -4817.608308115948,
+        -4.8
+      ],
+      "yaw": 28.381512353141392,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -65281.214574890415,
+        -5288.947583997218,
+        -4.8
+      ],
+      "yaw": 272.1440595586462,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64300.56438755432,
+        -3827.3557351521113,
+        -4.8
+      ],
+      "yaw": 296.87273827349213,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61143.62778942404,
+        -8421.36759474625,
+        -4.8
+      ],
+      "yaw": 212.15040695943605,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64377.89374997062,
+        -9528.210807324669,
+        -4.8
+      ],
+      "yaw": 258.99574643792994,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66192.55483642161,
+        -4719.872750324131,
+        -4.8
+      ],
+      "yaw": 44.40617363778362,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64723.47313979094,
+        -10130.179809365578,
+        -4.8
+      ],
+      "yaw": 344.1791975604627,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -63155.913440836135,
+        -8923.904209304645,
+        -4.8
+      ],
+      "yaw": 327.9481137032069,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63574.79764530539,
+        -4728.1876465782925,
+        -4.8
+      ],
+      "yaw": 247.582421021294,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64169.76229303243,
+        -10079.561873742125,
+        -4.8
+      ],
+      "yaw": 237.77652745174925,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -60795.95321587285,
+        -8686.61457861132,
+        -4.8
+      ],
+      "yaw": 98.83022692725692,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -60531.420786315575,
+        -9130.786768063776,
+        -4.8
+      ],
+      "yaw": 1.935434419345663,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63769.00137418942,
+        -4262.020097180103,
+        -4.8
+      ],
+      "yaw": 271.7571691988674,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64447.45495268933,
+        -9902.05773680035,
+        -4.8
+      ],
+      "yaw": 146.19255529188493,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61334.59433955378,
+        -9466.913848292472,
+        -4.8
+      ],
+      "yaw": 256.5174887730096,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65273.785607526865,
+        -9817.348683319113,
+        -4.8
+      ],
+      "yaw": 134.82816663188868,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64801.797100172545,
+        -9406.05707385981,
+        -4.8
+      ],
+      "yaw": 176.0289900615278,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65734.25713838548,
+        -4347.911719303775,
+        -4.8
+      ],
+      "yaw": 173.18505467902358,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65469.93556641583,
+        -4955.714135853426,
+        -4.8
+      ],
+      "yaw": 130.49622906103764,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64484.51085036606,
+        -5092.230307521678,
+        -4.8
+      ],
+      "yaw": 170.01057323994127,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71443.75069138285,
+        -6269.236253106392,
+        -4.8
+      ],
+      "yaw": 128.98983091265222,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69785.60839076883,
+        -6201.592076399273,
+        -4.8
+      ],
+      "yaw": 344.36058106173203,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -70570.77066630001,
+        -5020.173959401486,
+        -4.8
+      ],
+      "yaw": 154.72016192982161,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69266.83451483691,
+        -4878.584763300969,
+        -4.8
+      ],
+      "yaw": 117.00805224402322,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71854.54951859389,
+        -6201.717446332523,
+        -4.8
+      ],
+      "yaw": 78.70183267942689,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -69812.40233179193,
+        -5179.861366391742,
+        -4.8
+      ],
+      "yaw": 104.48299297685357,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67047.44767082493,
+        -5640.739336665327,
+        -4.8
+      ],
+      "yaw": 1.497538724333518,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68410.36560406341,
+        -5895.68626938768,
+        -4.8
+      ],
+      "yaw": 258.5018719844559,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -68897.67120366465,
+        -5897.055761030413,
+        -4.8
+      ],
+      "yaw": 27.568421522867798,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67035.39424351684,
+        -4747.056477146282,
+        -4.8
+      ],
+      "yaw": 351.5402555963686,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70445.30642136105,
+        -5292.10176272687,
+        -4.8
+      ],
+      "yaw": 302.28995952701405,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -69400.36391875146,
+        -9998.929528987803,
+        -4.8
+      ],
+      "yaw": 14.009145371184818,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -66342.81033940143,
+        -10362.411845421899,
+        -4.8
+      ],
+      "yaw": 130.9034696587991,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71249.62800111766,
+        -10816.441305743345,
+        -4.8
+      ],
+      "yaw": 84.33153705835734,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -67986.02568275853,
+        -5404.810666480844,
+        -4.8
+      ],
+      "yaw": 199.45356220028583,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66970.3294303729,
+        -10220.199241480052,
+        -4.8
+      ],
+      "yaw": 282.4965076913139,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69505.20927215273,
+        -10748.390391290312,
+        -4.8
+      ],
+      "yaw": 20.4031540333839,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -71244.38791432648,
+        -10525.185502904435,
+        -4.8
+      ],
+      "yaw": 226.06372854611732,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71309.84092777748,
+        -6539.461453721147,
+        -4.8
+      ],
+      "yaw": 17.766779198963356,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -72122.51481290131,
+        -6420.819675180846,
+        -4.8
+      ],
+      "yaw": 331.40774301522373,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -69164.19258711164,
+        -5415.789317492434,
+        -4.8
+      ],
+      "yaw": 8.181168371739549,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68063.74939604544,
+        -10282.780744358275,
+        -4.8
+      ],
+      "yaw": 58.96874743901174,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70805.20859250287,
+        -5275.520744718555,
+        -4.8
+      ],
+      "yaw": 123.01132693004519,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -68706.56748376528,
+        -4792.426911729139,
+        -4.8
+      ],
+      "yaw": 185.4994862995129,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66548.44522459448,
+        -9949.865794571258,
+        -4.8
+      ],
+      "yaw": 286.75709648710597,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -70143.42901934011,
+        -10928.50197891023,
+        -4.8
+      ],
+      "yaw": 239.90166195148896,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -68125.19736162951,
+        -5063.24812362094,
+        -4.8
+      ],
+      "yaw": 262.05176540140576,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69773.2418835935,
+        -10098.124789224732,
+        -4.8
+      ],
+      "yaw": 231.14295178291667,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67317.27336769861,
+        -4754.982298212064,
+        -4.8
+      ],
+      "yaw": 306.92104254772266,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -66017.87187631278,
+        -9382.793790692875,
+        -4.8
+      ],
+      "yaw": 252.40509181138842,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67736.75952515235,
+        -10292.498206072205,
+        -4.8
+      ],
+      "yaw": 335.70134976171653,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68285.00958043881,
+        -5518.7024463373755,
+        -4.8
+      ],
+      "yaw": 72.99004390313476,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -69190.1002456737,
+        -10533.861385166107,
+        -4.8
+      ],
+      "yaw": 237.18949837654526,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67118.67233670571,
+        -5316.504866633184,
+        -4.8
+      ],
+      "yaw": 246.55527862918905,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66290.11109083756,
+        -9498.674333581364,
+        -4.8
+      ],
+      "yaw": 16.062425834584026,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -68916.53890783606,
+        -11106.618370668743,
+        -4.8
+      ],
+      "yaw": 12.427441774632593,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70713.68431404293,
+        -10583.77309913464,
+        -4.8
+      ],
+      "yaw": 265.1101890225495,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67990.2095341283,
+        -5835.664771721131,
+        -4.8
+      ],
+      "yaw": 57.28050379110958,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -70917.32361096358,
+        -10821.341710437813,
+        -4.8
+      ],
+      "yaw": 260.0472497383264,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70186.16124990587,
+        -6186.885809496644,
+        -4.8
+      ],
+      "yaw": 211.79663732111499,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69924.77762986277,
+        -5866.909667667516,
+        -4.8
+      ],
+      "yaw": 72.66083835225876,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -67173.8737536313,
+        -10490.07400950451,
+        -4.8
+      ],
+      "yaw": 141.22147423880966,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70302.88807984398,
+        -11231.650629878897,
+        -4.8
+      ],
+      "yaw": 66.92715617273723,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68775.62196259461,
+        -9964.47805488306,
+        -4.8
+      ],
+      "yaw": 247.60520324411016,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -68836.82121402859,
+        -5134.984360956738,
+        -4.8
+      ],
+      "yaw": 139.57346486971264,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69154.74847530354,
+        -6169.4141183806,
+        -4.8
+      ],
+      "yaw": 110.5067085265743,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69094.98019855496,
+        -9982.19042560296,
+        -4.8
+      ],
+      "yaw": 226.28746242797686,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -67496.90065261866,
+        -9665.935925863872,
+        -4.8
+      ],
+      "yaw": 116.4521410851462,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68188.32267581599,
+        -4774.86966122349,
+        -4.8
+      ],
+      "yaw": 80.35587996469987,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70537.17103919717,
+        -6083.914518051281,
+        -4.8
+      ],
+      "yaw": 24.739931729788644,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -70223.71453767928,
+        -10468.794451340958,
+        -4.8
+      ],
+      "yaw": 275.1296253730456,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -69344.19685399847,
+        -11268.024227006168,
+        -4.8
+      ],
+      "yaw": 88.59742234908443,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67535.65242409095,
+        -9983.436071639711,
+        -4.8
+      ],
+      "yaw": 142.45591661734946,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -69704.99355958359,
+        -5687.383759629358,
+        -4.8
+      ],
+      "yaw": 246.89349304836554,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -72876.6878601537,
+        -11205.126317885088,
+        -4.8
+      ],
+      "yaw": 269.7191442157541,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -75909.26379291971,
+        -6052.042323154536,
+        -4.8
+      ],
+      "yaw": 353.45164074418835,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -75469.92046976314,
+        -11612.451250359289,
+        -4.8
+      ],
+      "yaw": 221.32757458677105,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -77035.10402344697,
+        -11475.09838495748,
+        -4.8
+      ],
+      "yaw": 358.01462020174256,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -77033.62009325488,
+        -6890.664892698476,
+        -4.8
+      ],
+      "yaw": 244.6658468973359,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -77408.58521800161,
+        -11677.49387077818,
+        -4.8
+      ],
+      "yaw": 239.6851306136822,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -72311.27984311375,
+        -10727.626922865089,
+        -4.8
+      ],
+      "yaw": 306.20537695293746,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -77921.4144506821,
+        -6692.137603530394,
+        -4.8
+      ],
+      "yaw": 269.54624097085343,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -74823.3814583094,
+        -6734.7970977458845,
+        -4.8
+      ],
+      "yaw": 189.2560140563636,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -75791.3127936435,
+        -6379.552461270257,
+        -4.8
+      ],
+      "yaw": 182.28554632209645,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -74534.85908555,
+        -5800.334416347568,
+        -4.8
+      ],
+      "yaw": 350.463078472932,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -73968.45701178534,
+        -6406.111205102276,
+        -4.8
+      ],
+      "yaw": 184.60545809161775,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -72974.55973966383,
+        -5943.375703522019,
+        -4.8
+      ],
+      "yaw": 170.69494603365862,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -75292.21613527328,
+        -6707.112291364256,
+        -4.8
+      ],
+      "yaw": 116.03550841165028,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -74860.01117524972,
+        -10795.400274057072,
+        -4.8
+      ],
+      "yaw": 253.52608694397452,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73726.81634163015,
+        -11847.177642571905,
+        -4.8
+      ],
+      "yaw": 253.7282963129964,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73842.64818330768,
+        -6771.90508584631,
+        -4.8
+      ],
+      "yaw": 147.26455484802773,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -77352.66281942073,
+        -6732.483237035872,
+        -4.8
+      ],
+      "yaw": 197.17418108578588,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -74156.16703619844,
+        -11746.178080407617,
+        -4.8
+      ],
+      "yaw": 228.3348079702446,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -76983.25033933079,
+        -6500.517963658814,
+        -4.8
+      ],
+      "yaw": 36.10112169986956,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -77634.8297678796,
+        -12031.699212994536,
+        -4.8
+      ],
+      "yaw": 170.2550358640506,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -76345.71224450874,
+        -5855.9468658816095,
+        -4.8
+      ],
+      "yaw": 249.44720405855486,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -77477.29901763485,
+        -11392.721085480065,
+        -4.8
+      ],
+      "yaw": 134.98905255373955,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -76458.74011664845,
+        -11907.31059422244,
+        -4.8
+      ],
+      "yaw": 172.37286039406922,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73391.30807942981,
+        -6686.843366094762,
+        -4.8
+      ],
+      "yaw": 237.8246657052717,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -76354.05866712231,
+        -11646.413878263771,
+        -4.8
+      ],
+      "yaw": 230.881901749814,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -74405.97244201474,
+        -10860.883877937351,
+        -4.8
+      ],
+      "yaw": 289.4615627072218,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -75059.88623897558,
+        -5616.165961379321,
+        -4.8
+      ],
+      "yaw": 278.7371040678186,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -78160.2328259374,
+        -6956.667984985419,
+        -4.8
+      ],
+      "yaw": 210.98938045335404,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -77427.77875562574,
+        -6076.24433693324,
+        -4.8
+      ],
+      "yaw": 86.52755563199608,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -76022.6188252732,
+        -6794.495674021639,
+        -4.8
+      ],
+      "yaw": 127.78754841785324,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73687.49851742819,
+        -10843.169497429682,
+        -4.8
+      ],
+      "yaw": 282.98994443348755,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -77758.1957188282,
+        -7109.136047893123,
+        -4.8
+      ],
+      "yaw": 63.67885586018023,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -74977.17770791671,
+        -5959.159584308277,
+        -4.8
+      ],
+      "yaw": 163.79496879462826,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -76490.83939012112,
+        -6699.420613463676,
+        -4.8
+      ],
+      "yaw": 160.90797927351682,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -73750.07110773734,
+        -10545.405414465786,
+        -4.8
+      ],
+      "yaw": 252.40224063350814,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73425.19527896172,
+        -10492.189148421689,
+        -4.8
+      ],
+      "yaw": 179.4576470306251,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -78124.71446875128,
+        -6491.672508519054,
+        -4.8
+      ],
+      "yaw": 293.8178009087722,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -77165.43381417192,
+        -12031.051588657303,
+        -4.8
+      ],
+      "yaw": 132.74153778530535,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -77004.70442566,
+        -6186.972954494681,
+        -4.8
+      ],
+      "yaw": 173.4053914965315,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73455.12144409608,
+        -6294.697006676474,
+        -4.8
+      ],
+      "yaw": 0.5134954257291247,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -76558.62574920036,
+        -11220.264257471506,
+        -4.8
+      ],
+      "yaw": 334.5883887818242,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -72957.6199108188,
+        -6635.544348184809,
+        -4.8
+      ],
+      "yaw": 201.0789015177687,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -76570.1199214415,
+        -12182.577625980952,
+        -4.8
+      ],
+      "yaw": 282.2469250656439,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -75332.76412040631,
+        -10852.917230147254,
+        -4.8
+      ],
+      "yaw": 138.80892175220075,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -75862.10607275214,
+        -11109.453766526094,
+        -4.8
+      ],
+      "yaw": 3.073617989867068,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73616.38803281203,
+        -11390.799055660502,
+        -4.8
+      ],
+      "yaw": 6.234032203019484,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -72358.29612252497,
+        -11115.027860938002,
+        -4.8
+      ],
+      "yaw": 15.212098972406167,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -76006.80212817645,
+        -11559.248051703496,
+        -4.8
+      ],
+      "yaw": 172.3888399418164,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -76630.53871155258,
+        -10828.976201437983,
+        -4.8
+      ],
+      "yaw": 20.38187395066882,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -74912.58867119563,
+        -6337.244251889695,
+        -4.8
+      ],
+      "yaw": 58.13621188437545,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -74488.34027732036,
+        -11588.316227259314,
+        -4.8
+      ],
+      "yaw": 280.76688805238007,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -72640.85012949936,
+        -10640.569790900898,
+        -4.8
+      ],
+      "yaw": 163.6273504301954,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -76336.91666972871,
+        -6383.462910624824,
+        -4.8
+      ],
+      "yaw": 124.1382859718661,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -75690.94808658368,
+        -7053.819684725304,
+        -4.8
+      ],
+      "yaw": 33.7184787716701,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61579.44460190763,
+        -668.8752179481276,
+        -4.8
+      ],
+      "yaw": 9.089854475666975,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63624.722745828476,
+        -1801.910881131302,
+        -4.8
+      ],
+      "yaw": 113.90714373725444,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -60866.75759193727,
+        -1759.0005796372186,
+        -4.8
+      ],
+      "yaw": 8.828770618644256,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -60902.46605675008,
+        -1403.777930309082,
+        -4.8
+      ],
+      "yaw": 187.0472288698716,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64301.93134407999,
+        -2133.4514427951904,
+        -4.8
+      ],
+      "yaw": 96.61961157068413,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -61311.13745958246,
+        -294.2056472471063,
+        -4.8
+      ],
+      "yaw": 149.9157346124277,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -60603.88521740329,
+        -122.82078424663905,
+        -4.8
+      ],
+      "yaw": 6.359580599983623,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63745.70563014651,
+        -2203.927202841499,
+        -4.8
+      ],
+      "yaw": 79.81142290104191,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -60661.90853692932,
+        -663.9213637957141,
+        -4.8
+      ],
+      "yaw": 283.8728996812687,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -60265.21617916213,
+        -736.7452476901813,
+        -4.8
+      ],
+      "yaw": 293.8367448593195,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64342.099770455075,
+        -1799.5894972256128,
+        -4.8
+      ],
+      "yaw": 273.5163562141898,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -61882.08989251915,
+        -266.08294764581797,
+        -4.8
+      ],
+      "yaw": 8.364196239904444,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -63900.42309034571,
+        -1276.5792112741833,
+        -4.8
+      ],
+      "yaw": 218.50849621660979,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63456.99810547682,
+        -2344.171173493277,
+        -4.8
+      ],
+      "yaw": 331.0728412895273,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -60924.18513464026,
+        206.87324664962716,
+        -4.8
+      ],
+      "yaw": 246.2216620977841,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63944.239939907995,
+        -3479.6299285133005,
+        -4.8
+      ],
+      "yaw": 285.25985419295307,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -60885.6523700338,
+        -983.7362584548705,
+        -4.8
+      ],
+      "yaw": 235.66170279389524,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -60498.48898025695,
+        -1345.2392363545646,
+        -4.8
+      ],
+      "yaw": 97.99424560263388,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63558.98272922857,
+        -2916.637353081259,
+        -4.8
+      ],
+      "yaw": 126.052803852272,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61498.141593693756,
+        57.33332681213051,
+        -4.8
+      ],
+      "yaw": 41.13095046836324,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -65074.52146271263,
+        -1715.3354872117668,
+        -4.8
+      ],
+      "yaw": 190.54720274015457,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63460.03634424413,
+        -3351.9856621682047,
+        -4.8
+      ],
+      "yaw": 148.84873768353236,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64230.39179421276,
+        -3057.7252541600956,
+        -4.8
+      ],
+      "yaw": 213.61595314003304,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64050.007107780104,
+        -2335.695163592575,
+        -4.8
+      ],
+      "yaw": 101.76498010510089,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -60412.036454451496,
+        -1061.8846903772273,
+        -4.8
+      ],
+      "yaw": 202.40525633484287,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64515.04110955072,
+        5057.69456048595,
+        -4.8
+      ],
+      "yaw": 12.860614107955683,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67643.81848322642,
+        3493.5837766399604,
+        -4.8
+      ],
+      "yaw": 133.38284505523546,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -65493.75742363696,
+        -508.29896931604344,
+        -4.8
+      ],
+      "yaw": 83.38548082624833,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66739.30826824695,
+        2441.8030958534314,
+        -4.8
+      ],
+      "yaw": 127.14353899607745,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -62711.562651077715,
+        1387.3167105927992,
+        -4.8
+      ],
+      "yaw": 25.15715627170096,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -65327.98721049629,
+        1017.3147593408344,
+        -4.8
+      ],
+      "yaw": 296.0509016932165,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66697.32216863072,
+        3435.6346861498746,
+        -4.8
+      ],
+      "yaw": 24.961775731671715,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -62406.02178070007,
+        756.6671380825642,
+        -4.8
+      ],
+      "yaw": 66.21187533067541,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64393.00326530274,
+        -431.54548012599025,
+        -4.8
+      ],
+      "yaw": 283.025692037485,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64283.56446479067,
+        4891.777607548303,
+        -4.8
+      ],
+      "yaw": 8.450615361524898,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66747.64720544743,
+        1582.543334234781,
+        -4.8
+      ],
+      "yaw": 275.235786688762,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64285.11525479644,
+        3970.671590176756,
+        -4.8
+      ],
+      "yaw": 119.71910248629922,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -67277.16399795891,
+        2893.105051725914,
+        -4.8
+      ],
+      "yaw": 113.44297721747444,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66007.06879984845,
+        476.0604121203355,
+        -4.8
+      ],
+      "yaw": 178.54985247241106,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -63384.310101338444,
+        4545.721031039517,
+        -4.8
+      ],
+      "yaw": 129.50475254392163,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67242.23376476325,
+        4138.135875397473,
+        -4.8
+      ],
+      "yaw": 11.763199953203358,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63969.701697671764,
+        3483.1481449193193,
+        -4.8
+      ],
+      "yaw": 89.0044607153427,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -62353.910150449425,
+        458.5924917513353,
+        -4.8
+      ],
+      "yaw": 340.4854431505991,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -62103.32908666321,
+        1640.6672661596826,
+        -4.8
+      ],
+      "yaw": 268.9326402309996,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64655.0952065561,
+        5763.188301935625,
+        -4.8
+      ],
+      "yaw": 327.71027333090774,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -63098.25771465312,
+        2371.2500468890307,
+        -4.8
+      ],
+      "yaw": 154.61232804789998,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63870.05065078569,
+        3962.343776695627,
+        -4.8
+      ],
+      "yaw": 196.55723632631438,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66746.20814047713,
+        2844.0674411525347,
+        -4.8
+      ],
+      "yaw": 277.87537639326354,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -62729.102854081895,
+        975.6623104280802,
+        -4.8
+      ],
+      "yaw": 86.64408990145719,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68023.81167142323,
+        4035.1790752709517,
+        -4.8
+      ],
+      "yaw": 280.1070012639361,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -66429.20000457081,
+        2173.5995648074363,
+        -4.8
+      ],
+      "yaw": 141.74074039368998,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64524.53197294267,
+        -1069.045370682351,
+        -4.8
+      ],
+      "yaw": 225.0414799084447,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65140.27776091738,
+        -814.9364247764897,
+        -4.8
+      ],
+      "yaw": 293.8622684505165,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64361.9047683393,
+        6486.113140592219,
+        -4.8
+      ],
+      "yaw": 85.5666100113695,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -63502.85602765007,
+        4820.487698420389,
+        -4.8
+      ],
+      "yaw": 241.1298864539426,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67442.41101789061,
+        2315.471448556142,
+        -4.8
+      ],
+      "yaw": 246.24017452435172,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64411.360510104474,
+        4288.924893917552,
+        -4.8
+      ],
+      "yaw": 145.12807386198233,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -67507.7943508459,
+        4489.835783079547,
+        -4.8
+      ],
+      "yaw": 101.51038034563621,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63075.36202664847,
+        1969.4713593765769,
+        -4.8
+      ],
+      "yaw": 62.29063176307106,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65398.13178421159,
+        210.48832907418318,
+        -4.8
+      ],
+      "yaw": 34.3374620776886,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64699.88823366679,
+        -300.8312336709678,
+        -4.8
+      ],
+      "yaw": 343.865460843407,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64858.75143620588,
+        6200.262518444226,
+        -4.8
+      ],
+      "yaw": 51.19700945424513,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68227.87199680421,
+        4553.717089827764,
+        -4.8
+      ],
+      "yaw": 197.83301234971165,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -66267.434926292,
+        1546.6647888103394,
+        -4.8
+      ],
+      "yaw": 276.9260676215844,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66682.49942032149,
+        1156.3012264863987,
+        -4.8
+      ],
+      "yaw": 233.22732603819594,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65588.9163544576,
+        1272.0086553174965,
+        -4.8
+      ],
+      "yaw": 53.21741283291932,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -66761.08051145685,
+        2114.7941358052735,
+        -4.8
+      ],
+      "yaw": 223.06541050358513,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67685.08774836833,
+        4854.1492089266685,
+        -4.8
+      ],
+      "yaw": 33.552612891707405,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68215.47504965992,
+        3679.889717456375,
+        -4.8
+      ],
+      "yaw": 185.85274898825412,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -65730.8261926129,
+        428.7734029418366,
+        -4.8
+      ],
+      "yaw": 222.90574223053994,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67709.45506744583,
+        4053.2996337774553,
+        -4.8
+      ],
+      "yaw": 32.43373594299999,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66748.91748787246,
+        3790.147818398294,
+        -4.8
+      ],
+      "yaw": 174.527040804585,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -63968.06049660713,
+        3098.2411328920894,
+        -4.8
+      ],
+      "yaw": 106.29978492164894,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65968.66943909127,
+        1492.0336068912106,
+        -4.8
+      ],
+      "yaw": 324.012338541949,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64313.4989474406,
+        -773.9615693968362,
+        -4.8
+      ],
+      "yaw": 107.62861557210047,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -63714.9622696742,
+        2701.5285057383385,
+        -4.8
+      ],
+      "yaw": 185.9129704415834,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -62194.380109354825,
+        1073.4974727624472,
+        -4.8
+      ],
+      "yaw": 50.2924476228552,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66997.71093228416,
+        2324.585186927036,
+        -4.8
+      ],
+      "yaw": 300.7560522195533,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -67702.70689449787,
+        5176.861608757228,
+        -4.8
+      ],
+      "yaw": 263.08361818366694,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63442.26097040092,
+        2208.100276553518,
+        -4.8
+      ],
+      "yaw": 286.4689610227899,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67045.06011606261,
+        3508.099130032511,
+        -4.8
+      ],
+      "yaw": 275.85967896044707,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -63834.267887329086,
+        5570.316200588775,
+        -4.8
+      ],
+      "yaw": 201.92714518420865,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64031.44358450972,
+        4732.636636974748,
+        -4.8
+      ],
+      "yaw": 271.40167360702884,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63853.312130858685,
+        4421.806650834016,
+        -4.8
+      ],
+      "yaw": 350.7684067332868,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -65572.19695855273,
+        1746.209668056687,
+        -4.8
+      ],
+      "yaw": 106.20945282189662,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61492.88288717015,
+        1015.2270600723136,
+        -4.8
+      ],
+      "yaw": 93.38386318414906,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61911.759673154156,
+        372.74973888021077,
+        -4.8
+      ],
+      "yaw": 23.850750204843138,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -65406.169875528074,
+        5870.672446729033,
+        -4.8
+      ],
+      "yaw": 299.4883582710043,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -61912.47590048185,
+        934.6562688363324,
+        -4.8
+      ],
+      "yaw": 306.204978931224,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -61798.11295609772,
+        1366.8957381128735,
+        -4.8
+      ],
+      "yaw": 29.005244590547665,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -64299.32540403583,
+        5344.809862177362,
+        -4.8
+      ],
+      "yaw": 3.55088594910983,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69538.61073629573,
+        8612.875710916653,
+        -4.8
+      ],
+      "yaw": 147.44572787081165,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70521.18761543326,
+        9517.623379771761,
+        -4.8
+      ],
+      "yaw": 330.2014639676389,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -70844.35646492381,
+        9812.667512703689,
+        -4.8
+      ],
+      "yaw": 229.98584073727804,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71518.10816085685,
+        10226.705658648814,
+        -4.8
+      ],
+      "yaw": 121.21298678043337,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67067.36021622203,
+        9754.105389350952,
+        -4.8
+      ],
+      "yaw": 310.84118623028803,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -71140.06611820315,
+        9250.300203090375,
+        -4.8
+      ],
+      "yaw": 289.1188973367536,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70360.13461601232,
+        9847.485957642708,
+        -4.8
+      ],
+      "yaw": 103.1751699775875,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70521.3171129153,
+        8773.744509484728,
+        -4.8
+      ],
+      "yaw": 20.817305119738002,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -66667.51434562789,
+        10772.893619699484,
+        -4.8
+      ],
+      "yaw": 221.60720146240183,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70952.51677448826,
+        8828.506182697163,
+        -4.8
+      ],
+      "yaw": 135.95534593389738,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69269.92006681448,
+        8357.42523257302,
+        -4.8
+      ],
+      "yaw": 135.773315633374,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -67484.78518258074,
+        10267.541003112088,
+        -4.8
+      ],
+      "yaw": 86.24630417945593,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -68206.55014493785,
+        6092.6043761403525,
+        -4.8
+      ],
+      "yaw": 56.891169053147365,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70158.41533159776,
+        7900.416786476076,
+        -4.8
+      ],
+      "yaw": 50.35296250392217,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -67126.65609374888,
+        10246.870439193226,
+        -4.8
+      ],
+      "yaw": 238.5467998353525,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70743.02149222814,
+        10115.379468303363,
+        -4.8
+      ],
+      "yaw": 342.4569145596955,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67333.1860218933,
+        10000.177061695016,
+        -4.8
+      ],
+      "yaw": 107.63055608217266,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -67118.49933964098,
+        10761.962016880978,
+        -4.8
+      ],
+      "yaw": 352.6013085985604,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67102.99069472699,
+        11196.477808836418,
+        -4.8
+      ],
+      "yaw": 65.87395739416935,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68691.00681568655,
+        7116.614120636882,
+        -4.8
+      ],
+      "yaw": 69.01731196024734,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -67613.58046320843,
+        9759.604535554532,
+        -4.8
+      ],
+      "yaw": 68.61449173023935,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66885.16053138748,
+        10100.005249915135,
+        -4.8
+      ],
+      "yaw": 150.00733072716451,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67854.14500667353,
+        5534.306693113696,
+        -4.8
+      ],
+      "yaw": 255.4660740777474,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -70036.53026935321,
+        8934.298289401351,
+        -4.8
+      ],
+      "yaw": 326.82721566749876,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70630.96707781516,
+        8496.506639297084,
+        -4.8
+      ],
+      "yaw": 154.8740212576479,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Foliage2/Meshes/SM_SF2_shrub_cluster",
+      "location": [
+        -67317.69727002124,
+        9061.951340897918,
+        -4.8
+      ],
+      "yaw": 91.98359805200688,
+      "scale": [
+        0.9,
+        0.9,
+        0.85
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -70653.3578777357,
+        9264.560650398387,
+        -4.8
+      ],
+      "yaw": 181.67705220755974,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69714.54444916446,
+        8960.482062135234,
+        -4.8
+      ],
+      "yaw": 6.0853455872479545,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68179.74747352996,
+        5779.412946517765,
+        -4.8
+      ],
+      "yaw": 220.02839089396247,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover",
+      "location": [
+        -66590.84323116843,
+        10431.155100565054,
+        -4.8
+      ],
+      "yaw": 310.9853788491719,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67448.32691881547,
+        10560.619551095864,
+        -4.8
+      ],
+      "yaw": 55.5064840990363,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69221.7898329556,
+        7753.034679069899,
+        -4.8
+      ],
+      "yaw": 158.6335967198952,
+      "scale": [
+        1.2,
+        1.2,
+        1.15
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "verge"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -59528.98064172344,
+        -9129.38401568152,
+        1
+      ],
+      "yaw": -66.4491693664608,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -57539.72871166003,
+        -8262.3334065825,
+        1
+      ],
+      "yaw": -66.4491693664608,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -59554.262413105665,
+        -10153.81462925951,
+        1
+      ],
+      "yaw": -66.4491693664608,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -59580.23397512937,
+        -10094.228741953462,
+        16
+      ],
+      "yaw": 90.41682752830278,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -59528.29085108196,
+        -10213.400516565558,
+        16
+      ],
+      "yaw": 269.5937790015527,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -59117.94017110745,
+        -11154.857536001098,
+        1
+      ],
+      "yaw": -66.4491693664608,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -59143.91173313116,
+        -11095.27164869505,
+        16
+      ],
+      "yaw": 58.24020681875937,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -59091.96860908375,
+        -11214.443423307146,
+        16
+      ],
+      "yaw": 155.56305987426455,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -56772.059828892554,
+        -8941.1424639989,
+        1
+      ],
+      "yaw": -66.4491693664608,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56798.03139091626,
+        -8881.556576692852,
+        16
+      ],
+      "yaw": 329.7210541460128,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56746.08826686885,
+        -9000.728351304948,
+        16
+      ],
+      "yaw": 292.59518773281116,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -56335.73758689434,
+        -9942.185370740488,
+        1
+      ],
+      "yaw": -66.4491693664608,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56361.709148918046,
+        -9882.59948343444,
+        16
+      ],
+      "yaw": 339.98429133062706,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -56309.76602487064,
+        -10001.771258046536,
+        16
+      ],
+      "yaw": 27.561646594385415,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-17"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -67636.646986284,
+        -11216.481869866542,
+        1
+      ],
+      "yaw": -79.42808491411894,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -65503.48186986655,
+        -10818.35301371601,
+        1
+      ],
+      "yaw": -79.42808491411894,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -67926.42995259486,
+        -11977.567333159643,
+        1
+      ],
+      "yaw": -79.42808491411894,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67938.35547132748,
+        -11913.670682207046,
+        16
+      ],
+      "yaw": 312.0520841769767,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67914.50443386224,
+        -12041.463984112239,
+        16
+      ],
+      "yaw": 145.04134429628115,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -67783.32372780342,
+        -12744.3271445908,
+        1
+      ],
+      "yaw": -79.42808491411894,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67795.24924653604,
+        -12680.430493638203,
+        16
+      ],
+      "yaw": 248.85021129219052,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -67771.3982090708,
+        -12808.223795543396,
+        16
+      ],
+      "yaw": 286.2215282998214,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -64958.67627219658,
+        -11423.672855409202,
+        1
+      ],
+      "yaw": -79.42808491411894,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64970.6017909292,
+        -11359.776204456606,
+        16
+      ],
+      "yaw": 263.07268135284755,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64946.75075346396,
+        -11487.569506361799,
+        16
+      ],
+      "yaw": 53.527057104125696,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -64815.57004740514,
+        -12190.43266684036,
+        1
+      ],
+      "yaw": -79.42808491411894,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64827.49556613776,
+        -12126.536015887763,
+        16
+      ],
+      "yaw": 133.52840485778503,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64803.64452867252,
+        -12254.329317792955,
+        16
+      ],
+      "yaw": 40.258631216105975,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-19"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -66573.290263618,
+        -4014.020333250452,
+        1
+      ],
+      "yaw": 100.54931754953391,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -69090.02033325046,
+        -4482.709736382005,
+        1
+      ],
+      "yaw": 100.54931754953391,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -66281.5249214881,
+        -3133.7243687408854,
+        1
+      ],
+      "yaw": 100.54931754953391,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66269.62460461172,
+        -3197.625718165147,
+        16
+      ],
+      "yaw": 191.1719894094855,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66293.42523836449,
+        -3069.8230193166237,
+        16
+      ],
+      "yaw": 114.36215836262981,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -66452.88948450808,
+        -2213.5449370315187,
+        1
+      ],
+      "yaw": 100.54931754953391,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66440.98916763169,
+        -2277.4462864557804,
+        16
+      ],
+      "yaw": 288.05044035887596,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66464.78980138447,
+        -2149.643587607257,
+        16
+      ],
+      "yaw": 111.34929187217512,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -69679.11051549192,
+        -3766.455062968482,
+        1
+      ],
+      "yaw": 100.54931754953391,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69667.21019861553,
+        -3830.3564123927436,
+        16
+      ],
+      "yaw": 14.226876873446805,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69691.01083236831,
+        -3702.55371354422,
+        16
+      ],
+      "yaw": 66.1802927588547,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -69850.4750785119,
+        -2846.275631259115,
+        1
+      ],
+      "yaw": 100.54931754953391,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69838.57476163551,
+        -2910.1769806833768,
+        16
+      ],
+      "yaw": 329.3849464214644,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69862.37539538828,
+        -2782.3742818348533,
+        16
+      ],
+      "yaw": 348.5458739382279,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-20"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -72823.51734728934,
+        -11610.470435477344,
+        1
+      ],
+      "yaw": -83.00455326177838,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -71056.76796385169,
+        -11393.683406062142,
+        1
+      ],
+      "yaw": -83.00455326177838,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -73201.90026972198,
+        -12357.11199205676,
+        1
+      ],
+      "yaw": -83.00455326177838,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73209.81665000961,
+        -12292.595862886285,
+        16
+      ],
+      "yaw": 160.73137921443634,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73193.98388943436,
+        -12421.628121227235,
+        16
+      ],
+      "yaw": 317.21172012193614,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -73106.90370627037,
+        -13131.305542102475,
+        1
+      ],
+      "yaw": -83.00455326177838,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73114.820086558,
+        -13066.789412932,
+        16
+      ],
+      "yaw": 162.28671775091763,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -73098.98732598274,
+        -13195.82167127295,
+        16
+      ],
+      "yaw": 169.87847944094054,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -70509.09629372964,
+        -12026.694457897525,
+        1
+      ],
+      "yaw": -83.00455326177838,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70517.01267401727,
+        -11962.17832872705,
+        16
+      ],
+      "yaw": 275.07303747244475,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70501.17991344201,
+        -12091.210587068,
+        16
+      ],
+      "yaw": 274.1534837511629,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -70414.09973027803,
+        -12800.88800794324,
+        1
+      ],
+      "yaw": -83.00455326177838,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70422.01611056566,
+        -12736.371878772765,
+        16
+      ],
+      "yaw": 330.0369911346589,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70406.1833499904,
+        -12865.404137113715,
+        16
+      ],
+      "yaw": 69.79957294165915,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-21"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -71602.28197688094,
+        -5357.433693931025,
+        1
+      ],
+      "yaw": 96.99057206023053,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -73756.15061272396,
+        -5621.535756648751,
+        1
+      ],
+      "yaw": 96.99057206023053,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -71360.65706113561,
+        -4509.724781573095,
+        1
+      ],
+      "yaw": 96.99057206023053,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71352.74616985605,
+        -4574.241584029222,
+        16
+      ],
+      "yaw": 201.4987678678867,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71368.56795241518,
+        -4445.207979116968,
+        16
+      ],
+      "yaw": 81.91041400034844,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -71474.57389556133,
+        -3580.6828262048653,
+        1
+      ],
+      "yaw": 96.99057206023053,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71466.66300428177,
+        -3645.1996286609924,
+        16
+      ],
+      "yaw": 142.67075473904958,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71482.4847868409,
+        -3516.166023748738,
+        16
+      ],
+      "yaw": 40.88409618033303,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -74195.42610443868,
+        -4857.317173795136,
+        1
+      ],
+      "yaw": 96.99057206023053,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -74187.51521315912,
+        -4921.833976251263,
+        16
+      ],
+      "yaw": 271.9893069749415,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -74203.33699571824,
+        -4792.800371339009,
+        16
+      ],
+      "yaw": 334.3047073351128,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -74309.3429388644,
+        -3928.275218426905,
+        1
+      ],
+      "yaw": 96.99057206023053,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -74301.43204758484,
+        -3992.7920208830324,
+        16
+      ],
+      "yaw": 180.75994369551802,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -74317.25383014396,
+        -3863.758415970778,
+        16
+      ],
+      "yaw": 253.40043733284926,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "unity-avenue-22"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -59910.60957583158,
+        -3285.228149972691,
+        1
+      ],
+      "yaw": 29.37760568960413,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-2"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -60592.49242151268,
+        -2073.9743430577914,
+        1
+      ],
+      "yaw": 29.37760568960413,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-2"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -62580.915627790324,
+        1865.5215696178693,
+        1
+      ],
+      "yaw": 29.385707571351542,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-4"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -63645.705146415305,
+        3756.3212102531133,
+        1
+      ],
+      "yaw": 29.385707571351542,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-4"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -69546.75545236841,
+        7195.613690474397,
+        1
+      ],
+      "yaw": -150.6991197307291,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -68484.76645827634,
+        5303.2396850443665,
+        1
+      ],
+      "yaw": -150.6991197307291,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -70482.43866649836,
+        7203.732975876332,
+        1
+      ],
+      "yaw": -150.6991197307291,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70425.75465251082,
+        7235.543706114113,
+        16
+      ],
+      "yaw": 275.9009779351872,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -70539.1226804859,
+        7171.9222456385505,
+        16
+      ],
+      "yaw": 58.34658404469559,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -71298.68846791887,
+        6745.658460452283,
+        1
+      ],
+      "yaw": -150.6991197307291,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71242.00445393132,
+        6777.469190690064,
+        16
+      ],
+      "yaw": 135.35296444807997,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -71355.37248190641,
+        6713.847730214502,
+        16
+      ],
+      "yaw": 359.3939033252454,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -68965.31153208112,
+        4500.341539547717,
+        1
+      ],
+      "yaw": -150.6991197307291,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -68908.62751809358,
+        4532.152269785498,
+        16
+      ],
+      "yaw": 302.5738569247212,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69021.99554606866,
+        4468.530809309936,
+        16
+      ],
+      "yaw": 8.185745818032837,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -69781.56133350162,
+        4042.2670241236683,
+        1
+      ],
+      "yaw": -150.6991197307291,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69724.87731951408,
+        4074.0777543614495,
+        16
+      ],
+      "yaw": 300.8280864055725,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -69838.24534748917,
+        4010.456293885887,
+        16
+      ],
+      "yaw": 241.51014694443566,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-5"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -65500.63969243656,
+        6754.743047664071,
+        1
+      ],
+      "yaw": 29.305075856579844,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot",
+      "location": [
+        -66753.65654185085,
+        8987.129388574598,
+        1
+      ],
+      "yaw": 29.305075856579844,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -64676.03792282864,
+        6705.557973104063,
+        1
+      ],
+      "yaw": 29.305075856579844,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64732.71960726582,
+        6673.743092161903,
+        16
+      ],
+      "yaw": 5.137941973034095,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64619.35623839146,
+        6737.372854046223,
+        16
+      ],
+      "yaw": 286.1877361244801,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -63995.857709582466,
+        7087.33654440998,
+        1
+      ],
+      "yaw": 29.305075856579844,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -64052.539394019645,
+        7055.52166346782,
+        16
+      ],
+      "yaw": 327.52522305690627,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -63939.17602514529,
+        7119.15142535214,
+        16
+      ],
+      "yaw": 35.48602087548496,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -66366.14229041753,
+        9716.66345559002,
+        1
+      ],
+      "yaw": 29.305075856579844,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66422.8239748547,
+        9684.84857464786,
+        16
+      ],
+      "yaw": 169.3190659147473,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -66309.46060598035,
+        9748.47833653218,
+        16
+      ],
+      "yaw": 98.09964330989729,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Forecourts/Meshes/SM_FC_BedPlanter",
+      "location": [
+        -65685.96207717135,
+        10098.442026895937,
+        1
+      ],
+      "yaw": 29.305075856579844,
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65742.64376160853,
+        10066.627145953777,
+        16
+      ],
+      "yaw": 31.32721799997015,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    },
+    {
+      "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump",
+      "location": [
+        -65629.28039273417,
+        10130.256907838097,
+        16
+      ],
+      "yaw": 269.433977409074,
+      "scale": [
+        1.15,
+        1.15,
+        1.0
+      ],
+      "cull_cm": [
+        22000,
+        30000
+      ],
+      "source": "theatre-street-6"
+    }
+  ],
+  "rejectedPlantingPoints": [
+    {
+      "point": [
+        -63418.12497655979,
+        -2925.6188215316165
+      ],
+      "reason": "No horizontal support"
+    }
+  ]
+}
