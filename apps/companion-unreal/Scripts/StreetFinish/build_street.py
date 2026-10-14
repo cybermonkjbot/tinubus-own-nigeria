@@ -28,15 +28,18 @@ def vec(value):
 
 
 def ground(location):
-    hit = u.SystemLibrary.line_trace_single(
+    result = u.SystemLibrary.line_trace_single(
         world(), location + u.Vector(0, 0, 180), location - u.Vector(0, 0, 300),
-        u.TraceTypeQuery.ECC_VISIBILITY, True, [], u.DrawDebugTrace.NONE, True).to_tuple()
+        u.TraceTypeQuery.ECC_VISIBILITY, True, [], u.DrawDebugTrace.NONE, True)
+    if result is None:
+        raise RuntimeError('No horizontal support at ' + str(location))
+    hit = result.to_tuple()
     if not hit[0] or hit[7].z < .95:
         raise RuntimeError('No horizontal support at ' + str(location))
     return hit[5].z
 
 
-def make_graph(name, placements, scope='Library Lane parcels 9/10; fixed editor-authored points, no gameplay authority', cast_shadow=True):
+def make_graph(name, placements, scope='Library Lane parcels 9/10; fixed editor-authored points, no gameplay authority', cast_shadow=True, label=None):
     path = ROOT + '/PCG/' + name
     graph = u.load_asset(path)
     if graph:
@@ -50,8 +53,9 @@ def make_graph(name, placements, scope='Library Lane parcels 9/10; fixed editor-
     u.EditorAssetLibrary.set_metadata_tag(graph, 'StreetFinishOwner', OWNER)
     groups = defaultdict(list)
     for placement in placements:
-        groups[(placement['mesh'], placement.get('material', ''))].append(placement)
-    for row, ((path, material), instances) in enumerate(sorted(groups.items())):
+        groups[(placement['mesh'], placement.get('material', ''),
+                tuple(placement.get('cull_cm', [14000, 18000])))].append(placement)
+    for row, ((path, material, cull), instances) in enumerate(sorted(groups.items())):
         mesh = u.load_asset(path)
         if not isinstance(mesh, u.StaticMesh):
             raise RuntimeError('Missing native mesh ' + path)
@@ -86,7 +90,7 @@ def make_graph(name, placements, scope='Library Lane parcels 9/10; fixed editor-
             'static_mesh': mesh, 'component_class': u.HierarchicalInstancedStaticMeshComponent,
             'mobility': u.ComponentMobility.STATIC, 'use_default_collision': False,
             'body_instance': body, 'can_ever_affect_navigation': False, 'cast_shadow': cast_shadow,
-            'instance_start_cull_distance': 14000, 'instance_end_cull_distance': 18000,
+            'instance_start_cull_distance': cull[0], 'instance_end_cull_distance': cull[1],
             'component_tags': [OWNER, 'Baddie.NoRuntimeAuthority']})
         if material:
             override = u.load_asset(material)
@@ -104,7 +108,7 @@ def make_graph(name, placements, scope='Library Lane parcels 9/10; fixed editor-
         raise RuntimeError('PCG graph save failed')
     actor = u.get_editor_subsystem(u.EditorActorSubsystem).spawn_actor_from_class(
         u.PCGVolume, u.Vector(0, 0, 0), u.Rotator(pitch=0, yaw=0, roll=0))
-    actor.set_actor_label('Library Lane: ' + name.removeprefix('PCG_LibraryLane_'))
+    actor.set_actor_label(label or 'Library Lane: ' + name.removeprefix('PCG_LibraryLane_'))
     actor.set_folder_path('StreetFinish_20261014/Generators')
     actor.tags = [OWNER, 'Baddie.NoRuntimeAuthority']
     component = actor.pcg_component
