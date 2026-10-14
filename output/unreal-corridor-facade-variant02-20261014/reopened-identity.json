@@ -1,0 +1,24 @@
+{
+  "saved": {
+    "host": "Cribtest11",
+    "pid": 5384,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-corridor-facade-variant02-20261014\\CorridorFacadeVariant02.blend",
+    "scene": "CorridorFacadeVariant02",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "corridor-facade-variant02",
+    "renderJob": false
+  },
+  "reopened": {
+    "host": "Cribtest11",
+    "pid": 5384,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-corridor-facade-variant02-20261014\\CorridorFacadeVariant02.blend",
+    "scene": "CorridorFacadeVariant02",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "corridor-facade-variant02",
+    "renderJob": false
+  },
+  "blendSHA256": "6e8c340d0050f6c01e4f1b04f5ba81a4d1b62c37a7f9e27f386cf57a7488da4e",
+  "protectedAndAttachmentReadbackIdentical": true
+}
