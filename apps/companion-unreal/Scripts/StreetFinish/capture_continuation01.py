@@ -12,6 +12,21 @@ CAP = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(CAP)
 
 
+def protected_capture_state():
+    records = CAP.bridge(10404, """
+import json, runpy
+namespace = runpy.run_path('C:/dev/cribtest-game/apps/companion-unreal/Scripts/StreetFinish/continue_adjoining01.py')
+namespace['guard']()
+protection = namespace['check_protected'](readonly=True)
+print(json.dumps({'protectedEvidence': protection}))
+del namespace
+""")
+    matches = [r['protectedEvidence'] for r in records if 'protectedEvidence' in r]
+    if len(matches) != 1:
+        raise RuntimeError('Missing or ambiguous protected capture comparison')
+    return matches[0]
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--phase', required=True)
@@ -25,8 +40,13 @@ def main():
     for camera in cameras:
         if args.camera and camera['id'] not in args.camera:
             continue
+        before = protected_capture_state()
         record = CAP.capture_view(10404, camera['id'], camera['id'])
-        print(json.dumps({'image': record['image'], 'camera': record['cameraConfig']}), flush=True)
+        after = protected_capture_state()
+        if before != after:
+            raise RuntimeError('Protected capture coverage changed')
+        print(json.dumps({'image': record['image'], 'camera': record['cameraConfig'],
+                         'protectedEvidence': after}), flush=True)
 
 
 if __name__ == '__main__':

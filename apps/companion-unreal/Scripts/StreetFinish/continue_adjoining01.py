@@ -32,7 +32,8 @@ def read(name):
     return json.loads((OUT / name).read_text())
 
 
-def state():
+def legacy_state():
+    """Exact historical coverage; never upgrade the immutable original receipt."""
     rows = []
     for actor in AD['actors']():
         if OWNER in [str(t) for t in actor.tags]:
@@ -55,6 +56,118 @@ def state():
                 for i in range(spline.get_number_of_spline_points())]})
         rows.append(row)
     return sorted(rows, key=lambda r: (r['level'], r['label']))
+
+
+LEGACY_COVERAGE = 'Actor transforms; static mesh/material paths and instance counts; world spline point positions only'
+STATE_COVERAGE = 'Actor identity/transforms/tags; scene attachments/relative and world transforms; primitive body/collision/navigation/render flags; supported shapes/mesh body setup; every ISM local/world transform; spline point transforms/tangents/types'
+
+
+def transform_record(value):
+    return {'location': AD['STREET']['vec'](value.translation),
+            'scale': AD['STREET']['vec'](value.scale3d),
+            'quaternion': [value.rotation.x, value.rotation.y, value.rotation.z, value.rotation.w]}
+
+
+def properties(obj, names):
+    result = {}
+    for name in names:
+        value = obj.get_editor_property(name)
+        if isinstance(value, (bool, int, float, str)) or value is None:
+            result[name] = value
+        elif isinstance(value, u.Object):
+            result[name] = value.get_path_name()
+        elif isinstance(value, u.StructBase):
+            result[name] = value.export_text()
+        else:
+            result[name] = str(value)
+    return result
+
+
+def state():
+    """Fail closed on unreadable state or an unsupported primitive support class."""
+    rows = []
+    for actor in AD['actors']():
+        if OWNER in [str(t) for t in actor.tags]:
+            continue
+        row = {'path': actor.get_path_name(), 'class': actor.get_class().get_path_name(),
+               'label': actor.get_actor_label(), 'level': actor.get_outer().get_path_name(),
+               'transform': transform_record(actor.get_actor_transform()),
+               'tags': sorted(str(t) for t in actor.tags),
+               'actorState': properties(actor, ('hidden', 'actor_enable_collision')),
+               'components': []}
+        for component in actor.get_components_by_class(u.SceneComponent):
+            parent = component.get_attach_parent()
+            record = {'path': component.get_path_name(), 'class': component.get_class().get_path_name(),
+                'parent': parent.get_path_name() if parent else None,
+                'socket': str(component.get_attach_socket_name()),
+                'worldTransform': transform_record(component.get_world_transform()),
+                'scene': properties(component, ('relative_location', 'relative_rotation', 'relative_scale3d',
+                    'absolute_location', 'absolute_rotation', 'absolute_scale', 'mobility', 'visible', 'hidden_in_game'))}
+            if isinstance(component, u.PrimitiveComponent):
+                record['primitive'] = properties(component, ('body_instance', 'can_ever_affect_navigation',
+                    'generate_overlap_events', 'cast_shadow', 'bounds_scale', 'use_as_occluder',
+                    'render_in_main_pass', 'render_in_depth_pass'))
+                record['collisionEnabled'] = str(component.get_collision_enabled())
+                record['collisionProfile'] = str(component.get_collision_profile_name())
+                record['collisionObjectType'] = str(component.get_collision_object_type())
+                # BodyInstance's serialized collision_responses retains custom channels too.
+                record['channelResponses'] = properties(component.get_editor_property('body_instance'),
+                    ('collision_responses',))
+                if isinstance(component, u.BoxComponent):
+                    record['shape'] = properties(component, ('box_extent',))
+                elif isinstance(component, u.SphereComponent):
+                    record['shape'] = properties(component, ('sphere_radius',))
+                elif isinstance(component, u.CapsuleComponent):
+                    record['shape'] = properties(component, ('capsule_radius', 'capsule_half_height'))
+                elif not isinstance(component, u.StaticMeshComponent):
+                    raise RuntimeError('Uncovered primitive support state: ' + component.get_path_name())
+            if isinstance(component, u.StaticMeshComponent):
+                mesh = component.static_mesh
+                record['mesh'] = mesh.get_path_name() if mesh else None
+                record['materials'] = [component.get_material(i).get_path_name() if component.get_material(i) else None
+                    for i in range(component.get_num_materials())]
+                body = mesh.get_editor_property('body_setup') if mesh else None
+                record['meshSupport'] = properties(body, ('agg_geom', 'collision_trace_flag', 'default_instance',
+                    'double_sided_geometry', 'generate_mirrored_collision', 'generate_non_mirrored_collision')) if body else None
+                if isinstance(component, u.SplineMeshComponent):
+                    record['splineMeshSupport'] = properties(component, ('spline_params', 'forward_axis',
+                        'spline_up_dir', 'spline_boundary_min', 'spline_boundary_max', 'smooth_interp_roll_scale'))
+                if isinstance(component, u.InstancedStaticMeshComponent):
+                    record['instances'] = [{'local': transform_record(component.get_instance_transform(i, world_space=False)),
+                        'world': transform_record(component.get_instance_transform(i, world_space=True))}
+                        for i in range(component.get_instance_count())]
+            if isinstance(component, u.SplineComponent):
+                record['closed'] = component.is_closed_loop()
+                record['points'] = []
+                for i in range(component.get_number_of_spline_points()):
+                    point = {'type': str(component.get_spline_point_type(i))}
+                    for name, space in (('local', u.SplineCoordinateSpace.LOCAL), ('world', u.SplineCoordinateSpace.WORLD)):
+                        point[name] = {'transform': transform_record(component.get_transform_at_spline_point(i, space, True)),
+                            'arriveTangent': AD['STREET']['vec'](component.get_arrive_tangent_at_spline_point(i, space)),
+                            'leaveTangent': AD['STREET']['vec'](component.get_leave_tangent_at_spline_point(i, space))}
+                    record['points'].append(point)
+            row['components'].append(record)
+        row['components'].sort(key=lambda c: c['path'])
+        rows.append(row)
+    return {'schemaVersion': 2, 'coverage': STATE_COVERAGE, 'actors': sorted(rows, key=lambda r: r['path'])}
+
+
+def check_protected(readonly=False):
+    path = OUT / 'protected-state-v2.json'
+    if path.exists():
+        baseline = read(path.name)
+        if baseline.get('schemaVersion') != 2 or baseline.get('coverage') != STATE_COVERAGE:
+            raise RuntimeError('Invalid protected-state-v2 baseline; preserve evidence')
+        if state() != baseline:
+            raise RuntimeError('Protected v2 captured fields changed')
+        return {'schemaVersion': 2, 'capturedFieldsUnchanged': True, 'coverage': STATE_COVERAGE,
+                'limitations': 'Not gameplay, asset pixel/geometry equivalence or performance proof'}
+    if not readonly:
+        raise RuntimeError('No pre-mutation v2 baseline; historical omissions cannot be reconstructed')
+    if legacy_state() != read('protected-state.json'):
+        raise RuntimeError('Historical captured fields changed')
+    return {'schemaVersion': 1, 'capturedFieldsUnchanged': True, 'coverage': LEGACY_COVERAGE,
+            'limitations': 'No historical component/per-instance transforms, collision/navigation or other primitive support pre-state'}
 
 
 def retained():
@@ -82,6 +195,10 @@ def guard(clean=False):
 
 def configured():
     namespace = AD['survey'].__globals__
+    # runpy returns a dictionary distinct from the functions' live globals.
+    for name in ('native_kit', 'imported_rows', 'install', 'generate', 'audit'):
+        if AD[name].__globals__ is not namespace:
+            raise RuntimeError('Adjoining helper globals no longer share the configured namespace')
     namespace.update(OUTPUT=OUT, BASE=BASE, LAYER=LAYER, OWNER=OWNER, FOCUS=FOCUS,
         LABEL_PREFIX='Continuation01: ', FOLDER='StreetFinish_20261014/AdjoiningContinuation01',
         GRAPH_NAME='PCG_Continuation01FacadeGrammar', MESH_PREFIX='SM_AC01_',
@@ -91,9 +208,13 @@ def configured():
 
 def survey():
     guard(True)
+    if OUT.exists() and any(OUT.iterdir()):
+        raise RuntimeError('Existing evidence is immutable; use a separately authorized output/layer')
+    if any(OWNER in [str(t) for t in a.tags] for a in AD['actors']()) or u.EditorAssetLibrary.does_asset_exist(LAYER):
+        raise RuntimeError('Cannot capture a pre-state after owned content exists')
     assert retained() == {'earlierScenery': 5017, 'adjoiningExteriors': 2451, 'groundDetails': 441,
         'boundaries': [('Biome: college-green', 12), ('Biome: neighbourhood-park-18', 14)]}
-    write('protected-state.json', state())
+    write('protected-state-v2.json', state())
     configured()['survey']()
     data = read('survey.json')
     previous = json.loads((PRIOR / 'survey.json').read_text())
@@ -108,24 +229,46 @@ def survey():
 
 def import_buildings():
     guard(True)
-    assert state() == read('protected-state.json')
+    check_protected()
     configured()['imported_rows']()
 
 
 def install_buildings():
     guard(True)
-    assert state() == read('protected-state.json')
+    check_protected()
     configured()['install']()
 
 
 def generate(site):
     guard()
+    check_protected()
     configured()['generate'](site)
 
 
+def ground_preflight(packages=()):
+    if (OUT / 'ground-installed.json').exists() or (OUT / 'ground-started.json').exists():
+        raise RuntimeError('Ground completion/attempt evidence exists; no automatic rerun or recovery')
+    source_dir = AD['REPO'] / 'output/cribtest11-visible-world-2026-10-11/adjoining-continuation01-ground-source'
+    if source_dir.exists():
+        raise RuntimeError('Ground source remnants exist; explicit recovery review required')
+    for actor in AD['actors']():
+        owned = OWNER in [str(t) for t in actor.tags]
+        label = actor.get_actor_label().startswith('Continuation01 ground:')
+        matched = any(c.static_mesh and c.static_mesh.get_path_name().split('.')[0] in packages
+            for c in actor.get_components_by_class(u.StaticMeshComponent))
+        if label or matched or (owned and isinstance(actor, u.StaticMeshActor)):
+            raise RuntimeError('Existing ground candidate must be preserved: ' + actor.get_path_name())
+    for package in packages:
+        disk = AD['PROJECT'] / 'Content' / package.removeprefix('/Game/')
+        if u.EditorAssetLibrary.does_asset_exist(package) or u.find_object(None, package) or any(
+                disk.with_suffix(suffix).exists() for suffix in ('.uasset', '.uexp', '.ubulk', '.uptnl')):
+            raise RuntimeError('Existing ground content must be preserved: ' + package)
+
+
 def ground():
+    ground_preflight()
     guard()
-    assert state() == read('protected-state.json')
+    check_protected()
     data = read('survey.json')
     kit = configured()['native_kit']()
     cut, box_poly = GROUND['cut'], GROUND['box_poly']
@@ -166,6 +309,11 @@ def ground():
                 'z': -4.8, 'material': AD['COURT']['BASE'] + '/Materials/M_CompactedLaterite'})
     # Native collision rays confirm the original support, independent of decorative overlays.
     rejected = []
+    packages = [BASE + '/Meshes/SM_AC01_' + s['id'].replace('-', '_') for s in surfaces]
+    if len(packages) != len(set(packages)):
+        raise RuntimeError('Ground package identity collision')
+    ground_preflight(packages)
+    prepared = []
     for surface in surfaces:
         supported = []
         for piece in surface['pieces']:
@@ -183,6 +331,7 @@ def ground():
         surface['pieces'] = supported
     surfaces = [s for s in surfaces if s['pieces']]
     for surface in surfaces:
+        package = BASE + '/Meshes/SM_AC01_' + surface['id'].replace('-', '_')
         vertices, faces = [], []
         for piece in surface['pieces']:
             centre = [sum(p[i] for p in piece)/len(piece) for i in (0, 1)]
@@ -194,9 +343,12 @@ def ground():
                                  for p in (centre, a, b)])
                 faces.append([offset, offset+1, offset+2])
         assert len(faces) >= 3
-        package = BASE + '/Meshes/SM_AC01_' + surface['id'].replace('-', '_')
+        prepared.append((surface, package, vertices, faces))
+    # Exclusive attempt marker survives failures before the completion receipt.
+    write('ground-started.json', {'packages': packages, 'policy': 'Fail closed; no automatic partial recovery'})
+    for surface, package, vertices, faces in prepared:
         mesh, asset = kit.FABRIC.IMPORT.import_section(package, 0, 0, 0, 0,
-            supplied_geometry=(vertices, faces), source_directory='adjoining-continuation01-ground-source', recover=True)
+            supplied_geometry=(vertices, faces), source_directory='adjoining-continuation01-ground-source', recover=False)
         assert mesh.get_num_triangles(0) == len(faces)
         mesh.set_material(0, u.load_asset(surface['material']))
         assert u.EditorAssetLibrary.save_loaded_asset(mesh)
@@ -219,7 +371,7 @@ def ground():
 
 def audit(name):
     guard()
-    assert state() == read('protected-state.json'), 'Protected native scene changed'
+    protection = check_protected(readonly=True)
     configured()['audit'](name + '-buildings.json')
     expected = read('ground-installed.json')['surfaces']
     actors = {a.get_actor_label(): a for a in AD['actors']()}
@@ -233,11 +385,12 @@ def audit(name):
         assert c.get_collision_enabled() == u.CollisionEnabled.NO_COLLISION
         assert not c.get_editor_property('can_ever_affect_navigation')
     write(name + '-ground.json', {'surfaces': len(expected), 'areaM2': sum(s['areaM2'] for s in expected),
-        'retained': retained(), 'protectedNativeStateUnchanged': True, 'runtime': 'not inspected'})
+        'retained': retained(), 'protectedEvidence': protection, 'runtime': 'not inspected'})
 
 
 def save():
     guard()
+    check_protected()
     editor = u.get_editor_subsystem(u.LevelEditorSubsystem)
     for name in ('L_TownCentre_AdjoiningContinuation01', 'L_TownCentre_LibraryLane'):
         assert editor.set_current_level_by_name(name) and editor.save_current_level()
@@ -253,7 +406,7 @@ def variation(recover=False):
         assert all(p.get_path_name().startswith(BASE+'/PCG/') for p in u.EditorLoadingAndSavingUtils.get_dirty_content_packages())
     else:
         guard(True)
-    assert state() == read('protected-state.json')
+    check_protected()
     kit = configured()['native_kit']()
     lookup = kit.BASE.v3_modules()
     plaster = lookup['ResidentialBay']['materials'][0]
@@ -329,6 +482,7 @@ def variation(recover=False):
 
 def boundaries():
     guard()
+    check_protected()
     kit = configured()['native_kit']()
     plans = read('survey.json')['plans']
     ground_data = read('ground-installed.json')
@@ -394,10 +548,10 @@ def boundaries():
 
 def final_audit(name):
     guard()
-    assert state() == read('protected-state.json'), 'Protected scene changed'
+    protection = check_protected(readonly=True)
     rows = read('variation.json')['rows']
     scene = {a.get_actor_label(): a for a in AD['actors']()}
-    result = {'sites': [], 'retained': retained(), 'protectedSceneUnchanged': True}
+    result = {'sites': [], 'retained': retained(), 'protectedEvidence': protection}
     for pid in FOCUS:
         actor = scene['Continuation01: '+pid]
         actual = []
@@ -470,6 +624,7 @@ def final_audit(name):
 
 def repair_boundary_corners():
     guard()
+    check_protected()
     data = read('boundaries-installed.json')
     rows, removed, seen = [], [], set()
     for row in data['placements']:
@@ -513,9 +668,22 @@ def provenance():
     source_paths = [repo/asset['sourceObj'] for asset in read('imported.json')['assets']]
     source_paths += [repo/s['asset']['sourceObj'] for s in read('ground-installed.json')['surfaces']]
     paths += source_paths
-    dependencies = [HERE/'add_adjoining.py', HERE/'add_adjoining_ground.py', HERE/'build_street.py',
-        HERE/'add_biomes.py', HERE/'add_forecourts.py']
-    dependencies += list((AD['PROJECT']/'Scripts/WorldGeneration/Connected').glob('*.py'))
+    dependencies = [AD['PROJECT']/'Scripts'/p for p in (
+        'StreetFinish/add_adjoining.py', 'StreetFinish/add_adjoining_ground.py',
+        'StreetFinish/build_street.py', 'StreetFinish/add_biomes.py', 'StreetFinish/add_forecourts.py',
+        'WorldGeneration/Connected/town_centre_native_grammar65.py',
+        'WorldGeneration/Connected/town_centre_fabric_pass49.py',
+        'WorldGeneration/Connected/town_centre_blocks_pass41.py',
+        'WorldGeneration/Connected/town_centre_roofs_pass42.py',
+        'WorldGeneration/Connected/town_centre_crossings_pass37.py',
+        'WorldGeneration/Connected/town_centre_street_pass.py',
+        'WorldGeneration/Connected/capture_town_centre_views.py',
+        'WorldGeneration/Realism/author_slice.py', 'WorldGeneration/Realism/batch_frontage.py',
+        'WorldGeneration/Realism/assemble_frontage.py', 'WorldGeneration/Realism/frontage_import.py',
+        'WorldGeneration/Realism/slice-config.json', 'WorldGeneration/source-lock.json',
+        'mcp_client.py', 'python_bridge.py')]
+    # generator_identity reads all root Python files, including bridge_request.
+    dependencies += list((AD['PROJECT']/'Scripts/WorldGeneration').glob('*.py'))
     digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
     write('provenance.json', {'map': AD['MAP'], 'layer': LAYER, 'pid': PID,
         'files': {p.relative_to(repo).as_posix(): digest(p) for p in sorted(set(paths))},
