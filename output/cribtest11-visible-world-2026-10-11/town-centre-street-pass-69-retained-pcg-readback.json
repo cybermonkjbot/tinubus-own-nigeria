@@ -1,0 +1,12 @@
+{
+  "retainedNativeInstances": {
+    "65": 861,
+    "68": 1150,
+    "66": 16543
+  },
+  "totalInstances": 18554,
+  "safeReloadCompleted": true,
+  "dirtyPackages": [],
+  "runtimeTraversal": "not-inspected",
+  "legacyMapMutation": false
+}

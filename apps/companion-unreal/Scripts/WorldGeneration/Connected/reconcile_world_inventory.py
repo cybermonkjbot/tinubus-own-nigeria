@@ -21,7 +21,7 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def main(target_name='world-inventory-reconciled-20261011-pass68.json'):
+def main(target_name='world-inventory-reconciled-20261011-pass69.json'):
     historical = ROOT / 'output/cribtest11-world-generation/coverage.json'
     coverage = read(historical)
     selection = read(OUT / 'town-centre-district-selection.json')
@@ -155,6 +155,8 @@ def main(target_name='world-inventory-reconciled-20261011-pass68.json'):
     blocks68={p['parcelId']:p for p in read(blocks68_path)['plans']} if blocks68_path.is_file() else {}
     roads66_path=OUT/'town-centre-street-pass-66-roadside-corridors.json'
     roads66=set(read(roads66_path)['roadIds']) if roads66_path.is_file() else set()
+    joins69_path=OUT/'town-centre-street-pass-69-road-joins.json'
+    joins69={p['roadId'] for p in read(joins69_path)['plans']} if joins69_path.is_file() else set()
 
     def row(item, identity):
         job = item.get('workerJob')
@@ -318,6 +320,9 @@ def main(target_name='world-inventory-reconciled-20261011-pass68.json'):
         if item['id'] in roads66:
             entry['nativeSplineGrammarEvidence']=roads66_path.relative_to(ROOT).as_posix()
             entry['nativeSplineGrammarAcceptance']='Source-preserving PCG subdivision/spawning of existing road-edge modules; not new route completion or final terrain acceptance'
+        if item['id'] in joins69:
+            entry['sourceBendSurfaceEvidence']=joins69_path.relative_to(ROOT).as_posix()
+            entry['sourceBendSurfaceAcceptance']='Five source-fitted asphalt gap polygons, static support; parcel5 large triangle removed in matched view, other bend contacts require additional views'
         if route_kinds.get(item['id']) in {'boardwalk','sand-path'}:
             entry['missingDependencies'].append('Approved native boardwalk decking/edges' if route_kinds[item['id']]=='boardwalk' else 'Licensed native-ready sand path finish and source beach terrain')
         roads.append(entry)

@@ -1,0 +1,18 @@
+{
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_2_1.uasset": "0f7ade747b91226c7a83be404cbf7a7bba2ad04823394cc838c07f49a3dad58d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_3_1.uasset": "425e840f6fadb991a3fde846588abd1b3b5e49130a733a240a0c7a87882a464a",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_4_1.uasset": "4702cb0acf6725af48ae0f1fc2fdee51633e0346ffc0c48fb6c10618d24cea0b",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_5_1.uasset": "d138e53f1317b5ef0d5c91cd703dfaf66bef774fce9a3874b8eadaafb575916f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_6_1.uasset": "e54fc1223cfb6a809beadf9d44a5435c9d7a6ebf6237e5bd064647b5d727e460",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "c3a751f652fd686be67a7a52729630cb49a06b6de44167172ed3b8c0f0cbc57f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "25d40c51fcd69c2ad5293fe7ccba2f1cee9691981aa4e8692a5457570eca5d37"
+  },
+  "safeReloadCompleted": true,
+  "joinPolygons": 5,
+  "dirtyPackages": [],
+  "gameWorld": null,
+  "runtimeTraversal": "not-inspected"
+}

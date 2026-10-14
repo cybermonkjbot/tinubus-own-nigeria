@@ -1,0 +1,177 @@
+{
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "sourceId": "library-lane:join:2:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 2,
+      "sourcePoint": [
+        -242.4,
+        -755.6
+      ],
+      "centreCm": [
+        -75560.0,
+        -24240.0
+      ],
+      "polygonCm": [
+        [
+          -273.2050217680476,
+          418.44081252106844
+        ],
+        [
+          -259.21421280478853,
+          427.2489782112593
+        ],
+        [
+          -145.9140802738097,
+          231.76857633751976
+        ]
+      ],
+      "areaCm2": 1866.447649365029,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    },
+    {
+      "sourceId": "library-lane:join:3:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 3,
+      "sourcePoint": [
+        -210.07,
+        -699.82
+      ],
+      "centreCm": [
+        -69982.0,
+        -21007.0
+      ],
+      "polygonCm": [
+        [
+          -241.35802093931886,
+          436.4045695229292
+        ],
+        [
+          -131.95596630452218,
+          480.9264658228715
+        ],
+        [
+          -27.299998744475573,
+          67.08330512366032
+        ]
+      ],
+      "areaCm2": 24967.387105965277,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    },
+    {
+      "sourceId": "library-lane:join:4:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 4,
+      "sourcePoint": [
+        -200,
+        -660
+      ],
+      "centreCm": [
+        -66000.0,
+        -20000.0
+      ],
+      "polygonCm": [
+        [
+          -111.55613461972192,
+          481.9982470672378
+        ],
+        [
+          324.2743416706748,
+          373.6485416554358
+        ],
+        [
+          5.123584894461592,
+          20.609326406384966
+        ]
+      ],
+      "areaCm2": 94222.56990491903,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    },
+    {
+      "sourceId": "library-lane:join:5:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 5,
+      "sourcePoint": [
+        -230.89,
+        -625.83
+      ],
+      "centreCm": [
+        -62583.00000000001,
+        -23089.0
+      ],
+      "polygonCm": [
+        [
+          342.012739200917,
+          363.3870541160838
+        ],
+        [
+          399.8553045402814,
+          298.5608820757986
+        ],
+        [
+          69.84995048122613,
+          62.325141181418324
+        ]
+      ],
+      "areaCm2": 17528.732567311945,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    },
+    {
+      "sourceId": "library-lane:join:6:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 6,
+      "sourcePoint": [
+        -291,
+        -582.8
+      ],
+      "centreCm": [
+        -58279.99999999999,
+        -29100.0
+      ],
+      "polygonCm": [
+        [
+          412.17062555617713,
+          282.7313450419976
+        ],
+        [
+          416.5158070742435,
+          276.2901020628842
+        ],
+        [
+          298.6115621110483,
+          201.43960489819608
+        ]
+      ],
+      "areaCm2": 542.3444434874691,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    }
+  ],
+  "previewPoses": [
+    {
+      "id": "library-lane-5-road-approach",
+      "locationCm": [
+        -66259.81081807295,
+        -20220.42513513949,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": 86.19187378240545,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ],
+  "diagnostic": "Matched rays through pale parcel5 road patch hit legacy road-ribbon mesh at -1.2cm; previous map retained"
+}

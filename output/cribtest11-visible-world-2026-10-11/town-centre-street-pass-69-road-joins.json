@@ -1,0 +1,345 @@
+{
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "detailLevelPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01",
+  "source": {
+    "path": "packages/assets/city/lagos-city-v3.json",
+    "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+  },
+  "plans": [
+    {
+      "sourceId": "library-lane:join:2:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 2,
+      "sourcePoint": [
+        -242.4,
+        -755.6
+      ],
+      "centreCm": [
+        -75560.0,
+        -24240.0
+      ],
+      "polygonCm": [
+        [
+          -273.2050217680476,
+          418.44081252106844
+        ],
+        [
+          -259.21421280478853,
+          427.2489782112593
+        ],
+        [
+          -145.9140802738097,
+          231.76857633751976
+        ]
+      ],
+      "areaCm2": 1866.447649365029,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    },
+    {
+      "sourceId": "library-lane:join:3:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 3,
+      "sourcePoint": [
+        -210.07,
+        -699.82
+      ],
+      "centreCm": [
+        -69982.0,
+        -21007.0
+      ],
+      "polygonCm": [
+        [
+          -241.35802093931886,
+          436.4045695229292
+        ],
+        [
+          -131.95596630452218,
+          480.9264658228715
+        ],
+        [
+          -27.299998744475573,
+          67.08330512366032
+        ]
+      ],
+      "areaCm2": 24967.387105965277,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    },
+    {
+      "sourceId": "library-lane:join:4:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 4,
+      "sourcePoint": [
+        -200,
+        -660
+      ],
+      "centreCm": [
+        -66000.0,
+        -20000.0
+      ],
+      "polygonCm": [
+        [
+          -111.55613461972192,
+          481.9982470672378
+        ],
+        [
+          324.2743416706748,
+          373.6485416554358
+        ],
+        [
+          5.123584894461592,
+          20.609326406384966
+        ]
+      ],
+      "areaCm2": 94222.56990491903,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    },
+    {
+      "sourceId": "library-lane:join:5:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 5,
+      "sourcePoint": [
+        -230.89,
+        -625.83
+      ],
+      "centreCm": [
+        -62583.00000000001,
+        -23089.0
+      ],
+      "polygonCm": [
+        [
+          342.012739200917,
+          363.3870541160838
+        ],
+        [
+          399.8553045402814,
+          298.5608820757986
+        ],
+        [
+          69.84995048122613,
+          62.325141181418324
+        ]
+      ],
+      "areaCm2": 17528.732567311945,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    },
+    {
+      "sourceId": "library-lane:join:6:side:1",
+      "roadId": "library-lane",
+      "pointIndex": 6,
+      "sourcePoint": [
+        -291,
+        -582.8
+      ],
+      "centreCm": [
+        -58279.99999999999,
+        -29100.0
+      ],
+      "polygonCm": [
+        [
+          412.17062555617713,
+          282.7313450419976
+        ],
+        [
+          416.5158070742435,
+          276.2901020628842
+        ],
+        [
+          298.6115621110483,
+          201.43960489819608
+        ]
+      ],
+      "areaCm2": 542.3444434874691,
+      "profileTopCm": 0,
+      "existingStripExtensionCm": 10
+    }
+  ],
+  "previewPoses": [
+    {
+      "id": "library-lane-5-road-approach",
+      "locationCm": [
+        -66259.81081807295,
+        -20220.42513513949,
+        165
+      ],
+      "rotation": {
+        "pitch": -5,
+        "yaw": 86.19187378240545,
+        "roll": 0
+      },
+      "fov": 78
+    }
+  ],
+  "diagnostic": "Matched rays through pale parcel5 road patch hit legacy road-ribbon mesh at -1.2cm; previous map retained",
+  "createdActors": [
+    {
+      "label": "TC_RoadJoin69_2_1",
+      "sourceId": "library-lane:join:2:side:1",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_2_1",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/road-joins69-import-source/SM_library_lane_join_2_1.obj",
+        "sourceObjSha256": "d51d64f915f9ea5db887e700019036a7a002c14379762c7bd54f1a7d8444743d",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_2_1",
+        "boundsCm": [
+          [
+            -273.20501708984375,
+            231.76856994628906,
+            -12.0
+          ],
+          [
+            -145.91407775878906,
+            427.2489929199219,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 24,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "locationCm": [
+        -75560.0,
+        -24240.0,
+        0
+      ],
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM"
+    },
+    {
+      "label": "TC_RoadJoin69_3_1",
+      "sourceId": "library-lane:join:3:side:1",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_3_1",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/road-joins69-import-source/SM_library_lane_join_3_1.obj",
+        "sourceObjSha256": "ba0ffe3ace7f8522aff3b58eedbae968e221c1105c1535c7965301438f35aadc",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_3_1",
+        "boundsCm": [
+          [
+            -241.35801696777344,
+            67.08330535888672,
+            -12.0
+          ],
+          [
+            -27.299999237060547,
+            480.92645263671875,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 24,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "locationCm": [
+        -69982.0,
+        -21007.0,
+        0
+      ],
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM"
+    },
+    {
+      "label": "TC_RoadJoin69_4_1",
+      "sourceId": "library-lane:join:4:side:1",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_4_1",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/road-joins69-import-source/SM_library_lane_join_4_1.obj",
+        "sourceObjSha256": "c873dab39792828aabb7bbe3c9c7e4ce4d1c8176d18b7e5593030471281e1127",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_4_1",
+        "boundsCm": [
+          [
+            -111.55613708496094,
+            20.60932731628418,
+            -12.0
+          ],
+          [
+            324.27435302734375,
+            481.9982604980469,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 24,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "locationCm": [
+        -66000.0,
+        -20000.0,
+        0
+      ],
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM"
+    },
+    {
+      "label": "TC_RoadJoin69_5_1",
+      "sourceId": "library-lane:join:5:side:1",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_5_1",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/road-joins69-import-source/SM_library_lane_join_5_1.obj",
+        "sourceObjSha256": "a77876c92b3875660635fcaeab674d12e6f33269d3a685eb62cfcf8b7b0602eb",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_5_1",
+        "boundsCm": [
+          [
+            69.8499526977539,
+            62.32514190673828,
+            -12.0
+          ],
+          [
+            399.8553161621094,
+            363.3870544433594,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 24,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "locationCm": [
+        -62583.00000000001,
+        -23089.0,
+        0
+      ],
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM"
+    },
+    {
+      "label": "TC_RoadJoin69_6_1",
+      "sourceId": "library-lane:join:6:side:1",
+      "mesh": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_6_1",
+      "asset": {
+        "sourceObj": "output/cribtest11-visible-world-2026-10-11/road-joins69-import-source/SM_library_lane_join_6_1.obj",
+        "sourceObjSha256": "ce8324c605d2c0a85954359fd45432706472d025096caa1e72adec37f9762af8",
+        "package": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_6_1",
+        "boundsCm": [
+          [
+            298.611572265625,
+            201.43960571289062,
+            -12.0
+          ],
+          [
+            416.51580810546875,
+            282.7313537597656,
+            0.0
+          ]
+        ],
+        "uvProbesVerified": 24,
+        "nativeUVBasis": "U=Xcm/271; V=1-Ycm/271 (installed OBJ V flip)",
+        "collision": "CTF_USE_COMPLEX_AS_SIMPLE; static triangle surfaces, not dynamic physics"
+      },
+      "locationCm": [
+        -58279.99999999999,
+        -29100.0,
+        0
+      ],
+      "material": "/Game/BaddieGeneratedWorld/Realism/YabaSlice_20261011/DenseStreet_v1/Materials/M_Asphalt_ISM"
+    }
+  ],
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_2_1.uasset": "0f7ade747b91226c7a83be404cbf7a7bba2ad04823394cc838c07f49a3dad58d",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_3_1.uasset": "425e840f6fadb991a3fde846588abd1b3b5e49130a733a240a0c7a87882a464a",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_4_1.uasset": "4702cb0acf6725af48ae0f1fc2fdee51633e0346ffc0c48fb6c10618d24cea0b",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_5_1.uasset": "d138e53f1317b5ef0d5c91cd703dfaf66bef774fce9a3874b8eadaafb575916f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/RoadJoins69/Meshes/SM_library_lane_join_6_1.uasset": "e54fc1223cfb6a809beadf9d44a5435c9d7a6ebf6237e5bd064647b5d727e460",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01.umap": "c3a751f652fd686be67a7a52729630cb49a06b6de44167172ed3b8c0f0cbc57f",
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01_detail01.umap": "25d40c51fcd69c2ad5293fe7ccba2f1cee9691981aa4e8692a5457570eca5d37"
+  },
+  "visualAcceptance": "pending matched views",
+  "runtimeTraversal": "not-inspected"
+}

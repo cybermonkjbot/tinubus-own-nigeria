@@ -1,0 +1,17 @@
+{
+  "pass": 69,
+  "matchedImagesInspected": 2,
+  "additionalPedestrianJunctionImagesInspected": 5,
+  "repaired": "Large triangular legacy road-ribbon gap at Library Lane source point4 removed in matched parcel5 approach",
+  "remaining": [
+    "Straight-cut pavement ends and sparse surroundings visible in five inspected bend approaches",
+    "Conspicuous unrelated pale canopy beside source point2 remains",
+    "Pavement/material/contact seams and unfinished forecourts/compounds",
+    "Sparse adjoining context, repetitive exterior art and deeply shaded views",
+    "Continuous realistic terrain, accepted soil bindings and native Landscape not complete",
+    "No full district, destination-to-destination route or runtime traversal accepted"
+  ],
+  "legacyMapChanged": false,
+  "wholeWorldComplete": false,
+  "nextArea": "Source-defined Library Lane and Garden Avenue compounds/forecourts, then adjoining blocks"
+}
