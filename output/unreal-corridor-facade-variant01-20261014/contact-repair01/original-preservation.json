@@ -1,0 +1,11 @@
+{
+  "method": "After process exit, individually recomputed SHA256 for all 16 parent files and compared each to original-hashes-before.json using PowerShell Get-FileHash",
+  "all16Unchanged": true,
+  "originalBlendSHA256": "612c543060865b4f4bb73cbc11e88c5f7bff5d8de74b49ed4a70ed4a9d10387e",
+  "repairProcess": 7424,
+  "repairProcessExitedBeforeSave": true,
+  "correctedBlendCreated": false,
+  "afterImagesCreated": false,
+  "liveWorkbench": {"pid":6116,"file":"C:/dev/baddie-assets/Blender/LagosWorkbench.blend","scene":"BaddieAssetWorkbench","engine":"CYCLES","version":"5.2.2 LTS","renderJob":false},
+  "unrealProcess": {"pid":10404,"session":2,"apiQueried":false}
+}

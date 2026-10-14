@@ -1,0 +1,9 @@
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\contact-repair01\repair_contacts.py", line 163, in <module>
+    assert all(max(p['aabbIntersectionDimensionsM'])>=0 and
+           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        min(p['aabbIntersectionDimensionsM'])<1e-5 for p in after['pairs'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-corridor-facade-variant01-20261014\contact-repair01\repair_contacts.py', exiting.

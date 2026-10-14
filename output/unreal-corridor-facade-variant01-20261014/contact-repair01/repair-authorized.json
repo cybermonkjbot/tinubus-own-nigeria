@@ -1,0 +1,5 @@
+{
+  "job": "facade-contact-repair01",
+  "action": "repair-measured-return-overlap",
+  "observed": "Four evaluated common-X-plane side overlaps, approximately 0.644m by 0.174m, matching outward normals; split only return solids at measured slab bounds."
+}

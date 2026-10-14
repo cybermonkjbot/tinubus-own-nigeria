@@ -1,0 +1,10 @@
+{
+  "host": "Cribtest11",
+  "pid": 7424,
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-corridor-facade-variant01-20261014\\CorridorFacadeVariant01.blend",
+  "scene": "CorridorFacadeVariant01",
+  "engine": "CYCLES",
+  "version": "5.2.2 LTS",
+  "job": "facade-contact-repair01",
+  "renderJob": false
+}
