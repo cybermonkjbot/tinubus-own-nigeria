@@ -1,0 +1,15 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 8616,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-street-drain-channel01-20261015\\work-in-progress.blend",
+    "scene": "StreetDrainChannel01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "street-drain-channel01",
+    "phase": "recoverable WIP NOT guard pass",
+    "utc": "2026-10-15T07:36:07.276739+00:00",
+    "rendering": false
+  },
+  "sha256": "92cd7420c4701f3a0937ab187ee4a8cb9c0fa9a884fa031829d4c8c2c2b59c32"
+}

@@ -1,0 +1,12 @@
+{
+  "host": "Cribtest11",
+  "pid": 8616,
+  "file": "",
+  "scene": "Scene",
+  "engine": "BLENDER_EEVEE",
+  "version": "5.2.2 LTS",
+  "job": "street-drain-channel01",
+  "phase": "empty isolated file before mutation",
+  "utc": "2026-10-15T07:36:07.120187+00:00",
+  "rendering": false
+}

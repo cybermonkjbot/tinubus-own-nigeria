@@ -1,0 +1,12 @@
+{
+  "actual_images_inspected": ["front.png", "reverse.png", "grazing.png", "player165.png", "end-detail.png"],
+  "early_preview": "early-front.png",
+  "front": "Whole channel and separate bed uncropped. Dry concrete, open top and both uncapped ends; far end partly occluded by perspective. No floating base or black junction patch observed.",
+  "reverse": "Whole underside and U-shaped material end section visible. ONLY labelled bed hidden, no exploded geometry. Natural dark underside shading; this image does not prove bearing contact.",
+  "grazing": "Detail crop of lip, interior floor and end section, far portions cropped. No visible overlapping wall/floor seams or light leaks.",
+  "player165": "Camera Z1.65 relative authored lip0, not canonical road height. Whole dry channel/bed visible; no installed surroundings claimed.",
+  "end-detail": "Close actual U end shows continuous base/wall material, open flow void, visible bed and seated edge. Opposing underside contact is partially occluded; evaluated polygon evidence supplies contact measurement. Longitudinal end edges are intentionally square, profile corners eased1.5mm.",
+  "defects_requiring_correction": [],
+  "corrections": "No causal owned defect identified; no fabricated geometry repair or material/light/exposure masking.",
+  "limits": "Independent clean dry precast art, no hydraulic/load engineering, native installation or full photorealism acceptance. Five stills inspected; grazing/end detail are crops, full assembly covered by front/player/reverse."
+}

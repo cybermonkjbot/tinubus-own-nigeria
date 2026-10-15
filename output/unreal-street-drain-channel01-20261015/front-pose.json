@@ -1,0 +1,27 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 8616,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-street-drain-channel01-20261015\\StreetDrainChannel01.blend",
+    "scene": "StreetDrainChannel01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "street-drain-channel01",
+    "phase": "render front",
+    "utc": "2026-10-15T07:37:05.010339+00:00",
+    "rendering": false
+  },
+  "location": [
+    1.95,
+    -2.35,
+    1.4
+  ],
+  "target": [
+    0,
+    0,
+    -0.12
+  ],
+  "lens": 52,
+  "hidden_objects": [],
+  "profile": "800px CPU Cycles24 samples six threads AgX neutral exposure0"
+}

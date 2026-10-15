@@ -1,0 +1,12 @@
+00:21.781  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\early-front.png'
+00:59.094  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\StreetDrainChannel01.blend"
+01:21.516  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\front.png'
+01:40.985  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\reverse.png'
+02:08.219  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\grazing.png'
+02:30.656  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\player165.png'
+03:05.156  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\end-detail.png'
+Info: Saved as "work-in-progress.blend"
+Info: Saved as "StreetDrainChannel01.blend"
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

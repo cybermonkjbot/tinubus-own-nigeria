@@ -1,0 +1,120 @@
+{
+  "IntegralDryUChannel": {
+    "slots": [
+      {
+        "object": "IntegralDryUChannel",
+        "slot": 0,
+        "id": "DryPrecastConcrete"
+      }
+    ],
+    "faces": [
+      {
+        "face": 0,
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "slot": 0
+      },
+      {
+        "face": 10,
+        "slot": 0
+      },
+      {
+        "face": 11,
+        "slot": 0
+      },
+      {
+        "face": 12,
+        "slot": 0
+      },
+      {
+        "face": 13,
+        "slot": 0
+      },
+      {
+        "face": 14,
+        "slot": 0
+      },
+      {
+        "face": 15,
+        "slot": 0
+      },
+      {
+        "face": 16,
+        "slot": 0
+      },
+      {
+        "face": 17,
+        "slot": 0
+      }
+    ]
+  },
+  "PresentationBearingBedOnly": {
+    "slots": [
+      {
+        "object": "PresentationBearingBedOnly",
+        "slot": 0,
+        "id": "BearingBedFinish"
+      }
+    ],
+    "faces": [
+      {
+        "face": 0,
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "slot": 0
+      }
+    ]
+  }
+}

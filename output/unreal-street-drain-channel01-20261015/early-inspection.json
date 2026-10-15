@@ -1,0 +1,8 @@
+{
+  "image": "early-front.png",
+  "actual_image_inspected": true,
+  "observations": "Whole channel and separate bed uncropped. Dry concrete U-section, continuous walls/floor, both flow ends visibly uncapped. No floating base, black fake aperture, overlapping seam or light leak observed. Opposite far end partly obscured by perspective; explicit through-void rays support open-end geometry.",
+  "measurements": "measurements-initial.json; opposing actual bearing polygon area0.633839985523224m2, zero signed gaps; flat walls39.999976mm/base50.000011mm",
+  "largest_visible_owned_defect": null,
+  "correction": "None indicated; no fabricated correction or lighting/material/exposure masking. Continue unchanged geometry to requested views."
+}

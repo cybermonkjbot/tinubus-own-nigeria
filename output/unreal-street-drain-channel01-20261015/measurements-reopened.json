@@ -1,0 +1,383 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 8616,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-street-drain-channel01-20261015\\StreetDrainChannel01.blend",
+    "scene": "StreetDrainChannel01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "street-drain-channel01",
+    "phase": "evaluated geometry/contact",
+    "utc": "2026-10-15T07:37:05.008746+00:00",
+    "rendering": false
+  },
+  "solids": [
+    {
+      "object": "IntegralDryUChannel",
+      "components": 1,
+      "invalid_edges": [],
+      "volume_m3": 0.05501715132072249,
+      "duplicate_faces": 0
+    },
+    {
+      "object": "PresentationBearingBedOnly",
+      "components": 1,
+      "invalid_edges": [],
+      "volume_m3": 0.08531200016832347,
+      "duplicate_faces": 0
+    }
+  ],
+  "actual_dimensions": {
+    "length_m": 1.5199999809265137,
+    "width_m": 0.41999998688697815,
+    "depth_m": 0.23999999463558197,
+    "lip_m": 0.0,
+    "bottom_m": -0.23999999463558197,
+    "inner_floor_m": -0.19000005722045898,
+    "clear_width_m": 0.3400000035762787,
+    "clear_depth_m": 0.19000005722045898,
+    "extents_m": [
+      [
+        -0.7599999904632568,
+        0.7599999904632568
+      ],
+      [
+        -0.20999999344348907,
+        0.20999999344348907
+      ],
+      [
+        -0.23999999463558197,
+        0.0
+      ]
+    ]
+  },
+  "paired_sections": [
+    {
+      "sample": "right wall flat X0 Z-.10",
+      "thickness_m": 0.039999976211686064,
+      "normal_dot": -1.0,
+      "outer": {
+        "sample": "right wall flat X0 Z-.10 outer",
+        "origin": [
+          0,
+          1,
+          -0.1
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "hit": [
+          0.0,
+          0.20999997854232788,
+          -0.10000000149011612
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "face": 5,
+        "distance_m": 0.7900000214576721
+      },
+      "inner": {
+        "sample": "right wall flat X0 Z-.10 inner",
+        "origin": [
+          0,
+          0,
+          -0.1
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "hit": [
+          0.0,
+          0.17000000178813934,
+          -0.10000000149011612
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "face": 9,
+        "distance_m": 0.17000000178813934
+      }
+    },
+    {
+      "sample": "left wall flat X0 Z-.10",
+      "thickness_m": 0.039999976211686064,
+      "normal_dot": -1.0,
+      "outer": {
+        "sample": "left wall flat X0 Z-.10 outer",
+        "origin": [
+          0,
+          -1,
+          -0.1
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "hit": [
+          0.0,
+          -0.20999997854232788,
+          -0.10000000149011612
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "face": 17,
+        "distance_m": 0.7900000214576721
+      },
+      "inner": {
+        "sample": "left wall flat X0 Z-.10 inner",
+        "origin": [
+          0,
+          0,
+          -0.1
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "hit": [
+          0.0,
+          -0.17000000178813934,
+          -0.10000000149011612
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "face": 13,
+        "distance_m": 0.17000000178813934
+      }
+    },
+    {
+      "sample": "base flat X0 Y0",
+      "thickness_m": 0.05000001108273741,
+      "normal_dot": -1.0,
+      "outer": {
+        "sample": "base flat X0 Y0 outer",
+        "origin": [
+          0,
+          0,
+          -1
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          -0.24000000953674316
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "face": 3,
+        "distance_m": 0.7599999904632568
+      },
+      "inner": {
+        "sample": "base flat X0 Y0 inner",
+        "origin": [
+          0,
+          0,
+          0.1
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          -0.1899999976158142
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 11,
+        "distance_m": 0.28999999165534973
+      }
+    }
+  ],
+  "opening_rays": [
+    {
+      "sample": "inner floor",
+      "origin": [
+        0,
+        0,
+        1
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "hit": [
+        0.0,
+        0.0,
+        -0.19000005722045898
+      ],
+      "normal": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "face": 11,
+      "distance_m": 1.190000057220459
+    },
+    {
+      "sample": "inner left",
+      "origin": [
+        0,
+        0,
+        -0.1
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "hit": [
+        0.0,
+        -0.17000000178813934,
+        -0.10000000149011612
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "face": 13,
+      "distance_m": 0.17000000178813934
+    },
+    {
+      "sample": "inner right",
+      "origin": [
+        0,
+        0,
+        -0.1
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "hit": [
+        0.0,
+        0.17000000178813934,
+        -0.10000000149011612
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "face": 9,
+      "distance_m": 0.17000000178813934
+    }
+  ],
+  "flow_end_rays": [
+    {
+      "sample": "through +X end",
+      "origin": [
+        -1,
+        0,
+        -0.1
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": null
+    },
+    {
+      "sample": "through -X end",
+      "origin": [
+        1,
+        0,
+        -0.1
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": null
+    }
+  ],
+  "contact": {
+    "patches": [
+      {
+        "channel_face": 3,
+        "bed_face": 1,
+        "polygon_world": [
+          [
+            -0.7599999904632568,
+            -0.2084999978542328,
+            -0.23999999463558197
+          ],
+          [
+            -0.7599999904632568,
+            0.2084999978542328,
+            -0.23999999463558197
+          ],
+          [
+            0.7599999904632568,
+            0.2084999978542328,
+            -0.23999999463558197
+          ],
+          [
+            0.7599999904632568,
+            -0.2084999978542328,
+            -0.23999999463558197
+          ]
+        ],
+        "signed_gaps_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "area_m2": 0.633839985523224,
+        "opposing_normals": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "normal_dot": -1.0
+      }
+    ],
+    "total_area_m2": 0.633839985523224
+  },
+  "neighbor_check": "Whole boundary at/above bed top; flat actual bottom polygon contained in actual opposing bed face; no solid-AABB inference",
+  "tolerance_m": 1e-06,
+  "rationale": "Fixed1um versus float32 .06um spacing at .76m; no weakening",
+  "exceptions": "1.5mm profile corner chamfers unless correction recorded; no longitudinal end-edge bevel, flat sections only not exhaustive minimum/engineering proof"
+}

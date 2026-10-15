@@ -1,0 +1,50 @@
+{
+  "name": "StreetDrainChannel01",
+  "units": "metres",
+  "axes": "+Xlength +Zup front-Y centredX/Y lip0 authored",
+  "source_reference": "source(x,y,z)->Blender(x,-z,y); parent flat upward triangles/420mmstrip/1.52msegmentation plan only; -.009/-.001 finish offsets NOTdepth",
+  "primary_parent_sha256": "14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8",
+  "utility_parent_sha256": "39ccf3d8e4947ed58ee3bb8fe54b3f57843e2be5c596ef1455b3816f20fa1bb4",
+  "source_status": "TS absent Windows; excerpts parent attributed, no full-byte verification/Git-only source closure",
+  "source_excerpt_sha256": "a0f03d23a96b3f9f1b93b0c215c4751419f4acda5ded61eafcb8f2323d813749",
+  "authored_section": {
+    "length_m": 1.52,
+    "width_m": 0.42,
+    "depth_m": 0.24,
+    "lip_m": 0,
+    "bottom_m": -0.24,
+    "inner_floor_m": -0.19,
+    "wall_m": 0.04,
+    "base_m": 0.05,
+    "clear_width_m": 0.34,
+    "profile_ease_m": 0.0015,
+    "bed_m": [
+      1.72,
+      0.62,
+      0.08
+    ],
+    "bed_top_m": -0.24,
+    "bed_bottom_m": -0.32
+  },
+  "materials": [
+    {
+      "id": "DryPrecastConcrete",
+      "tint": "#b6b49f",
+      "roughness": 0.93,
+      "metallic": 0
+    },
+    {
+      "id": "BearingBedFinish",
+      "tint": "#afa99a",
+      "roughness": 0.93,
+      "metallic": 0
+    }
+  ],
+  "unused_source_finishes": "Darkdrain#5e6253/dampwater provenance only; not used, dryconcrete inside/outside",
+  "geometry": "One closed material boundary Uextrusion; top/both flow ends open; section end faces cover only material, no Boolean/modifiers/foreign meshes",
+  "actual_measurements": "measurements-reopened.json",
+  "readback": "Exact owned used geometry/material/light/transforms/render before-after reopen",
+  "corrections": [],
+  "sha256": "3651f9fd0f93f49a19f3ff518266a70eccf2808cdfffe6976c671b6ccae88bf9",
+  "limits": "Independent reusable dry art; not installed native trench, no canonical basefloor/entrance/navigation change, hydraulics/load certification/gameplay/performance/release"
+}

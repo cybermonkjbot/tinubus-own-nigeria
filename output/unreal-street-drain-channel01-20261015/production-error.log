@@ -1,0 +1,6 @@
+C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\author_channel.py:32: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes=True
+C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\author_channel.py:261: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  s.world=bpy.data.worlds.new('OwnedNeutralWorld'); s.world.use_nodes=True
+C:\dev\cribtest-game\output\unreal-street-drain-channel01-20261015\author_channel.py:103: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  return dict(id=m.name,use_nodes=m.use_nodes,nodes=[(n.name,n.bl_idname) for n in m.node_tree.nodes],

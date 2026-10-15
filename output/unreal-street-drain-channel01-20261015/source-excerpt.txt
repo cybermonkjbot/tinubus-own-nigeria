@@ -1,0 +1,92 @@
+Parent-supplied verbatim excerpts; full TS files absent Windows. Flat source finishes are NOT a physical trench. New vertical section/lip0 are authored art, no canonical placement.
+PRIMARY packages/companion-scene/src/interactions/city/cityStreetDetails.ts
+Parent full-file SHA25614addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8
+Line131:
+  const flatMaterial = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .93 });
+Lines256-273:
+  const strip = (surface: FlatSurface, road: CityStreetRoad, start: number, end: number, inside: number, outside: number, y: number, tint: string, fadeInside = false) => {
+    const a = sampleCityStreet(road, start), b = sampleCityStreet(road, end);
+    surfacePoints[0] = a.x + a.nx * inside; surfacePoints[1] = a.z + a.nz * inside;
+    surfacePoints[2] = a.x + a.nx * outside; surfacePoints[3] = a.z + a.nz * outside;
+    surfacePoints[4] = b.x + b.nx * inside; surfacePoints[5] = b.z + b.nz * inside;
+    surfacePoints[6] = b.x + b.nx * outside; surfacePoints[7] = b.z + b.nz * outside;
+    colour.set(tint);
+    // Horizontal triangles face upward on both sides of a road.
+    for (let triangle = 0; triangle < quadIndices.length; triangle += 3) {
+      const p = quadIndices[triangle] * 2, q = quadIndices[triangle + 1] * 2, r = quadIndices[triangle + 2] * 2;
+      const reverse = (surfacePoints[q + 1] - surfacePoints[p + 1]) * (surfacePoints[r] - surfacePoints[p])
+        - (surfacePoints[q] - surfacePoints[p]) * (surfacePoints[r + 1] - surfacePoints[p + 1]) < 0;
+      for (let corner = 0; corner < 3; corner++) {
+        const index = quadIndices[triangle + (reverse ? 2 - corner : corner)];
+        vertex(surface, surfacePoints[index * 2], y, surfacePoints[index * 2 + 1], colour, fadeInside && index % 2 === 0 ? 0 : 1);
+      }
+    }
+  };
+Lines471-499:
+      // Current flat-floor navigation admits columns, not raised kerbs. Keep these construction finishes flush.
+      for (const span of cityStreetConstructionSpans(road, start, end, crossingAt)) {
+        for (let d = span.start; d < span.end; d += 1.6) {
+          const next = Math.min(d + 1.56, span.end), side = span.side;
+          const tint = profile.paintedKerb ? Math.floor(d / 3.2) % 2 ? "#dad6c4" : "#353c35" : profile.kerb;
+          const inside = side * (road.width / 2 + .5), outside = side * (road.width / 2 + .7);
+          strip(kerbs, road, d, next, inside, outside, -.001, tint);
+          if (profile.drain === "open") {
+            // Flush drain-edge finish. The base floor remains intact.
+            strip(kerbs, road, d, next, side * (road.width / 2 + .02), side * (road.width / 2 + .065), -.001, "#b6b49f");
+          }
+        }
+      }
+      for (const side of [-1, 1]) {
+        // Narrow construction seams and covered channels remain at the existing locomotion level.
+        strip(surface, road, start, end, side * (road.width / 2 + road.pavement - .12), side * (road.width / 2 + road.pavement - .09), -.009, "#8c8878");
+        const drainInner = side * (road.width / 2 + .06), drainOuter = side * (road.width / 2 + .48);
+        strip(drains, road, start, end, drainInner, drainOuter, -.009,
+          profile.drain === "open" ? "#5e6253" : "#969989");
+        for (let d = Math.ceil(start / 1.6) * 1.6; d < end; d += 1.6) {
+          const next = Math.min(d + 1.52, end), point = sampleCityStreet(road, (d + next) / 2);
+          const crossing = crossingAt(road, (d + next) / 2, side);
+          const edge = side * (road.width / 2 + .53);
+          if (crossing) {
+            // Flush slabs span the drain at every existing entrance and connected path.
+            strip(surface, road, d, next, side * road.width / 2, side * (road.width / 2 + .68), -.005,
+              crossing === "driveway" ? "#b8b2a0" : profile.paving);
+            continue;
+          }
+Line652:
+    surfaceMesh(tile, root, [drains], drainMaterial); surfaceMesh(tile, root, [surface, kerbs], flatMaterial);
+UTILITY packages/utils/src/companionCityStreetDetails.ts
+Parent full-file SHA25639ccf3d8e4947ed58ee3bb8fe54b3f57843e2be5c596ef1455b3816f20fa1bb4
+Line108:
+  service: { family: "service", asphalt: "#56574e", paving: "#afa99a", kerb: "#b9b7a7", drain: "open", paintedKerb: false, lamp: "short-arm", utilities: true, repairSpacing: 88, jointSpacing: 3.1 },
+Lines205-235:
+/** Kerb/gutter solids share exact run boundaries with navigation. Crossings remain flush and unblocked. */
+export function cityStreetConstructionSpans(road: CityStreetRoad, start: number, end: number,
+  crossingAt: CityStreetCrossingLookup): CityStreetConstructionSpan[] {
+  const result: CityStreetConstructionSpan[] = [];
+  for (const side of [-1, 1]) {
+    let run: number | null = null;
+    const close = (finish: number) => {
+      if (run === null || finish - run < .04) { run = null; return; }
+      const a = sampleCityStreet(road, run), b = sampleCityStreet(road, finish);
+      const inside = side * (road.width / 2 + .015), outside = side * (road.width / 2 + .73);
+      const polygon: [number, number][] = [[a.x + a.nx * inside, a.z + a.nz * inside],
+        [b.x + b.nx * inside, b.z + b.nz * inside], [b.x + b.nx * outside, b.z + b.nz * outside],
+        [a.x + a.nx * outside, a.z + a.nz * outside]];
+      result.push({ start: run, end: finish, side, footprint: {
+        minX: Math.min(...polygon.map(point => point[0])), maxX: Math.max(...polygon.map(point => point[0])),
+        minZ: Math.min(...polygon.map(point => point[1])), maxZ: Math.max(...polygon.map(point => point[1])), polygon,
+      } });
+      run = null;
+    };
+    for (let distance = start; distance < end; distance += .8) {
+      const finish = Math.min(end, distance + .8);
+      // Include the edges of each interval so a run cannot intrude into a small access gap.
+      if (crossingAt(road, distance, side) || crossingAt(road, finish, side) || crossingAt(road, (distance + finish) / 2, side)) close(distance);
+      else if (run === null) run = distance;
+    }
+    close(end);
+  }
+  return result;
+}
+
+export function cityStreetFixtureClear(road: CityStreetRoad, point: CityStreetSample, x: number, z: number): boolean {
