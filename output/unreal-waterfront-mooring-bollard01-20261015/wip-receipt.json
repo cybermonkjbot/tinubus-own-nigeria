@@ -1,0 +1,15 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 10772,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-waterfront-mooring-bollard01-20261015\\work-in-progress.blend",
+    "scene": "WaterfrontMooringBollard01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "phase": "recoverable WIP; not guard acceptance",
+    "job": "waterfront-mooring-bollard01",
+    "utc": "2026-10-15T07:06:44.291637+00:00",
+    "rendering": false
+  },
+  "sha256": "65ffea4b8b8b75757f7836e16b5a60544974e3819ec5761ad9eb3af181f74867"
+}

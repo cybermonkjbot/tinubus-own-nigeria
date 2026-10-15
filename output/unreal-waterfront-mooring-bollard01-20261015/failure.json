@@ -1,0 +1,15 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 10772,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-waterfront-mooring-bollard01-20261015\\work-in-progress.blend",
+    "scene": "WaterfrontMooringBollard01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "phase": "failure STOP no retry",
+    "job": "waterfront-mooring-bollard01",
+    "utc": "2026-10-15T07:06:44.349034+00:00",
+    "rendering": false
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\dev\\cribtest-game\\output\\unreal-waterfront-mooring-bollard01-20261015\\author_bollard.py\", line 488, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\dev\\cribtest-game\\output\\unreal-waterfront-mooring-bollard01-20261015\\author_bollard.py\", line 430, in main\n    write('wip-readback.json',snapshot())\n                              ~~~~~~~~^^\n  File \"C:\\dev\\cribtest-game\\output\\unreal-waterfront-mooring-bollard01-20261015\\author_bollard.py\", line 137, in snapshot\n    d['geometry'] = geometry(o)\n                    ~~~~~~~~^^^\n  File \"C:\\dev\\cribtest-game\\output\\unreal-waterfront-mooring-bollard01-20261015\\author_bollard.py\", line 126, in geometry\n    materials=[x.name for x in o.data.materials])\n               ^^^^^^\nAttributeError: 'NoneType' object has no attribute 'name'\n"
+}

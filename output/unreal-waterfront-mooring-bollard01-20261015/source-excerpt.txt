@@ -1,0 +1,44 @@
+Parent-supplied verbatim excerpts; full source files absent on Windows at authoring.
+PRIMARY packages/companion-scene/src/interactions/lagos-places/waterfrontGeometry.ts
+Full-file SHA256 ca63d8aea63645f6b72e74fafdae5805063d912de1a8221c26403a3e3cd8241e
+Lines24-32:
+  const palette = {
+    timber: "#78604a", darkWood: "#443a2c", freshWood: "#b28e62", concrete: "#9a9a8d", steel: "#56625d",
+    rust: "#79624b", black: "#232825", white: "#e5e2d7", blue: "#42718a", tarp: "#426f91", green: "#667b3e",
+    coconut: "#816a41", sand: "#d4bd8a", mud: "#76694c", glass: "#52727b", yellow: "#cfa52d", orange: "#bd7550",
+  };
+  const m = Object.fromEntries(Object.entries(palette).map(([key, color]) => {
+    const material = new THREE.MeshStandardMaterial({ color, roughness: key === "glass" ? .22 : key === "steel" ? .55 : .86,
+      metalness: key === "steel" ? .35 : 0 }); materials.push(material); return [key, material];
+  })) as Record<keyof typeof palette, THREE.MeshStandardMaterial>;
+Lines51-59:
+  const cube = new THREE.BoxGeometry(1, 1, 1), cylinder = new THREE.CylinderGeometry(1, 1, 1, 12), sphere = new THREE.SphereGeometry(1, 12, 8);
+  const ring = new THREE.TorusGeometry(1, .23, 8, 20);
+  [cube, cylinder, sphere, ring].forEach(geometry => runtime.unusedGeometries.add(geometry));
+  const mesh = (owner: THREE.Object3D, geometry: THREE.BufferGeometry, material: THREE.Material, x: number, y: number, z: number,
+    w = 1, h = 1, d = 1) => {
+    runtime.unusedGeometries.delete(geometry);
+    const object = new THREE.Mesh(geometry, material); object.position.set(x, y, z); object.scale.set(w, h, d);
+    object.castShadow = true; object.receiveShadow = true; owner.add(object); return object;
+  };
+Lines92-93:
+  const box = (g: THREE.Object3D, mat: THREE.Material, x: number, y: number, z: number, w: number, h: number, d: number) =>
+    mesh(g, cube, mat, x, y, z, w, h, d);
+Lines259-263:
+  function prop(p: CompanionWaterfrontProp) {
+    const g = new THREE.Group(); g.name = p.id; g.position.fromArray(p.point); g.rotation.y = p.yaw;
+    if (p.serviceId) g.userData.lagosServiceId = p.serviceId; parent.add(g);
+    const [w, h, d] = p.size;
+    switch (p.kind) {
+Lines331-333:
+      case "bollard": {
+        mesh(g, cylinder, m.black, 0, .3, 0, .16, .6, .16); box(g, m.black, 0, .62, 0, .55, .1, .16); break;
+      }
+UTILITY packages/utils/src/companionWaterfrontLayouts.ts
+Full-file SHA256 801063ea4cf4fc1e3d66ea0af8d0d70b52e3d0225e9015ee9749986d693e952c
+Lines174-178; provenance only, not placement:
+    for (const [i, x] of [-27, -15, 15, 27].entries()) {
+      prop("market-stall", `jetty-kiosk-${i}`, x, 9, 7, 3.8, 5);
+      prop("bollard", `mooring-${i}`, x, -11, .7, .7, .7);
+      prop("palm", `terminal-palm-${i}`, x, 23, 1.1, 8.8, 1.1);
+    }

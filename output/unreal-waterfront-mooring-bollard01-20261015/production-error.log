@@ -1,0 +1,20 @@
+C:\dev\cribtest-game\output\unreal-waterfront-mooring-bollard01-20261015\author_bollard.py:37: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+C:\dev\cribtest-game\output\unreal-waterfront-mooring-bollard01-20261015\author_bollard.py:402: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  s.world.use_nodes = True
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\unreal-waterfront-mooring-bollard01-20261015\author_bollard.py", line 488, in <module>
+    main()
+    ~~~~^^
+  File "C:\dev\cribtest-game\output\unreal-waterfront-mooring-bollard01-20261015\author_bollard.py", line 430, in main
+    write('wip-readback.json',snapshot())
+                              ~~~~~~~~^^
+  File "C:\dev\cribtest-game\output\unreal-waterfront-mooring-bollard01-20261015\author_bollard.py", line 137, in snapshot
+    d['geometry'] = geometry(o)
+                    ~~~~~~~~^^^
+  File "C:\dev\cribtest-game\output\unreal-waterfront-mooring-bollard01-20261015\author_bollard.py", line 126, in geometry
+    materials=[x.name for x in o.data.materials])
+               ^^^^^^
+AttributeError: 'NoneType' object has no attribute 'name'
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-waterfront-mooring-bollard01-20261015\author_bollard.py', exiting.

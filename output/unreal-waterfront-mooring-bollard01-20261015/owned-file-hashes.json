@@ -1,0 +1,15 @@
+{
+    "author_bollard.py":  "f5dfa5ba9f94bcc88d89b826c37da0132ff5fb482ab01907b506c8a44f7eeb4d",
+    "authored-identity.json":  "cc081aff1c557ae6bfd0f40804adb509ef1c9c6afbcec647896025eec2502581",
+    "failure.json":  "67fafc5f1ae96175404d670dd6918447cb1f038664810805749b83ef56b4e845",
+    "FAILURE-HANDOFF.md":  "b6eaf332c627df04b68a2bdbfda5c5e5ea8bf181abfc7854ba7b186b14e64401",
+    "initial-identity.json":  "d32bb07de20ddd5a2f56c44b428f8504e845e5644338b93758ce553907081362",
+    "preservation-after.json":  "b496a1044972653f11f55d483fff7047d795446d6146b14f7bc9073c3a39643b",
+    "preservation-before.json":  "b496a1044972653f11f55d483fff7047d795446d6146b14f7bc9073c3a39643b",
+    "preserve.ps1":  "d116b6094abcfd9c05cf8229d6f5597f6a9cae589b1fc35a46713fced0b2ebfc",
+    "production.log":  "ff799cb3876a8be4a0f4b6feee7552875729bf5f4ea66f4f1a5d3b79d4f0dc48",
+    "production-error.log":  "b84b2a418f66a17b8e359a9840cdb28ec93bf7da492c0a958778b501fe3bd189",
+    "source-excerpt.txt":  "b3cef5f9f5c149f88b98301c9a75a82e98d9ae9a6bba1452eb7c2c1c18ae13eb",
+    "wip-receipt.json":  "0bbda5deeecbb1bf05576a767b9572b9bbf105c995b87f25db6aa7242fe3e93a",
+    "work-in-progress.blend":  "65ffea4b8b8b75757f7836e16b5a60544974e3819ec5761ad9eb3af181f74867"
+}
