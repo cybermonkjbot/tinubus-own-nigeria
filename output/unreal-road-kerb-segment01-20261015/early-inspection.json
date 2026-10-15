@@ -1,0 +1,12 @@
+{
+  "actual_image_inspected": "early-front.png",
+  "actual_measurements_inspected": "measurements-early.json",
+  "whole_uncropped_kerb_and_bed": true,
+  "observations": "Complete dry kerb, front10mm chamfer, flat top/side and square right end on separate bed. Bottom mating polygons naturally hidden; actual clipped bearing evidence not photo-visible claim.",
+  "defect_ledger": [],
+  "decision": "Explicit finish unchanged; no observed causal defect requiring reconstruction, no fake correction or lighting mask.",
+  "contact_area_m2": 0.3057599807882312,
+  "contact_signed_gap_m": 0,
+  "contact_normal_dot": -1,
+  "limits": "Uniform dry finish and square Xends intentional, not photoconcrete/native placement/roadsafety/load/accessibility certification."
+}

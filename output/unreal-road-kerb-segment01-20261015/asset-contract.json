@@ -1,0 +1,59 @@
+{
+  "area_tolerance_m2": 2e-08,
+  "art_limits": "Independent straight dry precast gravity-bearing art, square Xends/longitudinal relief; not roadsafety/load/accessibility/manufacturing certification.",
+  "authored_actual_parameters": {
+    "bed_bottom": -0.08,
+    "bed_half_length": 0.88,
+    "bed_half_width": 0.2,
+    "bed_top": 0,
+    "half_length": 0.78,
+    "profile": [
+      [
+        -0.098,
+        0
+      ],
+      [
+        0.098,
+        0
+      ],
+      [
+        0.1,
+        0.002
+      ],
+      [
+        0.1,
+        0.148
+      ],
+      [
+        0.098,
+        0.15
+      ],
+      [
+        -0.09,
+        0.15
+      ],
+      [
+        -0.1,
+        0.14
+      ],
+      [
+        -0.1,
+        0.002
+      ]
+    ]
+  },
+  "correction_action": "finish",
+  "job": "road-kerb-segment01",
+  "length_tolerance_m": 2e-06,
+  "material_roles": {
+    "KerbBody": "DryKerb",
+    "PresentationBearingBed": "DisplayBed"
+  },
+  "positive_triangle_threshold_m2": 1e-12,
+  "solid_ids": [
+    "KerbBody",
+    "PresentationBearingBed"
+  ],
+  "source_excerpt_sha256": "4d02b7064f5d9e150831c64da9712035ce4e37f5f0277444a9e9e3eaab0a14cd",
+  "source_limits": "FLAT upward finish/1mm finish offset only; width and max length PLAN provenance, no raised-source or native placement claim."
+}

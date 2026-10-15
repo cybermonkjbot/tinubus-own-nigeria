@@ -1,0 +1,17 @@
+{
+  "correction_action": "finish",
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-road-kerb-segment01-20261015\\RoadKerbSegment01.blend",
+  "job": "road-kerb-segment01",
+  "os_exit_code": "unknown unless numeric wrapper receipt available",
+  "pid": 1804,
+  "readback_exact_match": true,
+  "saved_state_restored": true,
+  "utc": "2026-10-15T10:37:58.039792+00:00",
+  "views": [
+    "front",
+    "reverse",
+    "grazing",
+    "player165",
+    "end-contact"
+  ]
+}

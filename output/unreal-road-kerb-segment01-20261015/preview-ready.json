@@ -1,0 +1,8 @@
+{
+  "image": "early-front.png",
+  "job": "road-kerb-segment01",
+  "measurements": "measurements-early.json",
+  "pid": 1804,
+  "state": "awaiting actual inspection; complete owned profile/bed correction entrypoint on main thread",
+  "utc": "2026-10-15T10:34:33.308466+00:00"
+}

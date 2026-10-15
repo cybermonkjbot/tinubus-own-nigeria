@@ -1,0 +1,13 @@
+{
+  "actual_images_inspected": ["front.png", "reverse.png", "grazing.png", "player165.png", "end-contact.png"],
+  "front": "Whole uncropped kerb and bed, front10mm chamfer/top/side/right square end. Uniform dry finish intentional.",
+  "reverse": "Whole kerb low reverse; ONLY bed hidden, no explosion. Rear side and square end visible, bearing surface naturally unshown.",
+  "grazing": "Close intentional crop shows physical10mm front-top chamfer between top and front flat; lower front longitudinal relief/contact-edge shadow visible. No dark-joint shader or geometry correction.",
+  "player165": "Z1.65 bottom-relative camera includes whole kerb and bed; no route/accessibility/native placement claim.",
+  "end-contact": "Close square Xend profile/front10mm chamfer/top/rear2mm relief and bottom longitudinal relief on visible bed. Mating bottom/bedtop polygons occluded, measured not photo-visible proof. Rear/bottom relief small at800px; actual profile coordinates authoritative.",
+  "defect_ledger": [],
+  "correction": "No observed causal defect; explicit finish unchanged, no fake correction or lighting mask.",
+  "saved_state_restored_exactly": true,
+  "limits": "Dry basecolour/roughness approximation, not photoconcrete/source shader fidelity/manufacturing/roadsafety/load/accessibility/native installation certificate. Both Xends intentionally square, not all-edge bevel.",
+  "os_exit_code": "UNKNOWN: wrapper null/numeric_available false; stdout Blender quit and completion receipt observed, isolated PID absent"
+}

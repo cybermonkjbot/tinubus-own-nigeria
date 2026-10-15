@@ -1,0 +1,8 @@
+C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\author_kerb.py:61: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\author_kerb.py:359: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\author_kerb.py:415: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  result['materials'][name] = {'diffuse':list(mat.diffuse_color),'source_srgb':mat['source_srgb'],'use_nodes':mat.use_nodes,'tree':tree_readback(mat.node_tree),'users':mat.users}
+C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\author_kerb.py:426: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  result['world'] = {'name':scene.world.name,'use_nodes':scene.world.use_nodes,'color':list(scene.world.color),'tree':tree_readback(scene.world.node_tree)}

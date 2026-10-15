@@ -1,0 +1,12 @@
+00:19.625  render           | Saved: 'C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\early-front.png'
+01:38.641  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\RoadKerbSegment01.blend"
+01:57.766  render           | Saved: 'C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\front.png'
+02:17.219  render           | Saved: 'C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\reverse.png'
+02:52.407  render           | Saved: 'C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\grazing.png'
+03:10.704  render           | Saved: 'C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\player165.png'
+03:44.407  render           | Saved: 'C:\dev\cribtest-game\output\unreal-road-kerb-segment01-20261015\end-contact.png'
+Info: Saved as "work-in-progress.blend"
+Info: Saved as "RoadKerbSegment01.blend"
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

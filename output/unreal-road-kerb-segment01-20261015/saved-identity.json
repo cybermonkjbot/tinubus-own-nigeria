@@ -1,0 +1,23 @@
+{
+  "engine": "CYCLES",
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-road-kerb-segment01-20261015\\RoadKerbSegment01.blend",
+  "host": "Cribtest11",
+  "job": "road-kerb-segment01",
+  "objects": [
+    "Camera_end-contact",
+    "Camera_front",
+    "Camera_grazing",
+    "Camera_player165",
+    "Camera_reverse",
+    "KerbBody",
+    "OwnedFill",
+    "OwnedKey",
+    "OwnedReverse",
+    "PresentationBearingBed"
+  ],
+  "pid": 1804,
+  "render_job": false,
+  "scene": "RoadKerbSegment01",
+  "utc": "2026-10-15T10:35:52.269218+00:00",
+  "version": "5.2.2 LTS"
+}

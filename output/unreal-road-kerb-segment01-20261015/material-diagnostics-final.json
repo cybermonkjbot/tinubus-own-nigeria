@@ -1,0 +1,156 @@
+[
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 10,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 11,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 12,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 13,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 14,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 15,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 16,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 17,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 18,
+        "material": "DryKerb",
+        "slot": 0
+      },
+      {
+        "face": 19,
+        "material": "DryKerb",
+        "slot": 0
+      }
+    ],
+    "object": "KerbBody",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "DryKerb",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "DisplayBed",
+        "slot": 0
+      }
+    ],
+    "object": "PresentationBearingBed",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "DisplayBed",
+        "slot": 0
+      }
+    ]
+  }
+]
