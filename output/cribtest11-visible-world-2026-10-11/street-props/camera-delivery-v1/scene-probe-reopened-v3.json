@@ -1,0 +1,143 @@
+{
+  "pid": 13052,
+  "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\first-scene-v3\\LagosFirstScene.blend",
+  "dirty": false,
+  "version": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "background": true,
+  "scene": "Lagos First Scene - National Theatre",
+  "engine": "CYCLES",
+  "units": {
+    "system": "METRIC",
+    "scale_length": 1.0
+  },
+  "object_count": 762,
+  "object_types": {
+    "MESH": 746,
+    "FONT": 1,
+    "EMPTY": 12,
+    "CAMERA": 2,
+    "LIGHT": 1
+  },
+  "root_collections": [
+    "Canonical National Theatre",
+    "Source terrain and gardens",
+    "Source roads and owned kerbs",
+    "Source trees",
+    "Optional retained parcel context",
+    "Owned derivative street dressing",
+    "Cameras and light"
+  ],
+  "shared_meshes": 0,
+  "camera": "01-Theatre-Promenade",
+  "frame": 1,
+  "range": [
+    1,
+    250
+  ],
+  "fps": 24.0,
+  "resolution": [
+    960,
+    540,
+    100
+  ],
+  "color": {
+    "view_transform": "AgX",
+    "look": "None",
+    "exposure": 0.0,
+    "display": "sRGB"
+  },
+  "cycles": {
+    "device": "CPU",
+    "samples": 16,
+    "use_denoising": true
+  },
+  "eevee": {
+    "taa_samples": 16,
+    "taa_render_samples": 64,
+    "shadow_resolution_scale": 1.0
+  },
+  "known_devices": [],
+  "assets": {
+    "external_count": 0,
+    "missing_count": 0,
+    "missing": [],
+    "unresolved_count": 0,
+    "unresolved": [],
+    "cache_audit": "separate inspection required"
+  },
+  "objects_sample": [
+    {
+      "name": "Podium foundation",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Low annex glazing",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Podium roof",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Auditorium glazing",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Auditorium gallery band 5.3",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Auditorium gallery band 11",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Auditorium gallery band 17",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Auditorium gallery band 23",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Swept upper eave",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Saddle roof shell",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "South entrance canopy",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "South entrance doors",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    }
+  ]
+}

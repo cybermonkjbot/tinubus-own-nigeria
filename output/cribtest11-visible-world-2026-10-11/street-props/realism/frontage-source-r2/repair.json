@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-11",
+  "frozen_source": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/parent-realism-kit/author_yaba_frontage.py",
+  "preimage_sha256": "2bc71471cb5f3abc28aa06623de9c23800cf524028ade6003b0f64207682d460",
+  "owned_revision_sha256": "598bfefadc522550be4bb6d49905066dbb089963aa2a5f776f33af41f0b3808d",
+  "cause": "RuntimeError Unsupported Blender enum length_unit=METERS from static RNA enum_items check before geometry; dynamic enum list can omit valid contextual values",
+  "repair": "Use actual installed property setter as enum validator, retaining explicit missing-property guard and actionable setter error; no geometry or material recipe changes",
+  "evidence": "METERS assignment already succeeded in previous Blender5.2.2 derivative; failed frontage-v1 PID12604 and traceback preserved",
+  "failed_output": "C:/dev/baddie-assets/YabaRealismKit/frontage-v1",
+  "fresh_retry_output": "C:/dev/baddie-assets/YabaRealismKit/frontage-v2",
+  "contract_sha256": "37314e3e16633b7f5edc9b2c11e105561813bfe2e6c3c1bed6ba942b04f991ff",
+  "scope": "Owned source copy only; original frozen source unchanged"
+}

@@ -1,0 +1,32 @@
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\Danfo.fbx'
+export finished in 0.0142 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\Kiosk.fbx'
+export finished in 0.0108 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\ShopfrontShutter.fbx'
+export finished in 0.0079 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DrainOpen.fbx'
+export finished in 0.0047 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DrainGrated.fbx'
+export finished in 0.0053 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\Kerb.fbx'
+export finished in 0.0050 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\PowerPole.fbx'
+export finished in 0.0053 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\WireSpan8m.fbx'
+export finished in 0.0060 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\StreetSignSupport.fbx'
+export finished in 0.0051 sec.
+Info: Saved as "LagosStreetProps.blend"
+{"job": "lagos-street-props-v1", "output": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1", "assets": 9, "rendered": []}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

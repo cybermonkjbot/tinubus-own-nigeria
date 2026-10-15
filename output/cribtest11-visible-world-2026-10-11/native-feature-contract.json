@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-11",
+  "scope": "new-native-Lagos-authoring-no-production-activation",
+  "model": "gpt-6.1-sol",
+  "reasoningEffort": "high",
+  "qualityGate": "player-height-detailed-Yaba-street-before-city-wide-repetition",
+  "sourceGeometryMustRemainDetailed": true,
+  "nativeImplementation": {
+    "instancing": "bounded-ISM-or-HISM-by-mesh-material-collision-mobility-contract",
+    "sourceIdentity": "persistent-source-id-to-component-and-instance-journal",
+    "nanite": "eligible-new-opaque-static-asset-derivatives-with-retained-fallback",
+    "largeWorld": "initialized-World-Partition-if-safe-otherwise-explicit-native-streamed-levels",
+    "hlod": "layer-and-membership-authoring-only-builder-deferred",
+    "linearInfrastructure": "source-preserving-native-splines",
+    "waterAndDressing": "installed-native-water-and-constrained-PCG-when-suitable",
+    "lightingTarget": "capability-checked-Lumen-VSM-and-upscaling-profile-not-forced-software-preview"
+  },
+  "preview": {
+    "reportedEditorPid": 5916,
+    "rhi": "D3D11",
+    "adapter": "Microsoft Basic Render Driver",
+    "targetGpuQualityEstablished": false
+  },
+  "preserve": [
+    "canonical-generator-identity-and-immutable-generated-assets",
+    "source-transforms-material-slots-UVs-and-openings",
+    "saved-account-and-gameplay-authority",
+    "current-dirty-source-and-existing-launcher-settings"
+  ],
+  "deferred": [
+    "target-device-frame-time-and-memory-profiling",
+    "HLOD-proxy-build-commandlets",
+    "C++-compilation-and-full-game-build",
+    "runtime-streaming-and-playable-acceptance",
+    "shipping-render-profile-activation"
+  ],
+  "completionRule": "saved-native-feature-evidence-and-actual-images-not-feature-name-claims"
+}

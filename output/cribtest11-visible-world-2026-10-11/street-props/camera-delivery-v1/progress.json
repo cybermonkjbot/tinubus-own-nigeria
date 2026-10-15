@@ -1,0 +1,29 @@
+{
+  "job": "lagos-first-scene-camera-v1",
+  "pid": 13052,
+  "step": "combined_frame_delivered_worker_inspected_frozen",
+  "worker_exited": true,
+  "visual_review": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/camera-delivery-v1/visual-review.json",
+  "visual_acceptance": "useful_combined_frame_parent_review_pending_kiosk_rear_only_partial_tree_occlusion",
+  "updated_at": "2026-10-11T09:35:34.790581+00:00",
+  "frame": {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\camera-delivery-v1\\03-Theatre-Danfo-Kiosk.png",
+    "sha256": "dcf6bd355ac74073851ffc500c7902d6f54ebb975b10ed7ff2a0807e3150a7ae",
+    "seconds": 17.810626600010437,
+    "bytes": 504544,
+    "dimensions": [
+      960,
+      540
+    ]
+  },
+  "paths": [
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\camera-delivery-v1\\LagosFirstScene-CameraDelivery.blend",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\camera-delivery-v1\\03-Theatre-Danfo-Kiosk.png",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\camera-delivery-v1\\camera-provenance.json"
+  ],
+  "hashes": {
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\camera-delivery-v1\\LagosFirstScene-CameraDelivery.blend": "4fd6f9f8f70cd95c968bec1d691a7bc02fa2bfa2d778754f82bda2c74b3a37a2",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\camera-delivery-v1\\03-Theatre-Danfo-Kiosk.png": "dcf6bd355ac74073851ffc500c7902d6f54ebb975b10ed7ff2a0807e3150a7ae"
+  },
+  "errors": []
+}

@@ -1,0 +1,280 @@
+{
+  "source": "sector-04-network.geojson",
+  "sharedNodePairs": [
+    {
+      "wayIds": [
+        8564504,
+        589139290
+      ],
+      "nodeId": 35785466,
+      "coordinates": [
+        3.3420212,
+        6.5611092
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        8564504,
+        93146057
+      ],
+      "nodeId": 1079849290,
+      "coordinates": [
+        3.3442519,
+        6.561089
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        8564504,
+        8563770
+      ],
+      "nodeId": 35785466,
+      "coordinates": [
+        3.3420212,
+        6.5611092
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589139290,
+        589014132
+      ],
+      "nodeId": 1073316752,
+      "coordinates": [
+        3.3388922,
+        6.5611575
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589139290,
+        8564505
+      ],
+      "nodeId": 35785465,
+      "coordinates": [
+        3.3402634,
+        6.561006
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589139290,
+        8563770
+      ],
+      "nodeId": 35785466,
+      "coordinates": [
+        3.3420212,
+        6.5611092
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589014132,
+        589014131
+      ],
+      "nodeId": 5624738944,
+      "coordinates": [
+        3.3387829,
+        6.561175
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589014131,
+        496763689
+      ],
+      "nodeId": 1073319565,
+      "coordinates": [
+        3.3385073,
+        6.5611962
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589014131,
+        535191784
+      ],
+      "nodeId": 1073319565,
+      "coordinates": [
+        3.3385073,
+        6.5611962
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93146057,
+        93146059
+      ],
+      "nodeId": 1079849327,
+      "coordinates": [
+        3.3442882,
+        6.5604361
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93146057,
+        93146067
+      ],
+      "nodeId": 1079849216,
+      "coordinates": [
+        3.3443295,
+        6.5597473
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93146059,
+        496763690
+      ],
+      "nodeId": 1079849425,
+      "coordinates": [
+        3.3408958,
+        6.5604307
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763690,
+        93146067
+      ],
+      "nodeId": 1079849448,
+      "coordinates": [
+        3.3407911,
+        6.5598073
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        535191784
+      ],
+      "nodeId": 1073319565,
+      "coordinates": [
+        3.3385073,
+        6.5611962
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    }
+  ],
+  "uniqueSharedNodeCount": 10,
+  "backbone": {
+    "wayIds": [
+      8564504,
+      589139290,
+      589014132,
+      589014131
+    ],
+    "fromNodeId": 1079849444,
+    "toNodeId": 1073319565,
+    "approximateLengthMetres": 710.4
+  },
+  "candidatePedestrianLoop": {
+    "accessVerified": false,
+    "approximateLengthMetres": 917.4,
+    "legs": [
+      {
+        "wayId": 93146057,
+        "fromNodeId": 1079849327,
+        "toNodeId": 1079849216,
+        "nodeIds": [
+          1079849327,
+          1079849216
+        ],
+        "approximateLengthMetres": 76.7
+      },
+      {
+        "wayId": 93146067,
+        "fromNodeId": 1079849216,
+        "toNodeId": 1079849448,
+        "nodeIds": [
+          1079849216,
+          1079849471,
+          1079849476,
+          8918590669,
+          1079849219,
+          1079849448
+        ],
+        "approximateLengthMetres": 391.1
+      },
+      {
+        "wayId": 496763690,
+        "fromNodeId": 1079849448,
+        "toNodeId": 1079849425,
+        "nodeIds": [
+          1079849448,
+          5623442575,
+          13800495754,
+          5623442574,
+          1079849425
+        ],
+        "approximateLengthMetres": 74.7
+      },
+      {
+        "wayId": 93146059,
+        "fromNodeId": 1079849425,
+        "toNodeId": 1079849327,
+        "nodeIds": [
+          1079849425,
+          8918590667,
+          5623442573,
+          1079849327
+        ],
+        "approximateLengthMetres": 374.9
+      }
+    ]
+  },
+  "bridgeDitchCrossing": {
+    "roadWayId": 589014132,
+    "ditchWayId": 92451100,
+    "ditchSegmentNodeIds": [
+      1073317888,
+      1073317557
+    ],
+    "derivedCrossingLonLat": [
+      3.338855932171924,
+      6.561163306834322
+    ],
+    "method": "2D segment intersection in WGS84 degrees; display/control lead only",
+    "sharedNode": false,
+    "roadLayer": "1",
+    "roadBridge": "yes",
+    "verticalClearanceMetres": null,
+    "drainFlowDirectionVerified": false,
+    "notNavigableJunction": true
+  },
+  "sharedSector03WayId": 8564504,
+  "nextDiscovery": {
+    "street": "Ogunoloko Road",
+    "wayId": 496763689,
+    "startNodeId": 1073319565,
+    "freshResearchRequired": true
+  }
+}

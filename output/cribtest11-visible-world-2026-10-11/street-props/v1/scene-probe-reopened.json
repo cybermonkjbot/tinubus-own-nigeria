@@ -1,0 +1,138 @@
+{
+  "pid": 5736,
+  "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LagosStreetProps.blend",
+  "dirty": false,
+  "version": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "background": true,
+  "scene": "LagosStreetProps",
+  "engine": "CYCLES",
+  "units": {
+    "system": "METRIC",
+    "scale_length": 1.0
+  },
+  "object_count": 353,
+  "object_types": {
+    "CAMERA": 3,
+    "EMPTY": 9,
+    "MESH": 339,
+    "FONT": 1,
+    "LIGHT": 1
+  },
+  "root_collections": [
+    "LagosStreetProps_Editable",
+    "PreviewOnly_NotWorldPlacement"
+  ],
+  "shared_meshes": 0,
+  "camera": "LibraryView",
+  "frame": 1,
+  "range": [
+    1,
+    250
+  ],
+  "fps": 24.0,
+  "resolution": [
+    960,
+    640,
+    100
+  ],
+  "color": {
+    "view_transform": "AgX",
+    "look": "None",
+    "exposure": 0.0,
+    "display": "sRGB"
+  },
+  "cycles": {
+    "device": "CPU",
+    "samples": 24,
+    "use_denoising": true
+  },
+  "eevee": {
+    "taa_samples": 16,
+    "taa_render_samples": 64,
+    "shadow_resolution_scale": 1.0
+  },
+  "known_devices": [],
+  "assets": {
+    "external_count": 0,
+    "missing_count": 0,
+    "missing": [],
+    "unresolved_count": 0,
+    "unresolved": [],
+    "cache_audit": "separate inspection required"
+  },
+  "objects_sample": [
+    {
+      "name": "DanfoView",
+      "type": "CAMERA",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "KioskView",
+      "type": "CAMERA",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "LibraryView",
+      "type": "CAMERA",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Danfo_ROOT",
+      "type": "EMPTY",
+      "hidden_render": false,
+      "data_users": null
+    },
+    {
+      "name": "Danfo_Chassis",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Danfo_Floor",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Danfo_SidePanel_-1",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Danfo_BlackStripe_-1_1.025",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Danfo_BlackStripe_-1_1.155",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Danfo_ArchLip_-1_-1.32",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Danfo_ArchLip_-1_1.3",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "Danfo_WindowSeal_-1_0",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    }
+  ]
+}

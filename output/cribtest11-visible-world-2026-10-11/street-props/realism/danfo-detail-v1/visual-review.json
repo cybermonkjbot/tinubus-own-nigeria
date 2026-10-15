@@ -1,0 +1,34 @@
+{
+  "inspected_at": "2026-10-11T02:47:15-07:00",
+  "method": "Opened both actual rendered PNGs at delivered 960x540 resolution; no generated substitute images",
+  "status": "Worker-inspected detail derivative, parent review pending; not final realism",
+  "frames": [
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/01-Danfo-Detail-Quarter.png",
+      "sha256": "b74b43ef2a74d90de94b8cb9ccb14c3772e277c6cee69efdb174e6a961e3c9d8",
+      "visible": ["Front-side cabin gap closed with glass and seals", "Profiled tyre silhouette and rim/hub detail", "Yellow bus, black stripes, step and apparent ground contact"],
+      "defects": ["Boxy stylized silhouette remains", "Smooth paint and limited localized wear still read toy-like", "Glazing appears broad and flat; dark reflections obscure cabin detail"],
+      "next_verification": "Reference-derived panel and glazing proportions and localized material wear require later approved inputs; no further unsolicited repair in this batch"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/02-Danfo-Cabin-Wheel-Close.png",
+      "sha256": "d21bfe3c4272f08e0d67a0a4e2fea31dc732599ddd94fc154217c035558d0cc8",
+      "visible": ["Cab glass/seal, mirror arm, handle and wipers", "Front panel and side step"],
+      "defects": ["Wheel mostly cropped at bottom; tread close-detail acceptance not demonstrated", "Dark glass/reflections obscure steering and cabin", "Paint remains visually smooth and uniform"],
+      "next_verification": "Any later wheel-detail claim requires an actual uncropped view; current filename does not establish coverage"
+    }
+  ],
+  "technical_evidence": {
+    "saved_before_render": true,
+    "reopened_probe": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/scene-probe-reopened.json",
+    "probe_sha256": "b1d8055181a2bf6c64c7026ef362a21f234fd3e8de82f55d859750b3099a6134",
+    "missing_external_assets": 0,
+    "units": "metres, scale_length 1",
+    "render": {"engine": "CYCLES", "device": "CPU", "threads": 2, "samples": 16, "width": 960, "height": 540},
+    "fbx_limit": "UVMap retained in evaluated export; native import and material translation not inspected"
+  },
+  "material_gap": "No qualified locally licensed scan sets used; shader fallback is not photographic fidelity",
+  "unchanged_limit": "Existing rear-window opaque backing remains; rear glazing not covered by these views",
+  "errors": [],
+  "warnings": ["World.use_nodes deprecation warning only"]
+}

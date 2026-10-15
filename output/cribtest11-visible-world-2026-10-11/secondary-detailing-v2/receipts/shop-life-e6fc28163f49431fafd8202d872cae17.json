@@ -1,0 +1,117 @@
+{
+  "batch": "shop-life",
+  "destination": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday",
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "manifest_sha256": "abb202766907be1c077dc5f3fac319ec3e95bfcbeef9bb9374894293c9d53685",
+  "asset_ids": [
+    "SM_MarketTable_A",
+    "SM_WovenBasket_A",
+    "SM_TailorMannequin_A",
+    "SM_ClothesRail_A",
+    "SM_PedestalFan_A",
+    "SM_StackedStools_A"
+  ],
+  "created": [
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_MarketTable_A.SM_MarketTable_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WovenBasket_A.SM_WovenBasket_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_TailorMannequin_A.SM_TailorMannequin_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ClothesRail_A.SM_ClothesRail_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PedestalFan_A.SM_PedestalFan_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_StackedStools_A.SM_StackedStools_A"
+  ],
+  "meshes": [
+    {
+      "id": "SM_MarketTable_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_MarketTable_A.SM_MarketTable_A",
+      "triangles": [
+        308,
+        84,
+        84
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_WovenBasket_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WovenBasket_A.SM_WovenBasket_A",
+      "triangles": [
+        528,
+        264,
+        176
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_TailorMannequin_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_TailorMannequin_A.SM_TailorMannequin_A",
+      "triangles": [
+        748,
+        196,
+        124
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_ClothesRail_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ClothesRail_A.SM_ClothesRail_A",
+      "triangles": [
+        856,
+        100,
+        60
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_PedestalFan_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PedestalFan_A.SM_PedestalFan_A",
+      "triangles": [
+        3512,
+        552,
+        356
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_StackedStools_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_StackedStools_A.SM_StackedStools_A",
+      "triangles": [
+        1236,
+        276,
+        180
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    }
+  ],
+  "world_placement": "none",
+  "native_visual_acceptance": "pending",
+  "status": "imported-native-visual-acceptance-pending"
+}

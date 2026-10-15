@@ -1,0 +1,715 @@
+{
+  "source": "sector-07-network.geojson",
+  "sharedNodePairs": [
+    {
+      "wayIds": [
+        92451057,
+        92451090
+      ],
+      "nodeId": 1073317008,
+      "coordinates": [
+        3.3318778,
+        6.5566101
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451090,
+        588965956
+      ],
+      "nodeId": 5624392796,
+      "coordinates": [
+        3.3383431,
+        6.5585843
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451090,
+        441859080
+      ],
+      "nodeId": 4395533010,
+      "coordinates": [
+        3.3349852,
+        6.5577734
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451090,
+        441859085
+      ],
+      "nodeId": 4395533020,
+      "coordinates": [
+        3.3335874,
+        6.5572562
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451090,
+        92451115
+      ],
+      "nodeId": 1073318194,
+      "coordinates": [
+        3.3309315,
+        6.5562204
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451090,
+        93156426
+      ],
+      "nodeId": 1079925502,
+      "coordinates": [
+        3.3346793,
+        6.5576566
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        588965956,
+        588965957
+      ],
+      "nodeId": 5624392798,
+      "coordinates": [
+        3.3384591,
+        6.5585716
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        588965957,
+        8564505
+      ],
+      "nodeId": 1079849451,
+      "coordinates": [
+        3.3399555,
+        6.5582117
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        8564505,
+        1442626897
+      ],
+      "nodeId": 5623442588,
+      "coordinates": [
+        3.3399403,
+        6.5580871
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        1442626897,
+        589001498
+      ],
+      "nodeId": 1079925522,
+      "coordinates": [
+        3.3397774,
+        6.5572686
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        1442626897,
+        589001493
+      ],
+      "nodeId": 35785464,
+      "coordinates": [
+        3.3396715,
+        6.5566793
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589001498,
+        1279347657
+      ],
+      "nodeId": 5624392790,
+      "coordinates": [
+        3.3381184,
+        6.5573839
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        1279347657,
+        1279347656
+      ],
+      "nodeId": 11876557995,
+      "coordinates": [
+        3.3380191,
+        6.5573874
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        1279347656,
+        93156444
+      ],
+      "nodeId": 11876557994,
+      "coordinates": [
+        3.3379153,
+        6.5573911
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156444,
+        441859080
+      ],
+      "nodeId": 4395533011,
+      "coordinates": [
+        3.3352083,
+        6.5571954
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156444,
+        441859081
+      ],
+      "nodeId": 4395533012,
+      "coordinates": [
+        3.3358639,
+        6.5574353
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156444,
+        441859083
+      ],
+      "nodeId": 4395533016,
+      "coordinates": [
+        3.3344633,
+        6.5569169
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156444,
+        441859085
+      ],
+      "nodeId": 4395533021,
+      "coordinates": [
+        3.3338468,
+        6.5566829
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156444,
+        92451115
+      ],
+      "nodeId": 1079925488,
+      "coordinates": [
+        3.3307991,
+        6.555668
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        441859081,
+        92451086
+      ],
+      "nodeId": 4395533013,
+      "coordinates": [
+        3.3361304,
+        6.5566787
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        441859083,
+        92451086
+      ],
+      "nodeId": 4395533017,
+      "coordinates": [
+        3.3347338,
+        6.5562905
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451086,
+        589001491
+      ],
+      "nodeId": 5624643863,
+      "coordinates": [
+        3.337713,
+        6.5566888
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451086,
+        92451115
+      ],
+      "nodeId": 1073317999,
+      "coordinates": [
+        3.3306369,
+        6.5549424
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589001491,
+        589001493
+      ],
+      "nodeId": 5624392795,
+      "coordinates": [
+        3.337871,
+        6.5566944
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    }
+  ],
+  "gradeSeparatedCrossings": [
+    {
+      "roadWayId": 588965956,
+      "roadName": "Adesanya Street",
+      "roadNodeIds": [
+        5624392798,
+        5624392796
+      ],
+      "roadLayer": "1",
+      "ditchWayId": 92451100,
+      "ditchSegmentNodeIds": [
+        1073318244,
+        1073317004
+      ],
+      "derived2DIntersection": [
+        3.3384182829317655,
+        6.558576068765229
+      ],
+      "sharedNodeIds": [],
+      "isRoadJunction": false,
+      "approximateRoadPolylineLengthMetres": 12.9,
+      "deckElevation": null,
+      "clearance": null,
+      "flowDirection": null,
+      "surveyVerified": false
+    },
+    {
+      "roadWayId": 1279347656,
+      "roadName": "Olaiya Street",
+      "roadNodeIds": [
+        11876557995,
+        11876557994
+      ],
+      "roadLayer": "1",
+      "ditchWayId": 92451100,
+      "ditchSegmentNodeIds": [
+        1073319500,
+        13236856296
+      ],
+      "derived2DIntersection": [
+        3.3379594000889825,
+        6.557389528031511
+      ],
+      "sharedNodeIds": [],
+      "isRoadJunction": false,
+      "approximateRoadPolylineLengthMetres": 11.5,
+      "deckElevation": null,
+      "clearance": null,
+      "flowDirection": null,
+      "surveyVerified": false
+    },
+    {
+      "roadWayId": 589001491,
+      "roadName": "Mafoluku Road",
+      "roadNodeIds": [
+        5624392795,
+        5624643863
+      ],
+      "roadLayer": "1",
+      "ditchWayId": 92451100,
+      "ditchSegmentNodeIds": [
+        13236856296,
+        1073316940
+      ],
+      "derived2DIntersection": [
+        3.3378147358175263,
+        6.5566924058264435
+      ],
+      "sharedNodeIds": [],
+      "isRoadJunction": false,
+      "approximateRoadPolylineLengthMetres": 17.5,
+      "deckElevation": null,
+      "clearance": null,
+      "flowDirection": null,
+      "surveyVerified": false
+    }
+  ],
+  "candidateLoops": [
+    {
+      "name": "Adesanya–Daudu/Rufai–Olaiya–unnamed west-bank link",
+      "legs": [
+        {
+          "wayId": 92451090,
+          "fromNode": 4395533010,
+          "toNode": 5624392796,
+          "nodeIds": [
+            4395533010,
+            1073317869,
+            5624392809,
+            5624392808,
+            5624392807,
+            5624392806,
+            1073316652,
+            5624392805,
+            5624392804,
+            1073317407,
+            5624392803,
+            5624392802,
+            1073317908,
+            5624392801,
+            11841073692,
+            11841073753,
+            5624392800,
+            5624392799,
+            5624392796
+          ],
+          "approximateLengthMetres": 386.3
+        },
+        {
+          "wayId": 588965956,
+          "fromNode": 5624392796,
+          "toNode": 5624392798,
+          "nodeIds": [
+            5624392796,
+            5624392798
+          ],
+          "approximateLengthMetres": 12.9
+        },
+        {
+          "wayId": 588965957,
+          "fromNode": 5624392798,
+          "toNode": 1079849451,
+          "nodeIds": [
+            5624392798,
+            5624392797,
+            1073317561,
+            1079849451
+          ],
+          "approximateLengthMetres": 170.1
+        },
+        {
+          "wayId": 8564505,
+          "fromNode": 1079849451,
+          "toNode": 5623442588,
+          "nodeIds": [
+            1079849451,
+            5623442588
+          ],
+          "approximateLengthMetres": 14
+        },
+        {
+          "wayId": 1442626897,
+          "fromNode": 5623442588,
+          "toNode": 1079925522,
+          "nodeIds": [
+            5623442588,
+            11876558000,
+            1079925522
+          ],
+          "approximateLengthMetres": 92.8
+        },
+        {
+          "wayId": 589001498,
+          "fromNode": 1079925522,
+          "toNode": 5624392790,
+          "nodeIds": [
+            1079925522,
+            5624392790
+          ],
+          "approximateLengthMetres": 183.7
+        },
+        {
+          "wayId": 1279347657,
+          "fromNode": 5624392790,
+          "toNode": 11876557995,
+          "nodeIds": [
+            5624392790,
+            11876557995
+          ],
+          "approximateLengthMetres": 11
+        },
+        {
+          "wayId": 1279347656,
+          "fromNode": 11876557995,
+          "toNode": 11876557994,
+          "nodeIds": [
+            11876557995,
+            11876557994
+          ],
+          "approximateLengthMetres": 11.5
+        },
+        {
+          "wayId": 93156444,
+          "fromNode": 11876557994,
+          "toNode": 4395533011,
+          "nodeIds": [
+            11876557994,
+            5632653543,
+            1079925486,
+            5624392793,
+            1079925482,
+            5624392794,
+            5624392791,
+            4395533012,
+            1079925456,
+            4395533011
+          ],
+          "approximateLengthMetres": 305.2
+        },
+        {
+          "wayId": 441859080,
+          "fromNode": 4395533011,
+          "toNode": 4395533010,
+          "nodeIds": [
+            4395533011,
+            4395533010
+          ],
+          "approximateLengthMetres": 68.8
+        }
+      ],
+      "approximateLengthMetres": 1256.3,
+      "closed": true,
+      "accessVerified": false,
+      "bridgeAccessVerified": false
+    },
+    {
+      "name": "Olaiya–Rufai–Oshodi/Mafoluku–unnamed west-bank link",
+      "legs": [
+        {
+          "wayId": 93156444,
+          "fromNode": 4395533012,
+          "toNode": 11876557994,
+          "nodeIds": [
+            4395533012,
+            5624392791,
+            5624392794,
+            1079925482,
+            5624392793,
+            1079925486,
+            5632653543,
+            11876557994
+          ],
+          "approximateLengthMetres": 228
+        },
+        {
+          "wayId": 1279347656,
+          "fromNode": 11876557994,
+          "toNode": 11876557995,
+          "nodeIds": [
+            11876557994,
+            11876557995
+          ],
+          "approximateLengthMetres": 11.5
+        },
+        {
+          "wayId": 1279347657,
+          "fromNode": 11876557995,
+          "toNode": 5624392790,
+          "nodeIds": [
+            11876557995,
+            5624392790
+          ],
+          "approximateLengthMetres": 11
+        },
+        {
+          "wayId": 589001498,
+          "fromNode": 5624392790,
+          "toNode": 1079925522,
+          "nodeIds": [
+            5624392790,
+            1079925522
+          ],
+          "approximateLengthMetres": 183.7
+        },
+        {
+          "wayId": 1442626897,
+          "fromNode": 1079925522,
+          "toNode": 35785464,
+          "nodeIds": [
+            1079925522,
+            35785464
+          ],
+          "approximateLengthMetres": 66.6
+        },
+        {
+          "wayId": 589001493,
+          "fromNode": 35785464,
+          "toNode": 5624392795,
+          "nodeIds": [
+            35785464,
+            4395532936,
+            5624643862,
+            5624392795
+          ],
+          "approximateLengthMetres": 198.9
+        },
+        {
+          "wayId": 589001491,
+          "fromNode": 5624392795,
+          "toNode": 5624643863,
+          "nodeIds": [
+            5624392795,
+            5624643863
+          ],
+          "approximateLengthMetres": 17.5
+        },
+        {
+          "wayId": 92451086,
+          "fromNode": 5624643863,
+          "toNode": 4395533013,
+          "nodeIds": [
+            5624643863,
+            8918590663,
+            12683952995,
+            4395533013
+          ],
+          "approximateLengthMetres": 174.8
+        },
+        {
+          "wayId": 441859081,
+          "fromNode": 4395533013,
+          "toNode": 4395533012,
+          "nodeIds": [
+            4395533013,
+            4395533012
+          ],
+          "approximateLengthMetres": 89.1
+        }
+      ],
+      "approximateLengthMetres": 981.1,
+      "closed": true,
+      "accessVerified": false,
+      "bridgeAccessVerified": false
+    }
+  ],
+  "counts": {
+    "roadWays": 19,
+    "waterwayWays": 1,
+    "buildingSample": 25,
+    "sharedNodePairs": 24,
+    "uniqueSharedNodes": 24,
+    "sameRoadJoins": 6
+  },
+  "priorSectorOverlap": [
+    {
+      "priorFile": "sector-04-network.geojson",
+      "wayId": 8564505,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "priorFile": "sector-04-network.geojson",
+      "wayId": 92451100,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "priorFile": "sector-06-roads.geojson",
+      "wayId": 92451057,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "priorFile": "sector-06-roads.geojson",
+      "wayId": 92451090,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "priorFile": "sector-06-roads.geojson",
+      "wayId": 93156426,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    }
+  ],
+  "coordinateContract": {
+    "geographic": "WGS84 [longitude,latitude]; no altitude",
+    "proposedProjection": "EPSG:32631",
+    "proposedOrigin": [
+      3.351,
+      6.556
+    ],
+    "sourceMetres": [
+      "NorthDelta",
+      "UpDelta",
+      "EastDelta"
+    ],
+    "canonicalAdapter": "UE(X,Y,Z)=100*source(Z,X,Y)",
+    "projectedCoordinatesCalculated": false,
+    "verticalDatum": null,
+    "canonicalWorldRegistration": null
+  },
+  "restrictions": [
+    "Road/ditch intersections are not road junctions",
+    "Bridge=yes/layer=1 is not a deck-height or capacity measurement",
+    "Loop continuity does not establish current access or safe flood diversion",
+    "Source waterway node order is not verified hydraulic direction"
+  ]
+}

@@ -1,0 +1,17 @@
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v1\lagos_first_scene_owned.py:116: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v1\lagos_first_scene_owned.py", line 660, in <module>
+    main()
+    ~~~~^^
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v1\lagos_first_scene_owned.py", line 604, in main
+    terrain(city, theatre, bounds, palette)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v1\lagos_first_scene_owned.py", line 237, in terrain
+    obj = polygon(record.get("id", "Source lagoon") + " water", clipped, level, palette["water"], owner)
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v1\lagos_first_scene_owned.py", line 199, in polygon
+    face = [lookup[tuple(v)] for v in triangle]
+                   ~~~~~^^^
+TypeError: 'int' object is not iterable
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v1\lagos_first_scene_owned.py', exiting.

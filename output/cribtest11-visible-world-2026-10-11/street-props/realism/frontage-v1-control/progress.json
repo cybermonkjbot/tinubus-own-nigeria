@@ -1,0 +1,9 @@
+{
+  "job": "yaba-frontage-replacement-v1",
+  "pid": 12604,
+  "step": "failed",
+  "updated_at": "2026-10-11T09:59:27.955554+00:00",
+  "errors": [
+    "Traceback (most recent call last):\n  File \"C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\frontage-v1-control\\run_frontage_owned.py\", line 62, in <module>\n    runpy.run_path(str(SOURCE),run_name='__main__')\n    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"<frozen runpy>\", line 287, in run_path\n  File \"<frozen runpy>\", line 98, in _run_module_code\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\parent-realism-kit\\author_yaba_frontage.py\", line 679, in <module>\n    main()\n    ~~~~^^\n  File \"C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\parent-realism-kit\\author_yaba_frontage.py\", line 655, in main\n    enum_set(scene.unit_settings, \"length_unit\", \"METERS\")\n    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\parent-realism-kit\\author_yaba_frontage.py\", line 42, in enum_set\n    raise RuntimeError(\"Unsupported Blender enum: \" + field + \"=\" + value)\nRuntimeError: Unsupported Blender enum: length_unit=METERS\n"
+  ]
+}

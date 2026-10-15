@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T23:28:26.294347+00:00",
+  "pid": 2068,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "camera": {
+    "id": "market-road-junction",
+    "locationCm": [
+      -9000.0,
+      -25200.0,
+      165.0
+    ],
+    "rotation": {
+      "pitch": 3.0,
+      "yaw": 55.0,
+      "roll": 0.0
+    },
+    "fov": 70.0
+  },
+  "imagePath": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\previews\\town-centre-streetpass01-daylight\\market-road-junction.png",
+  "imageSha256": "a697b4341b3d7a9266bad1343345068381126a8731ff493ef1a01030f1dfa871",
+  "width": 705,
+  "height": 486,
+  "capture": {
+    "cameraLocation": {
+      "x": -9000,
+      "y": -25200,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 3,
+      "yaw": 55,
+      "roll": 0
+    },
+    "cameraFOV": 70,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "warmupNativeFrames": 51,
+  "lighting": {
+    "autoExposureBias": 0.0,
+    "skyLightIntensity": 1.0
+  }
+}

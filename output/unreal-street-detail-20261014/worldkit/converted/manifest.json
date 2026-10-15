@@ -1,0 +1,353 @@
+{
+  "pid": 17212,
+  "blender": "5.2.2 LTS",
+  "scene": "StreetFinish_20261014_Conversion",
+  "source": "C:\\dev\\cribtest-game\\output\\unreal-street-detail-20261014\\worldkit\\recipes\\world-kit",
+  "source_sha256": null,
+  "source_kind": "bounded retained-recipe reconstruction; not archived v06",
+  "units": "metres",
+  "forward": "-Y",
+  "up": "Z",
+  "materials": {
+    "World kit | bark": {
+      "name": "World kit | bark",
+      "base_color": [
+        0.1899999976158142,
+        0.09000000357627869,
+        0.04399999976158142,
+        1.0
+      ],
+      "roughness": 0.9100000262260437,
+      "metallic": 0.0,
+      "base_color_linked": false
+    },
+    "World kit | leaf-light": {
+      "name": "World kit | leaf-light",
+      "base_color": [
+        0.1599999964237213,
+        0.28999999165534973,
+        0.07000000029802322,
+        1.0
+      ],
+      "roughness": 0.7300000190734863,
+      "metallic": 0.0,
+      "base_color_linked": false
+    },
+    "World kit | leaf": {
+      "name": "World kit | leaf",
+      "base_color": [
+        0.07999999821186066,
+        0.20999999344348907,
+        0.06599999964237213,
+        1.0
+      ],
+      "roughness": 0.6899999976158142,
+      "metallic": 0.0,
+      "base_color_linked": false
+    },
+    "World kit | iron": {
+      "name": "World kit | iron",
+      "base_color": [
+        0.03400000184774399,
+        0.04399999976158142,
+        0.041999999433755875,
+        1.0
+      ],
+      "roughness": 0.4399999976158142,
+      "metallic": 0.5,
+      "base_color_linked": false
+    },
+    "World kit | galvanised": {
+      "name": "World kit | galvanised",
+      "base_color": [
+        0.47999998927116394,
+        0.5099999904632568,
+        0.49000000953674316,
+        1.0
+      ],
+      "roughness": 0.4699999988079071,
+      "metallic": 0.7799999713897705,
+      "base_color_linked": false
+    },
+    "World kit | steel": {
+      "name": "World kit | steel",
+      "base_color": [
+        0.4300000071525574,
+        0.46000000834465027,
+        0.4699999988079071,
+        1.0
+      ],
+      "roughness": 0.30000001192092896,
+      "metallic": 0.8999999761581421,
+      "base_color_linked": false
+    },
+    "World kit | wood": {
+      "name": "World kit | wood",
+      "base_color": [
+        0.25999999046325684,
+        0.11999999731779099,
+        0.052000001072883606,
+        1.0
+      ],
+      "roughness": 0.5199999809265137,
+      "metallic": 0.0,
+      "base_color_linked": false
+    },
+    "World kit | sage": {
+      "name": "World kit | sage",
+      "base_color": [
+        0.1899999976158142,
+        0.28999999165534973,
+        0.23000000417232513,
+        1.0
+      ],
+      "roughness": 0.46000000834465027,
+      "metallic": 0.0,
+      "base_color_linked": false
+    },
+    "World kit | ivory": {
+      "name": "World kit | ivory",
+      "base_color": [
+        0.8700000047683716,
+        0.8399999737739563,
+        0.7400000095367432,
+        1.0
+      ],
+      "roughness": 0.7900000214576721,
+      "metallic": 0.0,
+      "base_color_linked": false
+    }
+  },
+  "assets": [
+    {
+      "id": "SM_WK_broadleaf_tree",
+      "source_id": "broadleaf-tree",
+      "materials": [
+        "World kit | bark",
+        "World kit | leaf-light",
+        "World kit | leaf"
+      ],
+      "bounds": {
+        "min": [
+          -2.311823844909668,
+          -2.319932699203491,
+          0.0
+        ],
+        "max": [
+          2.193887710571289,
+          2.2969441413879395,
+          6.551529407501221
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_WK_broadleaf_tree_LOD0.fbx",
+          "triangles": 121808,
+          "sha256": "ea0fa7ad15c34354ea45c037eec9d6ae26572a8178da586ce6148d91a25ffe00"
+        },
+        {
+          "file": "SM_WK_broadleaf_tree_LOD1.fbx",
+          "triangles": 60872,
+          "sha256": "94866d8f200dc79342272a891acb9e12c06651baa09d339eeb710e48a9db62a2"
+        },
+        {
+          "file": "SM_WK_broadleaf_tree_LOD2.fbx",
+          "triangles": 24360,
+          "sha256": "f5e7b11834ce27a7c139e36e240ab39e2e9a062db447fc264068103222a9fc9a"
+        }
+      ]
+    },
+    {
+      "id": "SM_WK_palm_tree",
+      "source_id": "palm-tree",
+      "materials": [
+        "World kit | leaf",
+        "World kit | leaf-light",
+        "World kit | bark"
+      ],
+      "bounds": {
+        "min": [
+          -1.8780015707015991,
+          -2.03450608253479,
+          0.0
+        ],
+        "max": [
+          2.003319025039673,
+          2.0088951587677,
+          6.4430694580078125
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_WK_palm_tree_LOD0.fbx",
+          "triangles": 140628,
+          "sha256": "938e761edf4f3919a9d9038494079eea2712461fb7713344e6f948e2ba19a91c"
+        },
+        {
+          "file": "SM_WK_palm_tree_LOD1.fbx",
+          "triangles": 70314,
+          "sha256": "a5cd865ffa4ce7aa7e61bcb4e6e268513b9f09328db8ac857647d5e10f4c318d"
+        },
+        {
+          "file": "SM_WK_palm_tree_LOD2.fbx",
+          "triangles": 28124,
+          "sha256": "62934b5bb83b89b8ecbae48229e8a49f6b2df9c16e062b9a09183e39c6ad2848"
+        }
+      ]
+    },
+    {
+      "id": "SM_WK_shrub_cluster",
+      "source_id": "shrub-cluster",
+      "materials": [
+        "World kit | bark",
+        "World kit | leaf-light",
+        "World kit | leaf"
+      ],
+      "bounds": {
+        "min": [
+          -0.4918675422668457,
+          -0.42684489488601685,
+          0.0
+        ],
+        "max": [
+          0.4882049560546875,
+          0.4107200801372528,
+          0.738872766494751
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_WK_shrub_cluster_LOD0.fbx",
+          "triangles": 81604,
+          "sha256": "7f53a822ed9dfb7c00dbc87f94baa45a1538d7e5db5c1c08da3ea5d253a26b08"
+        },
+        {
+          "file": "SM_WK_shrub_cluster_LOD1.fbx",
+          "triangles": 40802,
+          "sha256": "b2fd64b7cb7d573d6e0eea9127f23fcd91b59882b6f3bf0fbd2c2888cc6518c0"
+        },
+        {
+          "file": "SM_WK_shrub_cluster_LOD2.fbx",
+          "triangles": 16320,
+          "sha256": "fd177130f096d8adb73b1ea02363cc822eed0937c3592e316eea926bbd961b37"
+        }
+      ]
+    },
+    {
+      "id": "SM_WK_corrugated_awning",
+      "source_id": "corrugated-awning",
+      "materials": [
+        "World kit | iron",
+        "World kit | galvanised",
+        "World kit | steel"
+      ],
+      "bounds": {
+        "min": [
+          -1.6669999361038208,
+          -1.2402353286743164,
+          0.0
+        ],
+        "max": [
+          1.6669999361038208,
+          0.03999999910593033,
+          0.7731766700744629
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_WK_corrugated_awning_LOD0.fbx",
+          "triangles": 4764,
+          "sha256": "5455d1ea6463bb47942dbaa637baef3bf1567e2bd8f10ed607f5363a3cee4356"
+        },
+        {
+          "file": "SM_WK_corrugated_awning_LOD1.fbx",
+          "triangles": 2382,
+          "sha256": "b38edbfca7709094c291198ed21b8c44079dc0c7e037ee8726d81b8fcc080266"
+        },
+        {
+          "file": "SM_WK_corrugated_awning_LOD2.fbx",
+          "triangles": 952,
+          "sha256": "e5770d6b8148265aeb608048deed0b7964e30305d1db20761dbcbd9763fd4221"
+        }
+      ]
+    },
+    {
+      "id": "SM_WK_street_bench",
+      "source_id": "street-bench",
+      "materials": [
+        "World kit | iron",
+        "World kit | wood",
+        "World kit | steel"
+      ],
+      "bounds": {
+        "min": [
+          -0.925000011920929,
+          -0.2800000011920929,
+          0.0
+        ],
+        "max": [
+          0.925000011920929,
+          0.3243437111377716,
+          0.8535000085830688
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_WK_street_bench_LOD0.fbx",
+          "triangles": 2868,
+          "sha256": "cb4d14e390581e4df617d355718d899228283a989505210560026c6dff8c0412"
+        },
+        {
+          "file": "SM_WK_street_bench_LOD1.fbx",
+          "triangles": 1434,
+          "sha256": "694cad20e34955be7cbfe636b6a455a71ef9b2ac3aa76e30790906553f5cf34d"
+        },
+        {
+          "file": "SM_WK_street_bench_LOD2.fbx",
+          "triangles": 572,
+          "sha256": "6ad24de42a5676399758e2ebfa3ba5117427f8f898fdb049ab33bdcdf202d8bf"
+        }
+      ]
+    },
+    {
+      "id": "SM_WK_vendor_canopy",
+      "source_id": "vendor-canopy",
+      "materials": [
+        "World kit | steel",
+        "World kit | iron",
+        "World kit | sage",
+        "World kit | ivory"
+      ],
+      "bounds": {
+        "min": [
+          -1.5300935506820679,
+          -0.8059999942779541,
+          0.0
+        ],
+        "max": [
+          1.5300935506820679,
+          0.8059999942779541,
+          2.7025978565216064
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_WK_vendor_canopy_LOD0.fbx",
+          "triangles": 5332,
+          "sha256": "c128df55bf2334bf42746ff737e9dacef1e466c2faf568bfb6b215aa7ec9cbc5"
+        },
+        {
+          "file": "SM_WK_vendor_canopy_LOD1.fbx",
+          "triangles": 2666,
+          "sha256": "58882c4ca4ec0759a501001ef542a7c9361ef1d590239bd9d7eea9d0a01a35d9"
+        },
+        {
+          "file": "SM_WK_vendor_canopy_LOD2.fbx",
+          "triangles": 1066,
+          "sha256": "cc8cf4aaca8c533793486a269a87fc019621260ed568e88c6c9b211831f32973"
+        }
+      ]
+    }
+  ],
+  "renders": "none"
+}

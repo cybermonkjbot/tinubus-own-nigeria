@@ -1,0 +1,218 @@
+{
+  "method": "Actual reopened v2 mesh bounds and front-plane geometry; no scene save",
+  "file": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\YabaFrontage.blend",
+  "sha256": "f65f16b7215eb745898816169885de31e149b12d0adacd2adc8b5fb1b57123d6",
+  "panels": [
+    {
+      "name": "ResidentialBay_MasonryWithThroughOpening",
+      "bounds": {
+        "min": [
+          0.0,
+          -0.25,
+          0.0
+        ],
+        "max": [
+          3.9000000953674316,
+          0.0,
+          3.0
+        ]
+      },
+      "materials": [
+        "Yaba_plaster"
+      ]
+    },
+    {
+      "name": "ShopBay_MasonryWithThroughOpening",
+      "bounds": {
+        "min": [
+          0.0,
+          -0.25,
+          0.0
+        ],
+        "max": [
+          3.9000000953674316,
+          0.0,
+          3.0
+        ]
+      },
+      "materials": [
+        "Yaba_plaster"
+      ]
+    }
+  ],
+  "piers": [
+    {
+      "name": "FrontageStructure_ConcretePier",
+      "bounds": {
+        "min": [
+          0.0,
+          -0.2800000011920929,
+          0.0
+        ],
+        "max": [
+          0.25,
+          0.0,
+          6.0
+        ]
+      },
+      "materials": [
+        "Yaba_concrete"
+      ]
+    },
+    {
+      "name": "FrontageStructure_ConcretePier.001",
+      "bounds": {
+        "min": [
+          3.7750000953674316,
+          -0.2800000011920929,
+          0.0
+        ],
+        "max": [
+          4.025000095367432,
+          0.0,
+          6.0
+        ]
+      },
+      "materials": [
+        "Yaba_concrete"
+      ]
+    },
+    {
+      "name": "FrontageStructure_ConcretePier.002",
+      "bounds": {
+        "min": [
+          7.675000190734863,
+          -0.2800000011920929,
+          0.0
+        ],
+        "max": [
+          7.925000190734863,
+          0.0,
+          6.0
+        ]
+      },
+      "materials": [
+        "Yaba_concrete"
+      ]
+    },
+    {
+      "name": "FrontageStructure_ConcretePier.003",
+      "bounds": {
+        "min": [
+          11.449999809265137,
+          -0.2800000011920929,
+          0.0
+        ],
+        "max": [
+          11.699999809265137,
+          0.0,
+          6.0
+        ]
+      },
+      "materials": [
+        "Yaba_concrete"
+      ]
+    }
+  ],
+  "front_faces": {
+    "ResidentialBay_MasonryWithThroughOpening": [
+      [
+        0.6499999761581421,
+        0.0,
+        0.512499988079071
+      ],
+      [
+        0.6499999761581421,
+        0.0,
+        1.7000000476837158
+      ],
+      [
+        0.6499999761581421,
+        0.0,
+        2.6875
+      ],
+      [
+        1.9499999284744263,
+        0.0,
+        0.512499988079071
+      ],
+      [
+        1.9499999284744263,
+        0.0,
+        2.6875
+      ],
+      [
+        3.25,
+        0.0,
+        0.512499988079071
+      ],
+      [
+        3.25,
+        0.0,
+        1.7000000476837158
+      ],
+      [
+        3.25,
+        0.0,
+        2.6875
+      ]
+    ],
+    "ShopBay_MasonryWithThroughOpening": [
+      [
+        0.2750000059604645,
+        0.0,
+        1.25
+      ],
+      [
+        0.2750000059604645,
+        0.0,
+        2.75
+      ],
+      [
+        1.9499999284744263,
+        0.0,
+        2.75
+      ],
+      [
+        3.625,
+        0.0,
+        1.25
+      ],
+      [
+        3.625,
+        0.0,
+        2.75
+      ]
+    ],
+    "FrontageStructure_ConcretePier": [
+      [
+        0.125,
+        0.0,
+        3.0
+      ]
+    ],
+    "FrontageStructure_ConcretePier.001": [
+      [
+        3.9000000953674316,
+        0.0,
+        3.0
+      ]
+    ],
+    "FrontageStructure_ConcretePier.002": [
+      [
+        7.800000190734863,
+        0.0,
+        3.0
+      ]
+    ],
+    "FrontageStructure_ConcretePier.003": [
+      [
+        11.574999809265137,
+        0.0,
+        3.0
+      ]
+    ]
+  },
+  "native_status": "No native diagnosis inferred",
+  "contact_interpretation": "Panel front and pier front are both Y=0. Piers overlap bay wall volume at X boundaries, not separated by an open longitudinal gap. Coincident facade surfaces and contrasting concrete/plaster are candidates for dark strips; lighting is not the repair."
+}

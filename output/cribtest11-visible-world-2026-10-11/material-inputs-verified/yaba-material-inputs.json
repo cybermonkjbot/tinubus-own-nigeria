@@ -1,0 +1,89 @@
+{
+  "schemaVersion": 1,
+  "materials": {
+    "plaster": {
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/painted_plaster_wall",
+      "coverage_m": [
+        2,
+        2
+      ],
+      "maps": {
+        "base_color": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/painted_plaster_wall/painted_plaster_wall_diff_2k.jpg",
+          "sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be"
+        },
+        "roughness": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/painted_plaster_wall/painted_plaster_wall_rough_2k.png",
+          "sha256": "e355a47f007bcf8b50c9e2f9edfc9f45d85501eefc63a822fd82c2dbc7ab34ea"
+        },
+        "normal_gl": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/painted_plaster_wall/painted_plaster_wall_nor_gl_2k.png",
+          "sha256": "322041257ab0dad1a1a1c18d98bc28689136103f6a64d4849f7aa3ae5b8b090f"
+        }
+      }
+    },
+    "concrete": {
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/concrete_wall_008",
+      "coverage_m": [
+        2.7100000381469727,
+        2.7100000381469727
+      ],
+      "maps": {
+        "base_color": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/concrete_wall_008/concrete_wall_008_diff_2k.jpg",
+          "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846"
+        },
+        "roughness": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/concrete_wall_008/concrete_wall_008_rough_2k.png",
+          "sha256": "af2c3055aea34c0b1366b04ccdc90a83ed22e997de446a2d1e02817c800eb026"
+        },
+        "normal_gl": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/concrete_wall_008/concrete_wall_008_nor_gl_2k.png",
+          "sha256": "3d26d24586556ee400506888ad6496733a67bcc9020616c10119c1c343c5be24"
+        }
+      }
+    },
+    "asphalt": {
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/worn_asphalt",
+      "coverage_m": [
+        2,
+        2
+      ],
+      "maps": {
+        "base_color": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/worn_asphalt/worn_asphalt_diff_2k.jpg",
+          "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de"
+        },
+        "roughness": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/worn_asphalt/worn_asphalt_rough_2k.png",
+          "sha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3"
+        },
+        "normal_gl": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/worn_asphalt/worn_asphalt_nor_gl_2k.png",
+          "sha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647"
+        }
+      }
+    },
+    "corrugated_metal": {
+      "license": "CC0-1.0",
+      "source": "https://polyhaven.com/a/corrugated_iron_02",
+      "coverage_m": [
+        2.700000047683716,
+        2.700000047683716
+      ],
+      "maps": {
+        "base_color": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/corrugated_iron_02/corrugated_iron_02_diff_2k.jpg",
+          "sha256": "1bd2b9900e066d7e6cbacc5093aa4204db71c1bbe13b42a3d8ad23d04fa8075a"
+        },
+        "roughness": {
+          "file": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/corrugated_iron_02/corrugated_iron_02_rough_2k.png",
+          "sha256": "7bf7e03196e601b4173822505e7cb01b401b4e50bb98bc0ecc556de7d4b231c3"
+        }
+      }
+    }
+  }
+}

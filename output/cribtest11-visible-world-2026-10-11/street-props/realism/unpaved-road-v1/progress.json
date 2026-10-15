@@ -1,0 +1,36 @@
+{
+  "job": "lagos-unpaved-road-v1",
+  "pid": 1792,
+  "step": "road_kit_saved_exported_reopened_actual_frames_inspected",
+  "process_state": "PID1792 exited; original four FBXs/weights preserved; preview-r2 PID14216 also exited",
+  "handoff": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/unpaved-road-v1/road-handoff.json",
+  "visual_acceptance": "Not accepted: smooth soil fallbacks, distant preview seams and incomplete context; licensed soil scans absent",
+  "updated_at": "2026-10-11T10:38:11.555669+00:00",
+  "output": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1",
+  "blend": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\LagosUnpavedRoadKit.blend",
+  "sha256": "260f78d3cd441716ff08e8a85fb43eac2186f4f0054823f9aa7b8febec8800c3",
+  "frames": [
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\frames\\01-Dry-Earth-Ground.png",
+      "sha256": "2ca969b6da083a175bf2593da4d16c9d8b4ee0967ac2eaf1902f078c340ef321",
+      "seconds": 19.62779359999695
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\frames\\02-Sandy-Lane-Ground.png",
+      "sha256": "77c396a8281f7ab1959f0cb0eacbf368307ba36aaca205e79102a95a1ac36200",
+      "seconds": 20.054856800008565
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\frames\\03-Damp-Ruts-Ground.png",
+      "sha256": "bb15640c98a6cb8e565114eb64538750b3fa24857ac64b2c4557689164976ed6",
+      "seconds": 19.8185572999937
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\frames\\04-Asphalt-Earth-Join.png",
+      "sha256": "b66b3fbe59b0a553370d3a15931ab93c6cd9974371ae2fcfca2932d263ff6080",
+      "seconds": 21.634959300004994
+    }
+  ],
+  "manifest": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\road-manifest.json",
+  "errors": []
+}

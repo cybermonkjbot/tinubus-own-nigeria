@@ -1,0 +1,617 @@
+{
+  "assets": [
+    {
+      "collision": "none; optional independent trunk collider after clearance review",
+      "id": "SM_TD_tiered_broadleaf",
+      "kind": "tree",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              -394.38790293350735,
+              -451.8776257383604,
+              -1.2389918822162667
+            ],
+            [
+              435.35877160125307,
+              404.4120243314573,
+              720.2902862793734
+            ]
+          ],
+          "file": "SM_TD_tiered_broadleaf_LOD0.obj",
+          "sha256": "981e2ca753438dede0be20ff9b995335cc125c4cf56e4a122e3c4f4a1bfb22f2",
+          "triangles": 57708
+        },
+        {
+          "boundsCm": [
+            [
+              -393.46460755308254,
+              -450.5037194633618,
+              -1.6678962849482106
+            ],
+            [
+              433.87310908346967,
+              402.9513222387141,
+              720.2743568384134
+            ]
+          ],
+          "file": "SM_TD_tiered_broadleaf_LOD1.obj",
+          "sha256": "338410d36a80048dd87240a172d37131161f38a8eeb600d8c0727e9677cc83bf",
+          "triangles": 30598
+        },
+        {
+          "boundsCm": [
+            [
+              -393.10132717736394,
+              -449.67078131462057,
+              -1.6678962849482106
+            ],
+            [
+              432.91532127116886,
+              402.02180605709117,
+              720.2902862793734
+            ]
+          ],
+          "file": "SM_TD_tiered_broadleaf_LOD2.obj",
+          "sha256": "128460c6e28b923fcc0598fb5089d4d1f814f05cd7822a170af8940f38fa6746",
+          "triangles": 16022
+        }
+      ],
+      "seed": 4101,
+      "silhouette": "tiered-broadleaf",
+      "speciesVerified": false
+    },
+    {
+      "collision": "none; optional independent trunk collider after clearance review",
+      "id": "SM_TD_rounded_dense_broadleaf",
+      "kind": "tree",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              -312.1414548635397,
+              -377.46531830901705,
+              -1.372161599437216
+            ],
+            [
+              346.72839587921567,
+              337.3916303152852,
+              677.0282768030753
+            ]
+          ],
+          "file": "SM_TD_rounded_dense_broadleaf_LOD0.obj",
+          "sha256": "3e2c24d58ff0832ff4c15fc0c694419dbaeb12264b07f9527bf04ca63f4779ea",
+          "triangles": 65916
+        },
+        {
+          "boundsCm": [
+            [
+              -310.4485471520419,
+              -375.73291564344277,
+              -1.6678962849482106
+            ],
+            [
+              344.94639822609633,
+              335.6373313767323,
+              677.0282768030753
+            ]
+          ],
+          "file": "SM_TD_rounded_dense_broadleaf_LOD1.obj",
+          "sha256": "192ee53387f2eef4157542adf4606e84deadc149bc89bf6cddc6fb538ae23f05",
+          "triangles": 34942
+        },
+        {
+          "boundsCm": [
+            [
+              -309.24016946659646,
+              -374.4805807524799,
+              -1.6678962849482106
+            ],
+            [
+              343.63758094541436,
+              334.36025185680734,
+              677.0282768030753
+            ]
+          ],
+          "file": "SM_TD_rounded_dense_broadleaf_LOD2.obj",
+          "sha256": "6ec3c1a3587f37b70aca09109e33a5296f80a549d999806930462290f9ac8fe2",
+          "triangles": 18286
+        }
+      ],
+      "seed": 4102,
+      "silhouette": "rounded-dense-broadleaf",
+      "speciesVerified": false
+    },
+    {
+      "collision": "none; optional independent trunk collider after clearance review",
+      "id": "SM_TD_wide_fine_leaf",
+      "kind": "tree",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              -504.5830207296874,
+              -481.6600994437318,
+              -1.1738823015697366
+            ],
+            [
+              523.297930131225,
+              491.0265888230921,
+              760.2750804585588
+            ]
+          ],
+          "file": "SM_TD_wide_fine_leaf_LOD0.obj",
+          "sha256": "1732a3d9c5445969b5908350723bf80caa401ada609f9803aa03b1ba910df12a",
+          "triangles": 55656
+        },
+        {
+          "boundsCm": [
+            [
+              -502.66395235019934,
+              -480.4503859157437,
+              -1.6678962849482106
+            ],
+            [
+              523.297930131225,
+              489.7152498234051,
+              760.2599778914771
+            ]
+          ],
+          "file": "SM_TD_wide_fine_leaf_LOD1.obj",
+          "sha256": "eef40f5012f87280a6b76af47032f049328b834d178f069a79b23877d6516957",
+          "triangles": 29512
+        },
+        {
+          "boundsCm": [
+            [
+              -502.33827124562293,
+              -480.4503859157437,
+              -1.6678962849482106
+            ],
+            [
+              523.297930131225,
+              489.7152498234051,
+              760.2750804585588
+            ]
+          ],
+          "file": "SM_TD_wide_fine_leaf_LOD2.obj",
+          "sha256": "8fa720be26919a9255cc382f36561592fbe173a3ef1e2e7c1d1d25d965428dce",
+          "triangles": 15456
+        }
+      ],
+      "seed": 4103,
+      "silhouette": "wide-fine-leaf",
+      "speciesVerified": false
+    },
+    {
+      "collision": "none; optional independent trunk collider after clearance review",
+      "id": "SM_TD_upright_small_broadleaf",
+      "kind": "tree",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              -243.5889747456134,
+              -227.2093279284728,
+              -2.024605375293945
+            ],
+            [
+              252.7949113586354,
+              247.4250876937703,
+              491.9502768030754
+            ]
+          ],
+          "file": "SM_TD_upright_small_broadleaf_LOD0.obj",
+          "sha256": "fd44b518e578769699b876c4100c8ee4ba18b48f5638f4402c11d78b28f5e094",
+          "triangles": 49500
+        },
+        {
+          "boundsCm": [
+            [
+              -241.7095962853516,
+              -225.79557925356957,
+              -1.9246482468504569
+            ],
+            [
+              250.90674541346505,
+              244.6416521161739,
+              491.9502768030754
+            ]
+          ],
+          "file": "SM_TD_upright_small_broadleaf_LOD1.obj",
+          "sha256": "85bdcd64c75915954acaf5bc100ce575519182dbd70995afbf65743dbc1614da",
+          "triangles": 26254
+        },
+        {
+          "boundsCm": [
+            [
+              -240.28347214304753,
+              -224.84859959450546,
+              -2.024605375293945
+            ],
+            [
+              249.47064525987565,
+              243.82929531405392,
+              491.9502768030754
+            ]
+          ],
+          "file": "SM_TD_upright_small_broadleaf_LOD2.obj",
+          "sha256": "087467687e41d9db6553d377b894d7d0c34faf42d8d0b147cba13ac6c0bbd250",
+          "triangles": 13758
+        }
+      ],
+      "seed": 4104,
+      "silhouette": "upright-small-broadleaf",
+      "speciesVerified": false
+    },
+    {
+      "collision": "none; optional independent trunk collider after clearance review",
+      "id": "SM_TD_leaning_feather_palm",
+      "kind": "tree",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              -185.72010878628612,
+              -316.25204012558385,
+              -0.6320281257742675
+            ],
+            [
+              394.4807501696411,
+              283.5896769055829,
+              940.0940979352446
+            ]
+          ],
+          "file": "SM_TD_leaning_feather_palm_LOD0.obj",
+          "sha256": "c41b8552c1edd6939b550b135a4ae9161beee352cb6914972fcc76774ab65cd4",
+          "triangles": 5108
+        },
+        {
+          "boundsCm": [
+            [
+              -185.7819071535777,
+              -316.25204012558385,
+              -0.6161944868967317
+            ],
+            [
+              394.54200360956526,
+              283.5896769055829,
+              940.361506174905
+            ]
+          ],
+          "file": "SM_TD_leaning_feather_palm_LOD1.obj",
+          "sha256": "d4549bf8541310cbaadbcf6e5c27f4778a25fbf85e2b0ab587618c88a9861c6c",
+          "triangles": 3336
+        },
+        {
+          "boundsCm": [
+            [
+              -185.7819071535777,
+              -316.25204012558385,
+              -0.5583682120467208
+            ],
+            [
+              394.54200360956526,
+              283.5896769055829,
+              940.361506174905
+            ]
+          ],
+          "file": "SM_TD_leaning_feather_palm_LOD2.obj",
+          "sha256": "04d1772f3f1cbe3cec22695e48a8dec2c79955fe94c4781d5640456bedad75be",
+          "triangles": 2484
+        }
+      ],
+      "seed": 4105,
+      "silhouette": "leaning-feather-palm",
+      "speciesVerified": false
+    },
+    {
+      "collision": "none; optional independent trunk collider after clearance review",
+      "id": "SM_TD_upright_feather_palm",
+      "kind": "tree",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              -184.02626367187906,
+              -204.5309045720693,
+              -0.11313719992489643
+            ],
+            [
+              236.3845453581733,
+              211.15064788252232,
+              690.0911475106244
+            ]
+          ],
+          "file": "SM_TD_upright_feather_palm_LOD0.obj",
+          "sha256": "0db0899a8a0ee8191151d3f02e697a326d1a3c3f3594f3fb1418836e8106be7d",
+          "triangles": 4532
+        },
+        {
+          "boundsCm": [
+            [
+              -184.01785241622417,
+              -204.5309045720693,
+              -0.11030730342430364
+            ],
+            [
+              236.44805215422332,
+              211.15064788252232,
+              690.3580993180076
+            ]
+          ],
+          "file": "SM_TD_upright_feather_palm_LOD1.obj",
+          "sha256": "2b65d11e701ef23fbd8bbfdd5d03043ce84bce3324cf1751fc5ef312d508d13d",
+          "triangles": 2960
+        },
+        {
+          "boundsCm": [
+            [
+              -183.10814858183744,
+              -204.5309045720693,
+              -0.09996014648678253
+            ],
+            [
+              236.44805215422332,
+              211.15064788252232,
+              690.3580993180076
+            ]
+          ],
+          "file": "SM_TD_upright_feather_palm_LOD2.obj",
+          "sha256": "eaec69e86fcec9d8d2bcda5c9d34e9fd8fb2de7acdd2d2f14c8aae00586bc3b4",
+          "triangles": 2204
+        }
+      ],
+      "seed": 4106,
+      "silhouette": "upright-feather-palm",
+      "speciesVerified": false
+    },
+    {
+      "collision": "static triangles only; convex hull would seal the void",
+      "id": "SM_TD_open_channel",
+      "kind": "drain-or-sidewalk",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              0,
+              -45.0,
+              -77
+            ],
+            [
+              200,
+              45.0,
+              0
+            ]
+          ],
+          "file": "SM_TD_open_channel_LOD0.obj",
+          "sha256": "32a2a6fd325faa8e92e4226a73c4326ee14160b4745e4a51e25706c59049cc9b",
+          "triangles": 36
+        }
+      ],
+      "module": "open-channel"
+    },
+    {
+      "collision": "static triangles only; convex hull would seal the void",
+      "id": "SM_TD_sediment_channel",
+      "kind": "drain-or-sidewalk",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              0,
+              -45.0,
+              -77
+            ],
+            [
+              200,
+              45.0,
+              0
+            ]
+          ],
+          "file": "SM_TD_sediment_channel_LOD0.obj",
+          "sha256": "64954e787cde665fb105f17e645851fdcb6ba4943300553ac452e414630716e4",
+          "triangles": 48
+        }
+      ],
+      "module": "sediment-channel"
+    },
+    {
+      "collision": "static triangles only; convex hull would seal the void",
+      "id": "SM_TD_access_bridge",
+      "kind": "drain-or-sidewalk",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              0,
+              -45.0,
+              -77
+            ],
+            [
+              200,
+              45.0,
+              15
+            ]
+          ],
+          "file": "SM_TD_access_bridge_LOD0.obj",
+          "sha256": "e7158fe70e6884c6abbc5a00fa34271894fcc848b2b00189c86ba1394206ade1",
+          "triangles": 48
+        }
+      ],
+      "module": "access-bridge"
+    },
+    {
+      "collision": "static triangles only; convex hull would seal the void",
+      "id": "SM_TD_part_covered_channel",
+      "kind": "drain-or-sidewalk",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              0,
+              -45.0,
+              -77
+            ],
+            [
+              200,
+              45.0,
+              15
+            ]
+          ],
+          "file": "SM_TD_part_covered_channel_LOD0.obj",
+          "sha256": "26047fe5b8229098ed2ec326bfaab7ae613de28af3fe67b1d2dc746f52f75fff",
+          "triangles": 48
+        }
+      ],
+      "module": "part-covered-channel"
+    },
+    {
+      "collision": "static triangles only; convex hull would seal the void",
+      "id": "SM_TD_raised_sidewalk",
+      "kind": "drain-or-sidewalk",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              0,
+              0,
+              -20
+            ],
+            [
+              200,
+              200,
+              5
+            ]
+          ],
+          "file": "SM_TD_raised_sidewalk_LOD0.obj",
+          "sha256": "90ac21ae45c8538eff998997137b102c22891d54cd35491ae8554cedc9966777",
+          "triangles": 204
+        }
+      ],
+      "module": "raised-sidewalk"
+    },
+    {
+      "collision": "static triangles only; convex hull would seal the void",
+      "id": "SM_TD_removable_cover",
+      "kind": "drain-or-sidewalk",
+      "lods": [
+        {
+          "boundsCm": [
+            [
+              0,
+              -45,
+              0
+            ],
+            [
+              100,
+              45,
+              17.84920777560845
+            ]
+          ],
+          "file": "SM_TD_removable_cover_LOD0.obj",
+          "sha256": "33b5e4f60aa4986dc6d7418b5af3aba72671f2d536f7218e9550ee9872e00dd9",
+          "triangles": 100
+        }
+      ],
+      "module": "removable-cover"
+    }
+  ],
+  "authorship": "Original procedural geometry; no third-party model or texture copied",
+  "distribution": {
+    "canopyClearance": "check actual variant bounds against walls, overhead wires and road",
+    "drains": "roadside service strip outside the 2m clear walkway",
+    "entrances": "use bearing bridge modules; never require jumping an open drain",
+    "existingGround": "replace a scoped surface strip only after ownership/clearance review",
+    "largeTrees": "yards/setbacks with room for crown; never narrow pavement by default",
+    "seed": 10142026,
+    "treeSelection": "explicit silhouette set per street; not scale-only variation",
+    "trunkExclusionCm": 150
+  },
+  "drainContract": {
+    "bedBelowRimCm": 65,
+    "clearChannelWidthCm": 66,
+    "dimensionsAreDesignNotSurvey": true,
+    "moduleLengthCm": 200,
+    "outerWidthCm": 90,
+    "outfallAndWaterSimulationVerified": false,
+    "requiresSupportCutout": true,
+    "sidewalkClearWidthCm": 200,
+    "surfacePlaneMustNotFillChannel": true,
+    "walkTopAboveRimCm": 15
+  },
+  "geometrySha256": "6376944f38f4dbca47ee95f9fba13d167c49a1657c5b3d55c691154490dc249c",
+  "geometrySourceSha256": "ca9e2b5d2a1a7947e0ce04f7e471fc833c84dec8b9cdb7981b2c40de1bd3c4ce",
+  "materials": {
+    "bark": {
+      "color": [
+        0.16,
+        0.105,
+        0.065
+      ],
+      "metallic": 0,
+      "roughness": 0.9
+    },
+    "concrete": {
+      "color": [
+        0.43,
+        0.4,
+        0.34
+      ],
+      "metallic": 0,
+      "roughness": 0.9
+    },
+    "iron": {
+      "color": [
+        0.11,
+        0.12,
+        0.11
+      ],
+      "metallic": 0.65,
+      "roughness": 0.58
+    },
+    "leaf": {
+      "color": [
+        0.075,
+        0.2,
+        0.055
+      ],
+      "metallic": 0,
+      "roughness": 0.78,
+      "twoSided": true
+    },
+    "leaf_light": {
+      "color": [
+        0.15,
+        0.28,
+        0.065
+      ],
+      "metallic": 0,
+      "roughness": 0.82,
+      "twoSided": true
+    },
+    "repair": {
+      "color": [
+        0.54,
+        0.52,
+        0.46
+      ],
+      "metallic": 0,
+      "roughness": 0.85
+    },
+    "sediment": {
+      "color": [
+        0.105,
+        0.09,
+        0.065
+      ],
+      "metallic": 0,
+      "roughness": 0.97
+    }
+  },
+  "nativeImported": false,
+  "placedInStreet": false,
+  "schemaVersion": 1,
+  "units": "native centimetres; X along module, Y across, Z up",
+  "visualAcceptance": "pending"
+}

@@ -1,0 +1,534 @@
+{
+  "schemaVersion": 1,
+  "documentKind": "additive-geographic-authoring-reference",
+  "preparedOn": "2026-10-11",
+  "idNamespace": "geo20261011",
+  "proposedNativeNamespace": "/Game/BaddieGeneratedWorld/GeographyExpansion20261011",
+  "status": "reference-prepared-no-native-generation",
+  "model": "gpt-6.1-sol",
+  "reasoningEffort": "high",
+  "canonicalPreservation": {
+    "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+    "worldId": "lagos-v1",
+    "cityVersion": "lagos-city-v3",
+    "existingDistrictIds": ["town-centre", "palm-courts", "garden-quarter", "south-market", "marina", "skyline", "lagoon-gardens"],
+    "baseSourceBoundsXZMetres": [-1900, -1800, 1900, 2100],
+    "nationalTheatreSourceCentreMetres": [-2200, 0, 1350],
+    "nationalTheatreUECentreCentimetres": [135000, -220000, 0],
+    "preserveAllExistingIdsAndPlacements": true,
+    "reinterpretExistingCoordinatesAsSurveyedGeography": false,
+    "registeredZoneMappings": [],
+    "registeredJobMappings": [],
+    "connectorsToExistingCity": [],
+    "note": "The existing city is fictional metric content. New geography is an independent authoring layer, not a correction that moves the theatre or relabels an existing district. No additive ID in this file is a canonical registered job, zone, building or destination."
+  },
+  "coordinateContract": {
+    "geographicCRS": "EPSG:4326",
+    "geographicPointOrder": ["longitude", "latitude"],
+    "geographicBoundsOrder": ["west", "south", "east", "north"],
+    "sourcePointOrder": ["x", "y", "z"],
+    "sourceBoundsOrder": ["minX", "minZ", "maxX", "maxZ"],
+    "sourceUnit": "metre",
+    "sourceAxes": {"x": "east", "y": "up", "z": "south"},
+    "geographicOriginLonLat": [3.4074, 6.4506],
+    "projectionMethod": "local-equirectangular-approximation-not-survey-grade",
+    "metresPerLatitudeDegree": 111320,
+    "metresPerLongitudeDegree": 110615.24302584323,
+    "sourceTranslationMetres": [30000, 0, 0],
+    "projectionFormula": {
+      "x": "30000 + 110615.24302584323 * (longitude - 3.4074)",
+      "y": "authoredHeightMetres",
+      "z": "111320 * (6.4506 - latitude)"
+    },
+    "ueUnit": "centimetre",
+    "ueAxes": {"X": "south", "Y": "east", "Z": "up"},
+    "uePointFormula": "UE(X,Y,Z)=100*source(Z,X,Y)",
+    "sourceToUEMatrix": [[0, 0, 100], [100, 0, 0], [0, 100, 0]],
+    "ueTranslationCentimetres": [0, 3000000, 0],
+    "heightDatum": null,
+    "zeroHeightMeaning": "reference-plane-only-not-mean-sea-level-or-bridge-deck",
+    "cachedMetricRoundingMetres": 1,
+    "cachedCoordinatesAreAuthoringEstimates": true,
+    "applyUEConversionExactlyOnce": true,
+    "applySourceTranslationToExistingCanonicalAssets": false,
+    "nativeImportedMeshCoordinates": "source-y-up-metres",
+    "sameOriginDoesNotMakeCanonicalCityGIS": true,
+    "translationPurpose": "Proposed 30 km east offset separates new reference envelopes from known canonical content. It is a fictional composition offset, not Lagos geography. No combined map or runtime link exists.",
+    "extendedLekkiEnvelopeProjectionUse": "regional-reference-only; use a surveyed CRS with a verified datum before detailed eastern-peninsula authoring",
+    "planningMapDatumRule": "The LCMP sheet identifies UTM Minna Zone 31 North. Its grid numbers are not WGS84 longitude/latitude and have not been transformed."
+  },
+  "evidenceContract": {
+    "accessedOn": "2026-10-11",
+    "boundsMeaning": "overlapping-coarse-authoring-envelopes-not-administrative-boundaries-or-land-masks",
+    "boundsCoordinateStatus": "author-estimate-not-GIS-extraction",
+    "boundsAccuracyMetres": null,
+    "coordinateDecimalPlacesAreNotAccuracy": true,
+    "topologyStatusValues": ["primary-text", "primary-indexed-excerpt", "map-supported-author-inference", "author-estimate", "fictional-authoring-option"],
+    "currentCoastlineVerified": false,
+    "officialParcelOrShorelineVectorsAcquired": false,
+    "DEMOrBathymetryAcquired": false,
+    "estimatePermission": "Use numeric envelopes and reference-plane polylines for chunk selection and reference alignment. Do not polygon-fill them into final land or flatten a district to y=0.",
+    "planningMapRule": "Published land-use plans support identity and planning context. Proposed roads, rail, reclamation and optional islands do not establish current built infrastructure."
+  },
+  "localPins": [
+    {"path": "packages/assets/city/lagos-city-v3.json", "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b"},
+    {"path": "packages/assets/city/lagos-national-theatre-v1.json", "sha256": "069767150a658eee73924b1429662389d526e83ef3726a45b19917343c310f2d", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b"},
+    {"path": "packages/assets/city/lagos-connected-transit-v1.json", "sha256": "21be37b211cd5c5e02044a62c9c498704567da712c3df3f0023e621e88c031df", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b"},
+    {"path": "packages/assets/city/lagos-architecture-delivery-v1.json", "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b"},
+    {"path": "apps/companion-unreal/Scripts/WorldGeneration/geometry.py", "sha256": "b825f0622252c9282ff7f6b1555d6d93df42cc329dde4949a844e3e6b3c629a6", "observedOn": "2026-10-11", "basisFunction": "ue_point"},
+    {"path": "apps/companion-unreal/Scripts/WorldGeneration/canonical.py", "sha256": "543b562d3da7dc2dbd2ee8ec252f6eb58a177eaa82c84827abb356d02a285e1f", "observedOn": "2026-10-11", "basisFunction": "geo_point"}
+  ],
+  "sources": [
+    {
+      "id": "lasbca-resources",
+      "publisher": "Lagos State Building Control Agency",
+      "url": "https://lasbca.lagosstate.gov.ng/resources/",
+      "date": null,
+      "inspection": "page-text",
+      "supports": ["Official distribution of revised Ikeja, Ikoyi-Victoria Island, Mainland Central and Lekki Scheme 1 plans"],
+      "limits": "The resource directory does not certify that all proposed plan features were built."
+    },
+    {
+      "id": "ikeja-plan",
+      "publisher": "Lagos State Ministry of Physical Planning and Urban Development",
+      "url": "https://lasbca.lagosstate.gov.ng/wp-content/uploads/2021/07/IKEJA-LAND-USE.dwg_.pdf",
+      "date": "2016-2036 planning period",
+      "inspection": "pdf-text",
+      "supports": ["Ikeja, Alausa, Oregun, Allen, Opebi, GRA, airport and named inland transport corridors"],
+      "limits": "Proposed land-use plan. No official district boundary vectors extracted."
+    },
+    {
+      "id": "ikoyi-vi-plan",
+      "publisher": "Lagos State Ministry of Physical Planning and Urban Development",
+      "url": "https://lasbca.lagosstate.gov.ng/wp-content/uploads/2021/07/Ikoyi-Victoria-Island-MCP.pdf",
+      "date": "2015-02-24 approval labels; 2013-2033 planning period",
+      "inspection": "pdf-text",
+      "supports": ["Lagos Island, Ikoyi, Victoria Island, Oniru and Lekki Scheme regional planning context", "Named roads and water-body legend"],
+      "limits": "1:50,000 historic planning sheet, not current shoreline GIS. Screenshot requested but no georeferenced tracing performed. Eko Atlantic is labelled proposed on this sheet."
+    },
+    {
+      "id": "lekki-scheme-plan",
+      "publisher": "Lagos State Building Control Agency",
+      "url": "https://lasbca.lagosstate.gov.ng/wp-content/uploads/2021/07/REVISED-LEKKI-PENINSULA-SCHEME-1-LANDUSE-MAP-CAD-2-Model.pdf",
+      "date": null,
+      "inspection": "pdf-text-limited; official-directory-title",
+      "supports": ["Official Lekki Peninsula Scheme 1 naming"],
+      "limits": "Scheme 1 is not the entire peninsula. Parsed CAD labels did not establish a date or current coastline."
+    },
+    {
+      "id": "lekki-overall-plan",
+      "publisher": "Dar Al-Handasah / Lagos State planning resource",
+      "url": "https://lasbca.lagosstate.gov.ng/wp-content/uploads/2021/07/LCMP-UTM_Minna_31N-Geo-2-Overall-Landuse-A0-Sc-25.000-2.pdf",
+      "date": "2013-02-18",
+      "inspection": "pdf-text",
+      "supports": ["Peninsula-wide Lagos Lagoon and Atlantic Ocean context", "UTM Minna Zone 31 North datum declaration"],
+      "limits": "Historic plan includes proposed bridges and optional reclaimed islands. None are accepted here as currently existing islands or crossings."
+    },
+    {
+      "id": "works-tmb-scorecard",
+      "publisher": "Federal Ministry of Works",
+      "url": "https://www.fmw.gov.ng/themes/front_end_themes_01/images/download/25030975757.pdf",
+      "date": "2024-05-11 scorecard period end",
+      "inspection": "official-indexed-excerpt-only",
+      "supports": ["Oworonshoki mainland endpoint", "Adeniji-Adele interchange Lagos Island endpoint", "Midway ramps to Ebute-Metta / Herbert Macaulay Way, Yaba", "11.8 km reference length"],
+      "limits": "Full PDF exceeded web fetch size limit, 34084802 bytes. No engineering alignment or deck section inspected. Repair percentages in the excerpt are historical, not current status."
+    },
+    {
+      "id": "works-tmb-speech",
+      "publisher": "Federal Ministry of Information and National Orientation / Works Minister",
+      "url": "https://fmino.gov.ng/full-speech-by-the-hm-of-works-and-housing-mr-babatunde-fashola-san-at-the-press-briefing-on-the-partial-closure-for-repairs-and-restoration-of-the-third-mainland-bridge/",
+      "date": "2020-07-22 publication; 2020-07-21 speech",
+      "inspection": "page-text",
+      "supports": ["11.8 km bridge reference length", "Axial corridor connections including Adeniji-Adele and Adekunle-Yaba"],
+      "limits": "Historical repair briefing. Does not establish October 2026 traffic status, exact centreline or structural dimensions."
+    },
+    {
+      "id": "nle-makoko",
+      "publisher": "NLE, project architect with Makoko/Iwaya community collaborators",
+      "url": "https://nleworks.com/case/makoko-floating-school/",
+      "date": "2011 project label; 2013 completion preview; current page includes collapse FAQ",
+      "inspection": "page-text",
+      "supports": ["Makoko water community in Lagos lagoon", "Water-based architectural and community reference provenance"],
+      "limits": "The original floating school collapsed. Do not place it as a currently standing landmark. No contemporary house census, shoreline extent or boat-route survey obtained. Photo rights remain with credited creators."
+    },
+    {
+      "id": "unilag-yaba",
+      "publisher": "University of Lagos Staff School",
+      "url": "https://staffschool.unilag.edu.ng/contact-us/",
+      "date": null,
+      "inspection": "page-text",
+      "supports": ["University of Lagos, Akoka Road, Yaba address"],
+      "limits": "Address anchor only, not Yaba boundary or street measurements."
+    },
+    {
+      "id": "lasepa-five-cowries",
+      "publisher": "Lagos State Environmental Protection Agency",
+      "url": "https://lasepa.gov.ng/blog/officials-of-lasepa-embarked-on-the-monitoring-of-the-33-surface-water-bodies-in-lagos-state-for-the-year-2024-beginning-with-the-five-cowries-creek-ikoyi-which-spans-from-falomo-bridge-to-lekki-ik/",
+      "date": "2024 monitoring activity; exact publication date not shown",
+      "inspection": "page-text",
+      "supports": ["Five Cowries Creek at Ikoyi", "Falomo Bridge to Lekki-Ikoyi Link Bridge monitoring corridor"],
+      "limits": "Not bathymetry, bridge dimensions or a current shoreline dataset."
+    },
+    {
+      "id": "lagos-coastal-study",
+      "publisher": "Fakoya et al., Lagos State University and NIOMR; Revista de Biologia Tropical",
+      "url": "https://www.scielo.sa.cr/pdf/rbt/v63n1/a16v63n1.pdf",
+      "date": "2015-03; field samples 2008-2010",
+      "inspection": "pdf-text; study-sites section and figure caption",
+      "supports": ["Five Cowrie Creek joins Lagos Harbour at one end and lagoon near eastern Ikoyi at the other", "Harbour connection to Atlantic coastal waters"],
+      "limits": "Older primary field research. Regional water connectivity only, not current tide, shoreline, vegetation, depths or landmask tracing."
+    },
+    {
+      "id": "lekki-coastal-study",
+      "publisher": "Obiefuna et al., Scientific African 12 e00787; university repository copy",
+      "url": "https://eprints.gouni.edu.ng/5446/1/3.Flood%20risks%20to%20urban%20development%202021c.pdf",
+      "doi": "10.1016/j.sciaf.2021.e00787",
+      "date": "2021-05; land-change study 1984-2014",
+      "inspection": "pdf-text",
+      "supports": ["Lekki Peninsula coastal barrier setting and low-lying terrain", "Victoria Island and peninsula coastal development context"],
+      "limits": "The geomorphology paper uses barrier-island terminology. This manifest calls the connected modern authoring region Lekki Peninsula, not a detached real island. Regional height statistics are not a DEM."
+    },
+    {
+      "id": "unilag-island-morphology",
+      "publisher": "Lagos Journal of Environmental Studies, University of Lagos",
+      "url": "https://ljes.unilag.edu.ng/article/download/1441/1102",
+      "date": "2022, volume 11 number 1; figure cites 2017 map",
+      "inspection": "primary-indexed-excerpt-only; full fetch failed",
+      "supports": ["Former canal separation built over or filled, Ikoyi fused with Lagos Island again"],
+      "limits": "No full paper fetch, current canal survey or usable licensed GIS acquired. Retain distinct district identities without inventing a wide continuous separating sea channel."
+    },
+    {
+      "id": "npa-pilotage",
+      "publisher": "Nigerian Ports Authority",
+      "url": "https://nigerianports.gov.ng/wp-content/uploads/2019/10/LAGOS-PILOTAGE-DISTRICT-converted.pdf",
+      "date": "2019-10 URL directory; document publication date not verified",
+      "inspection": "pdf-text",
+      "supports": ["Lagos harbour access and Apapa / Badagry channel branches", "Tarkwa Bay entrance, Atlas Cove and Tin Can water-route context"],
+      "limits": "Historic pilotage procedure, not current navigational advice. OCR coordinates are inconsistent and have not been imported. No channel widths or depths copied as design defaults."
+    },
+    {
+      "id": "nigerdock-snake",
+      "publisher": "Nigerdock, Snake Island operator",
+      "url": "https://nigerdock.com/faqs/",
+      "date": null,
+      "inspection": "page-text",
+      "supports": ["Snake Island free-zone / shipyard identity", "Tin Can to Snake Island Ro-Ro ferry connection"],
+      "limits": "Operator reference, not cadastral boundary. Do not derive island size from port-facility acreage or invent a road bridge."
+    },
+    {
+      "id": "banana-field-report",
+      "publisher": "Heinrich Boll Stiftung Nigeria and Arctic Infrastructure, Lagos Development Envision Lab",
+      "url": "https://ng.boell.org/sites/default/files/uploads/2018/10/lagdel_2017_achieving_mixed_and_integrative_housing-min.pdf",
+      "date": "2017-12",
+      "inspection": "pdf-text; Banana Island section includes site visit",
+      "supports": ["Banana Island reclaimed peninsula development associated with Ikoyi", "Waterfront residential district reference"],
+      "limits": "Older field report. Current reclamation edge, occupied plots, services and access conditions not verified. Not a basis for adding an isolated natural island."
+    },
+    {
+      "id": "vi-lekki-transport",
+      "publisher": "Lagos Traffic Radio 96.1 FM",
+      "url": "https://trafficradio961.ng/traffic-status-report-from-victoria-island-lekki-axis/",
+      "date": "2026-05-31",
+      "inspection": "article-text",
+      "supports": ["VI / Oniru / Lekki Phase 1 road corridor", "VI-Ikoyi Link Bridge toward Falomo"],
+      "limits": "Corroborating named connections only. Page has unrelated injected-looking gambling navigation, so it is not sole evidence for topology. Temporary closure details are not imported as October operating status."
+    },
+    {
+      "id": "osm-tmb-sample",
+      "publisher": "OpenStreetMap contributors / OSM API",
+      "url": "https://api.openstreetmap.org/api/0.6/map?bbox=3.401,6.501,3.410,6.509",
+      "date": "2026-10-11 retrieval; way edits 2026-09-18",
+      "inspection": "read-only-API-XML-node-and-way-extraction",
+      "responseBytes": 51913,
+      "responseSha256": "f036bfc74f4c5fb2a00fc328b2ee490e63870e288d4e3d5494d5f0385e5dc7a1",
+      "responseSnapshotSaved": false,
+      "wayVersions": [{"id": 93855614, "version": 12}, {"id": 134222253, "version": 15}],
+      "supports": ["Third Mainland motorway bridge way identities", "Five retained node coordinates along one carriageway"],
+      "limits": "API returns complete way references but not every outside-bbox node. Selected coordinates below were actually present. Further full-way and other bbox requests returned 429; larger bbox returned 400; Overpass requests failed. This is not a full centreline or current engineering survey.",
+      "attribution": "OpenStreetMap contributors",
+      "license": "ODbL-1.0",
+      "licenseUrl": "https://www.openstreetmap.org/copyright"
+    }
+  ],
+  "regions": [
+    {
+      "id": "geo20261011:mainland-context", "name": "Lagos mainland context", "role": "context-only", "landform": "mainland",
+      "boundsLonLat": [3.270, 6.470, 3.420, 6.700], "sourceBoundsXZMetres": [14801, -27763, 31394, -2160],
+      "sourceIds": ["ikeja-plan", "unilag-yaba", "nle-makoko", "works-tmb-scorecard"],
+      "topologyStatus": "map-supported-author-inference", "landOutline": null,
+      "children": ["geo20261011:yaba", "geo20261011:makoko", "geo20261011:ikeja", "geo20261011:oworonshoki"],
+      "note": "Land continues between mainland districts through omitted urban areas. The envelope also includes lagoon water and is not a solid land rectangle."
+    },
+    {
+      "id": "geo20261011:yaba", "name": "Yaba / Akoka / Adekunle authoring envelope", "role": "requested-district", "landform": "mainland-district",
+      "boundsLonLat": [3.355, 6.485, 3.402, 6.545], "sourceBoundsXZMetres": [24204, -10509, 29403, -3829],
+      "anchorLonLat": [3.380, 6.515], "anchorSourceMetres": [26969, 0, -7169],
+      "sourceIds": ["unilag-yaba", "works-tmb-scorecard"], "topologyStatus": "primary-text", "landOutline": null,
+      "referenceAnchors": ["Akoka Road / University of Lagos", "Herbert Macaulay Way / Adekunle connection"],
+      "note": "This deliberately broad envelope is not an LGA boundary. Akoka is a source-backed address anchor; the numeric extent is our estimate."
+    },
+    {
+      "id": "geo20261011:makoko", "name": "Makoko / Iwaya land-water edge", "role": "requested-district", "landform": "mainland-waterfront-community",
+      "boundsLonLat": [3.378, 6.487, 3.404, 6.514], "sourceBoundsXZMetres": [26748, -7058, 29624, -4052],
+      "anchorLonLat": [3.392, 6.498], "anchorSourceMetres": [28297, 0, -5277],
+      "sourceIds": ["nle-makoko"], "topologyStatus": "primary-text", "landOutline": null,
+      "referenceAnchors": ["Makoko/Iwaya waterfront", "Lagoon-facing settlement transition"],
+      "note": "Keep land-based streets and water-supported structures distinct. A house on piles does not convert the water below it to land. The envelope does not establish today's settlement extent."
+    },
+    {
+      "id": "geo20261011:ikeja", "name": "Ikeja", "role": "requested-district", "landform": "inland-mainland-district",
+      "boundsLonLat": [3.285, 6.570, 3.390, 6.680], "sourceBoundsXZMetres": [16461, -25537, 28075, -13292],
+      "anchorLonLat": [3.345, 6.620], "anchorSourceMetres": [23098, 0, -18858],
+      "sourceIds": ["ikeja-plan"], "topologyStatus": "map-supported-author-inference", "landOutline": null,
+      "referenceAnchors": ["Allen / Opebi", "Alausa / Oregun", "Ikeja GRA", "Murtala Muhammed Airport / Mobolaji Bank Anthony corridor"],
+      "note": "Keep Ikeja inland. Do not add a lagoon shore or direct coast bridge because the world includes island districts. Airport extent is reference context, not an airport authoring mandate."
+    },
+    {
+      "id": "geo20261011:oworonshoki", "name": "Oworonshoki bridge approach", "role": "required-bridge-endpoint-context", "landform": "mainland-lagoon-edge",
+      "boundsLonLat": [3.386, 6.535, 3.425, 6.575], "sourceBoundsXZMetres": [27633, -13848, 31947, -9395],
+      "anchorLonLat": [3.405, 6.555], "anchorSourceMetres": [29735, 0, -11622],
+      "sourceIds": ["works-tmb-scorecard", "works-tmb-speech"], "topologyStatus": "primary-indexed-excerpt", "landOutline": null,
+      "referenceAnchors": ["Oworonshoki interchange", "Apapa-Oshodi / Lagos-Ibadan expressway connections"],
+      "note": "Endpoint name is sourced. Envelope and endpoint position remain estimates until full alignment data is acquired."
+    },
+    {
+      "id": "geo20261011:lagos-island", "name": "Lagos Island", "role": "requested-island-district", "landform": "island-urban-district",
+      "boundsLonLat": [3.370, 6.437, 3.416, 6.472], "sourceBoundsXZMetres": [25863, -2382, 30951, 1514],
+      "anchorLonLat": [3.394, 6.454], "anchorSourceMetres": [28518, 0, -378],
+      "sourceIds": ["ikoyi-vi-plan", "works-tmb-scorecard", "unilag-island-morphology"], "topologyStatus": "primary-indexed-excerpt", "landOutline": null,
+      "referenceAnchors": ["Adeniji-Adele", "Tafawa Balewa Square / Onikan", "Marina"],
+      "note": "Distinct from Ikoyi as a district, but do not assume a wide unbroken channel between them. Envelope overlaps adjoining districts and water."
+    },
+    {
+      "id": "geo20261011:ikoyi", "name": "Ikoyi", "role": "requested-island-district", "landform": "joined-island-urban-district",
+      "boundsLonLat": [3.413, 6.438, 3.470, 6.480], "sourceBoundsXZMetres": [30619, -3273, 36925, 1403],
+      "anchorLonLat": [3.434, 6.458], "anchorSourceMetres": [32942, 0, -824],
+      "sourceIds": ["ikoyi-vi-plan", "unilag-island-morphology", "lasepa-five-cowries"], "topologyStatus": "primary-indexed-excerpt", "landOutline": null,
+      "referenceAnchors": ["Awolowo / Bourdillon / Osborne roads", "Falomo", "Eastern creek / Lekki-Ikoyi Link Bridge"],
+      "children": ["geo20261011:banana-island"],
+      "note": "District identity remains separate despite filled historical canal connections to Lagos Island. Current residual drains and reclamation boundaries need local mapping."
+    },
+    {
+      "id": "geo20261011:victoria-island", "name": "Victoria Island / Oniru", "role": "requested-island-district", "landform": "coastal-barrier-urban-district",
+      "boundsLonLat": [3.403, 6.410, 3.465, 6.450], "sourceBoundsXZMetres": [29513, 67, 36371, 4520],
+      "anchorLonLat": [3.426, 6.429], "anchorSourceMetres": [32057, 0, 2405],
+      "sourceIds": ["ikoyi-vi-plan", "lagos-coastal-study", "lekki-coastal-study", "vi-lekki-transport"], "topologyStatus": "map-supported-author-inference", "landOutline": null,
+      "referenceAnchors": ["Ahmadu Bello / Ozumba Mbadiwe", "Falomo crossing", "Oniru / Lekki-Epe corridor"],
+      "note": "Keep Atlantic-facing and creek-facing edges distinct. Preserve land/road continuity toward Oniru and western Lekki rather than placing a made-up open-water gap in factual mode."
+    },
+    {
+      "id": "geo20261011:lekki-west", "name": "Western Lekki Peninsula", "role": "requested-peninsula-district", "landform": "peninsula",
+      "boundsLonLat": [3.463, 6.422, 3.620, 6.505], "sourceBoundsXZMetres": [36150, -6056, 53517, 3184],
+      "anchorLonLat": [3.500, 6.450], "anchorSourceMetres": [40243, 0, 67],
+      "sourceIds": ["lekki-scheme-plan", "lekki-overall-plan", "lekki-coastal-study", "vi-lekki-transport"], "topologyStatus": "map-supported-author-inference", "landOutline": null,
+      "referenceAnchors": ["Lekki Scheme 1", "Lekki-Epe Expressway", "Ikoyi link / lagoon side", "Atlantic side"],
+      "continuesBeyondAuthoredEnvelope": true,
+      "note": "Lekki is a peninsula, not a detached real island. This western envelope is a bounded first authoring subset, not the entire Lekki/Epe landform. Never cap its eastern edge with sea in factual mode."
+    },
+    {
+      "id": "geo20261011:lekki-peninsula-context", "name": "Lekki Peninsula eastern continuation context", "role": "context-only", "landform": "peninsula",
+      "boundsLonLat": [3.463, 6.420, 4.200, 6.650], "sourceBoundsXZMetres": [36150, -22197, 117674, 3406],
+      "sourceIds": ["lekki-overall-plan", "lekki-coastal-study"], "topologyStatus": "map-supported-author-inference", "landOutline": null,
+      "children": ["geo20261011:lekki-west"],
+      "note": "Broad regional coverage window toward Epe and Ibeju-Lekki, not a traced peninsula boundary or a full-world generation request. Water and other land inside this window are not classified by this box."
+    },
+    {
+      "id": "geo20261011:snake-island", "name": "Snake Island harbour setting", "role": "justified-optional-addition", "landform": "harbour-island",
+      "boundsLonLat": [3.290, 6.414, 3.355, 6.448], "sourceBoundsXZMetres": [17014, 289, 24204, 4074],
+      "anchorLonLat": [3.320, 6.429], "anchorSourceMetres": [20332, 0, 2405],
+      "sourceIds": ["nigerdock-snake", "npa-pilotage"], "topologyStatus": "primary-text", "landOutline": null,
+      "reasonToInclude": "Adds a sourced western harbour island, industrial waterfront and Tin Can ferry relationship absent from the requested eastern districts.",
+      "note": "Optional reference region. Industrial facility footprints and evolving port works are not island outlines. No mainland road bridge is asserted."
+    },
+    {
+      "id": "geo20261011:banana-island", "name": "Banana Island reclaimed subdistrict", "role": "justified-optional-subdistrict", "landform": "reclaimed-peninsula-development",
+      "boundsLonLat": [3.428, 6.458, 3.452, 6.478], "sourceBoundsXZMetres": [32279, -3050, 34933, -824],
+      "sourceIds": ["banana-field-report"], "topologyStatus": "primary-text", "landOutline": null,
+      "reasonToInclude": "Adds a documented reclaimed waterfront residential form inside the Ikoyi authoring region without inventing another natural island.",
+      "note": "Nested coverage, not extra terrain to overlap Ikoyi. Current reclamation geometry remains unknown."
+    },
+    {
+      "id": "geo20261011:tarkwa-bay-context", "name": "Tarkwa Bay / Atlas Cove harbour-mouth context", "role": "optional-coastal-context-not-confirmed-island-outline", "landform": "harbour-mouth-coastal-context",
+      "boundsLonLat": [3.375, 6.386, 3.404, 6.421], "sourceBoundsXZMetres": [26416, 3295, 29624, 7191],
+      "anchorLonLat": [3.395, 6.399], "anchorSourceMetres": [28628, 0, 5744],
+      "sourceIds": ["npa-pilotage"], "topologyStatus": "map-supported-author-inference", "landOutline": null,
+      "reasonToInclude": "Provides harbour-mouth orientation opposite the urban coast.",
+      "note": "NPA names Tarkwa Bay entrance and Atlas Cove. That does not establish a standalone island polygon. Do not generate a named detached Tarkwa island from this envelope."
+    }
+  ],
+  "waterRegions": [
+    {"id": "geo20261011:lagos-lagoon", "name": "Lagos Lagoon", "kind": "lagoon", "boundsLonLat": [3.390, 6.455, 3.850, 6.650], "sourceIds": ["lekki-overall-plan", "nle-makoko", "lagos-coastal-study"], "topologyStatus": "primary-text", "shoreline": null, "note": "Coverage window only. Keep mainland, reclamation and island holes; never fill the whole box as water."},
+    {"id": "geo20261011:five-cowrie-creek", "name": "Five Cowrie / Five Cowries Creek", "kind": "tidal-creek", "boundsLonLat": [3.399, 6.433, 3.474, 6.461], "sourceIds": ["lasepa-five-cowries", "lagos-coastal-study"], "topologyStatus": "primary-text", "shoreline": null, "note": "Between the Ikoyi/Lagos Island side and the VI/Lekki side; western harbour connection and eastern lagoon connection. Width and bank details remain unmeasured."},
+    {"id": "geo20261011:lagos-harbour", "name": "Lagos Harbour / ocean entrance", "kind": "harbour-channel", "boundsLonLat": [3.365, 6.380, 3.412, 6.478], "sourceIds": ["npa-pilotage", "lagos-coastal-study"], "topologyStatus": "primary-text", "shoreline": null, "note": "Keep ocean entrance open and distinguish Apapa and western Badagry branches. Window is not channel width."},
+    {"id": "geo20261011:badagry-creek-context", "name": "Badagry Creek / western harbour branch", "kind": "creek-context", "boundsLonLat": [3.270, 6.414, 3.405, 6.463], "sourceIds": ["npa-pilotage", "nigerdock-snake"], "topologyStatus": "map-supported-author-inference", "shoreline": null, "note": "Includes Tin Can and Snake Island reference context. Do not turn port land into water using this window."},
+    {"id": "geo20261011:atlantic-ocean", "name": "Atlantic Ocean south-coast context", "kind": "ocean", "boundsLonLat": [3.270, 6.300, 4.200, 6.450], "sourceIds": ["lekki-overall-plan", "lagos-coastal-study", "lekki-coastal-study"], "topologyStatus": "primary-text", "shoreline": null, "note": "Ocean lies south of the coastal barrier. Land overlaps this coverage window; no rectangular water surface is authorized."}
+  ],
+  "topologicalAdjacency": {
+    "defaultMode": "factual-regional-topology",
+    "graphIsCompleteRoadNetwork": false,
+    "edges": [
+      {"id": "geo20261011:edge-yaba-makoko", "from": "geo20261011:yaba", "to": "geo20261011:makoko", "relation": "adjoining-mainland-waterfront-context", "sourceIds": ["unilag-yaba", "nle-makoko"], "status": "map-supported-author-inference", "crossingId": null},
+      {"id": "geo20261011:edge-yaba-ikeja", "from": "geo20261011:yaba", "to": "geo20261011:ikeja", "relation": "same-mainland-through-unmodelled-urban-districts", "sourceIds": ["ikeja-plan", "unilag-yaba"], "status": "map-supported-author-inference", "crossingId": null},
+      {"id": "geo20261011:edge-yaba-oworonshoki", "from": "geo20261011:yaba", "to": "geo20261011:oworonshoki", "relation": "same-mainland-through-unmodelled-urban-districts", "sourceIds": ["works-tmb-scorecard", "works-tmb-speech"], "status": "map-supported-author-inference", "crossingId": null},
+      {"id": "geo20261011:edge-makoko-lagoon", "from": "geo20261011:makoko", "to": "geo20261011:lagos-lagoon", "relation": "land-water-edge-with-water-supported-buildings", "sourceIds": ["nle-makoko"], "status": "primary-text", "crossingId": null},
+      {"id": "geo20261011:edge-tmb-main", "from": "geo20261011:oworonshoki", "to": "geo20261011:lagos-island", "relation": "road-bridge-over-lagoon", "sourceIds": ["works-tmb-scorecard"], "status": "primary-indexed-excerpt", "crossingId": "geo20261011:third-mainland"},
+      {"id": "geo20261011:edge-tmb-yaba", "from": "geo20261011:yaba", "to": "geo20261011:third-mainland", "relation": "intermediate-adekunle-road-ramp-not-northern-endpoint", "sourceIds": ["works-tmb-scorecard", "works-tmb-speech"], "status": "primary-indexed-excerpt", "crossingId": "geo20261011:adekunle-link"},
+      {"id": "geo20261011:edge-island-ikoyi", "from": "geo20261011:lagos-island", "to": "geo20261011:ikoyi", "relation": "joined-land-districts-with-historic-canal-reclamation", "sourceIds": ["unilag-island-morphology", "ikoyi-vi-plan"], "status": "primary-indexed-excerpt", "crossingId": null},
+      {"id": "geo20261011:edge-ikoyi-vi", "from": "geo20261011:ikoyi", "to": "geo20261011:victoria-island", "relation": "road-bridge-over-five-cowrie-creek", "sourceIds": ["lasepa-five-cowries", "vi-lekki-transport", "ikoyi-vi-plan"], "status": "primary-text", "crossingId": "geo20261011:falomo-reference"},
+      {"id": "geo20261011:edge-ikoyi-lekki", "from": "geo20261011:ikoyi", "to": "geo20261011:lekki-west", "relation": "road-bridge-over-five-cowrie-creek", "sourceIds": ["lasepa-five-cowries"], "status": "primary-text", "crossingId": "geo20261011:lekki-ikoyi-reference"},
+      {"id": "geo20261011:edge-vi-lekki", "from": "geo20261011:victoria-island", "to": "geo20261011:lekki-west", "relation": "coastal-land-and-road-continuity-via-oniru", "sourceIds": ["ikoyi-vi-plan", "lekki-coastal-study", "vi-lekki-transport"], "status": "map-supported-author-inference", "crossingId": null},
+      {"id": "geo20261011:edge-lekki-east", "from": "geo20261011:lekki-west", "to": "geo20261011:lekki-peninsula-context", "relation": "peninsula-continues-east-not-an-ocean-capped-island", "sourceIds": ["lekki-overall-plan", "lekki-coastal-study"], "status": "primary-text", "crossingId": null},
+      {"id": "geo20261011:edge-banana-ikoyi", "from": "geo20261011:banana-island", "to": "geo20261011:ikoyi", "relation": "reclaimed-peninsula-subdistrict", "sourceIds": ["banana-field-report"], "status": "primary-text", "crossingId": null},
+      {"id": "geo20261011:edge-creek-harbour", "from": "geo20261011:five-cowrie-creek", "to": "geo20261011:lagos-harbour", "relation": "open-tidal-water-connection", "sourceIds": ["lagos-coastal-study"], "status": "primary-text", "crossingId": null},
+      {"id": "geo20261011:edge-creek-lagoon", "from": "geo20261011:five-cowrie-creek", "to": "geo20261011:lagos-lagoon", "relation": "open-water-connection-near-eastern-ikoyi", "sourceIds": ["lagos-coastal-study"], "status": "primary-text", "crossingId": null},
+      {"id": "geo20261011:edge-harbour-ocean", "from": "geo20261011:lagos-harbour", "to": "geo20261011:atlantic-ocean", "relation": "open-ocean-entrance", "sourceIds": ["npa-pilotage", "lagos-coastal-study"], "status": "primary-text", "crossingId": null},
+      {"id": "geo20261011:edge-badagry-harbour", "from": "geo20261011:badagry-creek-context", "to": "geo20261011:lagos-harbour", "relation": "western-water-branch", "sourceIds": ["npa-pilotage"], "status": "primary-text", "crossingId": null},
+      {"id": "geo20261011:edge-snake-ferry", "from": "geo20261011:snake-island", "to": "geo20261011:badagry-creek-context", "relation": "water-access-and-tin-can-ro-ro-ferry-context", "sourceIds": ["nigerdock-snake"], "status": "primary-text", "crossingId": null},
+      {"id": "geo20261011:edge-tarkwa-entrance", "from": "geo20261011:tarkwa-bay-context", "to": "geo20261011:lagos-harbour", "relation": "harbour-mouth-coastal-context", "sourceIds": ["npa-pilotage"], "status": "primary-text", "crossingId": null}
+    ]
+  },
+  "bridgeCorridors": [
+    {
+      "id": "geo20261011:third-mainland",
+      "name": "Third Mainland Bridge / Third Axial corridor",
+      "role": "requested-corridor-reference-not-structural-geometry",
+      "sourceIds": ["works-tmb-scorecard", "works-tmb-speech", "osm-tmb-sample"],
+      "northEndpoint": {"name": "Oworonshoki interchange", "regionId": "geo20261011:oworonshoki", "pointId": "tmb-north-est", "nameStatus": "primary-indexed-excerpt", "positionStatus": "author-estimate"},
+      "southEndpoint": {"name": "Adeniji-Adele interchange", "regionId": "geo20261011:lagos-island", "pointId": "tmb-south-est", "nameStatus": "primary-indexed-excerpt", "positionStatus": "author-estimate"},
+      "officialReferenceLengthMetres": 11800,
+      "forcePolylineToReferenceLength": false,
+      "deckHeightMetres": null,
+      "deckWidthMetres": null,
+      "pierSpacingMetres": null,
+      "laneCount": null,
+      "waterClearanceMetres": null,
+      "operatingStatusOnPreparedDate": "not-verified",
+      "pointOrder": "north-to-south-with-island-approach-turn",
+      "interpolation": "piecewise-linear-reference-only",
+      "sourcedNodesAreCarriagewayNotCentreline": true,
+      "coordinatesAreNotFinalRoadMesh": true,
+      "controlPoints": [
+        {"id": "tmb-north-est", "lonLat": [3.405, 6.555], "sourceReferencePlaneMetres": [29735, 0, -11622], "ueReferencePlaneCentimetres": [-1162200, 2973500, 0], "status": "author-estimate", "sourceIds": ["works-tmb-scorecard"], "accuracyMetres": null},
+        {"id": "tmb-osm-1476488911", "lonLat": [3.3988628, 6.5441017], "sourceReferencePlaneMetres": [29056, 0, -10409], "ueReferencePlaneCentimetres": [-1040900, 2905600, 0], "status": "primary-text", "sourceIds": ["osm-tmb-sample"], "osmNodeId": 1476488911, "osmNodeVersion": 1, "nodeTimestamp": "2011-10-22T15:47:11Z", "accuracyMetres": null},
+        {"id": "tmb-osm-1476488786", "lonLat": [3.3990221, 6.5436844], "sourceReferencePlaneMetres": [29073, 0, -10362], "ueReferencePlaneCentimetres": [-1036200, 2907300, 0], "status": "primary-text", "sourceIds": ["osm-tmb-sample"], "osmNodeId": 1476488786, "osmNodeVersion": 1, "nodeTimestamp": "2011-10-22T15:47:07Z", "accuracyMetres": null},
+        {"id": "tmb-middle-est", "lonLat": [3.405, 6.522], "sourceReferencePlaneMetres": [29735, 0, -7948], "ueReferencePlaneCentimetres": [-794800, 2973500, 0], "status": "author-estimate", "sourceIds": ["osm-tmb-sample"], "accuracyMetres": null},
+        {"id": "tmb-akoka-est", "lonLat": [3.404, 6.510], "sourceReferencePlaneMetres": [29624, 0, -6612], "ueReferencePlaneCentimetres": [-661200, 2962400, 0], "status": "author-estimate", "sourceIds": ["osm-tmb-sample"], "accuracyMetres": null},
+        {"id": "tmb-osm-5619735023", "lonLat": [3.3985935, 6.4922792], "sourceReferencePlaneMetres": [29026, 0, -4640], "ueReferencePlaneCentimetres": [-464000, 2902600, 0], "status": "primary-text", "sourceIds": ["osm-tmb-sample"], "osmNodeId": 5619735023, "osmNodeVersion": 1, "nodeTimestamp": "2018-05-15T13:06:35Z", "accuracyMetres": null},
+        {"id": "tmb-osm-111776898", "lonLat": [3.3904771, 6.4753135], "sourceReferencePlaneMetres": [28128, 0, -2751], "ueReferencePlaneCentimetres": [-275100, 2812800, 0], "status": "primary-text", "sourceIds": ["osm-tmb-sample"], "osmNodeId": 111776898, "osmNodeVersion": 2, "nodeTimestamp": "2018-05-15T13:06:36Z", "accuracyMetres": null},
+        {"id": "tmb-osm-1025307276", "lonLat": [3.3941759, 6.4632365], "sourceReferencePlaneMetres": [28537, 0, -1407], "ueReferencePlaneCentimetres": [-140700, 2853700, 0], "status": "primary-text", "sourceIds": ["osm-tmb-sample"], "osmNodeId": 1025307276, "osmNodeVersion": 5, "nodeTimestamp": "2018-02-05T14:29:23Z", "accuracyMetres": null},
+        {"id": "tmb-south-est", "lonLat": [3.401, 6.459], "sourceReferencePlaneMetres": [29292, 0, -935], "ueReferencePlaneCentimetres": [-93500, 2929200, 0], "status": "author-estimate", "sourceIds": ["works-tmb-scorecard"], "accuracyMetres": null}
+      ],
+      "sourcedWayNodeOrderSouthToNorth": [1025307276, 111776898, 5619735023, 1476488786, 1476488911],
+      "note": "Mixed evidence spine, not the whole bridge alignment. Retained raw OSM coordinates have more decimal places than the estimated anchors because their source representation is preserved, not because accuracy is established."
+    },
+    {
+      "id": "geo20261011:adekunle-link", "name": "Adekunle / Herbert Macaulay intermediate connection",
+      "role": "estimated-branch-alignment", "sourceIds": ["works-tmb-scorecard", "works-tmb-speech"],
+      "joinsCorridorId": "geo20261011:third-mainland", "joinsBetweenPointIds": ["tmb-osm-5619735023", "tmb-osm-111776898"],
+      "pointOrder": "bridge-to-mainland", "interpolation": "piecewise-linear-reference-only", "deckHeightMetres": null, "deckWidthMetres": null,
+      "controlPoints": [
+        {"id": "adekunle-branch-est", "lonLat": [3.393, 6.486], "sourceReferencePlaneMetres": [28407, 0, -3941], "ueReferencePlaneCentimetres": [-394100, 2840700, 0], "status": "author-estimate", "accuracyMetres": null},
+        {"id": "adekunle-mainland-est", "lonLat": [3.384, 6.488], "sourceReferencePlaneMetres": [27412, 0, -4163], "ueReferencePlaneCentimetres": [-416300, 2741200, 0], "status": "author-estimate", "accuracyMetres": null}
+      ],
+      "note": "Connection existence and destination are sourced; these two points are estimated. They are not exact ramp merging geometry and must not be disconnected or snapped blindly onto a final bridge."
+    },
+    {"id": "geo20261011:falomo-reference", "name": "Falomo / VI-Ikoyi crossing", "role": "named-crossing-awaiting-alignment", "sourceIds": ["lasepa-five-cowries", "ikoyi-vi-plan", "vi-lekki-transport"], "controlPoints": [], "deckHeightMetres": null, "deckWidthMetres": null},
+    {"id": "geo20261011:lekki-ikoyi-reference", "name": "Lekki-Ikoyi Link Bridge", "role": "named-crossing-awaiting-alignment", "sourceIds": ["lasepa-five-cowries"], "controlPoints": [], "deckHeightMetres": null, "deckWidthMetres": null}
+  ],
+  "layoutModes": {
+    "selectedMode": "factual-regional-topology",
+    "factual": {
+      "id": "factual-regional-topology",
+      "preserveLandContinuity": true,
+      "geographicScale": 1,
+      "sourceTranslationMetres": [30000, 0, 0],
+      "authorArtificialChannels": false,
+      "capLekkiEastWithWater": false,
+      "renderCoverageBoxesAsIslands": false
+    },
+    "fictionalSeparateIslandOption": {
+      "id": "fictional-separated-district-islands",
+      "enabled": false,
+      "requiresExplicitCoordinatorSelection": true,
+      "selectionEvidence": null,
+      "factualClaimsRemainUnchanged": true,
+      "scope": "new-isolated-authoring-chunks-only",
+      "operation": "local=geographicSourcePoint-regionAnchorSource; authoredSourcePoint=slotSource+local; UE=100*(authoredSourceZ,authoredSourceX,authoredSourceY)",
+      "scale": 1,
+      "rotationSourceRadians": 0,
+      "slots": [
+        {"regionId": "geo20261011:lagos-island", "regionAnchorSourceMetres": [28518, 0, -378], "slotSourceMetres": [60000, 0, 5000], "slotUECentimetres": [500000, 6000000, 0], "authoredLabel": "Lagos Island-inspired district"},
+        {"regionId": "geo20261011:ikoyi", "regionAnchorSourceMetres": [32942, 0, -824], "slotSourceMetres": [68000, 0, 5000], "slotUECentimetres": [500000, 6800000, 0], "authoredLabel": "Ikoyi-inspired authored island"},
+        {"regionId": "geo20261011:victoria-island", "regionAnchorSourceMetres": [32057, 0, 2405], "slotSourceMetres": [60000, 0, 13000], "slotUECentimetres": [1300000, 6000000, 0], "authoredLabel": "Victoria Island-inspired authored island"},
+        {"regionId": "geo20261011:lekki-west", "regionAnchorSourceMetres": [40243, 0, 67], "slotSourceMetres": [83000, 0, 13000], "slotUECentimetres": [1300000, 8300000, 0], "authoredLabel": "Lekki-inspired authored island, fictional"}
+      ],
+      "nestedRegionRule": "Banana Island follows the Ikoyi chunk transform if included. Do not also render a second overlapping Banana terrain chunk.",
+      "overrideEdgeIds": ["geo20261011:edge-island-ikoyi", "geo20261011:edge-vi-lekki", "geo20261011:edge-lekki-east", "geo20261011:edge-ikoyi-vi", "geo20261011:edge-ikoyi-lekki", "geo20261011:edge-tmb-main"],
+      "replacementConnections": [],
+      "artificialWaterAndCoastlines": {
+        "newCoastlineMeshes": null,
+        "minimumAuthoredInterChunkWaterGapMetres": 800,
+        "gapIsDesignParameterNotSurveyedDistance": true,
+        "requiredChanges": ["Make a new separating water edge between Lagos Island-inspired and Ikoyi-inspired chunks", "Remove real VI-Oniru-Lekki continuity from fictional composition only", "Close western Lekki chunk with a newly designed eastern coast instead of claiming the real peninsula ends there"],
+        "boxEdgesAreNotCoastlines": true
+      },
+      "bridgeRule": "Do not apply factual bridge polylines unchanged to relocated slots. Relocated crossings need separate fictional endpoint pairs and authored alignments. The sourced Third Mainland endpoints remain factual records, not a bridge to the distant fictional slot.",
+      "geographicDifference": "These slots deliberately split joined district land, relocate districts and turn a bounded Lekki subset into an authored island. They are not present-day Lagos geography and do not authorize island creation or rename the real peninsula."
+    }
+  },
+  "boundedAuthoringSelection": {
+    "id": "geo20261011:yaba-first-street-detail",
+    "regionId": "geo20261011:yaba",
+    "canonicalJobId": null,
+    "selectionType": "estimated-metric-authoring-workspace-not-surveyed-street-reconstruction",
+    "sourceIds": ["unilag-yaba", "works-tmb-scorecard"],
+    "referenceTarget": "Choose and pin one actual Yaba street segment before claiming its named reconstruction. Use Akoka / Herbert Macaulay context; neither source supplies parcel geometry.",
+    "sourceWorkspaceBoundsXZMetres": [26894, -7219, 27044, -7119],
+    "ueWorkspaceBoundsXYCentimetres": [-721900, 2689400, -711900, 2704400],
+    "dimensionsMetres": [150, 100],
+    "sourceAnchorMetres": [26969, 0, -7169],
+    "ueAnchorCentimetres": [-716900, 2696900, 0],
+    "terrainHeightMetres": null,
+    "inspectionEyeHeightAboveAuthoredGroundMetres": 1.7,
+    "sourceCameraRouteLocalFloorOffsetsMetres": [[-60, 0, 0], [0, 0, 0], [60, 0, 0]],
+    "routeIsProposedNotWalkabilityAccepted": true,
+    "immediateConsumerAction": "Select this envelope for the first detailed authoring chunk, attach current street-level references and metric building/road/ground data, then prepare a separately reviewed native mesh handoff. Do not generate the full mainland or use a generic low-poly Yaba tile.",
+    "nativeMeshJobs": [],
+    "requiredBeforeFinalTerrainOrRoads": ["Dated street reference selection with image provenance", "Measured or explicitly designed street width, drainage and parcel frontage", "Nonrectangular land/water boundaries where relevant", "Surface heights and ground-contact review"],
+    "fidelityAcceptance": {
+      "target": "Call-of-Duty-like environmental fidelity as visual ambition, not achieved quality or permission to copy game assets",
+      "rejectAsFinished": ["Blob-shaped island silhouettes", "Flat coloured terrain boxes", "Bare low-poly skyline tiles", "Repeated generic house substituted for a named Lagos district", "Makoko water covered by a solid land slab"],
+      "requireGroundCameraEvidence": true,
+      "requireCloseFacadeRoadDrainageEvidence": true,
+      "requirePhysicallyScaledUVAndPBRInputs": true,
+      "photoOrScanRightsRequiredForConsumedAssets": true,
+      "nearDetailMustUseAuthoredGeometry": ["Window and door reveals", "Balcony and roof-edge construction", "Drainage and kerb contact", "AC brackets, rails and cables where references show them"],
+      "claimAAAQualityFromManifest": false
+    }
+  },
+  "nativePythonHandoff": {
+    "consumer": "json.load with standard Python; no engine import needed to read this document",
+    "producerImplemented": false,
+    "currentWorldGenerationExecuteCompatibility": "not-a-legacy-generator-handoff",
+    "reason": "Current build_jobs selects existing canonical coverage IDs and require_handoff verifies pinned canonical sources. Additive geographic IDs are not in that coverage. Do not pass this manifest as an authorization, override an existing district job, or weaken References to accept external URLs.",
+    "steps": ["Read coordinateContract and choose the factual mode unless the fictional option has actual selection evidence", "Use regions and sourceIds to bind authoring chunks, not to register destinations", "Use bridgeCorridors only as mixed-evidence reference guides until road cross-section and complete alignment are delivered", "Prepare explicit source-metre mesh vertices, triangle faces, materials and provenance in a separate native-authoring payload", "Have the coordinator assign an authorized additive delivery path/job mechanism without replacing canonical jobs", "Apply UE basis conversion once at native import and preserve existing scene placements"],
+    "authorization": {
+      "isAuthorizationReceipt": false,
+      "humanReviewEvidence": null,
+      "engineMutationAuthorizedByThisDocument": false,
+      "preserveExistingReferenceManifestReconciliationEvidence": true,
+      "doNotFabricateJoshuaApproval": true,
+      "runtimeAuthority": {"access": false, "movementAdmission": false, "missionReadiness": false, "utilityPower": false},
+      "accountAndHomeContent": "unchanged-runtime-authoritative-not-baked"
+    }
+  },
+  "sourceLimitations": [
+    "No contemporary authoritative shoreline vectors, district polygons, DEM or bathymetry obtained. Every district envelope is an explicit author estimate.",
+    "Mainland Central PDF was listed by the official directory but its 22878221-byte fetch exceeded the web limit. Its map content was not inspected.",
+    "The Works scorecard and University of Lagos island morphology source were available as indexed primary excerpts, not full documents.",
+    "The OSM API sample exposed five usable Third Mainland node positions. Full-way and other bbox requests were rate-limited; no full corridor extract or shoreline extract exists.",
+    "Older official plans and field studies do not establish October 2026 reclamation edges, built infrastructure, traffic closures or present settlement extent.",
+    "No current geolocated street-photo set, licensed texture set or photogrammetry collection was acquired. Named district envelopes alone do not meet the requested visual fidelity.",
+    "Snake Island and Banana Island are justified optional additions. Tarkwa Bay remains harbour-mouth context, not a fabricated detached island; unsupported proposed islands are excluded."
+  ]
+}

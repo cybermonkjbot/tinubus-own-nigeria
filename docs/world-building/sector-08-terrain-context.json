@@ -1,0 +1,103 @@
+{
+  "retrievedDate": "2026-10-11",
+  "provider": "Open Topo Data public API",
+  "sourceUrl": "https://api.opentopodata.org/v1/srtm30m?locations=6.5566126,3.3403826%7C6.5553545,3.3401520%7C6.5549323,3.3400634%7C6.5542291,3.3400597%7C6.5527672,3.3396791%7C6.5522280,3.3393247%7C6.5502513,3.3381102%7C6.5494411,3.3380918&interpolation=nearest",
+  "rawSha256": "9c869e86cd1b5c8e1ec25dc14be4c582e5189cad2320df3536e718f303871a8c",
+  "dataset": "srtm30m",
+  "providerStatedVersion": 3,
+  "interpolation": "nearest",
+  "sourceHorizontalDatum": "WGS84",
+  "sourceVerticalDatum": "EGM96",
+  "sourceVerticalUnits": "metres",
+  "nominalAngularSpacingArcSeconds": 1,
+  "approximateHorizontalSpacingMetres": 30,
+  "missionAcquisition": "2000-02-11 through 2000-02-22; void-fill sources may differ",
+  "role": "Historical coarse terrain context; not road/drain survey",
+  "engineVerticalDatum": null,
+  "canonicalWorldRegistration": null,
+  "approvedForCollision": false,
+  "approvedForFloodCalibration": false,
+  "approvedForRoadGrade": false,
+  "samples": [
+    {
+      "osmNodeId": 35785462,
+      "queryCoordinates": [
+        3.3403826,
+        6.5566126
+      ],
+      "rasterElevationMetres": 18,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 3745002397,
+      "queryCoordinates": [
+        3.340152,
+        6.5553545
+      ],
+      "rasterElevationMetres": 22,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 3745002376,
+      "queryCoordinates": [
+        3.3400634,
+        6.5549323
+      ],
+      "rasterElevationMetres": 20,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 3745002384,
+      "queryCoordinates": [
+        3.3400597,
+        6.5542291
+      ],
+      "rasterElevationMetres": 17,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 3745002375,
+      "queryCoordinates": [
+        3.3396791,
+        6.5527672
+      ],
+      "rasterElevationMetres": 20,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1079925455,
+      "queryCoordinates": [
+        3.3393247,
+        6.552228
+      ],
+      "rasterElevationMetres": 18,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1079925565,
+      "queryCoordinates": [
+        3.3381102,
+        6.5502513
+      ],
+      "rasterElevationMetres": 16,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1475221992,
+      "queryCoordinates": [
+        3.3380918,
+        6.5494411
+      ],
+      "rasterElevationMetres": 13,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    }
+  ]
+}

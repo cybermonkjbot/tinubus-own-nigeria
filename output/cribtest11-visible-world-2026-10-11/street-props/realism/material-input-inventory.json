@@ -1,0 +1,55 @@
+{
+  "inspected_at": "2026-10-11T02:41:20-07:00",
+  "scope": "Read-only local Windows material and detailed source inventory; no installs, downloads or Unreal mutation.",
+  "inspected_roots": [
+    "C:/dev/baddie-assets/Textures",
+    "C:/dev/baddie-assets/Manifests",
+    "C:/dev/baddie-assets/Blender",
+    "C:/dev/cribtest-game/.git/operations/world-generation-20261010/readonly-source",
+    "C:/dev/cribtest-game/apps/companion-unreal/Content",
+    "C:/dev/cribtest-game/output",
+    "C:/Users/cribadmin/Downloads",
+    "C:/Users/cribadmin/Documents",
+    "C:/Users/Public/Documents"
+  ],
+  "available_licensed_pbr_scan_sets": [],
+  "qualified_photo_texture_inputs": [],
+  "findings": [
+    "Dedicated Textures and Manifests asset directories contain no files.",
+    "Pinned readonly source contains no PNG, JPEG, WebP, EXR, TIFF, FBX, GLB or blend files.",
+    "Repository bitmap inventory is rendered evidence and one rural reference image, not licensed PBR surface scans.",
+    "packages/assets directory is not present in this Windows checkout.",
+    "Installed Unreal Samples and Samples/StarterContent directories are not present.",
+    "No inspected input has a local texture licence, source attribution and physical coverage suitable for declaring a licensed scan input. This is scoped local absence, not a statement about all drives or external holdings."
+  ],
+  "usable_derivative_sources": [
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/v1/LagosStreetProps.blend",
+      "sha256": "0c9d3787cb028dc6bbcdcb18eca7379a99b6861d93dc72a03b7319c495732549",
+      "provenance": "Parent-authored frozen v1 generator and Windows authoring output; immutable source kit.",
+      "licence_status": "Project-owned authoring source; no third-party scan licence inferred.",
+      "use": "Append/copy Danfo as a new additive derivative, not mutate v1."
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/lagos_street_props.py",
+      "sha256": "c25297c16a6fb24752d9fb13fb651d5be7683c92a530e3a4758365061b20e877",
+      "provenance": "Parent verified and froze v1 source.",
+      "use": "Read-only mesh helpers via runpy without executing main; no generator replacement."
+    }
+  ],
+  "native_placeholder_sources": [
+    "C:/dev/cribtest-game/apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/SM_Danfo.uasset",
+    "C:/dev/cribtest-game/apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/SM_Kiosk.uasset",
+    "C:/dev/cribtest-game/apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_DanfoYellow.uasset",
+    "C:/dev/cribtest-game/apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_Concrete.uasset",
+    "C:/dev/cribtest-game/apps/companion-unreal/Content/BaddieGeneratedWorld/Presentation/StreetProps_v1/Materials/M_GlassDark.uasset"
+  ],
+  "native_source_limit": "Filename-level inventory only; native imports and Unreal inspection belong to the sole Unreal writer.",
+  "missing_inputs": [
+    "Licensed photo/scan PBR sets for plaster, concrete, asphalt, timber and local weathering, with physical scale and attribution.",
+    "Dated Yaba facade/street measurements or approved reference views; no named-district fidelity established by this inventory.",
+    "Licensed detailed trees or source-derived branching/leaf geometry; rounded blockout canopies rejected.",
+    "Hash-verified Windows modular facade generator handoff from parent."
+  ],
+  "procedural_material_policy": "Explicit fallback only; procedural noise is not photographic fidelity or scan provenance."
+}

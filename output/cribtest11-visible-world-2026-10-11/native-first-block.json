@@ -1,0 +1,194 @@
+{
+  "schemaVersion": 1,
+  "documentKind": "canonical-first-scene-selection-and-derived-handoff",
+  "preparedOn": "2026-10-11",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+  "executionStatus": "not-executed-by-this-worker",
+  "windowsWorker": {
+    "threadId": "01a126ff-0796-7001-a3e7-95203249dbc6",
+    "turnId": "01a12a3d-a505-7572-a137-bd92fcdbe6c3",
+    "model": "gpt-6.1-sol",
+    "reasoningEffort": "high",
+    "repository": "C:\\dev\\cribtest-game",
+    "coordinatorReportedPid": 13096,
+    "coordinatorReportedEngineVersion": "5.8.3",
+    "requireFreshPidProjectAndCleanEditorInspection": true
+  },
+  "selection": {
+    "label": "National Theatre south promenade",
+    "worldId": "lagos-v1",
+    "cityVersion": "lagos-city-v3",
+    "theatreRevision": "lagos-city-v3:theatre-v1",
+    "canonicalBuildingCameraVolumeId": "national-theatre",
+    "registeredZoneId": null,
+    "districtLabelFromRecipe": "Theatre Gardens",
+    "parcelId": null,
+    "selectionNote": "The theatre is a canonical extension landmark, not a city-v3 parcel or a newly registered zone. The core garden footprint contains no canonical parcels. Preserve that distinction.",
+    "placement": "fictional-metric-plan-not-surveyed-Lagos",
+    "sourceCentreMetres": [-2200, 0, 1350],
+    "ueCentreCentimetres": [135000, -220000, 0],
+    "sourceCoreBounds": {"minX": -2442, "maxX": -1958, "minZ": 1127, "maxZ": 1573},
+    "ueCoreBoundsCentimetres": {"minX": 112700, "maxX": 157300, "minY": -244200, "maxY": -195800},
+    "primaryCameraRouteId": "theatre-south-promenade",
+    "sourceArrivalMetres": [-2200, 0, 1458],
+    "sourceBuildingReserve": {"minX": -2306.2, "maxX": -2093.8, "minZ": 1254.8, "maxZ": 1445.2},
+    "nativeBuildingHeightMetres": 47,
+    "wholeWorldComplete": false
+  },
+  "coordinateBasis": {
+    "source": "Y-up metres; arrays are [x,y,z]",
+    "native": "Z-up centimetres; arrays are [X,Y,Z]",
+    "pointMapping": "UE(X,Y,Z)=100*source(Z,X,Y)",
+    "yawMapping": "yawDegrees=sourceYawRadians*180/pi",
+    "recenter": false,
+    "meshInput": "Keep handoff vertices in source Y-up metres. native_generator applies ue_point, inverse OBJ Y reflection and winding reversal. Do not apply the conversion twice.",
+    "cameraRotation": "Derive look-at rotation from the converted UE eye and target. Rotator parameters are pitch, yaw, roll in degrees. No importer-default glTF basis."
+  },
+  "sources": [
+    {"path": "packages/assets/city/lagos-city-v3.json", "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": ""},
+    {"path": "packages/assets/city/lagos-national-theatre-geometry-v1.json", "sha256": "c9f9bca85966812fa667ec6b23ac1cdd2f6d69e2983b68882791f453579ac0ad", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": ""},
+    {"path": "packages/assets/city/lagos-national-theatre-v1.json", "sha256": "069767150a658eee73924b1429662389d526e83ef3726a45b19917343c310f2d", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": ""},
+    {"path": "packages/companion-scene/src/interactions/city/cityTheatre.ts", "sha256": "dab20517053947b48992ff4e735977fa71650dea8949257a3ae0d19517490df8", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": "createCityTheatre"},
+    {"path": "packages/companion-scene/src/interactions/city/cityTerrain.ts", "sha256": "e03081cc6bb9c4ceb2834d5303c4edefdd001f99a028d509e296046de6a41d8f", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": "createCityTerrain/Theatre Gardens"},
+    {"path": "packages/utils/src/companionCityTheatre.ts", "sha256": "330478f010677d0fc90baea4d766109a84e8e939cb6b49707fd0d31e0b48406b", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": ""},
+    {"path": "packages/utils/src/companionCity.ts", "sha256": "b27fe215e09903b61c9173db2ceb2d36e7d346de1d3f341aea1f169f23e14665", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": "companionCityCameraObstacles/national-theatre"},
+    {"path": "packages/assets/city/lagos-street-density-navigation-v1.json", "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": "navigation"},
+    {"path": "packages/assets/city/lagos-connected-transit-v1.json", "sha256": "21be37b211cd5c5e02044a62c9c498704567da712c3df3f0023e621e88c031df", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": "transit"},
+    {"path": "packages/assets/city/lagos-architecture-delivery-v1.json", "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": "buildings"}
+  ],
+  "directBatch": {
+    "selectedJobs": ["city/national-theatre"],
+    "handoffs": [],
+    "coverageState": "source-recipe-prepared-unexecuted",
+    "canonicalSourceArrays": {"parts": 10, "boxes": 3, "beams": 240},
+    "expectedRecipeMeshRecords": 253,
+    "meshIdentityRules": {"parts": "name + ':part:' + original array index", "boxes": "name + ':box:' + original array index", "beams": "name + ':beam:' + original array index"},
+    "entryFeatureIds": ["South entrance canopy:box:0", "South entrance doors:box:1", "Entrance sign:box:2"],
+    "geometryInstruction": "Execute the accepted existing direct job unchanged. Vertices already contain city placement. Do not add centre again, change job IDs, substitute a signature building or override an implemented recipe with a handoff.",
+    "readiness": "The batch is selected, not authorized by this document. Complete the named receipt first.",
+    "nativeTemplateDuplicationRequired": false,
+    "nativeLevelCompositionRequired": false
+  },
+  "jobs": [
+    {
+      "id": "city/theatre-grounds",
+      "category": "city",
+      "authority": {"access": false, "movementAdmission": false, "missionReadiness": false, "utilityPower": false},
+      "parts": [],
+      "meshes": [
+        {
+          "id": "Theatre Gardens",
+          "vertices": [
+            [-1958,-0.021,1350],[-1959.165,-0.021,1371.858],[-1962.65,-0.021,1393.505],[-1968.42,-0.021,1414.733],
+            [-1976.421,-0.021,1435.338],[-1986.575,-0.021,1455.121],[-1998.784,-0.021,1473.892],[-2012.931,-0.021,1491.47],
+            [-2028.88,-0.021,1507.685],[-2046.477,-0.021,1522.381],[-2065.552,-0.021,1535.418],[-2085.922,-0.021,1546.668],
+            [-2107.391,-0.021,1556.025],[-2129.751,-0.021,1563.398],[-2152.788,-0.021,1568.715],[-2176.28,-0.021,1571.926],
+            [-2200,-0.021,1573],[-2223.72,-0.021,1571.926],[-2247.212,-0.021,1568.715],[-2270.249,-0.021,1563.398],
+            [-2292.609,-0.021,1556.025],[-2314.078,-0.021,1546.668],[-2334.448,-0.021,1535.418],[-2353.523,-0.021,1522.381],
+            [-2371.12,-0.021,1507.685],[-2387.069,-0.021,1491.47],[-2401.216,-0.021,1473.892],[-2413.425,-0.021,1455.121],
+            [-2423.579,-0.021,1435.338],[-2431.58,-0.021,1414.733],[-2437.35,-0.021,1393.505],[-2440.835,-0.021,1371.858],
+            [-2442,-0.021,1350],[-2440.835,-0.021,1328.142],[-2437.35,-0.021,1306.495],[-2431.58,-0.021,1285.267],
+            [-2423.579,-0.021,1264.662],[-2413.425,-0.021,1244.879],[-2401.216,-0.021,1226.108],[-2387.069,-0.021,1208.53],
+            [-2371.12,-0.021,1192.315],[-2353.523,-0.021,1177.619],[-2334.448,-0.021,1164.582],[-2314.078,-0.021,1153.332],
+            [-2292.609,-0.021,1143.975],[-2270.249,-0.021,1136.602],[-2247.212,-0.021,1131.285],[-2223.72,-0.021,1128.074],
+            [-2200,-0.021,1127],[-2176.28,-0.021,1128.074],[-2152.788,-0.021,1131.285],[-2129.751,-0.021,1136.602],
+            [-2107.391,-0.021,1143.975],[-2085.922,-0.021,1153.332],[-2065.552,-0.021,1164.582],[-2046.477,-0.021,1177.619],
+            [-2028.88,-0.021,1192.315],[-2012.931,-0.021,1208.53],[-1998.784,-0.021,1226.108],[-1986.575,-0.021,1244.879],
+            [-1976.421,-0.021,1264.662],[-1968.42,-0.021,1285.267],[-1962.65,-0.021,1306.495],[-1959.165,-0.021,1328.142]
+          ],
+          "faces": [
+            [0,2,1],[0,3,2],[0,4,3],[0,5,4],[0,6,5],[0,7,6],[0,8,7],[0,9,8],
+            [0,10,9],[0,11,10],[0,12,11],[0,13,12],[0,14,13],[0,15,14],[0,16,15],[0,17,16],
+            [0,18,17],[0,19,18],[0,20,19],[0,21,20],[0,22,21],[0,23,22],[0,24,23],[0,25,24],
+            [0,26,25],[0,27,26],[0,28,27],[0,29,28],[0,30,29],[0,31,30],[0,32,31],[0,33,32],
+            [0,34,33],[0,35,34],[0,36,35],[0,37,36],[0,38,37],[0,39,38],[0,40,39],[0,41,40],
+            [0,42,41],[0,43,42],[0,44,43],[0,45,44],[0,46,45],[0,47,46],[0,48,47],[0,49,48],
+            [0,50,49],[0,51,50],[0,52,51],[0,53,52],[0,54,53],[0,55,54],[0,56,55],[0,57,56],
+            [0,58,57],[0,59,58],[0,60,59],[0,61,60],[0,62,61],[0,63,62]
+          ],
+          "material": {"colour": "#73895b", "roughness": 0.98, "metalness": 0, "emission": 0},
+          "collision": "none"
+        },
+        {
+          "id": "theatre-south-promenade:surface",
+          "vertices": [[-2196,-0.008,1557],[-2204,-0.008,1557],[-2196,-0.008,1511],[-2204,-0.008,1511],[-2196,-0.008,1458],[-2204,-0.008,1458]],
+          "faces": [[0,2,1],[1,2,3],[2,4,3],[3,4,5]],
+          "material": {"colour": "#cfc2a3", "roughness": 0.86, "metalness": 0, "emission": 0, "twoSided": true},
+          "collision": "none"
+        }
+      ],
+      "contract": {
+        "scope": "canonical-core-garden-and-south-promenade-only",
+        "wholeTheatreGroundsComplete": false,
+        "sourceRevision": "lagos-city-v3:theatre-v1",
+        "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+        "fictionalMetricPlan": true,
+        "sourceSelectors": [
+          {"path": "packages/assets/city/lagos-national-theatre-v1.json", "pointer": "grounds", "retainedVertexIndices": "0..63", "floorYMetres": -0.021},
+          {"path": "packages/assets/city/lagos-national-theatre-v1.json", "pointer": "paths/6", "id": "theatre-south-promenade", "widthMetres": 8, "floorYMetres": -0.008}
+        ],
+        "triangulation": "Garden polygon is convex. Fan from original vertex 0, reversing XZ order for source +Y normals. Promenade follows geometry.ribbon exactly. Native import reverses winding separately.",
+        "navigationSource": {"path": "packages/assets/city/lagos-street-density-navigation-v1.json", "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4", "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b", "pointer": "navigation"},
+        "navigationRevision": "lagos-city-v3:street-density-v1",
+        "navigationAdmission": "unchanged-runtime-authoritative-closed",
+        "excluded": ["surrounding north-bank land", "theatre-ring-drive", "theatre-marina-approach", "six radial garden paths", "53 source trees", "three source basins", "transit shelters and vehicles", "sign lettering", "native collision", "native navigation", "native outdoor lighting"],
+        "materialFidelity": "Exact base colours and source surface heights; shader grain, transparent glazing and water effects not reproduced."
+      }
+    }
+  ],
+  "followOn": {
+    "selectedJobs": ["city/theatre-grounds"],
+    "handoffPath": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\native-first-block.json",
+    "handoffSha256": null,
+    "approval": "Parent must inspect and independently pin this file's actual bytes before adding it to an execution receipt. It is not an enabled authorization receipt.",
+    "compositionJobId": "city/streamed-world-composition",
+    "compositionState": "requires-separate-approved-handoff-after-real-child-map-identities-exist",
+    "compositionInstruction": "The generator saves each selected job to its own immutable map. Do not claim the landmark and grounds are one scene yet. For a bounded combined scene, parent can authorize a composition handoff containing these ground meshes and the verified landmark child only, instead of generating a redundant grounds child. Composition needs nonempty mesh/part/template content and exact streamingLevels child package/identity pairs. Never override an implemented direct job, fabricate package identities, duplicate coincident ground or alter saved child worlds.",
+    "streamingVisibility": "Generated children are initially unloaded and invisible. A separately authorized editor-only inspection may load/show them serially. It must not enable runtime admission or change startup maps."
+  },
+  "cameras": [
+    {"id": "south-promenade-wide", "poseStatus": "proposed-editor-inspection-not-authored-runtime-camera", "sourceEyeMetres": [-2200,1.7,1557], "sourceTargetMetres": [-2200,20,1350], "ueEyeCentimetres": [155700,-220000,170], "ueTargetCentimetres": [135000,-220000,2000], "ueRotatorDegrees": {"pitch": 5.052144556286156, "yaw": 180, "roll": 0}, "horizontalFovDegrees": 70, "purpose": "Full theatre roof and podium from promenade origin"},
+    {"id": "south-promenade-middle", "poseStatus": "proposed-editor-inspection-not-authored-runtime-camera", "sourceEyeMetres": [-2200,1.7,1511], "sourceTargetMetres": [-2200,20,1350], "ueEyeCentimetres": [151100,-220000,170], "ueTargetCentimetres": [135000,-220000,2000], "ueRotatorDegrees": {"pitch": 6.484670676508087, "yaw": 180, "roll": 0}, "horizontalFovDegrees": 75, "purpose": "Roof/gallery-band silhouette at player height"},
+    {"id": "south-arrival-close", "poseStatus": "proposed-editor-inspection-not-authored-runtime-camera", "sourceEyeMetres": [-2200,1.7,1458], "sourceTargetMetres": [-2200,4,1443.2], "ueEyeCentimetres": [145800,-220000,170], "ueTargetCentimetres": [144320,-220000,400], "ueRotatorDegrees": {"pitch": 8.833414651219002, "yaw": 180, "roll": 0}, "horizontalFovDegrees": 80, "purpose": "Entrance canopy, doors and sign board; not full-building framing"}
+  ],
+  "cameraRoutes": [
+    {"canonicalId": "theatre-south-promenade", "sourcePointer": "packages/assets/city/lagos-national-theatre-v1.json#/paths/6", "sourceFloorPointsMetres": [[-2200,0,1557],[-2200,0,1511],[-2200,0,1458]], "ueFloorPointsCentimetres": [[155700,-220000,0],[151100,-220000,0],[145800,-220000,0]], "widthMetres": 8, "lengthMetres": 99, "eyeHeightMetres": 1.7, "clearanceStatus": "source-path-candidate-not-native-or-swept-disc-verified", "stopAtArrival": true, "doNotEnter": "The reserve begins at source z=1445.2. Do not extend the route into the podium or create a player spawn/admission grant."}
+  ],
+  "retainedTransitContext": {
+    "sourceVersion": "lagos-city-transit-v1",
+    "sourceNavigationRevision": "lagos-city-v3:connected-transit-v1",
+    "generationStatus": "not-in-selected-batch",
+    "roadIds": ["theatre-ring-drive", "theatre-marina-approach"],
+    "stopIds": ["brt-stop:theatre-ring-drive:1:340", "brt-stop:theatre-ring-drive:1:884"],
+    "routeIds": ["brt:theatre-ring-drive", "danfo:theatre-ring-drive", "keke:theatre-ring-drive"],
+    "vehicleIds": ["brt:theatre-ring-drive", "brt:theatre-ring-drive:second", "danfo:theatre-ring-drive", "keke:theatre-ring-drive"],
+    "southStop": {"sourceArrayIndex": 26, "id": "brt-stop:theatre-ring-drive:1:340", "roadMetres": 339.99832576102716, "sourceApproachMetres": [-2205.1709141683923,0,1562.950812689299], "sourceShelter": {"x": -2209.946366103554, "z": 1564.0666347248234, "yaw": -1.630760286364352}},
+    "instruction": "Use these existing identities and source poses for the next street-detail asset handoff. Do not move a bus stop into the promenade or relocate signature buildings. Registered vehicle assets and native material/mesh delivery remain separate required inputs."
+  },
+  "authorizationRequirements": {
+    "isAuthorizationReceipt": false,
+    "requestedHumanWorkEvidence": {"date": "2026-10-11", "text": "i need tasks sent out to talk to the models and codex on windows and start world building, i have built alot about the game with no world yet and nothing to show", "scope": "Direct user request for delegation and visible world building; parent must bind the actual request identity and authorized operations to a named execution receipt."},
+    "requiredReceiptFields": ["schemaVersion=1", "sourceCommit", "nonempty pinned sources", "actual humanAuthorizationEvidence", "fresh expectedPid", "generatorIdentity", "exact jobs", "engineGeneration=true", "nativeMeshImport=true", "nativeMaterialShaderProcessing=true", "saveNativePackages=true", "referenceManifestReview with actual evidence"],
+    "receiptDirectory": "C:\\dev\\cribtest-game\\output\\cribtest11-world-generation\\authorizations",
+    "independentReceiptSha256Required": true,
+    "referenceManifestReview": {
+      "observedSha256": "800e29a26cb897a10e50657b3cd3dced1b9f385342560fae73d96efe53b00447",
+      "dispatchSha256": "15c73b4c06e57b6cc7088d26bd439e9c7345e22c5d93445bf7034399c0771d91",
+      "reconciliationSource": "output/cribtest11-world-generation/MAC-RECOVERY-2026-10-10.md and reference-manifest-reconciliation.json",
+      "cause": "Same parsed manifest; formatted file-byte SHA-256 differs from compact JSON.stringify SHA-256 used by the original dispatch receipt. Historical evidence remains unchanged.",
+      "coordinatorReport": "Manifest formatting reconciled but canonical.py still asks referenceManifestReview humanReviewEvidence; record actual coordinator evidence and no fabricated Joshua reconciliation.",
+      "humanReviewEvidence": null,
+      "requiredAction": "Parent records the real coordinator reconciliation identity/date/evidence. Do not claim Joshua reviewed it, invent human evidence, weaken References.verify or treat this null field as approval. If the available evidence does not satisfy the guard's authority requirement, hold for clarification."
+    },
+    "nativeTemplateDuplication": false,
+    "nativeLevelComposition": false,
+    "separateOperations": ["derived grounds handoff approval", "composition handoff and nativeLevelComposition=true", "editor lighting/camera authoring and rendered inspection permission"],
+    "excluded": ["tests", "builds", "compilation", "lint", "typechecks", "navigation generation", "lighting baking", "installations", "services", "Config/startup-map changes", "production renderer edits", "saved Home content", "runtime account or movement admission", "release"]
+  },
+  "requiredReturn": {
+    "directBatch": ["actual saved mapPackage and world identity", "immutable batch receipt", "completed-world reference", "job journal", "generatedDependencies with package and sidecar hashes"],
+    "visibleMilestone": ["bounded combined scene after approved composition", "wide and middle player-height PNGs plus entrance close PNG", "actual camera eye/target readback and loaded child inventory", "explicit missing details and visual review result"],
+    "inspectionStatus": "not-rendered-not-clearance-verified-not-playable"
+  }
+}

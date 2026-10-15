@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "owner": "cribtest11-world-generation-20261010",
+  "operation": "town-centre-direct-batch-2026-10-11-pid1784",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "humanAuthorizationEvidence": {
+    "date": "2026-10-11",
+    "request": "Continue building our Nigerian open-world game in C:\\dev\\cribtest-game. NEXT DELIVERABLE: A COMPLETE CONNECTED NEIGHBOURHOOD.",
+    "scope": "Current direct request authorizes existing-editor world authoring, approved native imports, ordinary asset and material processing, map saves and rendered previews for the selected dependency-ready town-centre district and its directly connected canonical destinations. Gameplay authority remains closed.",
+    "gameplayAuthorization": false
+  },
+  "expectedPid": 1784,
+  "expectedProject": "C:/dev/cribtest-game/apps/companion-unreal/",
+  "expectedEngineVersion": "5.8.3-58210709+++UE5+Release-5.8",
+  "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+  "jobs": [
+    "city/districts/town-centre",
+    "city/road-ribbons",
+    "city/landmarks",
+    "city/signatures/library-lane-3",
+    "city/signatures/college-lane-16",
+    "city/signatures/garden-avenue-3",
+    "city/dance-again-exterior",
+    "city/civic-terrace-exterior",
+    "places/civic-reception",
+    "places/civic-terrace-lounge",
+    "places/pool-courtyard"
+  ],
+  "engineGeneration": true,
+  "nativeMeshImport": true,
+  "nativeMaterialShaderProcessing": true,
+  "saveNativePackages": true,
+  "nativeTemplateDuplication": false,
+  "nativeLevelComposition": false,
+  "sources": [
+    {
+      "path": "packages/assets/city/lagos-city-v3.json",
+      "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a"
+    },
+    {
+      "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4"
+    },
+    {
+      "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+      "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62"
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityScene.ts",
+      "sha256": "8b9697d59ec162ac8e657a1cc812ba19e66d4705a7938e2a7c3ce367fa0fa3c6"
+    },
+    {
+      "path": "packages/assets/venues/civic-terrace-v1.json",
+      "sha256": "60a5d3b2db5fc8e22ebeb7b248dffd320a0e508245846a660e1e23b5f1c817f4"
+    },
+    {
+      "path": "packages/assets/venues/civic-interiors-v1.json",
+      "sha256": "682a8a8c70aa397f2c926be0159f68d32d06b431c865c4f7e6c6f6377fdcfdb5"
+    },
+    {
+      "path": "packages/assets/venues/pool-courtyard-v1.json",
+      "sha256": "5e2bcfd8e195ab52b352efe4aca6b9644c8ca3f28f1504219863ba4f20cfd510"
+    },
+    {
+      "path": "packages/utils/src/companionPlacesExpansion.ts",
+      "sha256": "83f5f7ae488e10892ef72e8de196ec102a367c737ae330b34bca3e5975adff2b"
+    },
+    {
+      "path": "packages/utils/src/companionPlacesCivicInteriors.ts",
+      "sha256": "c4b0ca3fb268ab7114dc5871a5cbc246aeebe2b121238a50f5fff3dbe3eb0ee6"
+    },
+    {
+      "path": "packages/utils/src/companionPlacesPoolCourtyard.ts",
+      "sha256": "196fcab1f9881b6e7b117eacdf068bc51787d22201d4f0c31d19da7c2d88fe25"
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/lagos-places/poolCourtyardGeometry.ts",
+      "sha256": "5317f4b5c674bd8b2ec2552869df3d9f757aa1bed23b1866475aea262bc8b73a"
+    }
+  ],
+  "generatorSourceHashes": {
+    "__init__.py": "bc90e43b52d63f95fbbf1fba01ea5a26aaf2cb8c39ec7e6f72c56493cb3e502d",
+    "bridge_request.py": "3adba130b142ec2e173017bad06fa8ccc68cf19b77df8d48f4e2b05cf9bf0704",
+    "canonical.py": "543b562d3da7dc2dbd2ee8ec252f6eb58a177eaa82c84827abb356d02a285e1f",
+    "geometry.py": "b825f0622252c9282ff7f6b1555d6d93df42cc329dde4949a844e3e6b3c629a6",
+    "native_generator.py": "c109cbee121089aa4ed865cb713edfe47b816e42df029d55025789eb9ecbf198",
+    "recipes.py": "30cb1c80d22d9e29010a0938cf9823800e3568a2433cc6f5643cf91805ab8321"
+  },
+  "referenceManifestReview": {
+    "observedSha256": "800e29a26cb897a10e50657b3cd3dced1b9f385342560fae73d96efe53b00447",
+    "dispatchSha256": "15c73b4c06e57b6cc7088d26bd439e9c7345e22c5d93445bf7034399c0771d91",
+    "humanReviewEvidence": {
+      "humanAuthorization": "The current October 11, 2026 request explicitly directs current-state inspection and execution of a complete connected neighbourhood in the running editor.",
+      "coordinatorReconciliation": "The saved MAC recovery evidence confirms the raw manifest byte digest and the compact JSON.stringify digest differ only by serialization while all 250 pinned source hashes match.",
+      "evidencePath": "output/cribtest11-visible-world-2026-10-11/MAC-RECOVERY-2026-10-10.md",
+      "evidenceSha256": "bf6f28b763ccfde1f72036914d927cc59e93b5ac1e5749e739e4113c932853ad",
+      "manualJoshuaDigestReviewEstablished": false
+    }
+  },
+  "district": {
+    "id": "town-centre",
+    "bounds": {
+      "minX": -556.625,
+      "maxX": 573.92,
+      "minZ": -992.69,
+      "maxZ": 28.855
+    },
+    "parcelCount": 138,
+    "signatureJobs": [
+      "city/signatures/library-lane-3",
+      "city/signatures/college-lane-16",
+      "city/signatures/garden-avenue-3"
+    ],
+    "destinationIds": [
+      "corner-supermarket",
+      "salon",
+      "community-gym",
+      "cinema",
+      "city-library",
+      "arts-centre",
+      "dance-again",
+      "pool-courtyard",
+      "civic-reception",
+      "civic-terrace-lounge"
+    ]
+  },
+  "handoffs": [],
+  "gates": {
+    "accountAccess": false,
+    "movementAdmission": false,
+    "missionReadiness": false,
+    "utilityAuthority": false
+  },
+  "excluded": [
+    "C++ compilation",
+    "tests",
+    "lint",
+    "typechecks",
+    "project generation",
+    "full builds",
+    "HLOD commands",
+    "navigation generation",
+    "lighting bake",
+    "deployment",
+    "release",
+    "Config or startup-map changes"
+  ]
+}

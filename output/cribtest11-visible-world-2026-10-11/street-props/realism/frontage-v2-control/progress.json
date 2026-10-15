@@ -1,0 +1,199 @@
+{
+  "job": "yaba-frontage-replacement-v1",
+  "pid": 12848,
+  "step": "saved_exported_rendered_reopened_pending_image_review",
+  "updated_at": "2026-10-11T10:04:58.052659+00:00",
+  "outputs": [
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\YabaFrontage.blend",
+      "sha256": "f65f16b7215eb745898816169885de31e149b12d0adacd2adc8b5fb1b57123d6",
+      "bytes": 105399183
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\execution.json",
+      "sha256": "5be810d51412a14b88a672ad8d102c234e402c0a0d075e8cea5ea40024109af0",
+      "bytes": 8413
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\placement.json",
+      "sha256": "7c0b6140cc2d3f07956fe78fe88bd69693f37e09d4ff12423fdc84693ec1f99d",
+      "bytes": 12727
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\material-bindings.json",
+      "sha256": "fd9efda83d15223eecf9052ead6cac006b76bfd00d11ad5425c3b0664cf469c3",
+      "bytes": 9222
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\scene-probe-reopened.json",
+      "sha256": "59cefdd799e1f5d03927ff408662520dcc9551808ebf5dffc69e5c830954b185",
+      "bytes": 6573
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\asset-inspection-reopened.json",
+      "sha256": "68eed7756c9336a60fb67254a5868f0b3f90620c4ec8ec3bcf6a58ace94fa6e6",
+      "bytes": 6276
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\ACServiceAssembly.fbx",
+      "sha256": "d4cc60aa0b010a965cad142c0bc91ca4d2d59b5c6b79e9994b8d786bbdb1c491",
+      "bytes": 287100
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Balcony3900.fbx",
+      "sha256": "16bc1ecd6a1fb7b9528ac75ed01f4a2f66001e4cacfc514963ca5513726e2a81",
+      "bytes": 195836
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Drain1000.fbx",
+      "sha256": "4299137345745e5a910d7f89317e4c4fc6154098ca75e8b8d0ade30e357278f0",
+      "bytes": 26924
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\DrainCover1000.fbx",
+      "sha256": "aa324c3af3913a2cb198b5848b410bbb2723e08e06b5333b36bb32313f16194a",
+      "bytes": 40508
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\FrontageStructure.fbx",
+      "sha256": "4e0d67c18e6fecf8659652ed7a313d0a7964e0a944dfbf289ea29133742ee419",
+      "bytes": 94044
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Gutter3900.fbx",
+      "sha256": "7ad3521e84b7d21b35eebf1ec158149500cb848d57087406fc94db05ee517301",
+      "bytes": 40028
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\JunctionInlet.fbx",
+      "sha256": "008f03a59b5546308e82671d4a065af3000910c1535329ffe865ae017af1cdb7",
+      "bytes": 74412
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Kerb1000.fbx",
+      "sha256": "307cf7ddb272c692268a03db466faeee9b2e13b1e4a467473ac9bd4b79e7461d",
+      "bytes": 21324
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\OpenShopInterior.fbx",
+      "sha256": "9746638f5ba72acc9b393a438f96a5ce5b246734ce3ed7c8805cc079052013ac",
+      "bytes": 71996
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Pavement1000.fbx",
+      "sha256": "c6c28659f4d0fece60cdc738dcb5ae4badc9b5aecdd251c46f350d68a5a334be",
+      "bytes": 29932
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\PlasterRepair.fbx",
+      "sha256": "aa4fd6d5769a94fa511ec93c8dfd4a704d66034ba3ed2e6fad7ed4c61dc47fac",
+      "bytes": 16012
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\RainwaterDownpipe.fbx",
+      "sha256": "4aebd0ee9550f04cb2ae2e9d4ed43c325ac2346f9929cd706a064e4af72eb249",
+      "bytes": 31932
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\ResidentialBay.fbx",
+      "sha256": "026a54573255f9c84253f9169b45862fbd5dc4b57a60781f9b79ab05f01492fa",
+      "bytes": 21996
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\RoadJunction.fbx",
+      "sha256": "026a092cc6f8c53fdf04f0f822e6ea30bd8324340f5f03a8a2368c924d9da9ae",
+      "bytes": 27212
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\RoofSheetPanel.fbx",
+      "sha256": "52b8a36a083b96d90b1e8ede4ee9e4a9ebbe95f5ddc6632bcaa6ab779c6dd827",
+      "bytes": 88300
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\ShopBay.fbx",
+      "sha256": "9621e21764a5073ba68cac856a778985c7c44a556ddea2c57b92ae53f42a7167",
+      "bytes": 21644
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Shutter2800.fbx",
+      "sha256": "80547716d369ae424a3fed006051ee3af41c1e463b6fde343af8c0e5d42f5a50",
+      "bytes": 162956
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Window1300.fbx",
+      "sha256": "afc954640714e73d7765cb13ed135ad55b8176a120bb18237f9d2be54e929def",
+      "bytes": 115260
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\asphalt_base_color.jpg",
+      "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de",
+      "bytes": 3573942
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\asphalt_normal_gl.png",
+      "sha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647",
+      "bytes": 28117230
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\asphalt_roughness.png",
+      "sha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3",
+      "bytes": 6938020
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\concrete_base_color.jpg",
+      "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846",
+      "bytes": 2666189
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\concrete_normal_gl.png",
+      "sha256": "3d26d24586556ee400506888ad6496733a67bcc9020616c10119c1c343c5be24",
+      "bytes": 14170572
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\concrete_roughness.png",
+      "sha256": "af2c3055aea34c0b1366b04ccdc90a83ed22e997de446a2d1e02817c800eb026",
+      "bytes": 6697755
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\corrugated_metal_base_color.jpg",
+      "sha256": "1bd2b9900e066d7e6cbacc5093aa4204db71c1bbe13b42a3d8ad23d04fa8075a",
+      "bytes": 2325335
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\corrugated_metal_roughness.png",
+      "sha256": "7bf7e03196e601b4173822505e7cb01b401b4e50bb98bc0ecc556de7d4b231c3",
+      "bytes": 7864640
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\plaster_base_color.jpg",
+      "sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be",
+      "bytes": 3132937
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\plaster_normal_gl.png",
+      "sha256": "322041257ab0dad1a1a1c18d98bc28689136103f6a64d4849f7aa3ae5b8b090f",
+      "bytes": 22789885
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\plaster_roughness.png",
+      "sha256": "e355a47f007bcf8b50c9e2f9edfc9f45d85501eefc63a822fd82c2dbc7ab34ea",
+      "bytes": 6836443
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\Construction.png",
+      "sha256": "292923889d0d5f43023772c7cbc61ea52b8ae2cc0b29d2b69158a37cdcc01949",
+      "bytes": 754609
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\Frontage.png",
+      "sha256": "31c27560a38b05c48a27980c502fa1b86148178e4a62190bc85cd94aadc3bf92",
+      "bytes": 769602
+    },
+    {
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\Junction.png",
+      "sha256": "6cd1b821a7b063f0e14a7a0fea043bdd4c86207e76a6b991b089ce7a1c6afd6b",
+      "bytes": 781662
+    }
+  ],
+  "errors": []
+}

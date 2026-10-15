@@ -1,0 +1,192 @@
+{
+  "coordinator_completion_confirmed": true,
+  "verified_at": "2026-10-11T02:58:17.3728344-07:00",
+  "root": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified",
+  "file_count": 20,
+  "bytes": 260970634,
+  "material_manifest_sha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46",
+  "binding_manifest_sha256": "892d6f78340ec268a97dfd9f15cfcff7b869881058f05f1d98d786016e62944a",
+  "license": "CC0-1.0",
+  "files": [
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/concrete_wall_008/concrete_wall_008_diff_2k.jpg",
+      "bytes": 2666189,
+      "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846",
+      "role": "Diffuse",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_008/concrete_wall_008_diff_2k.jpg",
+      "normalConvention": null,
+      "colorSpace": "sRGB"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/concrete_wall_008/concrete_wall_008_rough_2k.png",
+      "bytes": 6697755,
+      "sha256": "af2c3055aea34c0b1366b04ccdc90a83ed22e997de446a2d1e02817c800eb026",
+      "role": "Rough",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/concrete_wall_008/concrete_wall_008_rough_2k.png",
+      "normalConvention": null,
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/concrete_wall_008/concrete_wall_008_nor_gl_2k.png",
+      "bytes": 14170572,
+      "sha256": "3d26d24586556ee400506888ad6496733a67bcc9020616c10119c1c343c5be24",
+      "role": "nor_gl",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/concrete_wall_008/concrete_wall_008_nor_gl_2k.png",
+      "normalConvention": "OpenGL +Y",
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/concrete_wall_008/concrete_wall_008_nor_dx_2k.png",
+      "bytes": 14168235,
+      "sha256": "137d69eeddfbab832bfa7250899d89d7d2a90ab81080181fadb26786d11f5469",
+      "role": "nor_dx",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/concrete_wall_008/concrete_wall_008_nor_dx_2k.png",
+      "normalConvention": "DirectX -Y",
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/painted_plaster_wall/painted_plaster_wall_diff_2k.jpg",
+      "bytes": 3132937,
+      "sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be",
+      "role": "Diffuse",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/painted_plaster_wall/painted_plaster_wall_diff_2k.jpg",
+      "normalConvention": null,
+      "colorSpace": "sRGB"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/painted_plaster_wall/painted_plaster_wall_rough_2k.png",
+      "bytes": 6836443,
+      "sha256": "e355a47f007bcf8b50c9e2f9edfc9f45d85501eefc63a822fd82c2dbc7ab34ea",
+      "role": "Rough",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/painted_plaster_wall/painted_plaster_wall_rough_2k.png",
+      "normalConvention": null,
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/painted_plaster_wall/painted_plaster_wall_nor_gl_2k.png",
+      "bytes": 22789885,
+      "sha256": "322041257ab0dad1a1a1c18d98bc28689136103f6a64d4849f7aa3ae5b8b090f",
+      "role": "nor_gl",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/painted_plaster_wall/painted_plaster_wall_nor_gl_2k.png",
+      "normalConvention": "OpenGL +Y",
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/painted_plaster_wall/painted_plaster_wall_nor_dx_2k.png",
+      "bytes": 22789119,
+      "sha256": "148d654923ae5a5c4f9c248fabc74e06898578e583b5671d6ffb4ee159b897fd",
+      "role": "nor_dx",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/painted_plaster_wall/painted_plaster_wall_nor_dx_2k.png",
+      "normalConvention": "DirectX -Y",
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/worn_asphalt/worn_asphalt_diff_2k.jpg",
+      "bytes": 3573942,
+      "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de",
+      "role": "Diffuse",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/worn_asphalt/worn_asphalt_diff_2k.jpg",
+      "normalConvention": null,
+      "colorSpace": "sRGB"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/worn_asphalt/worn_asphalt_rough_2k.png",
+      "bytes": 6938020,
+      "sha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3",
+      "role": "Rough",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_rough_2k.png",
+      "normalConvention": null,
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/worn_asphalt/worn_asphalt_nor_gl_2k.png",
+      "bytes": 28117230,
+      "sha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647",
+      "role": "nor_gl",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_nor_gl_2k.png",
+      "normalConvention": "OpenGL +Y",
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/worn_asphalt/worn_asphalt_nor_dx_2k.png",
+      "bytes": 28111508,
+      "sha256": "cebf786add56cd1f2ea3096fa918f0e2bfbbb64feb8f8957576a12cd7a97333c",
+      "role": "nor_dx",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_nor_dx_2k.png",
+      "normalConvention": "DirectX -Y",
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/corrugated_iron_02/corrugated_iron_02_diff_2k.jpg",
+      "bytes": 2325335,
+      "sha256": "1bd2b9900e066d7e6cbacc5093aa4204db71c1bbe13b42a3d8ad23d04fa8075a",
+      "role": "Diffuse",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/corrugated_iron_02/corrugated_iron_02_diff_2k.jpg",
+      "normalConvention": null,
+      "colorSpace": "sRGB"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/corrugated_iron_02/corrugated_iron_02_rough_2k.png",
+      "bytes": 7864640,
+      "sha256": "7bf7e03196e601b4173822505e7cb01b401b4e50bb98bc0ecc556de7d4b231c3",
+      "role": "Rough",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/corrugated_iron_02/corrugated_iron_02_rough_2k.png",
+      "normalConvention": null,
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/corrugated_iron_02/corrugated_iron_02_nor_gl_2k.png",
+      "bytes": 20397959,
+      "sha256": "57966705714a10b718efc31368879c75fbf24ee3d3295106eada9094513f9cbc",
+      "role": "nor_gl",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/corrugated_iron_02/corrugated_iron_02_nor_gl_2k.png",
+      "normalConvention": "OpenGL +Y",
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/corrugated_iron_02/corrugated_iron_02_nor_dx_2k.png",
+      "bytes": 20397388,
+      "sha256": "1b747a5f698ea2c992d1ea3a21297783f55eb39d5a4176e558e9def627170c46",
+      "role": "nor_dx",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/corrugated_iron_02/corrugated_iron_02_nor_dx_2k.png",
+      "normalConvention": "DirectX -Y",
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/wood_planks_grey/wood_planks_grey_diff_2k.jpg",
+      "bytes": 998333,
+      "sha256": "31bdd475c6f1520fccc34a6823bfab8ba61ce5fd6dd97a3d1d868c21295e1000",
+      "role": "Diffuse",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_grey/wood_planks_grey_diff_2k.jpg",
+      "normalConvention": null,
+      "colorSpace": "sRGB"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/wood_planks_grey/wood_planks_grey_rough_2k.png",
+      "bytes": 7380375,
+      "sha256": "0e76025babe056bfdcd750a8f186df92d359fa804273fceb0f23d4884b9f5520",
+      "role": "Rough",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/wood_planks_grey/wood_planks_grey_rough_2k.png",
+      "normalConvention": null,
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/wood_planks_grey/wood_planks_grey_nor_gl_2k.png",
+      "bytes": 20807642,
+      "sha256": "c8cc509c74efa77bf9e2f09002b32dbf0cb12913494c664070d599a182fbcaf0",
+      "role": "nor_gl",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/wood_planks_grey/wood_planks_grey_nor_gl_2k.png",
+      "normalConvention": "OpenGL +Y",
+      "colorSpace": "Non-Color"
+    },
+    {
+      "path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/wood_planks_grey/wood_planks_grey_nor_dx_2k.png",
+      "bytes": 20807127,
+      "sha256": "589d1a0ca42f1cc64b43ca73852251969188a07b9a24e8001fe9a14bfb208272",
+      "role": "nor_dx",
+      "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/wood_planks_grey/wood_planks_grey_nor_dx_2k.png",
+      "normalConvention": "DirectX -Y",
+      "colorSpace": "Non-Color"
+    }
+  ]
+}

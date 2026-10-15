@@ -1,0 +1,109 @@
+{
+  "retrievedDate": "2026-10-11",
+  "provider": "Open Topo Data public API",
+  "sourceUrl": "https://api.opentopodata.org/v1/srtm30m?locations=6.5566101,3.3318778%7C6.5585843,3.3383431%7C6.5585716,3.3384591%7C6.5573911,3.3379153%7C6.5573874,3.3380191%7C6.5566888,3.3377130%7C6.5566944,3.3378710%7C6.5572686,3.3397774&interpolation=nearest",
+  "rawSha256": "ed8168cb216aa8f8d746b99a8e6f1874605d0b13f74173b5aa83a8e42e0d3e82",
+  "dataset": "srtm30m",
+  "providerStatedVersion": 3,
+  "interpolation": "nearest",
+  "sourceHorizontalDatum": "WGS84",
+  "sourceVerticalDatum": "EGM96",
+  "sourceVerticalUnits": "metres",
+  "nominalAngularSpacingArcSeconds": 1,
+  "approximateHorizontalSpacingMetres": 30,
+  "missionAcquisition": "2000-02-11 through 2000-02-22; void-fill sources may differ",
+  "role": "Historical coarse terrain context, not bridge deck/road/drain survey",
+  "canonicalWorldRegistration": null,
+  "engineVerticalDatum": null,
+  "approvedForCollision": false,
+  "approvedForFloodCalibration": false,
+  "approvedForRoadGrade": false,
+  "samples": [
+    {
+      "osmNodeId": 1073317008,
+      "queryCoordinates": [
+        3.3318778,
+        6.5566101
+      ],
+      "rasterElevationMetres": 26,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 5624392796,
+      "queryCoordinates": [
+        3.3383431,
+        6.5585843
+      ],
+      "rasterElevationMetres": 12,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 5624392798,
+      "queryCoordinates": [
+        3.3384591,
+        6.5585716
+      ],
+      "rasterElevationMetres": 12,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 11876557994,
+      "queryCoordinates": [
+        3.3379153,
+        6.5573911
+      ],
+      "rasterElevationMetres": 12,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 11876557995,
+      "queryCoordinates": [
+        3.3380191,
+        6.5573874
+      ],
+      "rasterElevationMetres": 13,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 5624643863,
+      "queryCoordinates": [
+        3.337713,
+        6.5566888
+      ],
+      "rasterElevationMetres": 8,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 5624392795,
+      "queryCoordinates": [
+        3.337871,
+        6.5566944
+      ],
+      "rasterElevationMetres": 8,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1079925522,
+      "queryCoordinates": [
+        3.3397774,
+        6.5572686
+      ],
+      "rasterElevationMetres": 18,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    }
+  ],
+  "notes": [
+    "Nearby bridge ends can share a raster cell; equal values do not prove a level deck",
+    "The 1 m Olaiya endpoint difference is not a measured bridge slope",
+    "Do not treat queried coordinates as cell-center or survey coordinates",
+    "No local accuracy metadata, bare-earth separation or original tile obtained"
+  ]
+}

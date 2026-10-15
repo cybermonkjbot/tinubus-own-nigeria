@@ -1,0 +1,116 @@
+{"job": "yaba-frontage-v3", "pid": 10588, "step": "verified_inputs_begin_frozen_authoring", "updated_at": "2026-10-11T10:30:21.140466+00:00", "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "source_hashes": {"author_yaba_frontage_v3.py": "39b52640e108b41cfccf34da5cafc2f7542f61561c4f6afa50058291ddc57f45", "change-contract.json": "b171d8be74fb9882772aa6f48025bd43565efe44b69b22be2333f1e3ea931e3b", "HANDOFF.md": "ed2e35c821535c407546354d1671a7de83099bcda1baac1e7bb3cb5e35b0a3bd"}, "material_manifest_sha256": "b64f148584e85b8e90207c84334133d3d1ff83b8e33b516f65cf836a99b46d4c"}
+Info: Saved as "YabaFrontageV3.blend"
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\ResidentialBay.fbx'
+export finished in 0.0069 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\ShopBay.fbx'
+export finished in 0.0067 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\ResidentialBay_V3Left.fbx'
+export finished in 0.0064 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\ShopBay_V3Left.fbx'
+export finished in 0.0066 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\ResidentialBay_V3Right.fbx'
+export finished in 0.0064 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\ShopBay_V3Right.fbx'
+export finished in 0.0065 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\Window1300.fbx'
+export finished in 0.0360 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\Shutter2800.fbx'
+export finished in 0.0541 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\OpenShopInterior.fbx'
+export finished in 0.0327 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\Balcony3900.fbx'
+export finished in 0.0609 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\ACServiceAssembly.fbx'
+export finished in 0.0768 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\RoofSheetPanel.fbx'
+export finished in 0.0218 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\Gutter3900.fbx'
+export finished in 0.0119 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\RainwaterDownpipe.fbx'
+export finished in 0.0098 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\Drain1000.fbx'
+export finished in 0.0092 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\DrainCover1000.fbx'
+export finished in 0.0106 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\Kerb1000.fbx'
+export finished in 0.0065 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\Pavement1000.fbx'
+export finished in 0.0100 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\RoadJunction.fbx'
+export finished in 0.0092 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\JunctionInlet.fbx'
+export finished in 0.0265 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\PlasterRepair.fbx'
+export finished in 0.0054 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\Window1300_V3Curtain.fbx'
+export finished in 0.0441 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\Window1300_V3Louvres.fbx'
+export finished in 0.0843 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\ACServiceAssembly_V3Compact.fbx'
+export finished in 0.0779 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\ACServiceAssembly_V3Cover.fbx'
+export finished in 0.0827 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\V3_StockTin.fbx'
+export finished in 0.0083 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\V3_StockJar.fbx'
+export finished in 0.0069 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\V3_StockBottle.fbx'
+export finished in 0.0088 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\V3_PaperPackage.fbx'
+export finished in 0.0072 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\V3_TimberCrate.fbx'
+export finished in 0.0373 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\V3_GrainSack.fbx'
+export finished in 0.0135 sec.
+
+FBX export starting... 'C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\fbx\\FrontageStructure.fbx'
+export finished in 0.0386 sec.
+{"job": "yaba-frontage-v3", "pid": 10588, "step": "exports_complete_configuring_saved_cameras", "updated_at": "2026-10-11T10:30:27.319589+00:00", "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "execution": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\execution.json"}
+Info: Saved as "YabaFrontageV3.blend"
+{"job": "yaba-frontage-v3", "pid": 10588, "step": "saved_before_render_reopening", "updated_at": "2026-10-11T10:30:28.546264+00:00", "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "blend": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\YabaFrontageV3.blend", "sha256": "6ea6d7bb05a2c0d44deab135145d6c13f77dbc30751303a2670df753e0c88168"}
+00:08.969  blend            | Read blend: "C:\dev\baddie-assets\YabaRealismKit\frontage-v3-owned\frontage-v3\YabaFrontageV3.blend"
+{"job": "yaba-frontage-v3", "pid": 10588, "step": "saved_reopened_probe_complete", "updated_at": "2026-10-11T10:30:29.807048+00:00", "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "blend": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\YabaFrontageV3.blend", "sha256": "6ea6d7bb05a2c0d44deab135145d6c13f77dbc30751303a2670df753e0c88168", "missing_dependencies": 0, "panel_contacts": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\construction-contact-inspection.json", "stock_intrusion_count": 0}
+{"job": "yaba-frontage-v3", "pid": 10588, "step": "rendering", "updated_at": "2026-10-11T10:30:29.809028+00:00", "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "camera": "Frontage", "frames": [], "samples": 24, "threads": 2, "resolution": [960, 640]}
+00:42.140  render           | Saved: 'C:\dev\baddie-assets\YabaRealismKit\frontage-v3-owned\frontage-v3\Frontage.partial.png'
+{"job": "yaba-frontage-v3", "pid": 10588, "step": "rendering", "updated_at": "2026-10-11T10:31:01.741527+00:00", "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "camera": "Junction", "frames": [{"file": "Frontage.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Frontage.png", "seconds": 31.923525300007896, "sha256": "bbce6c9e12523e34f3356404d1f5ed274269ea4feaaf2338e6fdd55895ade757"}], "samples": 24, "threads": 2, "resolution": [960, 640]}
+01:26.000  render           | Saved: 'C:\dev\baddie-assets\YabaRealismKit\frontage-v3-owned\frontage-v3\Junction.partial.png'
+{"job": "yaba-frontage-v3", "pid": 10588, "step": "rendering", "updated_at": "2026-10-11T10:31:45.612384+00:00", "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "camera": "Construction", "frames": [{"file": "Frontage.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Frontage.png", "seconds": 31.923525300007896, "sha256": "bbce6c9e12523e34f3356404d1f5ed274269ea4feaaf2338e6fdd55895ade757"}, {"file": "Junction.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Junction.png", "seconds": 43.859774999989895, "sha256": "90afe0de1754ba260366f20de473d8522deac52efc78bb2af90d2e821cb92e06"}], "samples": 24, "threads": 2, "resolution": [960, 640]}
+02:07.062  render           | Saved: 'C:\dev\baddie-assets\YabaRealismKit\frontage-v3-owned\frontage-v3\Construction.partial.png'
+{"job": "yaba-frontage-v3", "pid": 10588, "step": "rendering", "updated_at": "2026-10-11T10:32:26.667260+00:00", "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "camera": "WalkV3", "frames": [{"file": "Frontage.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Frontage.png", "seconds": 31.923525300007896, "sha256": "bbce6c9e12523e34f3356404d1f5ed274269ea4feaaf2338e6fdd55895ade757"}, {"file": "Junction.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Junction.png", "seconds": 43.859774999989895, "sha256": "90afe0de1754ba260366f20de473d8522deac52efc78bb2af90d2e821cb92e06"}, {"file": "Construction.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Construction.png", "seconds": 41.044767400002456, "sha256": "182ea8617666760b413b38d5586fbcaaea4d1ff1375b154e07db791055faea25"}], "samples": 24, "threads": 2, "resolution": [960, 640]}
+02:50.187  render           | Saved: 'C:\dev\baddie-assets\YabaRealismKit\frontage-v3-owned\frontage-v3\WalkV3.partial.png'
+{"output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "modules": 32, "instances": 173, "renders": 4, "visual_acceptance": "pending"}
+{"job": "yaba-frontage-v3", "pid": 10588, "step": "saved_exported_reopened_four_frames_pending_actual_review", "updated_at": "2026-10-11T10:33:10.847836+00:00", "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3", "blend": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\YabaFrontageV3.blend", "sha256": "6ea6d7bb05a2c0d44deab135145d6c13f77dbc30751303a2670df753e0c88168", "frames": [{"file": "Frontage.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Frontage.png", "seconds": 31.923525300007896, "sha256": "bbce6c9e12523e34f3356404d1f5ed274269ea4feaaf2338e6fdd55895ade757"}, {"file": "Junction.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Junction.png", "seconds": 43.859774999989895, "sha256": "90afe0de1754ba260366f20de473d8522deac52efc78bb2af90d2e821cb92e06"}, {"file": "Construction.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Construction.png", "seconds": 41.044767400002456, "sha256": "182ea8617666760b413b38d5586fbcaaea4d1ff1375b154e07db791055faea25"}, {"file": "WalkV3.png", "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\WalkV3.png", "seconds": 43.12545810001029, "sha256": "7b05b065a0a52ba18824c119270a896273b67f415c3a949c64e121ed04bee879"}], "modules": 32, "errors": []}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

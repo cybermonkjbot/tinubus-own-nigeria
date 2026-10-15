@@ -1,0 +1,20 @@
+{
+  "source_receipt": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\secondary-detailing-v2\\receipts\\shop-life-a79a409ab11a4fcdb02af357e3c070db.json",
+  "validated_and_saved": [
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Textures/T_DetailAtlas_BC.T_DetailAtlas_BC",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Textures/T_DetailAtlas_ORM.T_DetailAtlas_ORM",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Maintained.SM_PlasticChair_Maintained",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Worn.SM_PlasticChair_Worn",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticStool_A.SM_PlasticStool_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_A.SM_BeverageCrate_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_B.SM_BeverageCrate_B",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_CoolerBox_A.SM_CoolerBox_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ProduceTray_A.SM_ProduceTray_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ProduceTomatoes_A.SM_ProduceTomatoes_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ProduceOnions_A.SM_ProduceOnions_A"
+  ],
+  "rejected_asset": "SM_CounterScale_A",
+  "reason": "Native import removed 64 LOD0 triangles; excluded pending source repair",
+  "original_fbx_retained": true
+}

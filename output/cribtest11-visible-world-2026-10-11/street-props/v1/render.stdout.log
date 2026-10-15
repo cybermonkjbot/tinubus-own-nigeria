@@ -1,0 +1,12 @@
+00:01.328  blend            | Read blend: "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\v1\LagosStreetProps.blend"
+{"pid": 5736, "step": "saved_deliverable_reopened_for_asset_inspection"}
+{"pid": 5736, "step": "rendering_DanfoView"}
+00:44.984  render           | Saved: 'C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\v1\DanfoView.partial.png'
+{"pid": 5736, "step": "saved_DanfoView"}
+{"pid": 5736, "step": "rendering_LibraryView"}
+01:18.187  render           | Saved: 'C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\v1\LibraryView.partial.png'
+{"pid": 5736, "step": "saved_LibraryView"}
+{"pid": 5736, "step": "assets_and_two_frames_delivered"}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

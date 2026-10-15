@@ -1,0 +1,58 @@
+[
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-initial\\01-Worn-Danfo-Quarter.png",
+    "sha256": "ac407d14f9f0c8caf16827989cffbf08e99b2a70d50e9d53c3b7062079d8cd76",
+    "camera": "01-Worn-Danfo-Quarter",
+    "vehicle": "SM_Danfo_Worn_v1",
+    "seconds": 50.24165629998606
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-initial\\02-Breakdown-Danfo-Quarter.png",
+    "sha256": "dcc710eab4073f97040eae0d8bf7bacae16b669193d28f4485a22044c1b2c2cc",
+    "camera": "02-Breakdown-Danfo-Quarter",
+    "vehicle": "SM_Danfo_Breakdown_v1",
+    "seconds": 48.53827549998823
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-initial\\03-Older-Sedan-Quarter.png",
+    "sha256": "94f54cc37131df3b573e66aecb1c5dc890a681fe1e7a5920a0e204a82bf9926b",
+    "camera": "03-Older-Sedan-Quarter",
+    "vehicle": "SM_OlderSedan_Worn_v1",
+    "seconds": 48.33166630000051
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-initial\\04-Danfo-Wheel-Cabin.png",
+    "sha256": "795652af8529740dd5d281e9efd2efa8c9dee4f9c14f5d9a9b494b207d04fac0",
+    "camera": "04-Danfo-Wheel-Cabin",
+    "vehicle": "SM_Danfo_Worn_v1",
+    "seconds": 64.89669779999531
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-delivery\\01-Worn-Danfo-Quarter.png",
+    "sha256": "08b65132c44b4eeee687390bdafd785f94444ea3c38471350197a95bcfdf7187",
+    "camera": "01-Worn-Danfo-Quarter",
+    "vehicle": "SM_Danfo_Worn_v1",
+    "seconds": 23.422165399999358
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-delivery\\02-Breakdown-Danfo-Quarter.png",
+    "sha256": "62963a8957cfa66203068077ebf5a8bd9364384e6153f1947ec26bcd14237278",
+    "camera": "02-Breakdown-Danfo-Quarter",
+    "vehicle": "SM_Danfo_Breakdown_v1",
+    "seconds": 23.108714100002544
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-delivery\\03-Older-Sedan-Quarter.png",
+    "sha256": "87a6201188a2591026ff426e239b91f46097fdd80d4e218fc1625ea5e11bb4bc",
+    "camera": "03-Older-Sedan-Quarter",
+    "vehicle": "SM_OlderSedan_Worn_v1",
+    "seconds": 21.85065160000522
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\frames-delivery\\04-Danfo-Wheel-Cabin.png",
+    "sha256": "adf411cda38cd04b1f4de69367f5a27c8ede16a0a838e50e2172ab9761a4b9b8",
+    "camera": "04-Danfo-Wheel-Cabin",
+    "vehicle": "SM_Danfo_Worn_v1",
+    "seconds": 27.60288269999728
+  }
+]

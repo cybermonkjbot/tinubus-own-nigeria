@@ -1,0 +1,1472 @@
+{
+  "map": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_TownCentre_LibraryLane.L_TownCentre_LibraryLane",
+  "layer": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing",
+  "reopened": true,
+  "graphs": [
+    {
+      "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing.L_LibraryLane_Dressing:PersistentLevel.PCGVolume_0",
+      "graph": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/PCG/PCG_LibraryLane_Everyday.PCG_LibraryLane_Everyday",
+      "generated": true,
+      "components": [
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_A.SM_BeverageCrate_A",
+          "count": 2,
+          "instances": [
+            {
+              "location": [
+                -56105.35067227889,
+                -29701.255018444517,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55901.98828008465,
+                -30045.947253804796,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.5416985172634252,
+                0.8405728501412634
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_B.SM_BeverageCrate_B",
+          "count": 2,
+          "instances": [
+            {
+              "location": [
+                -56105.35067227889,
+                -29701.255018444517,
+                27.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55933.16276572809,
+                -30075.207319506484,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4115038790825677,
+                0.9114080082487753
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_CoolerBox_A.SM_CoolerBox_A",
+          "count": 2,
+          "instances": [
+            {
+              "location": [
+                -56043.922334414136,
+                -29831.637374840728,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55270.68031905443,
+                -31036.946375140997,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_HandledBucket_A.SM_HandledBucket_A",
+          "count": 1,
+          "instances": [
+            {
+              "location": [
+                -58345.825405146286,
+                -31747.53231338109,
+                0.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.8763328260412393,
+                0.4817061116516741
+              ],
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Maintained.SM_PlasticChair_Maintained",
+          "count": 2,
+          "instances": [
+            {
+              "location": [
+                -56272.938564993696,
+                -29517.439082749563,
+                -5.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.3875049866614349,
+                0.921867607258505
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55432.17991650448,
+                -30829.131842387695,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.3056843571706127,
+                0.952132907624345
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Worn.SM_PlasticChair_Worn",
+          "count": 1,
+          "instances": [
+            {
+              "location": [
+                -55709.813466653766,
+                -30382.342617380247,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.6059792272329035,
+                0.7954804687496816
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticStool_A.SM_PlasticStool_A",
+          "count": 2,
+          "instances": [
+            {
+              "location": [
+                -56163.16959615794,
+                -29755.71575697668,
+                -5.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.5416985172634252,
+                0.8405728501412634
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -58208.1751492202,
+                -31968.114286904503,
+                0.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.9598205238097022,
+                0.2806146148611454
+              ],
+              "scale": [
+                1.000000000000001,
+                1.000000000000001,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_StackedStools_A.SM_StackedStools_A",
+          "count": 2,
+          "instances": [
+            {
+              "location": [
+                -56447.67531925172,
+                -29158.13271543609,
+                -5.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55606.380824551175,
+                -30470.669790677413,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4115038790825677,
+                0.9114080082487753
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_WallBulkheadLight_A.SM_WallBulkheadLight_A",
+          "count": 5,
+          "instances": [
+            {
+              "location": [
+                -56413.64351650919,
+                -29112.846554171378,
+                245.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55995.68345066442,
+                -29771.412711333312,
+                245.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55577.72338481966,
+                -30429.97886849525,
+                245.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55159.763318974896,
+                -31088.545025657186,
+                245.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -58229.39224812823,
+                -32011.193687015544,
+                245.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.8763328260412393,
+                0.4817061116516741
+              ],
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Materials/M_LagosWaterfront_Opaque.M_LagosWaterfront_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WheeledBin_A.SM_WheeledBin_A",
+          "count": 3,
+          "instances": [
+            {
+              "location": [
+                -56308.907051413174,
+                -29389.84885177772,
+                -5.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4035347759382855,
+                0.914964307833064
+              ],
+              "scale": [
+                1.0,
+                1.0,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55045.349820279516,
+                -31354.668213892037,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.5416985172634252,
+                0.8405728501412634
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -58663.453524110206,
+                -30892.619239257616,
+                -5.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.8763328260412393,
+                0.4817061116516741
+              ],
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WovenBasket_A.SM_WovenBasket_A",
+          "count": 1,
+          "instances": [
+            {
+              "location": [
+                -55469.22009534664,
+                -30699.85298020946,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque"
+          ]
+        }
+      ]
+    },
+    {
+      "actor": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Maps/L_LibraryLane_Dressing.L_LibraryLane_Dressing:PersistentLevel.PCGVolume_1",
+      "graph": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/PCG/PCG_LibraryLane_PlantingAndShade.PCG_LibraryLane_PlantingAndShade",
+      "generated": true,
+      "components": [
+        {
+          "mesh": "/Engine/BasicShapes/Cube.Cube",
+          "count": 8,
+          "instances": [
+            {
+              "location": [
+                -56718.89143864868,
+                -29486.60009064899,
+                -1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -56125.72396400928,
+                -30495.883174845363,
+                4.156641457337855
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -55473.45439714633,
+                -31467.657024248165,
+                -1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -58444.38159402856,
+                -30463.366994708682,
+                -1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -57947.445197367975,
+                -31190.246780423025,
+                -1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -57083.14852651241,
+                -32607.812036182244,
+                -1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.2,
+                1.2,
+                0.06
+              ]
+            },
+            {
+              "location": [
+                -58539.89657378964,
+                -30826.03335466124,
+                0.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.1
+              ]
+            },
+            {
+              "location": [
+                -57660.99014249707,
+                -32210.635638724263,
+                2.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.9,
+                0.9,
+                0.1
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingBed_Soil.M_PlantingBed_Soil"
+          ]
+        },
+        {
+          "mesh": "/Engine/BasicShapes/Cube.Cube",
+          "count": 24,
+          "instances": [
+            {
+              "location": [
+                -56718.89143864868,
+                -29420.60009064899,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56718.89143864868,
+                -29552.60009064899,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56652.89143864868,
+                -29486.60009064899,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56784.89143864868,
+                -29486.60009064899,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56125.72396400928,
+                -30429.883174845363,
+                9.156641457337855
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56125.72396400928,
+                -30561.883174845363,
+                9.156641457337855
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56059.72396400928,
+                -30495.883174845363,
+                9.156641457337855
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -56191.72396400928,
+                -30495.883174845363,
+                9.156641457337855
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55473.45439714633,
+                -31401.657024248165,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55473.45439714633,
+                -31533.657024248165,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55407.45439714633,
+                -31467.657024248165,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -55539.45439714633,
+                -31467.657024248165,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58444.38159402856,
+                -30397.366994708682,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58444.38159402856,
+                -30529.366994708682,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58378.38159402856,
+                -30463.366994708682,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58510.38159402856,
+                -30463.366994708682,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57947.445197367975,
+                -31124.246780423025,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57947.445197367975,
+                -31256.246780423025,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57881.445197367975,
+                -31190.246780423025,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -58013.445197367975,
+                -31190.246780423025,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57083.14852651241,
+                -32541.812036182244,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57083.14852651241,
+                -32673.812036182244,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                1.44,
+                0.12,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57017.14852651241,
+                -32607.812036182244,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            },
+            {
+              "location": [
+                -57149.14852651241,
+                -32607.812036182244,
+                4.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+              ],
+              "scale": [
+                0.12,
+                1.2,
+                0.18
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_PlantingEdge_Stone.M_PlantingEdge_Stone"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_broadleaf_tree.SM_WK_broadleaf_tree",
+          "count": 5,
+          "instances": [
+            {
+              "location": [
+                -56718.89143864868,
+                -29486.60009064899,
+                1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -56125.72396400928,
+                -30495.883174845363,
+                6.156641457337855
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.09235913840071615,
+                0.995725760214065
+              ],
+              "scale": [
+                0.9600000000000001,
+                0.9600000000000001,
+                0.96
+              ]
+            },
+            {
+              "location": [
+                -55473.45439714633,
+                -31467.657024248165,
+                1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.3123458414583347,
+                0.9499684601731181
+              ],
+              "scale": [
+                1.06,
+                1.06,
+                1.06
+              ]
+            },
+            {
+              "location": [
+                -58444.38159402856,
+                -30463.366994708682,
+                1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.7466020756598301,
+                0.6652708776283789
+              ],
+              "scale": [
+                1.04,
+                1.04,
+                1.04
+              ]
+            },
+            {
+              "location": [
+                -57083.14852651241,
+                -32607.812036182244,
+                1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.022633072286312433,
+                0.9997438392102662
+              ],
+              "scale": [
+                0.96,
+                0.96,
+                0.96
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_corrugated_awning.SM_WK_corrugated_awning",
+          "count": 5,
+          "instances": [
+            {
+              "location": [
+                -56330.50626117963,
+                -29240.11083343413,
+                225.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -56121.52622825725,
+                -29569.393912015097,
+                225.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55703.566162412484,
+                -30227.960069177036,
+                225.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55285.60609656772,
+                -30886.52622633897,
+                225.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -55076.62606364534,
+                -31215.809304919938,
+                225.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.4817435981221479,
+                0.8763122192850711
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_galvanised.M_WK_galvanised",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_galvanised.M_WK_galvanised",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_palm_tree.SM_WK_palm_tree",
+          "count": 1,
+          "instances": [
+            {
+              "location": [
+                -57947.445197367975,
+                -31190.246780423025,
+                1.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                -0.41940281200329427,
+                0.9078002430511514
+              ],
+              "scale": [
+                0.9999999999999999,
+                0.9999999999999999,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_shrub_cluster.SM_WK_shrub_cluster",
+          "count": 2,
+          "instances": [
+            {
+              "location": [
+                -58539.89657378964,
+                -30826.03335466124,
+                6.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.8763328260412393,
+                0.48170611165167404
+              ],
+              "scale": [
+                0.8199999999999998,
+                0.8199999999999998,
+                0.82
+              ]
+            },
+            {
+              "location": [
+                -57660.99014249707,
+                -32210.635638724263,
+                8.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.8763328260412393,
+                0.48170611165167404
+              ],
+              "scale": [
+                0.8199999999999998,
+                0.8199999999999998,
+                0.82
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_bark.M_WK_bark",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf_light.M_WK_leaf_light",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_leaf.M_WK_leaf"
+          ]
+        },
+        {
+          "mesh": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_street_bench.SM_WK_street_bench",
+          "count": 2,
+          "instances": [
+            {
+              "location": [
+                -58633.68230148874,
+                -30678.28614731047,
+                -5.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.8763328260412393,
+                0.4817061116516741
+              ],
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            },
+            {
+              "location": [
+                -57567.20441479797,
+                -32358.38284607503,
+                -3.0
+              ],
+              "quaternion": [
+                0.0,
+                0.0,
+                0.8763328260412393,
+                0.4817061116516741
+              ],
+              "scale": [
+                0.9999999999999998,
+                0.9999999999999998,
+                1.0
+              ]
+            }
+          ],
+          "materials": [
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_wood.M_WK_wood",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_iron.M_WK_iron",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_wood.M_WK_wood",
+            "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Materials/M_WK_steel.M_WK_steel"
+          ]
+        }
+      ]
+    }
+  ],
+  "gameplay_verified": false,
+  "builds_or_tests_run": false,
+  "rendering_device": "Microsoft Basic Render Driver, D3D11 SM5",
+  "instance_count": 70
+}

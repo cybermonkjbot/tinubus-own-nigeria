@@ -1,0 +1,40 @@
+{
+  "reviewed_at": "2026-10-11T02:25:30-07:00",
+  "reviewer": "Windows Blender asset worker",
+  "evidence": ["DanfoView.png", "LibraryView.png"],
+  "method": "Opened both actual 960x540 PNGs at original image size.",
+  "status": "worker inspection complete; parent acceptance pending",
+  "observations": [
+    {
+      "view": "DanfoView.png",
+      "observed": "Yellow body, black side stripes, wheels, step, windscreen, lamps and bumpers are readable; vehicle has visible ground contact and cast shadow.",
+      "acceptance": "Observed stylized vehicle silhouette, not source-fidelity acceptance."
+    },
+    {
+      "view": "LibraryView.png",
+      "observed": "Overview shows danfo, kiosk, shutter facade, sign support, power pole and the separate suspended cable-span asset.",
+      "acceptance": "Library preview only; no world placement or connected pole/cable acceptance."
+    }
+  ],
+  "defect_ledger": [
+    {
+      "location": "DanfoView.png: front-side cabin between foremost side window and windscreen",
+      "observed": "Open dark wedge exposes the cabin in the front-side glazing area.",
+      "source_evidence": "Frozen v1 side glazing ends at local Y=1.48 while front pillars/windscreen begin nearer Y=1.9; no additional cab side window panel is authored.",
+      "proposed_change": "Parent decision: close the front-side glazing/frame gap in a new owned revision if unintended.",
+      "change": "None; frozen v1 retained.",
+      "verification": "Actual DanfoView PNG inspected; repair not authorized or verified."
+    },
+    {
+      "location": "LibraryView.png: small modules behind the main vehicle and kiosk group",
+      "observed": "Kerb and both drain modules are not legibly exposed in this overview.",
+      "proposed_change": "If parent needs visual acceptance of these modules, create an additional detail camera or presentation revision.",
+      "change": "None; assigned cameras retained.",
+      "verification": "Source bounds and ground contact inspected; drain/kerb appearance remains unverified."
+    }
+  ],
+  "export_limit": "Frozen v1 merged FBX copies geometry/material slots but not editable planar UV layers; imported material/UV appearance belongs to parent inspection.",
+  "runtime_errors": [],
+  "generation_warnings": ["Material.use_nodes deprecation", "World.use_nodes deprecation"],
+  "preserved": {"frozen_v1_script": true, "saved_v1_blend": true, "live_workbench_pid": 3224, "live_workbench_dirty": false}
+}

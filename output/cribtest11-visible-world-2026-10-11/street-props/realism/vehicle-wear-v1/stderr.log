@@ -1,0 +1,17 @@
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\vehicle-wear-v1\author_vehicles.py:44: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes=True
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\vehicle-wear-v1\author_vehicles.py:419: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new(v['id']+'_Daylight');world.use_nodes=True
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\vehicle-wear-v1\author_vehicles.py", line 557, in <module>
+    try:main()
+        ~~~~^^
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\vehicle-wear-v1\author_vehicles.py", line 530, in main
+    path,reports=save_delivery(OUT/'initial')
+                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\vehicle-wear-v1\author_vehicles.py", line 477, in save_delivery
+    for key in list(MATS):MATS[key]=bpy.data.materials['VW_'+key]
+                                    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+KeyError: 'bpy_prop_collection[key]: key "VW_GlassEdgeFilm" not found'
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\vehicle-wear-v1\author_vehicles.py', exiting.

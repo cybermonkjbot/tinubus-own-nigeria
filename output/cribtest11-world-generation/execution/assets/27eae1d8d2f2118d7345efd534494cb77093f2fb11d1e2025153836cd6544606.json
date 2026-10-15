@@ -1,0 +1,9 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "identity": "27eae1d8d2f2118d7345efd534494cb77093f2fb11d1e2025153836cd6544606",
+  "package": "/Game/BaddieGeneratedWorld/Materials/M_27eae1d8d2f2118d7345efd5",
+  "sha256": "2af0a65fb0135c4a1aeb3e4e61ad077fa8237b010821406e4a690329dfb77bb2",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_27eae1d8d2f2118d7345efd5.uasset": "2af0a65fb0135c4a1aeb3e4e61ad077fa8237b010821406e4a690329dfb77bb2"
+  }
+}

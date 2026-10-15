@@ -1,0 +1,2780 @@
+{
+  "type": "FeatureCollection",
+  "retrievedDate": "2026-10-11",
+  "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=3.3280,6.5540,3.3360,6.5605",
+  "sourceSha256": "503b0837e6420f3a8727a624f288f0e70cb821926052918105646a210665a841",
+  "attribution": "© OpenStreetMap contributors",
+  "license": "ODbL 1.0",
+  "coordinateReference": "WGS84 longitude, latitude; no altitude",
+  "queryBbox": [
+    3.328,
+    6.554,
+    3.336,
+    6.5605
+  ],
+  "geometryExtent": "Complete selected ways; not clipped; not sector ownership",
+  "name": "Sector 06 primary-loop block footprint sample",
+  "selection": {
+    "boundaryNodeIds": [
+      4395533108,
+      1073317441,
+      1073319531,
+      4395533109,
+      4395533108
+    ],
+    "boundaryCoordinates": [
+      [
+        3.333086,
+        6.5590862
+      ],
+      [
+        3.3317891,
+        6.558607
+      ],
+      [
+        3.3320306,
+        6.5580125
+      ],
+      [
+        3.3333138,
+        6.5584963
+      ],
+      [
+        3.333086,
+        6.5590862
+      ]
+    ],
+    "representativePoint": "arithmetic mean of non-closing ring vertices",
+    "algorithm": "even-odd point-in-polygon in source longitude/latitude",
+    "wholeFootprintContainmentRequired": false,
+    "notCadastralBlock": true
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346743",
+      "properties": {
+        "osmWayId": 1275346743,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841826763,
+          11841826762,
+          11841826761,
+          11841826760,
+          11841826763
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3326263,
+              6.558862
+            ],
+            [
+              3.3326574,
+              6.5588731
+            ],
+            [
+              3.3326736,
+              6.5588284
+            ],
+            [
+              3.3326425,
+              6.5588173
+            ],
+            [
+              3.3326263,
+              6.558862
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346744",
+      "properties": {
+        "osmWayId": 1275346744,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841826767,
+          11841826766,
+          11841826765,
+          11841826764,
+          11841826767
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3327138,
+              6.5588657
+            ],
+            [
+              3.3327629,
+              6.5588832
+            ],
+            [
+              3.3327731,
+              6.558855
+            ],
+            [
+              3.332724,
+              6.5588375
+            ],
+            [
+              3.3327138,
+              6.5588657
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346745",
+      "properties": {
+        "osmWayId": 1275346745,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861271,
+          11841861270,
+          11841861269,
+          11841826768,
+          11841861271
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.332921,
+              6.5589996
+            ],
+            [
+              3.3329913,
+              6.5590247
+            ],
+            [
+              3.3329991,
+              6.5590029
+            ],
+            [
+              3.3329289,
+              6.5589778
+            ],
+            [
+              3.332921,
+              6.5589996
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346746",
+      "properties": {
+        "osmWayId": 1275346746,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861275,
+          11841861274,
+          11841861273,
+          11841861272,
+          11841861275
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3328583,
+              6.5589336
+            ],
+            [
+              3.3328913,
+              6.5589454
+            ],
+            [
+              3.3328999,
+              6.5589216
+            ],
+            [
+              3.3328669,
+              6.5589099
+            ],
+            [
+              3.3328583,
+              6.5589336
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346747",
+      "properties": {
+        "osmWayId": 1275346747,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861279,
+          11841861278,
+          11841861277,
+          11841861276,
+          11841861279
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3319851,
+              6.5586245
+            ],
+            [
+              3.3320199,
+              6.5586369
+            ],
+            [
+              3.3320271,
+              6.5586169
+            ],
+            [
+              3.3319923,
+              6.5586044
+            ],
+            [
+              3.3319851,
+              6.5586245
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346748",
+      "properties": {
+        "osmWayId": 1275346748,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861283,
+          11841861282,
+          11841861281,
+          11841861280,
+          11841861283
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3320493,
+              6.5586202
+            ],
+            [
+              3.3321042,
+              6.5586398
+            ],
+            [
+              3.3321126,
+              6.5586165
+            ],
+            [
+              3.3320577,
+              6.5585969
+            ],
+            [
+              3.3320493,
+              6.5586202
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346749",
+      "properties": {
+        "osmWayId": 1275346749,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861287,
+          11841861286,
+          11841861285,
+          11841861284,
+          11841861287
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3322934,
+              6.5587461
+            ],
+            [
+              3.332361,
+              6.5587702
+            ],
+            [
+              3.3323745,
+              6.5587328
+            ],
+            [
+              3.3323069,
+              6.5587087
+            ],
+            [
+              3.3322934,
+              6.5587461
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346750",
+      "properties": {
+        "osmWayId": 1275346750,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861291,
+          11841861290,
+          11841861289,
+          11841861288,
+          11841861291
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3323175,
+              6.5587001
+            ],
+            [
+              3.3323845,
+              6.5587241
+            ],
+            [
+              3.3323913,
+              6.5587055
+            ],
+            [
+              3.3323242,
+              6.5586816
+            ],
+            [
+              3.3323175,
+              6.5587001
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346751",
+      "properties": {
+        "osmWayId": 1275346751,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861295,
+          11841861294,
+          11841861293,
+          11841861292,
+          11841861295
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.332172,
+              6.5586748
+            ],
+            [
+              3.3322067,
+              6.5586872
+            ],
+            [
+              3.3322162,
+              6.5586608
+            ],
+            [
+              3.3321815,
+              6.5586485
+            ],
+            [
+              3.332172,
+              6.5586748
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346752",
+      "properties": {
+        "osmWayId": 1275346752,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861299,
+          11841861298,
+          11841861297,
+          11841861296,
+          11841861299
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.332125,
+              6.5586528
+            ],
+            [
+              3.3321579,
+              6.5586646
+            ],
+            [
+              3.332166,
+              6.5586422
+            ],
+            [
+              3.3321331,
+              6.5586305
+            ],
+            [
+              3.332125,
+              6.5586528
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346753",
+      "properties": {
+        "osmWayId": 1275346753,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861303,
+          11841861302,
+          11841861301,
+          11841861300,
+          11841861303
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3323903,
+              6.5587341
+            ],
+            [
+              3.3324275,
+              6.5587474
+            ],
+            [
+              3.3324338,
+              6.5587298
+            ],
+            [
+              3.3323966,
+              6.5587165
+            ],
+            [
+              3.3323903,
+              6.5587341
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346754",
+      "properties": {
+        "osmWayId": 1275346754,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861307,
+          11841861306,
+          11841861305,
+          11841861304,
+          11841861307
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3324804,
+              6.5587981
+            ],
+            [
+              3.3324998,
+              6.558805
+            ],
+            [
+              3.332512,
+              6.5587714
+            ],
+            [
+              3.3324926,
+              6.5587645
+            ],
+            [
+              3.3324804,
+              6.5587981
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346755",
+      "properties": {
+        "osmWayId": 1275346755,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861311,
+          11841861310,
+          11841861309,
+          11841861308,
+          11841861311
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3324412,
+              6.5587588
+            ],
+            [
+              3.3324857,
+              6.5587746
+            ],
+            [
+              3.3324912,
+              6.5587594
+            ],
+            [
+              3.3324467,
+              6.5587436
+            ],
+            [
+              3.3324412,
+              6.5587588
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346829",
+      "properties": {
+        "osmWayId": 1275346829,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861645,
+          11841861644,
+          11841861643,
+          11841861642,
+          11841861645
+        ],
+        "nodeVersions": [
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "nodeTimestamps": [
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3320986,
+              6.5582465
+            ],
+            [
+              3.3321266,
+              6.5582559
+            ],
+            [
+              3.3321646,
+              6.5581436
+            ],
+            [
+              3.3321367,
+              6.5581342
+            ],
+            [
+              3.3320986,
+              6.5582465
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346831",
+      "properties": {
+        "osmWayId": 1275346831,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861659,
+          11841861658,
+          11841861657,
+          11841861653,
+          11841861652,
+          11841861654,
+          11841861655,
+          11841861656,
+          11841861659
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3321414,
+              6.5583853
+            ],
+            [
+              3.3322526,
+              6.5584225
+            ],
+            [
+              3.3322684,
+              6.5583759
+            ],
+            [
+              3.3322471,
+              6.5583687
+            ],
+            [
+              3.3322707,
+              6.5582992
+            ],
+            [
+              3.3322441,
+              6.5582903
+            ],
+            [
+              3.3322183,
+              6.5583664
+            ],
+            [
+              3.332155,
+              6.5583452
+            ],
+            [
+              3.3321414,
+              6.5583853
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346833",
+      "properties": {
+        "osmWayId": 1275346833,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861669,
+          11841861668,
+          11841861667,
+          11841861666,
+          11841861669
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3323825,
+              6.5582978
+            ],
+            [
+              3.3324127,
+              6.5583079
+            ],
+            [
+              3.3324308,
+              6.5582545
+            ],
+            [
+              3.3324006,
+              6.5582444
+            ],
+            [
+              3.3323825,
+              6.5582978
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346834",
+      "properties": {
+        "osmWayId": 1275346834,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861673,
+          11841861672,
+          11841861671,
+          11841861670,
+          11841861673
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3323554,
+              6.5583764
+            ],
+            [
+              3.3323883,
+              6.5583874
+            ],
+            [
+              3.3324117,
+              6.5583184
+            ],
+            [
+              3.3323788,
+              6.5583074
+            ],
+            [
+              3.3323554,
+              6.5583764
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346835",
+      "properties": {
+        "osmWayId": 1275346835,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861677,
+          11841861676,
+          11841861675,
+          11841861674,
+          11841861677
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3322578,
+              6.5583537
+            ],
+            [
+              3.332348,
+              6.5583839
+            ],
+            [
+              3.3323973,
+              6.5582385
+            ],
+            [
+              3.3323071,
+              6.5582083
+            ],
+            [
+              3.3322578,
+              6.5583537
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346836",
+      "properties": {
+        "osmWayId": 1275346836,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861681,
+          11841861680,
+          11841861679,
+          11841861678,
+          11841861681
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3323812,
+              6.5584197
+            ],
+            [
+              3.3324711,
+              6.5584498
+            ],
+            [
+              3.3325267,
+              6.5582858
+            ],
+            [
+              3.3324368,
+              6.5582557
+            ],
+            [
+              3.3323812,
+              6.5584197
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346837",
+      "properties": {
+        "osmWayId": 1275346837,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861685,
+          11841861684,
+          11841861683,
+          11841861682,
+          11841861685
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3324854,
+              6.5584342
+            ],
+            [
+              3.332587,
+              6.5584682
+            ],
+            [
+              3.3326447,
+              6.5582978
+            ],
+            [
+              3.3325432,
+              6.5582638
+            ],
+            [
+              3.3324854,
+              6.5584342
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346838",
+      "properties": {
+        "osmWayId": 1275346838,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861693,
+          11841861692,
+          11841861689,
+          11841861687,
+          11841861686,
+          11841861688,
+          11841861691,
+          11841861690,
+          11841861693
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.332634,
+              6.5585043
+            ],
+            [
+              3.3327265,
+              6.5585352
+            ],
+            [
+              3.3327586,
+              6.5584407
+            ],
+            [
+              3.332779,
+              6.5584476
+            ],
+            [
+              3.3328009,
+              6.5583831
+            ],
+            [
+              3.3327804,
+              6.5583762
+            ],
+            [
+              3.3327835,
+              6.5583671
+            ],
+            [
+              3.332691,
+              6.5583361
+            ],
+            [
+              3.332634,
+              6.5585043
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346839",
+      "properties": {
+        "osmWayId": 1275346839,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861699,
+          11841861698,
+          11841861697,
+          11841861696,
+          11841861694,
+          11841861695,
+          11841861699
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3327668,
+              6.5585769
+            ],
+            [
+              3.3328652,
+              6.5586098
+            ],
+            [
+              3.3329311,
+              6.5584157
+            ],
+            [
+              3.332814,
+              6.5583765
+            ],
+            [
+              3.3327947,
+              6.5584333
+            ],
+            [
+              3.3328133,
+              6.5584396
+            ],
+            [
+              3.3327668,
+              6.5585769
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346840",
+      "properties": {
+        "osmWayId": 1275346840,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861705,
+          11841861704,
+          11841861701,
+          11841861700,
+          11841861703,
+          11841861702,
+          11841861705
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3328855,
+              6.5586269
+            ],
+            [
+              3.3329725,
+              6.558656
+            ],
+            [
+              3.3330136,
+              6.5585347
+            ],
+            [
+              3.3330446,
+              6.5585451
+            ],
+            [
+              3.33307,
+              6.55847
+            ],
+            [
+              3.332952,
+              6.5584306
+            ],
+            [
+              3.3328855,
+              6.5586269
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346841",
+      "properties": {
+        "osmWayId": 1275346841,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861709,
+          11841861708,
+          11841861707,
+          11841861706,
+          11841861709
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3329787,
+              6.5586628
+            ],
+            [
+              3.3330364,
+              6.5586822
+            ],
+            [
+              3.3330752,
+              6.5585676
+            ],
+            [
+              3.3330175,
+              6.5585483
+            ],
+            [
+              3.3329787,
+              6.5586628
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346842",
+      "properties": {
+        "osmWayId": 1275346842,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861713,
+          11841861712,
+          11841861711,
+          11841861710,
+          11841861713
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3331282,
+              6.5587221
+            ],
+            [
+              3.3331742,
+              6.5587375
+            ],
+            [
+              3.3332408,
+              6.5585409
+            ],
+            [
+              3.3331948,
+              6.5585255
+            ],
+            [
+              3.3331282,
+              6.5587221
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346843",
+      "properties": {
+        "osmWayId": 1275346843,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861717,
+          11841861716,
+          11841861715,
+          11841861714,
+          11841861717
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.333041,
+              6.5586908
+            ],
+            [
+              3.3331212,
+              6.5587176
+            ],
+            [
+              3.3331879,
+              6.5585209
+            ],
+            [
+              3.3331077,
+              6.5584941
+            ],
+            [
+              3.333041,
+              6.5586908
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346844",
+      "properties": {
+        "osmWayId": 1275346844,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861723,
+          11841861722,
+          11841861721,
+          11841861718,
+          11841861719,
+          11841861720,
+          11841861723
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.332927,
+              6.5589606
+            ],
+            [
+              3.3330778,
+              6.5590111
+            ],
+            [
+              3.3331424,
+              6.5588206
+            ],
+            [
+              3.3330795,
+              6.5587996
+            ],
+            [
+              3.3330727,
+              6.5588197
+            ],
+            [
+              3.3329848,
+              6.5587903
+            ],
+            [
+              3.332927,
+              6.5589606
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346845",
+      "properties": {
+        "osmWayId": 1275346845,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861727,
+          11841861726,
+          11841861725,
+          11841861724,
+          11841861727
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3329827,
+              6.5587601
+            ],
+            [
+              3.3331462,
+              6.5588148
+            ],
+            [
+              3.3331698,
+              6.5587454
+            ],
+            [
+              3.3330062,
+              6.5586907
+            ],
+            [
+              3.3329827,
+              6.5587601
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346846",
+      "properties": {
+        "osmWayId": 1275346846,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861731,
+          11841861730,
+          11841861729,
+          11841861728,
+          11841861731
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3328318,
+              6.5586928
+            ],
+            [
+              3.332963,
+              6.5587367
+            ],
+            [
+              3.3329834,
+              6.5586768
+            ],
+            [
+              3.3328521,
+              6.5586329
+            ],
+            [
+              3.3328318,
+              6.5586928
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346847",
+      "properties": {
+        "osmWayId": 1275346847,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861735,
+          11841861734,
+          11841861733,
+          11841861732,
+          11841861735
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3327768,
+              6.5588667
+            ],
+            [
+              3.3329082,
+              6.5589106
+            ],
+            [
+              3.3329626,
+              6.5587501
+            ],
+            [
+              3.3328312,
+              6.5587062
+            ],
+            [
+              3.3327768,
+              6.5588667
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346848",
+      "properties": {
+        "osmWayId": 1275346848,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861741,
+          11841861738,
+          11841861736,
+          11841861737,
+          11841861739,
+          11841861740,
+          11841861741
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3326655,
+              6.5588114
+            ],
+            [
+              3.3327741,
+              6.5588477
+            ],
+            [
+              3.3327939,
+              6.5587895
+            ],
+            [
+              3.3327741,
+              6.5587829
+            ],
+            [
+              3.3328201,
+              6.5586473
+            ],
+            [
+              3.3327312,
+              6.5586175
+            ],
+            [
+              3.3326655,
+              6.5588114
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346849",
+      "properties": {
+        "osmWayId": 1275346849,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861745,
+          11841861744,
+          11841861743,
+          11841861742,
+          11841861745
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.33258,
+              6.5587731
+            ],
+            [
+              3.3326358,
+              6.5587957
+            ],
+            [
+              3.3327327,
+              6.5585594
+            ],
+            [
+              3.332677,
+              6.5585368
+            ],
+            [
+              3.33258,
+              6.5587731
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346850",
+      "properties": {
+        "osmWayId": 1275346850,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861749,
+          11841861748,
+          11841861747,
+          11841861746,
+          11841861749
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3324027,
+              6.5586948
+            ],
+            [
+              3.3325795,
+              6.5587664
+            ],
+            [
+              3.3326642,
+              6.55856
+            ],
+            [
+              3.3324874,
+              6.5584884
+            ],
+            [
+              3.3324027,
+              6.5586948
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346851",
+      "properties": {
+        "osmWayId": 1275346851,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861753,
+          11841861752,
+          11841861751,
+          11841861750,
+          11841861753
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3323401,
+              6.5585091
+            ],
+            [
+              3.3324543,
+              6.5585554
+            ],
+            [
+              3.3324865,
+              6.558477
+            ],
+            [
+              3.3323723,
+              6.5584307
+            ],
+            [
+              3.3323401,
+              6.5585091
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346852",
+      "properties": {
+        "osmWayId": 1275346852,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861757,
+          11841861756,
+          11841861755,
+          11841861754,
+          11841861757
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3322866,
+              6.5586522
+            ],
+            [
+              3.3323932,
+              6.5586953
+            ],
+            [
+              3.3324476,
+              6.5585629
+            ],
+            [
+              3.332341,
+              6.5585197
+            ],
+            [
+              3.3322866,
+              6.5586522
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346853",
+      "properties": {
+        "osmWayId": 1275346853,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861761,
+          11841861760,
+          11841861759,
+          11841861758,
+          11841861761
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3322478,
+              6.558477
+            ],
+            [
+              3.3323292,
+              6.55851
+            ],
+            [
+              3.3323711,
+              6.5584077
+            ],
+            [
+              3.3322897,
+              6.5583747
+            ],
+            [
+              3.3322478,
+              6.558477
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346854",
+      "properties": {
+        "osmWayId": 1275346854,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861765,
+          11841861764,
+          11841861763,
+          11841861762,
+          11841861765
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3320808,
+              6.5584237
+            ],
+            [
+              3.3322319,
+              6.5584849
+            ],
+            [
+              3.3322518,
+              6.5584363
+            ],
+            [
+              3.3321007,
+              6.5583752
+            ],
+            [
+              3.3320808,
+              6.5584237
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346855",
+      "properties": {
+        "osmWayId": 1275346855,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861769,
+          11841861768,
+          11841861767,
+          11841861766,
+          11841861769
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3320231,
+              6.5585749
+            ],
+            [
+              3.3322673,
+              6.5586738
+            ],
+            [
+              3.3323249,
+              6.5585336
+            ],
+            [
+              3.3320807,
+              6.5584347
+            ],
+            [
+              3.3320231,
+              6.5585749
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275346856",
+      "properties": {
+        "osmWayId": 1275346856,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-23T16:52:12Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11841861773,
+          11841861772,
+          11841861771,
+          11841861770,
+          11841861773
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.331883,
+              6.5585349
+            ],
+            [
+              3.3320035,
+              6.5585837
+            ],
+            [
+              3.3320888,
+              6.5583757
+            ],
+            [
+              3.3319683,
+              6.5583269
+            ],
+            [
+              3.331883,
+              6.5585349
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1275841033",
+      "properties": {
+        "osmWayId": 1275841033,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-04-24T20:21:33Z",
+        "tags": {
+          "building": "yes"
+        },
+        "osmNodeIds": [
+          11845426434,
+          11845426431,
+          11845426430,
+          11845426429,
+          11845426432,
+          11845426433,
+          11845426434
+        ],
+        "nodeVersions": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z"
+        ],
+        "featureClass": "building-footprint",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              3.3319514,
+              6.5583185
+            ],
+            [
+              3.3320738,
+              6.558364
+            ],
+            [
+              3.3320853,
+              6.5583335
+            ],
+            [
+              3.3320482,
+              6.5583197
+            ],
+            [
+              3.3321185,
+              6.558133
+            ],
+            [
+              3.3320332,
+              6.5581013
+            ],
+            [
+              3.3319514,
+              6.5583185
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

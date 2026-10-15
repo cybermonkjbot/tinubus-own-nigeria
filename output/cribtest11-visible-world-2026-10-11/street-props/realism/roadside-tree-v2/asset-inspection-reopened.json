@@ -1,0 +1,26 @@
+{
+  "pid": 7960,
+  "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\RoadsideShadeTree.blend",
+  "bounds_metres": {
+    "min": [
+      -4.552393913269043,
+      -5.638786315917969,
+      -0.10614117980003357
+    ],
+    "max": [
+      6.203518867492676,
+      4.778497695922852,
+      8.60427188873291
+    ]
+  },
+  "evaluated_mesh_instances": 17422,
+  "cluster_placements": 288,
+  "leaf_blade_length_range_metres": [
+    0.1161,
+    0.20178
+  ],
+  "branch_count": 142,
+  "root_identity": true,
+  "native_importer_verification": "Not performed by Blender writer; units/axes/materials must be checked by sole native writer before consuming matrices",
+  "errors": []
+}

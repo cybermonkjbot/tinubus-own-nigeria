@@ -1,0 +1,4 @@
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\frontage-source-r2\author_yaba_frontage.py:75: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\frontage-source-r2\author_yaba_frontage.py:579: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  SCENE.world.use_nodes = True

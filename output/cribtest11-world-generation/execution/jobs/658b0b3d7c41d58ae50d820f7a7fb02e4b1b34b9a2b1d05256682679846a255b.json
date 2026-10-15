@@ -1,0 +1,2952 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "job": "city/civic-terrace-exterior",
+  "identity": "658b0b3d7c41d58ae50d820f7a7fb02e4b1b34b9a2b1d05256682679846a255b",
+  "state": "saved",
+  "mapPackage": "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f",
+  "sources": [
+    {
+      "path": "packages/assets/venues/civic-terrace-v1.json",
+      "sha256": "60a5d3b2db5fc8e22ebeb7b248dffd320a0e508245846a660e1e23b5f1c817f4",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    },
+    {
+      "path": "packages/assets/city/lagos-city-v3.json",
+      "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    }
+  ],
+  "provenance": {
+    "schemaVersion": 1,
+    "job": "city/civic-terrace-exterior",
+    "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+    "recipeSha256": "25f8a3ed07c105e678c65b5b333aaf75fc1a3899c2cb7da9f76b8a7f67661658",
+    "sources": [
+      {
+        "path": "packages/assets/venues/civic-terrace-v1.json",
+        "sha256": "60a5d3b2db5fc8e22ebeb7b248dffd320a0e508245846a660e1e23b5f1c817f4",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      },
+      {
+        "path": "packages/assets/city/lagos-city-v3.json",
+        "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      }
+    ],
+    "template": null,
+    "contract": {
+      "navigationSource": {
+        "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+        "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": "navigation"
+      },
+      "navigationRevision": "lagos-city-v3:street-density-v1",
+      "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+      "fictionalMetricPlan": true
+    }
+  },
+  "startedAt": 1791744735.066678,
+  "instances": [],
+  "meshes": [
+    {
+      "actor": "StaticMeshActor_0",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_bf29e951fffa73486aab3b37.SM_bf29e951fffa73486aab3b37",
+      "features": [
+        {
+          "canonicalId": "paved forecourt:0",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_1",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d6425196a590949cd94c871b.SM_d6425196a590949cd94c871b",
+      "features": [
+        {
+          "canonicalId": "fascia 0 0 0:406",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 0 1:407",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 0 2:408",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 0 3:409",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 1 0:410",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 1 4:411",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 2 0:412",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 2 4:413",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 3 0:414",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 3 1:415",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 3 2:416",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 3 3:417",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 4 0:418",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 4 4:419",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 5 0:420",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 5 4:421",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 6 0:422",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 6 1:423",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 6 2:424",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 0 6 3:425",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 0 1:426",
+          "firstTriangle": 240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 0 2:427",
+          "firstTriangle": 252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 0 3:428",
+          "firstTriangle": 264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 1 0:429",
+          "firstTriangle": 276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 1 4:430",
+          "firstTriangle": 288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 2 0:431",
+          "firstTriangle": 300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 2 4:432",
+          "firstTriangle": 312,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 3 0:433",
+          "firstTriangle": 324,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 3 1:434",
+          "firstTriangle": 336,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 3 2:435",
+          "firstTriangle": 348,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 3 3:436",
+          "firstTriangle": 360,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 3 4:437",
+          "firstTriangle": 372,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 4 0:438",
+          "firstTriangle": 384,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 4 4:439",
+          "firstTriangle": 396,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 5 0:440",
+          "firstTriangle": 408,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 5 4:441",
+          "firstTriangle": 420,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 6 0:442",
+          "firstTriangle": 432,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 1 6 4:443",
+          "firstTriangle": 444,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 0 0:444",
+          "firstTriangle": 456,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 0 1:445",
+          "firstTriangle": 468,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 0 2:446",
+          "firstTriangle": 480,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 0 3:447",
+          "firstTriangle": 492,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 1 0:448",
+          "firstTriangle": 504,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 1 4:449",
+          "firstTriangle": 516,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 2 0:450",
+          "firstTriangle": 528,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 2 4:451",
+          "firstTriangle": 540,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 3 0:452",
+          "firstTriangle": 552,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 3 4:453",
+          "firstTriangle": 564,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 4 0:454",
+          "firstTriangle": 576,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 4 4:455",
+          "firstTriangle": 588,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 5 0:456",
+          "firstTriangle": 600,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 5 4:457",
+          "firstTriangle": 612,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 6 0:458",
+          "firstTriangle": 624,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 6 1:459",
+          "firstTriangle": 636,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 6 2:460",
+          "firstTriangle": 648,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 2 6 3:461",
+          "firstTriangle": 660,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 0 0:462",
+          "firstTriangle": 672,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 0 1:463",
+          "firstTriangle": 684,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 0 2:464",
+          "firstTriangle": 696,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 0 3:465",
+          "firstTriangle": 708,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 1 0:466",
+          "firstTriangle": 720,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 1 4:467",
+          "firstTriangle": 732,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 2 0:468",
+          "firstTriangle": 744,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 2 4:469",
+          "firstTriangle": 756,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 3 0:470",
+          "firstTriangle": 768,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 3 4:471",
+          "firstTriangle": 780,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 4 0:472",
+          "firstTriangle": 792,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 4 4:473",
+          "firstTriangle": 804,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 5 0:474",
+          "firstTriangle": 816,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 5 4:475",
+          "firstTriangle": 828,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 6 0:476",
+          "firstTriangle": 840,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 6 1:477",
+          "firstTriangle": 852,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 6 2:478",
+          "firstTriangle": 864,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 3 6 3:479",
+          "firstTriangle": 876,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 0 0:480",
+          "firstTriangle": 888,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 0 1:481",
+          "firstTriangle": 900,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 0 2:482",
+          "firstTriangle": 912,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 0 3:483",
+          "firstTriangle": 924,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 0 4:484",
+          "firstTriangle": 936,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 1 2:485",
+          "firstTriangle": 948,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 2 2:486",
+          "firstTriangle": 960,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 3 2:487",
+          "firstTriangle": 972,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 4 2:488",
+          "firstTriangle": 984,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 5 2:489",
+          "firstTriangle": 996,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 6 0:490",
+          "firstTriangle": 1008,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 6 1:491",
+          "firstTriangle": 1020,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 6 2:492",
+          "firstTriangle": 1032,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 6 3:493",
+          "firstTriangle": 1044,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 4 6 4:494",
+          "firstTriangle": 1056,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 0 0:495",
+          "firstTriangle": 1068,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 0 1:496",
+          "firstTriangle": 1080,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 0 2:497",
+          "firstTriangle": 1092,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 0 3:498",
+          "firstTriangle": 1104,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 0 4:499",
+          "firstTriangle": 1116,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 1 0:500",
+          "firstTriangle": 1128,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 2 0:501",
+          "firstTriangle": 1140,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 3 0:502",
+          "firstTriangle": 1152,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 3 1:503",
+          "firstTriangle": 1164,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 3 2:504",
+          "firstTriangle": 1176,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 3 3:505",
+          "firstTriangle": 1188,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 4 0:506",
+          "firstTriangle": 1200,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 5 0:507",
+          "firstTriangle": 1212,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 6 0:508",
+          "firstTriangle": 1224,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 6 1:509",
+          "firstTriangle": 1236,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 6 2:510",
+          "firstTriangle": 1248,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 6 3:511",
+          "firstTriangle": 1260,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia 5 6 4:512",
+          "firstTriangle": 1272,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_2",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_1292491186ee5e7baed2e102.SM_1292491186ee5e7baed2e102",
+      "features": [
+        {
+          "canonicalId": "front planted bed:317",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_3",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_466b40098e1cd5b05c17bb12.SM_466b40098e1cd5b05c17bb12",
+      "features": [
+        {
+          "canonicalId": "shrub 0 foliage 0:321",
+          "firstTriangle": 0,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 3:324",
+          "firstTriangle": 80,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 6:327",
+          "firstTriangle": 160,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 9:330",
+          "firstTriangle": 240,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 12:333",
+          "firstTriangle": 320,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 15:336",
+          "firstTriangle": 400,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 18:339",
+          "firstTriangle": 480,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 0:341",
+          "firstTriangle": 560,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 3:344",
+          "firstTriangle": 640,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 6:347",
+          "firstTriangle": 720,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 9:350",
+          "firstTriangle": 800,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 12:353",
+          "firstTriangle": 880,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 15:356",
+          "firstTriangle": 960,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 18:359",
+          "firstTriangle": 1040,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 0:361",
+          "firstTriangle": 1120,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 3:364",
+          "firstTriangle": 1200,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 6:367",
+          "firstTriangle": 1280,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 9:370",
+          "firstTriangle": 1360,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 12:373",
+          "firstTriangle": 1440,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 15:376",
+          "firstTriangle": 1520,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 18:379",
+          "firstTriangle": 1600,
+          "triangleCount": 80
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_4",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d34f057663ff00f9d4b35224.SM_d34f057663ff00f9d4b35224",
+      "features": [
+        {
+          "canonicalId": "left masonry course 0.5:145",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 0.79:146",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 1.08:147",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 1.37:148",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 1.6600000000000001:149",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 1.9500000000000002:150",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 2.24:151",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 2.5300000000000002:152",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 2.8200000000000003:153",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 3.1100000000000003:154",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 3.4000000000000004:155",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 3.6900000000000004:156",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 3.9800000000000004:157",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 4.2700000000000005:158",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 4.5600000000000005:159",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 4.8500000000000005:160",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 5.140000000000001:161",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 5.430000000000001:162",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 5.720000000000001:163",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 6.010000000000001:164",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 6.300000000000001:165",
+          "firstTriangle": 240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 6.590000000000001:166",
+          "firstTriangle": 252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left masonry course 6.880000000000001:167",
+          "firstTriangle": 264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 0:275",
+          "firstTriangle": 276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 1:276",
+          "firstTriangle": 288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 2:277",
+          "firstTriangle": 300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 3:278",
+          "firstTriangle": 312,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 4:279",
+          "firstTriangle": 324,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 5:280",
+          "firstTriangle": 336,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 6:281",
+          "firstTriangle": 348,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 7:282",
+          "firstTriangle": 360,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 8:283",
+          "firstTriangle": 372,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 9:284",
+          "firstTriangle": 384,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 10:285",
+          "firstTriangle": 396,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 11:286",
+          "firstTriangle": 408,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 12:287",
+          "firstTriangle": 420,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 1 13:288",
+          "firstTriangle": 432,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 0:303",
+          "firstTriangle": 444,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 1:304",
+          "firstTriangle": 456,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 2:305",
+          "firstTriangle": 468,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 3:306",
+          "firstTriangle": 480,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 4:307",
+          "firstTriangle": 492,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 5:308",
+          "firstTriangle": 504,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 6:309",
+          "firstTriangle": 516,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 7:310",
+          "firstTriangle": 528,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 8:311",
+          "firstTriangle": 540,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 9:312",
+          "firstTriangle": 552,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 10:313",
+          "firstTriangle": 564,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 11:314",
+          "firstTriangle": 576,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 12:315",
+          "firstTriangle": 588,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 3 13:316",
+          "firstTriangle": 600,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 6.25 0.31:382",
+          "firstTriangle": 612,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 6.25 0.4:383",
+          "firstTriangle": 624,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 6.25 0.49:384",
+          "firstTriangle": 636,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 6.25 0.58:385",
+          "firstTriangle": 648,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 6.25 0.6699999999999999:386",
+          "firstTriangle": 660,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 6.25 0.7599999999999999:387",
+          "firstTriangle": 672,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 6.25 0.8499999999999999:388",
+          "firstTriangle": 684,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 8.22 0.31:391",
+          "firstTriangle": 696,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 8.22 0.4:392",
+          "firstTriangle": 708,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 8.22 0.49:393",
+          "firstTriangle": 720,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 8.22 0.58:394",
+          "firstTriangle": 732,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 8.22 0.6699999999999999:395",
+          "firstTriangle": 744,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 8.22 0.7599999999999999:396",
+          "firstTriangle": 756,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser grille 8.22 0.8499999999999999:397",
+          "firstTriangle": 768,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "vent slot 2.23:399",
+          "firstTriangle": 780,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "vent slot 2.335:400",
+          "firstTriangle": 792,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "vent slot 2.44:401",
+          "firstTriangle": 804,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "vent slot 2.545:402",
+          "firstTriangle": 816,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "vent slot 2.65:403",
+          "firstTriangle": 828,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "vent slot 2.755:404",
+          "firstTriangle": 840,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_5",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_61245600f4b8e8917491fe5c.SM_61245600f4b8e8917491fe5c",
+      "features": [
+        {
+          "canonicalId": "front stone plinth:260",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_6",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e2791777a190efab64ab659a.SM_e2791777a190efab64ab659a",
+      "features": [
+        {
+          "canonicalId": "service door jamb -1:11",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "service door rail -1:12",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "service door jamb 1:13",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "service door rail 1:14",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "front terrace post 0:22",
+          "firstTriangle": 48,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 1:23",
+          "firstTriangle": 88,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 2:24",
+          "firstTriangle": 128,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 3:25",
+          "firstTriangle": 168,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 4:26",
+          "firstTriangle": 208,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 5:27",
+          "firstTriangle": 248,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 6:28",
+          "firstTriangle": 288,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 7:29",
+          "firstTriangle": 328,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 8:30",
+          "firstTriangle": 368,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 9:31",
+          "firstTriangle": 408,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 10:32",
+          "firstTriangle": 448,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 11:33",
+          "firstTriangle": 488,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 12:34",
+          "firstTriangle": 528,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace post 13:35",
+          "firstTriangle": 568,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace horizontal 4.55:36",
+          "firstTriangle": 608,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace horizontal 4.85:37",
+          "firstTriangle": 648,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace horizontal 5.1499999999999995:38",
+          "firstTriangle": 688,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "front terrace horizontal 4.859999999999999:39",
+          "firstTriangle": 728,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace post 0:40",
+          "firstTriangle": 768,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace post 1:41",
+          "firstTriangle": 808,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace post 2:42",
+          "firstTriangle": 848,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace post 3:43",
+          "firstTriangle": 888,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace post 4:44",
+          "firstTriangle": 928,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace post 5:45",
+          "firstTriangle": 968,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace horizontal 4.55:46",
+          "firstTriangle": 1008,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace horizontal 4.85:47",
+          "firstTriangle": 1048,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace horizontal 5.1499999999999995:48",
+          "firstTriangle": 1088,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "right terrace horizontal 4.859999999999999:49",
+          "firstTriangle": 1128,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "upper pavilion bay 0 jamb -1:53",
+          "firstTriangle": 1168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 0 rail -1:54",
+          "firstTriangle": 1180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 0 jamb 1:55",
+          "firstTriangle": 1192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 0 rail 1:56",
+          "firstTriangle": 1204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 1 jamb -1:60",
+          "firstTriangle": 1216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 1 rail -1:61",
+          "firstTriangle": 1228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 1 jamb 1:62",
+          "firstTriangle": 1240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 1 rail 1:63",
+          "firstTriangle": 1252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 2 jamb -1:67",
+          "firstTriangle": 1264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 2 rail -1:68",
+          "firstTriangle": 1276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 2 jamb 1:69",
+          "firstTriangle": 1288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 2 rail 1:70",
+          "firstTriangle": 1300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 3 jamb -1:74",
+          "firstTriangle": 1312,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 3 rail -1:75",
+          "firstTriangle": 1324,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 3 jamb 1:76",
+          "firstTriangle": 1336,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 3 rail 1:77",
+          "firstTriangle": 1348,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 4 jamb -1:81",
+          "firstTriangle": 1360,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 4 rail -1:82",
+          "firstTriangle": 1372,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 4 jamb 1:83",
+          "firstTriangle": 1384,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 4 rail 1:84",
+          "firstTriangle": 1396,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 5 jamb -1:88",
+          "firstTriangle": 1408,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 5 rail -1:89",
+          "firstTriangle": 1420,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 5 jamb 1:90",
+          "firstTriangle": 1432,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 5 rail 1:91",
+          "firstTriangle": 1444,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 6 jamb -1:95",
+          "firstTriangle": 1456,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 6 rail -1:96",
+          "firstTriangle": 1468,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 6 jamb 1:97",
+          "firstTriangle": 1480,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 6 rail 1:98",
+          "firstTriangle": 1492,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "blue stairwell jamb -1:133",
+          "firstTriangle": 1504,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "blue stairwell rail -1:134",
+          "firstTriangle": 1516,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "blue stairwell jamb 1:135",
+          "firstTriangle": 1528,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "blue stairwell rail 1:136",
+          "firstTriangle": 1540,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair baluster 0 -1:170",
+          "firstTriangle": 1552,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 0 1:171",
+          "firstTriangle": 1592,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 3 -1:178",
+          "firstTriangle": 1632,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 3 1:179",
+          "firstTriangle": 1672,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 6 -1:186",
+          "firstTriangle": 1712,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 6 1:187",
+          "firstTriangle": 1752,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 9 -1:194",
+          "firstTriangle": 1792,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 9 1:195",
+          "firstTriangle": 1832,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 12 -1:202",
+          "firstTriangle": 1872,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 12 1:203",
+          "firstTriangle": 1912,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 15 -1:210",
+          "firstTriangle": 1952,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 15 1:211",
+          "firstTriangle": 1992,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 18 -1:218",
+          "firstTriangle": 2032,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 18 1:219",
+          "firstTriangle": 2072,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 19 -1:222",
+          "firstTriangle": 2112,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "stair baluster 19 1:223",
+          "firstTriangle": 2152,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "sloping stair rail -1 0.35:225",
+          "firstTriangle": 2192,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "sloping stair rail -1 0.67:226",
+          "firstTriangle": 2232,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "sloping stair rail -1 1.07:227",
+          "firstTriangle": 2272,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "sloping stair rail 1 0.35:228",
+          "firstTriangle": 2312,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "sloping stair rail 1 0.67:229",
+          "firstTriangle": 2352,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "sloping stair rail 1 1.07:230",
+          "firstTriangle": 2392,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "landing left post 0:232",
+          "firstTriangle": 2432,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "landing left post 1:233",
+          "firstTriangle": 2472,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "landing left post 2:234",
+          "firstTriangle": 2512,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "landing left post 3:235",
+          "firstTriangle": 2552,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "landing left horizontal 3.79:236",
+          "firstTriangle": 2592,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "landing left horizontal 4.09:237",
+          "firstTriangle": 2632,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "landing left horizontal 4.39:238",
+          "firstTriangle": 2672,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "landing left horizontal 4.62:239",
+          "firstTriangle": 2712,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "upper entrance door jamb -1:242",
+          "firstTriangle": 2752,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper entrance door rail -1:243",
+          "firstTriangle": 2764,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper entrance door jamb 1:244",
+          "firstTriangle": 2776,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper entrance door rail 1:245",
+          "firstTriangle": 2788,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "ground arrival door jamb -1:255",
+          "firstTriangle": 2800,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "ground arrival door rail -1:256",
+          "firstTriangle": 2812,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "ground arrival door jamb 1:257",
+          "firstTriangle": 2824,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "ground arrival door rail 1:258",
+          "firstTriangle": 2836,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser fan 6.25:381",
+          "firstTriangle": 2848,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "condenser fan 8.22:390",
+          "firstTriangle": 2888,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "black fascia:405",
+          "firstTriangle": 2928,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_7",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_156fb018a816825075a5a2e9.SM_156fb018a816825075a5a2e9",
+      "features": [
+        {
+          "canonicalId": "service door pane:10",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 1 pane:59",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 2 pane:66",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 4 pane:80",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 5 pane:87",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper entrance door pane:241",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "ground arrival door pane:254",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_8",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e41c59e99b3f50e46a142886.SM_e41c59e99b3f50e46a142886",
+      "features": [
+        {
+          "canonicalId": "shrub 0 foliage 1:322",
+          "firstTriangle": 0,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 2:323",
+          "firstTriangle": 80,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 4:325",
+          "firstTriangle": 160,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 5:326",
+          "firstTriangle": 240,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 7:328",
+          "firstTriangle": 320,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 8:329",
+          "firstTriangle": 400,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 10:331",
+          "firstTriangle": 480,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 11:332",
+          "firstTriangle": 560,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 13:334",
+          "firstTriangle": 640,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 14:335",
+          "firstTriangle": 720,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 16:337",
+          "firstTriangle": 800,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 0 foliage 17:338",
+          "firstTriangle": 880,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 1:342",
+          "firstTriangle": 960,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 2:343",
+          "firstTriangle": 1040,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 4:345",
+          "firstTriangle": 1120,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 5:346",
+          "firstTriangle": 1200,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 7:348",
+          "firstTriangle": 1280,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 8:349",
+          "firstTriangle": 1360,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 10:351",
+          "firstTriangle": 1440,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 11:352",
+          "firstTriangle": 1520,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 13:354",
+          "firstTriangle": 1600,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 14:355",
+          "firstTriangle": 1680,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 16:357",
+          "firstTriangle": 1760,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 1 foliage 17:358",
+          "firstTriangle": 1840,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 1:362",
+          "firstTriangle": 1920,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 2:363",
+          "firstTriangle": 2000,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 4:365",
+          "firstTriangle": 2080,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 5:366",
+          "firstTriangle": 2160,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 7:368",
+          "firstTriangle": 2240,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 8:369",
+          "firstTriangle": 2320,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 10:371",
+          "firstTriangle": 2400,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 11:372",
+          "firstTriangle": 2480,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 13:374",
+          "firstTriangle": 2560,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 14:375",
+          "firstTriangle": 2640,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 16:377",
+          "firstTriangle": 2720,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "shrub 2 foliage 17:378",
+          "firstTriangle": 2800,
+          "triangleCount": 80
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_9",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_158937189df4ea720e0a6353.SM_158937189df4ea720e0a6353",
+      "features": [
+        {
+          "canonicalId": "upper pavilion bay 0 pane:52",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 3 pane:73",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 6 pane:94",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "blue stairwell pane:132",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_10",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d4a917e136e6ec44379e71eb.SM_d4a917e136e6ec44379e71eb",
+      "features": [
+        {
+          "canonicalId": "service door sill:15",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "service handle:16",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper terrace slab:17",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace coping:19",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace right coping:21",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 0 sill:57",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 1 sill:64",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 2 sill:71",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 3 sill:78",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 4 sill:85",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 5 sill:92",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 6 sill:99",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "column foot -4.33:101",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "column cap -4.33:102",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "column foot 1.83:104",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "column cap 1.83:105",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "column foot 8.43:107",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "column cap 8.43:108",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace curtain pleat 0:109",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace curtain pleat 2:111",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace curtain pleat 4:113",
+          "firstTriangle": 240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace curtain pleat 6:115",
+          "firstTriangle": 252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "roof front fascia:118",
+          "firstTriangle": 264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "roof right fascia:119",
+          "firstTriangle": 276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "roof left fascia:120",
+          "firstTriangle": 288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left wing parapet:122",
+          "firstTriangle": 300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "skylight edge -2.35:124",
+          "firstTriangle": 312,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "skylight edge 0.85:125",
+          "firstTriangle": 352,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "skylight rib -0.54:126",
+          "firstTriangle": 392,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "skylight rib 0.020000000000000018:127",
+          "firstTriangle": 432,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "skylight rib 0.5800000000000001:128",
+          "firstTriangle": 472,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "skylight rib 1.1400000000000001:129",
+          "firstTriangle": 512,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "skylight rib 1.7000000000000002:130",
+          "firstTriangle": 552,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "blue stairwell sill:137",
+          "firstTriangle": 592,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "blue stairwell centre mullion:138",
+          "firstTriangle": 604,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stairwell crossbar 1.9:139",
+          "firstTriangle": 616,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stairwell crossbar 2.67:140",
+          "firstTriangle": 628,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stairwell crossbar 3.44:141",
+          "firstTriangle": 640,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stairwell crossbar 4.21:142",
+          "firstTriangle": 652,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stairwell crossbar 4.98:143",
+          "firstTriangle": 664,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stairwell crossbar 5.75:144",
+          "firstTriangle": 676,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair top landing:231",
+          "firstTriangle": 688,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper entrance door sill:246",
+          "firstTriangle": 700,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "arrival portico roof:248",
+          "firstTriangle": 712,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "portico base -4.97:250",
+          "firstTriangle": 724,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "portico base -2.05:252",
+          "firstTriangle": 736,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "ground arrival door sill:259",
+          "firstTriangle": 748,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "garden front white kerb:318",
+          "firstTriangle": 760,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "garden side white kerb:319",
+          "firstTriangle": 772,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser 6.25:380",
+          "firstTriangle": 784,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "condenser 8.22:389",
+          "firstTriangle": 796,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "front ventilation grille:398",
+          "firstTriangle": 808,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "fascia inset line:513",
+          "firstTriangle": 820,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_11",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b36de3881a9f15a4bb3cfb79.SM_b36de3881a9f15a4bb3cfb79",
+      "features": [
+        {
+          "canonicalId": "violet side wing:3",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_12",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_0957fa026f488b569f2bd8fe.SM_0957fa026f488b569f2bd8fe",
+      "features": [
+        {
+          "canonicalId": "rear enclosed volume:1",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left stairwell wing:2",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "right lower wall:4",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "right ground return:5",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "ground enclosed back:6",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "service door left pier:7",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "service door right pier:8",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace low parapet:18",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace right parapet:20",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace support -4.33:100",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace support 1.83:103",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace support 8.43:106",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace curtain pleat 1:110",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace curtain pleat 3:112",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace curtain pleat 5:114",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace curtain pleat 7:116",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "main cantilever roof:117",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "left wing roof:121",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "rear roof:123",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 1:168",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 2:172",
+          "firstTriangle": 240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 3:174",
+          "firstTriangle": 252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 4:176",
+          "firstTriangle": 264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 5:180",
+          "firstTriangle": 276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 6:182",
+          "firstTriangle": 288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 7:184",
+          "firstTriangle": 300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 8:188",
+          "firstTriangle": 312,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 9:190",
+          "firstTriangle": 324,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 10:192",
+          "firstTriangle": 336,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 11:196",
+          "firstTriangle": 348,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 12:198",
+          "firstTriangle": 360,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 13:200",
+          "firstTriangle": 372,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 14:204",
+          "firstTriangle": 384,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 15:206",
+          "firstTriangle": 396,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 16:208",
+          "firstTriangle": 408,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 17:212",
+          "firstTriangle": 420,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 18:214",
+          "firstTriangle": 432,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 19:216",
+          "firstTriangle": 444,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair riser 20:220",
+          "firstTriangle": 456,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "sloping concrete stair waist:224",
+          "firstTriangle": 468,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "portico column -4.97:249",
+          "firstTriangle": 480,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "portico column -2.05:251",
+          "firstTriangle": 492,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 0:261",
+          "firstTriangle": 504,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 1:262",
+          "firstTriangle": 516,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 2:263",
+          "firstTriangle": 528,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 3:264",
+          "firstTriangle": 540,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 4:265",
+          "firstTriangle": 552,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 5:266",
+          "firstTriangle": 564,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 6:267",
+          "firstTriangle": 576,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 7:268",
+          "firstTriangle": 588,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 8:269",
+          "firstTriangle": 600,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 9:270",
+          "firstTriangle": 612,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 10:271",
+          "firstTriangle": 624,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 11:272",
+          "firstTriangle": 636,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 12:273",
+          "firstTriangle": 648,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 0 13:274",
+          "firstTriangle": 660,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 0:289",
+          "firstTriangle": 672,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 1:290",
+          "firstTriangle": 684,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 2:291",
+          "firstTriangle": 696,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 3:292",
+          "firstTriangle": 708,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 4:293",
+          "firstTriangle": 720,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 5:294",
+          "firstTriangle": 732,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 6:295",
+          "firstTriangle": 744,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 7:296",
+          "firstTriangle": 756,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 8:297",
+          "firstTriangle": 768,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 9:298",
+          "firstTriangle": 780,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 10:299",
+          "firstTriangle": 792,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 11:300",
+          "firstTriangle": 804,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 12:301",
+          "firstTriangle": 816,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone plinth block 2 13:302",
+          "firstTriangle": 828,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_13",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_44a26513256b285a130ad593.SM_44a26513256b285a130ad593",
+      "features": [
+        {
+          "canonicalId": "door timber surround:247",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "shrub 0 trunk:320",
+          "firstTriangle": 12,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "shrub 1 trunk:340",
+          "firstTriangle": 52,
+          "triangleCount": 40
+        },
+        {
+          "canonicalId": "shrub 2 trunk:360",
+          "firstTriangle": 92,
+          "triangleCount": 40
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_14",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e09607c78dc04576905a9877.SM_e09607c78dc04576905a9877",
+      "features": [
+        {
+          "canonicalId": "service door shadow reveal:9",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper glazing shadow:50",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 0 shadow reveal:51",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 1 shadow reveal:58",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 2 shadow reveal:65",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 3 shadow reveal:72",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 4 shadow reveal:79",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 5 shadow reveal:86",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion bay 6 shadow reveal:93",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "blue stairwell shadow reveal:131",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 1:169",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 2:173",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 3:175",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 4:177",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 5:181",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 6:183",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 7:185",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 8:189",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 9:191",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 10:193",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 11:197",
+          "firstTriangle": 240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 12:199",
+          "firstTriangle": 252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 13:201",
+          "firstTriangle": 264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 14:205",
+          "firstTriangle": 276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 15:207",
+          "firstTriangle": 288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 16:209",
+          "firstTriangle": 300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 17:213",
+          "firstTriangle": 312,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 18:215",
+          "firstTriangle": 324,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 19:217",
+          "firstTriangle": 336,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stair tread 20:221",
+          "firstTriangle": 348,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper entrance door shadow reveal:240",
+          "firstTriangle": 360,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "ground arrival door shadow reveal:253",
+          "firstTriangle": 372,
+          "triangleCount": 12
+        }
+      ]
+    }
+  ],
+  "contract": {
+    "navigationSource": {
+      "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": "navigation"
+    },
+    "navigationRevision": "lagos-city-v3:street-density-v1",
+    "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+    "fictionalMetricPlan": true
+  },
+  "mapFileSha256": "97173cf8d413a3e1b1600ec22d7428b66b4cfd05d64e888aced0e981b7ea000a",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f.umap": "97173cf8d413a3e1b1600ec22d7428b66b4cfd05d64e888aced0e981b7ea000a"
+  },
+  "packages": [
+    "/Game/BaddieGeneratedWorld/Materials/M_02919fca488d18bcccfdf276",
+    "/Game/BaddieGeneratedWorld/Materials/M_1b1dc76ead319744eec8bfdf",
+    "/Game/BaddieGeneratedWorld/Materials/M_1f662e6c601bb26490127cc8",
+    "/Game/BaddieGeneratedWorld/Materials/M_2516c993849ffbeb243a749f",
+    "/Game/BaddieGeneratedWorld/Materials/M_27e5093b2953d6b629fe5c06",
+    "/Game/BaddieGeneratedWorld/Materials/M_2c0d36a3f1eef5329952dc83",
+    "/Game/BaddieGeneratedWorld/Materials/M_46e06a05a6c42881d0529101",
+    "/Game/BaddieGeneratedWorld/Materials/M_492f15fa36123019f056cbb1",
+    "/Game/BaddieGeneratedWorld/Materials/M_623a61a55891eee64ac73220",
+    "/Game/BaddieGeneratedWorld/Materials/M_6908e624b4c83077861be224",
+    "/Game/BaddieGeneratedWorld/Materials/M_8566212d8550235f07f060c9",
+    "/Game/BaddieGeneratedWorld/Materials/M_8645292254e5d76d0dcb955b",
+    "/Game/BaddieGeneratedWorld/Materials/M_9bc7c75054dd6154f167ed15",
+    "/Game/BaddieGeneratedWorld/Materials/M_f161ba381882cef876024e9d",
+    "/Game/BaddieGeneratedWorld/Materials/M_fb3c53177fee3005a0bc7213",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0957fa026f488b569f2bd8fe",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1292491186ee5e7baed2e102",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_156fb018a816825075a5a2e9",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_158937189df4ea720e0a6353",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_44a26513256b285a130ad593",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_466b40098e1cd5b05c17bb12",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_61245600f4b8e8917491fe5c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b36de3881a9f15a4bb3cfb79",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_bf29e951fffa73486aab3b37",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d34f057663ff00f9d4b35224",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d4a917e136e6ec44379e71eb",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d6425196a590949cd94c871b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e09607c78dc04576905a9877",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e2791777a190efab64ab659a",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e41c59e99b3f50e46a142886",
+    "/Game/BaddieGeneratedWorld/R_658b0b3d7c41d58ae50d820f/Maps/L_city_civic_terrace_exterior_6fdc438d5f"
+  ],
+  "generatedDependencies": {
+    "/Game/BaddieGeneratedWorld/Materials/M_02919fca488d18bcccfdf276": {
+      "identity": "02919fca488d18bcccfdf2763ab7d8099a13c72d1fcb31d4ef3e939d76c97acd",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_02919fca488d18bcccfdf276.uasset": "814d12a4c9246ad90375198182e5f1bd580f0bfc62b72e1a2b32febd348d9ebb"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_1b1dc76ead319744eec8bfdf": {
+      "identity": "1b1dc76ead319744eec8bfdf9ec7807cd19b96feafec54cc9e5ee4d8b81f278b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_1b1dc76ead319744eec8bfdf.uasset": "f9d397db2956433259cd87b95cda1b58241a406a387a16b35f4f86860f400128"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_1f662e6c601bb26490127cc8": {
+      "identity": "1f662e6c601bb26490127cc852d18f741fbc12b000b4dbf4ca9a889553247929",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_1f662e6c601bb26490127cc8.uasset": "aa969a676d40c2dd6663b69fcc815c8f13d6ef11b717e12c49106bfd4e1205c4"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_2516c993849ffbeb243a749f": {
+      "identity": "2516c993849ffbeb243a749fbdcafd779f1908a2674e47fe6b609b44dd84f783",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_2516c993849ffbeb243a749f.uasset": "57cf0847ba62e4db352035675ac4ed18438b14270dc037291d42892806eb2f9e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_27e5093b2953d6b629fe5c06": {
+      "identity": "27e5093b2953d6b629fe5c06d1919bebdacbd23f5e7f5befa3546c9e9f2086a7",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_27e5093b2953d6b629fe5c06.uasset": "4a30a1206e169f866599dfca4946566243ae7a417182a63c6d03e9b8c818cf8d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_2c0d36a3f1eef5329952dc83": {
+      "identity": "2c0d36a3f1eef5329952dc83c40beaee82e2690f056a1f29464bb6ca1a60390c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_2c0d36a3f1eef5329952dc83.uasset": "1b21012e78e971a3a0a497d529ac0f1b6f89630f9370c6d5279fbd1f9c3bfe50"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_46e06a05a6c42881d0529101": {
+      "identity": "46e06a05a6c42881d0529101faaba4fb168027b9e71c5e76387b40ff2e6b922f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_46e06a05a6c42881d0529101.uasset": "890017223a5ee8813a0a8a08f5d6776bda309b1cfc4035e94e21af077e674465"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_492f15fa36123019f056cbb1": {
+      "identity": "492f15fa36123019f056cbb16e871fa82b3e60fa661d0ebeee411d1c0726959c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_492f15fa36123019f056cbb1.uasset": "2ba73f52fb340fb502f17966e5bb5705fe93c3e52ca44752037fa447e1300c58"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_623a61a55891eee64ac73220": {
+      "identity": "623a61a55891eee64ac732203609ba7820fb4e6c7a91b57f2f76d51f6d1088ae",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_623a61a55891eee64ac73220.uasset": "c36bacd5730221356a6a3abde15e75e6254580d648676319661bb2413005d11f"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_6908e624b4c83077861be224": {
+      "identity": "6908e624b4c83077861be2240393d4a032ed94cde97445520a241583f0cd702a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_6908e624b4c83077861be224.uasset": "b4f12b4849a690eaf2e99a45b44cecebd7b00c62fc844514ca2b0af0b23e82d4"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_8566212d8550235f07f060c9": {
+      "identity": "8566212d8550235f07f060c9a948a274b6455e2692d8647859b0d0fa3f3a6593",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_8566212d8550235f07f060c9.uasset": "5f9cdb7a488ee2f8f5c19e73e6a48f726a03bfad8c7270fd611ec5666d3411d1"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_8645292254e5d76d0dcb955b": {
+      "identity": "8645292254e5d76d0dcb955bfbedfff1f316bcaae4a1fdf323b0378c5fec8c35",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_8645292254e5d76d0dcb955b.uasset": "f533de15f1e39e56d49cccce4d17095c152f79312700cea2e78258e62494cb18"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_9bc7c75054dd6154f167ed15": {
+      "identity": "9bc7c75054dd6154f167ed1551a91df451fec3ca059a3b6fa4f5b4c8acacf099",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_9bc7c75054dd6154f167ed15.uasset": "95d37d118a7911055b0797614517be6257b56a73775956f66b68b38f159ec461"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_f161ba381882cef876024e9d": {
+      "identity": "f161ba381882cef876024e9de627c618cb136f54469aa538ea3fba1f99e53594",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_f161ba381882cef876024e9d.uasset": "cacea6711186f52cadce07d05e0013760fbb8f618d332d0a36697932cde53183"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_fb3c53177fee3005a0bc7213": {
+      "identity": "fb3c53177fee3005a0bc72132490f15fd0b9a6cd5a4a28cb00954a8f7ff61443",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_fb3c53177fee3005a0bc7213.uasset": "00a63de9aa6cef217824bac1d2e5d016ff612b8bebe73741173a79f45c65b064"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0957fa026f488b569f2bd8fe": {
+      "identity": "0957fa026f488b569f2bd8fe8ba060912b63316718d16d7ab3ab9486ed91b3f3",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_0957fa026f488b569f2bd8fe.uasset": "6ddec434a4bfb35fa048f686d79f640d31fc74ce5393e39d16680df9f8c42c2f"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1292491186ee5e7baed2e102": {
+      "identity": "1292491186ee5e7baed2e10270af70dcdad15850e011c03a1309adab0a3f1c3d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_1292491186ee5e7baed2e102.uasset": "8c2372ac4c287f716996c004ac2198c0a1a63d73f358805b62e32e920ce4daa3"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_156fb018a816825075a5a2e9": {
+      "identity": "156fb018a816825075a5a2e98b8fc49c2b06f60b7d5fdf3b0d18cee3ce00e2e0",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_156fb018a816825075a5a2e9.uasset": "19bc80bc13538545d54fbeb09d065547ca75183f1de332237631e4e8e5c5698e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_158937189df4ea720e0a6353": {
+      "identity": "158937189df4ea720e0a635323d9aa7568e7c0f074b95a2c2cd6a0f6557bc875",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_158937189df4ea720e0a6353.uasset": "d77958fe035695f8bc409dd1edcbd56493c736d92aa81eb20fb75af870957bd8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_44a26513256b285a130ad593": {
+      "identity": "44a26513256b285a130ad59340015ea88fa9c1bd3e5ba9fe1e2cd02e4b4b380e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_44a26513256b285a130ad593.uasset": "bd5c711d473d35fa5fa866d05aa278b8b49276095be1714c426cfe3af6c77fcc"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_466b40098e1cd5b05c17bb12": {
+      "identity": "466b40098e1cd5b05c17bb1210c4baa2c58181a96924dd8a5255d1a715c43f84",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_466b40098e1cd5b05c17bb12.uasset": "c3e6b547eac6734bb3f61b0415a66fd153c0ad33c9e666f89ef289cb533b1427"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_61245600f4b8e8917491fe5c": {
+      "identity": "61245600f4b8e8917491fe5ca99c24545253b9fc06ca5b675e86f256fd74a9e9",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_61245600f4b8e8917491fe5c.uasset": "48cc85a9bde703a250d4c98211c0fb427c8eadb5ad9ef8d3604db4c93fe4178a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b36de3881a9f15a4bb3cfb79": {
+      "identity": "b36de3881a9f15a4bb3cfb792e735df2da7f194950edac58fb1ce5889405cbe4",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b36de3881a9f15a4bb3cfb79.uasset": "24895e0096c4e5a7547d8781989f66eefaebd23e275ce9db1d20919e562e7393"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_bf29e951fffa73486aab3b37": {
+      "identity": "bf29e951fffa73486aab3b37fadb5a48f38d53e67078a3e002b379a041fb2610",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_bf29e951fffa73486aab3b37.uasset": "9c12d08896d18183cc6e1ecf5f77d1f674ff5fecec21ac0075d1830231fae42e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d34f057663ff00f9d4b35224": {
+      "identity": "d34f057663ff00f9d4b35224384b95e8236957a18ba9b781e9107c3124f25ab5",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d34f057663ff00f9d4b35224.uasset": "1a1f6cc1d09d20286d1f6c1a2f37bbd23b4df6a25cec656b97ab88026725bbd7"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d4a917e136e6ec44379e71eb": {
+      "identity": "d4a917e136e6ec44379e71eb6d790a0cb687eb9f6d1928f15ebde222eca2a690",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d4a917e136e6ec44379e71eb.uasset": "7747abe0c47335a95742010d18623cfbd023851a9f72b56cd55fb75f5f04b32b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d6425196a590949cd94c871b": {
+      "identity": "d6425196a590949cd94c871b48e22c464924a0d128a4e9f60e18f78340544870",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d6425196a590949cd94c871b.uasset": "c8dbcad719a9b5c578c1469d44ad5b3d72ba7132185dfd9c4b0e08fe9de10900"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e09607c78dc04576905a9877": {
+      "identity": "e09607c78dc04576905a9877c78d584bb53242d1960cbcc573a52845d6734d8b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e09607c78dc04576905a9877.uasset": "2d212af0addef583bf2792a2baf741cdd92c44e8a601ba3390da1f3cd57c99ad"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e2791777a190efab64ab659a": {
+      "identity": "e2791777a190efab64ab659aa7bc6ede383cd7e407748215afbdffad0c352ceb",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e2791777a190efab64ab659a.uasset": "4cc2dfe3825af396ab44e40930c528c46cdee0e02782be144113559dc7d74fa1"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e41c59e99b3f50e46a142886": {
+      "identity": "e41c59e99b3f50e46a142886043bbb0630ed8c9a4278c0d5f3ba3d5711f48caa",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e41c59e99b3f50e46a142886.uasset": "b4d9bca70bb9ed63626c25763120a0127ed5d08222b4a1c6319c9654006c3f5f"
+      }
+    }
+  },
+  "savedAt": 1791744799.2867494,
+  "runtimeAdmission": false,
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established"
+}

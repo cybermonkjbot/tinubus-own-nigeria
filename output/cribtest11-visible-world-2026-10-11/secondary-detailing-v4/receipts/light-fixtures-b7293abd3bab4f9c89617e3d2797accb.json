@@ -1,0 +1,103 @@
+{
+  "batch": "light-fixtures",
+  "destination": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures",
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "manifest_sha256": "659f8736f94d333c7afb867a91ab45efcb6746e0ae15d5fd61534030f05dd5ae",
+  "asset_ids": [
+    "SM_RoadLampHead_LED_A",
+    "SM_WallBulkheadLight_A",
+    "SM_ShopFloodlight_A",
+    "SM_LampWallBracket_A",
+    "SM_LampMast5m_A"
+  ],
+  "created": [
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Textures/T_DetailAtlas_BC.T_DetailAtlas_BC",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Textures/T_DetailAtlas_ORM.T_DetailAtlas_ORM",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Materials/M_LagosWaterfront_Opaque.M_LagosWaterfront_Opaque",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_RoadLampHead_LED_A.SM_RoadLampHead_LED_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_WallBulkheadLight_A.SM_WallBulkheadLight_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_ShopFloodlight_A.SM_ShopFloodlight_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_LampWallBracket_A.SM_LampWallBracket_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_LampMast5m_A.SM_LampMast5m_A"
+  ],
+  "meshes": [
+    {
+      "id": "SM_RoadLampHead_LED_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_RoadLampHead_LED_A.SM_RoadLampHead_LED_A",
+      "triangles": [
+        496,
+        76,
+        68
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_WallBulkheadLight_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_WallBulkheadLight_A.SM_WallBulkheadLight_A",
+      "triangles": [
+        596,
+        140,
+        100
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_ShopFloodlight_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_ShopFloodlight_A.SM_ShopFloodlight_A",
+      "triangles": [
+        268,
+        76,
+        76
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_LampWallBracket_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_LampWallBracket_A.SM_LampWallBracket_A",
+      "triangles": [
+        228,
+        52,
+        36
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_LampMast5m_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Fixtures/Meshes/SM_LampMast5m_A.SM_LampMast5m_A",
+      "triangles": [
+        416,
+        100,
+        68
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    }
+  ],
+  "world_placement": "none",
+  "native_visual_acceptance": "pending",
+  "status": "imported-native-visual-acceptance-pending"
+}

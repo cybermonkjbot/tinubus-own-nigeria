@@ -1,0 +1,162 @@
+{
+  "batch": "shop-life",
+  "destination": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday",
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "manifest_sha256": "abb202766907be1c077dc5f3fac319ec3e95bfcbeef9bb9374894293c9d53685",
+  "created": [
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Textures/T_DetailAtlas_BC.T_DetailAtlas_BC",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Textures/T_DetailAtlas_ORM.T_DetailAtlas_ORM",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Materials/M_LagosEveryday_Opaque.M_LagosEveryday_Opaque",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Maintained.SM_PlasticChair_Maintained",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Worn.SM_PlasticChair_Worn",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticStool_A.SM_PlasticStool_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_A.SM_BeverageCrate_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_B.SM_BeverageCrate_B",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_CoolerBox_A.SM_CoolerBox_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ProduceTray_A.SM_ProduceTray_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ProduceTomatoes_A.SM_ProduceTomatoes_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ProduceOnions_A.SM_ProduceOnions_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_CounterScale_A.SM_CounterScale_A"
+  ],
+  "meshes": [
+    {
+      "id": "SM_PlasticChair_Maintained",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Maintained.SM_PlasticChair_Maintained",
+      "triangles": [
+        904,
+        192,
+        144
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_PlasticChair_Worn",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticChair_Worn.SM_PlasticChair_Worn",
+      "triangles": [
+        904,
+        192,
+        144
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_PlasticStool_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_PlasticStool_A.SM_PlasticStool_A",
+      "triangles": [
+        412,
+        92,
+        60
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_BeverageCrate_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_A.SM_BeverageCrate_A",
+      "triangles": [
+        1012,
+        252,
+        204
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_BeverageCrate_B",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_BeverageCrate_B.SM_BeverageCrate_B",
+      "triangles": [
+        1012,
+        252,
+        204
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_CoolerBox_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_CoolerBox_A.SM_CoolerBox_A",
+      "triangles": [
+        364,
+        80,
+        80
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_ProduceTray_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ProduceTray_A.SM_ProduceTray_A",
+      "triangles": [
+        220,
+        60,
+        60
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_ProduceTomatoes_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ProduceTomatoes_A.SM_ProduceTomatoes_A",
+      "triangles": [
+        520,
+        300,
+        220
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_ProduceOnions_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_ProduceOnions_A.SM_ProduceOnions_A",
+      "triangles": [
+        460,
+        300,
+        220
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    }
+  ],
+  "world_placement": "none",
+  "native_visual_acceptance": "pending",
+  "status": "failed-partial-assets-not-accepted",
+  "error": "Imported triangle counts differ for SM_CounterScale_A: [244, 36, 36]"
+}

@@ -1,0 +1,306 @@
+{
+  "pid": 5736,
+  "saved_blend": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LagosStreetProps.blend",
+  "assets": [
+    {
+      "asset": "Danfo",
+      "root": "Danfo_ROOT",
+      "editable_parts": 135,
+      "root_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_local_metres": [
+        [
+          -1.1549999713897705,
+          -2.265500068664551,
+          0.0
+        ],
+        [
+          1.159999966621399,
+          2.2855000495910645,
+          2.1584999561309814
+        ]
+      ],
+      "dimensions_metres": [
+        2.3149999380111694,
+        4.551000118255615,
+        2.1584999561309814
+      ],
+      "contact": "four tyres at Z=0; centre between axles",
+      "suspended": false,
+      "base_within_1cm_of_local_ground": true,
+      "fbx": "Danfo.fbx",
+      "fbx_sha256": "c1f5a730988c21760ba805ea0953ba3aaf5d7925e24391dbed49e6e33bd3a969",
+      "export_mesh_identity": "SM_Danfo"
+    },
+    {
+      "asset": "Kiosk",
+      "root": "Kiosk_ROOT",
+      "editable_parts": 100,
+      "root_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_local_metres": [
+        [
+          -1.5561105012893677,
+          -1.2709568738937378,
+          0.0
+        ],
+        [
+          1.5561105012893677,
+          1.86899995803833,
+          2.8245999813079834
+        ]
+      ],
+      "dimensions_metres": [
+        3.1122210025787354,
+        3.139956831932068,
+        2.8245999813079834
+      ],
+      "contact": "four foot plates at Z=0; front counter faces +Y",
+      "suspended": false,
+      "base_within_1cm_of_local_ground": true,
+      "fbx": "Kiosk.fbx",
+      "fbx_sha256": "20154f3695fe2bafbced262815a1406656ef28531f3a99671776eeefe0bb37f1",
+      "export_mesh_identity": "SM_Kiosk"
+    },
+    {
+      "asset": "ShopfrontShutter",
+      "root": "ShopfrontShutter_ROOT",
+      "editable_parts": 43,
+      "root_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_local_metres": [
+        [
+          -1.225000023841858,
+          -0.12999999523162842,
+          0.0
+        ],
+        [
+          1.225000023841858,
+          0.20000000298023224,
+          3.0450000762939453
+        ]
+      ],
+      "dimensions_metres": [
+        2.450000047683716,
+        0.32999999821186066,
+        3.0450000762939453
+      ],
+      "contact": "facade centre at ground Z=0; rear is -Y",
+      "suspended": false,
+      "base_within_1cm_of_local_ground": true,
+      "fbx": "ShopfrontShutter.fbx",
+      "fbx_sha256": "7c6855607c1d801886a955cc14f52994084a0f9841a9ddebc19f7b7cb99bf992",
+      "export_mesh_identity": "SM_ShopfrontShutter"
+    },
+    {
+      "asset": "DrainOpen",
+      "root": "DrainOpen_ROOT",
+      "editable_parts": 3,
+      "root_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_local_metres": [
+        [
+          -0.5,
+          -0.3199999928474426,
+          0.0
+        ],
+        [
+          0.5,
+          0.3199999928474426,
+          0.4050000011920929
+        ]
+      ],
+      "dimensions_metres": [
+        1.0,
+        0.6399999856948853,
+        0.4050000011920929
+      ],
+      "contact": "bottom bed at Z=0; run along X; length 1m",
+      "suspended": false,
+      "base_within_1cm_of_local_ground": true,
+      "fbx": "DrainOpen.fbx",
+      "fbx_sha256": "2fb70c2f478f1558f3a74b4c16bf6373d499bdf832cb4b8452b7674c2826ffd0",
+      "export_mesh_identity": "SM_DrainOpen"
+    },
+    {
+      "asset": "DrainGrated",
+      "root": "DrainGrated_ROOT",
+      "editable_parts": 18,
+      "root_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_local_metres": [
+        [
+          -0.5,
+          -0.3199999928474426,
+          0.0
+        ],
+        [
+          0.5,
+          0.3199999928474426,
+          0.4399999976158142
+        ]
+      ],
+      "dimensions_metres": [
+        1.0,
+        0.6399999856948853,
+        0.4399999976158142
+      ],
+      "contact": "bottom bed at Z=0; run along X; length 1m",
+      "suspended": false,
+      "base_within_1cm_of_local_ground": true,
+      "fbx": "DrainGrated.fbx",
+      "fbx_sha256": "c14e1ea07f112ea4a7f22376c52c7e3a1268d084e503bd23edcd560938e176d7",
+      "export_mesh_identity": "SM_DrainGrated"
+    },
+    {
+      "asset": "Kerb",
+      "root": "Kerb_ROOT",
+      "editable_parts": 5,
+      "root_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_local_metres": [
+        [
+          -0.5,
+          -0.1264999955892563,
+          0.0
+        ],
+        [
+          0.5,
+          0.11999999731779099,
+          0.30000001192092896
+        ]
+      ],
+      "dimensions_metres": [
+        1.0,
+        0.24649999290704727,
+        0.30000001192092896
+      ],
+      "contact": "bed at Z=0; run along X; length 1m",
+      "suspended": false,
+      "base_within_1cm_of_local_ground": true,
+      "fbx": "Kerb.fbx",
+      "fbx_sha256": "df833c53c2f914ea5fbd42ca2adeb1dce3f6afda3874a4eea445c5c93b9c4705",
+      "export_mesh_identity": "SM_Kerb"
+    },
+    {
+      "asset": "PowerPole",
+      "root": "PowerPole_ROOT",
+      "editable_parts": 24,
+      "root_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_local_metres": [
+        [
+          -0.8500000238418579,
+          -0.17599999904632568,
+          0.0
+        ],
+        [
+          0.8500000238418579,
+          0.2750000059604645,
+          7.150000095367432
+        ]
+      ],
+      "dimensions_metres": [
+        1.7000000476837158,
+        0.45100000500679016,
+        7.150000095367432
+      ],
+      "contact": "base at Z=0; crossarm along X",
+      "suspended": false,
+      "base_within_1cm_of_local_ground": true,
+      "fbx": "PowerPole.fbx",
+      "fbx_sha256": "cdf07c58fae062eb2860eb9bb320097d1e65025d87fd555ebc765cd45c737b55",
+      "export_mesh_identity": "SM_PowerPole"
+    },
+    {
+      "asset": "WireSpan8m",
+      "root": "WireSpan8m_ROOT",
+      "editable_parts": 3,
+      "root_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_local_metres": [
+        [
+          -0.6420000195503235,
+          -0.0021439106203615665,
+          6.1496076583862305
+        ],
+        [
+          0.6420000195503235,
+          8.002143859863281,
+          6.61016845703125
+        ]
+      ],
+      "dimensions_metres": [
+        1.284000039100647,
+        8.004287770483643,
+        0.46056079864501953
+      ],
+      "contact": "suspended span; root is pole ground anchor; do not ground the cable mesh",
+      "suspended": true,
+      "base_within_1cm_of_local_ground": null,
+      "fbx": "WireSpan8m.fbx",
+      "fbx_sha256": "820b811595628dad366f1c5a017e43b6c523f4bb77e3aa2665b2d2653af562e4",
+      "export_mesh_identity": "SM_WireSpan8m"
+    },
+    {
+      "asset": "StreetSignSupport",
+      "root": "StreetSignSupport_ROOT",
+      "editable_parts": 8,
+      "root_scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "bounds_local_metres": [
+        [
+          -0.2199999988079071,
+          -0.14499999582767487,
+          0.0
+        ],
+        [
+          0.8199999928474426,
+          0.14499999582767487,
+          3.119999885559082
+        ]
+      ],
+      "dimensions_metres": [
+        1.0399999916553497,
+        0.28999999165534973,
+        3.119999885559082
+      ],
+      "contact": "foot at Z=0; blank plates face +Y; names assigned by world assembler",
+      "suspended": false,
+      "base_within_1cm_of_local_ground": true,
+      "fbx": "StreetSignSupport.fbx",
+      "fbx_sha256": "2d1037261248e511b9927f6c784176dea643337734b7a049920927021e96acfc",
+      "export_mesh_identity": "SM_StreetSignSupport"
+    }
+  ],
+  "external_caches": "No simulation, tiled/sequence images or libraries authored by frozen v1.",
+  "export_review": "FBX hashes and source identity mapping checked; Unreal translation belongs to parent.",
+  "uv_note": "Editable meshes have planar metre UVs; frozen v1 merged FBX export does not copy UV layers."
+}

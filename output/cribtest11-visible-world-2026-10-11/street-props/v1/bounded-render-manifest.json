@@ -1,0 +1,71 @@
+{
+  "job": "lagos-street-props-v1",
+  "pid": 5736,
+  "blender_version": "5.2.2 LTS",
+  "blender_build": "d13f752e3b9c",
+  "saved_blend": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LagosStreetProps.blend",
+  "saved_blend_sha256": "0c9d3787cb028dc6bbcdcb18eca7379a99b6861d93dc72a03b7319c495732549",
+  "frozen_script_sha256": "c25297c16a6fb24752d9fb13fb651d5be7683c92a530e3a4758365061b20e877",
+  "render_script_sha256": "1275845984e185050983ed76bbda4363ff883bdeeb82c3ec7a91ecfaa9e317c1",
+  "probe_script_sha256": "b19a81953a7e0c4c567fbcfeaca6943ce070a43a17a291131fc2a3ffe4bf43cb",
+  "engine": "CYCLES",
+  "device": "CPU",
+  "threads": 2,
+  "samples": 16,
+  "resolution": [
+    960,
+    540
+  ],
+  "resolution_percentage": 100,
+  "denoising": true,
+  "max_bounces": 4,
+  "color": {
+    "view_transform": "AgX",
+    "look": "None",
+    "exposure": 0.0,
+    "display": "sRGB"
+  },
+  "checkpoint_policy": "Saved v1 geometry unchanged; bounded render settings recorded in this companion manifest.",
+  "cameras": [
+    "DanfoView",
+    "LibraryView"
+  ],
+  "frames": [
+    {
+      "camera": "DanfoView",
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DanfoView.png",
+      "sha256": "164760cf9d284c3e053cd213c1d1e1da3b979cb16e3d49f45c7273c9affec777",
+      "bytes": 548232,
+      "dimensions": [
+        960,
+        540
+      ],
+      "seconds": 43.43784149999556,
+      "camera_location": [
+        5.199999809265137,
+        6.800000190734863,
+        3.9000000953674316
+      ],
+      "lens_mm": 48.0
+    },
+    {
+      "camera": "LibraryView",
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LibraryView.png",
+      "sha256": "248532500bbe81b689fa24209f302ba6865a95ef811215d872e0d1d0eaf9f910",
+      "bytes": 482122,
+      "dimensions": [
+        960,
+        540
+      ],
+      "seconds": 33.12554639999871,
+      "camera_location": [
+        17.0,
+        22.0,
+        13.0
+      ],
+      "lens_mm": 40.0
+    }
+  ],
+  "errors": [],
+  "visual_review": "pending actual image inspection and parent review"
+}

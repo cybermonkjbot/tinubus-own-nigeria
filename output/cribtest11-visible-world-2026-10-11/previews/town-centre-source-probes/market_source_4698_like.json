@@ -1,0 +1,21 @@
+{
+  "camera": {
+    "id": "market_source_4698_like",
+    "location": [
+      -9574.9986,
+      -19914.112,
+      165.0
+    ],
+    "rotation": {
+      "pitch": 2.0,
+      "yaw": 56.0,
+      "roll": 0.0
+    }
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-source-probes/market_source_4698_like.png",
+  "imageSha256": "539a5c9b93301aa291e110309977eaa6abd87593d529d77a19e6e1d67c54225a",
+  "size": [
+    705,
+    486
+  ]
+}

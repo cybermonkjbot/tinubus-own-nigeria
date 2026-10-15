@@ -1,0 +1,26 @@
+{
+  "recorded_at": "2026-10-11T03:05:25-07:00",
+  "output": "C:/dev/baddie-assets/YabaRealismKit/frontage-v2",
+  "status": "11.7m asset-kit assembly only; not final realism, named Yaba reconstruction, completed street or native render",
+  "method": "Actual Frontage, Junction and Construction PNGs opened by Windows worker; editable assembly/library reopened and bounded probes inspected",
+  "frames": [
+    {"file":"Frontage.png","sha256":"31c27560a38b05c48a27980c502fa1b86148178e4a62190bc85cd94aadc3bf92","observed":"Recessed windows, supported balcony, detailed AC, shutter and scanned wall/road surfaces readable; empty dark bays, identical facade repetitions, black vertical strips and isolated context remain"},
+    {"file":"Junction.png","sha256":"6cd1b821a7b063f0e14a7a0fea043bdd4c86207e76a6b991b089ce7a1c6afd6b","observed":"Drain void, concrete cover joints, kerb, gutter discharge/grating and pressed shutter visible; empty shelves/black shop floors, pale repeated paving and limited local wear remain","camera_height_m":2.1,"coverage_limit":"Not a 1.6-1.8m walking-height street acceptance view"},
+    {"file":"Construction.png","sha256":"292923889d0d5f43023772c7cbc61ea52b8ae2cc0b29d2b69158a37cdcc01949","observed":"AC fan/guard/brackets, security grille, frame recess and scanned plaster visible; adjacent vertical strips are very dark, identical modules and unsupported business identity persist"}
+  ],
+  "technical": {"authoring_pid":12848,"process_state":"exited after saves/exports/three renders and reopen","threads":2,"samples":24,"engine":"CYCLES CPU","resolution":[960,640],"packed_maps":11,"map_resolution":[2048,2048],"missing_dependencies":0,"native_import_verified":false},
+  "stable_outputs": {"blend_sha256":"f65f16b7215eb745898816169885de31e149b12d0adacd2adc8b5fb1b57123d6","material_bindings_sha256":"fd9efda83d15223eecf9052ead6cac006b76bfd00d11ad5425c3b0664cf469c3","placement_sha256":"7c0b6140cc2d3f07956fe78fe88bd69693f37e09d4ff12423fdc84693ec1f99d","execution_snapshot_sha256":"5be810d51412a14b88a672ad8d102c234e402c0a0d075e8cea5ea40024109af0"},
+  "defects": [
+    {"location":"shops","issue":"Empty shelves, mostly black floors and no business signs/use","repair":"Next owned revision needs coherent chosen shop contents and sign copy, not fill-light concealment","state":"open"},
+    {"location":"facade","issue":"Identical AC/windows and rigid rhythm","repair":"Reference-grounded variations in separate owned revision","state":"open"},
+    {"location":"wall-pier interface","issue":"Black vertical strips resemble open gaps","actual_inspection":"Reopened mesh bounds show bay wall Y[-.25,0] and pier Y[-.28,0], overlapping X at boundaries. Both have front faces Y=0; no longitudinal gap, coincident facade surfaces are a defect candidate","evidence":"C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/roadside-tree-v2-control/frontage-contact-inspection.json","repair":"Next owned revision should resolve overlapping coplanar faces or separate intended construction surfaces with deliberate contact; no lighting concealment","state":"diagnosed overlap, causal repair/image verification pending"},
+    {"location":"pavement/patches","issue":"Broad pale paving and constant mortar lack use/local variation","repair":"Context-specific wear/material authoring in later revision","state":"open"},
+    {"location":"street context","issue":"Isolated edges and no near/mid/far density","repair":"Adjacent locally anchored street context after individual assembly review; do not repeat unfinished kit across city","state":"open"},
+    {"location":"camera coverage","issue":"No walking-height daylight plus damp/evening street coverage","repair":"Future detailed segment views; current batch remains asset inspection","state":"open"}
+  ],
+  "material_reporting_override": "Corrugated normal absent intentionally because ridges modeled; raw generator labels missing normal but do not repair by doubling. Mortar/painted steel scans remain unresolved, timber available but not used in frozen contract.",
+  "native_handoff":"Keep SurfaceUV multiplier1x; directX normals or invert GL green once; preserve module part offsets and inspect actual importer cm/axes before placement",
+  "frozen_policy":"No further v2 blend, FBX or stable manifest writes; later repair new owned revision",
+  "errors":[],
+  "warnings":["Material.use_nodes and World.use_nodes deprecations only"]
+}

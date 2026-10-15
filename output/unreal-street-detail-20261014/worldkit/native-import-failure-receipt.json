@@ -1,0 +1,102 @@
+{
+  "assets": [
+    {
+      "id": "SM_WK_broadleaf_tree",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_broadleaf_tree.SM_WK_broadleaf_tree",
+      "native_triangles": [
+        121808,
+        60872,
+        24360
+      ],
+      "source_triangles": [
+        121808,
+        60872,
+        24360
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E6F83A4D80) {min: {x: -219.388779, y: -231.993271, z: 0.000000}, max: {x: 231.182388, y: 229.694427, z: 655.152954}, is_valid: True}>",
+      "topology_match": true
+    },
+    {
+      "id": "SM_WK_palm_tree",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_palm_tree.SM_WK_palm_tree",
+      "native_triangles": [
+        140628,
+        70314,
+        28124
+      ],
+      "source_triangles": [
+        140628,
+        70314,
+        28124
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E9F77AE920) {min: {x: -200.331894, y: -203.450607, z: 0.000000}, max: {x: 187.800156, y: 200.889526, z: 644.306946}, is_valid: True}>",
+      "topology_match": true
+    },
+    {
+      "id": "SM_WK_shrub_cluster",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_shrub_cluster.SM_WK_shrub_cluster",
+      "native_triangles": [
+        81604,
+        40802,
+        16320
+      ],
+      "source_triangles": [
+        81604,
+        40802,
+        16320
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E69DDFFB80) {min: {x: -48.820496, y: -42.684490, z: 0.000000}, max: {x: 49.186752, y: 41.072006, z: 73.887276}, is_valid: True}>",
+      "topology_match": true
+    },
+    {
+      "id": "SM_WK_corrugated_awning",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_corrugated_awning.SM_WK_corrugated_awning",
+      "native_triangles": [
+        4764,
+        2382,
+        952
+      ],
+      "source_triangles": [
+        4764,
+        2382,
+        952
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E904FB2200) {min: {x: -166.699997, y: -124.023544, z: 0.000000}, max: {x: 166.699997, y: 4.000014, z: 77.317665}, is_valid: True}>",
+      "topology_match": true
+    },
+    {
+      "id": "SM_WK_street_bench",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_street_bench.SM_WK_street_bench",
+      "native_triangles": [
+        2868,
+        1434,
+        572
+      ],
+      "source_triangles": [
+        2868,
+        1434,
+        572
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E6E4DA2380) {min: {x: -92.500000, y: -28.000008, z: 0.000000}, max: {x: 92.500000, y: 32.434376, z: 85.349998}, is_valid: True}>",
+      "topology_match": true
+    },
+    {
+      "id": "SM_WK_vendor_canopy",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/WorldKit/Meshes/SM_WK_vendor_canopy.SM_WK_vendor_canopy",
+      "native_triangles": [
+        5268,
+        2602,
+        1002
+      ],
+      "source_triangles": [
+        5332,
+        2666,
+        1066
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E9677F5200) {min: {x: -153.009354, y: -80.600014, z: 0.000000}, max: {x: 153.009354, y: 80.600014, z: 270.259796}, is_valid: True}>",
+      "topology_match": false
+    }
+  ],
+  "source_kind": "bounded retained-recipe reconstruction; not archived v06",
+  "visual_review": "pending"
+}

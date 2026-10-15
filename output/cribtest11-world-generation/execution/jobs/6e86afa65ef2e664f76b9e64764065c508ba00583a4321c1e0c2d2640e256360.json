@@ -1,0 +1,230 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "job": "city/signatures/garden-avenue-3",
+  "identity": "6e86afa65ef2e664f76b9e64764065c508ba00583a4321c1e0c2d2640e256360",
+  "state": "saved",
+  "mapPackage": "/Game/BaddieGeneratedWorld/R_6e86afa65ef2e664f76b9e64/Maps/L_city_signatures_garden_avenue_3_0d2e29b359",
+  "sources": [
+    {
+      "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+      "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    }
+  ],
+  "provenance": {
+    "schemaVersion": 1,
+    "job": "city/signatures/garden-avenue-3",
+    "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+    "recipeSha256": "a47d308eac823770f3b4022d762a53f6340553636c69f0a2e9104f13fb203f36",
+    "sources": [
+      {
+        "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+        "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      }
+    ],
+    "template": null,
+    "contract": {
+      "navigationSource": {
+        "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+        "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": "navigation"
+      },
+      "navigationRevision": "lagos-city-v3:street-density-v1",
+      "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+      "fictionalMetricPlan": true
+    }
+  },
+  "startedAt": 1791744687.361561,
+  "instances": [],
+  "meshes": [
+    {
+      "actor": "StaticMeshActor_0",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4fca07ed6cd60327078f2c85.SM_4fca07ed6cd60327078f2c85",
+      "features": [
+        {
+          "canonicalId": "side balcony glazing -1:5",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony glazing 1:6",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_1",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e0483a43f523948c5114d577.SM_e0483a43f523948c5114d577",
+      "features": [
+        {
+          "canonicalId": "white staggered-window apartment shaft:0",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_2",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b710d3cbbfa826844ff6a564.SM_b710d3cbbfa826844ff6a564",
+      "features": [
+        {
+          "canonicalId": "striped residential podium fitted roof edge:2",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "white rooftop cap:3",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "white staggered-window apartment shaft fitted roof edge:4",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony slab -1 0:7",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony slab -1 1:8",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony slab -1 2:9",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony slab -1 3:10",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony slab -1 4:11",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony slab -1 5:12",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony slab -1 6:13",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony slab -1 7:14",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "side balcony slab 1 0:15",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_3",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_58413d3ac4acf2f591918be8.SM_58413d3ac4acf2f591918be8",
+      "features": [
+        {
+          "canonicalId": "striped residential podium:1",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    }
+  ],
+  "contract": {
+    "navigationSource": {
+      "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": "navigation"
+    },
+    "navigationRevision": "lagos-city-v3:street-density-v1",
+    "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+    "fictionalMetricPlan": true
+  },
+  "mapFileSha256": "0fbf79086419175804a5178d8ac7445d6f0fb42759a8e1592fb6659ecb889d31",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_6e86afa65ef2e664f76b9e64/Maps/L_city_signatures_garden_avenue_3_0d2e29b359.umap": "0fbf79086419175804a5178d8ac7445d6f0fb42759a8e1592fb6659ecb889d31"
+  },
+  "packages": [
+    "/Game/BaddieGeneratedWorld/Materials/M_044e9de0376daee648068d69",
+    "/Game/BaddieGeneratedWorld/Materials/M_05c6c9c26aff2f190a14fce2",
+    "/Game/BaddieGeneratedWorld/Materials/M_222fc129a8cc9c4b4be9fedf",
+    "/Game/BaddieGeneratedWorld/Materials/M_c26f4dcaa3e3b646e64bd05d",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4fca07ed6cd60327078f2c85",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_58413d3ac4acf2f591918be8",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b710d3cbbfa826844ff6a564",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e0483a43f523948c5114d577",
+    "/Game/BaddieGeneratedWorld/R_6e86afa65ef2e664f76b9e64/Maps/L_city_signatures_garden_avenue_3_0d2e29b359"
+  ],
+  "generatedDependencies": {
+    "/Game/BaddieGeneratedWorld/Materials/M_044e9de0376daee648068d69": {
+      "identity": "044e9de0376daee648068d6935676ba0ddc9a64179aa3c68f449b960d973d052",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_044e9de0376daee648068d69.uasset": "8f7f7e349ec7c8b33607cd4d81e3269476f8a82a9dca8552e27948ebe8c84a7b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_05c6c9c26aff2f190a14fce2": {
+      "identity": "05c6c9c26aff2f190a14fce2ab338e4cb71158fa13f53c971fd4fb9ca369e94f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_05c6c9c26aff2f190a14fce2.uasset": "e222ae0d7181b8c023a4167f9048814b35ddc0b1bbf99c531c967ebee4072fd3"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_222fc129a8cc9c4b4be9fedf": {
+      "identity": "222fc129a8cc9c4b4be9fedf057590d08e9bea7f1119049f4a94ff704e0e9061",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_222fc129a8cc9c4b4be9fedf.uasset": "bb29f8cdca8e21dce0ff4a114bf789f163ed1ef5751c7ec0c89160497f19f86b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_c26f4dcaa3e3b646e64bd05d": {
+      "identity": "c26f4dcaa3e3b646e64bd05d36d87fe32f72485f6eb63d03da004d69739e9ffe",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_c26f4dcaa3e3b646e64bd05d.uasset": "de824123c8eb3ed9e4a94bfb4efa5ca024951a38a8a2703a470253b8f9956394"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4fca07ed6cd60327078f2c85": {
+      "identity": "4fca07ed6cd60327078f2c8546e2067f69de11b7b5d4cbd9b2b3e3c7582524ab",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4fca07ed6cd60327078f2c85.uasset": "a230dd5f04d8fc219e8edebcc35a810a98b2066f997518360a33a596463484b0"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_58413d3ac4acf2f591918be8": {
+      "identity": "58413d3ac4acf2f591918be8c26ad38ac58cdd0102f44ea4c74e48c9aabdfe4f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_58413d3ac4acf2f591918be8.uasset": "8779fdd93459052e5aae2d467e88f835818fab6d9d8527d711ee9dc5809ee394"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b710d3cbbfa826844ff6a564": {
+      "identity": "b710d3cbbfa826844ff6a564015a9fa1ac18bdb73430f6c001cc45a203b17b11",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b710d3cbbfa826844ff6a564.uasset": "de7710ab144c5ed0de938724df21f729b8c491d9b2e9eff0e487c7cc93080237"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e0483a43f523948c5114d577": {
+      "identity": "e0483a43f523948c5114d577583eba05cc799136ae1e5ad9fa9efb47bc238c4d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e0483a43f523948c5114d577.uasset": "af36f8a3088a0bd3cc13aef70788120ba9a47e24a8168edde1b86ce2d11d5de7"
+      }
+    }
+  },
+  "savedAt": 1791744704.8812814,
+  "runtimeAdmission": false,
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established"
+}

@@ -1,0 +1,256 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "authorizationSha256": "e59ee9b38774a1730da43086c8d9550dbc7b6063e04adf7db0e7d89e1d8b7330",
+  "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+  "jobIdentities": [
+    {
+      "job": "city/signatures/college-lane-16",
+      "identity": "c58c0f7905cfbecf99734bf7e8940ec4fbb1e03b8da256ff3b6541a8de5ac286"
+    }
+  ],
+  "state": "authorized-partial-batch-saved",
+  "wholeWorldComplete": false,
+  "compilation": "not-performed",
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established",
+  "startupMapRegistration": "unchanged",
+  "jobs": [
+    {
+      "owner": "cribtest11-world-generation-20261010",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "job": "city/signatures/college-lane-16",
+      "identity": "c58c0f7905cfbecf99734bf7e8940ec4fbb1e03b8da256ff3b6541a8de5ac286",
+      "state": "saved",
+      "mapPackage": "/Game/BaddieGeneratedWorld/R_c58c0f7905cfbecf99734bf7/Maps/L_city_signatures_college_lane_16_b1decfaf70",
+      "sources": [
+        {
+          "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+          "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": ""
+        }
+      ],
+      "provenance": {
+        "schemaVersion": 1,
+        "job": "city/signatures/college-lane-16",
+        "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+        "recipeSha256": "06fb80c02006328d42c97cfe669fb7ed0304c4b93f6cce10fbf4ddbe270fd35d",
+        "sources": [
+          {
+            "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+            "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": ""
+          }
+        ],
+        "template": null,
+        "contract": {
+          "navigationSource": {
+            "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+            "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+            "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+            "pointer": "navigation"
+          },
+          "navigationRevision": "lagos-city-v3:street-density-v1",
+          "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+          "fictionalMetricPlan": true
+        }
+      },
+      "startedAt": 1791744669.1833577,
+      "instances": [],
+      "meshes": [
+        {
+          "actor": "StaticMeshActor_0",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c59a4c563bc332d525b90ea1.SM_c59a4c563bc332d525b90ea1",
+          "features": [
+            {
+              "canonicalId": "tall corner lantern fitted roof edge:3",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "pavilion deep canopy 3.34:4",
+              "firstTriangle": 12,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "pavilion deep canopy 6.64:5",
+              "firstTriangle": 24,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "pavilion deep canopy 9.099999999999998:6",
+              "firstTriangle": 36,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_1",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_83b46f257411ab9f77867927.SM_83b46f257411ab9f77867927",
+          "features": [
+            {
+              "canonicalId": "corner pavilion low wing fitted roof edge:2",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_2",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_70bc40172adc073f0414cf91.SM_70bc40172adc073f0414cf91",
+          "features": [
+            {
+              "canonicalId": "entry canopy:7",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "lantern rib 0:8",
+              "firstTriangle": 12,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "lantern rib 1:9",
+              "firstTriangle": 24,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "lantern rib 2:10",
+              "firstTriangle": 36,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "lantern rib 3:11",
+              "firstTriangle": 48,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "lantern rib 4:12",
+              "firstTriangle": 60,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "lantern rib 5:13",
+              "firstTriangle": 72,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "lantern rib 6:14",
+              "firstTriangle": 84,
+              "triangleCount": 12
+            },
+            {
+              "canonicalId": "lantern rib 7:15",
+              "firstTriangle": 96,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_3",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_05c30f5ad84db0027405f9ad.SM_05c30f5ad84db0027405f9ad",
+          "features": [
+            {
+              "canonicalId": "tall corner lantern:1",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            }
+          ]
+        },
+        {
+          "actor": "StaticMeshActor_4",
+          "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_0acb7bb87bdcd5d0528baaa8.SM_0acb7bb87bdcd5d0528baaa8",
+          "features": [
+            {
+              "canonicalId": "corner pavilion low wing:0",
+              "firstTriangle": 0,
+              "triangleCount": 12
+            }
+          ]
+        }
+      ],
+      "contract": {
+        "navigationSource": {
+          "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+          "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+          "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+          "pointer": "navigation"
+        },
+        "navigationRevision": "lagos-city-v3:street-density-v1",
+        "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+        "fictionalMetricPlan": true
+      },
+      "mapFileSha256": "f52b5a313713938509000cefab27415f72799786f46e4a0e60e02626b45ff611",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/R_c58c0f7905cfbecf99734bf7/Maps/L_city_signatures_college_lane_16_b1decfaf70.umap": "f52b5a313713938509000cefab27415f72799786f46e4a0e60e02626b45ff611"
+      },
+      "packages": [
+        "/Game/BaddieGeneratedWorld/Materials/M_717ef727c3fe64bf384a81fb",
+        "/Game/BaddieGeneratedWorld/Materials/M_98aad3405a965d8440debb85",
+        "/Game/BaddieGeneratedWorld/Materials/M_cde8be19a074e045f12f5d14",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_05c30f5ad84db0027405f9ad",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_0acb7bb87bdcd5d0528baaa8",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_70bc40172adc073f0414cf91",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_83b46f257411ab9f77867927",
+        "/Game/BaddieGeneratedWorld/Meshes/SM_c59a4c563bc332d525b90ea1",
+        "/Game/BaddieGeneratedWorld/R_c58c0f7905cfbecf99734bf7/Maps/L_city_signatures_college_lane_16_b1decfaf70"
+      ],
+      "generatedDependencies": {
+        "/Game/BaddieGeneratedWorld/Materials/M_717ef727c3fe64bf384a81fb": {
+          "identity": "717ef727c3fe64bf384a81fbde6b689885c3a97bcf6588eb23a4c89c91b92ae4",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_717ef727c3fe64bf384a81fb.uasset": "0b69b5a6f9efd130de70799f72c8e3a618a286eca9bb9c88ea87f877d5d20185"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Materials/M_98aad3405a965d8440debb85": {
+          "identity": "98aad3405a965d8440debb85d260b61e46209cc3aa59fec740f45e28dc624d95",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_98aad3405a965d8440debb85.uasset": "8a6e89be271dded8f72a86c1bbe2b662116c6e5e3a4b2b3592e6f22b83d9f7fb"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Materials/M_cde8be19a074e045f12f5d14": {
+          "identity": "cde8be19a074e045f12f5d142c57293c2b8856325905289acb0a425ffd79520f",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_cde8be19a074e045f12f5d14.uasset": "7509f3dfa7ef5d78f1c033625e3e1c47140a510993c3e4f4409a5de02add4143"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_05c30f5ad84db0027405f9ad": {
+          "identity": "05c30f5ad84db0027405f9ad3c8b444c9a377ae277362ca58ec3f17ae424a449",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_05c30f5ad84db0027405f9ad.uasset": "a543bf3584b08c01251056859812d6e67f4721b03333a38c5a4292da67ada021"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_0acb7bb87bdcd5d0528baaa8": {
+          "identity": "0acb7bb87bdcd5d0528baaa8b099a8e4c735371df00824af3004246e77b3d229",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_0acb7bb87bdcd5d0528baaa8.uasset": "61b546d3138d362e0a287cc8318437f42c7b977db76df3817632579f008c7c83"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_70bc40172adc073f0414cf91": {
+          "identity": "70bc40172adc073f0414cf919bff9dc45637d2e37de1685a358778b5d4a90619",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_70bc40172adc073f0414cf91.uasset": "1dbf2472e61d4c36a695434811afaabb18c64c537c1e1f192f697c3a8a349018"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_83b46f257411ab9f77867927": {
+          "identity": "83b46f257411ab9f77867927147a75ad23d536733aa0626feecf1d847a55820e",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_83b46f257411ab9f77867927.uasset": "3e841934d285f1ee640afae4f1b6c930b53e23194daff24420906a312c64b2c0"
+          }
+        },
+        "/Game/BaddieGeneratedWorld/Meshes/SM_c59a4c563bc332d525b90ea1": {
+          "identity": "c59a4c563bc332d525b90ea1fe35323745de2d012e0fb6894ec1fbd9b8aa729b",
+          "files": {
+            "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c59a4c563bc332d525b90ea1.uasset": "e615fb44cace41bea060ca98cc9776161425dc495a144b0872e7ab75c49077d6"
+          }
+        }
+      },
+      "savedAt": 1791744683.0052648,
+      "runtimeAdmission": false,
+      "renderedInspection": "not-performed",
+      "playableAcceptance": "not-established"
+    }
+  ]
+}

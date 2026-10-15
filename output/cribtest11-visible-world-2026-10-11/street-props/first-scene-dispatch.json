@@ -1,0 +1,20 @@
+{
+  "job": "lagos-first-scene-v1",
+  "step": "owned_assembly_started",
+  "pid": 12252,
+  "started_at": "2026-10-11T02:28:47-07:00",
+  "owned_script_sha256": "db0835fec86aeb56357e321cb9539ea038a2a3fb7b73140eef1eb55a81efce11",
+  "frozen_script": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/lagos_first_scene.py",
+  "frozen_script_sha256": "19a11507790d0bcd1ab81b0db4e663fe1fab5765b0e7c71f5dd9dce395128fa5",
+  "owned_script": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/first-scene-v1/lagos_first_scene_owned.py",
+  "output_directory": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/first-scene-v1",
+  "source_fix": "Parent-authorized: skip absent optional signature pin only for context-parcels=0 and record optional-not-loaded; no snapshot edits.",
+  "required_pins_verified": 5,
+  "context_parcels": 0,
+  "threads": 2,
+  "samples": 16,
+  "resolution": [960, 540],
+  "protected_blender_pid": 3224,
+  "previous_frames": {"DanfoView": "approved for first visual dressing, not runtime parity", "LibraryView": "parent inspected and approved as dressing"},
+  "errors": []
+}

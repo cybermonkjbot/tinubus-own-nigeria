@@ -1,0 +1,61 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "job": "city/districts/town-centre",
+  "identity": "69f9c0553f2864e39b83cf3f0740412b1dd44e257de43d39856455b924bf1919",
+  "state": "failed",
+  "mapPackage": "/Game/BaddieGeneratedWorld/R_69f9c0553f2864e39b83cf3f/Maps/L_city_districts_town_centre_c904bd18ec",
+  "sources": [
+    {
+      "path": "packages/assets/city/lagos-city-v3.json",
+      "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityScene.ts",
+      "sha256": "8b9697d59ec162ac8e657a1cc812ba19e66d4705a7938e2a7c3ce367fa0fa3c6",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    }
+  ],
+  "provenance": {
+    "schemaVersion": 1,
+    "job": "city/districts/town-centre",
+    "generatorIdentity": "44e0f0bde9ff18ef6cb72a09bc2e219469944a7a8ba120e30782ee7cbc2f4797",
+    "recipeSha256": "5c2603f0ece66b0597112376f1afc3ceb44e7a761d283fb081d59bd317bdf1f4",
+    "sources": [
+      {
+        "path": "packages/assets/city/lagos-city-v3.json",
+        "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      },
+      {
+        "path": "packages/companion-scene/src/interactions/city/cityScene.ts",
+        "sha256": "8b9697d59ec162ac8e657a1cc812ba19e66d4705a7938e2a7c3ce367fa0fa3c6",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      }
+    ],
+    "template": null,
+    "contract": {
+      "navigationSource": {
+        "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+        "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": "navigation"
+      },
+      "navigationRevision": "lagos-city-v3:street-density-v1",
+      "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+      "fictionalMetricPlan": true
+    }
+  },
+  "startedAt": 1791744203.673735,
+  "error": "Transform: Failed to convert parameter 'rotation' when calling function 'KismetMathLibrary.MakeTransform' on 'Default__KismetMathLibrary'\n  TypeError: NativizeProperty: Cannot nativize 'Quat' as 'Rotation' (StructProperty)\n    TypeError: NativizeStructInstance: Cannot nativize 'Quat' as 'Rotator'",
+  "packages": [
+    "/Game/BaddieGeneratedWorld/Materials/M_935339cef9e7a523337e35af",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e7bdff07504966c5d0b6828f"
+  ],
+  "failedAt": 1791744212.2707398
+}

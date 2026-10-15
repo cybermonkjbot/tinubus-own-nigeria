@@ -1,0 +1,25 @@
+{
+  "imagePath": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\previews\\town-centre-streetpass01\\library-lane-approach.png",
+  "imageSha256": "016aeba05a58998cf1258be38d126f72e1a21c3013e1b966e1f8e0e6696ace00",
+  "width": 705,
+  "height": 486,
+  "capture": {
+    "cameraLocation": {
+      "x": -76000,
+      "y": -25800,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 2,
+      "yaw": 55,
+      "roll": 0
+    },
+    "cameraFOV": 70,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  }
+}

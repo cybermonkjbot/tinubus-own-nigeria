@@ -1,0 +1,16 @@
+{
+  "cameraLocation": {
+    "x": -9000,
+    "y": -25200,
+    "z": 165
+  },
+  "cameraRotation": {
+    "pitch": 3,
+    "yaw": 120,
+    "roll": 0
+  },
+  "cameraFOV": 70,
+  "width": 705,
+  "height": 486,
+  "warmupFrames": 50
+}

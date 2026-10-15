@@ -1,0 +1,203 @@
+{
+  "retrievedDate": "2026-10-11",
+  "importedIntoGame": false,
+  "currentConditionsVerified": false,
+  "records": [
+    {
+      "source": "Wikimedia Commons",
+      "pageId": 88431486,
+      "title": "File:Danfo bus struggles.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Danfo_bus_struggles.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Danfo_bus_struggles.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceCaptureDateRaw": "2016-02-11",
+      "captureDateResolved": "2016-02-11",
+      "sourceUploadDate": "2020-03-21 23:57:27",
+      "sourceCoordinates": [
+        3.348643,
+        6.556468
+      ],
+      "coordinateRole": "Source geotag claim, not registered camera position",
+      "creator": "Funsho116",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "visuallyInspected": true,
+      "downloaded": true,
+      "sha256": "7a112fb5a3b341c97c7d0dda399e9c7918144ad852acfd99e4cee865748e5934",
+      "observations": [
+        "Yellow minibuses with black stripes and worn panels; pedestrian foreground.",
+        "No model, route, permanent stop or current fleet established."
+      ],
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetAdmission": false
+    },
+    {
+      "source": "Wikimedia Commons",
+      "pageId": 88431487,
+      "title": "File:A queue of danfo buses.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:A_queue_of_danfo_buses.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/8/8c/A_queue_of_danfo_buses.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceCaptureDateRaw": "2016-02-11 18:10:26",
+      "captureDateResolved": "2016-02-11 18:10:26",
+      "sourceUploadDate": "2020-03-21 23:57:27",
+      "sourceCoordinates": [
+        3.349168,
+        6.556448
+      ],
+      "coordinateRole": "Source geotag claim, not registered camera position",
+      "creator": "Funsho116",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "visuallyInspected": true,
+      "downloaded": true,
+      "sha256": "e6d1cbab660406d4e327ac46d7cb270702b18ab8f06111095f386373f578c85c",
+      "observations": [
+        "Row of yellow minibuses; pedestrians carrying large loads and stacked trays on head; low-rise forms, windows, roof forms, poles and wires.",
+        "No exact goods, permanent terminal or current operating practice established."
+      ],
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetAdmission": false
+    },
+    {
+      "source": "Wikimedia Commons",
+      "pageId": 63613778,
+      "title": "File:Tapiya3.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Tapiya3.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/9/97/Tapiya3.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceCaptureDateRaw": "2017-08-03",
+      "captureDateResolved": "2017-08-03",
+      "sourceUploadDate": "2017-10-25 23:11:39",
+      "sourceCoordinates": [
+        3.350206,
+        6.555306
+      ],
+      "coordinateRole": "Source geotag claim, not registered camera position",
+      "creator": "Tapiya",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "visuallyInspected": true,
+      "downloaded": true,
+      "sha256": "b446bc7af33a0eb7975e8c8495658b570e5cc737d3a594a4b5823b1c35e81f29",
+      "observations": [
+        "Portrait dominates; background blue roadside barrier, pedestrians, cars/buses and light poles.",
+        "Marginal street context only; no likeness asset."
+      ],
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetAdmission": false
+    },
+    {
+      "source": "Wikimedia Commons",
+      "pageId": 63613779,
+      "title": "File:Tapiya1.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Tapiya1.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/6/67/Tapiya1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceCaptureDateRaw": "Tapiya 2",
+      "captureDateResolved": null,
+      "sourceUploadDate": "2017-10-25 23:11:39",
+      "sourceCoordinates": [
+        3.350206,
+        6.555306
+      ],
+      "coordinateRole": "Source geotag claim, not registered camera position",
+      "creator": "Tapiya",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "visuallyInspected": true,
+      "downloaded": true,
+      "sha256": "4aabd315842e3323f2f9589594ebfb698be3782f8f7efc590a693df76fec4afe",
+      "observations": [
+        "Portrait dominates; background roadside traffic and barrier.",
+        "Malformed capture date retained; no companion-date substitution or likeness asset."
+      ],
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetAdmission": false
+    },
+    {
+      "source": "Wikimedia Commons",
+      "pageId": 128961602,
+      "title": "File:Traditional Selfie.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Traditional_Selfie.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/26/Traditional_Selfie.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "sourceCaptureDateRaw": "2023-02-22",
+      "captureDateResolved": "2023-02-22",
+      "sourceUploadDate": "2023-02-22 18:45:37",
+      "sourceCoordinates": [
+        3.348843,
+        6.556233
+      ],
+      "coordinateRole": "Source geotag claim, not registered camera position",
+      "creator": "Jeremyida002",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "visuallyInspected": false,
+      "downloaded": false,
+      "sha256": null,
+      "observations": [
+        "Metadata only; not downloaded or visually inspected.",
+        "Excluded from architectural evidence; description of attire not used as cultural generalization."
+      ],
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetAdmission": false
+    },
+    {
+      "source": "Instagram original post",
+      "pageUrl": "https://www.instagram.com/p/DAnZ8Kvtr0V/",
+      "account": "titilola_cole_oso",
+      "publicationDate": "2024-10-02",
+      "imageEmbeddedCaptureClaim": "2024-09-06 23:55:27",
+      "imageEmbeddedCoordinates": [
+        3.346615,
+        6.555854
+      ],
+      "embeddedPlaceText": "Boladale Street, Oshodi-Isolo, Lagos, Nigeria",
+      "sha256": "5c772d11a2a4b08ce91eeb5ff6e24be51a74f59ad393260c408fb54e87d3087a",
+      "visuallyInspected": true,
+      "license": null,
+      "rightsStatus": "No open reuse licence established",
+      "observations": [
+        "Night roadwork scene with rough/light exposed road material and parked vehicles.",
+        "Alternating dark/light facade panels, window frames, overhead wires, utility poles/metal supports, gate/perimeter wall and bright point lights."
+      ],
+      "consistencyCheck": {
+        "osmNodeId": 1475182789,
+        "approximateSeparationMetres": 13,
+        "notCameraRegistration": true
+      },
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetAdmission": false
+    },
+    {
+      "source": "Instagram original post",
+      "pageUrl": "https://www.instagram.com/p/DAnZ8Kvtr0V/",
+      "account": "titilola_cole_oso",
+      "publicationDate": "2024-10-02",
+      "imageEmbeddedCaptureClaim": "2024-09-07 01:53:49",
+      "imageEmbeddedCoordinates": [
+        3.346661,
+        6.555828
+      ],
+      "embeddedPlaceText": "Boladale Street, Oshodi-Isolo, Lagos, Nigeria",
+      "sha256": "251bfe34d16ea96312b8b45c70dc7ff54897e4199eacd5e3350269eb92098d38",
+      "visuallyInspected": true,
+      "license": null,
+      "rightsStatus": "No open reuse licence established",
+      "observations": [
+        "Worker with long-handled tool spreading dark aggregate/bituminous-looking material; blue workwear with reflective bands.",
+        "Roadside channel/kerb edge, contextual facade, lights and overhead wires; no measured drain or material chemistry."
+      ],
+      "consistencyCheck": {
+        "osmNodeId": 1475182789,
+        "approximateSeparationMetres": 7.5,
+        "notCameraRegistration": true
+      },
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetAdmission": false
+    }
+  ]
+}

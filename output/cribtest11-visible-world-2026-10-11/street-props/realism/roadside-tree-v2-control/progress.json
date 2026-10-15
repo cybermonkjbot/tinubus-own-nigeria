@@ -1,0 +1,74 @@
+{
+  "job": "roadside-tree-v1",
+  "pid": 7960,
+  "step": "saved_rendered_reopened_pending_actual_image_review",
+  "updated_at": "2026-10-11T10:06:05.960776+00:00",
+  "outputs": [
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\RoadsideShadeTree.blend",
+      "sha256": "364f26482c6c0ca51526de1e93489ac862d6c981f2cb9a7ed4108d4fe2078d04",
+      "bytes": 403767
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Bark.fbx",
+      "sha256": "bd59db92ba6cc1532fb796f41724cbb6388ca49c47757adcdec87e9b647ea876",
+      "bytes": 350204
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_00.fbx",
+      "sha256": "44d32f4ef7adc693c7189d68917ac66b670bc520c42914d4a4efcf3b0653c204",
+      "bytes": 168460
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_01.fbx",
+      "sha256": "aae2a7d1eef8c84a15ad5baf883ca11444c57bd629845faf0f9bf6c70cf38eb7",
+      "bytes": 168092
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_02.fbx",
+      "sha256": "90fd4cd47ad5d953f9cd3012c032f63e6a2b92f94f008e5dac67fa683fcc6488",
+      "bytes": 168156
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_03.fbx",
+      "sha256": "d86d502bf27e6de6627f6a8b29ce69f01aa797d881b812e1081851852c0fa62b",
+      "bytes": 168140
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_04.fbx",
+      "sha256": "0ae20163208c2bddf8153b3510ad8fec2ec2278e9da885eaa973c9210204f937",
+      "bytes": 168108
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_05.fbx",
+      "sha256": "b176f650e456b362b147a08f66c88ff806d8b97e42123e35f10342e713801fba",
+      "bytes": 167900
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\Tree-Ground-Shadow.png",
+      "sha256": "3779f287dda230099e5e089dd79c98b0d2106d44d83d0891d8deb95df091eada",
+      "bytes": 705736
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\tree-delivery.json",
+      "sha256": "0f7415aa6e834f0a620db4c5a257df7ca247522e19fd28bd172084bb09083290",
+      "bytes": 559746
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\tree-manifest.json",
+      "sha256": "8e72c68b6c955f7ac03b3fbc6952865a259701bfd78f5d588b7a16ae60f90062",
+      "bytes": 559348
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\scene-probe-reopened.json",
+      "sha256": "5f4d49758a138dccea43ab06e249906ba89d50c383429bd6e5350ef5dc5b7174",
+      "bytes": 3019
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\asset-inspection-reopened.json",
+      "sha256": "23ff51328574f6e520a2eedef6a15354ee26543f22cdb93a2de9386523cf4186",
+      "bytes": 760
+    }
+  ],
+  "errors": []
+}

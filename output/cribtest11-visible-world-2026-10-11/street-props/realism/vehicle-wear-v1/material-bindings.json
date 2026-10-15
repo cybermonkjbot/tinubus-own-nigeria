@@ -1,0 +1,619 @@
+{
+  "YellowMaintained": {
+    "slot": "VW_YellowMaintained",
+    "color_linear": [
+      0.71,
+      0.4,
+      0.016
+    ],
+    "roughness": 0.43,
+    "metallic": 0,
+    "coat": 0.12,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "YellowFaded": {
+    "slot": "VW_YellowFaded",
+    "color_linear": [
+      0.52,
+      0.31,
+      0.028
+    ],
+    "roughness": 0.61,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "YellowRepair": {
+    "slot": "VW_YellowRepair",
+    "color_linear": [
+      0.64,
+      0.39,
+      0.07
+    ],
+    "roughness": 0.54,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "YellowBleached": {
+    "slot": "VW_YellowBleached",
+    "color_linear": [
+      0.58,
+      0.42,
+      0.14
+    ],
+    "roughness": 0.67,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "BlackStripe": {
+    "slot": "VW_BlackStripe",
+    "color_linear": [
+      0.016,
+      0.019,
+      0.016
+    ],
+    "roughness": 0.56,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "Rubber": {
+    "slot": "VW_Rubber",
+    "color_linear": [
+      0.021,
+      0.023,
+      0.025
+    ],
+    "roughness": 0.81,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "Steel": {
+    "slot": "VW_Steel",
+    "color_linear": [
+      0.26,
+      0.29,
+      0.29
+    ],
+    "roughness": 0.46,
+    "metallic": 1,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "RimOld": {
+    "slot": "VW_RimOld",
+    "color_linear": [
+      0.19,
+      0.2,
+      0.19
+    ],
+    "roughness": 0.61,
+    "metallic": 0.92,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "RustSeam": {
+    "slot": "VW_RustSeam",
+    "color_linear": [
+      0.14,
+      0.047,
+      0.015
+    ],
+    "roughness": 0.89,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "Primer": {
+    "slot": "VW_Primer",
+    "color_linear": [
+      0.34,
+      0.32,
+      0.25
+    ],
+    "roughness": 0.75,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "GlassClear": {
+    "slot": "VW_GlassClear",
+    "color_linear": [
+      0.9,
+      0.96,
+      0.95
+    ],
+    "roughness": 0.045,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 1,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "GlassAged": {
+    "slot": "VW_GlassAged",
+    "color_linear": [
+      0.85,
+      0.91,
+      0.88
+    ],
+    "roughness": 0.095,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 1,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "Mirror": {
+    "slot": "VW_Mirror",
+    "color_linear": [
+      0.78,
+      0.81,
+      0.81
+    ],
+    "roughness": 0.055,
+    "metallic": 1,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "GlassEdgeFilm": {
+    "slot": "VW_GlassEdgeFilm",
+    "color_linear": [
+      0.27,
+      0.29,
+      0.24
+    ],
+    "roughness": 0.36,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0.55,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "SeatCloth": {
+    "slot": "VW_SeatCloth",
+    "color_linear": [
+      0.12,
+      0.105,
+      0.078
+    ],
+    "roughness": 0.91,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "SeatRepair": {
+    "slot": "VW_SeatRepair",
+    "color_linear": [
+      0.24,
+      0.2,
+      0.13
+    ],
+    "roughness": 0.94,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "LampGlass": {
+    "slot": "VW_LampGlass",
+    "color_linear": [
+      0.79,
+      0.8,
+      0.69
+    ],
+    "roughness": 0.2,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0.42,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "Amber": {
+    "slot": "VW_Amber",
+    "color_linear": [
+      0.6,
+      0.15,
+      0.009
+    ],
+    "roughness": 0.34,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "RedLamp": {
+    "slot": "VW_RedLamp",
+    "color_linear": [
+      0.32,
+      0.013,
+      0.008
+    ],
+    "roughness": 0.29,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "Ivory": {
+    "slot": "VW_Ivory",
+    "color_linear": [
+      0.68,
+      0.67,
+      0.57
+    ],
+    "roughness": 0.66,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "SedanBlue": {
+    "slot": "VW_SedanBlue",
+    "color_linear": [
+      0.075,
+      0.13,
+      0.16
+    ],
+    "roughness": 0.44,
+    "metallic": 0,
+    "coat": 0.16,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "SedanFaded": {
+    "slot": "VW_SedanFaded",
+    "color_linear": [
+      0.13,
+      0.19,
+      0.21
+    ],
+    "roughness": 0.61,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "SedanPanel": {
+    "slot": "VW_SedanPanel",
+    "color_linear": [
+      0.105,
+      0.145,
+      0.16
+    ],
+    "roughness": 0.54,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "Battery": {
+    "slot": "VW_Battery",
+    "color_linear": [
+      0.035,
+      0.038,
+      0.037
+    ],
+    "roughness": 0.71,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "Hose": {
+    "slot": "VW_Hose",
+    "color_linear": [
+      0.03,
+      0.035,
+      0.033
+    ],
+    "roughness": 0.77,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "RoadsideDust": {
+    "slot": "VW_RoadsideDust",
+    "color_linear": [
+      0.19,
+      0.16,
+      0.1
+    ],
+    "roughness": 0.91,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1,
+      1
+    ],
+    "provenance": "Original authored physical shader constants; not an automotive paint scan",
+    "maps": {}
+  },
+  "ExposedOxidizedMetal": {
+    "slot": "VW_ExposedOxidizedMetal",
+    "color_linear": [
+      0.3,
+      0.3,
+      0.3
+    ],
+    "roughness": 0.75,
+    "metallic": 1,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      2.700000047683716,
+      2.700000047683716
+    ],
+    "provenance": "Coordinator supplied Poly Haven originals",
+    "maps": {
+      "base_color": {
+        "file": "textures/corrugated_iron_02_diff_2k.jpg",
+        "sha256": "1bd2b9900e066d7e6cbacc5093aa4204db71c1bbe13b42a3d8ad23d04fa8075a",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/corrugated_iron_02/corrugated_iron_02_diff_2k.jpg",
+        "color_space": "sRGB",
+        "native_gl_green_flip_once": false
+      },
+      "roughness": {
+        "file": "textures/corrugated_iron_02_rough_2k.png",
+        "sha256": "7bf7e03196e601b4173822505e7cb01b401b4e50bb98bc0ecc556de7d4b231c3",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/corrugated_iron_02/corrugated_iron_02_rough_2k.png",
+        "color_space": "Non-Color",
+        "native_gl_green_flip_once": false
+      }
+    },
+    "license": "CC0-1.0",
+    "authors": {
+      "Jenelle van Heerden": "Processing",
+      "Sergej Majboroda": "Photography"
+    },
+    "limit": "Weathered corrugated iron colour/roughness applied only to small exposed repairs; scan normal omitted, not a measured car-body coating"
+  },
+  "OldSeatBacking": {
+    "slot": "VW_OldSeatBacking",
+    "color_linear": [
+      0.3,
+      0.3,
+      0.3
+    ],
+    "roughness": 0.75,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      1.5,
+      1.5000001192092896
+    ],
+    "provenance": "Coordinator supplied Poly Haven originals",
+    "maps": {
+      "base_color": {
+        "file": "textures/wood_planks_grey_diff_2k.jpg",
+        "sha256": "31bdd475c6f1520fccc34a6823bfab8ba61ce5fd6dd97a3d1d868c21295e1000",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_grey/wood_planks_grey_diff_2k.jpg",
+        "color_space": "sRGB",
+        "native_gl_green_flip_once": false
+      },
+      "roughness": {
+        "file": "textures/wood_planks_grey_rough_2k.png",
+        "sha256": "0e76025babe056bfdcd750a8f186df92d359fa804273fceb0f23d4884b9f5520",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/wood_planks_grey/wood_planks_grey_rough_2k.png",
+        "color_space": "Non-Color",
+        "native_gl_green_flip_once": false
+      }
+    },
+    "license": "CC0-1.0",
+    "authors": {
+      "Rob Tuytel": "All"
+    }
+  },
+  "Asphalt": {
+    "slot": "VW_Asphalt",
+    "color_linear": [
+      0.3,
+      0.3,
+      0.3
+    ],
+    "roughness": 0.75,
+    "metallic": 0,
+    "coat": 0,
+    "transmission": 0,
+    "uv": "SurfaceUV",
+    "coverage_m": [
+      2,
+      2
+    ],
+    "provenance": "Coordinator supplied Poly Haven originals",
+    "maps": {
+      "base_color": {
+        "file": "textures/worn_asphalt_diff_2k.jpg",
+        "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/worn_asphalt/worn_asphalt_diff_2k.jpg",
+        "color_space": "sRGB",
+        "native_gl_green_flip_once": false
+      },
+      "roughness": {
+        "file": "textures/worn_asphalt_rough_2k.png",
+        "sha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_rough_2k.png",
+        "color_space": "Non-Color",
+        "native_gl_green_flip_once": false
+      },
+      "normal_gl": {
+        "file": "textures/worn_asphalt_nor_gl_2k.png",
+        "sha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647",
+        "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_nor_gl_2k.png",
+        "color_space": "Non-Color",
+        "native_gl_green_flip_once": true
+      }
+    },
+    "license": "CC0-1.0",
+    "authors": {
+      "Amal Kumar": "All"
+    }
+  }
+}

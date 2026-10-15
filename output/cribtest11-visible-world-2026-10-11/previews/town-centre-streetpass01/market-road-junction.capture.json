@@ -1,0 +1,25 @@
+{
+  "imagePath": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\previews\\town-centre-streetpass01\\market-road-junction.png",
+  "imageSha256": "c3a65596a499b87855f637c8197e44b5d8d72439309c7b9b6d192b16084b1098",
+  "width": 705,
+  "height": 486,
+  "capture": {
+    "cameraLocation": {
+      "x": -9000,
+      "y": -25200,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 3,
+      "yaw": 120,
+      "roll": 0
+    },
+    "cameraFOV": 70,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  }
+}

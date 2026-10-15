@@ -1,0 +1,595 @@
+{
+  "source": "sector-08-roads.geojson",
+  "sharedNodePairs": [
+    {
+      "wayIds": [
+        589001493,
+        589014138
+      ],
+      "nodeId": 35785462,
+      "coordinates": [
+        3.3403826,
+        6.5566126
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589001493,
+        5153764
+      ],
+      "nodeId": 35785462,
+      "coordinates": [
+        3.3403826,
+        6.5566126
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589001493,
+        370814122
+      ],
+      "nodeId": 3745002403,
+      "coordinates": [
+        3.3423443,
+        6.5564844
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589014138,
+        5153764
+      ],
+      "nodeId": 35785462,
+      "coordinates": [
+        3.3403826,
+        6.5566126
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        588838486
+      ],
+      "nodeId": 3745002411,
+      "coordinates": [
+        3.3402725,
+        6.5559862
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        370814122
+      ],
+      "nodeId": 3745002397,
+      "coordinates": [
+        3.340152,
+        6.5553545
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        370814116
+      ],
+      "nodeId": 3745002376,
+      "coordinates": [
+        3.3400634,
+        6.5549323
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        93156429
+      ],
+      "nodeId": 1079925442,
+      "coordinates": [
+        3.34006,
+        6.5547066
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        370814118
+      ],
+      "nodeId": 3745002384,
+      "coordinates": [
+        3.3400597,
+        6.5542291
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        370814115
+      ],
+      "nodeId": 3745002375,
+      "coordinates": [
+        3.3396791,
+        6.5527672
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        370814119
+      ],
+      "nodeId": 3745002387,
+      "coordinates": [
+        3.3400301,
+        6.5535505
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        370814120
+      ],
+      "nodeId": 3745002388,
+      "coordinates": [
+        3.3395295,
+        6.552537
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        93156436
+      ],
+      "nodeId": 1079925455,
+      "coordinates": [
+        3.3393247,
+        6.552228
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        93156409
+      ],
+      "nodeId": 35785428,
+      "coordinates": [
+        3.3391722,
+        6.5520004
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        589001490
+      ],
+      "nodeId": 1079925565,
+      "coordinates": [
+        3.3381102,
+        6.5502513
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        134144368
+      ],
+      "nodeId": 1475221949,
+      "coordinates": [
+        3.3380319,
+        6.5495832
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        5153764,
+        134140052
+      ],
+      "nodeId": 1475221992,
+      "coordinates": [
+        3.3380918,
+        6.5494411
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        370814116,
+        370814115
+      ],
+      "nodeId": 3745002378,
+      "coordinates": [
+        3.3379962,
+        6.5536462
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156429,
+        370814121
+      ],
+      "nodeId": 3745002396,
+      "coordinates": [
+        3.3407287,
+        6.5545855
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156429,
+        93156416
+      ],
+      "nodeId": 1079925515,
+      "coordinates": [
+        3.3413586,
+        6.554505
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        370814118,
+        370814115
+      ],
+      "nodeId": 3745002382,
+      "coordinates": [
+        3.3385805,
+        6.5533997
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        370814115,
+        370814119
+      ],
+      "nodeId": 3745002385,
+      "coordinates": [
+        3.3390313,
+        6.5531444
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        370814120,
+        370814121
+      ],
+      "nodeId": 3745002390,
+      "coordinates": [
+        3.3400593,
+        6.5522175
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        370814120,
+        93156416
+      ],
+      "nodeId": 1079925560,
+      "coordinates": [
+        3.3412138,
+        6.5528074
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156409,
+        441859086
+      ],
+      "nodeId": 4395533022,
+      "coordinates": [
+        3.3396909,
+        6.5516475
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156409,
+        134140052
+      ],
+      "nodeId": 177174622,
+      "coordinates": [
+        3.3402922,
+        6.5510982
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        441859086,
+        134140052
+      ],
+      "nodeId": 4725908729,
+      "coordinates": [
+        3.3388748,
+        6.5500572
+      ],
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589001490,
+        134144368
+      ],
+      "nodeId": 5624643859,
+      "coordinates": [
+        3.3363273,
+        6.5502235
+      ],
+      "accessVerified": false
+    }
+  ],
+  "routes": [
+    {
+      "name": "Afariogun north-south spine",
+      "legs": [
+        {
+          "wayId": 5153764,
+          "fromNode": 35785462,
+          "toNode": 1475221992,
+          "nodeIds": [
+            35785462,
+            3745002411,
+            3745002397,
+            35785528,
+            3745002376,
+            1079925442,
+            35785529,
+            3745002384,
+            3745002387,
+            12974393906,
+            35785461,
+            3745002375,
+            3745002388,
+            1079925455,
+            35785428,
+            5624690507,
+            1079925518,
+            35785457,
+            5624690509,
+            5624690508,
+            1079925565,
+            13820270302,
+            1475221949,
+            1475221992
+          ],
+          "approximateLengthMetres": 863.9
+        }
+      ],
+      "closed": false,
+      "approximateLengthMetres": 863.9,
+      "accessVerified": false
+    },
+    {
+      "name": "Northern Adejumobi circuit",
+      "legs": [
+        {
+          "wayId": 5153764,
+          "fromNode": 35785462,
+          "toNode": 3745002397,
+          "nodeIds": [
+            35785462,
+            3745002411,
+            3745002397
+          ],
+          "approximateLengthMetres": 142.2
+        },
+        {
+          "wayId": 370814122,
+          "fromNode": 3745002397,
+          "toNode": 3745002403,
+          "nodeIds": [
+            3745002397,
+            3745002398,
+            3745002399,
+            5623475753,
+            5623475752,
+            5623475749,
+            5623475750,
+            5623475751,
+            3745002400,
+            3745002401,
+            3745002403
+          ],
+          "approximateLengthMetres": 354.5
+        },
+        {
+          "wayId": 589001493,
+          "fromNode": 3745002403,
+          "toNode": 35785462,
+          "nodeIds": [
+            3745002403,
+            4395533055,
+            35785462
+          ],
+          "approximateLengthMetres": 217.5
+        }
+      ],
+      "closed": true,
+      "approximateLengthMetres": 714.2,
+      "accessVerified": false
+    },
+    {
+      "name": "Olusoji Adedeji Jubril circuit",
+      "legs": [
+        {
+          "wayId": 370814116,
+          "fromNode": 3745002376,
+          "toNode": 3745002378,
+          "nodeIds": [
+            3745002376,
+            12974366498,
+            5624738962,
+            5624392774,
+            13820321990,
+            13820321991,
+            3745002378
+          ],
+          "approximateLengthMetres": 288.7
+        },
+        {
+          "wayId": 370814115,
+          "fromNode": 3745002378,
+          "toNode": 3745002382,
+          "nodeIds": [
+            3745002378,
+            3745002382
+          ],
+          "approximateLengthMetres": 70.1
+        },
+        {
+          "wayId": 370814118,
+          "fromNode": 3745002382,
+          "toNode": 3745002384,
+          "nodeIds": [
+            3745002382,
+            11866000016,
+            3745002383,
+            12974366497,
+            3745002384
+          ],
+          "approximateLengthMetres": 198.4
+        },
+        {
+          "wayId": 5153764,
+          "fromNode": 3745002384,
+          "toNode": 3745002376,
+          "nodeIds": [
+            3745002384,
+            35785529,
+            1079925442,
+            3745002376
+          ],
+          "approximateLengthMetres": 78.2
+        }
+      ],
+      "closed": true,
+      "approximateLengthMetres": 635.5,
+      "accessVerified": false
+    },
+    {
+      "name": "Conditional repair alternate, north to south",
+      "legs": [
+        {
+          "wayId": 370814116,
+          "fromNode": 3745002376,
+          "toNode": 3745002378,
+          "nodeIds": [
+            3745002376,
+            12974366498,
+            5624738962,
+            5624392774,
+            13820321990,
+            13820321991,
+            3745002378
+          ],
+          "approximateLengthMetres": 288.7
+        },
+        {
+          "wayId": 370814115,
+          "fromNode": 3745002378,
+          "toNode": 3745002382,
+          "nodeIds": [
+            3745002378,
+            3745002382
+          ],
+          "approximateLengthMetres": 70.1
+        },
+        {
+          "wayId": 370814118,
+          "fromNode": 3745002382,
+          "toNode": 3745002384,
+          "nodeIds": [
+            3745002382,
+            11866000016,
+            3745002383,
+            12974366497,
+            3745002384
+          ],
+          "approximateLengthMetres": 198.4
+        }
+      ],
+      "closed": false,
+      "approximateLengthMetres": 557.3,
+      "accessVerified": false
+    },
+    {
+      "name": "Event direct Afariogun segment",
+      "legs": [
+        {
+          "wayId": 5153764,
+          "fromNode": 3745002376,
+          "toNode": 3745002384,
+          "nodeIds": [
+            3745002376,
+            1079925442,
+            35785529,
+            3745002384
+          ],
+          "approximateLengthMetres": 78.2
+        }
+      ],
+      "closed": false,
+      "approximateLengthMetres": 78.2,
+      "accessVerified": false
+    }
+  ],
+  "counts": {
+    "roadWays": 19,
+    "buildingSample": 34,
+    "sharedNodePairs": 28,
+    "uniqueSharedNodes": 26
+  },
+  "priorSectorOverlap": [
+    {
+      "priorFile": "sector-07-network.geojson",
+      "wayId": 589001493,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    }
+  ],
+  "coordinateContract": {
+    "geographic": "WGS84 [longitude,latitude]; no altitude",
+    "proposedProjection": "EPSG:32631",
+    "proposedOrigin": [
+      3.351,
+      6.556
+    ],
+    "sourceMetres": [
+      "NorthDelta",
+      "UpDelta",
+      "EastDelta"
+    ],
+    "canonicalAdapter": "UE(X,Y,Z)=100*source(Z,X,Y)",
+    "projectedCoordinatesCalculated": false,
+    "verticalDatum": null,
+    "canonicalWorldRegistration": null
+  },
+  "restrictions": [
+    "Only shared source nodes form this candidate graph; 2D intersections alone do not create junctions",
+    "Preserve oneway=yes on primary boundary way 134140052; no cross-median turn or invented ramp",
+    "No route establishes safe access, width, surface, traffic volume or present permissions",
+    "No runtime owner or canonical registration is assigned"
+  ]
+}

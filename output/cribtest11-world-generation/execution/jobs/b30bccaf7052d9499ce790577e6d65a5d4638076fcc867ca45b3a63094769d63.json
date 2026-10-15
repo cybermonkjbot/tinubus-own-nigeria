@@ -1,0 +1,3982 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "job": "city/road-ribbons",
+  "identity": "b30bccaf7052d9499ce790577e6d65a5d4638076fcc867ca45b3a63094769d63",
+  "state": "saved",
+  "mapPackage": "/Game/BaddieGeneratedWorld/R_b30bccaf7052d9499ce79057/Maps/L_city_road_ribbons_5368c24a99",
+  "sources": [
+    {
+      "path": "packages/assets/city/lagos-city-v3.json",
+      "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    }
+  ],
+  "provenance": {
+    "schemaVersion": 1,
+    "job": "city/road-ribbons",
+    "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+    "recipeSha256": "2c123d3ab42ab64739d3c8efac92ab36d6c26129a346226da135845478ebfbad",
+    "sources": [
+      {
+        "path": "packages/assets/city/lagos-city-v3.json",
+        "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      }
+    ],
+    "template": null,
+    "contract": {
+      "navigationSource": {
+        "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+        "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": "navigation"
+      },
+      "navigationRevision": "lagos-city-v3:street-density-v1",
+      "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+      "fictionalMetricPlan": true
+    }
+  },
+  "startedAt": 1791744524.047961,
+  "instances": [],
+  "meshes": [
+    {
+      "actor": "StaticMeshActor_0",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d80e9e9f898d22784ca89562.SM_d80e9e9f898d22784ca89562",
+      "features": [
+        {
+          "canonicalId": "mango-close:surface",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_1",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9cb31ab8cb38e82697e36ddc.SM_9cb31ab8cb38e82697e36ddc",
+      "features": [
+        {
+          "canonicalId": "west-service-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_2",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_687ab4ca0eba6c8b76dec1a4.SM_687ab4ca0eba6c8b76dec1a4",
+      "features": [
+        {
+          "canonicalId": "loading-lane:surface",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_3",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e33b1e2ee8929f5d06b7beae.SM_e33b1e2ee8929f5d06b7beae",
+      "features": [
+        {
+          "canonicalId": "palm-crescent:surface",
+          "firstTriangle": 0,
+          "triangleCount": 44
+        },
+        {
+          "canonicalId": "old-orchard-lane:surface",
+          "firstTriangle": 44,
+          "triangleCount": 38
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_4",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c4c085ef8377477d9dd6966b.SM_c4c085ef8377477d9dd6966b",
+      "features": [
+        {
+          "canonicalId": "palm-wharf-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_5",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_2350fb84aea390f5793b93ed.SM_2350fb84aea390f5793b93ed",
+      "features": [
+        {
+          "canonicalId": "harbour-crescent:surface",
+          "firstTriangle": 0,
+          "triangleCount": 42
+        },
+        {
+          "canonicalId": "dock-street:surface",
+          "firstTriangle": 42,
+          "triangleCount": 16
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_6",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4ca64f99755f7855b1e49b16.SM_4ca64f99755f7855b1e49b16",
+      "features": [
+        {
+          "canonicalId": "palm-commons-lane:surface",
+          "firstTriangle": 0,
+          "triangleCount": 20
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_7",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_0e1190e165cbbdb1c04cb679.SM_0e1190e165cbbdb1c04cb679",
+      "features": [
+        {
+          "canonicalId": "west-lagoon-drive:surface",
+          "firstTriangle": 0,
+          "triangleCount": 32
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_8",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_6e00f0a9840f13ad6faa3b17.SM_6e00f0a9840f13ad6faa3b17",
+      "features": [
+        {
+          "canonicalId": "marina-drive:surface",
+          "firstTriangle": 0,
+          "triangleCount": 38
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_9",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_eec30cb769d21ef0ed13a2a1.SM_eec30cb769d21ef0ed13a2a1",
+      "features": [
+        {
+          "canonicalId": "textile-street:surface",
+          "firstTriangle": 0,
+          "triangleCount": 14
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_10",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_91c4043e032e53d980caec2e.SM_91c4043e032e53d980caec2e",
+      "features": [
+        {
+          "canonicalId": "market-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 38
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_11",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c411460f6e5bc82148712207.SM_c411460f6e5bc82148712207",
+      "features": [
+        {
+          "canonicalId": "produce-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 10
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_12",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_22d5019eb857e2182044f30b.SM_22d5019eb857e2182044f30b",
+      "features": [
+        {
+          "canonicalId": "market-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 58
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_13",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5acd751ce71cb6868ed9ff60.SM_5acd751ce71cb6868ed9ff60",
+      "features": [
+        {
+          "canonicalId": "west-bridge-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_14",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_52ac95d761fa27f23a89a8d6.SM_52ac95d761fa27f23a89a8d6",
+      "features": [
+        {
+          "canonicalId": "north-ridge-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 52
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_15",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_aecb03b9f333250c8f618258.SM_aecb03b9f333250c8f618258",
+      "features": [
+        {
+          "canonicalId": "spice-lane:surface",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_16",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_f5a847e7a9e6db869298ee36.SM_f5a847e7a9e6db869298ee36",
+      "features": [
+        {
+          "canonicalId": "library-lane:surface",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_17",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_fd1afd56d93291841e64f966.SM_fd1afd56d93291841e64f966",
+      "features": [
+        {
+          "canonicalId": "civic-street:surface",
+          "firstTriangle": 0,
+          "triangleCount": 32
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_18",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_1e65f3d0d0964b68bdbfc8a8.SM_1e65f3d0d0964b68bdbfc8a8",
+      "features": [
+        {
+          "canonicalId": "west-lagoon-bridge:surface",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_19",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_3d97ef3f7b4b5d796e2770d7.SM_3d97ef3f7b4b5d796e2770d7",
+      "features": [
+        {
+          "canonicalId": "civic-boulevard:surface",
+          "firstTriangle": 0,
+          "triangleCount": 30
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_20",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5da660234598f48b388dc5a6.SM_5da660234598f48b388dc5a6",
+      "features": [
+        {
+          "canonicalId": "market-crescent:surface",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        },
+        {
+          "canonicalId": "south-gate-lane:surface",
+          "firstTriangle": 26,
+          "triangleCount": 8
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_21",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_499e95e10f3eba0b4160f3c8.SM_499e95e10f3eba0b4160f3c8",
+      "features": [
+        {
+          "canonicalId": "tailors-lane:surface",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_22",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_6139731d6e09c3f67c96fafb.SM_6139731d6e09c3f67c96fafb",
+      "features": [
+        {
+          "canonicalId": "old-town-lane:surface",
+          "firstTriangle": 0,
+          "triangleCount": 14
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_23",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_56c6b835fec372dc6f527a7f.SM_56c6b835fec372dc6f527a7f",
+      "features": [
+        {
+          "canonicalId": "southern-ring:surface",
+          "firstTriangle": 0,
+          "triangleCount": 108
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_24",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_97f9b5c209f85c5110e216e9.SM_97f9b5c209f85c5110e216e9",
+      "features": [
+        {
+          "canonicalId": "unity-avenue:surface",
+          "firstTriangle": 0,
+          "triangleCount": 62
+        },
+        {
+          "canonicalId": "cross-town-road:surface",
+          "firstTriangle": 62,
+          "triangleCount": 72
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_25",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4c7944545c09a5d100007591.SM_4c7944545c09a5d100007591",
+      "features": [
+        {
+          "canonicalId": "theatre-street:surface",
+          "firstTriangle": 0,
+          "triangleCount": 14
+        },
+        {
+          "canonicalId": "arcade-crescent:surface",
+          "firstTriangle": 14,
+          "triangleCount": 16
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_26",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c91612817ef15ec4c7acd519.SM_c91612817ef15ec4c7acd519",
+      "features": [
+        {
+          "canonicalId": "skyline-arc:surface",
+          "firstTriangle": 0,
+          "triangleCount": 36
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_27",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_65ddf689fa56a4c69589317b.SM_65ddf689fa56a4c69589317b",
+      "features": [
+        {
+          "canonicalId": "financial-avenue:surface",
+          "firstTriangle": 0,
+          "triangleCount": 30
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_28",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_2e48a3028e0afb0c46b3366f.SM_2e48a3028e0afb0c46b3366f",
+      "features": [
+        {
+          "canonicalId": "foundry-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_29",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b1aee036e9246fbde7e6fe1a.SM_b1aee036e9246fbde7e6fe1a",
+      "features": [
+        {
+          "canonicalId": "station-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_30",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_99578973d8f42787de53cce6.SM_99578973d8f42787de53cce6",
+      "features": [
+        {
+          "canonicalId": "east-bridge-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 6
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_31",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_62543206eca28517ba8de695.SM_62543206eca28517ba8de695",
+      "features": [
+        {
+          "canonicalId": "depot-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 10
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_32",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9546180f075da8f91b204a99.SM_9546180f075da8f91b204a99",
+      "features": [
+        {
+          "canonicalId": "workshop-way:surface",
+          "firstTriangle": 0,
+          "triangleCount": 8
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_33",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_1ce05f7ab8e6d134accc5b77.SM_1ce05f7ab8e6d134accc5b77",
+      "features": [
+        {
+          "canonicalId": "botanic-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 30
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_34",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_bb172b6120c18b73f6f6315b.SM_bb172b6120c18b73f6f6315b",
+      "features": [
+        {
+          "canonicalId": "college-lane:surface",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_35",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_096d955e582531646b3a9070.SM_096d955e582531646b3a9070",
+      "features": [
+        {
+          "canonicalId": "east-lagoon-bridge:surface",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_36",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_33221882a4ac3d4a8e135282.SM_33221882a4ac3d4a8e135282",
+      "features": [
+        {
+          "canonicalId": "garden-ridge:surface",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_37",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_553717a1f2c0961fc29077b7.SM_553717a1f2c0961fc29077b7",
+      "features": [
+        {
+          "canonicalId": "garden-south-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 20
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_38",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_030035117de17339e8620809.SM_030035117de17339e8620809",
+      "features": [
+        {
+          "canonicalId": "garden-avenue:surface",
+          "firstTriangle": 0,
+          "triangleCount": 56
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_39",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_f9b5d8670ac0c9281c371fe9.SM_f9b5d8670ac0c9281c371fe9",
+      "features": [
+        {
+          "canonicalId": "east-lagoon-drive:surface",
+          "firstTriangle": 0,
+          "triangleCount": 32
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_40",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b781a81c730bfe0dc39d852e.SM_b781a81c730bfe0dc39d852e",
+      "features": [
+        {
+          "canonicalId": "lagoon-gardens-drive:surface",
+          "firstTriangle": 0,
+          "triangleCount": 32
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_41",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a65ad5ce581d57a1016e671b.SM_a65ad5ce581d57a1016e671b",
+      "features": [
+        {
+          "canonicalId": "orchid-way:surface",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_42",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_05476c5ac09d8ca1f7a4ba55.SM_05476c5ac09d8ca1f7a4ba55",
+      "features": [
+        {
+          "canonicalId": "garden-crescent:surface",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_43",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ff920b07fea2effcf82b5681.SM_ff920b07fea2effcf82b5681",
+      "features": [
+        {
+          "canonicalId": "coast-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 24
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_44",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d0a953eca6ba44b6891351b8.SM_d0a953eca6ba44b6891351b8",
+      "features": [
+        {
+          "canonicalId": "estate-crescent:surface",
+          "firstTriangle": 0,
+          "triangleCount": 42
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_45",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_15590f07f43baf285667e96b.SM_15590f07f43baf285667e96b",
+      "features": [
+        {
+          "canonicalId": "jacaranda-close:surface",
+          "firstTriangle": 0,
+          "triangleCount": 10
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_46",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_12bed91527aad3a815f7bf8e.SM_12bed91527aad3a815f7bf8e",
+      "features": [
+        {
+          "canonicalId": "eastern-shore-road:surface",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_47",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_27b3bb73f60a1bd42cc3e03a.SM_27b3bb73f60a1bd42cc3e03a",
+      "features": [
+        {
+          "canonicalId": "lagoon-close:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_48",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d4ac7cb3999789f296ba7785.SM_d4ac7cb3999789f296ba7785",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-5-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-30-path:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-5-approach:surface",
+          "firstTriangle": 4,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-5-loop:surface",
+          "firstTriangle": 6,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-5-garden-path:surface",
+          "firstTriangle": 34,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-30-approach:surface",
+          "firstTriangle": 36,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-30-loop:surface",
+          "firstTriangle": 38,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-30-garden-path:surface",
+          "firstTriangle": 66,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_49",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5f926373358a1f185a0806de.SM_5f926373358a1f185a0806de",
+      "features": [
+        {
+          "canonicalId": "west-grove-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_50",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_823e42bdad3a74e73f6e1563.SM_823e42bdad3a74e73f6e1563",
+      "features": [
+        {
+          "canonicalId": "mango-close:paving",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_51",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_f50fa1e1a9665f2e39a86a04.SM_f50fa1e1a9665f2e39a86a04",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-19-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-19-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-19-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-19-garden-path:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_52",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_efc273fab2ce31f3968fc79f.SM_efc273fab2ce31f3968fc79f",
+      "features": [
+        {
+          "canonicalId": "beach-access-0-10:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_53",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_de6266bba2d23a12cec98c7f.SM_de6266bba2d23a12cec98c7f",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-10:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_54",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_8ab76f7014bfd66609884b6d.SM_8ab76f7014bfd66609884b6d",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-10-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-10-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-10-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-10-garden-path:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_55",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a815102779318da6440d7c3d.SM_a815102779318da6440d7c3d",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-3-loop:surface",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-3-garden-path:surface",
+          "firstTriangle": 28,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_56",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ba190db1ddf09feb6589820e.SM_ba190db1ddf09feb6589820e",
+      "features": [
+        {
+          "canonicalId": "west-service-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        },
+        {
+          "canonicalId": "neighbourhood-park-3-path:surface",
+          "firstTriangle": 26,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-3-approach:surface",
+          "firstTriangle": 28,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_57",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ffcea352631591278b04eab6.SM_ffcea352631591278b04eab6",
+      "features": [
+        {
+          "canonicalId": "loading-lane:paving",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "west-grove-loop:surface",
+          "firstTriangle": 12,
+          "triangleCount": 24
+        },
+        {
+          "canonicalId": "west-grove-garden-path:surface",
+          "firstTriangle": 36,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_58",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_942f6dff15d6d53b8a195668.SM_942f6dff15d6d53b8a195668",
+      "features": [
+        {
+          "canonicalId": "palm-commons-loop:surface",
+          "firstTriangle": 0,
+          "triangleCount": 24
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_59",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_7d707bbe4dee4c6d469a64df.SM_7d707bbe4dee4c6d469a64df",
+      "features": [
+        {
+          "canonicalId": "palm-crescent:paving",
+          "firstTriangle": 0,
+          "triangleCount": 44
+        },
+        {
+          "canonicalId": "old-orchard-lane:paving",
+          "firstTriangle": 44,
+          "triangleCount": 38
+        },
+        {
+          "canonicalId": "palm-commons-approach:surface",
+          "firstTriangle": 82,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_60",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_21149101ca3c4937e31b7585.SM_21149101ca3c4937e31b7585",
+      "features": [
+        {
+          "canonicalId": "palm-wharf-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_61",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_875c22b48a580d323220d5d2.SM_875c22b48a580d323220d5d2",
+      "features": [
+        {
+          "canonicalId": "beach-access-0-18:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_62",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_3ea5e66eac3496556e668580.SM_3ea5e66eac3496556e668580",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-18:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_63",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d7acd04503fc366cc947b572.SM_d7acd04503fc366cc947b572",
+      "features": [
+        {
+          "canonicalId": "harbour-crescent:paving",
+          "firstTriangle": 0,
+          "triangleCount": 42
+        },
+        {
+          "canonicalId": "dock-street:paving",
+          "firstTriangle": 42,
+          "triangleCount": 16
+        },
+        {
+          "canonicalId": "marina-green-approach:surface",
+          "firstTriangle": 58,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "marina-green-loop:surface",
+          "firstTriangle": 60,
+          "triangleCount": 24
+        },
+        {
+          "canonicalId": "marina-green-garden-path:surface",
+          "firstTriangle": 84,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_64",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_93d3030e3d50e79a3e6df7cc.SM_93d3030e3d50e79a3e6df7cc",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-29-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-29-approach:surface",
+          "firstTriangle": 4,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-29-loop:surface",
+          "firstTriangle": 8,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-29-garden-path:surface",
+          "firstTriangle": 36,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_65",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_0e27263a99083faf1ab8181b.SM_0e27263a99083faf1ab8181b",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-11-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-11-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-11-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-11-garden-path:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_66",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e7c115af6ca7847b62b51eee.SM_e7c115af6ca7847b62b51eee",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-13-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-13-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-13-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-13-garden-path:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_67",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_657488a33185467c2f986ee6.SM_657488a33185467c2f986ee6",
+      "features": [
+        {
+          "canonicalId": "palm-commons-lane:paving",
+          "firstTriangle": 0,
+          "triangleCount": 20
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_68",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ade341c8ea67c1b177b57c88.SM_ade341c8ea67c1b177b57c88",
+      "features": [
+        {
+          "canonicalId": "west-lagoon-drive:paving",
+          "firstTriangle": 0,
+          "triangleCount": 32
+        },
+        {
+          "canonicalId": "beach-access-0-26:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_69",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_993cc9026a94a976d67640df.SM_993cc9026a94a976d67640df",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-26:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_70",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_8d6cfd8280ce5f8e60c4a745.SM_8d6cfd8280ce5f8e60c4a745",
+      "features": [
+        {
+          "canonicalId": "marina-drive:paving",
+          "firstTriangle": 0,
+          "triangleCount": 38
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_71",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_3f2861181ecf63b3f91e0448.SM_3f2861181ecf63b3f91e0448",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-34-loop:surface",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_72",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_670f50ae4a101e409f344465.SM_670f50ae4a101e409f344465",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-17-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-17-approach:surface",
+          "firstTriangle": 4,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-17-loop:surface",
+          "firstTriangle": 8,
+          "triangleCount": 28
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_73",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d3a9b00641d935f1bed1b2e0.SM_d3a9b00641d935f1bed1b2e0",
+      "features": [
+        {
+          "canonicalId": "textile-street:paving",
+          "firstTriangle": 0,
+          "triangleCount": 14
+        },
+        {
+          "canonicalId": "neighbourhood-park-12-path:surface",
+          "firstTriangle": 14,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-12-approach:surface",
+          "firstTriangle": 16,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-12-loop:surface",
+          "firstTriangle": 18,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-12-garden-path:surface",
+          "firstTriangle": 46,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_74",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_23992f4879bb6ed7d7daaa1d.SM_23992f4879bb6ed7d7daaa1d",
+      "features": [
+        {
+          "canonicalId": "market-approach:paving",
+          "firstTriangle": 0,
+          "triangleCount": 38
+        },
+        {
+          "canonicalId": "neighbourhood-park-33-path:surface",
+          "firstTriangle": 38,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-33-approach:surface",
+          "firstTriangle": 40,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-33-loop:surface",
+          "firstTriangle": 42,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-33-garden-path:surface",
+          "firstTriangle": 70,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_75",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_f8097b9a1a84df189ea31cfc.SM_f8097b9a1a84df189ea31cfc",
+      "features": [
+        {
+          "canonicalId": "produce-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 10
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_76",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ae211a8039aef8ba8435a050.SM_ae211a8039aef8ba8435a050",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-27-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-27-approach:surface",
+          "firstTriangle": 4,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-27-loop:surface",
+          "firstTriangle": 8,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-27-garden-path:surface",
+          "firstTriangle": 36,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_77",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_cb5c0e8c830cc408fc42007e.SM_cb5c0e8c830cc408fc42007e",
+      "features": [
+        {
+          "canonicalId": "market-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 58
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_78",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c244f3ad3f4199131cbc084f.SM_c244f3ad3f4199131cbc084f",
+      "features": [
+        {
+          "canonicalId": "west-bridge-approach:paving",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "beach-access-0-34:surface",
+          "firstTriangle": 12,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-24-path:surface",
+          "firstTriangle": 14,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-24-approach:surface",
+          "firstTriangle": 16,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-24-loop:surface",
+          "firstTriangle": 18,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-24-garden-path:surface",
+          "firstTriangle": 46,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_79",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a4f00e674066c77e07fe87ec.SM_a4f00e674066c77e07fe87ec",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-34:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_80",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4f8fa8076678637e09d3c5f5.SM_4f8fa8076678637e09d3c5f5",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-34-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-34-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-34-garden-path:surface",
+          "firstTriangle": 6,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_81",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_39f61663490965e8a9fbd383.SM_39f61663490965e8a9fbd383",
+      "features": [
+        {
+          "canonicalId": "north-ridge-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 52
+        },
+        {
+          "canonicalId": "neighbourhood-park-9-path:surface",
+          "firstTriangle": 52,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-17-garden-path:surface",
+          "firstTriangle": 56,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_82",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a7962790219e039c924ba1ef.SM_a7962790219e039c924ba1ef",
+      "features": [
+        {
+          "canonicalId": "spice-lane:paving",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        },
+        {
+          "canonicalId": "market-court-loop:surface",
+          "firstTriangle": 16,
+          "triangleCount": 24
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_83",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e5995092a9a63120d56b9f10.SM_e5995092a9a63120d56b9f10",
+      "features": [
+        {
+          "canonicalId": "market-court-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_84",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a5f0615fd55c6ed89771b963.SM_a5f0615fd55c6ed89771b963",
+      "features": [
+        {
+          "canonicalId": "library-lane:paving",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        },
+        {
+          "canonicalId": "neighbourhood-park-26-path:surface",
+          "firstTriangle": 16,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-26-approach:surface",
+          "firstTriangle": 18,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-26-loop:surface",
+          "firstTriangle": 22,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-26-garden-path:surface",
+          "firstTriangle": 50,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_85",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4e0d119493d82feb03edad06.SM_4e0d119493d82feb03edad06",
+      "features": [
+        {
+          "canonicalId": "civic-street:paving",
+          "firstTriangle": 0,
+          "triangleCount": 32
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_86",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a9c5af944da2d68f8bc14eb9.SM_a9c5af944da2d68f8bc14eb9",
+      "features": [
+        {
+          "canonicalId": "west-lagoon-bridge:paving",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_87",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_53d586ef88743a9080f2755c.SM_53d586ef88743a9080f2755c",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-42:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-16-path:surface",
+          "firstTriangle": 2,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-16-approach:surface",
+          "firstTriangle": 6,
+          "triangleCount": 4
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_88",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_f391d71444c1914fd7239a99.SM_f391d71444c1914fd7239a99",
+      "features": [
+        {
+          "canonicalId": "civic-boulevard:paving",
+          "firstTriangle": 0,
+          "triangleCount": 30
+        },
+        {
+          "canonicalId": "neighbourhood-park-16-loop:surface",
+          "firstTriangle": 30,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-16-garden-path:surface",
+          "firstTriangle": 58,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_89",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5c8e32b17a380f7f0288603d.SM_5c8e32b17a380f7f0288603d",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-9-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-9-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-9-garden-path:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_90",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_505c9131f4f48aee454c68af.SM_505c9131f4f48aee454c68af",
+      "features": [
+        {
+          "canonicalId": "market-crescent:paving",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        },
+        {
+          "canonicalId": "south-gate-lane:paving",
+          "firstTriangle": 26,
+          "triangleCount": 8
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_91",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_7101560c550c68f754eeaf5f.SM_7101560c550c68f754eeaf5f",
+      "features": [
+        {
+          "canonicalId": "tailors-lane:paving",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_92",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4b0835f116901778d8758d93.SM_4b0835f116901778d8758d93",
+      "features": [
+        {
+          "canonicalId": "old-town-lane:paving",
+          "firstTriangle": 0,
+          "triangleCount": 14
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_93",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_013d26a6f4bf049597244b6d.SM_013d26a6f4bf049597244b6d",
+      "features": [
+        {
+          "canonicalId": "beach-access-0-42:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_94",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_617a22b25e2c76520db1ab51.SM_617a22b25e2c76520db1ab51",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-8-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-8-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 28
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_95",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9f8c854732e287432d3748c4.SM_9f8c854732e287432d3748c4",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-8-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_96",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e1ca4dee8eca207f7ff6d1c7.SM_e1ca4dee8eca207f7ff6d1c7",
+      "features": [
+        {
+          "canonicalId": "skyline-garden-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "skyline-garden-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 24
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_97",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_81cc093c12a600fa18e54345.SM_81cc093c12a600fa18e54345",
+      "features": [
+        {
+          "canonicalId": "southern-ring:paving",
+          "firstTriangle": 0,
+          "triangleCount": 108
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_98",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5efc9e7712a94db16c123dc8.SM_5efc9e7712a94db16c123dc8",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-22-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-22-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_99",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_270581b7fac0375e8ae5b123.SM_270581b7fac0375e8ae5b123",
+      "features": [
+        {
+          "canonicalId": "unity-avenue:paving",
+          "firstTriangle": 0,
+          "triangleCount": 62
+        },
+        {
+          "canonicalId": "cross-town-road:paving",
+          "firstTriangle": 62,
+          "triangleCount": 72
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_100",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_20b75cb9c0c26174152ca2cc.SM_20b75cb9c0c26174152ca2cc",
+      "features": [
+        {
+          "canonicalId": "theatre-street:paving",
+          "firstTriangle": 0,
+          "triangleCount": 14
+        },
+        {
+          "canonicalId": "arcade-crescent:paving",
+          "firstTriangle": 14,
+          "triangleCount": 16
+        },
+        {
+          "canonicalId": "civic-square-approach:surface",
+          "firstTriangle": 30,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "civic-square-loop:surface",
+          "firstTriangle": 32,
+          "triangleCount": 24
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_101",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ef508e4d834fe591bc6981ef.SM_ef508e4d834fe591bc6981ef",
+      "features": [
+        {
+          "canonicalId": "beach-access-2-2:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_102",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d0592821d6079798739f5252.SM_d0592821d6079798739f5252",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-50:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-8-garden-path:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_103",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4a8d3ce17fe31dbc932224b9.SM_4a8d3ce17fe31dbc932224b9",
+      "features": [
+        {
+          "canonicalId": "skyline-arc:paving",
+          "firstTriangle": 0,
+          "triangleCount": 36
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_104",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a2709f743143699f4bfdfba4.SM_a2709f743143699f4bfdfba4",
+      "features": [
+        {
+          "canonicalId": "financial-avenue:paving",
+          "firstTriangle": 0,
+          "triangleCount": 30
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_105",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4b91907e3ac48827ae75a12c.SM_4b91907e3ac48827ae75a12c",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-15-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-15-approach:surface",
+          "firstTriangle": 4,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-15-loop:surface",
+          "firstTriangle": 8,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-15-garden-path:surface",
+          "firstTriangle": 36,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_106",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5f87735f524af84798f980fd.SM_5f87735f524af84798f980fd",
+      "features": [
+        {
+          "canonicalId": "foundry-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-22-loop:surface",
+          "firstTriangle": 28,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-22-garden-path:surface",
+          "firstTriangle": 56,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_107",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c57411973411fd6466fa27f4.SM_c57411973411fd6466fa27f4",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-18-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-18-loop:surface",
+          "firstTriangle": 2,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-18-garden-path:surface",
+          "firstTriangle": 30,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_108",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_1976c24f3f4b18ae03e8aada.SM_1976c24f3f4b18ae03e8aada",
+      "features": [
+        {
+          "canonicalId": "station-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        },
+        {
+          "canonicalId": "college-green-approach:surface",
+          "firstTriangle": 16,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_109",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4377425da21847e58577d917.SM_4377425da21847e58577d917",
+      "features": [
+        {
+          "canonicalId": "east-bridge-approach:paving",
+          "firstTriangle": 0,
+          "triangleCount": 6
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_110",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a69d46926476e69c733ed807.SM_a69d46926476e69c733ed807",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-58:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_111",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_60cddff36334188314d268b2.SM_60cddff36334188314d268b2",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-7-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-7-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-7-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-7-garden-path:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_112",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9e075f5ed6f3f789120b36f5.SM_9e075f5ed6f3f789120b36f5",
+      "features": [
+        {
+          "canonicalId": "depot-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 10
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_113",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_1a2c0a2584814f2f8ca259c3.SM_1a2c0a2584814f2f8ca259c3",
+      "features": [
+        {
+          "canonicalId": "workshop-way:paving",
+          "firstTriangle": 0,
+          "triangleCount": 8
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_114",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_f96f4542436722b54214caa6.SM_f96f4542436722b54214caa6",
+      "features": [
+        {
+          "canonicalId": "botanic-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 30
+        },
+        {
+          "canonicalId": "neighbourhood-park-18-approach:surface",
+          "firstTriangle": 30,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_115",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_0f692a9d536d2a2f1dd591bc.SM_0f692a9d536d2a2f1dd591bc",
+      "features": [
+        {
+          "canonicalId": "college-lane:paving",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        },
+        {
+          "canonicalId": "college-green-loop:surface",
+          "firstTriangle": 26,
+          "triangleCount": 24
+        },
+        {
+          "canonicalId": "college-green-garden-path:surface",
+          "firstTriangle": 50,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_116",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d5f36b60ec4a050b4ac77f80.SM_d5f36b60ec4a050b4ac77f80",
+      "features": [
+        {
+          "canonicalId": "beach-access-2-10:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_117",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9d1b89f907e1fcdd2c0c886b.SM_9d1b89f907e1fcdd2c0c886b",
+      "features": [
+        {
+          "canonicalId": "east-lagoon-bridge:paving",
+          "firstTriangle": 0,
+          "triangleCount": 16
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_118",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_cf2284f73918f0df6476b847.SM_cf2284f73918f0df6476b847",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-66:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_119",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e052be729d1aed18a00a88b4.SM_e052be729d1aed18a00a88b4",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-25-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-25-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-25-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-25-garden-path:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_120",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c058a370061ac0d7a99ca0bd.SM_c058a370061ac0d7a99ca0bd",
+      "features": [
+        {
+          "canonicalId": "garden-ridge:paving",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_121",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_32c6bdb9ee1c30eff2d46af2.SM_32c6bdb9ee1c30eff2d46af2",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-1-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-1-loop:surface",
+          "firstTriangle": 2,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-1-garden-path:surface",
+          "firstTriangle": 30,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_122",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4af5120dcde48cfd8c0747de.SM_4af5120dcde48cfd8c0747de",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-28-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "southern-common-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "southern-common-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 24
+        },
+        {
+          "canonicalId": "southern-common-garden-path:surface",
+          "firstTriangle": 28,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-1-approach:surface",
+          "firstTriangle": 30,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-28-approach:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-28-loop:surface",
+          "firstTriangle": 34,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-28-garden-path:surface",
+          "firstTriangle": 62,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_123",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_3d352980b1075a454d1c477b.SM_3d352980b1075a454d1c477b",
+      "features": [
+        {
+          "canonicalId": "garden-south-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 20
+        },
+        {
+          "canonicalId": "neighbourhood-park-31-path:surface",
+          "firstTriangle": 20,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-31-loop:surface",
+          "firstTriangle": 24,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-31-garden-path:surface",
+          "firstTriangle": 52,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_124",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5f672dbe814183da3136e4af.SM_5f672dbe814183da3136e4af",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-31-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_125",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c3870e3711511ee4ccfc0aba.SM_c3870e3711511ee4ccfc0aba",
+      "features": [
+        {
+          "canonicalId": "botanic-gardens-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_126",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a1fdbc71cbf27e72bea5face.SM_a1fdbc71cbf27e72bea5face",
+      "features": [
+        {
+          "canonicalId": "garden-avenue:paving",
+          "firstTriangle": 0,
+          "triangleCount": 56
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_127",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_2c38173c696eea8e98193cd3.SM_2c38173c696eea8e98193cd3",
+      "features": [
+        {
+          "canonicalId": "east-lagoon-drive:paving",
+          "firstTriangle": 0,
+          "triangleCount": 32
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_128",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5364ed2c59eacc72a33e32d0.SM_5364ed2c59eacc72a33e32d0",
+      "features": [
+        {
+          "canonicalId": "beach-access-2-18:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-32-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 4
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_129",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_faf22a8fe04db007309b0339.SM_faf22a8fe04db007309b0339",
+      "features": [
+        {
+          "canonicalId": "lagoon-gardens-drive:paving",
+          "firstTriangle": 0,
+          "triangleCount": 32
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_130",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_abf58a57a624c453bc0834de.SM_abf58a57a624c453bc0834de",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-6-loop:surface",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-6-garden-path:surface",
+          "firstTriangle": 28,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_131",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_17c969144ea931a62b6d35d4.SM_17c969144ea931a62b6d35d4",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-2-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-2-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_132",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_79bdc6933e09060b42675803.SM_79bdc6933e09060b42675803",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-4-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-4-approach:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_133",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c6ac41c0c2639e53ea08df34.SM_c6ac41c0c2639e53ea08df34",
+      "features": [
+        {
+          "canonicalId": "orchid-way:paving",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_134",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_6225f0fd09b071fe373402c4.SM_6225f0fd09b071fe373402c4",
+      "features": [
+        {
+          "canonicalId": "garden-crescent:paving",
+          "firstTriangle": 0,
+          "triangleCount": 26
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_135",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b28df8a5005489d6188ca128.SM_b28df8a5005489d6188ca128",
+      "features": [
+        {
+          "canonicalId": "beach-access-2-26:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-32-path:surface",
+          "firstTriangle": 4,
+          "triangleCount": 4
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_136",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_14bb42d78a6828bd850c502a.SM_14bb42d78a6828bd850c502a",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-32-loop:surface",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-32-garden-path:surface",
+          "firstTriangle": 28,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_137",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9db96867b89310125aeb1d6b.SM_9db96867b89310125aeb1d6b",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-74:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-14-path:surface",
+          "firstTriangle": 2,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-14-approach:surface",
+          "firstTriangle": 4,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-14-loop:surface",
+          "firstTriangle": 6,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-14-garden-path:surface",
+          "firstTriangle": 34,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_138",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a2104f06c8bec7b7484ae27a.SM_a2104f06c8bec7b7484ae27a",
+      "features": [
+        {
+          "canonicalId": "coast-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 24
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_139",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_6c9d06fde91094331693deb3.SM_6c9d06fde91094331693deb3",
+      "features": [
+        {
+          "canonicalId": "estate-crescent:paving",
+          "firstTriangle": 0,
+          "triangleCount": 42
+        },
+        {
+          "canonicalId": "lagoon-gardens-approach:surface",
+          "firstTriangle": 42,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "lagoon-gardens-loop:surface",
+          "firstTriangle": 44,
+          "triangleCount": 24
+        },
+        {
+          "canonicalId": "lagoon-gardens-garden-path:surface",
+          "firstTriangle": 68,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_140",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_43e6a35f295fd5b47dcc752c.SM_43e6a35f295fd5b47dcc752c",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-6-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-6-approach:surface",
+          "firstTriangle": 4,
+          "triangleCount": 4
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_141",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9960ef61eb4dd80aeff48cee.SM_9960ef61eb4dd80aeff48cee",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-2-loop:surface",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-2-garden-path:surface",
+          "firstTriangle": 28,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_142",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_8fe7e50cb487b84a4caa9e16.SM_8fe7e50cb487b84a4caa9e16",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-4-loop:surface",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-4-garden-path:surface",
+          "firstTriangle": 28,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_143",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_460314cb2c17d8514734ec79.SM_460314cb2c17d8514734ec79",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-20-approach:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-20-loop:surface",
+          "firstTriangle": 4,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-20-garden-path:surface",
+          "firstTriangle": 32,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_144",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_cf76fe1bddd1655f6fdadecf.SM_cf76fe1bddd1655f6fdadecf",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-20-path:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_145",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_f22a68f6bfb8692b6c813910.SM_f22a68f6bfb8692b6c813910",
+      "features": [
+        {
+          "canonicalId": "jacaranda-close:paving",
+          "firstTriangle": 0,
+          "triangleCount": 10
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_146",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_89116fc88790560a6674c705.SM_89116fc88790560a6674c705",
+      "features": [
+        {
+          "canonicalId": "eastern-shore-road:paving",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "neighbourhood-park-21-path:surface",
+          "firstTriangle": 12,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-21-approach:surface",
+          "firstTriangle": 16,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_147",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e8690a63b8ca601a24b3e216.SM_e8690a63b8ca601a24b3e216",
+      "features": [
+        {
+          "canonicalId": "neighbourhood-park-21-loop:surface",
+          "firstTriangle": 0,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-21-garden-path:surface",
+          "firstTriangle": 28,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_148",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b15bf89ddbcc27fdc1613d1e.SM_b15bf89ddbcc27fdc1613d1e",
+      "features": [
+        {
+          "canonicalId": "beach-access-1-82:surface",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_149",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_af92b43eb55a8ecf5c55ca7c.SM_af92b43eb55a8ecf5c55ca7c",
+      "features": [
+        {
+          "canonicalId": "lagoon-close:paving",
+          "firstTriangle": 0,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-23-path:surface",
+          "firstTriangle": 4,
+          "triangleCount": 2
+        },
+        {
+          "canonicalId": "neighbourhood-park-23-approach:surface",
+          "firstTriangle": 6,
+          "triangleCount": 4
+        },
+        {
+          "canonicalId": "neighbourhood-park-23-loop:surface",
+          "firstTriangle": 10,
+          "triangleCount": 28
+        },
+        {
+          "canonicalId": "neighbourhood-park-23-garden-path:surface",
+          "firstTriangle": 38,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_150",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_87390a1b35e75328593f4810.SM_87390a1b35e75328593f4810",
+      "features": [
+        {
+          "canonicalId": "beach-access-2-34:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_151",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9c86ba9b52f97b12068ad354.SM_9c86ba9b52f97b12068ad354",
+      "features": [
+        {
+          "canonicalId": "sand-path-0-2:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_152",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a51b88efed10a614812e7a33.SM_a51b88efed10a614812e7a33",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-2:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_153",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_f9c6a9743d27a36cfd5f6f4c.SM_f9c6a9743d27a36cfd5f6f4c",
+      "features": [
+        {
+          "canonicalId": "sand-path-0-10:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_154",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_3d81daa830462e5dfe1eaa5d.SM_3d81daa830462e5dfe1eaa5d",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-10:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_155",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b4e79b62ff4bed6d57c5e9b6.SM_b4e79b62ff4bed6d57c5e9b6",
+      "features": [
+        {
+          "canonicalId": "sand-path-0-18:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_156",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_06cfb2640e2c1619526b7fcb.SM_06cfb2640e2c1619526b7fcb",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-18:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_157",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9619ed0e3e932ab2dbb8eda7.SM_9619ed0e3e932ab2dbb8eda7",
+      "features": [
+        {
+          "canonicalId": "sand-path-0-26:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_158",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_2a95d9cc1430ec5046800908.SM_2a95d9cc1430ec5046800908",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-26:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_159",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_6d5f955263fc3a3160687922.SM_6d5f955263fc3a3160687922",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-34:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_160",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_732920fe65314262ef30ef48.SM_732920fe65314262ef30ef48",
+      "features": [
+        {
+          "canonicalId": "sand-path-0-34:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_161",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_51067520745e811d98c43dc2.SM_51067520745e811d98c43dc2",
+      "features": [
+        {
+          "canonicalId": "sand-path-0-42:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_162",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_94dd88f1ce841b3a92dabb0c.SM_94dd88f1ce841b3a92dabb0c",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-42:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_163",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_7ac259df0a4d20c2778392bc.SM_7ac259df0a4d20c2778392bc",
+      "features": [
+        {
+          "canonicalId": "sand-path-2-2:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_164",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_8a3ec42525316b3993371494.SM_8a3ec42525316b3993371494",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-50:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_165",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_86e12d09947439af506d054f.SM_86e12d09947439af506d054f",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-58:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_166",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_7a80c1938fa385e552836269.SM_7a80c1938fa385e552836269",
+      "features": [
+        {
+          "canonicalId": "sand-path-2-18:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_167",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_7a3a97b78932d8501e3e0088.SM_7a3a97b78932d8501e3e0088",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-66:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_168",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b370c2986df8cc442496194e.SM_b370c2986df8cc442496194e",
+      "features": [
+        {
+          "canonicalId": "sand-path-2-26:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_169",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ae47b068596cdf26494c6ebf.SM_ae47b068596cdf26494c6ebf",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-74:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_170",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_f32230722c213160dbdf73e8.SM_f32230722c213160dbdf73e8",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-82:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_171",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_60c181599624d5274ba9dd57.SM_60c181599624d5274ba9dd57",
+      "features": [
+        {
+          "canonicalId": "sand-path-2-34:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_172",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e1efc6738ef2107f3f509ff8.SM_e1efc6738ef2107f3f509ff8",
+      "features": [
+        {
+          "canonicalId": "sand-path-2-42:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_173",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ef1c07b57b64c1d544be303d.SM_ef1c07b57b64c1d544be303d",
+      "features": [
+        {
+          "canonicalId": "sand-path-1-90:surface",
+          "firstTriangle": 0,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_174",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ac10d095a3520a26e92988a0.SM_ac10d095a3520a26e92988a0",
+      "features": [
+        {
+          "canonicalId": "cove-beach-walk:surface",
+          "firstTriangle": 0,
+          "triangleCount": 86
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_175",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_38a5c25e18d2811dab635c61.SM_38a5c25e18d2811dab635c61",
+      "features": [
+        {
+          "canonicalId": "palm-beach-walk:surface",
+          "firstTriangle": 0,
+          "triangleCount": 188
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_176",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_a31468fcebcc8d915c5db25e.SM_a31468fcebcc8d915c5db25e",
+      "features": [
+        {
+          "canonicalId": "botanic-gardens-loop:surface",
+          "firstTriangle": 0,
+          "triangleCount": 24
+        },
+        {
+          "canonicalId": "botanic-gardens-garden-path:surface",
+          "firstTriangle": 24,
+          "triangleCount": 2
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_177",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ec1fbe17a80281491c63dd7e.SM_ec1fbe17a80281491c63dd7e",
+      "features": [
+        {
+          "canonicalId": "east-cove-beach-walk:surface",
+          "firstTriangle": 0,
+          "triangleCount": 88
+        }
+      ]
+    }
+  ],
+  "contract": {
+    "navigationSource": {
+      "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": "navigation"
+    },
+    "navigationRevision": "lagos-city-v3:street-density-v1",
+    "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+    "fictionalMetricPlan": true
+  },
+  "mapFileSha256": "a5c328f175655d587eb342bb43cfe7c4e8536951cfbfcc211a640d0fb8ebd24a",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_b30bccaf7052d9499ce79057/Maps/L_city_road_ribbons_5368c24a99.umap": "a5c328f175655d587eb342bb43cfe7c4e8536951cfbfcc211a640d0fb8ebd24a"
+  },
+  "packages": [
+    "/Game/BaddieGeneratedWorld/Materials/M_1342a356dc8b736be13d56be",
+    "/Game/BaddieGeneratedWorld/Materials/M_6e3004131274f8ae39519689",
+    "/Game/BaddieGeneratedWorld/Materials/M_9807074736b131f140805390",
+    "/Game/BaddieGeneratedWorld/Materials/M_b49011052ad5f6df738c2015",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_013d26a6f4bf049597244b6d",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_030035117de17339e8620809",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_05476c5ac09d8ca1f7a4ba55",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_06cfb2640e2c1619526b7fcb",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_096d955e582531646b3a9070",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0e1190e165cbbdb1c04cb679",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0e27263a99083faf1ab8181b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0f692a9d536d2a2f1dd591bc",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_12bed91527aad3a815f7bf8e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_14bb42d78a6828bd850c502a",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_15590f07f43baf285667e96b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_17c969144ea931a62b6d35d4",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1976c24f3f4b18ae03e8aada",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1a2c0a2584814f2f8ca259c3",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1ce05f7ab8e6d134accc5b77",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1e65f3d0d0964b68bdbfc8a8",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_20b75cb9c0c26174152ca2cc",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_21149101ca3c4937e31b7585",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_22d5019eb857e2182044f30b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2350fb84aea390f5793b93ed",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_23992f4879bb6ed7d7daaa1d",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_270581b7fac0375e8ae5b123",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_27b3bb73f60a1bd42cc3e03a",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2a95d9cc1430ec5046800908",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2c38173c696eea8e98193cd3",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2e48a3028e0afb0c46b3366f",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_32c6bdb9ee1c30eff2d46af2",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_33221882a4ac3d4a8e135282",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_38a5c25e18d2811dab635c61",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_39f61663490965e8a9fbd383",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3d352980b1075a454d1c477b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3d81daa830462e5dfe1eaa5d",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3d97ef3f7b4b5d796e2770d7",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3ea5e66eac3496556e668580",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3f2861181ecf63b3f91e0448",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4377425da21847e58577d917",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_43e6a35f295fd5b47dcc752c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_460314cb2c17d8514734ec79",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_499e95e10f3eba0b4160f3c8",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4a8d3ce17fe31dbc932224b9",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4af5120dcde48cfd8c0747de",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4b0835f116901778d8758d93",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4b91907e3ac48827ae75a12c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4c7944545c09a5d100007591",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4ca64f99755f7855b1e49b16",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4e0d119493d82feb03edad06",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4f8fa8076678637e09d3c5f5",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_505c9131f4f48aee454c68af",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_51067520745e811d98c43dc2",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_52ac95d761fa27f23a89a8d6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5364ed2c59eacc72a33e32d0",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_53d586ef88743a9080f2755c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_553717a1f2c0961fc29077b7",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_56c6b835fec372dc6f527a7f",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5acd751ce71cb6868ed9ff60",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5c8e32b17a380f7f0288603d",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5da660234598f48b388dc5a6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5efc9e7712a94db16c123dc8",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5f672dbe814183da3136e4af",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5f87735f524af84798f980fd",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5f926373358a1f185a0806de",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_60c181599624d5274ba9dd57",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_60cddff36334188314d268b2",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6139731d6e09c3f67c96fafb",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_617a22b25e2c76520db1ab51",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6225f0fd09b071fe373402c4",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_62543206eca28517ba8de695",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_657488a33185467c2f986ee6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_65ddf689fa56a4c69589317b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_670f50ae4a101e409f344465",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_687ab4ca0eba6c8b76dec1a4",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6c9d06fde91094331693deb3",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6d5f955263fc3a3160687922",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6e00f0a9840f13ad6faa3b17",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7101560c550c68f754eeaf5f",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_732920fe65314262ef30ef48",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_79bdc6933e09060b42675803",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7a3a97b78932d8501e3e0088",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7a80c1938fa385e552836269",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7ac259df0a4d20c2778392bc",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7d707bbe4dee4c6d469a64df",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_81cc093c12a600fa18e54345",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_823e42bdad3a74e73f6e1563",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_86e12d09947439af506d054f",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_87390a1b35e75328593f4810",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_875c22b48a580d323220d5d2",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_89116fc88790560a6674c705",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_8a3ec42525316b3993371494",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_8ab76f7014bfd66609884b6d",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_8d6cfd8280ce5f8e60c4a745",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_8fe7e50cb487b84a4caa9e16",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_91c4043e032e53d980caec2e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_93d3030e3d50e79a3e6df7cc",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_942f6dff15d6d53b8a195668",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_94dd88f1ce841b3a92dabb0c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9546180f075da8f91b204a99",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9619ed0e3e932ab2dbb8eda7",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_97f9b5c209f85c5110e216e9",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_993cc9026a94a976d67640df",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_99578973d8f42787de53cce6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9960ef61eb4dd80aeff48cee",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9c86ba9b52f97b12068ad354",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9cb31ab8cb38e82697e36ddc",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9d1b89f907e1fcdd2c0c886b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9db96867b89310125aeb1d6b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9e075f5ed6f3f789120b36f5",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9f8c854732e287432d3748c4",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a1fdbc71cbf27e72bea5face",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a2104f06c8bec7b7484ae27a",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a2709f743143699f4bfdfba4",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a31468fcebcc8d915c5db25e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a4f00e674066c77e07fe87ec",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a51b88efed10a614812e7a33",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a5f0615fd55c6ed89771b963",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a65ad5ce581d57a1016e671b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a69d46926476e69c733ed807",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a7962790219e039c924ba1ef",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a815102779318da6440d7c3d",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a9c5af944da2d68f8bc14eb9",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_abf58a57a624c453bc0834de",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ac10d095a3520a26e92988a0",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ade341c8ea67c1b177b57c88",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ae211a8039aef8ba8435a050",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ae47b068596cdf26494c6ebf",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_aecb03b9f333250c8f618258",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_af92b43eb55a8ecf5c55ca7c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b15bf89ddbcc27fdc1613d1e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b1aee036e9246fbde7e6fe1a",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b28df8a5005489d6188ca128",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b370c2986df8cc442496194e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b4e79b62ff4bed6d57c5e9b6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b781a81c730bfe0dc39d852e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ba190db1ddf09feb6589820e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_bb172b6120c18b73f6f6315b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c058a370061ac0d7a99ca0bd",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c244f3ad3f4199131cbc084f",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c3870e3711511ee4ccfc0aba",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c411460f6e5bc82148712207",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c4c085ef8377477d9dd6966b",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c57411973411fd6466fa27f4",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c6ac41c0c2639e53ea08df34",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c91612817ef15ec4c7acd519",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_cb5c0e8c830cc408fc42007e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_cf2284f73918f0df6476b847",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_cf76fe1bddd1655f6fdadecf",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d0592821d6079798739f5252",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d0a953eca6ba44b6891351b8",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d3a9b00641d935f1bed1b2e0",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d4ac7cb3999789f296ba7785",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d5f36b60ec4a050b4ac77f80",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d7acd04503fc366cc947b572",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d80e9e9f898d22784ca89562",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_de6266bba2d23a12cec98c7f",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e052be729d1aed18a00a88b4",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e1ca4dee8eca207f7ff6d1c7",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e1efc6738ef2107f3f509ff8",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e33b1e2ee8929f5d06b7beae",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e5995092a9a63120d56b9f10",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e7c115af6ca7847b62b51eee",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e8690a63b8ca601a24b3e216",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ec1fbe17a80281491c63dd7e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_eec30cb769d21ef0ed13a2a1",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ef1c07b57b64c1d544be303d",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ef508e4d834fe591bc6981ef",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_efc273fab2ce31f3968fc79f",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f22a68f6bfb8692b6c813910",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f32230722c213160dbdf73e8",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f391d71444c1914fd7239a99",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f50fa1e1a9665f2e39a86a04",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f5a847e7a9e6db869298ee36",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f8097b9a1a84df189ea31cfc",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f96f4542436722b54214caa6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f9b5d8670ac0c9281c371fe9",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f9c6a9743d27a36cfd5f6f4c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_faf22a8fe04db007309b0339",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_fd1afd56d93291841e64f966",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ff920b07fea2effcf82b5681",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ffcea352631591278b04eab6",
+    "/Game/BaddieGeneratedWorld/R_b30bccaf7052d9499ce79057/Maps/L_city_road_ribbons_5368c24a99"
+  ],
+  "generatedDependencies": {
+    "/Game/BaddieGeneratedWorld/Materials/M_1342a356dc8b736be13d56be": {
+      "identity": "1342a356dc8b736be13d56be5829b1bc3d647e7458f912d3d307c0d1b059a5dd",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_1342a356dc8b736be13d56be.uasset": "991dea2fed19a9810f4c6ab52a9060ef400fae93ef64c620f2971b830f2cf982"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_6e3004131274f8ae39519689": {
+      "identity": "6e3004131274f8ae39519689ea0e0f9d6b5c17e48e62c0b67f01a152cedb5a93",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_6e3004131274f8ae39519689.uasset": "6bf23b35c097b51ec7a22412984271b1fe3067da2ce939a9ccb8cd2bbc7573e7"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_9807074736b131f140805390": {
+      "identity": "9807074736b131f14080539066c9c151867e90096f9ff2a65d58eb0118697ccd",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_9807074736b131f140805390.uasset": "75e625068c3b01f66a13126d7721896c134a31930ba52e02616d58ad85777e47"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_b49011052ad5f6df738c2015": {
+      "identity": "b49011052ad5f6df738c201587b2809cdb640f77abd7a29acaf3907cad32c0b7",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_b49011052ad5f6df738c2015.uasset": "579c0f2b42f85f2fab46c5c4f90953ed3a4c4d8c92d70202a9aa01c8a18fe119"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_013d26a6f4bf049597244b6d": {
+      "identity": "013d26a6f4bf049597244b6da180fcac41b8a324b11e801ceba017f17f4da3e8",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_013d26a6f4bf049597244b6d.uasset": "304c145e7f21b1fd6f940cd9c6f8fdd71bc0f13c6fd01a7dab8fab76b92bfdab"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_030035117de17339e8620809": {
+      "identity": "030035117de17339e86208096fcef2c77daf1a041ae6a4ec6d7c82f719cb9a11",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_030035117de17339e8620809.uasset": "0ea77c8e6eaac3dfcc47affbbf7f7422df2542b6ff80e823be295ac0eb524f8b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_05476c5ac09d8ca1f7a4ba55": {
+      "identity": "05476c5ac09d8ca1f7a4ba55bf26ffb2f1d78b853b0167693268394f5f772395",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_05476c5ac09d8ca1f7a4ba55.uasset": "fa5c73285440e9945e47c9862fae0425103c488b0da44abf6b2bb777df06b681"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_06cfb2640e2c1619526b7fcb": {
+      "identity": "06cfb2640e2c1619526b7fcb5a6440c3cc2157e33f47a1b603ce47edf3069202",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_06cfb2640e2c1619526b7fcb.uasset": "a8190699e13d262aa7a70538fd3d326d1430ebdf532e46f6e936405f112fe945"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_096d955e582531646b3a9070": {
+      "identity": "096d955e582531646b3a90709d9d890e26cdea3a4d1ff04c04d2e0363d37d3e6",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_096d955e582531646b3a9070.uasset": "b24862631a4c8b4c5cf6da48468a938f0898936cebd46e9a310e1661bc83aba0"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0e1190e165cbbdb1c04cb679": {
+      "identity": "0e1190e165cbbdb1c04cb679f8a2f0b9058ccd2c92f1d0d5ada92e18379ac4de",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_0e1190e165cbbdb1c04cb679.uasset": "0ba13a4dbcf64bd151e94672a6bf603488db4f144b167a073c0ee990c8e0e725"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0e27263a99083faf1ab8181b": {
+      "identity": "0e27263a99083faf1ab8181be0236ac62321d4ad1dd0b5d7684d391e39a419ab",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_0e27263a99083faf1ab8181b.uasset": "a366e8b305a2a66093c686a61c3399e43df3f610a500347e8d18f8411f47a727"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0f692a9d536d2a2f1dd591bc": {
+      "identity": "0f692a9d536d2a2f1dd591bcbd499b8f8281f1cf5120dcc41fc5d65d4601f392",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_0f692a9d536d2a2f1dd591bc.uasset": "e209ca9dd62c173877089edda6be2b040ab5402a4d79e653507ca37d29bba14f"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_12bed91527aad3a815f7bf8e": {
+      "identity": "12bed91527aad3a815f7bf8efd5c1da2919ab57dac8e6885b62a8f9269a7c7a2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_12bed91527aad3a815f7bf8e.uasset": "c8a789ef92ad896c93208cec858e38b8659f48cf99121aae0c437bd9631831e6"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_14bb42d78a6828bd850c502a": {
+      "identity": "14bb42d78a6828bd850c502a00bf883491f9ee39fc7549d888df2a1512ac41f8",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_14bb42d78a6828bd850c502a.uasset": "6186be82019d075bd51c960267d475607bb3331b8d59cba29b46af706f3036c5"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_15590f07f43baf285667e96b": {
+      "identity": "15590f07f43baf285667e96bdf68a0b770a480933ee7c530f5f37e734b83aedc",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_15590f07f43baf285667e96b.uasset": "dadf9a128c9d9d22c923947d2cee8099556d874f1492a5ca016a12f8bed5f82d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_17c969144ea931a62b6d35d4": {
+      "identity": "17c969144ea931a62b6d35d440dfa4e0bfe75c1e970b819a68d51ad91fa943f2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_17c969144ea931a62b6d35d4.uasset": "9bcc8711bfd0f75bcdecbc72a16c914c4eea65de0d49703da5cbccd47dc23825"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1976c24f3f4b18ae03e8aada": {
+      "identity": "1976c24f3f4b18ae03e8aada56046466bb1a534c2923528a38c727ce1fef5d70",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_1976c24f3f4b18ae03e8aada.uasset": "f340eb35c542505c565211b95001d3b2ac752825f80adbeeb4a5723e5df8c85c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1a2c0a2584814f2f8ca259c3": {
+      "identity": "1a2c0a2584814f2f8ca259c3d3fd249f14446b2a241abd2d027c87315c7aec5a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_1a2c0a2584814f2f8ca259c3.uasset": "f66dc2bc8cbe746df047ab7fbe922b585cad21f59c47e21f188749831e9a0967"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1ce05f7ab8e6d134accc5b77": {
+      "identity": "1ce05f7ab8e6d134accc5b772e0888cc08a3c38d5281e440c68c17ffb8a397f7",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_1ce05f7ab8e6d134accc5b77.uasset": "73ddce8f5ca772b0a14ea571c85518bf26913b61e1d618afed1c09f1001673b4"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1e65f3d0d0964b68bdbfc8a8": {
+      "identity": "1e65f3d0d0964b68bdbfc8a87dca50315afc94b0110959ec05705f54b1112100",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_1e65f3d0d0964b68bdbfc8a8.uasset": "0e34a7da1d1533a36c1b7c19cb94c4ca2dc79c65d22e75d32d86f564506906a8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_20b75cb9c0c26174152ca2cc": {
+      "identity": "20b75cb9c0c26174152ca2cc1237ce5967f47772a6d6c367ea998ad861000fb0",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_20b75cb9c0c26174152ca2cc.uasset": "17e6925a1505e64b310972590b2c151d2ce8a379d5f2eb67d64e7ae7c2667a8a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_21149101ca3c4937e31b7585": {
+      "identity": "21149101ca3c4937e31b75853f3981434d681af5b62bfdea4d4be92666823bd1",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_21149101ca3c4937e31b7585.uasset": "627da9040f2c39143b192eedad7398e12d8b81479d4f3d235222c855e4b5d3f5"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_22d5019eb857e2182044f30b": {
+      "identity": "22d5019eb857e2182044f30ba2b9c76e3551642416327fbddd9c211431bbeb7e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_22d5019eb857e2182044f30b.uasset": "2992ab6bc792e128e599b333b781be571f7eb31fda868d93d47b98cb81d46722"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2350fb84aea390f5793b93ed": {
+      "identity": "2350fb84aea390f5793b93ed76fb995ffe70cb8d5e8be938c5422ff63da277f5",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_2350fb84aea390f5793b93ed.uasset": "84c517133221f2fdb3282e3ba4ed6ffcea53d517422330f6ad2a593ffdb0ecec"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_23992f4879bb6ed7d7daaa1d": {
+      "identity": "23992f4879bb6ed7d7daaa1d74b886a699378cd3e5144df3653c0c8f8029fcd2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_23992f4879bb6ed7d7daaa1d.uasset": "ad3722d731ed9213ce2793db10f2ba35beb587324b529e4aac3a39d932dfad08"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_270581b7fac0375e8ae5b123": {
+      "identity": "270581b7fac0375e8ae5b123f2364d759abc24247a939e9e1eb3f94a4f528ed4",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_270581b7fac0375e8ae5b123.uasset": "cffd86492829ea43ad730c23ec2c43b9141920e3bbf8f219c6b2b691526ec4b6"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_27b3bb73f60a1bd42cc3e03a": {
+      "identity": "27b3bb73f60a1bd42cc3e03a6e6b0780843745bb1b7309750731876ae82d6f4c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_27b3bb73f60a1bd42cc3e03a.uasset": "b3e2943cffaa06b659cf4a9abb84334151db3fa9fe539504e8f9c418816dc773"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2a95d9cc1430ec5046800908": {
+      "identity": "2a95d9cc1430ec504680090854b54380cae13ed72af6e39b72e1f40979ce2f34",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_2a95d9cc1430ec5046800908.uasset": "0a0f8ea3ddd9df0337428f19db26771c77a69a48b4ce8622d6a3b56df60d13ba"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2c38173c696eea8e98193cd3": {
+      "identity": "2c38173c696eea8e98193cd3e8fdb04ab2d5d7dd20dbe87276658ee83c4652bd",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_2c38173c696eea8e98193cd3.uasset": "656742a01eafb823765ca0390a5bfd366d9ec859aa41809aad9c6c1c4e6c0bf0"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2e48a3028e0afb0c46b3366f": {
+      "identity": "2e48a3028e0afb0c46b3366f1ccb0f35b70735fb2ed4052862b3432485133303",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_2e48a3028e0afb0c46b3366f.uasset": "07050ed6a875ddbb788340d14793d64244ed50c4334f4e2fb7e370cc1c19ce2f"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_32c6bdb9ee1c30eff2d46af2": {
+      "identity": "32c6bdb9ee1c30eff2d46af2f5aea974cb2f10e25217a8aaa9dfebb0a1f822ff",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_32c6bdb9ee1c30eff2d46af2.uasset": "4a576cb2e2b0cf79761de9cd6b215bb998e272ba7117f425d092987c4cc621c8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_33221882a4ac3d4a8e135282": {
+      "identity": "33221882a4ac3d4a8e1352820400ea32419f7580f9e5fb9c8071a83dc946f993",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_33221882a4ac3d4a8e135282.uasset": "5639be742e043d8eb253d4c8f90d80268ed675a178f68ad982e0133f3da53712"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_38a5c25e18d2811dab635c61": {
+      "identity": "38a5c25e18d2811dab635c61bb4729296d2052f9f767d187089e2305b0d1fcc8",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_38a5c25e18d2811dab635c61.uasset": "63beb48acdeda94e3e2c1e782f82a3525cf31742f20c066d919690a3ed5087aa"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_39f61663490965e8a9fbd383": {
+      "identity": "39f61663490965e8a9fbd3830709b1b9cfca5c6e0116f2de0ffe58993ede027c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_39f61663490965e8a9fbd383.uasset": "635022eaecda10040c7b5281f0871d15a53134aac37301ed614a697f6fe69d81"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3d352980b1075a454d1c477b": {
+      "identity": "3d352980b1075a454d1c477bbd04ad2a4d5188cf8369fa140c3ee3b7dd0ac18a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_3d352980b1075a454d1c477b.uasset": "9578b804e6f16be7efd4a5d9653655361d18bb96da0a23869ecfd940912de04c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3d81daa830462e5dfe1eaa5d": {
+      "identity": "3d81daa830462e5dfe1eaa5d4bc9a3a59c615415f168b3ea3567833fd67a55c1",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_3d81daa830462e5dfe1eaa5d.uasset": "36a5963ecb4847f74fcdb66a91219c8ea45ff49c358f08644ce772c0d3d1ea97"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3d97ef3f7b4b5d796e2770d7": {
+      "identity": "3d97ef3f7b4b5d796e2770d7f0368eeebd453314d3f02dc0919ff4bf1b517216",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_3d97ef3f7b4b5d796e2770d7.uasset": "5e88884ad6f2603888a5229ec7f778a860a88f9c94c1391eefb87e6ba7176333"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3ea5e66eac3496556e668580": {
+      "identity": "3ea5e66eac3496556e6685802a29a378429c0e6994b051a94e24bba02472c93e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_3ea5e66eac3496556e668580.uasset": "b4a71778188ff1b94be7a2ad269afa57ec5bd01bb325b6f82c44f0b43265ed49"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3f2861181ecf63b3f91e0448": {
+      "identity": "3f2861181ecf63b3f91e0448cb9abab680172998f3ce21e79791948425767bbd",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_3f2861181ecf63b3f91e0448.uasset": "2f3d21f49539a90b53ecbc5feb795ded1ab4b324986b080d405e7f2f2ce8991d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4377425da21847e58577d917": {
+      "identity": "4377425da21847e58577d9172dc314b169f86a3ae1844d530dc666f1c95abf82",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4377425da21847e58577d917.uasset": "02d42bd4328e0dc9ea1da9b02de764ac8bccb3d14872c8ecb55178dabbd8043e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_43e6a35f295fd5b47dcc752c": {
+      "identity": "43e6a35f295fd5b47dcc752c074266b531656902975c954d94c76cdbcd4bc3b2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_43e6a35f295fd5b47dcc752c.uasset": "6925bf7d830f8c005a245df868bd8827c289f5acc999b5f0196e2bfcd56f55bf"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_460314cb2c17d8514734ec79": {
+      "identity": "460314cb2c17d8514734ec79a4978cc06db3c3bfb9ac82671ec3e132d9ec1e71",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_460314cb2c17d8514734ec79.uasset": "b1486e7bb5a53b305ea12a0cd426491b3b13cea8f37376ea40e2b0b80a22d282"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_499e95e10f3eba0b4160f3c8": {
+      "identity": "499e95e10f3eba0b4160f3c83eee89ff9e2dc80b778cb7488a72763c15765587",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_499e95e10f3eba0b4160f3c8.uasset": "1b2a97af492f3ab90e00f63dbe84758901712f27da1646a6633e37506ad88660"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4a8d3ce17fe31dbc932224b9": {
+      "identity": "4a8d3ce17fe31dbc932224b901413919a858b80d1c9a60bf64fd7e1b9acaac59",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4a8d3ce17fe31dbc932224b9.uasset": "101f2dd0bba902cd499e0aa2356d852c818f30210b50a151fe40677e3a945137"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4af5120dcde48cfd8c0747de": {
+      "identity": "4af5120dcde48cfd8c0747deb2a787ace99a0dfee0e3367db92e05788a4ef994",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4af5120dcde48cfd8c0747de.uasset": "dc92e58ac2f2cc9fca2d967d8b9667e0159814c55c3875702878db08b94e2eca"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4b0835f116901778d8758d93": {
+      "identity": "4b0835f116901778d8758d93cf55912800a31120fa7c487fba6b5bd5e4407498",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4b0835f116901778d8758d93.uasset": "8559736e67acaee0ee47e54573dbc97f8f3bde15169f7d60bafdf474c00ab17d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4b91907e3ac48827ae75a12c": {
+      "identity": "4b91907e3ac48827ae75a12cf8a598ef0433e12c251354a47030414b15c90507",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4b91907e3ac48827ae75a12c.uasset": "acb36e152cb7d83eff10080304a36ce77a431a215a34042f9cd12ea53b6b8d3d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4c7944545c09a5d100007591": {
+      "identity": "4c7944545c09a5d1000075918aea50fa85b87cd714ec122bab4d5664c8534c10",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4c7944545c09a5d100007591.uasset": "ac739a2a73395499847e0bfeaa229d7e52d4c976ce6bd2a643e89eba046833bb"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4ca64f99755f7855b1e49b16": {
+      "identity": "4ca64f99755f7855b1e49b162a48e9e6ea58e821a1baf31b46de795f61ff4a4d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4ca64f99755f7855b1e49b16.uasset": "6e7fda4def28974d14a1e8bcb1d129de005bc07538f312cae13710ab0aa4d249"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4e0d119493d82feb03edad06": {
+      "identity": "4e0d119493d82feb03edad0690bcf30f2928da5a095f497b7ed6418f4aaac7a7",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4e0d119493d82feb03edad06.uasset": "d1ed620f5cbd8c8938a6cbcafe21c6b1ce67b6b74a40932f355b58f39d92029c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4f8fa8076678637e09d3c5f5": {
+      "identity": "4f8fa8076678637e09d3c5f5e7afd4aef333a42103087b7c6920060578a21409",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4f8fa8076678637e09d3c5f5.uasset": "6712110c18ec5d2768f3dafefb2ee4e50bbc6d8b823f7c1dbb9bfec36fdb0356"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_505c9131f4f48aee454c68af": {
+      "identity": "505c9131f4f48aee454c68afe1d1aa24fe273a6e1f259dabd938f9aea11e3709",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_505c9131f4f48aee454c68af.uasset": "fba278f0c5d215fb3a50f69aba08c8df093cc0f62d2ece51a56c4db843fe1e46"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_51067520745e811d98c43dc2": {
+      "identity": "51067520745e811d98c43dc2c92436300d51daf95c27c60030ec16dfe5563ad4",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_51067520745e811d98c43dc2.uasset": "9cc83ac8020cd5e16b677f71787e8892059d04b36e6dffb3a1ec3532487ba2f3"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_52ac95d761fa27f23a89a8d6": {
+      "identity": "52ac95d761fa27f23a89a8d67e92fdf75f5237ab9ec7c78cec5d2bd99bab0c3c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_52ac95d761fa27f23a89a8d6.uasset": "3eddfcd02adf8bbb241ed30225c6d4c9b084c69e8a1d99fed160acf1546cbbe9"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5364ed2c59eacc72a33e32d0": {
+      "identity": "5364ed2c59eacc72a33e32d088ee95f06ccfe4e042af1a0a9cd62558ddc68248",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5364ed2c59eacc72a33e32d0.uasset": "afa566cfe5655c038ea92f04fde3da14a39e6cab9a93b1da96b2784bdce53bfe"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_53d586ef88743a9080f2755c": {
+      "identity": "53d586ef88743a9080f2755cfc980c303e2c6330d0b518b92de59768d266db9a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_53d586ef88743a9080f2755c.uasset": "ee6dce73814d8b00d0e57e92f8e2744e835eb574241b70b9e0e876cdbe631e01"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_553717a1f2c0961fc29077b7": {
+      "identity": "553717a1f2c0961fc29077b73f59f3af78d13438fdd9007360f9d289b08ae4c3",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_553717a1f2c0961fc29077b7.uasset": "e0ad5aacab5bba9cd7c6797cc40f2270dc2d10ed2937da77514ab92dbdfa5c20"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_56c6b835fec372dc6f527a7f": {
+      "identity": "56c6b835fec372dc6f527a7f524d3dc01d80853b0df57445e495bdd0bd28c08d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_56c6b835fec372dc6f527a7f.uasset": "8ed33df40b913fa22a9108ac91d2b39ca41f10e92d0f95cbcbe73f247f42ae2b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5acd751ce71cb6868ed9ff60": {
+      "identity": "5acd751ce71cb6868ed9ff60ba06e1af41585f13bfc93e6f3097130afda1e7c1",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5acd751ce71cb6868ed9ff60.uasset": "36253628cd3ff29573c0a3e7acdd59d21744572e1cbea97cfe339f4539f58bd0"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5c8e32b17a380f7f0288603d": {
+      "identity": "5c8e32b17a380f7f0288603db7991ba0c24385f821b6768f3524237bc19d3bdb",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5c8e32b17a380f7f0288603d.uasset": "ab9595cc5ef37d4ea1a05da3bd30991f1e099b3b4d6ae003b3f2bf8670023b4a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5da660234598f48b388dc5a6": {
+      "identity": "5da660234598f48b388dc5a6b524cd9a8621076e945bb420767ee121a029a454",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5da660234598f48b388dc5a6.uasset": "fd3def69cb8110e45c3b34633fcd876b28a30bfbfb961b75321db3914f8f95c9"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5efc9e7712a94db16c123dc8": {
+      "identity": "5efc9e7712a94db16c123dc80748340271714cb03f78126bb8305444bf8c3cd2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5efc9e7712a94db16c123dc8.uasset": "2686da845e9f1b4dfdaede0c5306cb59e3b79988827833acbffbe59df585ea75"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5f672dbe814183da3136e4af": {
+      "identity": "5f672dbe814183da3136e4af33b30440afcd2a75a3d19d9f311f261a198e16d1",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5f672dbe814183da3136e4af.uasset": "4f77aa4f0d7ab81284c340c65c0a7337b9ec50160f22b117d991aae8ec48fd50"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5f87735f524af84798f980fd": {
+      "identity": "5f87735f524af84798f980fdafcef667120b942a91334f0271228604344f7e37",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5f87735f524af84798f980fd.uasset": "d0f7b751beb438636c17021ab9a81f60742fbbf2f2dd39f20ca3e3af10d647fa"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5f926373358a1f185a0806de": {
+      "identity": "5f926373358a1f185a0806dee809884ca0f5d6b095fc6b2b8c06a0ce6b1da838",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5f926373358a1f185a0806de.uasset": "2ca5b3671bc471d487963be2f000ff518c2ad324025ca15fbe88185f6eee680c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_60c181599624d5274ba9dd57": {
+      "identity": "60c181599624d5274ba9dd574705d519e2333bc672afd93e0de0e5266f5fede1",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_60c181599624d5274ba9dd57.uasset": "60bf0065ab4419caaeef962a179d06c706d2c5d856f69d5b10c225018cade8f4"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_60cddff36334188314d268b2": {
+      "identity": "60cddff36334188314d268b2cc9462b7e0003c37a15226bff9296ea371dc0901",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_60cddff36334188314d268b2.uasset": "89f32933df86e69ee891ce49331d24a0251347998ab7fab6faee7e2dc875c221"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6139731d6e09c3f67c96fafb": {
+      "identity": "6139731d6e09c3f67c96fafb653230265fb3df08b064d638f10dff2d3ce3a23d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_6139731d6e09c3f67c96fafb.uasset": "e9efb1d732cf5382c776b8a4864a068042f1712ff422f31d32d150e4e075b3c2"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_617a22b25e2c76520db1ab51": {
+      "identity": "617a22b25e2c76520db1ab51191d66ebb8c1550f7025bbaac5988bb6d91052c9",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_617a22b25e2c76520db1ab51.uasset": "165e3403d456119ee637c35b5ad09a3f9fc057c27bed22d093264e3f482ed271"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6225f0fd09b071fe373402c4": {
+      "identity": "6225f0fd09b071fe373402c4643ff909a2c7367ba5aa9a52cc009ab71a00fa5b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_6225f0fd09b071fe373402c4.uasset": "128ac11976dadf7717cdb1fefad14b12f732d4ffa9422f1686d2f1d49e6cf392"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_62543206eca28517ba8de695": {
+      "identity": "62543206eca28517ba8de695da8376421dfb3efca86ebb98110298e500ef5a98",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_62543206eca28517ba8de695.uasset": "c6f3120ba7744ade7f1f2d9134dcfb27cb95fb76ad8af0d23fb2db981181d707"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_657488a33185467c2f986ee6": {
+      "identity": "657488a33185467c2f986ee6442397c8cc73866a16a80b9e0de9946b8f4f35fb",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_657488a33185467c2f986ee6.uasset": "416b21fdef3a57fa22b326914248b67461802bce8b0cd58fc8f81dd3909e7328"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_65ddf689fa56a4c69589317b": {
+      "identity": "65ddf689fa56a4c69589317b653973836f4da90f9ea94708ffee626a5efc3621",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_65ddf689fa56a4c69589317b.uasset": "e6a51660a800da0e3aad22f38fee1c23f83261a7f368d53941992b1e3322e9c4"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_670f50ae4a101e409f344465": {
+      "identity": "670f50ae4a101e409f344465d8687c22b390856fdc0d72d2cb89370de017b54e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_670f50ae4a101e409f344465.uasset": "fd4ee24b1af4f7ed549f0d1d62d7de52dc90f30ad039c8a51424d7939b88e714"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_687ab4ca0eba6c8b76dec1a4": {
+      "identity": "687ab4ca0eba6c8b76dec1a4b06c74bf2bf7eef1059fca8a87acfe6408c9daef",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_687ab4ca0eba6c8b76dec1a4.uasset": "e88930d92d6810d89e25ea8ff279f68496e7e06c403e85f9f54320288c1f5f0d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6c9d06fde91094331693deb3": {
+      "identity": "6c9d06fde91094331693deb3d6cd57b88b0d865b06065c159cda2971ba689124",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_6c9d06fde91094331693deb3.uasset": "d7c50815f5210e13253a2a6502510fd7f53561275e563e0c970e9532833b5f1e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6d5f955263fc3a3160687922": {
+      "identity": "6d5f955263fc3a316068792246129ef5b79e5eae32f3037155a6e25f9b52ce48",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_6d5f955263fc3a3160687922.uasset": "c90019ec1b55217277c78421c30af4789c3c214d9b5e57a2232b207fea588198"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6e00f0a9840f13ad6faa3b17": {
+      "identity": "6e00f0a9840f13ad6faa3b17439ab795a588361c6c57c65906b62054de7cb099",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_6e00f0a9840f13ad6faa3b17.uasset": "cfcf4c9f808204789294902170c9f0dd9b8d9467dda072c400264bf0b9f71665"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7101560c550c68f754eeaf5f": {
+      "identity": "7101560c550c68f754eeaf5f39e1a60b920dca25abe5d5d60b38dbc16f789d9e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_7101560c550c68f754eeaf5f.uasset": "b7898363da6ff287b10a886dd3adebfb4c36b8b9463a2e62c6d89eea49c4a510"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_732920fe65314262ef30ef48": {
+      "identity": "732920fe65314262ef30ef487599562e698c018cd3e336f2e19ca6ac484a57a5",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_732920fe65314262ef30ef48.uasset": "1854c80c4aa5ad4c53ae436c6c7eb5162584312789aa519745e688bf781ede74"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_79bdc6933e09060b42675803": {
+      "identity": "79bdc6933e09060b426758034f0eeadf5e5de16a75029bce94ea36d48a9552b0",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_79bdc6933e09060b42675803.uasset": "3e12cccc1768d8aff6241cb1dbfbc53d9e0bb171d81dc5946aff444fae8ad598"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7a3a97b78932d8501e3e0088": {
+      "identity": "7a3a97b78932d8501e3e0088c93a624aacfede00c1a8e011794642d27e6f8a33",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_7a3a97b78932d8501e3e0088.uasset": "bc16de4e473be6ffa458fc2ac6bfc40ff90a59248a2998dc5a026ff85501032d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7a80c1938fa385e552836269": {
+      "identity": "7a80c1938fa385e5528362696e650f816e891a3e3fb75864b3f01a1528e29204",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_7a80c1938fa385e552836269.uasset": "158fba6d6f56ad6568669be3a3416ca4110725cf674477ef4b5b631d2fcc19d5"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7ac259df0a4d20c2778392bc": {
+      "identity": "7ac259df0a4d20c2778392bce08a6060713be881bb1075d61d1ec9f7e575f707",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_7ac259df0a4d20c2778392bc.uasset": "357ca388f02e9d538a064e08fdf50e9a4ef32409bbf61207014102ff81025a1d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7d707bbe4dee4c6d469a64df": {
+      "identity": "7d707bbe4dee4c6d469a64dff600218c1834913587eef45284faeba7489af133",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_7d707bbe4dee4c6d469a64df.uasset": "d67081d58adac655e40179ae73db80db6b21a333169540fdac81d10cc6b5a1d1"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_81cc093c12a600fa18e54345": {
+      "identity": "81cc093c12a600fa18e54345cc1244a83bbb8ca85bb6fbb21be935dbcbea5f8b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_81cc093c12a600fa18e54345.uasset": "bacc7d03291811b9a9cf512a58775f9306e2ae352e47acf5685e714769dbc63a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_823e42bdad3a74e73f6e1563": {
+      "identity": "823e42bdad3a74e73f6e1563059ca47f5ab9cb83216121288b69521478e4616e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_823e42bdad3a74e73f6e1563.uasset": "ed9335912c1ee196282659526e467fe91d4e38a88a556159ebaa5055d7d20d4d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_86e12d09947439af506d054f": {
+      "identity": "86e12d09947439af506d054f437771a481416c806e4f5b72d583ca34707e8aaa",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_86e12d09947439af506d054f.uasset": "a9a1182d80e6901573d7cb3b4ee41465edd4bf114eee1aa57588193998ba3f59"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_87390a1b35e75328593f4810": {
+      "identity": "87390a1b35e75328593f4810f530a4368c123f42490fd41c66057bba72271a8f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_87390a1b35e75328593f4810.uasset": "df88955ea37e3caf319065b964d3ca2ae12e181a1d02f06abf35ea59dad93b05"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_875c22b48a580d323220d5d2": {
+      "identity": "875c22b48a580d323220d5d245bb1a8c6cb1d1f24087bbed7c0fcd5b12b0ce71",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_875c22b48a580d323220d5d2.uasset": "31c3d3a8f0c12db5f34834a8d70088e408f98689503fafa7e13cd07a0c943176"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_89116fc88790560a6674c705": {
+      "identity": "89116fc88790560a6674c705e2ca001dbd89cf8920578938bf766fe24d66812f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_89116fc88790560a6674c705.uasset": "6b64f5c9fd01ae6a0125b94d31392222a298c3d6b9d75c671d5904bd707a2f0a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_8a3ec42525316b3993371494": {
+      "identity": "8a3ec42525316b399337149435a1642d6883f37939101c6ba043f80a84e93a14",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_8a3ec42525316b3993371494.uasset": "57e1381bcf081623bfe7c0a1f06fd678b43e3e5cc81f63cf5d0b243aceca9c90"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_8ab76f7014bfd66609884b6d": {
+      "identity": "8ab76f7014bfd66609884b6de301adf1db960bea2ff4798a23df9c503ffcc0b2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_8ab76f7014bfd66609884b6d.uasset": "399765f4d0973e9ff001c8eaa4b0199fd399702cc8c0be637b143b74542bb2a7"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_8d6cfd8280ce5f8e60c4a745": {
+      "identity": "8d6cfd8280ce5f8e60c4a7452cc59db8ed4be05cf2bb76bac5a0b2c6edbfce40",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_8d6cfd8280ce5f8e60c4a745.uasset": "cfd6fdb9c27332629107500ab8b1909762ffbe0587bf6c59145233b04aa2a76e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_8fe7e50cb487b84a4caa9e16": {
+      "identity": "8fe7e50cb487b84a4caa9e16294fc81ade0d271eafaa16c53b3b45dfe31c2586",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_8fe7e50cb487b84a4caa9e16.uasset": "28434b3d98e7e7aa008102d3992454bea5a75ef31d6ce529ef93836979adbfac"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_91c4043e032e53d980caec2e": {
+      "identity": "91c4043e032e53d980caec2e7c488dc4f34c716c87d360926c816f3fca7fe9f4",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_91c4043e032e53d980caec2e.uasset": "d27f55dc7a65482735d5ba0bbe857745968d3d6efa19dbbd1f19795c64afd5f9"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_93d3030e3d50e79a3e6df7cc": {
+      "identity": "93d3030e3d50e79a3e6df7cce0330ded697b2f797cf72f14e9f985bceec430ea",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_93d3030e3d50e79a3e6df7cc.uasset": "69ea32477dbf1e061084e89c74ae5067565854479476b2affd38e98a15bcbd75"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_942f6dff15d6d53b8a195668": {
+      "identity": "942f6dff15d6d53b8a195668454ac20277d2196839d85568840d0e3151472722",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_942f6dff15d6d53b8a195668.uasset": "9e87d9b6b644b8e5c491d041acb4f8e1f1163a1dbb6419d946524e89d32fdbe0"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_94dd88f1ce841b3a92dabb0c": {
+      "identity": "94dd88f1ce841b3a92dabb0c2c1a3d8b4ef95734bdd4ca5583fa292fefbe7512",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_94dd88f1ce841b3a92dabb0c.uasset": "de94c3ae93fe85529291c9cf3cd99ea503b9d7e8a18826ce5c77f81d12847f72"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9546180f075da8f91b204a99": {
+      "identity": "9546180f075da8f91b204a9984ec123889944cbe2137c551cc0283f86b7a6ede",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9546180f075da8f91b204a99.uasset": "98e11ffcb11e27bf49cb213870a1beb6a4e2dd68bd22453b2f057317d2636b5e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9619ed0e3e932ab2dbb8eda7": {
+      "identity": "9619ed0e3e932ab2dbb8eda7212b72cf78fdcd3dcbda9949f22660548c0c84e6",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9619ed0e3e932ab2dbb8eda7.uasset": "aea0665f839790d66a0f20b16c83ad293d11da8596c5e9d873315c9687eab74b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_97f9b5c209f85c5110e216e9": {
+      "identity": "97f9b5c209f85c5110e216e9d67cd94525cdff29f11454691b3fad77e30f71f2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_97f9b5c209f85c5110e216e9.uasset": "9845eac1df047320b156d11f40edc986208e7109a0fca0403b816303eddfe006"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_993cc9026a94a976d67640df": {
+      "identity": "993cc9026a94a976d67640df30880d1ffa696649597e9244be50b3bb0eca30ab",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_993cc9026a94a976d67640df.uasset": "36afc79a4a4c9b552a828880ed5194137981a8b6011085e99fa18db1d3fa2b53"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_99578973d8f42787de53cce6": {
+      "identity": "99578973d8f42787de53cce620f8157151cab37afa61a0baac7b6398c98d293d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_99578973d8f42787de53cce6.uasset": "a3e12163ececf22c411ec87cb3cf5d69964c184f60b2dcb027dece130ad0fec1"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9960ef61eb4dd80aeff48cee": {
+      "identity": "9960ef61eb4dd80aeff48cee4742b5350f7a3d066588ae558af747f39524b954",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9960ef61eb4dd80aeff48cee.uasset": "983f6d55b490e4f1e96a8790ea92a58518017e50e6e0b791e93704e0a508df8e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9c86ba9b52f97b12068ad354": {
+      "identity": "9c86ba9b52f97b12068ad354ed4417c92f12edce7e059508e963f38622d0f8df",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9c86ba9b52f97b12068ad354.uasset": "aa187f38827202456c46a34e422cf04f0a459c3fc7fb6a7b6c18d24f63f95911"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9cb31ab8cb38e82697e36ddc": {
+      "identity": "9cb31ab8cb38e82697e36ddc32b557d131672e8192a6293959f3cf5a9f112143",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9cb31ab8cb38e82697e36ddc.uasset": "16c668f04421067a22db9cba9feded2f79b5b2cf0d4537f17e1dddeeafb0c0ca"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9d1b89f907e1fcdd2c0c886b": {
+      "identity": "9d1b89f907e1fcdd2c0c886b46010f6e258ebcd3d110cdacfad3a5fecbae3beb",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9d1b89f907e1fcdd2c0c886b.uasset": "d7f7fb9a3502a9341f49aaeeb703354ccbad24a1cf0b373e54c6e2c0b902b993"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9db96867b89310125aeb1d6b": {
+      "identity": "9db96867b89310125aeb1d6be6de6873b936fadd5a0d0bf78956e21003800d54",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9db96867b89310125aeb1d6b.uasset": "3fbea409546ffadca7ceab3b8c5f03074cc74f7eda94bece1f50c3e874e1648c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9e075f5ed6f3f789120b36f5": {
+      "identity": "9e075f5ed6f3f789120b36f5e42818c2a25ec1a66ed68874fb32fdc827d46cf8",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9e075f5ed6f3f789120b36f5.uasset": "9ac96b0aa7a2979c77ede5755fc88fa89b8ab32e1c9f30230d57b4b97a018f07"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9f8c854732e287432d3748c4": {
+      "identity": "9f8c854732e287432d3748c471bf7b1900ca26d2a12c007f0cea719c2ebf8c58",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9f8c854732e287432d3748c4.uasset": "ab48a599b52b3573733dc13d6ecf5a966a09c2d3114f6ab38af21ac1a39c6eaa"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a1fdbc71cbf27e72bea5face": {
+      "identity": "a1fdbc71cbf27e72bea5facea2f1f9fc15c643c62aba14924fdb479b38e3b9c4",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a1fdbc71cbf27e72bea5face.uasset": "8c8d9fbccd30ef4394a12dcf097e7e6f5cd1cc971a5818a82c8a801c5922eec7"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a2104f06c8bec7b7484ae27a": {
+      "identity": "a2104f06c8bec7b7484ae27a872ec06214efe0d6003da71574f1baf20805b9ed",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a2104f06c8bec7b7484ae27a.uasset": "7d90e6e27060117db158600d55868f4543e5e8c4aab48c68f98dd8d882643605"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a2709f743143699f4bfdfba4": {
+      "identity": "a2709f743143699f4bfdfba493741f283f3e3a9b2b1f8d4b09983a015e39a327",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a2709f743143699f4bfdfba4.uasset": "c1adecd2ba1ae0290d82a110534d015ed64135b536f66cec68a80956371d653e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a31468fcebcc8d915c5db25e": {
+      "identity": "a31468fcebcc8d915c5db25ea48db6ad7c9fc08d13d8c0f66e71fb328220bcf6",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a31468fcebcc8d915c5db25e.uasset": "2e7fdfeccd197c998148b56b24c20a00956f019f39a642c4906d48907e8ffa2b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a4f00e674066c77e07fe87ec": {
+      "identity": "a4f00e674066c77e07fe87ec226cc6fb2401ea3657bbeaaf214e25abd2d7b681",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a4f00e674066c77e07fe87ec.uasset": "392f9aae86b6abe84ccd5602f9f9081554dbe0baf526758a5f9b236242cf4640"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a51b88efed10a614812e7a33": {
+      "identity": "a51b88efed10a614812e7a3332aa30c6e23e65c896c94b9ec44bb2e5b33515eb",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a51b88efed10a614812e7a33.uasset": "3830b7065a4b3a44ce280099ed529a9baa16e8420cf164e1bf99b277d43ab906"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a5f0615fd55c6ed89771b963": {
+      "identity": "a5f0615fd55c6ed89771b963624cf46dc06fb2cb13bbabd751ce4dedb1c2139f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a5f0615fd55c6ed89771b963.uasset": "dcc1f1219deadfbb4f898c9427ddd98258836953984b47ecff667fbd29669fee"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a65ad5ce581d57a1016e671b": {
+      "identity": "a65ad5ce581d57a1016e671b7a5ae007aa6c54dd0e07778b27427c349937cc15",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a65ad5ce581d57a1016e671b.uasset": "8fa9e11da12d43b9d540f69f98c6951fa7634e93cba211e5a46f8313a690ae8d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a69d46926476e69c733ed807": {
+      "identity": "a69d46926476e69c733ed80790fd5254357519ed548f31fc9583b4cc1a65cd7f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a69d46926476e69c733ed807.uasset": "0ba680cf158d1952e6b28226628bf6053667bf990e7209c9412dd80b2735d413"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a7962790219e039c924ba1ef": {
+      "identity": "a7962790219e039c924ba1ef8238e65cefa094fddb71614312915e210d9437c5",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a7962790219e039c924ba1ef.uasset": "fc0a6423b9bf971adb77c06fadf2b14f010ac48f786d6e22ebe7d466a03c14d3"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a815102779318da6440d7c3d": {
+      "identity": "a815102779318da6440d7c3d5a9913deb155ef6b2df23c91c95c92cec1eeb851",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a815102779318da6440d7c3d.uasset": "442ca068d050aea4a8d7dd58b9d9b40cd8f8391ad5201d92c5c10e99fec32520"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_a9c5af944da2d68f8bc14eb9": {
+      "identity": "a9c5af944da2d68f8bc14eb9e7e380acb05cf2153aa7d194d31ebfd43d6cc184",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_a9c5af944da2d68f8bc14eb9.uasset": "5bebf1e8ece78c4038189422be07ab0b002c09aacc2ea43aff9d3e6df1d93cdb"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_abf58a57a624c453bc0834de": {
+      "identity": "abf58a57a624c453bc0834de9704b98a75e5f80330bac2af24eb1c52afbcf417",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_abf58a57a624c453bc0834de.uasset": "ffa529f7dc1745c78571b7ca6e417c470f8620fcd20688b4f88ac9cc8241a271"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ac10d095a3520a26e92988a0": {
+      "identity": "ac10d095a3520a26e92988a0db2c7e84d1f43587dd5f7f14d1f75af136aaff0f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ac10d095a3520a26e92988a0.uasset": "6badaa0dbba433dea86429ba8983f562480b69af25c81162cd4e37b9da916a09"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ade341c8ea67c1b177b57c88": {
+      "identity": "ade341c8ea67c1b177b57c8869c174ceaae861ec919bed981030ddc67451fb1a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ade341c8ea67c1b177b57c88.uasset": "32db2c7edd2c3a4369cdabf655f250979689f63370934f01b253a690d865402d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ae211a8039aef8ba8435a050": {
+      "identity": "ae211a8039aef8ba8435a0502e208c611b5b31d4c637f72ff545bf04ec0f6bd6",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ae211a8039aef8ba8435a050.uasset": "c7f55f492345f63882920d3b70552e1b703b409381ff7945d48f3c239de9456a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ae47b068596cdf26494c6ebf": {
+      "identity": "ae47b068596cdf26494c6ebfc6d15f1c90a11355a1cd2b3f5938cb47ccdd1e83",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ae47b068596cdf26494c6ebf.uasset": "cd08491c8de9416de82979ed51a61d712702ea681904e70e6956b142bddf485a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_aecb03b9f333250c8f618258": {
+      "identity": "aecb03b9f333250c8f6182585044e4cd49af377e772e500d244a8006f4d787db",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_aecb03b9f333250c8f618258.uasset": "f95046738013ad00ba82426b0491005fded7c0b2fc04c52f6ef018775b96c048"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_af92b43eb55a8ecf5c55ca7c": {
+      "identity": "af92b43eb55a8ecf5c55ca7c388df6a20c47c7143cfee3f13e9d49bf6710c90d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_af92b43eb55a8ecf5c55ca7c.uasset": "a79c8db1a35ed465cfd092f8e2dbddcb4f0142dc7814f1405545065e524c004d"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b15bf89ddbcc27fdc1613d1e": {
+      "identity": "b15bf89ddbcc27fdc1613d1eab1c5e23d5efcf6a82d3bd8888b2eaafaf90be9e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b15bf89ddbcc27fdc1613d1e.uasset": "172b06da2cff575c20f453a1aec401707f0d639e42a5d72a8d206b14d0f0659c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b1aee036e9246fbde7e6fe1a": {
+      "identity": "b1aee036e9246fbde7e6fe1ac52bf3e80efda4088bfdc1a9211ca655d465bcd8",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b1aee036e9246fbde7e6fe1a.uasset": "365cad3b88311a7626b686a2919c46bf2a9f9c52023de494a4734792d0601446"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b28df8a5005489d6188ca128": {
+      "identity": "b28df8a5005489d6188ca128fbd1462c1d7aa8018cf5b8fc2a47c42fee4bda14",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b28df8a5005489d6188ca128.uasset": "e5acdddb6f94c59bd0f182df839f8ba03e014845fb4eefaaa64f27594cde4b2c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b370c2986df8cc442496194e": {
+      "identity": "b370c2986df8cc442496194e703bd9ddda44f6295ce9c401dca8150e2ecd77b9",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b370c2986df8cc442496194e.uasset": "4619229ae50e1aa159e4b209a3cf6ffae061da4113c01d936f51e9c504ff2e45"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b4e79b62ff4bed6d57c5e9b6": {
+      "identity": "b4e79b62ff4bed6d57c5e9b66bcbde8817bc93735a26d42dee6dccb4313200ca",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b4e79b62ff4bed6d57c5e9b6.uasset": "79ed0498e661c08e9870f4a4d1c28d547313c0929a037f8f7dbfaa2be4d15186"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b781a81c730bfe0dc39d852e": {
+      "identity": "b781a81c730bfe0dc39d852ef448cc3e06098132fe8c1d7b7761ea29de3566c9",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b781a81c730bfe0dc39d852e.uasset": "3e3f588fb959ebaf1373aa7510b9537ddc8ef26d4c9fac51bbeac07355f065ff"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ba190db1ddf09feb6589820e": {
+      "identity": "ba190db1ddf09feb6589820eec4d25d3f46b223e939a317e35ed42df00c5491d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ba190db1ddf09feb6589820e.uasset": "38a437aa59e13cc4384dbe0579806d32e482973cfa2b480bfe7f9a83ecce30a4"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_bb172b6120c18b73f6f6315b": {
+      "identity": "bb172b6120c18b73f6f6315b660a505f30d3219efba5b4fb197b3d782dffa2a9",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_bb172b6120c18b73f6f6315b.uasset": "89e9c036d7945bed94a5fa089f29e5594692b81a6f06ec4f49a941b9db153997"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c058a370061ac0d7a99ca0bd": {
+      "identity": "c058a370061ac0d7a99ca0bd6d2ca78ca3075929daff26e947873e4e9d0a5e8d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c058a370061ac0d7a99ca0bd.uasset": "eb929f2564571f6b11f972b74316a893511aa0c3cc7cb7a72444c74ad199c57a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c244f3ad3f4199131cbc084f": {
+      "identity": "c244f3ad3f4199131cbc084fbcb2d7626d7cb8bec3687670cc64601969cc9c33",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c244f3ad3f4199131cbc084f.uasset": "aa00bd83fb1a3ab19415f19e49e66c69e417852d4e6c4b9e85621676993d9981"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c3870e3711511ee4ccfc0aba": {
+      "identity": "c3870e3711511ee4ccfc0aba38e1b6d19433bc07ebe0425e22669bcb3ee55b23",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c3870e3711511ee4ccfc0aba.uasset": "a91be5feb11940cc5530c1bbec4f49e857565c4b24bf768d896fcfb8a78e73ba"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c411460f6e5bc82148712207": {
+      "identity": "c411460f6e5bc82148712207cedfd28ee6ca2fcadb5c92c940e34cf77b4a1cb2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c411460f6e5bc82148712207.uasset": "bac894647ffaa36aad76ba3662803ff8a29635af812427fc989028944531d7b8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c4c085ef8377477d9dd6966b": {
+      "identity": "c4c085ef8377477d9dd6966b961271e6efad20fe02f41b105bfe43ddc40f675c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c4c085ef8377477d9dd6966b.uasset": "9e5c5c9f80195209cefaf1b3d33b0349fa92f5bf9591841e521e984955835c59"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c57411973411fd6466fa27f4": {
+      "identity": "c57411973411fd6466fa27f47014323ab045d19f3d57d7e9e8c35911719f6354",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c57411973411fd6466fa27f4.uasset": "bc417a5afea41ace628f22b1bd26c638b156db4da5a7de9fbc13f5e796091131"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c6ac41c0c2639e53ea08df34": {
+      "identity": "c6ac41c0c2639e53ea08df34e8c4040ded239522fc5569e0be8bb29e1048f38a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c6ac41c0c2639e53ea08df34.uasset": "8275609df3104480dbd99457e8a11d28da9f5120021b72a112c4d0d1561609dd"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c91612817ef15ec4c7acd519": {
+      "identity": "c91612817ef15ec4c7acd51930d5d5aca49437754f5d1a587692a45e2413f604",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c91612817ef15ec4c7acd519.uasset": "9360a3867555e0c0a1627db676187ba9c5b0f11d34d033c3191fbe364037e193"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_cb5c0e8c830cc408fc42007e": {
+      "identity": "cb5c0e8c830cc408fc42007e632d682dce836e42354990176d1e493a36be74df",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_cb5c0e8c830cc408fc42007e.uasset": "29ab1a135b6bb669a22f57a83fd92b7c153b4a4d27edca480bf22b357925f397"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_cf2284f73918f0df6476b847": {
+      "identity": "cf2284f73918f0df6476b84753a5ddef351297599fbb0cd0dcf1639a85d140fd",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_cf2284f73918f0df6476b847.uasset": "5068ef0c2f4b064dd64e1aae1089df0ad509bf6092d2dfdc1283c3cce78cb818"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_cf76fe1bddd1655f6fdadecf": {
+      "identity": "cf76fe1bddd1655f6fdadecf1c150597be57e375dd6a5e12b1f0123de2dd5d39",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_cf76fe1bddd1655f6fdadecf.uasset": "eb54c56e06fdf81ea7b55241015e4a9fc830ff10e0acac1c9d358ba639e20dab"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d0592821d6079798739f5252": {
+      "identity": "d0592821d6079798739f525227ca3b2e0944b35ca5f7961d045a70fb49b4871c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d0592821d6079798739f5252.uasset": "7cb126605f5e545a2b8ca2e83acb993b9b2bbb5aa7aa7695a63c8c9daa56c440"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d0a953eca6ba44b6891351b8": {
+      "identity": "d0a953eca6ba44b6891351b827d7996855b65f1d55a313ddf37991fb765c71c3",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d0a953eca6ba44b6891351b8.uasset": "6b23a62e6f58f70e8d9153d4c4fdf7161d40240c332d6d3403d324e8c448f2cb"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d3a9b00641d935f1bed1b2e0": {
+      "identity": "d3a9b00641d935f1bed1b2e0d251ee8cd19b32d9cb3c984ca260ff63cfce9ef3",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d3a9b00641d935f1bed1b2e0.uasset": "7502d183666aedc7c46e8733af5f12b2aaaa9bbd9cc7bad24cab49390149fea8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d4ac7cb3999789f296ba7785": {
+      "identity": "d4ac7cb3999789f296ba77859574c1434ea4a108247fc54f2cdc2136e3465a1f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d4ac7cb3999789f296ba7785.uasset": "9968ec60b1323f09e48cedf5d7b9d906615fe878d75bbc676c5850cc4e23cc08"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d5f36b60ec4a050b4ac77f80": {
+      "identity": "d5f36b60ec4a050b4ac77f80ee1e1330d5bf135ed811f729831484067fbde5d9",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d5f36b60ec4a050b4ac77f80.uasset": "7d8a68b7bebbbaa2851909112657b1b2f501c23c0945b8c5b86e28eb38fb08c1"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d7acd04503fc366cc947b572": {
+      "identity": "d7acd04503fc366cc947b572a5cfdf9ee846e9e5e30f7881e1e869f79b23cdb2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d7acd04503fc366cc947b572.uasset": "6f0bdbad9e66e862a3504ca825df536000a085256feb2598a8d63ee970e414f3"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d80e9e9f898d22784ca89562": {
+      "identity": "d80e9e9f898d22784ca89562af3618540e1eebff2f3652a67bbd5c3c1244241b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d80e9e9f898d22784ca89562.uasset": "e568691b6a960d19451622dcb33c65ddbace6146fce144c14fb57a9b1f135fd0"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_de6266bba2d23a12cec98c7f": {
+      "identity": "de6266bba2d23a12cec98c7f94bb954c55f7fe83f09ab4bc75d62e8f3f484fa1",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_de6266bba2d23a12cec98c7f.uasset": "8944f6d8b0b5884b3dde6a4649e93b236c109ca1727d2e16e88d7fb57316d368"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e052be729d1aed18a00a88b4": {
+      "identity": "e052be729d1aed18a00a88b46e269a41df6432ee364c405ce920c8557d500689",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e052be729d1aed18a00a88b4.uasset": "853b4ef85e1d1d1ccfe6adc6ed25a19e5032e8bbfad868dcdc630b604ff14094"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e1ca4dee8eca207f7ff6d1c7": {
+      "identity": "e1ca4dee8eca207f7ff6d1c7456ff783e372ebe8b9935f0aa0127cf9112394e8",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e1ca4dee8eca207f7ff6d1c7.uasset": "738c6e3939ab29f8dfe16918aae8fa164d931a50a8d86de8584c4ec944366040"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e1efc6738ef2107f3f509ff8": {
+      "identity": "e1efc6738ef2107f3f509ff85c4bf2bffab9821374b2c0fd09778affcd37440b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e1efc6738ef2107f3f509ff8.uasset": "72fb2cbd64403c3b02e34ca0039d03c8db53d84d5a210088540e060874f4029a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e33b1e2ee8929f5d06b7beae": {
+      "identity": "e33b1e2ee8929f5d06b7beaeb41b8118a837ab6a5554af38819b9d660184ae53",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e33b1e2ee8929f5d06b7beae.uasset": "b990523eb8543a6b61470a503df72243a41107ef24fcfe76fdc8f7ff8adb93ac"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e5995092a9a63120d56b9f10": {
+      "identity": "e5995092a9a63120d56b9f10f8e0233977f28faaf6a5ca34ccf53a97833c344c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e5995092a9a63120d56b9f10.uasset": "84eb920ab52b882362710abe8263d16d6671fbae8dcf9ce37e0d6434ca68f01a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e7c115af6ca7847b62b51eee": {
+      "identity": "e7c115af6ca7847b62b51eee1674d9c98074cc138482885a90fd4de738c57242",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e7c115af6ca7847b62b51eee.uasset": "bb45ef1e0ccdc3cd063c5952dd52dd2f8c01330ef284085c7dd39518261cd6fe"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e8690a63b8ca601a24b3e216": {
+      "identity": "e8690a63b8ca601a24b3e216fe8796071c4b577101a88e001d169ac9e52e142a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e8690a63b8ca601a24b3e216.uasset": "7ed4a45830287d6edd83c70494bff7be2ed6f8fb6935a99ebbcad080cbf584fd"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ec1fbe17a80281491c63dd7e": {
+      "identity": "ec1fbe17a80281491c63dd7ef50dfc17d69faa8b96b9a4b8a55fcd76d7d327db",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ec1fbe17a80281491c63dd7e.uasset": "6e6a87cfd440839518f4c702fdf7388701ac9c0f704aeb067bb9c32b4a235c48"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_eec30cb769d21ef0ed13a2a1": {
+      "identity": "eec30cb769d21ef0ed13a2a1e20ce191250269adc176c38dbeea9a573983045b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_eec30cb769d21ef0ed13a2a1.uasset": "22ba0ff5f8009ec06835c2c67f526824a2ca513d6d8d031b8b2ef1a577a32ac6"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ef1c07b57b64c1d544be303d": {
+      "identity": "ef1c07b57b64c1d544be303d09f658d3453a146efa4f81ab3fca7f7913652576",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ef1c07b57b64c1d544be303d.uasset": "2924379001edea5ea7c9caa25fd0df40593739089107e7ebdfa2bd02cfffc4d4"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ef508e4d834fe591bc6981ef": {
+      "identity": "ef508e4d834fe591bc6981efe6ac527ef5218c50967cf6f52bad882dc7174d37",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ef508e4d834fe591bc6981ef.uasset": "b726a759e580b3c4a373fb713c7f129ee50d1ef5b0cf9dc7350366c90fd11b34"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_efc273fab2ce31f3968fc79f": {
+      "identity": "efc273fab2ce31f3968fc79fa6492c60e94928f9a0967ffc67cdf54b74406285",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_efc273fab2ce31f3968fc79f.uasset": "4fc7b4eed576430b9f4276102aa7be4f93e06f232ffe4ded2ffa94563a31d804"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f22a68f6bfb8692b6c813910": {
+      "identity": "f22a68f6bfb8692b6c813910df59624384635aa7e00684a5513fd4d79bcba23e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_f22a68f6bfb8692b6c813910.uasset": "2a5f2f25e404455c2313cd323d9b366122df40301c46b65c05a4f03a3506eed1"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f32230722c213160dbdf73e8": {
+      "identity": "f32230722c213160dbdf73e812bfbbf617c3c25447fe4442836ccf5704668914",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_f32230722c213160dbdf73e8.uasset": "fc6255465b8e8408a7c8256bb5adf36fb31a8da18744c6e12da67c0438ea72a8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f391d71444c1914fd7239a99": {
+      "identity": "f391d71444c1914fd7239a992cfbd887c50e11a4f33cacf3ec46a4216e411729",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_f391d71444c1914fd7239a99.uasset": "aa6c93963ef88a876e392f13c1e2737219a8d73cb99d3c7952636947a4f72064"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f50fa1e1a9665f2e39a86a04": {
+      "identity": "f50fa1e1a9665f2e39a86a048422267e9d36e54ca0824679a5bab110999a1b46",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_f50fa1e1a9665f2e39a86a04.uasset": "fbb650bd165fbf4536e4d06a9832bad6ae1a112c38e8d0e1c21fbbfbdd21b224"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f5a847e7a9e6db869298ee36": {
+      "identity": "f5a847e7a9e6db869298ee3613dbc5bd0db275a2aa1b630f44b253707b52e143",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_f5a847e7a9e6db869298ee36.uasset": "08e54a1cab862e24c31fd655ae47fe3c71475d8580cb5589b5f82c8fdd6f9e50"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f8097b9a1a84df189ea31cfc": {
+      "identity": "f8097b9a1a84df189ea31cfc6ca51da217e235804f100021a976f3319209bb03",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_f8097b9a1a84df189ea31cfc.uasset": "5a866fd4cebd8481e92da9ed08f478aa08ea15855ba31e860ff3e85c2927fa4f"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f96f4542436722b54214caa6": {
+      "identity": "f96f4542436722b54214caa65b668402e2fb19aa974da7c6b957fff67e4f71ce",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_f96f4542436722b54214caa6.uasset": "1e90577b8d7a518b1cabac81079f0942ba472f201487531bb93a90da9023a26b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f9b5d8670ac0c9281c371fe9": {
+      "identity": "f9b5d8670ac0c9281c371fe9c014781be8b1a0905112f18c70cdaa975ca76bb8",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_f9b5d8670ac0c9281c371fe9.uasset": "ab30fa38c2efc61c278f92ec5e2061abb4c4858ae29c45a0877083b4da42031e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_f9c6a9743d27a36cfd5f6f4c": {
+      "identity": "f9c6a9743d27a36cfd5f6f4c9c28bab7381adc2261d716fc0ebcf8563afa8326",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_f9c6a9743d27a36cfd5f6f4c.uasset": "8ba44b2eaa4059a644bf56fb63e643308cb1869cb33a843774c188dde193dfa5"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_faf22a8fe04db007309b0339": {
+      "identity": "faf22a8fe04db007309b0339a605894521869acaccca24aa6b4a43c4f6d9419a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_faf22a8fe04db007309b0339.uasset": "0232f6bc54b2260b79e69fbe24e423d921e6bae7cafc751c878e105bcc0dc0b4"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_fd1afd56d93291841e64f966": {
+      "identity": "fd1afd56d93291841e64f96657c804f08cf83ef13951de0e072a61105ea30648",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_fd1afd56d93291841e64f966.uasset": "d47518fbf5d4744e1ec2a7f58cdef59c5568d77de07e760cee119f284a95e377"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ff920b07fea2effcf82b5681": {
+      "identity": "ff920b07fea2effcf82b56818d72460b1be93d3bda757e8b2f7c70d1a3623fe8",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ff920b07fea2effcf82b5681.uasset": "67289f66476bc32b0750889089db0d5a231cde6c056e38f39a78fc78c55c7ab6"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ffcea352631591278b04eab6": {
+      "identity": "ffcea352631591278b04eab615dd23433709fa22c895504aa2e7452bd2482c6a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ffcea352631591278b04eab6.uasset": "1ae37038cd1c993cd4d0e22644cb07055c78e0d9e47a59397c11c699da94b250"
+      }
+    }
+  },
+  "savedAt": 1791744606.6366522,
+  "runtimeAdmission": false,
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established"
+}

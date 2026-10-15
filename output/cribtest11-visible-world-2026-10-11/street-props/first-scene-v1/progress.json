@@ -1,0 +1,39 @@
+{
+  "step": "failed",
+  "pid": 12252,
+  "source_files": {
+    "lagos-city-v3.json": {
+      "path": "C:\\dev\\cribtest-game\\.git\\operations\\world-generation-20261010\\readonly-source\\packages\\assets\\city\\lagos-city-v3.json",
+      "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+      "bytes": 910334
+    },
+    "lagos-national-theatre-v1.json": {
+      "path": "C:\\dev\\cribtest-game\\.git\\operations\\world-generation-20261010\\readonly-source\\packages\\assets\\city\\lagos-national-theatre-v1.json",
+      "sha256": "069767150a658eee73924b1429662389d526e83ef3726a45b19917343c310f2d",
+      "bytes": 17313
+    },
+    "lagos-national-theatre-geometry-v1.json": {
+      "path": "C:\\dev\\cribtest-game\\.git\\operations\\world-generation-20261010\\readonly-source\\packages\\assets\\city\\lagos-national-theatre-geometry-v1.json",
+      "sha256": "c9f9bca85966812fa667ec6b23ac1cdd2f6d69e2983b68882791f453579ac0ad",
+      "bytes": 292858
+    },
+    "lagos-connected-transit-v1.json": {
+      "path": "C:\\dev\\cribtest-game\\.git\\operations\\world-generation-20261010\\readonly-source\\packages\\assets\\city\\lagos-connected-transit-v1.json",
+      "sha256": "21be37b211cd5c5e02044a62c9c498704567da712c3df3f0023e621e88c031df",
+      "bytes": 1308635
+    },
+    "lagos-street-density-navigation-v1.json": {
+      "path": "C:\\dev\\cribtest-game\\.git\\operations\\world-generation-20261010\\readonly-source\\packages\\assets\\city\\lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+      "bytes": 1326133
+    },
+    "lagos-signature-buildings-v1.json": {
+      "status": "optional-not-loaded",
+      "reason": "context-parcels=0; unused empty buildings list",
+      "expected_sha256": "5871bba1acf9b029a2919b612858ccf56855f24540c0371ab4dd58e27703fd4f"
+    }
+  },
+  "rendered": [],
+  "error": "'int' object is not iterable",
+  "error_type": "TypeError"
+}

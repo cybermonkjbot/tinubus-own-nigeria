@@ -1,0 +1,538 @@
+{
+  "compacted_earth": {
+    "pid": 14216,
+    "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\LagosUnpavedRoadKit-PreviewR2.blend",
+    "dirty": false,
+    "version": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "background": true,
+    "scene": "Road_compacted_earth_Authoring",
+    "engine": "CYCLES",
+    "units": {
+      "system": "METRIC",
+      "scale_length": 1.0
+    },
+    "object_count": 78,
+    "object_types": {
+      "MESH": 72,
+      "LIGHT": 1,
+      "EMPTY": 4,
+      "CAMERA": 1
+    },
+    "root_collections": [],
+    "shared_meshes": 4,
+    "camera": "01-Dry-Earth-Ground",
+    "frame": 1,
+    "range": [
+      1,
+      250
+    ],
+    "fps": 24.0,
+    "resolution": [
+      960,
+      540,
+      100
+    ],
+    "color": {
+      "view_transform": "AgX",
+      "look": "None",
+      "exposure": 0.0,
+      "display": "sRGB"
+    },
+    "cycles": {
+      "device": "CPU",
+      "samples": 16,
+      "use_denoising": true
+    },
+    "eevee": {
+      "taa_samples": 16,
+      "taa_render_samples": 64,
+      "shadow_resolution_scale": 1.0
+    },
+    "known_devices": [],
+    "assets": {
+      "external_count": 0,
+      "missing_count": 0,
+      "missing": [],
+      "unresolved_count": 0,
+      "unresolved": [],
+      "cache_audit": "separate inspection required"
+    },
+    "objects_sample": [
+      {
+        "name": "SM_Road_compacted_earth_s7",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 4
+      },
+      {
+        "name": "RoadSun_compacted_earth",
+        "type": "LIGHT",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_ShopBay_V3Left",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_ResidentialBay_V3Left",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_OpenShopInterior",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_Window1300_V3Curtain",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_StoreySlab",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_StoreySlab.001",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_StoreySlab.002",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_RearWall",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_DrainBed",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_DrainWall",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      }
+    ]
+  },
+  "sandy_lane": {
+    "pid": 14216,
+    "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\LagosUnpavedRoadKit-PreviewR2.blend",
+    "dirty": false,
+    "version": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "background": true,
+    "scene": "Road_sandy_lane_Authoring",
+    "engine": "CYCLES",
+    "units": {
+      "system": "METRIC",
+      "scale_length": 1.0
+    },
+    "object_count": 78,
+    "object_types": {
+      "MESH": 72,
+      "LIGHT": 1,
+      "EMPTY": 4,
+      "CAMERA": 1
+    },
+    "root_collections": [],
+    "shared_meshes": 4,
+    "camera": "02-Sandy-Lane-Ground",
+    "frame": 1,
+    "range": [
+      1,
+      250
+    ],
+    "fps": 24.0,
+    "resolution": [
+      960,
+      540,
+      100
+    ],
+    "color": {
+      "view_transform": "AgX",
+      "look": "None",
+      "exposure": 0.0,
+      "display": "sRGB"
+    },
+    "cycles": {
+      "device": "CPU",
+      "samples": 16,
+      "use_denoising": true
+    },
+    "eevee": {
+      "taa_samples": 16,
+      "taa_render_samples": 64,
+      "shadow_resolution_scale": 1.0
+    },
+    "known_devices": [],
+    "assets": {
+      "external_count": 0,
+      "missing_count": 0,
+      "missing": [],
+      "unresolved_count": 0,
+      "unresolved": [],
+      "cache_audit": "separate inspection required"
+    },
+    "objects_sample": [
+      {
+        "name": "SM_Road_sandy_lane_s19",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 4
+      },
+      {
+        "name": "RoadSun_sandy_lane",
+        "type": "LIGHT",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_ShopBay_V3Left.001",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_ResidentialBay_V3Left.001",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_OpenShopInterior.001",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_Window1300_V3Curtain.001",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_StoreySlab.003",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_StoreySlab.004",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_StoreySlab.005",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_RearWall.001",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_DrainBed.005",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_DrainWall.010",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      }
+    ]
+  },
+  "rutted_earth": {
+    "pid": 14216,
+    "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\LagosUnpavedRoadKit-PreviewR2.blend",
+    "dirty": false,
+    "version": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "background": true,
+    "scene": "Road_rutted_earth_Authoring",
+    "engine": "CYCLES",
+    "units": {
+      "system": "METRIC",
+      "scale_length": 1.0
+    },
+    "object_count": 80,
+    "object_types": {
+      "MESH": 73,
+      "LIGHT": 1,
+      "EMPTY": 4,
+      "CAMERA": 2
+    },
+    "root_collections": [],
+    "shared_meshes": 4,
+    "camera": "05-Road-Shop-Drain-Walk",
+    "frame": 1,
+    "range": [
+      1,
+      250
+    ],
+    "fps": 24.0,
+    "resolution": [
+      960,
+      540,
+      100
+    ],
+    "color": {
+      "view_transform": "AgX",
+      "look": "None",
+      "exposure": 0.0,
+      "display": "sRGB"
+    },
+    "cycles": {
+      "device": "CPU",
+      "samples": 16,
+      "use_denoising": true
+    },
+    "eevee": {
+      "taa_samples": 16,
+      "taa_render_samples": 64,
+      "shadow_resolution_scale": 1.0
+    },
+    "known_devices": [],
+    "assets": {
+      "external_count": 0,
+      "missing_count": 0,
+      "missing": [],
+      "unresolved_count": 0,
+      "unresolved": [],
+      "cache_audit": "separate inspection required"
+    },
+    "objects_sample": [
+      {
+        "name": "SM_Road_rutted_earth_s31",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 4
+      },
+      {
+        "name": "RoadSun_rutted_earth",
+        "type": "LIGHT",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_ShopBay_V3Left.002",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_ResidentialBay_V3Left.002",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_OpenShopInterior.002",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_Window1300_V3Curtain.002",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_StoreySlab.006",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_StoreySlab.007",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_StoreySlab.008",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_RearWall.002",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_DrainBed.010",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_DrainWall.020",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      }
+    ]
+  },
+  "paved_to_earth": {
+    "pid": 14216,
+    "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\LagosUnpavedRoadKit-PreviewR2.blend",
+    "dirty": false,
+    "version": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "background": true,
+    "scene": "Road_paved_to_earth_Authoring",
+    "engine": "CYCLES",
+    "units": {
+      "system": "METRIC",
+      "scale_length": 1.0
+    },
+    "object_count": 78,
+    "object_types": {
+      "MESH": 72,
+      "LIGHT": 1,
+      "EMPTY": 4,
+      "CAMERA": 1
+    },
+    "root_collections": [],
+    "shared_meshes": 4,
+    "camera": "04-Asphalt-Earth-Join",
+    "frame": 1,
+    "range": [
+      1,
+      250
+    ],
+    "fps": 24.0,
+    "resolution": [
+      960,
+      540,
+      100
+    ],
+    "color": {
+      "view_transform": "AgX",
+      "look": "None",
+      "exposure": 0.0,
+      "display": "sRGB"
+    },
+    "cycles": {
+      "device": "CPU",
+      "samples": 16,
+      "use_denoising": true
+    },
+    "eevee": {
+      "taa_samples": 16,
+      "taa_render_samples": 64,
+      "shadow_resolution_scale": 1.0
+    },
+    "known_devices": [],
+    "assets": {
+      "external_count": 0,
+      "missing_count": 0,
+      "missing": [],
+      "unresolved_count": 0,
+      "unresolved": [],
+      "cache_audit": "separate inspection required"
+    },
+    "objects_sample": [
+      {
+        "name": "SM_Road_paved_to_earth_s7",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 3
+      },
+      {
+        "name": "RoadSun_paved_to_earth",
+        "type": "LIGHT",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_ShopBay_V3Left.003",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_ResidentialBay_V3Left.003",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_OpenShopInterior.003",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_Window1300_V3Curtain.003",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "PreviewContext_StoreySlab.009",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_StoreySlab.010",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_StoreySlab.011",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_RearWall.003",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_DrainBed.015",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "PreviewContext_DrainWall.030",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      }
+    ]
+  }
+}

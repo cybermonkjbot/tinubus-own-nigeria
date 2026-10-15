@@ -1,0 +1,374 @@
+{
+  "pid": 6064,
+  "blender": "5.2.2 LTS",
+  "source_kind": "Original native small-plant recipes, seed-stable; no external assets",
+  "units": "metres",
+  "forward": "-Y",
+  "up": "Z",
+  "materials": {
+    "terracotta": {
+      "base_color": [
+        0.34,
+        0.115,
+        0.055,
+        1
+      ],
+      "roughness": 0.82,
+      "metallic": 0
+    },
+    "stone": {
+      "base_color": [
+        0.31,
+        0.33,
+        0.285,
+        1
+      ],
+      "roughness": 0.84,
+      "metallic": 0
+    },
+    "soil": {
+      "base_color": [
+        0.055,
+        0.03,
+        0.014,
+        1
+      ],
+      "roughness": 0.98,
+      "metallic": 0
+    },
+    "leaf_dark": {
+      "base_color": [
+        0.035,
+        0.135,
+        0.045,
+        1
+      ],
+      "roughness": 0.74,
+      "metallic": 0
+    },
+    "leaf_light": {
+      "base_color": [
+        0.12,
+        0.25,
+        0.075,
+        1
+      ],
+      "roughness": 0.7,
+      "metallic": 0
+    },
+    "leaf_gold": {
+      "base_color": [
+        0.27,
+        0.32,
+        0.09,
+        1
+      ],
+      "roughness": 0.76,
+      "metallic": 0
+    },
+    "flower_coral": {
+      "base_color": [
+        0.65,
+        0.16,
+        0.13,
+        1
+      ],
+      "roughness": 0.82,
+      "metallic": 0
+    },
+    "flower_cream": {
+      "base_color": [
+        0.72,
+        0.62,
+        0.34,
+        1
+      ],
+      "roughness": 0.8,
+      "metallic": 0
+    },
+    "iron": {
+      "base_color": [
+        0.035,
+        0.042,
+        0.038,
+        1
+      ],
+      "roughness": 0.48,
+      "metallic": 0.35
+    }
+  },
+  "assets": [
+    {
+      "id": "SM_EL_FernPot",
+      "source_id": "FernPot",
+      "materials": [
+        "leaf_dark",
+        "leaf_light",
+        "soil",
+        "terracotta"
+      ],
+      "bounds": {
+        "min": [
+          -0.3379772901535034,
+          -0.35707131028175354,
+          0.0
+        ],
+        "max": [
+          0.3648949861526489,
+          0.3319164514541626,
+          0.4979609549045563
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_EL_FernPot_LOD0.fbx",
+          "triangles": 2772,
+          "sha256": "9e8b6ebb8e9b9eea9d29cd1ad8084b358d2ca610271e6e34485c7ecd253cfc55"
+        },
+        {
+          "file": "SM_EL_FernPot_LOD1.fbx",
+          "triangles": 1524,
+          "sha256": "90cb4e72a8d3140eeb939d099a5f139ea87e07e38b51e8609550253c0df8118a"
+        },
+        {
+          "file": "SM_EL_FernPot_LOD2.fbx",
+          "triangles": 994,
+          "sha256": "35cae58aac9c0f03179012b3492aa3f449dcb79d3e1449055cf6c339647defc7"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_UprightPot",
+      "source_id": "UprightPot",
+      "materials": [
+        "leaf_dark",
+        "leaf_gold",
+        "soil",
+        "stone"
+      ],
+      "bounds": {
+        "min": [
+          -0.2199999988079071,
+          -0.2199999988079071,
+          0.0
+        ],
+        "max": [
+          0.2199999988079071,
+          0.2199999988079071,
+          1.3179643154144287
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_EL_UprightPot_LOD0.fbx",
+          "triangles": 396,
+          "sha256": "e9747855c9823ef186e96f7c24cf2d838e712af4c1e56159d4fd3e1066fe2a52"
+        },
+        {
+          "file": "SM_EL_UprightPot_LOD1.fbx",
+          "triangles": 216,
+          "sha256": "50216d4c8ce19819ec83ec0e1205014b898035e630ed8059200823da9e2fca39"
+        },
+        {
+          "file": "SM_EL_UprightPot_LOD2.fbx",
+          "triangles": 110,
+          "sha256": "7637d0cc20d0e64cd256a5ddaf3af0843c2f4101699ec8b11ae3c5202b576735"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_GrassClump",
+      "source_id": "GrassClump",
+      "materials": [
+        "leaf_gold",
+        "leaf_light"
+      ],
+      "bounds": {
+        "min": [
+          -0.23807191848754883,
+          -0.2605322003364563,
+          0.0
+        ],
+        "max": [
+          0.3137552738189697,
+          0.30582794547080994,
+          0.4472065567970276
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_EL_GrassClump_LOD0.fbx",
+          "triangles": 416,
+          "sha256": "cfec5382efab431530e3d63d7a893f60ba0e9236b0ec6f5240b6ffec6db246ab"
+        },
+        {
+          "file": "SM_EL_GrassClump_LOD1.fbx",
+          "triangles": 228,
+          "sha256": "816dd9b8d5cdf9d49382acafc46ee9449ae097ea7264af02d8ab2babd95f7063"
+        },
+        {
+          "file": "SM_EL_GrassClump_LOD2.fbx",
+          "triangles": 116,
+          "sha256": "83421c977a384a72f717be3fab2489ba0dc6ea208f9d21a5ef35316398dfafb6"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_Groundcover",
+      "source_id": "Groundcover",
+      "materials": [
+        "leaf_dark",
+        "leaf_light"
+      ],
+      "bounds": {
+        "min": [
+          -0.14525358378887177,
+          -0.17505457997322083,
+          0.013017963618040085
+        ],
+        "max": [
+          0.16402436792850494,
+          0.18397723138332367,
+          0.11812499910593033
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_EL_Groundcover_LOD0.fbx",
+          "triangles": 1664,
+          "sha256": "d06e6d66271f5b1a8d9a4a517051e2becdebb202fd046ab3f7fdd66b6d926a12"
+        },
+        {
+          "file": "SM_EL_Groundcover_LOD1.fbx",
+          "triangles": 914,
+          "sha256": "3eba07873a7e60a57685b03a4dfe74434cbf6939e0f918fb0dfa627f8e766fcb"
+        },
+        {
+          "file": "SM_EL_Groundcover_LOD2.fbx",
+          "triangles": 576,
+          "sha256": "88b58c6558e1c05933d118c66ece2626f3be84a7e523dadcb8753d8857bf5ad0"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_FlowerTrough",
+      "source_id": "FlowerTrough",
+      "materials": [
+        "flower_coral",
+        "flower_cream",
+        "leaf_dark",
+        "leaf_light",
+        "soil",
+        "stone"
+      ],
+      "bounds": {
+        "min": [
+          -0.5249999761581421,
+          -0.2475000023841858,
+          0.0
+        ],
+        "max": [
+          0.5249999761581421,
+          0.2475000023841858,
+          0.6539999842643738
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_EL_FlowerTrough_LOD0.fbx",
+          "triangles": 4440,
+          "sha256": "8ece1e1ad71db0179d0f84b512423af0416862ca4173177ac330a2a55d1bc30d"
+        },
+        {
+          "file": "SM_EL_FlowerTrough_LOD1.fbx",
+          "triangles": 2442,
+          "sha256": "26138f4e7e9983ff9a4726eb164c71176df48b041958a8c9cbea0aab73466485"
+        },
+        {
+          "file": "SM_EL_FlowerTrough_LOD2.fbx",
+          "triangles": 1480,
+          "sha256": "947f5a79cf538a331d5aa06fe91497743dd12375fd33aa439f28c9238b8b868f"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_GrassTrough",
+      "source_id": "GrassTrough",
+      "materials": [
+        "leaf_gold",
+        "leaf_light",
+        "soil",
+        "stone"
+      ],
+      "bounds": {
+        "min": [
+          -0.7761718034744263,
+          -0.42377379536628723,
+          0.0
+        ],
+        "max": [
+          0.7301634550094604,
+          0.3896295428276062,
+          1.1074111461639404
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_EL_GrassTrough_LOD0.fbx",
+          "triangles": 1416,
+          "sha256": "edd670307def199baef9a3f8398b59bde3496dd2c619dbb4da7252065897015b"
+        },
+        {
+          "file": "SM_EL_GrassTrough_LOD1.fbx",
+          "triangles": 778,
+          "sha256": "565bd0194e5ba5113a19e03761656c027c817f8a817249f0653c0299f5f93585"
+        },
+        {
+          "file": "SM_EL_GrassTrough_LOD2.fbx",
+          "triangles": 396,
+          "sha256": "6324e3d4373a0727fdecb7c46bbd38dda06bd7c6ea2afa956da1deb6347f86ea"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_WallBasket",
+      "source_id": "WallBasket",
+      "materials": [
+        "iron",
+        "leaf_dark",
+        "leaf_light",
+        "soil",
+        "terracotta"
+      ],
+      "bounds": {
+        "min": [
+          -0.22363980114459991,
+          -0.5781437158584595,
+          -0.600676953792572
+        ],
+        "max": [
+          0.21545806527137756,
+          0.0,
+          0.13500000536441803
+        ]
+      },
+      "lods": [
+        {
+          "file": "SM_EL_WallBasket_LOD0.fbx",
+          "triangles": 2700,
+          "sha256": "648237bd9fe0971d0a2d6ff1e058651688fe657d43b456d6457833f150021b80"
+        },
+        {
+          "file": "SM_EL_WallBasket_LOD1.fbx",
+          "triangles": 1484,
+          "sha256": "ed6b8515b2b8aafae0946b7a050ce68df23c4e69365510715d496596eb9c564a"
+        },
+        {
+          "file": "SM_EL_WallBasket_LOD2.fbx",
+          "triangles": 894,
+          "sha256": "85de40bac0ca8ce11f151394a8310e1229e0f03c0ad44ebf56c987eecf28e94f"
+        }
+      ]
+    }
+  ]
+}

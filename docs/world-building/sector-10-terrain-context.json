@@ -1,0 +1,109 @@
+{
+  "retrievedDate": "2026-10-11",
+  "provider": "Open Topo Data public API",
+  "sourceUrl": "https://api.opentopodata.org/v1/srtm30m?locations=6.5557881,3.3452941%7C6.5557704,3.3466968%7C6.5557729,3.3482733%7C6.5557096,3.3489836%7C6.556493,3.3490373%7C6.5564944,3.3484235%7C6.5564568,3.3452437%7C6.5552388,3.3469462&interpolation=nearest",
+  "rawSha256": "3254ae80325f5d5ec28a2db187fa0f69639392c00116f00d1382f1040b17a080",
+  "dataset": "srtm30m",
+  "providerStatedVersion": 3,
+  "interpolation": "nearest",
+  "sourceHorizontalDatum": "WGS84",
+  "sourceVerticalDatum": "EGM96",
+  "sourceVerticalUnits": "metres",
+  "nominalAngularSpacingArcSeconds": 1,
+  "approximateHorizontalSpacingMetres": 30,
+  "missionAcquisition": "2000-02-11 through 2000-02-22; fill-source dates may differ",
+  "role": "Historical coarse raster context; not a road, drain or ground survey",
+  "engineVerticalDatum": null,
+  "canonicalWorldRegistration": null,
+  "approvedForCollision": false,
+  "approvedForRoadGrade": false,
+  "approvedForFloodCalibration": false,
+  "approvedForBridgeClearance": false,
+  "samples": [
+    {
+      "osmNodeId": 1079849271,
+      "queryCoordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "rasterElevationMetres": 23,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1475182789,
+      "queryCoordinates": [
+        3.3466968,
+        6.5557704
+      ],
+      "rasterElevationMetres": 21,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 9393853880,
+      "queryCoordinates": [
+        3.3482733,
+        6.5557729
+      ],
+      "rasterElevationMetres": 26,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1079849281,
+      "queryCoordinates": [
+        3.3489836,
+        6.5557096
+      ],
+      "rasterElevationMetres": 21,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 4395533063,
+      "queryCoordinates": [
+        3.3490373,
+        6.556493
+      ],
+      "rasterElevationMetres": 21,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 4395533064,
+      "queryCoordinates": [
+        3.3484235,
+        6.5564944
+      ],
+      "rasterElevationMetres": 23,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1079849430,
+      "queryCoordinates": [
+        3.3452437,
+        6.5564568
+      ],
+      "rasterElevationMetres": 20,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 4395533035,
+      "queryCoordinates": [
+        3.3469462,
+        6.5552388
+      ],
+      "rasterElevationMetres": 21,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    }
+  ],
+  "notes": [
+    "No original raster tile, ground/structure separation or local accuracy assessment obtained.",
+    "Query locations are not documented cell centres.",
+    "Cell-to-cell variation does not establish a road hump, depression, grade or flood route."
+  ]
+}

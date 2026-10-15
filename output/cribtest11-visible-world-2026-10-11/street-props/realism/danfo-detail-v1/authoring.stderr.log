@@ -1,0 +1,2 @@
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\danfo-detail-v1\author_danfo_detail.py:283: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes=True

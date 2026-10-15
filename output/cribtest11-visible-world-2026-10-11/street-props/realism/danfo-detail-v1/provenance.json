@@ -1,0 +1,96 @@
+{
+  "job": "lagos-danfo-detail-v1",
+  "pid": 3452,
+  "source_blend": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LagosStreetProps.blend",
+  "source_sha256": "0c9d3787cb028dc6bbcdcb18eca7379a99b6861d93dc72a03b7319c495732549",
+  "helper_script_sha256": "c25297c16a6fb24752d9fb13fb651d5be7683c92a530e3a4758365061b20e877",
+  "script_sha256": "3d12f5b0480f11d1370ede6811a4b2acf738339a6360b0383e2cc9d48ccfe33c",
+  "blend": {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\danfo-detail-v1\\DanfoDetail_v1.blend",
+    "sha256": "8e5c0d4758bd8b92e7525328410998f3fcf6a907919a95048ac5ee825b3546c8"
+  },
+  "fbx": {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\danfo-detail-v1\\DanfoDetail_v1.fbx",
+    "sha256": "282dc12cbd98529f8c679aeca41426f173f9802f108650a80f2420bff5d05586",
+    "identity": "SM_DanfoDetail_v1",
+    "vertices": 22128,
+    "faces": 20770,
+    "uv_layers": [
+      "UVMap"
+    ],
+    "materials": [
+      "StripeBlack",
+      "YellowFaded",
+      "DanfoYellow",
+      "GlassDark",
+      "Steel",
+      "Rubber",
+      "LampIvory",
+      "LampAmber",
+      "IvoryPaint",
+      "LampRed",
+      "Seat"
+    ]
+  },
+  "units": "metres",
+  "front": "+Y",
+  "ground_contact": "Axle centres unchanged at Z=.34, tyre maximum radius .34m",
+  "canonical_mapping": "Derivative source_asset=Danfo only; no canonical placement/account ID created",
+  "removed_derivative_parts": [
+    "Danfo_WindowSeal_-1_0",
+    "Danfo_WindowSeal_-1_1",
+    "Danfo_WindowSeal_-1_2",
+    "Danfo_WindowSeal_-1_3",
+    "Danfo_WindowSeal_1_0",
+    "Danfo_WindowSeal_1_1",
+    "Danfo_WindowSeal_1_2",
+    "Danfo_WindowSeal_1_3",
+    "Danfo_WindscreenSeal",
+    "Danfo_Tyre_-1_-1.32",
+    "Danfo_Hub_-1_-1.32",
+    "Danfo_Tyre_1_-1.32",
+    "Danfo_Hub_1_-1.32",
+    "Danfo_Tyre_-1_1.3",
+    "Danfo_Hub_-1_1.3",
+    "Danfo_Tyre_1_1.3",
+    "Danfo_Hub_1_1.3"
+  ],
+  "changes": [
+    "Open perimeter seals instead of solid window backing",
+    "Front-side cab glass/seals/frame/latches",
+    "Profiled tyres with shallow sipes; annular rim, hub and vent details",
+    "Steering rim/spokes/column",
+    "Restrained bevels and paint coat/lower-road-film roughness",
+    "Evaluated FBX preserves metre UV layers"
+  ],
+  "material_provenance": "Project authored shader fallback; no licensed scan inputs found or used",
+  "material_limit": "Shader detail is not photographic fidelity; existing opaque rear-window backing remains for subsequent review",
+  "uv_basis": "Planar metre UVs preserved in exported evaluated mesh, not atlas/baked PBR textures",
+  "render": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "threads": 2,
+    "samples": 16,
+    "resolution": [
+      960,
+      540
+    ]
+  },
+  "frames": [
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\danfo-detail-v1\\01-Danfo-Detail-Quarter.png",
+      "sha256": "b74b43ef2a74d90de94b8cb9ccb14c3772e277c6cee69efdb174e6a961e3c9d8",
+      "seconds": 45.6890926000051,
+      "camera": "01-Danfo-Detail-Quarter"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\danfo-detail-v1\\02-Danfo-Cabin-Wheel-Close.png",
+      "sha256": "d21bfe3c4272f08e0d67a0a4e2fea31dc732599ddd94fc154217c035558d0cc8",
+      "seconds": 55.23181769999792,
+      "camera": "02-Danfo-Cabin-Wheel-Close"
+    }
+  ],
+  "visual_acceptance": "Worker inspected both actual PNGs; not final realism; parent review pending",
+  "visual_review": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/visual-review.json",
+  "errors": []
+}

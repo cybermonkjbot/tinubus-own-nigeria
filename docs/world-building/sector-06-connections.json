@@ -1,0 +1,521 @@
+{
+  "source": "sector-06-roads.geojson",
+  "sharedNodePairs": [
+    {
+      "wayIds": [
+        496763689,
+        535191771
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        535191773
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        441859117
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191771,
+        589854946
+      ],
+      "nodeId": 1073317441,
+      "coordinates": [
+        3.3317891,
+        6.558607
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191771,
+        92451083
+      ],
+      "nodeId": 1073317441,
+      "coordinates": [
+        3.3317891,
+        6.558607
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191771,
+        535191773
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191771,
+        441859117
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589854946,
+        92451083
+      ],
+      "nodeId": 1073317441,
+      "coordinates": [
+        3.3317891,
+        6.558607
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589854946,
+        589854945
+      ],
+      "nodeId": 1073319531,
+      "coordinates": [
+        3.3320306,
+        6.5580125
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589854946,
+        92451061
+      ],
+      "nodeId": 1073319531,
+      "coordinates": [
+        3.3320306,
+        6.5580125
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451083,
+        92451122
+      ],
+      "nodeId": 1079925543,
+      "coordinates": [
+        3.3315309,
+        6.55924
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589854945,
+        92451061
+      ],
+      "nodeId": 1073319531,
+      "coordinates": [
+        3.3320306,
+        6.5580125
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589854945,
+        535191773
+      ],
+      "nodeId": 4395533109,
+      "coordinates": [
+        3.3333138,
+        6.5584963
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589854945,
+        93156426
+      ],
+      "nodeId": 1079925444,
+      "coordinates": [
+        3.3342152,
+        6.5588374
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589854945,
+        1564625480
+      ],
+      "nodeId": 4395533007,
+      "coordinates": [
+        3.3350127,
+        6.5591951
+      ],
+      "kind": "same-road-segment-join",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451061,
+        92451057
+      ],
+      "nodeId": 1073318247,
+      "coordinates": [
+        3.3314198,
+        6.5577577
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191773,
+        441859117
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451057,
+        92451090
+      ],
+      "nodeId": 1073317008,
+      "coordinates": [
+        3.3318778,
+        6.5566101
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451057,
+        93156422
+      ],
+      "nodeId": 1079925447,
+      "coordinates": [
+        3.3316615,
+        6.5571824
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451057,
+        92451122
+      ],
+      "nodeId": 1073317608,
+      "coordinates": [
+        3.3309458,
+        6.5590119
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451090,
+        93156426
+      ],
+      "nodeId": 1079925502,
+      "coordinates": [
+        3.3346793,
+        6.5576566
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156422,
+        93156426
+      ],
+      "nodeId": 1079925435,
+      "coordinates": [
+        3.3344395,
+        6.5582372
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        441859117,
+        92451122
+      ],
+      "nodeId": 4395533107,
+      "coordinates": [
+        3.332844,
+        6.5597545
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    }
+  ],
+  "counts": {
+    "roadWays": 14,
+    "sharedNodePairs": 23,
+    "uniqueSharedNodes": 14,
+    "sameRoadJoins": 3,
+    "buildingSample": 40
+  },
+  "candidateLoops": [
+    {
+      "name": "Baderin–Alhaji Mukandasi–Makinde–unnamed link",
+      "legs": [
+        {
+          "wayId": 535191771,
+          "fromNode": 4395533108,
+          "toNode": 1073317441,
+          "nodeIds": [
+            4395533108,
+            1073317441
+          ],
+          "approximateLengthMetres": 152.9
+        },
+        {
+          "wayId": 589854946,
+          "fromNode": 1073317441,
+          "toNode": 1073319531,
+          "nodeIds": [
+            1073317441,
+            1073319531
+          ],
+          "approximateLengthMetres": 71.3
+        },
+        {
+          "wayId": 589854945,
+          "fromNode": 1073319531,
+          "toNode": 4395533109,
+          "nodeIds": [
+            1073319531,
+            4395533109
+          ],
+          "approximateLengthMetres": 151.6
+        },
+        {
+          "wayId": 535191773,
+          "fromNode": 4395533109,
+          "toNode": 4395533108,
+          "nodeIds": [
+            4395533109,
+            4395533108
+          ],
+          "approximateLengthMetres": 70.3
+        }
+      ],
+      "approximateLengthMetres": 446,
+      "lengthRounding": "Sum before rounding; individual rounded legs may differ by 0.1 m",
+      "closed": true,
+      "accessVerified": false
+    },
+    {
+      "name": "Makinde–unnamed link–Agbelekale–Amusa",
+      "legs": [
+        {
+          "wayId": 589854945,
+          "fromNode": 1073319531,
+          "toNode": 1079925444,
+          "nodeIds": [
+            1073319531,
+            4395533109,
+            1079925444
+          ],
+          "approximateLengthMetres": 258.2
+        },
+        {
+          "wayId": 93156426,
+          "fromNode": 1079925444,
+          "toNode": 1079925435,
+          "nodeIds": [
+            1079925444,
+            1079925435
+          ],
+          "approximateLengthMetres": 71.2
+        },
+        {
+          "wayId": 93156422,
+          "fromNode": 1079925435,
+          "toNode": 1079925447,
+          "nodeIds": [
+            1079925435,
+            1079925447
+          ],
+          "approximateLengthMetres": 328.5
+        },
+        {
+          "wayId": 92451057,
+          "fromNode": 1079925447,
+          "toNode": 1073318247,
+          "nodeIds": [
+            1079925447,
+            1073318247
+          ],
+          "approximateLengthMetres": 69.3
+        },
+        {
+          "wayId": 92451061,
+          "fromNode": 1073318247,
+          "toNode": 1073319531,
+          "nodeIds": [
+            1073318247,
+            1073319531
+          ],
+          "approximateLengthMetres": 73.2
+        }
+      ],
+      "approximateLengthMetres": 800.4,
+      "lengthRounding": "Sum before rounding; individual rounded legs may differ by 0.1 m",
+      "closed": true,
+      "accessVerified": false
+    }
+  ],
+  "eventAlternate": {
+    "name": "Candidate around selected Makinde subchain only",
+    "legs": [
+      {
+        "wayId": 589854946,
+        "fromNode": 1073319531,
+        "toNode": 1073317441,
+        "nodeIds": [
+          1073319531,
+          1073317441
+        ],
+        "approximateLengthMetres": 71.3
+      },
+      {
+        "wayId": 535191771,
+        "fromNode": 1073317441,
+        "toNode": 4395533108,
+        "nodeIds": [
+          1073317441,
+          4395533108
+        ],
+        "approximateLengthMetres": 152.9
+      },
+      {
+        "wayId": 535191773,
+        "fromNode": 4395533108,
+        "toNode": 4395533109,
+        "nodeIds": [
+          4395533108,
+          4395533109
+        ],
+        "approximateLengthMetres": 70.3
+      }
+    ],
+    "approximateLengthMetres": 294.4,
+    "lengthRounding": "Sum before rounding; individual rounded legs may differ by 0.1 m",
+    "closed": false,
+    "accessVerified": false,
+    "replaces": {
+      "wayId": 589854945,
+      "fromNode": 1073319531,
+      "toNode": 4395533109,
+      "approximateLengthMetres": 151.6
+    },
+    "isSector04BridgeBypass": false
+  },
+  "sector05Overlap": [
+    {
+      "wayId": 496763689,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "wayId": 535191771,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "wayId": 535191773,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "wayId": 441859117,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    }
+  ],
+  "coordinateContract": {
+    "geographic": "WGS84 [longitude,latitude]; no altitude",
+    "proposedProjection": "EPSG:32631",
+    "proposedOrigin": [
+      3.351,
+      6.556
+    ],
+    "sourceMetres": [
+      "NorthDelta",
+      "UpDelta",
+      "EastDelta"
+    ],
+    "canonicalAdapter": "UE(X,Y,Z)=100*source(Z,X,Y)",
+    "projectedCoordinatesCalculated": false,
+    "verticalDatum": null,
+    "canonicalWorldRegistration": null
+  },
+  "exclusions": [
+    "No physical street name inferred for unnamed connectors",
+    "No road width inferred from highway class",
+    "No current surface assigned from an unregistered video",
+    "No ditch in retained graph; absence here is not evidence of absent drainage"
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "date":"2026-10-11",
+  "status":"Worker inspected; coordinator review pending, keep native tree unplaced; not final realism",
+  "image":{"path":"Tree-Ground-Shadow.png","sha256":"3779f287dda230099e5e089dd79c98b0d2106d44d83d0891d8deb95df091eada"},
+  "comparison":"Same v1 ground camera, lens38mm, eye[11,-16,1.7], target[0,0,4.165]; geometry changed, camera not moved",
+  "observed_improvements":["Bare pointed central mast removed; trunk continues into fork/branch terminations","Irregular limb heights, direction and reach replace radial tier pattern","Individual leaf silhouettes, canopy gaps and root contact retained"],
+  "remaining_defects":["Sparse separated foliage clusters and exposed long branch runs still read procedurally authored","Bark and root flare remain smooth at this view","Overlapping graft junctions are not watertight natural unions","Species, botanical proportion and leaf surface provenance unresolved"],
+  "technical":{"authoring_pid":7960,"process_state":"exited","saved_reopened":true,"missing_dependencies":0,"blend_sha256":"364f26482c6c0ca51526de1e93489ac862d6c981f2cb9a7ed4108d4fe2078d04","tree_manifest_sha256":"8e72c68b6c955f7ac03b3fbc6952865a259701bfd78f5d588b7a16ae60f90062","threads":2,"samples":24,"resolution":[960,640]},
+  "native_import":"Not verified by Blender writer; check cm/axes/pivots before any matrix use, no wind/LOD/performance acceptance",
+  "errors":[],"warnings":["Material.use_nodes and World.use_nodes deprecations"]
+}

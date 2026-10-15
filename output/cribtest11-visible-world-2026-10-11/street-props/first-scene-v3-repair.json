@@ -1,0 +1,18 @@
+{
+  "job": "lagos-first-scene-v1",
+  "previous_run": {"pid": 1776, "output": "first-scene-v2", "preserved": true, "error": "KeyError: 'Danfo'", "location": "append_props(): dictionary lookup after bpy.data.libraries.load"},
+  "frozen_script_sha256": "19a11507790d0bcd1ab81b0db4e663fe1fab5765b0e7c71f5dd9dce395128fa5",
+  "owned_preimage_sha256": "f97a54cd5ece8c4735b22676160ab6fffbcb7acd4c8451676bc607b6bae0e887",
+  "fix": "Pass an independent name list to loaded.collections; build map by actual returned collection.name, reject missing collections immediately.",
+  "retained_fixes": ["Context-zero optional signature not loaded", "Blender 5.2 triangle indices consumed directly"],
+  "source_snapshot_modified": false,
+  "source_placements_modified": false,
+  "output": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/first-scene-v3",
+  "threads": 2,
+  "samples": 16,
+  "resolution": [960, 540],
+  "owned_current_sha256": "83a2ba895eae93005c23b23d26a1878d5edbf10da2bbbdbc5aa6f2131373c0c4",
+  "pid": 15228,
+  "started_at": "2026-10-11T02:30:53-07:00",
+  "step": "serial_retry_running"
+}

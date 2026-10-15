@@ -1,0 +1,1086 @@
+{
+  "type": "FeatureCollection",
+  "retrievedDate": "2026-10-11",
+  "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=3.3315,6.5555,3.3390,6.5620",
+  "sourceSha256": "8c186dc65284c63eff2a73b636f9c45fe67fc211f13489d3d022cebcc59e30b1",
+  "attribution": "© OpenStreetMap contributors",
+  "license": "ODbL 1.0",
+  "coordinateReference": "WGS84 longitude, latitude; no altitude",
+  "queryBbox": [
+    3.3315,
+    6.5555,
+    3.339,
+    6.562
+  ],
+  "geometryExtent": "Complete selected features; not clipped; not sector ownership",
+  "name": "Sector 05 Ogunoloko and northern side-street loop",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "osm:way:496763689",
+      "properties": {
+        "osmWayId": 496763689,
+        "osmVersion": 12,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "alt_name": "Ogunlaja Lane",
+          "highway": "secondary",
+          "name": "Ogunoloko Road",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1073319565,
+          5624355800,
+          1073318067,
+          1073319363,
+          1073316181,
+          1073317387,
+          4395533004,
+          4395533006,
+          1073317343,
+          4395533108
+        ],
+        "nodeVersions": [
+          8,
+          4,
+          7,
+          5,
+          4,
+          6,
+          5,
+          4,
+          6,
+          2
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T04:13:09Z",
+          "2026-05-06T04:13:09Z",
+          "2026-05-07T01:31:53Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2026-05-07T01:31:53Z",
+          "2026-05-07T01:31:53Z",
+          "2024-04-24T13:29:52Z",
+          "2026-05-07T01:31:53Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 644.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3385073,
+            6.5611962
+          ],
+          [
+            3.3382532,
+            6.5611749
+          ],
+          [
+            3.3374771,
+            6.5608953
+          ],
+          [
+            3.3368793,
+            6.560653
+          ],
+          [
+            3.3362508,
+            6.5603753
+          ],
+          [
+            3.3356446,
+            6.5601349
+          ],
+          [
+            3.3350552,
+            6.5598959
+          ],
+          [
+            3.3347854,
+            6.5597856
+          ],
+          [
+            3.3342183,
+            6.5595714
+          ],
+          [
+            3.333086,
+            6.5590862
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451044",
+      "properties": {
+        "osmWayId": 92451044,
+        "osmVersion": 3,
+        "osmTimestamp": "2018-05-11T03:25:07Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Olatunbosun Street",
+          "source": "BING"
+        },
+        "osmNodeIds": [
+          1073319363,
+          5610602374,
+          1073316485
+        ],
+        "nodeVersions": [
+          5,
+          1,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2018-05-11T03:25:05Z",
+          "2018-05-11T03:25:06Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 220.2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3368793,
+            6.560653
+          ],
+          [
+            3.3361074,
+            6.5624187
+          ],
+          [
+            3.3360668,
+            6.5624568
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451052",
+      "properties": {
+        "osmWayId": 92451052,
+        "osmVersion": 2,
+        "osmTimestamp": "2017-10-25T10:09:27Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Temidire Street",
+          "source": "BING"
+        },
+        "osmNodeIds": [
+          1073317387,
+          1073318353
+        ],
+        "nodeVersions": [
+          6,
+          2
+        ],
+        "nodeTimestamps": [
+          "2026-05-07T01:31:53Z",
+          "2018-05-11T03:25:06Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 226.8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3356446,
+            6.5601349
+          ],
+          [
+            3.3348366,
+            6.5620097
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:535191791",
+      "properties": {
+        "osmWayId": 535191791,
+        "osmVersion": 2,
+        "osmTimestamp": "2018-05-11T03:25:09Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Arewa Street",
+          "source": "BING"
+        },
+        "osmNodeIds": [
+          1073316485,
+          5610602375,
+          1073316516,
+          1073318353,
+          5610602377,
+          1073319568
+        ],
+        "nodeVersions": [
+          2,
+          1,
+          2,
+          2,
+          2,
+          5
+        ],
+        "nodeTimestamps": [
+          "2018-05-11T03:25:06Z",
+          "2018-05-11T03:25:05Z",
+          "2018-05-11T03:25:06Z",
+          "2018-05-11T03:25:06Z",
+          "2026-05-07T04:55:46Z",
+          "2026-05-07T04:55:46Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 186
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3360668,
+            6.5624568
+          ],
+          [
+            3.3360001,
+            6.5624627
+          ],
+          [
+            3.3354325,
+            6.5622361
+          ],
+          [
+            3.3348366,
+            6.5620097
+          ],
+          [
+            3.3345236,
+            6.5618991
+          ],
+          [
+            3.3344886,
+            6.5618978
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451117",
+      "properties": {
+        "osmWayId": 92451117,
+        "osmVersion": 2,
+        "osmTimestamp": "2017-10-25T10:09:27Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Ariyo Close",
+          "source": "BING"
+        },
+        "osmNodeIds": [
+          1073319398,
+          1073316516
+        ],
+        "nodeVersions": [
+          3,
+          2
+        ],
+        "nodeTimestamps": [
+          "2018-05-17T16:08:29Z",
+          "2018-05-11T03:25:06Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 176.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3360389,
+            6.5607635
+          ],
+          [
+            3.3354325,
+            6.5622361
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:589014131",
+      "properties": {
+        "osmWayId": 589014131,
+        "osmVersion": 5,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "secondary",
+          "name": "Adeyemi Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          5624738944,
+          1073319565
+        ],
+        "nodeVersions": [
+          2,
+          8
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:40:12Z",
+          "2026-05-06T04:13:09Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 30.5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3387829,
+            6.561175
+          ],
+          [
+            3.3385073,
+            6.5611962
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:535191784",
+      "properties": {
+        "osmWayId": 535191784,
+        "osmVersion": 11,
+        "osmTimestamp": "2025-09-01T13:07:40Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Raji Abayomi Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1073318311,
+          12918593672,
+          12918593671,
+          5604445582,
+          12918593668,
+          12271123678,
+          12918593670,
+          1073317953,
+          1079849215,
+          1073319565
+        ],
+        "nodeVersions": [
+          5,
+          1,
+          1,
+          3,
+          1,
+          1,
+          1,
+          6,
+          5,
+          8
+        ],
+        "nodeTimestamps": [
+          "2025-06-16T04:59:56Z",
+          "2025-06-16T04:59:56Z",
+          "2025-06-16T04:59:56Z",
+          "2025-06-16T04:59:56Z",
+          "2025-06-16T04:59:56Z",
+          "2024-10-20T14:38:27Z",
+          "2025-06-16T04:59:56Z",
+          "2025-06-16T04:59:56Z",
+          "2025-05-21T12:55:08Z",
+          "2026-05-06T04:13:09Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 404.8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3392606,
+            6.5646757
+          ],
+          [
+            3.3393529,
+            6.5645624
+          ],
+          [
+            3.3393717,
+            6.5645144
+          ],
+          [
+            3.3393683,
+            6.5644442
+          ],
+          [
+            3.3392503,
+            6.5641334
+          ],
+          [
+            3.3391222,
+            6.5638376
+          ],
+          [
+            3.3389989,
+            6.5635472
+          ],
+          [
+            3.338912,
+            6.5632757
+          ],
+          [
+            3.3388085,
+            6.5626409
+          ],
+          [
+            3.3385073,
+            6.5611962
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451051",
+      "properties": {
+        "osmWayId": 92451051,
+        "osmVersion": 8,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Wahab Larinde Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1073318067,
+          5610642703,
+          1079849237,
+          1073317120,
+          1073319283,
+          1073316056,
+          1073318459
+        ],
+        "nodeVersions": [
+          7,
+          3,
+          4,
+          4,
+          4,
+          7,
+          4
+        ],
+        "nodeTimestamps": [
+          "2026-05-07T01:31:53Z",
+          "2024-04-24T13:40:12Z",
+          "2025-05-21T12:55:08Z",
+          "2024-04-24T13:19:22Z",
+          "2024-04-24T13:59:27Z",
+          "2026-05-07T01:31:53Z",
+          "2026-05-07T01:31:53Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 479.2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3374771,
+            6.5608953
+          ],
+          [
+            3.337195,
+            6.5615753
+          ],
+          [
+            3.3368679,
+            6.5623273
+          ],
+          [
+            3.3364373,
+            6.5634044
+          ],
+          [
+            3.3362006,
+            6.5639429
+          ],
+          [
+            3.3359733,
+            6.5645754
+          ],
+          [
+            3.3359881,
+            6.564912
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:441859077",
+      "properties": {
+        "osmWayId": 441859077,
+        "osmVersion": 3,
+        "osmTimestamp": "2024-04-26T13:19:04Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Dosunmu Street"
+        },
+        "osmNodeIds": [
+          4395533004,
+          11850433696,
+          4395533005
+        ],
+        "nodeVersions": [
+          5,
+          1,
+          3
+        ],
+        "nodeTimestamps": [
+          "2026-05-07T01:31:53Z",
+          "2024-04-26T13:19:04Z",
+          "2026-05-07T01:31:53Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 187
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3350552,
+            6.5598959
+          ],
+          [
+            3.3344855,
+            6.5613085
+          ],
+          [
+            3.3344109,
+            6.5614503
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:93146056",
+      "properties": {
+        "osmWayId": 93146056,
+        "osmVersion": 3,
+        "osmTimestamp": "2018-05-21T13:41:30Z",
+        "tags": {
+          "highway": "residential"
+        },
+        "osmNodeIds": [
+          1079849231,
+          1079849446,
+          1079849419,
+          1079849203,
+          5632720208,
+          5632720207,
+          5632720206,
+          5632720205,
+          5632720204,
+          5632720203,
+          5632720202,
+          5632720197,
+          5632720201,
+          5632720200,
+          5632720199,
+          1073319565
+        ],
+        "nodeVersions": [
+          3,
+          4,
+          3,
+          3,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          8
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T04:13:09Z",
+          "2026-05-06T04:13:09Z",
+          "2026-05-06T04:13:09Z",
+          "2018-05-21T13:41:30Z",
+          "2018-05-21T13:41:29Z",
+          "2018-05-21T13:41:29Z",
+          "2018-05-21T13:41:29Z",
+          "2018-05-21T13:41:29Z",
+          "2018-05-21T13:41:29Z",
+          "2018-05-21T13:41:29Z",
+          "2018-05-21T13:41:29Z",
+          "2024-04-23T10:51:12Z",
+          "2026-05-06T04:13:09Z",
+          "2018-05-21T13:41:29Z",
+          "2024-04-23T10:51:12Z",
+          "2026-05-06T04:13:09Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 374.2
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3368709,
+            6.5588204
+          ],
+          [
+            3.3374485,
+            6.5590611
+          ],
+          [
+            3.3380544,
+            6.5593298
+          ],
+          [
+            3.3382422,
+            6.5593571
+          ],
+          [
+            3.3382894,
+            6.559377
+          ],
+          [
+            3.3383189,
+            6.559413
+          ],
+          [
+            3.3383323,
+            6.5594863
+          ],
+          [
+            3.3383431,
+            6.5597394
+          ],
+          [
+            3.3383431,
+            6.5599819
+          ],
+          [
+            3.3383417,
+            6.5600858
+          ],
+          [
+            3.3383618,
+            6.560215
+          ],
+          [
+            3.3383803,
+            6.5604248
+          ],
+          [
+            3.3383826,
+            6.5604509
+          ],
+          [
+            3.338441,
+            6.5607493
+          ],
+          [
+            3.3384685,
+            6.5609239
+          ],
+          [
+            3.3385073,
+            6.5611962
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451165",
+      "properties": {
+        "osmWayId": 92451165,
+        "osmVersion": 3,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "tertiary",
+          "source": "BING"
+        },
+        "osmNodeIds": [
+          1073316181,
+          1073316065,
+          1079849231,
+          1073317407
+        ],
+        "nodeVersions": [
+          4,
+          5,
+          3,
+          5
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2026-05-07T04:55:46Z",
+          "2026-05-06T04:13:09Z",
+          "2026-05-06T04:13:09Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 255.8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3362508,
+            6.5603753
+          ],
+          [
+            3.3364725,
+            6.5597869
+          ],
+          [
+            3.3368709,
+            6.5588204
+          ],
+          [
+            3.3371112,
+            6.5582394
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:441859078",
+      "properties": {
+        "osmWayId": 441859078,
+        "osmVersion": 2,
+        "osmTimestamp": "2025-09-26T02:52:10Z",
+        "tags": {
+          "highway": "tertiary"
+        },
+        "osmNodeIds": [
+          4395533006,
+          4395533007
+        ],
+        "nodeVersions": [
+          4,
+          5
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-30T13:26:50Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 70.3
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3347854,
+            6.5597856
+          ],
+          [
+            3.3350127,
+            6.5591951
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451167",
+      "properties": {
+        "osmWayId": 92451167,
+        "osmVersion": 6,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "tertiary",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1073317343,
+          5624914059,
+          5624355801,
+          5624355802,
+          1073318675,
+          5624355803,
+          1073316467,
+          1079849484,
+          1073317679
+        ],
+        "nodeVersions": [
+          6,
+          4,
+          4,
+          4,
+          4,
+          3,
+          4,
+          4,
+          4
+        ],
+        "nodeTimestamps": [
+          "2026-05-07T01:31:53Z",
+          "2026-05-07T01:31:53Z",
+          "2026-05-07T01:31:53Z",
+          "2026-05-07T01:31:53Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 463.5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3342183,
+            6.5595714
+          ],
+          [
+            3.3342869,
+            6.5599738
+          ],
+          [
+            3.3344062,
+            6.5604335
+          ],
+          [
+            3.3344143,
+            6.5605201
+          ],
+          [
+            3.3344226,
+            6.5605934
+          ],
+          [
+            3.3344049,
+            6.560676
+          ],
+          [
+            3.3336421,
+            6.5623018
+          ],
+          [
+            3.3334089,
+            6.5628741
+          ],
+          [
+            3.3331566,
+            6.5634514
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:535191771",
+      "properties": {
+        "osmWayId": 535191771,
+        "osmVersion": 4,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Baderin Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          4395533108,
+          1073317441
+        ],
+        "nodeVersions": [
+          2,
+          6
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2025-09-09T14:00:23Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 152.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.333086,
+            6.5590862
+          ],
+          [
+            3.3317891,
+            6.558607
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:535191773",
+      "properties": {
+        "osmWayId": 535191773,
+        "osmVersion": 3,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "tertiary",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          4395533108,
+          4395533109
+        ],
+        "nodeVersions": [
+          2,
+          3
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-30T13:26:50Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 70.3
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.333086,
+            6.5590862
+          ],
+          [
+            3.3333138,
+            6.5584963
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:441859117",
+      "properties": {
+        "osmWayId": 441859117,
+        "osmVersion": 3,
+        "osmTimestamp": "2024-04-24T13:29:52Z",
+        "tags": {
+          "highway": "residential",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          4395533107,
+          4395533108
+        ],
+        "nodeVersions": [
+          5,
+          2
+        ],
+        "nodeTimestamps": [
+          "2024-04-24T13:29:52Z",
+          "2024-04-24T13:29:52Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 79
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.332844,
+            6.5597545
+          ],
+          [
+            3.333086,
+            6.5590862
+          ]
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,646 @@
+{
+  "source": "sector-09-network.geojson",
+  "counts": {
+    "roadWays": 20,
+    "pedestrianWays": 3,
+    "buildingSample": 17,
+    "roadPairs": 24,
+    "pedestrianPairs": 2,
+    "mixedPairs": 1,
+    "uniqueSharedNodes": 22
+  },
+  "sharedNodePairs": [
+    {
+      "wayIds": [
+        93156409,
+        441859086
+      ],
+      "nodeId": 4395533022,
+      "coordinates": [
+        3.3396909,
+        6.5516475
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93156409,
+        134140052
+      ],
+      "nodeId": 177174622,
+      "coordinates": [
+        3.3402922,
+        6.5510982
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        441859086,
+        134140052
+      ],
+      "nodeId": 4725908729,
+      "coordinates": [
+        3.3388748,
+        6.5500572
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        134140052,
+        496652589
+      ],
+      "nodeId": 4395533032,
+      "coordinates": [
+        3.3418029,
+        6.5517478
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        134140052,
+        441859088
+      ],
+      "nodeId": 4395533031,
+      "coordinates": [
+        3.3442663,
+        6.5528094
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        134140052,
+        1105198603
+      ],
+      "nodeId": 1475222084,
+      "coordinates": [
+        3.3455097,
+        6.5533327
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        134140052,
+        1158125999
+      ],
+      "nodeId": 1475182869,
+      "coordinates": [
+        3.3413832,
+        6.551598
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        134140045,
+        370658034
+      ],
+      "nodeId": 3743531724,
+      "coordinates": [
+        3.3415606,
+        6.5512215
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        134140045,
+        1158125998
+      ],
+      "nodeId": 10770371742,
+      "coordinates": [
+        3.3420085,
+        6.5514667
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        134140045,
+        1158125998
+      ],
+      "nodeId": 10770371732,
+      "coordinates": [
+        3.3444907,
+        6.5525501
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496652589,
+        441859088
+      ],
+      "nodeId": 4395533029,
+      "coordinates": [
+        3.3433646,
+        6.5543841
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496652589,
+        1105198603
+      ],
+      "nodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496652589,
+        1547601494
+      ],
+      "nodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496652589,
+        93146072
+      ],
+      "nodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496652589,
+        1158126001
+      ],
+      "nodeId": 5623475760,
+      "coordinates": [
+        3.341616,
+        6.5521194
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496652589,
+        1158126002
+      ],
+      "nodeId": 1079849453,
+      "coordinates": [
+        3.3416975,
+        6.5519668
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496652589,
+        1116518938
+      ],
+      "nodeId": 5623475759,
+      "coordinates": [
+        3.3415282,
+        6.552325
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496652589,
+        1411946568
+      ],
+      "nodeId": 12974393904,
+      "coordinates": [
+        3.3415457,
+        6.5522841
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        441859088,
+        1512420925
+      ],
+      "nodeId": 13820362205,
+      "coordinates": [
+        3.343625,
+        6.554072
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        441859088,
+        1512420926
+      ],
+      "nodeId": 13820362210,
+      "coordinates": [
+        3.3441037,
+        6.5531493
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        1105198603,
+        1547601494
+      ],
+      "nodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        1105198603,
+        93146072
+      ],
+      "nodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        1547601494,
+        93146072
+      ],
+      "nodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        1158125999,
+        560546955
+      ],
+      "nodeId": 5405812682,
+      "coordinates": [
+        3.3413592,
+        6.5516474
+      ],
+      "kind": "pedestrian-road-interface",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        1158126001,
+        1158126002
+      ],
+      "nodeId": 10770371750,
+      "coordinates": [
+        3.3415403,
+        6.5520655
+      ],
+      "kind": "road-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        560546953,
+        560546954
+      ],
+      "nodeId": 5405812680,
+      "coordinates": [
+        3.3417332,
+        6.55126
+      ],
+      "kind": "pedestrian-continuity",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        560546954,
+        560546955
+      ],
+      "nodeId": 5405812681,
+      "coordinates": [
+        3.3415149,
+        6.5517186
+      ],
+      "kind": "pedestrian-continuity",
+      "accessVerified": false
+    }
+  ],
+  "routes": [
+    {
+      "name": "Akin-Lawanson to north stair foot",
+      "role": "Geometric frontage trace only; contains reverse traversal of a one-way road and is NOT a drivable route or proven footpath",
+      "legs": [
+        {
+          "wayId": 93156409,
+          "fromNode": 35785428,
+          "toNode": 177174622,
+          "nodeIds": [
+            35785428,
+            4395533022,
+            1079925521,
+            5623442582,
+            177174622
+          ],
+          "approximateHorizontalLengthMetres": 161.2,
+          "followsSourceDirection": true,
+          "sourceOneway": null,
+          "accessVerified": false
+        },
+        {
+          "wayId": 134140052,
+          "fromNode": 177174622,
+          "toNode": 1475182869,
+          "nodeIds": [
+            177174622,
+            1475182869
+          ],
+          "approximateHorizontalLengthMetres": 132.7,
+          "followsSourceDirection": false,
+          "sourceOneway": "yes",
+          "accessVerified": false
+        },
+        {
+          "wayId": 1158125999,
+          "fromNode": 1475182869,
+          "toNode": 5405812682,
+          "nodeIds": [
+            1475182869,
+            5405812682
+          ],
+          "approximateHorizontalLengthMetres": 6.1,
+          "followsSourceDirection": true,
+          "sourceOneway": null,
+          "accessVerified": false
+        }
+      ],
+      "approximateHorizontalLengthMetres": 300,
+      "accessVerified": false
+    },
+    {
+      "name": "North stair foot to south stair foot",
+      "role": "Mapped pedestrian chain; stairs are not a step-free route; source distance is horizontal, not stair/deck travel length",
+      "legs": [
+        {
+          "wayId": 560546955,
+          "fromNode": 5405812682,
+          "toNode": 5405812681,
+          "nodeIds": [
+            5405812682,
+            5405812681
+          ],
+          "approximateHorizontalLengthMetres": 18.9,
+          "followsSourceDirection": false,
+          "sourceOneway": null,
+          "accessVerified": false
+        },
+        {
+          "wayId": 560546954,
+          "fromNode": 5405812681,
+          "toNode": 5405812680,
+          "nodeIds": [
+            5405812681,
+            5405812680
+          ],
+          "approximateHorizontalLengthMetres": 56.4,
+          "followsSourceDirection": false,
+          "sourceOneway": null,
+          "accessVerified": false
+        },
+        {
+          "wayId": 560546953,
+          "fromNode": 5405812680,
+          "toNode": 5405812679,
+          "nodeIds": [
+            5405812680,
+            5405812679
+          ],
+          "approximateHorizontalLengthMetres": 18.7,
+          "followsSourceDirection": false,
+          "sourceOneway": null,
+          "accessVerified": false
+        }
+      ],
+      "approximateHorizontalLengthMetres": 94,
+      "accessVerified": false
+    },
+    {
+      "name": "Seinde Callisto full spine",
+      "role": "Candidate street spine; lane, access and pedestrian provision unverified",
+      "legs": [
+        {
+          "wayId": 496652589,
+          "fromNode": 4395533032,
+          "toNode": 1079849271,
+          "nodeIds": [
+            4395533032,
+            1079849453,
+            5623475760,
+            12974393904,
+            5623475759,
+            5623475758,
+            13820321993,
+            1079849447,
+            1079849270,
+            4395533029,
+            4395533044,
+            1079849463,
+            5623475757,
+            12974366494,
+            5623475756,
+            1079849271
+          ],
+          "approximateHorizontalLengthMetres": 655.9,
+          "followsSourceDirection": false,
+          "sourceOneway": null,
+          "accessVerified": false
+        }
+      ],
+      "approximateHorizontalLengthMetres": 655.9,
+      "accessVerified": false
+    }
+  ],
+  "derivedNonJunctionCrossings": [
+    {
+      "pedestrianWayId": 560546954,
+      "roadWayId": 134140052,
+      "pedestrianSegmentNodeIds": [
+        5405812680,
+        5405812681
+      ],
+      "roadSegmentNodeIds": [
+        4395533032,
+        1475182869
+      ],
+      "derived2DIntersection": [
+        3.341544844018077,
+        6.551655694243288
+      ],
+      "sharedNodeIds": [],
+      "isRoadJunction": false,
+      "surveyedClearanceMetres": null,
+      "verticalRelationship": "Pedestrian source layer=1; actual clearance unmeasured"
+    },
+    {
+      "pedestrianWayId": 560546954,
+      "roadWayId": 134140045,
+      "pedestrianSegmentNodeIds": [
+        5405812680,
+        5405812681
+      ],
+      "roadSegmentNodeIds": [
+        3743531724,
+        10770371742
+      ],
+      "derived2DIntersection": [
+        3.341712057980193,
+        6.551304414705834
+      ],
+      "sharedNodeIds": [],
+      "isRoadJunction": false,
+      "surveyedClearanceMetres": null,
+      "verticalRelationship": "Pedestrian source layer=1; actual clearance unmeasured"
+    },
+    {
+      "pedestrianWayId": 560546954,
+      "roadWayId": 17505891,
+      "pedestrianSegmentNodeIds": [
+        5405812680,
+        5405812681
+      ],
+      "roadSegmentNodeIds": [
+        5625994248,
+        177174298
+      ],
+      "derived2DIntersection": [
+        3.3415962034341478,
+        6.55154779947366
+      ],
+      "sharedNodeIds": [],
+      "isRoadJunction": false,
+      "surveyedClearanceMetres": null,
+      "verticalRelationship": "Pedestrian source layer=1; actual clearance unmeasured"
+    },
+    {
+      "pedestrianWayId": 560546954,
+      "roadWayId": 134147999,
+      "pedestrianSegmentNodeIds": [
+        5405812680,
+        5405812681
+      ],
+      "roadSegmentNodeIds": [
+        1475182784,
+        1475222005
+      ],
+      "derived2DIntersection": [
+        3.3416547059068153,
+        6.5514248987225585
+      ],
+      "sharedNodeIds": [],
+      "isRoadJunction": false,
+      "surveyedClearanceMetres": null,
+      "verticalRelationship": "Pedestrian source layer=1; actual clearance unmeasured"
+    }
+  ],
+  "unresolvedSouthApproach": {
+    "sourceNodeId": 5405812679,
+    "nearRoadWayId": 370658034,
+    "roadSegmentNodeIds": [
+      3743531724,
+      6967778978
+    ],
+    "derivedNearestCoordinate": [
+      3.341576948427101,
+      6.551187688480313
+    ],
+    "approximateDistanceMetres": 0.4,
+    "connectionCreated": false,
+    "note": "Proximity is not a crossing, ramp, public access or walkable connector; southern node highway=crossing does not attach it to the road"
+  },
+  "priorSectorOverlap": [
+    {
+      "priorFile": "sector-08-roads.geojson",
+      "wayId": 93156409,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "priorFile": "sector-08-roads.geojson",
+      "wayId": 441859086,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "priorFile": "sector-08-roads.geojson",
+      "wayId": 134140052,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    }
+  ],
+  "coordinateContract": {
+    "geographic": "WGS84 [longitude,latitude]; no altitude",
+    "proposedProjection": "EPSG:32631",
+    "proposedOrigin": [
+      3.351,
+      6.556
+    ],
+    "sourceMetres": [
+      "NorthDelta",
+      "UpDelta",
+      "EastDelta"
+    ],
+    "canonicalAdapter": "UE(X,Y,Z)=100*source(Z,X,Y)",
+    "projectedCoordinatesCalculated": false,
+    "engineVerticalDatum": null,
+    "canonicalWorldRegistration": null
+  },
+  "restrictions": [
+    "Do not use the geometric frontage trace as a vehicle route against oneway=yes",
+    "No southern connector created by proximity or highway=crossing tag alone",
+    "No stair count, width, slope, deck height, headroom, ramp or lift inferred",
+    "Mapped bridge identity is a Charity-footbridge candidate; article-to-way registration is not established",
+    "Private NAFRC interiors and service roads are outside public-play placement"
+  ]
+}

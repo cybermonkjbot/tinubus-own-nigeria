@@ -1,0 +1,477 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "job": "city/landmarks",
+  "identity": "34c6499a40284513f0b4bf2e9f9e2201fa4a7d75e196e3cbad244b1874be6595",
+  "state": "saved",
+  "mapPackage": "/Game/BaddieGeneratedWorld/R_34c6499a40284513f0b4bf2e/Maps/L_city_landmarks_9fd4befe70",
+  "sources": [
+    {
+      "path": "packages/assets/city/lagos-city-v3.json",
+      "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    }
+  ],
+  "provenance": {
+    "schemaVersion": 1,
+    "job": "city/landmarks",
+    "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+    "recipeSha256": "7abc6bf2a5d3d1019c8c37e360b3d75f970eea6a45e78fced85e758fafd64376",
+    "sources": [
+      {
+        "path": "packages/assets/city/lagos-city-v3.json",
+        "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      }
+    ],
+    "template": null,
+    "contract": {
+      "navigationSource": {
+        "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+        "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": "navigation"
+      },
+      "navigationRevision": "lagos-city-v3:street-density-v1",
+      "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+      "fictionalMetricPlan": true
+    }
+  },
+  "startedAt": 1791744611.9441588,
+  "instances": [],
+  "meshes": [
+    {
+      "actor": "StaticMeshActor_0",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_1f963ccb7354ee9db24bf6d5.SM_1f963ccb7354ee9db24bf6d5",
+      "features": [
+        {
+          "canonicalId": "heritage-back-wall:0",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "heritage-side-wall:1",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "heritage-back-wall:3",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "heritage-side-wall:4",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_1",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_2e8d55c6c49510b35959abae.SM_2e8d55c6c49510b35959abae",
+      "features": [
+        {
+          "canonicalId": "stage-canopy:7",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_2",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_31eae01fa5eb8db90ebe3dcd.SM_31eae01fa5eb8db90ebe3dcd",
+      "features": [
+        {
+          "canonicalId": "link-stay:2",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:3",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:4",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:5",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:6",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:7",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_3",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ecea3aae6f9f7ece16e6ffae.SM_ecea3aae6f9f7ece16e6ffae",
+      "features": [
+        {
+          "canonicalId": "link-stay:8",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:9",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:10",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:11",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:12",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:13",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_4",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_024ddea1ecb55f405ee58abb.SM_024ddea1ecb55f405ee58abb",
+      "features": [
+        {
+          "canonicalId": "link-stay:16",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:17",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:18",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:19",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:20",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:21",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_5",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b5476894fe3657761120a2fa.SM_b5476894fe3657761120a2fa",
+      "features": [
+        {
+          "canonicalId": "link-stay:22",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:23",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:24",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:25",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:26",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-stay:27",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_6",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_459cd77b19d6fa15176ce0ee.SM_459cd77b19d6fa15176ce0ee",
+      "features": [
+        {
+          "canonicalId": "heritage-stage:6",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_7",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_16f9b7b81019a0380c3c1022.SM_16f9b7b81019a0380c3c1022",
+      "features": [
+        {
+          "canonicalId": "link-pylon-leg:0",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-pylon-tip:1",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_8",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_0f675ba44ab32d4761e3fe73.SM_0f675ba44ab32d4761e3fe73",
+      "features": [
+        {
+          "canonicalId": "link-pylon-leg:14",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-pylon-tip:15",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "link-crosspiece:28",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_9",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_6ed59c01942aec0df135d3a0.SM_6ed59c01942aec0df135d3a0",
+      "features": [
+        {
+          "canonicalId": "garden-seating:8",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "garden-seating:9",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "garden-seating:10",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "garden-seating:11",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "garden-seating:12",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "garden-seating:13",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_10",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_5a9b247692f7d2488e2aa667.SM_5a9b247692f7d2488e2aa667",
+      "features": [
+        {
+          "canonicalId": "stage-post:2",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stage-post:5",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        }
+      ]
+    }
+  ],
+  "contract": {
+    "navigationSource": {
+      "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": "navigation"
+    },
+    "navigationRevision": "lagos-city-v3:street-density-v1",
+    "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+    "fictionalMetricPlan": true
+  },
+  "mapFileSha256": "7f3d17059875431b8963cc703cb5b7cec43679f82f359458403693f2b7115559",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_34c6499a40284513f0b4bf2e/Maps/L_city_landmarks_9fd4befe70.umap": "7f3d17059875431b8963cc703cb5b7cec43679f82f359458403693f2b7115559"
+  },
+  "packages": [
+    "/Game/BaddieGeneratedWorld/Materials/M_29aac7ea0d9a810494b44c6c",
+    "/Game/BaddieGeneratedWorld/Materials/M_30676e52c4efe0d367ec4f44",
+    "/Game/BaddieGeneratedWorld/Materials/M_65e7f5b95d71aad2355de2e1",
+    "/Game/BaddieGeneratedWorld/Materials/M_735208202bb645784f2b0b39",
+    "/Game/BaddieGeneratedWorld/Materials/M_a0904bc2f2d074b911d7cbbf",
+    "/Game/BaddieGeneratedWorld/Materials/M_ac5ce08e4dd5903f3b93a846",
+    "/Game/BaddieGeneratedWorld/Materials/M_ae860b2f957a06fcd3122a5e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_024ddea1ecb55f405ee58abb",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0f675ba44ab32d4761e3fe73",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_16f9b7b81019a0380c3c1022",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1f963ccb7354ee9db24bf6d5",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2e8d55c6c49510b35959abae",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_31eae01fa5eb8db90ebe3dcd",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_459cd77b19d6fa15176ce0ee",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5a9b247692f7d2488e2aa667",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6ed59c01942aec0df135d3a0",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b5476894fe3657761120a2fa",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ecea3aae6f9f7ece16e6ffae",
+    "/Game/BaddieGeneratedWorld/R_34c6499a40284513f0b4bf2e/Maps/L_city_landmarks_9fd4befe70"
+  ],
+  "generatedDependencies": {
+    "/Game/BaddieGeneratedWorld/Materials/M_29aac7ea0d9a810494b44c6c": {
+      "identity": "29aac7ea0d9a810494b44c6c7510718e01d95564a3955e7ae88ee2ab770d8084",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_29aac7ea0d9a810494b44c6c.uasset": "3d7b261100cb294b162d5f6049c8d6aa49d6351c8f5013c84335c5fdcaeed9f8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_30676e52c4efe0d367ec4f44": {
+      "identity": "30676e52c4efe0d367ec4f443d5adfbdae53bf3157213956b78219064aff57df",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_30676e52c4efe0d367ec4f44.uasset": "ae2964bbf756708e60353b40f2a415df575b2fb60aab4f86b7d28e26529e0c85"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_65e7f5b95d71aad2355de2e1": {
+      "identity": "65e7f5b95d71aad2355de2e1256f5f4fe8f5137d45f4f5bdecaf261bc9ebbf59",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_65e7f5b95d71aad2355de2e1.uasset": "0f6fd7198c031ebae3069a794dea917d455b32e6cdbe319478f792187fade99c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_735208202bb645784f2b0b39": {
+      "identity": "735208202bb645784f2b0b392e4ff36820a669230121fc131cd39973e35c0738",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_735208202bb645784f2b0b39.uasset": "6552a1a30c32d89a57b344ad80196b1f7bc0653e66bc11c9d5c797871ce01acf"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_a0904bc2f2d074b911d7cbbf": {
+      "identity": "a0904bc2f2d074b911d7cbbf2c125ad550f679f4b222d8887157be25eb6a2c69",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_a0904bc2f2d074b911d7cbbf.uasset": "81cbdd1c00484370040935fa2417d302b9848ffd793f12a5b436da883e23c64a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_ac5ce08e4dd5903f3b93a846": {
+      "identity": "ac5ce08e4dd5903f3b93a846b7933a4322cacd82f953519e4649c67e8b7c6c64",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_ac5ce08e4dd5903f3b93a846.uasset": "97aea98377915dc47f1ba5a8cb801516fbd908fb0b59ed03a96aa75d859a31d2"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_ae860b2f957a06fcd3122a5e": {
+      "identity": "ae860b2f957a06fcd3122a5e631da1e15c7ae0537bdc18e1f9ac7d9c2c2ed5f3",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_ae860b2f957a06fcd3122a5e.uasset": "364b2bed624fda8bdfe0389e1152db89a20760e0ec91cff2477a2c4a21abe8ac"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_024ddea1ecb55f405ee58abb": {
+      "identity": "024ddea1ecb55f405ee58abb9ec4e9f654f5a4e5eefb8585401abc3232aedb33",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_024ddea1ecb55f405ee58abb.uasset": "f67f699778747408a7fdc7259ff4ad13d8d6ebbc32c56ae25ef17e80f4128e06"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0f675ba44ab32d4761e3fe73": {
+      "identity": "0f675ba44ab32d4761e3fe73f8a0ee58a2879bb14ddb69bc920e39f9b39ad201",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_0f675ba44ab32d4761e3fe73.uasset": "f465bfa48f3149c9944c45c0bd5fca5c8aa491ca74603f772aaddf044157ff0f"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_16f9b7b81019a0380c3c1022": {
+      "identity": "16f9b7b81019a0380c3c102297f7a378ac735fa81d8e1caa688d7677c178b541",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_16f9b7b81019a0380c3c1022.uasset": "e3d68f30ed31936d87fbf95066b61949e44aedc6d78ca3eb0b719094b12a0586"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1f963ccb7354ee9db24bf6d5": {
+      "identity": "1f963ccb7354ee9db24bf6d560737b7b9ce44f5cc331c65559a99e5af3279628",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_1f963ccb7354ee9db24bf6d5.uasset": "27a4bdb782113dbdab6a0f916f2059a96b2fd08d150de672dda4084f32145440"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2e8d55c6c49510b35959abae": {
+      "identity": "2e8d55c6c49510b35959abaea1c9ba26a3cc4156f7abb0385f9eb7c3fed5f60d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_2e8d55c6c49510b35959abae.uasset": "2de59e910fce435705ddab7d2241a42e8ba7cd91f7375f611015468406bd1233"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_31eae01fa5eb8db90ebe3dcd": {
+      "identity": "31eae01fa5eb8db90ebe3dcd77119dcc756a193eaca893116b79ca17c600819f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_31eae01fa5eb8db90ebe3dcd.uasset": "06b037ef7feda0b233067d0e582a77989bdfc3fe47e48e920fc76a8011289164"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_459cd77b19d6fa15176ce0ee": {
+      "identity": "459cd77b19d6fa15176ce0eec99c9955e71657cb5d4915af32e81a0e86c404e7",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_459cd77b19d6fa15176ce0ee.uasset": "71a53270c8aa092e0c2e2be84651fc658d460123e0e8c2a5304061ae3ccbac88"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_5a9b247692f7d2488e2aa667": {
+      "identity": "5a9b247692f7d2488e2aa66725172af966a83b3fb9c1814818ce6993b5218a71",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_5a9b247692f7d2488e2aa667.uasset": "9f1394dc6278d0bd4c1f6a696c72405d2a3c76a2f9c97c8abee3c6eabb978947"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6ed59c01942aec0df135d3a0": {
+      "identity": "6ed59c01942aec0df135d3a0311d6ba02a6f1c3dc8020525de4fcaef9d73c919",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_6ed59c01942aec0df135d3a0.uasset": "6e7d45bacf506a7f84528829300398d79c9daf108e87d8d7f3cf4cb601d33267"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b5476894fe3657761120a2fa": {
+      "identity": "b5476894fe3657761120a2fad5864ff049a4438d5283a40fb1d706b91d23a6b7",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b5476894fe3657761120a2fa.uasset": "d777e32331f1d083a62b5351e6e0bb2dc24ee705e2105ff8cde8c677fd6ea985"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ecea3aae6f9f7ece16e6ffae": {
+      "identity": "ecea3aae6f9f7ece16e6ffaed556210479f142005695c13913a476286bf31b76",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ecea3aae6f9f7ece16e6ffae.uasset": "3fed3b06afdaadda740e6182b5a1890e493c6f910856ab841cc4f2ff1e33a258"
+      }
+    }
+  },
+  "savedAt": 1791744647.55209,
+  "runtimeAdmission": false,
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established"
+}

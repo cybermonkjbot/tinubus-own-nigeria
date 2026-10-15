@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-10-11T09:25:21.610149+00:00",
+  "status": "delivered_pending_parent_visual_acceptance",
+  "step": "assets_and_two_actual_frames_delivered_and_worker_inspected",
+  "worker_processes_exited": [8840, 5736],
+  "visual_review": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/v1/visual-review.json",
+  "visual_review_sha256": "a951dab5d423d10551f9c7d61220c4256c8e797bcfa2d9b6b903c98e76757914",
+  "final_inspection_at": "2026-10-11T02:25:30-07:00",
+  "warnings": ["Material.use_nodes deprecation", "World.use_nodes deprecation"],
+  "preservation_confirmed": {"workbench_pid": 3224, "dirty": false, "render_job": false, "saved_workbench_sha256": "70592d3c04a9fc6c9599188ec2220c3b1425a85477e4f5984a4c5898fb993eab", "frozen_source_sha256": "c25297c16a6fb24752d9fb13fb651d5be7683c92a530e3a4758365061b20e877"},
+  "pid": 5736,
+  "generation_pid": 8840,
+  "scheduling": {
+    "priority": "BelowNormal",
+    "processor_affinity": 3,
+    "threads": 2
+  },
+  "owned_directory": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props",
+  "runtime": {
+    "blender": "C:/dev/tools/baddie-blender/blender-5.2.2-windows-x64/blender.exe",
+    "version": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "sha256": "c9f9c33e538dd3e195ccb8dcc5986721f49df795e91288d4f6e82295a028e1c1",
+    "installed_python": "C:/dev/tools/baddie-blender/venv/Scripts/python.exe",
+    "installed_python_version": "3.11.8",
+    "embedded_python": "C:/dev/tools/baddie-blender/blender-5.2.2-windows-x64/5.2/python/bin/python.exe",
+    "embedded_python_version": "3.13.13",
+    "fbx_exporter_present": true,
+    "logical_processors": 4
+  },
+  "protected_session": {
+    "pid": 3224,
+    "blend": "C:/dev/baddie-assets/Blender/LagosWorkbench.blend",
+    "sha256": "70592d3c04a9fc6c9599188ec2220c3b1425a85477e4f5984a4c5898fb993eab",
+    "scene": "BaddieAssetWorkbench",
+    "engine": "CYCLES",
+    "dirty": false,
+    "render_job": false,
+    "profile": "C:/dev/tools/baddie-blender/profile/config",
+    "profile_exists_on_disk": false,
+    "inspection_only": true,
+    "unreal_pid": 13096
+  },
+  "handoff": {
+    "expected_script": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/lagos_street_props.py",
+    "script_present": true,
+    "verified_handoff_received": true,
+    "script_sha256": "c25297c16a6fb24752d9fb13fb651d5be7683c92a530e3a4758365061b20e877",
+    "action": "Generate frozen v1 without --render; reopen saved deliverable separately for bounded inspection and rendering.",
+    "job": "lagos-street-props-v1",
+    "output_directory": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/v1"
+  },
+  "authoring_plan": {
+    "fresh_background_processes": 2,
+    "startup": "factory startup with isolated resources inside the owned directory; no bootstrap or bridge",
+    "engine": "CYCLES",
+    "device": "CPU",
+    "thread_cap": 2,
+    "initial_sample_cap": 16,
+    "initial_resolution_max": [
+      960,
+      540
+    ],
+    "units": "metres",
+    "assets": [
+      "danfo",
+      "shopfront/kiosk",
+      "kerb/drain",
+      "power-pole detail"
+    ],
+    "save_before_render": true,
+    "reopen_saved_deliverable": true,
+    "probe": "C:/Users/cribadmin/.codex/skills/blender-production/scripts/probe_scene.py",
+    "probe_sha256": "b19a81953a7e0c4c567fbcfeaca6943ce070a43a17a291131fc2a3ffe4bf43cb",
+    "probe_object_limit": 12,
+    "frames": [
+      "overview",
+      "danfo/street detail"
+    ]
+  },
+  "paths": [
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LagosStreetProps.blend",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\props-manifest.json",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\bounded-render-manifest.json",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\asset-inspection.json",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\scene-probe-reopened.json",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\scene-probe-bounded.json",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\Danfo.fbx",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\Kiosk.fbx",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\ShopfrontShutter.fbx",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DrainOpen.fbx",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DrainGrated.fbx",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\Kerb.fbx",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\PowerPole.fbx",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\WireSpan8m.fbx",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\StreetSignSupport.fbx",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DanfoView.png",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LibraryView.png"
+  ],
+  "hashes": {
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LagosStreetProps.blend": "0c9d3787cb028dc6bbcdcb18eca7379a99b6861d93dc72a03b7319c495732549",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\props-manifest.json": "e43da0ae2cccf1385445caa90ea862afb4634d4cff6a6ebcf4fd930876aff723",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\bounded-render-manifest.json": "195a69d328995b19f7ed6f68a3a5b41812e436ae12887beea14ec93476676b47",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\asset-inspection.json": "d51eca4791a38c23e7420122ae0ec226d09cb6feb935d898b9ee87d510e49c6d",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\scene-probe-reopened.json": "6ecbca7cd66c9e8917ff4e6a4424647b6f0ebdad3455e39b3de357c506565a07",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\scene-probe-bounded.json": "395267b7df322c2fc4f524754ec3ebed067e095e406d549ec2b118476854c5b2",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\Danfo.fbx": "c1f5a730988c21760ba805ea0953ba3aaf5d7925e24391dbed49e6e33bd3a969",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\Kiosk.fbx": "20154f3695fe2bafbced262815a1406656ef28531f3a99671776eeefe0bb37f1",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\ShopfrontShutter.fbx": "7c6855607c1d801886a955cc14f52994084a0f9841a9ddebc19f7b7cb99bf992",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DrainOpen.fbx": "2fb70c2f478f1558f3a74b4c16bf6373d499bdf832cb4b8452b7674c2826ffd0",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DrainGrated.fbx": "c14e1ea07f112ea4a7f22376c52c7e3a1268d084e503bd23edcd560938e176d7",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\Kerb.fbx": "df833c53c2f914ea5fbd42ca2adeb1dce3f6afda3874a4eea445c5c93b9c4705",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\PowerPole.fbx": "cdf07c58fae062eb2860eb9bb320097d1e65025d87fd555ebc765cd45c737b55",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\WireSpan8m.fbx": "820b811595628dad366f1c5a017e43b6c523f4bb77e3aa2665b2d2653af562e4",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\StreetSignSupport.fbx": "2d1037261248e511b9927f6c784176dea643337734b7a049920927021e96acfc",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DanfoView.png": "164760cf9d284c3e053cd213c1d1e1da3b979cb16e3d49f45c7273c9affec777",
+    "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LibraryView.png": "248532500bbe81b689fa24209f302ba6865a95ef811215d872e0d1d0eaf9f910"
+  },
+  "technical_acceptance": "saved_scene_reopened_assets_mapped_fbx_hashes_checked_two_actual_pngs_decoded",
+  "visual_acceptance": "worker_inspected_both_actual_frames_parent_acceptance_pending_drain_and_kerb_views_incomplete",
+  "errors": [],
+  "render_pid": 5736,
+  "render_configuration": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\bounded-render-manifest.json",
+  "rendered_frames": [
+    {
+      "camera": "DanfoView",
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\DanfoView.png",
+      "sha256": "164760cf9d284c3e053cd213c1d1e1da3b979cb16e3d49f45c7273c9affec777",
+      "bytes": 548232,
+      "dimensions": [
+        960,
+        540
+      ],
+      "seconds": 43.43784149999556,
+      "camera_location": [
+        5.199999809265137,
+        6.800000190734863,
+        3.9000000953674316
+      ],
+      "lens_mm": 48.0
+    },
+    {
+      "camera": "LibraryView",
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\v1\\LibraryView.png",
+      "sha256": "248532500bbe81b689fa24209f302ba6865a95ef811215d872e0d1d0eaf9f910",
+      "bytes": 482122,
+      "dimensions": [
+        960,
+        540
+      ],
+      "seconds": 33.12554639999871,
+      "camera_location": [
+        17.0,
+        22.0,
+        13.0
+      ],
+      "lens_mm": 40.0
+    }
+  ]
+}

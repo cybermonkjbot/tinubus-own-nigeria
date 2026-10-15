@@ -1,0 +1,21 @@
+{
+  "camera": {
+    "id": "civic_source_224_like",
+    "location": [
+      -28278.0,
+      -4957.0,
+      165.0
+    ],
+    "rotation": {
+      "pitch": 2.0,
+      "yaw": 8.0,
+      "roll": 0.0
+    }
+  },
+  "image": "output/cribtest11-visible-world-2026-10-11/previews/town-centre-source-probes/civic_source_224_like.png",
+  "imageSha256": "1306b66b2ce5e6f413c6d45db2000d74c9f22a65160ea3833fc5242d4a37709c",
+  "size": [
+    705,
+    486
+  ]
+}

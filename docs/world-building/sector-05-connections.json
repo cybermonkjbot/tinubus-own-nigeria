@@ -1,0 +1,408 @@
+{
+  "source": "sector-05-roads.geojson",
+  "sharedNodePairs": [
+    {
+      "wayIds": [
+        496763689,
+        92451044
+      ],
+      "nodeId": 1073319363,
+      "coordinates": [
+        3.3368793,
+        6.560653
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        92451052
+      ],
+      "nodeId": 1073317387,
+      "coordinates": [
+        3.3356446,
+        6.5601349
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        589014131
+      ],
+      "nodeId": 1073319565,
+      "coordinates": [
+        3.3385073,
+        6.5611962
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        535191784
+      ],
+      "nodeId": 1073319565,
+      "coordinates": [
+        3.3385073,
+        6.5611962
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        92451051
+      ],
+      "nodeId": 1073318067,
+      "coordinates": [
+        3.3374771,
+        6.5608953
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        441859077
+      ],
+      "nodeId": 4395533004,
+      "coordinates": [
+        3.3350552,
+        6.5598959
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        93146056
+      ],
+      "nodeId": 1073319565,
+      "coordinates": [
+        3.3385073,
+        6.5611962
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        92451165
+      ],
+      "nodeId": 1073316181,
+      "coordinates": [
+        3.3362508,
+        6.5603753
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        441859078
+      ],
+      "nodeId": 4395533006,
+      "coordinates": [
+        3.3347854,
+        6.5597856
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        92451167
+      ],
+      "nodeId": 1073317343,
+      "coordinates": [
+        3.3342183,
+        6.5595714
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        535191771
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        535191773
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        496763689,
+        441859117
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451044,
+        535191791
+      ],
+      "nodeId": 1073316485,
+      "coordinates": [
+        3.3360668,
+        6.5624568
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        92451052,
+        535191791
+      ],
+      "nodeId": 1073318353,
+      "coordinates": [
+        3.3348366,
+        6.5620097
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191791,
+        92451117
+      ],
+      "nodeId": 1073316516,
+      "coordinates": [
+        3.3354325,
+        6.5622361
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589014131,
+        535191784
+      ],
+      "nodeId": 1073319565,
+      "coordinates": [
+        3.3385073,
+        6.5611962
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        589014131,
+        93146056
+      ],
+      "nodeId": 1073319565,
+      "coordinates": [
+        3.3385073,
+        6.5611962
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191784,
+        93146056
+      ],
+      "nodeId": 1073319565,
+      "coordinates": [
+        3.3385073,
+        6.5611962
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        93146056,
+        92451165
+      ],
+      "nodeId": 1079849231,
+      "coordinates": [
+        3.3368709,
+        6.5588204
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191771,
+        535191773
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191771,
+        441859117
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    },
+    {
+      "wayIds": [
+        535191773,
+        441859117
+      ],
+      "nodeId": 4395533108,
+      "coordinates": [
+        3.333086,
+        6.5590862
+      ],
+      "kind": "cross-street-connection",
+      "accessVerified": false
+    }
+  ],
+  "counts": {
+    "roadWays": 16,
+    "sharedNodePairs": 23,
+    "uniqueSharedNodes": 13,
+    "buildingSample": 64
+  },
+  "candidateLoop": {
+    "name": "Olatunbosun–Arewa–Temidire–Ogunoloko",
+    "legs": [
+      {
+        "wayId": 92451044,
+        "fromNode": 1073319363,
+        "toNode": 1073316485,
+        "nodeIds": [
+          1073319363,
+          5610602374,
+          1073316485
+        ],
+        "approximateLengthMetres": 220.2
+      },
+      {
+        "wayId": 535191791,
+        "fromNode": 1073316485,
+        "toNode": 1073318353,
+        "nodeIds": [
+          1073316485,
+          5610602375,
+          1073316516,
+          1073318353
+        ],
+        "approximateLengthMetres": 145.4
+      },
+      {
+        "wayId": 92451052,
+        "fromNode": 1073318353,
+        "toNode": 1073317387,
+        "nodeIds": [
+          1073318353,
+          1073317387
+        ],
+        "approximateLengthMetres": 226.8
+      },
+      {
+        "wayId": 496763689,
+        "fromNode": 1073317387,
+        "toNode": 1073319363,
+        "nodeIds": [
+          1073317387,
+          1073316181,
+          1073319363
+        ],
+        "approximateLengthMetres": 148.1
+      }
+    ],
+    "approximateLengthMetres": 740.5,
+    "accessVerified": false,
+    "isCrossDitchDetour": false
+  },
+  "sector04Overlap": [
+    {
+      "wayId": 496763689,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "wayId": 589014131,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    },
+    {
+      "wayId": 535191784,
+      "geometryMatches": true,
+      "nodeIdsMatch": true,
+      "nodeVersionsMatch": true,
+      "wayVersionMatches": true
+    }
+  ],
+  "coordinateContract": {
+    "geographic": "WGS84 [longitude,latitude]; no altitude",
+    "proposedProjection": "EPSG:32631",
+    "proposedOrigin": [
+      3.351,
+      6.556
+    ],
+    "sourceMetres": [
+      "NorthDelta",
+      "UpDelta",
+      "EastDelta"
+    ],
+    "canonicalAdapter": "UE(X,Y,Z)=100*source(Z,X,Y)",
+    "projectedCoordinatesCalculated": false,
+    "verticalDatum": null,
+    "canonicalWorldRegistration": null
+  },
+  "exclusions": [
+    "No ditch included in road graph",
+    "Unnamed ways remain unnamed",
+    "Mapped class is not access permission",
+    "Loop does not establish a bypass of the Sector 04 bridge"
+  ]
+}

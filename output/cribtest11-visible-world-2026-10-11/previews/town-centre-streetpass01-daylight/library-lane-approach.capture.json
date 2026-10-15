@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T23:28:37.856352+00:00",
+  "pid": 2068,
+  "mapPackage": "/Game/BaddieGeneratedWorld/Connected/TownCentre_20261011/Maps/L_town_centre_neighbourhood_20261011_streetpass01",
+  "camera": {
+    "id": "library-lane-approach",
+    "locationCm": [
+      -76000.0,
+      -25800.0,
+      165.0
+    ],
+    "rotation": {
+      "pitch": 2.0,
+      "yaw": 55.0,
+      "roll": 0.0
+    },
+    "fov": 70.0
+  },
+  "imagePath": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\previews\\town-centre-streetpass01-daylight\\library-lane-approach.png",
+  "imageSha256": "690fbc41d040b39b34ba0dc59774138ccfdbc5bc1e36ca2801c265fccc54590a",
+  "width": 705,
+  "height": 486,
+  "capture": {
+    "cameraLocation": {
+      "x": -76000,
+      "y": -25800,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 2,
+      "yaw": 55,
+      "roll": 0
+    },
+    "cameraFOV": 70,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  },
+  "warmupNativeFrames": 51,
+  "lighting": {
+    "autoExposureBias": 0.0,
+    "skyLightIntensity": 1.0
+  }
+}

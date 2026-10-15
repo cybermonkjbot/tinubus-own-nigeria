@@ -1,0 +1,16 @@
+{"job": "lagos-vehicle-wear-v1", "pid": 2388, "step": "authoring_vehicle_variants", "updated_at": "2026-10-11T10:18:14.026117+00:00", "source": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\danfo-detail-v1\\DanfoDetail_v1.blend", "source_sha256": "8e5c0d4758bd8b92e7525328410998f3fcf6a907919a95048ac5ee825b3546c8", "version": "5.2.2 LTS"}
+00:10.672  blend            | Read blend: "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\vehicle-wear-v1\initial\LagosVehicleWearLibrary.blend"
+Info: Saved as "LagosVehicleWearLibrary.blend"
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\initial\\SM_Danfo_Worn_v1.fbx'
+export finished in 0.3679 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\initial\\SM_Danfo_Breakdown_v1.fbx'
+export finished in 0.3721 sec.
+
+FBX export starting... 'C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\initial\\SM_OlderSedan_Worn_v1.fbx'
+export finished in 0.1556 sec.
+{"job": "lagos-vehicle-wear-v1", "pid": 2388, "step": "failed", "updated_at": "2026-10-11T10:18:23.978743+00:00", "errors": ["Traceback (most recent call last):\n  File \"C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\author_vehicles.py\", line 557, in <module>\n    try:main()\n        ~~~~^^\n  File \"C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\author_vehicles.py\", line 530, in main\n    path,reports=save_delivery(OUT/'initial')\n                 ~~~~~~~~~~~~~^^^^^^^^^^^^^^^\n  File \"C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\author_vehicles.py\", line 477, in save_delivery\n    for key in list(MATS):MATS[key]=bpy.data.materials['VW_'+key]\n                                    ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^\nKeyError: 'bpy_prop_collection[key]: key \"VW_GlassEdgeFilm\" not found'\n"]}
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

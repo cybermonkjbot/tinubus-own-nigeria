@@ -1,0 +1,4 @@
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\roadside-tree-source-r2\roadside_tree.py:71: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\roadside-tree-source-r2\roadside_tree.py:483: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True

@@ -1,0 +1,6 @@
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\unpaved-road-v1\author_road_kit.py:34: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat=bpy.data.materials.new(name);mat.use_nodes=True
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\unpaved-road-v1\author_road_kit.py:61: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  name='Road_FiveSurface_Blend';mat=bpy.data.materials.new(name);mat.use_nodes=True
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\unpaved-road-v1\author_road_kit.py:201: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world=bpy.data.worlds.new('RoadDaylight_'+variant);world.use_nodes=True;world.node_tree.nodes.get('Background').inputs['Color'].default_value=(.62,.70,.8,1);world.node_tree.nodes.get('Background').inputs['Strength'].default_value=.6;scene.world=world

@@ -1,0 +1,180 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "job": "city/signatures/library-lane-3",
+  "identity": "3512ca59ea863ccf542795b73b3e8f47d6a26354ca2df871fd3295223e15e776",
+  "state": "saved",
+  "mapPackage": "/Game/BaddieGeneratedWorld/R_3512ca59ea863ccf542795b7/Maps/L_city_signatures_library_lane_3_951aeda12a",
+  "sources": [
+    {
+      "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+      "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    }
+  ],
+  "provenance": {
+    "schemaVersion": 1,
+    "job": "city/signatures/library-lane-3",
+    "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+    "recipeSha256": "a3225ad6834f34b73aeb49c0b15b00f87441ac8b718dc2dbbbfb7a7c888a0ef7",
+    "sources": [
+      {
+        "path": "packages/assets/city/lagos-architecture-delivery-v1.json",
+        "sha256": "f44c6275e1fbf8c6e6330ea9e3b2d9f2dd5ad231291c1bdb25a4f7f40a0f6d62",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      }
+    ],
+    "template": null,
+    "contract": {
+      "navigationSource": {
+        "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+        "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": "navigation"
+      },
+      "navigationRevision": "lagos-city-v3:street-density-v1",
+      "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+      "fictionalMetricPlan": true
+    }
+  },
+  "startedAt": 1791744652.0006344,
+  "instances": [],
+  "meshes": [
+    {
+      "actor": "StaticMeshActor_0",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_743c2b60f53ad691e247eb6a.SM_743c2b60f53ad691e247eb6a",
+      "features": [
+        {
+          "canonicalId": "arcade rear block:0",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "raised central parapet:1",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_1",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_3f59346e0468e6311f41b8c5.SM_3f59346e0468e6311f41b8c5",
+      "features": [
+        {
+          "canonicalId": "entry canopy:9",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_2",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c543f614413b46186cc5b638.SM_c543f614413b46186cc5b638",
+      "features": [
+        {
+          "canonicalId": "arcade rear block fitted roof edge:2",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "arcade cornice:3",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "arched portico 0:4",
+          "firstTriangle": 24,
+          "triangleCount": 196
+        },
+        {
+          "canonicalId": "arched portico 1:5",
+          "firstTriangle": 220,
+          "triangleCount": 196
+        },
+        {
+          "canonicalId": "arched portico 2:6",
+          "firstTriangle": 416,
+          "triangleCount": 196
+        },
+        {
+          "canonicalId": "arched portico 3:7",
+          "firstTriangle": 612,
+          "triangleCount": 196
+        },
+        {
+          "canonicalId": "arched portico 4:8",
+          "firstTriangle": 808,
+          "triangleCount": 196
+        }
+      ]
+    }
+  ],
+  "contract": {
+    "navigationSource": {
+      "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": "navigation"
+    },
+    "navigationRevision": "lagos-city-v3:street-density-v1",
+    "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+    "fictionalMetricPlan": true
+  },
+  "mapFileSha256": "14554adf484622348307cca520796a188af56781413dc20e4bf562a6c661375d",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_3512ca59ea863ccf542795b7/Maps/L_city_signatures_library_lane_3_951aeda12a.umap": "14554adf484622348307cca520796a188af56781413dc20e4bf562a6c661375d"
+  },
+  "packages": [
+    "/Game/BaddieGeneratedWorld/Materials/M_0873296a44fc6fb7adc8759a",
+    "/Game/BaddieGeneratedWorld/Materials/M_d2d5f07a199b49e530448ae3",
+    "/Game/BaddieGeneratedWorld/Materials/M_dd4aed68a9b360d55450eabc",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3f59346e0468e6311f41b8c5",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_743c2b60f53ad691e247eb6a",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c543f614413b46186cc5b638",
+    "/Game/BaddieGeneratedWorld/R_3512ca59ea863ccf542795b7/Maps/L_city_signatures_library_lane_3_951aeda12a"
+  ],
+  "generatedDependencies": {
+    "/Game/BaddieGeneratedWorld/Materials/M_0873296a44fc6fb7adc8759a": {
+      "identity": "0873296a44fc6fb7adc8759a97d96affb89e450d2f8c8e7fa3dae03a8b77ab33",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_0873296a44fc6fb7adc8759a.uasset": "9362270076d01e949ac8b7acea6b33c1fa80f019a282905e8174c7c670b2b9dc"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_d2d5f07a199b49e530448ae3": {
+      "identity": "d2d5f07a199b49e530448ae3f4e876bee54d21ce3bdd8c0ca96087eb499b5656",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_d2d5f07a199b49e530448ae3.uasset": "8cf6c0047857ba1d02de3cfdba29f92d9f16f3b1f43edb660f15a51c196e0c76"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_dd4aed68a9b360d55450eabc": {
+      "identity": "dd4aed68a9b360d55450eabc3323873c764a48c706ea6fe698aab8b802bb5e6e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_dd4aed68a9b360d55450eabc.uasset": "387c02e7566754ee37eac63a56425e82db1f86e4ec11354ab9f8bff6ffc4daa8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3f59346e0468e6311f41b8c5": {
+      "identity": "3f59346e0468e6311f41b8c52d8e60b162555b5b703bd2a8ca2c90a56c113cf6",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_3f59346e0468e6311f41b8c5.uasset": "4b369576dbdc3904d9eedfd6d0f13a6dc144d1c1fda24fd9a3e6d1b0a1a09e56"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_743c2b60f53ad691e247eb6a": {
+      "identity": "743c2b60f53ad691e247eb6a8294f4972f04cd6dc3a3dc4cd3697451ed2c75e5",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_743c2b60f53ad691e247eb6a.uasset": "8f0ffdf6972e6fced1d0b6d57eea0f87ea789d54c153eb16ae524879d477b3e9"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c543f614413b46186cc5b638": {
+      "identity": "c543f614413b46186cc5b63822442700487c8bc7bd5994921f0693691996b16f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c543f614413b46186cc5b638.uasset": "fbfd0fff9276d6c816804c295567b0a227198926b35d52f769def9c33557fb5c"
+      }
+    }
+  },
+  "savedAt": 1791744665.045532,
+  "runtimeAdmission": false,
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established"
+}

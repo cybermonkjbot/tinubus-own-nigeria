@@ -1,0 +1,128 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "job": "city/districts/town-centre",
+  "identity": "35d9213d603f458bdc1355d23dee4a8181d967fae09b02cde329766f0223023d",
+  "state": "saved",
+  "mapPackage": "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec",
+  "sources": [
+    {
+      "path": "packages/assets/city/lagos-city-v3.json",
+      "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    },
+    {
+      "path": "packages/companion-scene/src/interactions/city/cityScene.ts",
+      "sha256": "8b9697d59ec162ac8e657a1cc812ba19e66d4705a7938e2a7c3ce367fa0fa3c6",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    }
+  ],
+  "provenance": {
+    "schemaVersion": 1,
+    "job": "city/districts/town-centre",
+    "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+    "recipeSha256": "5c2603f0ece66b0597112376f1afc3ceb44e7a761d283fb081d59bd317bdf1f4",
+    "sources": [
+      {
+        "path": "packages/assets/city/lagos-city-v3.json",
+        "sha256": "13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      },
+      {
+        "path": "packages/companion-scene/src/interactions/city/cityScene.ts",
+        "sha256": "8b9697d59ec162ac8e657a1cc812ba19e66d4705a7938e2a7c3ce367fa0fa3c6",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      }
+    ],
+    "template": null,
+    "contract": {
+      "navigationSource": {
+        "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+        "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": "navigation"
+      },
+      "navigationRevision": "lagos-city-v3:street-density-v1",
+      "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+      "fictionalMetricPlan": true
+    }
+  },
+  "startedAt": 1791744421.1534808,
+  "contract": {
+    "navigationSource": {
+      "path": "packages/assets/city/lagos-street-density-navigation-v1.json",
+      "sha256": "77ffb38a43dc50c22421cb36dbb88e6634557aa809ddc5338c22d7f24ab607d4",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": "navigation"
+    },
+    "navigationRevision": "lagos-city-v3:street-density-v1",
+    "coordinateMapping": "UE(X,Y,Z)=100*source(Z,X,Y); yawDegrees=sourceYawRadians*180/pi",
+    "fictionalMetricPlan": true
+  },
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec.umap": "4094257c41fe866c5ad60b63daba4aaec15148a307a927c23d1c2ec510880c19"
+  },
+  "mapFileSha256": "4094257c41fe866c5ad60b63daba4aaec15148a307a927c23d1c2ec510880c19",
+  "generatedDependencies": {
+    "/Game/BaddieGeneratedWorld/Materials/M_12d0871319a5d9d4cb131c11": {
+      "identity": "12d0871319a5d9d4cb131c1132a5a05bc66cebb0ce3b30c095d118a857260977",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_12d0871319a5d9d4cb131c11.uasset": "7b600568f257f5ac0d942e8f2cf54280cbcfcac21ee82cb71b3b59b01d62cb65"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_43127047d8243e90e61a689b": {
+      "identity": "43127047d8243e90e61a689bbca75400927dc18f5c490e9a585d1dba433dd495",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_43127047d8243e90e61a689b.uasset": "3828273d2049da953c5c7af7eedc97c88aad2ff18de7d6ac4bb1808333854c02"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_4cdedf035f04e58b1191e950": {
+      "identity": "4cdedf035f04e58b1191e950eccd0beee608564ca0756b54883a53341c5e17d5",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_4cdedf035f04e58b1191e950.uasset": "baccad252bd4d053c9894163affd9c3588678376b166dfedb07a2cd5442959de"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_5ebba85f63328b7b8abdbfe1": {
+      "identity": "5ebba85f63328b7b8abdbfe154005e1c5fa8ad5ccea6fb895d7f36373126bdf5",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_5ebba85f63328b7b8abdbfe1.uasset": "19124a00568cbd3d658c689fb40544b41fd02165842e8c03ea84914d8027c178"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_69143acf0a2a785a9dec2ba4": {
+      "identity": "69143acf0a2a785a9dec2ba4ff0f91f0091a205e14f4a3afd145ea25de0f7907",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_69143acf0a2a785a9dec2ba4.uasset": "6ac47b9f8a094cb68bd5081ee19e0dfd5b79908204a95b50c23962a77ee9e6b3"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_cf48465119141c84fb4827c3": {
+      "identity": "cf48465119141c84fb4827c3f378d80b582ab5c03fe760a21e0f6e9aefa98a9e",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_cf48465119141c84fb4827c3.uasset": "2f338dd0a99caeb5db1823c397f30d0b4c758a69c690d1627a7dd644e667ab02"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_ed7c3c0d05f4fc09a1f9de42": {
+      "identity": "ed7c3c0d05f4fc09a1f9de428191957340f20e2b643ee1ca9cd1635f8329c999",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_ed7c3c0d05f4fc09a1f9de42.uasset": "6e915b47dc855a8abd4c14b1939d51a5726f45f2d589e587e79240d9bebbcb56"
+      }
+    }
+  },
+  "packages": [
+    "/Game/BaddieGeneratedWorld/Materials/M_12d0871319a5d9d4cb131c11",
+    "/Game/BaddieGeneratedWorld/Materials/M_43127047d8243e90e61a689b",
+    "/Game/BaddieGeneratedWorld/Materials/M_4cdedf035f04e58b1191e950",
+    "/Game/BaddieGeneratedWorld/Materials/M_5ebba85f63328b7b8abdbfe1",
+    "/Game/BaddieGeneratedWorld/Materials/M_69143acf0a2a785a9dec2ba4",
+    "/Game/BaddieGeneratedWorld/Materials/M_cf48465119141c84fb4827c3",
+    "/Game/BaddieGeneratedWorld/Materials/M_ed7c3c0d05f4fc09a1f9de42",
+    "/Game/BaddieGeneratedWorld/R_35d9213d603f458bdc1355d2/Maps/L_city_districts_town_centre_c904bd18ec"
+  ],
+  "savedAt": 1791747300.0,
+  "runtimeAdmission": false,
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established"
+}

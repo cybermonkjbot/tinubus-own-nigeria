@@ -456,7 +456,7 @@ class NativeAuthor:
             for index,part in enumerate(values):
                 x,y,z=part["size"]
                 transform=self.u.Transform(location=self.u.Vector(*ue_point(part["position"])),
-                    rotation=self.u.Rotator(0,math.degrees(part.get("rotation",[0,0,0])[1]),0).quaternion(),
+                    rotation=self.u.Rotator(0,math.degrees(part.get("rotation",[0,0,0])[1]),0),
                     scale=self.u.Vector(z,x,y))
                 result=component.add_instance(transform,world_space=True)
                 if result!=index:

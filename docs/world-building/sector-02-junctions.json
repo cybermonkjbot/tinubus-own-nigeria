@@ -1,0 +1,256 @@
+{
+  "schemaVersion": 1,
+  "sector": "02",
+  "evidenceStatus": "research-only-not-runtime",
+  "runtimeConsumed": false,
+  "sourceGeometry": "sector-02-roads.geojson",
+  "junctionPairs": [
+    {
+      "osmNodeId": 4395533064,
+      "longitude": 3.3484235,
+      "latitude": 6.5564944,
+      "ways": [
+        5153761,
+        1547601493
+      ],
+      "names": [
+        "Oshodi Road",
+        "Oshodi Road"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 1079849258,
+      "longitude": 3.349777,
+      "latitude": 6.5564935,
+      "ways": [
+        5153761,
+        93146055
+      ],
+      "names": [
+        "Oshodi Road",
+        "MacCarthy Lane"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 35785463,
+      "longitude": 3.3470173,
+      "latitude": 6.5564911,
+      "ways": [
+        1547601493,
+        5153762
+      ],
+      "names": [
+        "Oshodi Road",
+        "Igbehinadun Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 1079849462,
+      "longitude": 3.3477201,
+      "latitude": 6.5565058,
+      "ways": [
+        1547601493,
+        93146083
+      ],
+      "names": [
+        "Oshodi Road",
+        "Oredeyin Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 1079849239,
+      "longitude": 3.3502665,
+      "latitude": 6.5585907,
+      "ways": [
+        93146055,
+        93146084
+      ],
+      "names": [
+        "MacCarthy Lane",
+        "Brown Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 1079849303,
+      "longitude": 3.3497846,
+      "latitude": 6.5573958,
+      "ways": [
+        93146055,
+        93146058
+      ],
+      "names": [
+        "MacCarthy Lane",
+        "Araromi Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 4395533076,
+      "longitude": 3.3500444,
+      "latitude": 6.5579721,
+      "ways": [
+        93146055,
+        441859104
+      ],
+      "names": [
+        "MacCarthy Lane",
+        "Banjoko Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 1079849293,
+      "longitude": 3.3458385,
+      "latitude": 6.5600661,
+      "ways": [
+        93146084,
+        1442626893
+      ],
+      "names": [
+        "Brown Street",
+        "Brown Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 1079849289,
+      "longitude": 3.3475022,
+      "latitude": 6.5595975,
+      "ways": [
+        93146084,
+        5153762
+      ],
+      "names": [
+        "Brown Street",
+        "Igbehinadun Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 1079849221,
+      "longitude": 3.3482359,
+      "latitude": 6.5593025,
+      "ways": [
+        93146084,
+        93146083
+      ],
+      "names": [
+        "Brown Street",
+        "Oredeyin Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 1079849205,
+      "longitude": 3.3472721,
+      "latitude": 6.5582525,
+      "ways": [
+        5153762,
+        93146058
+      ],
+      "names": [
+        "Igbehinadun Street",
+        "Araromi Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 4395533070,
+      "longitude": 3.3473539,
+      "latitude": 6.5587654,
+      "ways": [
+        5153762,
+        441859101
+      ],
+      "names": [
+        "Igbehinadun Street",
+        "Inasa Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 4395533074,
+      "longitude": 3.3473714,
+      "latitude": 6.5588747,
+      "ways": [
+        5153762,
+        441859104
+      ],
+      "names": [
+        "Igbehinadun Street",
+        "Banjoko Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 1079849317,
+      "longitude": 3.347944,
+      "latitude": 6.5580693,
+      "ways": [
+        93146058,
+        93146083
+      ],
+      "names": [
+        "Araromi Street",
+        "Oredeyin Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    },
+    {
+      "osmNodeId": 4395533075,
+      "longitude": 3.3480723,
+      "latitude": 6.5586865,
+      "ways": [
+        93146083,
+        441859104
+      ],
+      "names": [
+        "Oredeyin Street",
+        "Banjoko Street"
+      ],
+      "basis": "shared-osm-node",
+      "traversabilityVerified": false
+    }
+  ],
+  "proposedLoop": {
+    "nodes": [
+      1079849258,
+      1079849303,
+      4395533076,
+      1079849239,
+      11386762262,
+      1079849221,
+      4395533075,
+      1079849317,
+      1079849254,
+      1079849462,
+      4395533064,
+      13657641639,
+      13657641649,
+      13136000752,
+      4395533063,
+      1079849258
+    ],
+    "approximateLengthMetres": 1025,
+    "method": "sum of spherical great-circle distances between OSM nodes; not a pedestrian survey"
+  }
+}

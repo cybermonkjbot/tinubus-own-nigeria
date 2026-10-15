@@ -1,0 +1,312 @@
+{
+  "schema": "baddie-local-authoring-kit-v1",
+  "kit": "yaba-frontage-v3",
+  "status": "authoring source; visual and native performance acceptance pending",
+  "units": "metres",
+  "axes": {
+    "up": "+Z",
+    "street_face": "+Y",
+    "frontage_run": "+X"
+  },
+  "placement": {
+    "origin": [
+      0,
+      0,
+      0
+    ],
+    "canonical_assignment": null,
+    "georeferencing": "separate later transform; no canonical IDs invented"
+  },
+  "dimensions": {
+    "bay_width_m": 3.9,
+    "bay_count": 3,
+    "frontage_m": 11.7,
+    "storey_m": 3,
+    "wall_m": 0.25,
+    "window_opening_m": [
+      1.3,
+      1.35
+    ],
+    "window_sill_m": 1.025,
+    "balcony_projection_m": 1.05
+  },
+  "source": {
+    "silhouette": "packages/companion-scene/art/rooms/town-square-v05-detail/compound.py",
+    "sha256": "a2c07adae1708cbc0d9e16fa9dcd855ec4051d11e48eb2701284309c37814ec8",
+    "derivation": "3.9m aperture spacing, 3m storeys, 0.25m walls, 1.3x1.35m windows and supported services; bounded new mixed-use frontage, not a surveyed Yaba building",
+    "texture_provenance": "packages/companion-scene/art/rooms/town-square-v05-detail/material-provenance.json",
+    "yaba_photographic_reference": null,
+    "parent_script_sha256": "2bc71471cb5f3abc28aa06623de9c23800cf524028ade6003b0f64207682d460",
+    "worker_r2_enum_sha256": "598bfefadc522550be4bb6d49905066dbb089963aa2a5f776f33af41f0b3808d",
+    "review_inputs": [
+      "frontage-v2-inspection.md",
+      "native-walk-inspection.md"
+    ]
+  },
+  "materials": {
+    "plaster": {
+      "scan_id": "painted_plaster_wall",
+      "tile_m": 2,
+      "base": [
+        0.57,
+        0.53,
+        0.43
+      ],
+      "roughness": 0.87,
+      "metallic": 0,
+      "required_for_finish": true
+    },
+    "concrete": {
+      "scan_id": "concrete_floor_02",
+      "tile_m": 2,
+      "base": [
+        0.35,
+        0.34,
+        0.3
+      ],
+      "roughness": 0.92,
+      "metallic": 0,
+      "required_for_finish": true
+    },
+    "asphalt": {
+      "scan_id": "asphalt_03",
+      "tile_m": 2.05,
+      "base": [
+        0.075,
+        0.071,
+        0.062
+      ],
+      "roughness": 0.93,
+      "metallic": 0,
+      "required_for_finish": true
+    },
+    "repair_mortar": {
+      "scan_id": null,
+      "tile_m": 1,
+      "base": [
+        0.42,
+        0.41,
+        0.37
+      ],
+      "roughness": 0.94,
+      "metallic": 0,
+      "required_for_finish": true
+    },
+    "corrugated_metal": {
+      "scan_id": null,
+      "tile_m": 1,
+      "base": [
+        0.39,
+        0.41,
+        0.39
+      ],
+      "roughness": 0.52,
+      "metallic": 1,
+      "required_for_finish": true
+    },
+    "painted_steel": {
+      "scan_id": null,
+      "tile_m": 1,
+      "base": [
+        0.055,
+        0.079,
+        0.066
+      ],
+      "roughness": 0.48,
+      "metallic": 0,
+      "required_for_finish": true
+    },
+    "aluminium": {
+      "scan_id": null,
+      "tile_m": 1,
+      "base": [
+        0.55,
+        0.57,
+        0.57
+      ],
+      "roughness": 0.3,
+      "metallic": 1,
+      "required_for_finish": false
+    },
+    "glass": {
+      "scan_id": null,
+      "tile_m": 1,
+      "base": [
+        0.8,
+        0.87,
+        0.86
+      ],
+      "roughness": 0.075,
+      "metallic": 0,
+      "transmission": 1,
+      "ior": 1.45,
+      "required_for_finish": false
+    },
+    "rubber": {
+      "scan_id": null,
+      "tile_m": 1,
+      "base": [
+        0.021,
+        0.024,
+        0.023
+      ],
+      "roughness": 0.85,
+      "metallic": 0,
+      "required_for_finish": false
+    },
+    "ac_paint": {
+      "scan_id": null,
+      "tile_m": 1,
+      "base": [
+        0.67,
+        0.65,
+        0.58
+      ],
+      "roughness": 0.5,
+      "metallic": 0,
+      "required_for_finish": false
+    },
+    "wood_v3": {
+      "scan_id": "wood_planks_grey",
+      "tile_m": 1.5,
+      "base": [
+        0.28,
+        0.22,
+        0.15
+      ],
+      "roughness": 0.83,
+      "metallic": 0,
+      "required_for_finish": true
+    },
+    "cloth_v3": {
+      "scan_id": null,
+      "tile_m": 0.5,
+      "base": [
+        0.49,
+        0.42,
+        0.3
+      ],
+      "roughness": 0.95,
+      "metallic": 0,
+      "required_for_finish": true
+    },
+    "paper_v3": {
+      "scan_id": null,
+      "tile_m": 0.5,
+      "base": [
+        0.56,
+        0.42,
+        0.24
+      ],
+      "roughness": 0.91,
+      "metallic": 0,
+      "required_for_finish": false
+    },
+    "container_v3": {
+      "scan_id": null,
+      "tile_m": 1,
+      "base": [
+        0.37,
+        0.27,
+        0.11
+      ],
+      "roughness": 0.44,
+      "metallic": 0,
+      "required_for_finish": false
+    }
+  },
+  "texture_inputs": {
+    "default": "Pass coordinator's verified material manifest; missing maps remain explicit constants. Existing v2 material shader appearance not claimed corrected.",
+    "optional_manifest_schema": {
+      "materials": {
+        "plaster": {
+          "license": "CC0",
+          "source": "provenance URL or owned source",
+          "tile_m": 2,
+          "maps": {
+            "base_color": {
+              "file": "relative-path.jpg",
+              "sha256": "required"
+            },
+            "normal_gl": {
+              "file": "relative-path.png",
+              "sha256": "required"
+            },
+            "orm": {
+              "file": "relative-path.png",
+              "sha256": "required"
+            }
+          }
+        }
+      }
+    },
+    "normal": "OpenGL or DirectX tangent-space, Non-Color; UV0; normal_dx converts green for Blender; Unreal import inverts only supplied normal_gl green once",
+    "paths": "explicit manifest may authorize absolute existing Windows paths; relative paths stay beneath manifest directory; hashes and license required",
+    "coverage_m": "optional scalar or [width,height], overriding tile_m; concrete_wall_008 width 2.71m requires corresponding verified height",
+    "roughness": "optional separate roughness map in Non-Color; may replace ORM when metallic remains authored constant",
+    "orm": "Non-Color R=AO G=roughness B=metallic; AO not baked into base color",
+    "base_color": "sRGB; originals only, no old generated wear atlas",
+    "provenance_policy": "explicit commercial-use-compatible license and SHA256 required per supplied bitmap; originals under repo provenance may be bound automatically when present",
+    "normal_strength": "Optional per-material normal_strength retained in material bindings; no guessed global reduction."
+  },
+  "export": {
+    "format": "FBX per reusable module",
+    "scale": 1,
+    "apply_unit_scale": true,
+    "apply_scale_options": "FBX_SCALE_UNITS",
+    "axis_forward": "-Y",
+    "axis_up": "Z",
+    "uv0": "SurfaceUV, physical tile scale",
+    "materials": "named slots plus material-bindings.json; FBX does not certify shader import",
+    "instances": "module references with translation/rotation in placement.json; no geometry decimation"
+  },
+  "known_gaps": [
+    "Source-reviewed only; no Blender execution, renders or native imports performed for v3.",
+    "Dated Yaba reference and adjacent district context remain absent; generic authored provision shops are not real named businesses.",
+    "Wood may be mapped to supplied 1.5m wood_planks_grey scans; sacks/curtains remain authored cloth constants until licensed textile inputs exist.",
+    "Native asphalt reflectivity and railing shimmer need matching camera/material/temporal inspection; this geometry patch does not claim to fix shader or RHI defects.",
+    "Existing AC wall saddle/pipe routes and stock contact must be visually reviewed; no native frame-time, LOD, collision or lightmap acceptance."
+  ],
+  "changes": {
+    "panel_contacts": {
+      "exterior_y_m": -0.035,
+      "thickness_m": 0.25,
+      "back_y_m": -0.285,
+      "internal_bay_x_m": [
+        0.12,
+        3.78
+      ],
+      "pier_half_width_m": 0.125,
+      "pier_overlap_m": 0.005,
+      "end_return_overlap_m": 0.005,
+      "shop_top_m": 2.8,
+      "residential_top_m": 2.88
+    },
+    "slab_contacts": {
+      "ground_m": [
+        -0.2,
+        0
+      ],
+      "first_m": [
+        2.8,
+        3
+      ],
+      "roof_m": [
+        5.88,
+        6.08
+      ],
+      "duplicate_shop_floor_ceiling": "removed; shared slabs are authoritative",
+      "balcony_y_m": [
+        0.125,
+        1.05
+      ],
+      "shared_slab_front_y_m": 0.125,
+      "parapet_bottom_m": 6.08
+    },
+    "identities": "Original placement order retained before new stock. Unchanged module/order preserves source module_instance_NNN ID. Variants record original source_id and v3 derivative id. New stock only v3 IDs; no canonical IDs.",
+    "shops": "Two fitted provision/dry-goods interiors: four shelves with fixed stock variants, offset counter, three crates, two tied sacks, counter packages. Clear local aisle X [-0.2,0.8], Y [-2.2,-0.285].",
+    "variations": "Original window in bay0, supported curtain in bay1, glass louvres in bay2. Original AC bay0, geometry-baked compact .86 bay1, rain-hood derivative bay2. All AC wall anchors move to panel face; original scale coverage retained.",
+    "enum_compatibility": "Try installed property assignment first; enum_items_static fallback; optional length_unit display failure recorded, scale_length=1 unchanged.",
+    "export": "Full standalone material/UV/FBX/instance implementation retained; v3 output fresh directory only."
+  }
+}

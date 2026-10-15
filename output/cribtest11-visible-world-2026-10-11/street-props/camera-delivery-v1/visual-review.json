@@ -1,0 +1,31 @@
+{
+  "reviewed_at": "2026-10-11T02:35:41-07:00",
+  "method": "Opened the actual 960x540 PNG at original image size.",
+  "frame": "03-Theatre-Danfo-Kiosk.png",
+  "frame_sha256": "dcf6bd355ac74073851ffc500c7902d6f54ebb975b10ed7ff2a0807e3150a7ae",
+  "status": "useful combined frame delivered; parent review pending",
+  "observed": [
+    "Recognisable yellow danfo with black stripes and wheels is visible at left on the retained road.",
+    "The retained kiosk is visible near the centre from its rear; counter, awning and storefront lettering are not visible from this camera.",
+    "National Theatre glazing, frame and upper silhouette remain visible behind the street props; existing tree crowns obscure part of the facade.",
+    "Power poles are visible; no unconnected wire-span module was added to the world."
+  ],
+  "limits": [
+    "This frame establishes combined landmark and prop visibility, not comprehensive appearance or runtime asset parity.",
+    "Kiosk storefront appearance is not established by this rear view.",
+    "No navigation, account state, mission admission, utility authority or gameplay was changed or verified."
+  ],
+  "preservation": {
+    "camera_only_change": true,
+    "evaluated_prop_poses_unchanged_after_save_reopen": true,
+    "v3_blend_sha256": "dc21105829a56780000bc01043c2a0c0e1adc932ebe113085f75a3d3cbd7e3bb",
+    "v1_props_blend_sha256": "0c9d3787cb028dc6bbcdcb18eca7379a99b6861d93dc72a03b7319c495732549",
+    "frozen_assembly_script_sha256": "19a11507790d0bcd1ab81b0db4e663fe1fab5765b0e7c71f5dd9dce395128fa5",
+    "workbench_pid": 3224,
+    "workbench_sha256": "70592d3c04a9fc6c9599188ec2220c3b1425a85477e4f5984a4c5898fb993eab"
+  },
+  "worker_pid": 13052,
+  "worker_exited": true,
+  "errors": [],
+  "further_rendering": "stopped after the requested useful combined frame"
+}

@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 1,
+  "recordedAt": "2026-10-11T09:50:33.652Z",
+  "source": "Poly Haven",
+  "license": "CC0-1.0",
+  "licenseSource": "https://polyhaven.com/license",
+  "apiTermsSource": "https://raw.githubusercontent.com/Poly-Haven/Public-API/master/ToS.md",
+  "purpose": "Editor-only Yaba realism authoring, not production renderer asset registration",
+  "windowsRoot": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs",
+  "materials": [
+    {
+      "id": "concrete_wall_008",
+      "name": "Concrete Wall 008",
+      "authors": {
+        "Dario Barresi": "Processing ",
+        "Charlotte Baglioni": "Photography"
+      },
+      "coverageMetres": [
+        2.7100000381469727,
+        2.7100000381469727
+      ],
+      "filesHash": "d77307121f21d7ce51b194dcc7456117afe03dd4",
+      "files": [
+        {
+          "asset": "concrete_wall_008",
+          "role": "Diffuse",
+          "path": "concrete_wall_008/concrete_wall_008_diff_2k.jpg",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/concrete_wall_008/concrete_wall_008_diff_2k.jpg",
+          "bytes": 2666189,
+          "md5": "9e834dad5c07a3ba452a2ad0f1454c9f",
+          "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846",
+          "colorSpace": "sRGB",
+          "normalConvention": null
+        },
+        {
+          "asset": "concrete_wall_008",
+          "role": "Rough",
+          "path": "concrete_wall_008/concrete_wall_008_rough_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/concrete_wall_008/concrete_wall_008_rough_2k.png",
+          "bytes": 6697755,
+          "md5": "49e9fee865f14a478762ffb80d2a3303",
+          "sha256": "af2c3055aea34c0b1366b04ccdc90a83ed22e997de446a2d1e02817c800eb026",
+          "colorSpace": "Non-Color",
+          "normalConvention": null
+        },
+        {
+          "asset": "concrete_wall_008",
+          "role": "nor_gl",
+          "path": "concrete_wall_008/concrete_wall_008_nor_gl_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/concrete_wall_008/concrete_wall_008_nor_gl_2k.png",
+          "bytes": 14170572,
+          "md5": "c18dca9f78907c891c3e058aeea687d7",
+          "sha256": "3d26d24586556ee400506888ad6496733a67bcc9020616c10119c1c343c5be24",
+          "colorSpace": "Non-Color",
+          "normalConvention": "OpenGL +Y"
+        },
+        {
+          "asset": "concrete_wall_008",
+          "role": "nor_dx",
+          "path": "concrete_wall_008/concrete_wall_008_nor_dx_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/concrete_wall_008/concrete_wall_008_nor_dx_2k.png",
+          "bytes": 14168235,
+          "md5": "4684cbfbcb8e0209651cedd2fb947794",
+          "sha256": "137d69eeddfbab832bfa7250899d89d7d2a90ab81080181fadb26786d11f5469",
+          "colorSpace": "Non-Color",
+          "normalConvention": "DirectX -Y"
+        }
+      ]
+    },
+    {
+      "id": "painted_plaster_wall",
+      "name": "Painted Plaster Wall",
+      "authors": {
+        "Amal Kumar": "All"
+      },
+      "coverageMetres": [
+        2,
+        2
+      ],
+      "filesHash": "77e9d68a3359a2815a60a62fd3f0eba0f2f41994",
+      "files": [
+        {
+          "asset": "painted_plaster_wall",
+          "role": "Diffuse",
+          "path": "painted_plaster_wall/painted_plaster_wall_diff_2k.jpg",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/painted_plaster_wall/painted_plaster_wall_diff_2k.jpg",
+          "bytes": 3132937,
+          "md5": "32f4f4e5ded7d20e55e337004d0d9691",
+          "sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be",
+          "colorSpace": "sRGB",
+          "normalConvention": null
+        },
+        {
+          "asset": "painted_plaster_wall",
+          "role": "Rough",
+          "path": "painted_plaster_wall/painted_plaster_wall_rough_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/painted_plaster_wall/painted_plaster_wall_rough_2k.png",
+          "bytes": 6836443,
+          "md5": "ca7f611c7ccbc7604fab09c698a4d329",
+          "sha256": "e355a47f007bcf8b50c9e2f9edfc9f45d85501eefc63a822fd82c2dbc7ab34ea",
+          "colorSpace": "Non-Color",
+          "normalConvention": null
+        },
+        {
+          "asset": "painted_plaster_wall",
+          "role": "nor_gl",
+          "path": "painted_plaster_wall/painted_plaster_wall_nor_gl_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/painted_plaster_wall/painted_plaster_wall_nor_gl_2k.png",
+          "bytes": 22789885,
+          "md5": "2eba0da17c1d194537c1231cb412e310",
+          "sha256": "322041257ab0dad1a1a1c18d98bc28689136103f6a64d4849f7aa3ae5b8b090f",
+          "colorSpace": "Non-Color",
+          "normalConvention": "OpenGL +Y"
+        },
+        {
+          "asset": "painted_plaster_wall",
+          "role": "nor_dx",
+          "path": "painted_plaster_wall/painted_plaster_wall_nor_dx_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/painted_plaster_wall/painted_plaster_wall_nor_dx_2k.png",
+          "bytes": 22789119,
+          "md5": "8d007431481ffbff0e0d86684eb66e11",
+          "sha256": "148d654923ae5a5c4f9c248fabc74e06898578e583b5671d6ffb4ee159b897fd",
+          "colorSpace": "Non-Color",
+          "normalConvention": "DirectX -Y"
+        }
+      ]
+    },
+    {
+      "id": "worn_asphalt",
+      "name": "Worn Asphalt",
+      "authors": {
+        "Amal Kumar": "All"
+      },
+      "coverageMetres": [
+        2,
+        2
+      ],
+      "filesHash": "06968c4bb0fdac2b16f83c0e21cf35bc6f752bb6",
+      "files": [
+        {
+          "asset": "worn_asphalt",
+          "role": "Diffuse",
+          "path": "worn_asphalt/worn_asphalt_diff_2k.jpg",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/worn_asphalt/worn_asphalt_diff_2k.jpg",
+          "bytes": 3573942,
+          "md5": "7bd15211eea2137bfcc6af510e17cd3d",
+          "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de",
+          "colorSpace": "sRGB",
+          "normalConvention": null
+        },
+        {
+          "asset": "worn_asphalt",
+          "role": "Rough",
+          "path": "worn_asphalt/worn_asphalt_rough_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_rough_2k.png",
+          "bytes": 6938020,
+          "md5": "b847e70937d2078fa8f09458ef5d46d7",
+          "sha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3",
+          "colorSpace": "Non-Color",
+          "normalConvention": null
+        },
+        {
+          "asset": "worn_asphalt",
+          "role": "nor_gl",
+          "path": "worn_asphalt/worn_asphalt_nor_gl_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_nor_gl_2k.png",
+          "bytes": 28117230,
+          "md5": "9d1076709c0eeff13e015ba949e52319",
+          "sha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647",
+          "colorSpace": "Non-Color",
+          "normalConvention": "OpenGL +Y"
+        },
+        {
+          "asset": "worn_asphalt",
+          "role": "nor_dx",
+          "path": "worn_asphalt/worn_asphalt_nor_dx_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/worn_asphalt/worn_asphalt_nor_dx_2k.png",
+          "bytes": 28111508,
+          "md5": "159a108f81dcfa59ff18640477d49b7c",
+          "sha256": "cebf786add56cd1f2ea3096fa918f0e2bfbbb64feb8f8957576a12cd7a97333c",
+          "colorSpace": "Non-Color",
+          "normalConvention": "DirectX -Y"
+        }
+      ]
+    },
+    {
+      "id": "corrugated_iron_02",
+      "name": "Corrugated Iron 02",
+      "authors": {
+        "Jenelle van Heerden": "Processing",
+        "Sergej Majboroda": "Photography"
+      },
+      "coverageMetres": [
+        2.700000047683716,
+        2.700000047683716
+      ],
+      "filesHash": "8c9a1acc82e561a5f13ecff80add1908fd1b6e90",
+      "files": [
+        {
+          "asset": "corrugated_iron_02",
+          "role": "Diffuse",
+          "path": "corrugated_iron_02/corrugated_iron_02_diff_2k.jpg",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/corrugated_iron_02/corrugated_iron_02_diff_2k.jpg",
+          "bytes": 2325335,
+          "md5": "88f0ec0310e41f408dd0092c8c53db58",
+          "sha256": "1bd2b9900e066d7e6cbacc5093aa4204db71c1bbe13b42a3d8ad23d04fa8075a",
+          "colorSpace": "sRGB",
+          "normalConvention": null
+        },
+        {
+          "asset": "corrugated_iron_02",
+          "role": "Rough",
+          "path": "corrugated_iron_02/corrugated_iron_02_rough_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/corrugated_iron_02/corrugated_iron_02_rough_2k.png",
+          "bytes": 7864640,
+          "md5": "6e8e8725c35bc1620ffe253fd65a10d0",
+          "sha256": "7bf7e03196e601b4173822505e7cb01b401b4e50bb98bc0ecc556de7d4b231c3",
+          "colorSpace": "Non-Color",
+          "normalConvention": null
+        },
+        {
+          "asset": "corrugated_iron_02",
+          "role": "nor_gl",
+          "path": "corrugated_iron_02/corrugated_iron_02_nor_gl_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/corrugated_iron_02/corrugated_iron_02_nor_gl_2k.png",
+          "bytes": 20397959,
+          "md5": "cf38408159183b730624ecdf76fa6b5b",
+          "sha256": "57966705714a10b718efc31368879c75fbf24ee3d3295106eada9094513f9cbc",
+          "colorSpace": "Non-Color",
+          "normalConvention": "OpenGL +Y"
+        },
+        {
+          "asset": "corrugated_iron_02",
+          "role": "nor_dx",
+          "path": "corrugated_iron_02/corrugated_iron_02_nor_dx_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/corrugated_iron_02/corrugated_iron_02_nor_dx_2k.png",
+          "bytes": 20397388,
+          "md5": "ed6665e12eb41505a707cc13fa3bf183",
+          "sha256": "1b747a5f698ea2c992d1ea3a21297783f55eb39d5a4176e558e9def627170c46",
+          "colorSpace": "Non-Color",
+          "normalConvention": "DirectX -Y"
+        }
+      ]
+    },
+    {
+      "id": "wood_planks_grey",
+      "name": "Wood Planks Grey",
+      "authors": {
+        "Rob Tuytel": "All"
+      },
+      "coverageMetres": [
+        1.5,
+        1.5000001192092896
+      ],
+      "filesHash": "957dc541af3903b0c3f586ddf67fc3899bed42f5",
+      "files": [
+        {
+          "asset": "wood_planks_grey",
+          "role": "Diffuse",
+          "path": "wood_planks_grey/wood_planks_grey_diff_2k.jpg",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/jpg/2k/wood_planks_grey/wood_planks_grey_diff_2k.jpg",
+          "bytes": 998333,
+          "md5": "91ca23c2f5584014f465a3a50ada472f",
+          "sha256": "31bdd475c6f1520fccc34a6823bfab8ba61ce5fd6dd97a3d1d868c21295e1000",
+          "colorSpace": "sRGB",
+          "normalConvention": null
+        },
+        {
+          "asset": "wood_planks_grey",
+          "role": "Rough",
+          "path": "wood_planks_grey/wood_planks_grey_rough_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/wood_planks_grey/wood_planks_grey_rough_2k.png",
+          "bytes": 7380375,
+          "md5": "3db8138b0173986c3b02d229102e4d62",
+          "sha256": "0e76025babe056bfdcd750a8f186df92d359fa804273fceb0f23d4884b9f5520",
+          "colorSpace": "Non-Color",
+          "normalConvention": null
+        },
+        {
+          "asset": "wood_planks_grey",
+          "role": "nor_gl",
+          "path": "wood_planks_grey/wood_planks_grey_nor_gl_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/wood_planks_grey/wood_planks_grey_nor_gl_2k.png",
+          "bytes": 20807642,
+          "md5": "b21bfa0d5511ed33d749ca66d3d11cbe",
+          "sha256": "c8cc509c74efa77bf9e2f09002b32dbf0cb12913494c664070d599a182fbcaf0",
+          "colorSpace": "Non-Color",
+          "normalConvention": "OpenGL +Y"
+        },
+        {
+          "asset": "wood_planks_grey",
+          "role": "nor_dx",
+          "path": "wood_planks_grey/wood_planks_grey_nor_dx_2k.png",
+          "source": "https://dl.polyhaven.org/file/ph-assets/Textures/png/2k/wood_planks_grey/wood_planks_grey_nor_dx_2k.png",
+          "bytes": 20807127,
+          "md5": "738e7c30becc43de9cfb3ab5094818c1",
+          "sha256": "589d1a0ca42f1cc64b43ca73852251969188a07b9a24e8001fe9a14bfb208272",
+          "colorSpace": "Non-Color",
+          "normalConvention": "DirectX -Y"
+        }
+      ]
+    }
+  ]
+}

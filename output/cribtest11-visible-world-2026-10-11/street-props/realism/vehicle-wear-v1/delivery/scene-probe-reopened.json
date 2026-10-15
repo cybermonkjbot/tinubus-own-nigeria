@@ -1,0 +1,413 @@
+{
+  "SM_Danfo_Worn_v1": {
+    "pid": 13664,
+    "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\delivery\\LagosVehicleWearLibrary.blend",
+    "dirty": false,
+    "version": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "background": true,
+    "scene": "SM_Danfo_Worn_v1_Authoring",
+    "engine": "CYCLES",
+    "units": {
+      "system": "METRIC",
+      "scale_length": 1.0
+    },
+    "object_count": 400,
+    "object_types": {
+      "CAMERA": 2,
+      "EMPTY": 1,
+      "MESH": 396,
+      "LIGHT": 1
+    },
+    "root_collections": [
+      "SM_Danfo_Worn_v1_Editable",
+      "SM_Danfo_Worn_v1_PreviewOnly"
+    ],
+    "shared_meshes": 0,
+    "camera": "04-Danfo-Wheel-Cabin",
+    "frame": 1,
+    "range": [
+      1,
+      250
+    ],
+    "fps": 24.0,
+    "resolution": [
+      960,
+      640,
+      100
+    ],
+    "color": {
+      "view_transform": "AgX",
+      "look": "None",
+      "exposure": 0.0,
+      "display": "sRGB"
+    },
+    "cycles": {
+      "device": "CPU",
+      "samples": 16,
+      "use_denoising": true
+    },
+    "eevee": {
+      "taa_samples": 16,
+      "taa_render_samples": 64,
+      "shadow_resolution_scale": 1.0
+    },
+    "known_devices": [],
+    "assets": {
+      "external_count": 0,
+      "missing_count": 0,
+      "missing": [],
+      "unresolved_count": 0,
+      "unresolved": [],
+      "cache_audit": "separate inspection required"
+    },
+    "objects_sample": [
+      {
+        "name": "01-Worn-Danfo-Quarter",
+        "type": "CAMERA",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "04-Danfo-Wheel-Cabin",
+        "type": "CAMERA",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_ROOT",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_Danfo_Chassis",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_Danfo_Floor",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_Danfo_SidePanel_-1",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_Danfo_BlackStripe_-1_1.025",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_Danfo_BlackStripe_-1_1.155",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_Danfo_ArchLip_-1_-1.32",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_Danfo_ArchLip_-1_1.3",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_Danfo_Window_-1_0",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Worn_v1_Danfo_WindowPillar_-1_0",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      }
+    ]
+  },
+  "SM_Danfo_Breakdown_v1": {
+    "pid": 13664,
+    "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\delivery\\LagosVehicleWearLibrary.blend",
+    "dirty": false,
+    "version": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "background": true,
+    "scene": "SM_Danfo_Breakdown_v1_Authoring",
+    "engine": "CYCLES",
+    "units": {
+      "system": "METRIC",
+      "scale_length": 1.0
+    },
+    "object_count": 461,
+    "object_types": {
+      "CAMERA": 1,
+      "EMPTY": 1,
+      "MESH": 458,
+      "LIGHT": 1
+    },
+    "root_collections": [
+      "SM_Danfo_Breakdown_v1_Editable",
+      "SM_Danfo_Breakdown_v1_PreviewOnly"
+    ],
+    "shared_meshes": 0,
+    "camera": "02-Breakdown-Danfo-Quarter",
+    "frame": 1,
+    "range": [
+      1,
+      250
+    ],
+    "fps": 24.0,
+    "resolution": [
+      960,
+      640,
+      100
+    ],
+    "color": {
+      "view_transform": "AgX",
+      "look": "None",
+      "exposure": 0.0,
+      "display": "sRGB"
+    },
+    "cycles": {
+      "device": "CPU",
+      "samples": 16,
+      "use_denoising": true
+    },
+    "eevee": {
+      "taa_samples": 16,
+      "taa_render_samples": 64,
+      "shadow_resolution_scale": 1.0
+    },
+    "known_devices": [],
+    "assets": {
+      "external_count": 0,
+      "missing_count": 0,
+      "missing": [],
+      "unresolved_count": 0,
+      "unresolved": [],
+      "cache_audit": "separate inspection required"
+    },
+    "objects_sample": [
+      {
+        "name": "02-Breakdown-Danfo-Quarter",
+        "type": "CAMERA",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_ROOT",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_Chassis",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_Floor",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_SidePanel_-1",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_BlackStripe_-1_1.025",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_BlackStripe_-1_1.155",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_ArchLip_-1_-1.32",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_ArchLip_-1_1.3",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_Window_-1_0",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_WindowPillar_-1_0",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_Danfo_Breakdown_v1_Danfo_Window_-1_1",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      }
+    ]
+  },
+  "SM_OlderSedan_Worn_v1": {
+    "pid": 13664,
+    "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\vehicle-wear-v1\\delivery\\LagosVehicleWearLibrary.blend",
+    "dirty": false,
+    "version": "5.2.2 LTS",
+    "build": "d13f752e3b9c",
+    "background": true,
+    "scene": "SM_OlderSedan_Worn_v1_Authoring",
+    "engine": "CYCLES",
+    "units": {
+      "system": "METRIC",
+      "scale_length": 1.0
+    },
+    "object_count": 274,
+    "object_types": {
+      "CAMERA": 1,
+      "EMPTY": 1,
+      "MESH": 271,
+      "LIGHT": 1
+    },
+    "root_collections": [
+      "SM_OlderSedan_Worn_v1_Editable",
+      "SM_OlderSedan_Worn_v1_PreviewOnly"
+    ],
+    "shared_meshes": 0,
+    "camera": "03-Older-Sedan-Quarter",
+    "frame": 1,
+    "range": [
+      1,
+      250
+    ],
+    "fps": 24.0,
+    "resolution": [
+      960,
+      640,
+      100
+    ],
+    "color": {
+      "view_transform": "AgX",
+      "look": "None",
+      "exposure": 0.0,
+      "display": "sRGB"
+    },
+    "cycles": {
+      "device": "CPU",
+      "samples": 16,
+      "use_denoising": true
+    },
+    "eevee": {
+      "taa_samples": 16,
+      "taa_render_samples": 64,
+      "shadow_resolution_scale": 1.0
+    },
+    "known_devices": [],
+    "assets": {
+      "external_count": 0,
+      "missing_count": 0,
+      "missing": [],
+      "unresolved_count": 0,
+      "unresolved": [],
+      "cache_audit": "separate inspection required"
+    },
+    "objects_sample": [
+      {
+        "name": "03-Older-Sedan-Quarter",
+        "type": "CAMERA",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_ROOT",
+        "type": "EMPTY",
+        "hidden_render": false,
+        "data_users": null
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_SculptedBodySide_-1",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_FenderLip_-1_-1.35",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_Tyre_-1_-1.35",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_RimLip_-1_-1.35",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_Hub_-1_-1.35",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_BrakeDisc_-1_-1.35",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_RimSpoke_-1_-1.35_0",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_Lug_-1_-1.35_0",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_RimSpoke_-1_-1.35_1",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      },
+      {
+        "name": "SM_OlderSedan_Worn_v1_Lug_-1_-1.35_1",
+        "type": "MESH",
+        "hidden_render": false,
+        "data_users": 1
+      }
+    ]
+  }
+}

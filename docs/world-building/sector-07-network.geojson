@@ -1,0 +1,1759 @@
+{
+  "type": "FeatureCollection",
+  "retrievedDate": "2026-10-11",
+  "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=3.3305,6.5540,3.3405,6.5595",
+  "sourceSha256": "6daa5f81610f5bf9eb82b94411418c1260f0e2bd67b7881c7d30098df55b0754",
+  "attribution": "© OpenStreetMap contributors",
+  "license": "ODbL 1.0",
+  "coordinateReference": "WGS84 longitude, latitude; no altitude",
+  "queryBbox": [
+    3.3305,
+    6.554,
+    3.3405,
+    6.5595
+  ],
+  "geometryExtent": "Complete selected ways; not clipped; not runtime ownership",
+  "name": "Sector 07 Adesanya Olaiya Mafoluku crossings",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "osm:way:92451057",
+      "properties": {
+        "osmWayId": 92451057,
+        "osmVersion": 4,
+        "osmTimestamp": "2024-04-23T12:16:44Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Amusa Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1073317008,
+          1079925447,
+          1073318247,
+          1073317339,
+          1073317608
+        ],
+        "nodeVersions": [
+          5,
+          4,
+          5,
+          4,
+          10
+        ],
+        "nodeTimestamps": [
+          "2026-05-11T03:27:25Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2025-09-09T14:00:23Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 286.3
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3318778,
+            6.5566101
+          ],
+          [
+            3.3316615,
+            6.5571824
+          ],
+          [
+            3.3314198,
+            6.5577577
+          ],
+          [
+            3.3312074,
+            6.5583648
+          ],
+          [
+            3.3309458,
+            6.5590119
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451090",
+      "properties": {
+        "osmWayId": 92451090,
+        "osmVersion": 10,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Adesanya Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          5624392796,
+          5624392799,
+          5624392800,
+          11841073753,
+          11841073692,
+          5624392801,
+          1073317908,
+          5624392802,
+          5624392803,
+          1073317407,
+          5624392804,
+          5624392805,
+          1073316652,
+          5624392806,
+          5624392807,
+          5624392808,
+          5624392809,
+          1073317869,
+          4395533010,
+          1079925502,
+          4395533020,
+          1073317008,
+          5624499819,
+          5624499817,
+          1073318194
+        ],
+        "nodeVersions": [
+          2,
+          3,
+          3,
+          2,
+          2,
+          3,
+          3,
+          2,
+          3,
+          5,
+          2,
+          2,
+          3,
+          2,
+          2,
+          2,
+          2,
+          3,
+          3,
+          5,
+          4,
+          5,
+          2,
+          2,
+          4
+        ],
+        "nodeTimestamps": [
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2026-05-06T04:13:09Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2026-05-06T04:13:09Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2026-05-06T04:13:09Z",
+          "2026-05-06T04:13:09Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2026-05-11T03:27:25Z",
+          "2026-05-11T03:27:25Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2026-05-11T03:27:25Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 866.4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3383431,
+            6.5585843
+          ],
+          [
+            3.3382284,
+            6.5585843
+          ],
+          [
+            3.3381067,
+            6.5585606
+          ],
+          [
+            3.3380118,
+            6.558533
+          ],
+          [
+            3.3379541,
+            6.5585183
+          ],
+          [
+            3.3379012,
+            6.5584983
+          ],
+          [
+            3.3377126,
+            6.5584088
+          ],
+          [
+            3.3374485,
+            6.5583111
+          ],
+          [
+            3.3372393,
+            6.5582625
+          ],
+          [
+            3.3371112,
+            6.5582394
+          ],
+          [
+            3.3369698,
+            6.5582205
+          ],
+          [
+            3.336719,
+            6.5582285
+          ],
+          [
+            3.3364651,
+            6.558235
+          ],
+          [
+            3.3362697,
+            6.5582219
+          ],
+          [
+            3.3360337,
+            6.5581686
+          ],
+          [
+            3.335803,
+            6.558098
+          ],
+          [
+            3.3355562,
+            6.5580034
+          ],
+          [
+            3.3354169,
+            6.5579513
+          ],
+          [
+            3.3349852,
+            6.5577734
+          ],
+          [
+            3.3346793,
+            6.5576566
+          ],
+          [
+            3.3335874,
+            6.5572562
+          ],
+          [
+            3.3318778,
+            6.5566101
+          ],
+          [
+            3.3310448,
+            6.5562713
+          ],
+          [
+            3.3309938,
+            6.5562527
+          ],
+          [
+            3.3309315,
+            6.5562204
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:588965956",
+      "properties": {
+        "osmWayId": 588965956,
+        "osmVersion": 2,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "bridge": "yes",
+          "highway": "tertiary",
+          "layer": "1",
+          "name": "Adesanya Street",
+          "source": "BING"
+        },
+        "osmNodeIds": [
+          5624392798,
+          5624392796
+        ],
+        "nodeVersions": [
+          1,
+          2
+        ],
+        "nodeTimestamps": [
+          "2018-05-17T12:03:42Z",
+          "2024-04-30T13:26:50Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 12.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3384591,
+            6.5585716
+          ],
+          [
+            3.3383431,
+            6.5585843
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:588965957",
+      "properties": {
+        "osmWayId": 588965957,
+        "osmVersion": 2,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Adesanya Street",
+          "source": "BING"
+        },
+        "osmNodeIds": [
+          1079849451,
+          1073317561,
+          5624392797,
+          5624392798
+        ],
+        "nodeVersions": [
+          6,
+          2,
+          1,
+          1
+        ],
+        "nodeTimestamps": [
+          "2025-10-16T16:32:44Z",
+          "2018-05-17T12:03:43Z",
+          "2018-05-17T12:03:42Z",
+          "2018-05-17T12:03:42Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 170.1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3399555,
+            6.5582117
+          ],
+          [
+            3.3391145,
+            6.5584226
+          ],
+          [
+            3.3388433,
+            6.5584843
+          ],
+          [
+            3.3384591,
+            6.5585716
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:8564505",
+      "properties": {
+        "osmWayId": 8564505,
+        "osmVersion": 12,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "tertiary",
+          "maxspeed": "40",
+          "name": "Daudu Street",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          35785465,
+          4395533100,
+          4395533097,
+          4395533104,
+          1079849451,
+          5623442588
+        ],
+        "nodeVersions": [
+          5,
+          3,
+          2,
+          3,
+          6,
+          3
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T04:13:09Z",
+          "2024-04-23T12:36:45Z",
+          "2018-05-17T03:38:34Z",
+          "2025-10-16T16:32:44Z",
+          "2025-10-16T16:32:44Z",
+          "2026-05-06T04:13:09Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 326.6
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3402634,
+            6.561006
+          ],
+          [
+            3.3401663,
+            6.5602802
+          ],
+          [
+            3.3400659,
+            6.5591913
+          ],
+          [
+            3.3400426,
+            6.5589698
+          ],
+          [
+            3.3399555,
+            6.5582117
+          ],
+          [
+            3.3399403,
+            6.5580871
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1442626897",
+      "properties": {
+        "osmWayId": 1442626897,
+        "osmVersion": 1,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "tertiary",
+          "maxspeed": "40",
+          "name": "Rufai Street",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          5623442588,
+          11876558000,
+          1079925522,
+          35785464
+        ],
+        "nodeVersions": [
+          3,
+          2,
+          4,
+          7
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T04:13:09Z",
+          "2025-07-03T18:08:17Z",
+          "2025-07-03T18:08:17Z",
+          "2025-10-16T16:32:44Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 159.4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3399403,
+            6.5580871
+          ],
+          [
+            3.3398555,
+            6.5575957
+          ],
+          [
+            3.3397774,
+            6.5572686
+          ],
+          [
+            3.3396715,
+            6.5566793
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:589001498",
+      "properties": {
+        "osmWayId": 589001498,
+        "osmVersion": 3,
+        "osmTimestamp": "2024-05-03T13:27:19Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Olaiya Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1079925522,
+          5624392790
+        ],
+        "nodeVersions": [
+          4,
+          5
+        ],
+        "nodeTimestamps": [
+          "2025-07-03T18:08:17Z",
+          "2024-05-03T13:27:19Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 183.7
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3397774,
+            6.5572686
+          ],
+          [
+            3.3381184,
+            6.5573839
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1279347657",
+      "properties": {
+        "osmWayId": 1279347657,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-05-03T13:27:19Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Olaiya Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          5624392790,
+          11876557995
+        ],
+        "nodeVersions": [
+          5,
+          1
+        ],
+        "nodeTimestamps": [
+          "2024-05-03T13:27:19Z",
+          "2024-05-03T13:27:19Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 11
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3381184,
+            6.5573839
+          ],
+          [
+            3.3380191,
+            6.5573874
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1279347656",
+      "properties": {
+        "osmWayId": 1279347656,
+        "osmVersion": 1,
+        "osmTimestamp": "2024-05-03T13:27:19Z",
+        "tags": {
+          "bridge": "yes",
+          "highway": "residential",
+          "layer": "1",
+          "name": "Olaiya Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          11876557995,
+          11876557994
+        ],
+        "nodeVersions": [
+          1,
+          1
+        ],
+        "nodeTimestamps": [
+          "2024-05-03T13:27:19Z",
+          "2024-05-03T13:27:19Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 11.5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3380191,
+            6.5573874
+          ],
+          [
+            3.3379153,
+            6.5573911
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:93156444",
+      "properties": {
+        "osmWayId": 93156444,
+        "osmVersion": 11,
+        "osmTimestamp": "2024-05-03T13:27:19Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Olaiya Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          11876557994,
+          5632653543,
+          1079925486,
+          5624392793,
+          1079925482,
+          5624392794,
+          5624392791,
+          4395533012,
+          1079925456,
+          4395533011,
+          4395533016,
+          1079925519,
+          4395533021,
+          5624499812,
+          5624499814,
+          5624499815,
+          1079925513,
+          5624499816,
+          1079925488
+        ],
+        "nodeVersions": [
+          1,
+          3,
+          4,
+          3,
+          4,
+          3,
+          3,
+          4,
+          4,
+          4,
+          4,
+          3,
+          4,
+          2,
+          2,
+          2,
+          3,
+          2,
+          4
+        ],
+        "nodeTimestamps": [
+          "2024-05-03T13:27:19Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 825.4
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3379153,
+            6.5573911
+          ],
+          [
+            3.3375958,
+            6.5574024
+          ],
+          [
+            3.3373437,
+            6.557422
+          ],
+          [
+            3.3368109,
+            6.5574831
+          ],
+          [
+            3.3365865,
+            6.5575078
+          ],
+          [
+            3.3364051,
+            6.5575044
+          ],
+          [
+            3.3361209,
+            6.5574937
+          ],
+          [
+            3.3358639,
+            6.5574353
+          ],
+          [
+            3.3356527,
+            6.5573622
+          ],
+          [
+            3.3352083,
+            6.5571954
+          ],
+          [
+            3.3344633,
+            6.5569169
+          ],
+          [
+            3.3342945,
+            6.5568506
+          ],
+          [
+            3.3338468,
+            6.5566829
+          ],
+          [
+            3.3332308,
+            6.5564472
+          ],
+          [
+            3.3318641,
+            6.5558823
+          ],
+          [
+            3.331494,
+            6.5556984
+          ],
+          [
+            3.3314146,
+            6.5556766
+          ],
+          [
+            3.3313318,
+            6.5556651
+          ],
+          [
+            3.3307991,
+            6.555668
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:441859080",
+      "properties": {
+        "osmWayId": 441859080,
+        "osmVersion": 1,
+        "osmTimestamp": "2016-09-11T01:20:09Z",
+        "tags": {
+          "highway": "residential"
+        },
+        "osmNodeIds": [
+          4395533010,
+          4395533011
+        ],
+        "nodeVersions": [
+          3,
+          4
+        ],
+        "nodeTimestamps": [
+          "2024-04-30T13:26:50Z",
+          "2026-05-11T01:29:08Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 68.8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3349852,
+            6.5577734
+          ],
+          [
+            3.3352083,
+            6.5571954
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:441859081",
+      "properties": {
+        "osmWayId": 441859081,
+        "osmVersion": 1,
+        "osmTimestamp": "2016-09-11T01:20:09Z",
+        "tags": {
+          "highway": "residential"
+        },
+        "osmNodeIds": [
+          4395533012,
+          4395533013
+        ],
+        "nodeVersions": [
+          4,
+          4
+        ],
+        "nodeTimestamps": [
+          "2026-05-11T01:29:08Z",
+          "2024-04-30T13:26:50Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 89.1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3358639,
+            6.5574353
+          ],
+          [
+            3.3361304,
+            6.5566787
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:441859083",
+      "properties": {
+        "osmWayId": 441859083,
+        "osmVersion": 1,
+        "osmTimestamp": "2016-09-11T01:20:09Z",
+        "tags": {
+          "highway": "residential"
+        },
+        "osmNodeIds": [
+          4395533016,
+          4395533017
+        ],
+        "nodeVersions": [
+          4,
+          6
+        ],
+        "nodeTimestamps": [
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 75.8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3344633,
+            6.5569169
+          ],
+          [
+            3.3347338,
+            6.5562905
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:441859085",
+      "properties": {
+        "osmWayId": 441859085,
+        "osmVersion": 2,
+        "osmTimestamp": "2024-04-30T13:26:50Z",
+        "tags": {
+          "highway": "residential",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          4395533020,
+          4395533021
+        ],
+        "nodeVersions": [
+          4,
+          4
+        ],
+        "nodeTimestamps": [
+          "2026-05-11T03:27:25Z",
+          "2026-05-11T01:29:08Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 69.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3335874,
+            6.5572562
+          ],
+          [
+            3.3338468,
+            6.5566829
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451086",
+      "properties": {
+        "osmWayId": 92451086,
+        "osmVersion": 20,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "secondary",
+          "name": "Mafoluku Road",
+          "source": "BING",
+          "surface": "asphalt"
+        },
+        "osmNodeIds": [
+          5624643863,
+          8918590663,
+          12683952995,
+          4395533013,
+          5624392789,
+          1073319041,
+          5624392788,
+          1073315953,
+          4395533017,
+          9766024071,
+          1073317116,
+          1079925464,
+          1073318781,
+          11850362641,
+          1079925545,
+          5624499811,
+          1073316777,
+          1079925551,
+          5624738971,
+          1073317999
+        ],
+        "nodeVersions": [
+          6,
+          5,
+          1,
+          4,
+          4,
+          5,
+          4,
+          3,
+          6,
+          4,
+          6,
+          5,
+          5,
+          2,
+          4,
+          3,
+          4,
+          5,
+          3,
+          7
+        ],
+        "nodeTimestamps": [
+          "2026-05-12T07:33:21Z",
+          "2025-03-20T09:13:28Z",
+          "2025-03-20T09:13:28Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2026-05-11T01:29:08Z",
+          "2026-05-11T01:29:08Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2026-05-11T03:27:25Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 823.9
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.337713,
+            6.5566888
+          ],
+          [
+            3.3376725,
+            6.5566883
+          ],
+          [
+            3.3374767,
+            6.5566871
+          ],
+          [
+            3.3361304,
+            6.5566787
+          ],
+          [
+            3.3357702,
+            6.5566684
+          ],
+          [
+            3.3356933,
+            6.5566599
+          ],
+          [
+            3.3356072,
+            6.5566404
+          ],
+          [
+            3.3350747,
+            6.5564333
+          ],
+          [
+            3.3347338,
+            6.5562905
+          ],
+          [
+            3.3344605,
+            6.5561805
+          ],
+          [
+            3.3338846,
+            6.5559498
+          ],
+          [
+            3.3327549,
+            6.5556162
+          ],
+          [
+            3.3323269,
+            6.5554379
+          ],
+          [
+            3.3320144,
+            6.5552534
+          ],
+          [
+            3.3317298,
+            6.5550061
+          ],
+          [
+            3.3315625,
+            6.5549483
+          ],
+          [
+            3.3313796,
+            6.5549186
+          ],
+          [
+            3.3311883,
+            6.5549093
+          ],
+          [
+            3.3308074,
+            6.5549164
+          ],
+          [
+            3.3306369,
+            6.5549424
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:589001491",
+      "properties": {
+        "osmWayId": 589001491,
+        "osmVersion": 6,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "bridge": "yes",
+          "highway": "secondary",
+          "layer": "1",
+          "name": "Mafoluku Road",
+          "source": "BING",
+          "surface": "asphalt"
+        },
+        "osmNodeIds": [
+          5624392795,
+          5624643863
+        ],
+        "nodeVersions": [
+          5,
+          6
+        ],
+        "nodeTimestamps": [
+          "2026-05-12T07:33:21Z",
+          "2026-05-12T07:33:21Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 17.5
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.337871,
+            6.5566944
+          ],
+          [
+            3.337713,
+            6.5566888
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:589001493",
+      "properties": {
+        "osmWayId": 589001493,
+        "osmVersion": 9,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "secondary",
+          "name": "Oshodi Road",
+          "source": "BING",
+          "surface": "asphalt"
+        },
+        "osmNodeIds": [
+          1079849430,
+          4395533045,
+          5623505046,
+          3745002403,
+          4395533055,
+          35785462,
+          13236856295,
+          35785464,
+          4395532936,
+          5624643862,
+          5624392795
+        ],
+        "nodeVersions": [
+          4,
+          4,
+          4,
+          6,
+          4,
+          5,
+          1,
+          7,
+          3,
+          2,
+          5
+        ],
+        "nodeTimestamps": [
+          "2024-04-29T11:14:14Z",
+          "2024-04-29T11:14:14Z",
+          "2026-05-12T07:33:21Z",
+          "2024-04-29T11:14:14Z",
+          "2024-04-29T11:14:14Z",
+          "2025-07-03T18:08:17Z",
+          "2025-10-16T16:32:44Z",
+          "2025-10-16T16:32:44Z",
+          "2026-05-12T07:33:21Z",
+          "2025-07-03T18:08:17Z",
+          "2026-05-12T07:33:21Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 815.8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3452437,
+            6.5564568
+          ],
+          [
+            3.3439694,
+            6.5564229
+          ],
+          [
+            3.3438075,
+            6.556432
+          ],
+          [
+            3.3423443,
+            6.5564844
+          ],
+          [
+            3.3420591,
+            6.5565404
+          ],
+          [
+            3.3403826,
+            6.5566126
+          ],
+          [
+            3.3397397,
+            6.5566761
+          ],
+          [
+            3.3396715,
+            6.5566793
+          ],
+          [
+            3.3390409,
+            6.5566921
+          ],
+          [
+            3.3384611,
+            6.5566977
+          ],
+          [
+            3.337871,
+            6.5566944
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451115",
+      "properties": {
+        "osmWayId": 92451115,
+        "osmVersion": 5,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "tertiary",
+          "source": "BING"
+        },
+        "osmNodeIds": [
+          1073317999,
+          10308517249,
+          1079925488,
+          5624499818,
+          1073318194
+        ],
+        "nodeVersions": [
+          7,
+          2,
+          4,
+          1,
+          4
+        ],
+        "nodeTimestamps": [
+          "2026-05-11T03:27:25Z",
+          "2026-05-11T03:27:25Z",
+          "2024-04-30T13:26:50Z",
+          "2018-05-17T12:39:06Z",
+          "2026-05-11T03:27:25Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 146.1
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3306369,
+            6.5549424
+          ],
+          [
+            3.3307161,
+            6.5552737
+          ],
+          [
+            3.3307991,
+            6.555668
+          ],
+          [
+            3.3308959,
+            6.5561501
+          ],
+          [
+            3.3309315,
+            6.5562204
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:93156426",
+      "properties": {
+        "osmWayId": 93156426,
+        "osmVersion": 4,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "tertiary",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1079925444,
+          1079925435,
+          1079925502
+        ],
+        "nodeVersions": [
+          4,
+          4,
+          5
+        ],
+        "nodeTimestamps": [
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z",
+          "2024-04-30T13:26:50Z"
+        ],
+        "featureClass": "road",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 141
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3342152,
+            6.5588374
+          ],
+          [
+            3.3344395,
+            6.5582372
+          ],
+          [
+            3.3346793,
+            6.5576566
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:92451100",
+      "properties": {
+        "osmWayId": 92451100,
+        "osmVersion": 9,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "waterway": "ditch"
+        },
+        "osmNodeIds": [
+          1073318296,
+          1073315799,
+          1073318607,
+          1073318224,
+          1073316972,
+          1073318951,
+          1073317603,
+          1073317309,
+          1073316101,
+          1079855194,
+          1073319233,
+          1073317888,
+          1073317557,
+          1073316411,
+          1073318244,
+          1073317004,
+          1073316683,
+          1073319500,
+          13236856296,
+          1073316940,
+          1073315744,
+          1073319481,
+          1073318167,
+          1073316061,
+          1073318910,
+          1073318541,
+          1073317253,
+          1073318849,
+          1073317495,
+          1073317159,
+          1073315997,
+          3740115910,
+          1073317831,
+          1073316625,
+          1073316358,
+          1073319159,
+          1073316559,
+          1073319444,
+          1073319064
+        ],
+        "nodeVersions": [
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          5,
+          6,
+          4,
+          4,
+          6,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          1,
+          5,
+          4,
+          4,
+          4,
+          4,
+          5,
+          5,
+          5,
+          5,
+          5,
+          4,
+          4,
+          6,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4,
+          4
+        ],
+        "nodeTimestamps": [
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2025-10-16T16:32:44Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2025-10-16T16:32:44Z",
+          "2025-10-16T16:32:44Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z",
+          "2024-04-29T10:51:39Z"
+        ],
+        "featureClass": "waterway",
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentConditionVerified": false,
+        "verticalDatum": null,
+        "gameplayAdmission": false,
+        "approximatePolylineLengthMetres": 2709.8
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3407676,
+            6.566721
+          ],
+          [
+            3.3407796,
+            6.5660833
+          ],
+          [
+            3.3406616,
+            6.566014
+          ],
+          [
+            3.3403635,
+            6.5658728
+          ],
+          [
+            3.3401533,
+            6.5656649
+          ],
+          [
+            3.3401627,
+            6.5654211
+          ],
+          [
+            3.3401801,
+            6.5652332
+          ],
+          [
+            3.3397738,
+            6.5642753
+          ],
+          [
+            3.3394513,
+            6.563436
+          ],
+          [
+            3.3392585,
+            6.5626541
+          ],
+          [
+            3.3390894,
+            6.5619187
+          ],
+          [
+            3.3388644,
+            6.5613388
+          ],
+          [
+            3.338815,
+            6.560315
+          ],
+          [
+            3.3385513,
+            6.559728
+          ],
+          [
+            3.3384352,
+            6.5590467
+          ],
+          [
+            3.3384141,
+            6.5584597
+          ],
+          [
+            3.3382559,
+            6.5579566
+          ],
+          [
+            3.3379921,
+            6.5575374
+          ],
+          [
+            3.3378314,
+            6.5568107
+          ],
+          [
+            3.337723,
+            6.5560412
+          ],
+          [
+            3.3375806,
+            6.5552733
+          ],
+          [
+            3.3374962,
+            6.5547702
+          ],
+          [
+            3.3372852,
+            6.5543614
+          ],
+          [
+            3.337032,
+            6.5537115
+          ],
+          [
+            3.3366796,
+            6.5529778
+          ],
+          [
+            3.3365195,
+            6.5525107
+          ],
+          [
+            3.3363339,
+            6.5511113
+          ],
+          [
+            3.3364074,
+            6.5504592
+          ],
+          [
+            3.3361388,
+            6.5500064
+          ],
+          [
+            3.3356393,
+            6.5486279
+          ],
+          [
+            3.3353017,
+            6.5481667
+          ],
+          [
+            3.3349784,
+            6.5474093
+          ],
+          [
+            3.3345948,
+            6.5465106
+          ],
+          [
+            3.3348796,
+            6.5459026
+          ],
+          [
+            3.3347741,
+            6.5455672
+          ],
+          [
+            3.3344365,
+            6.545106
+          ],
+          [
+            3.3343838,
+            6.5445504
+          ],
+          [
+            3.3342994,
+            6.5442779
+          ],
+          [
+            3.3340349,
+            6.5441013
+          ]
+        ]
+      }
+    }
+  ]
+}

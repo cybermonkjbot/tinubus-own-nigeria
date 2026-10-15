@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\frontage-v1-control\run_frontage_owned.py", line 62, in <module>
+    runpy.run_path(str(SOURCE),run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 287, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\parent-realism-kit\author_yaba_frontage.py", line 679, in <module>
+    main()
+    ~~~~^^
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\parent-realism-kit\author_yaba_frontage.py", line 655, in main
+    enum_set(scene.unit_settings, "length_unit", "METERS")
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\parent-realism-kit\author_yaba_frontage.py", line 42, in enum_set
+    raise RuntimeError("Unsupported Blender enum: " + field + "=" + value)
+RuntimeError: Unsupported Blender enum: length_unit=METERS
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\realism\frontage-v1-control\run_frontage_owned.py', exiting.

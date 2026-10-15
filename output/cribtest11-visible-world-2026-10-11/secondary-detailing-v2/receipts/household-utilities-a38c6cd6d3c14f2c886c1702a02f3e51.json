@@ -1,0 +1,83 @@
+{
+  "batch": "household-utilities",
+  "destination": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday",
+  "engine": "5.8.3-58210709+++UE5+Release-5.8",
+  "manifest_sha256": "abb202766907be1c077dc5f3fac319ec3e95bfcbeef9bb9374894293c9d53685",
+  "asset_ids": [
+    "SM_Jerrycan20L_A",
+    "SM_HandledBucket_A",
+    "SM_WashBasin_A",
+    "SM_WheeledBin_A"
+  ],
+  "created": [
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_Jerrycan20L_A.SM_Jerrycan20L_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_HandledBucket_A.SM_HandledBucket_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WashBasin_A.SM_WashBasin_A",
+    "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WheeledBin_A.SM_WheeledBin_A"
+  ],
+  "meshes": [
+    {
+      "id": "SM_Jerrycan20L_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_Jerrycan20L_A.SM_Jerrycan20L_A",
+      "triangles": [
+        584,
+        112,
+        104
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_HandledBucket_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_HandledBucket_A.SM_HandledBucket_A",
+      "triangles": [
+        2188,
+        236,
+        148
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_WashBasin_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WashBasin_A.SM_WashBasin_A",
+      "triangles": [
+        1484,
+        116,
+        76
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    },
+    {
+      "id": "SM_WheeledBin_A",
+      "path": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/Everyday/Meshes/SM_WheeledBin_A.SM_WheeledBin_A",
+      "triangles": [
+        364,
+        84,
+        60
+      ],
+      "screen_sizes": [
+        1.0,
+        0.11999999731779099,
+        0.03500000014901161
+      ],
+      "collision_policy": "none"
+    }
+  ],
+  "world_placement": "none",
+  "native_visual_acceptance": "pending",
+  "status": "imported-native-visual-acceptance-pending"
+}

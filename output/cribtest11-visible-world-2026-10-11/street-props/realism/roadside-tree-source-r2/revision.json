@@ -1,0 +1,10 @@
+{
+  "frozen_source_sha256": "6dce09d3eee74ab10ea0f94580ff21e7d7f068339cb6c3dc180639939ddb4835",
+  "owned_revision_sha256": "24ed6c208b2c4743ad94e6f26442d5174a3037ff751745270abf3d71c189c312",
+  "observed_defect": "Bare central spike, regular radial limb tiers and smooth bark/root flare in v1 ground view",
+  "geometry_changes": ["Trunk terminates at a structural fork at62percent design height, two tapering leaders continue from terminal centerline", "Other limbs use irregular heights, golden-angle headings plus jitter, varied reaches/lifts/radii"],
+  "camera": "Same Tree-Ground-Shadow eye[11,-16,1.7] target[0,0,4.165] lens38mm; no camera concealment",
+  "render_budget": "Single same-camera comparison frame, CPU2threads24samples960x640",
+  "unrepaired": ["Bark remains procedural preview, no licensed bark/leaf scan supplied", "Branch grafts overlap rather than watertight joins", "Species unresolved, leaf shader and native performance not accepted"],
+  "scope": "Owned new source/output; v1 source and deliveries untouched; tree remains unplaced pending review"
+}

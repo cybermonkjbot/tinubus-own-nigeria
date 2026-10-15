@@ -1,0 +1,94 @@
+{
+  "retrievedDate": "2026-10-11",
+  "geosearchCenter": [
+    3.3395,
+    6.5534
+  ],
+  "radiusMetres": 600,
+  "geosearchSha256": "777d04ae7f48be0b83edca937bfb2aab75da62950741b54e73ea5e38a9edb7ae",
+  "metadataSha256": "4695ca21627df240faea89067a3034b8646ce22df386247f14e48a7a6749a48e",
+  "images": [
+    {
+      "pageId": 35456655,
+      "title": "File:2011 Mushin Lagos Nigeria 6352734402.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:2011_Mushin_Lagos_Nigeria_6352734402.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/d/da/2011_Mushin_Lagos_Nigeria_6352734402.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "fileSha256": "1724fef68b5492886ba0810fd31efe97a565278615a1497ea64f2ad6ffa96659",
+      "sourceClaimedCoordinates": [
+        3.340166,
+        6.551
+      ],
+      "sourceClaimedCaptureTime": "2011-11-16 08:15",
+      "artistHtml": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/23337613@N00\">zmtomako</a> from Markham, Canada",
+      "license": "CC BY-SA 2.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+      "directlyInspected": true,
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetImported": false
+    },
+    {
+      "pageId": 63897481,
+      "title": "File:Bus conductor at work.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Bus_conductor_at_work.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/2/25/Bus_conductor_at_work.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "fileSha256": "271f22ce9057e495027dc44ef22ea31a95d858cca643d95cd91b0d3f759bf9d6",
+      "sourceClaimedCoordinates": [
+        3.341744,
+        6.551589
+      ],
+      "sourceClaimedCaptureTime": "2017-11-06 11:15:51",
+      "artistHtml": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tapiya&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tapiya (page does not exist)\">Tapiya</a>",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "directlyInspected": true,
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetImported": false
+    },
+    {
+      "pageId": 63897482,
+      "title": "File:Government Employees task with clearing gutters.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Government_Employees_task_with_clearing_gutters.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Government_Employees_task_with_clearing_gutters.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "fileSha256": "3a2f96d042d2f59913369a61ec58e50b4a2c28a3c96a53a825e0220c892b4a73",
+      "sourceClaimedCoordinates": [
+        3.34178,
+        6.55159
+      ],
+      "sourceClaimedCaptureTime": "2017-11-06 11:42:11",
+      "artistHtml": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tapiya&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tapiya (page does not exist)\">Tapiya</a>",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "directlyInspected": true,
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetImported": false
+    },
+    {
+      "pageId": 63897485,
+      "title": "File:Protecting the Environment.jpg",
+      "pageUrl": "https://commons.wikimedia.org/wiki/File:Protecting_the_Environment.jpg",
+      "originalUrl": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Protecting_the_Environment.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+      "fileSha256": "dceafd9c8c7941b14d0afe26d1316ea6c2fbd4c14768f01b5a91a668f9000e65",
+      "sourceClaimedCoordinates": [
+        3.34178,
+        6.55159
+      ],
+      "sourceClaimedCaptureTime": "2017-11-06 11:42:15",
+      "artistHtml": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Tapiya&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Tapiya (page does not exist)\">Tapiya</a>",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+      "directlyInspected": true,
+      "cameraRegistration": null,
+      "currentConditionVerified": false,
+      "gameAssetImported": false
+    }
+  ],
+  "notes": [
+    "Geotags, titles and capture dates are source claims, not independent surveyed registration",
+    "2011 title/category says Mushin; do not use it to redefine this sector or assume an exact camera pose",
+    "Two 2017 cleaning photographs share coordinates and are one scene, not independent geographic corroboration",
+    "No original photograph, identifiable person, organization mark or third-party artwork imported into game"
+  ]
+}

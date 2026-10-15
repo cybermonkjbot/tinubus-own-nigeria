@@ -1,0 +1,17 @@
+C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v2\lagos_first_scene_owned.py:116: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v2\lagos_first_scene_owned.py", line 661, in <module>
+    main()
+    ~~~~^^
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v2\lagos_first_scene_owned.py", line 610, in main
+    props = append_props(args.street_props_blend, documents["lagos-connected-transit-v1.json"]["transit"], theatre)
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v2\lagos_first_scene_owned.py", line 474, in append_props
+    instance("Danfo", [berth["x"], 0, berth["z"]], berth["yaw"], related=ring_stop["id"])
+    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v2\lagos_first_scene_owned.py", line 460, in instance
+    obj.instance_type, obj.instance_collection = "COLLECTION", props[asset]
+                                                               ~~~~~^^^^^^^
+KeyError: 'Danfo'
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\cribtest11-visible-world-2026-10-11\street-props\first-scene-v2\lagos_first_scene_owned.py', exiting.

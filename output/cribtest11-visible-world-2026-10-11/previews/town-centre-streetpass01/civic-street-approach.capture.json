@@ -1,0 +1,25 @@
+{
+  "imagePath": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\previews\\town-centre-streetpass01\\civic-street-approach.png",
+  "imageSha256": "819e06373ebac1e76b44303b66f0af03123cc8a0f315a05bcc6702986af6ac92",
+  "width": 705,
+  "height": 486,
+  "capture": {
+    "cameraLocation": {
+      "x": -27000,
+      "y": 900,
+      "z": 165
+    },
+    "cameraRotation": {
+      "pitch": 3,
+      "yaw": -5,
+      "roll": 0
+    },
+    "cameraFOV": 68,
+    "grid": {
+      "spacingCm": 0,
+      "extentCm": 0,
+      "height": 0
+    },
+    "labeledActors": []
+  }
+}

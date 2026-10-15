@@ -1,0 +1,508 @@
+{
+  "recorded_at": "2026-10-11T03:06:51.7290418-07:00",
+  "role": "Blender asset handoff only; not native import receipt",
+  "frontage": {
+    "output": "C:/dev/baddie-assets/YabaRealismKit/frontage-v2",
+    "authoring_pid": 12848,
+    "process_state": "exited",
+    "module_count": 18,
+    "instance_count": 83,
+    "module_hash_mismatches": 0,
+    "geometry_inventory_snapshot": [
+      {
+        "module": "ResidentialBay",
+        "file": "fbx/ResidentialBay.fbx",
+        "sha256": "026a54573255f9c84253f9169b45862fbd5dc4b57a60781f9b79ab05f01492fa",
+        "triangles": 64,
+        "mesh_parts": 1,
+        "material_slots": [
+          "Yaba_plaster"
+        ],
+        "anchor": "left bay edge at X=0, exterior Y=0, floor Z=0"
+      },
+      {
+        "module": "ShopBay",
+        "file": "fbx/ShopBay.fbx",
+        "sha256": "9621e21764a5073ba68cac856a778985c7c44a556ddea2c57b92ae53f42a7167",
+        "triangles": 44,
+        "mesh_parts": 1,
+        "material_slots": [
+          "Yaba_plaster"
+        ],
+        "anchor": "left bay edge at X=0, exterior Y=0, floor Z=0"
+      },
+      {
+        "module": "Window1300",
+        "file": "fbx/Window1300.fbx",
+        "sha256": "afc954640714e73d7765cb13ed135ad55b8176a120bb18237f9d2be54e929def",
+        "triangles": 1236,
+        "mesh_parts": 23,
+        "material_slots": [
+          "Yaba_aluminium",
+          "Yaba_concrete",
+          "Yaba_glass",
+          "Yaba_painted_steel"
+        ],
+        "anchor": "opening bottom-left; frame recessed 110mm behind facade"
+      },
+      {
+        "module": "Shutter2800",
+        "file": "fbx/Shutter2800.fbx",
+        "sha256": "80547716d369ae424a3fed006051ee3af41c1e463b6fde343af8c0e5d42f5a50",
+        "triangles": 988,
+        "mesh_parts": 45,
+        "material_slots": [
+          "Yaba_aluminium",
+          "Yaba_painted_steel"
+        ],
+        "anchor": "shop opening bottom-left, 150mm recessed"
+      },
+      {
+        "module": "OpenShopInterior",
+        "file": "fbx/OpenShopInterior.fbx",
+        "sha256": "9746638f5ba72acc9b393a438f96a5ce5b246734ce3ed7c8805cc079052013ac",
+        "triangles": 456,
+        "mesh_parts": 14,
+        "material_slots": [
+          "Yaba_concrete",
+          "Yaba_painted_steel",
+          "Yaba_plaster"
+        ],
+        "anchor": "shop opening centre at ground; no hidden flat shadow card"
+      },
+      {
+        "module": "Balcony3900",
+        "file": "fbx/Balcony3900.fbx",
+        "sha256": "16bc1ecd6a1fb7b9528ac75ed01f4a2f66001e4cacfc514963ca5513726e2a81",
+        "triangles": 1600,
+        "mesh_parts": 50,
+        "material_slots": [
+          "Yaba_aluminium",
+          "Yaba_concrete",
+          "Yaba_painted_steel"
+        ],
+        "anchor": "bay left edge and upper floor Z=0"
+      },
+      {
+        "module": "ACServiceAssembly",
+        "file": "fbx/ACServiceAssembly.fbx",
+        "sha256": "d4cc60aa0b010a965cad142c0bc91ca4d2d59b5c6b79e9994b8d786bbdb1c491",
+        "triangles": 4600,
+        "mesh_parts": 57,
+        "material_slots": [
+          "Yaba_ac_paint",
+          "Yaba_aluminium",
+          "Yaba_painted_steel",
+          "Yaba_rubber"
+        ],
+        "anchor": "wall anchor at [0,0,0]; unit faces street +Y"
+      },
+      {
+        "module": "RoofSheetPanel",
+        "file": "fbx/RoofSheetPanel.fbx",
+        "sha256": "52b8a36a083b96d90b1e8ede4ee9e4a9ebbe95f5ddc6632bcaa6ab779c6dd827",
+        "triangles": 1020,
+        "mesh_parts": 13,
+        "material_slots": [
+          "Yaba_aluminium",
+          "Yaba_corrugated_metal",
+          "Yaba_painted_steel"
+        ],
+        "anchor": "0.96m overlapping sheet; left edge datum; rear -Y"
+      },
+      {
+        "module": "Gutter3900",
+        "file": "fbx/Gutter3900.fbx",
+        "sha256": "7ad3521e84b7d21b35eebf1ec158149500cb848d57087406fc94db05ee517301",
+        "triangles": 268,
+        "mesh_parts": 5,
+        "material_slots": [
+          "Yaba_corrugated_metal",
+          "Yaba_painted_steel"
+        ],
+        "anchor": "3.9m horizontal segment; ends join without caps"
+      },
+      {
+        "module": "RainwaterDownpipe",
+        "file": "fbx/RainwaterDownpipe.fbx",
+        "sha256": "4aebd0ee9550f04cb2ae2e9d4ed43c325ac2346f9929cd706a064e4af72eb249",
+        "triangles": 272,
+        "mesh_parts": 4,
+        "material_slots": [
+          "Yaba_ac_paint",
+          "Yaba_painted_steel"
+        ],
+        "anchor": "roof gutter outlet datum; drop to drain"
+      },
+      {
+        "module": "Drain1000",
+        "file": "fbx/Drain1000.fbx",
+        "sha256": "4299137345745e5a910d7f89317e4c4fc6154098ca75e8b8d0ade30e357278f0",
+        "triangles": 36,
+        "mesh_parts": 3,
+        "material_slots": [
+          "Yaba_concrete"
+        ],
+        "anchor": "pavement lip Z=0; channel below; run +X"
+      },
+      {
+        "module": "DrainCover1000",
+        "file": "fbx/DrainCover1000.fbx",
+        "sha256": "aa324c3af3913a2cb198b5848b410bbb2723e08e06b5333b36bb32313f16194a",
+        "triangles": 432,
+        "mesh_parts": 4,
+        "material_slots": [
+          "Yaba_concrete"
+        ],
+        "anchor": "top Z=0; 4 separate removable concrete covers"
+      },
+      {
+        "module": "Kerb1000",
+        "file": "fbx/Kerb1000.fbx",
+        "sha256": "307cf7ddb272c692268a03db466faeee9b2e13b1e4a467473ac9bd4b79e7461d",
+        "triangles": 16,
+        "mesh_parts": 1,
+        "material_slots": [
+          "Yaba_concrete"
+        ],
+        "anchor": "road contact Z=0; pavement Z=0.15"
+      },
+      {
+        "module": "Pavement1000",
+        "file": "fbx/Pavement1000.fbx",
+        "sha256": "c6c28659f4d0fece60cdc738dcb5ae4badc9b5aecdd251c46f350d68a5a334be",
+        "triangles": 48,
+        "mesh_parts": 4,
+        "material_slots": [
+          "Yaba_concrete"
+        ],
+        "anchor": "pavement top Z=0; 1m longitudinal module"
+      },
+      {
+        "module": "RoadJunction",
+        "file": "fbx/RoadJunction.fbx",
+        "sha256": "026a092cc6f8c53fdf04f0f822e6ea30bd8324340f5f03a8a2368c924d9da9ae",
+        "triangles": 40,
+        "mesh_parts": 3,
+        "material_slots": [
+          "Yaba_asphalt"
+        ],
+        "anchor": "local road top Z=0; bounded T-junction, no georeferencing"
+      },
+      {
+        "module": "JunctionInlet",
+        "file": "fbx/JunctionInlet.fbx",
+        "sha256": "008f03a59b5546308e82671d4a065af3000910c1535329ffe865ae017af1cdb7",
+        "triangles": 228,
+        "mesh_parts": 19,
+        "material_slots": [
+          "Yaba_concrete",
+          "Yaba_painted_steel"
+        ],
+        "anchor": "kerb inlet top Z=0.15; channel bed Z=-0.30"
+      },
+      {
+        "module": "PlasterRepair",
+        "file": "fbx/PlasterRepair.fbx",
+        "sha256": "aa4fd6d5769a94fa511ec93c8dfd4a704d66034ba3ed2e6fad7ed4c61dc47fac",
+        "triangles": 20,
+        "mesh_parts": 1,
+        "material_slots": [
+          "Yaba_repair_mortar"
+        ],
+        "anchor": "local authored repair patch, not random dirt"
+      },
+      {
+        "module": "FrontageStructure",
+        "file": "fbx/FrontageStructure.fbx",
+        "sha256": "4e0d67c18e6fecf8659652ed7a313d0a7964e0a944dfbf289ea29133742ee419",
+        "triangles": 540,
+        "mesh_parts": 21,
+        "material_slots": [
+          "Yaba_aluminium",
+          "Yaba_concrete",
+          "Yaba_painted_steel",
+          "Yaba_plaster"
+        ],
+        "anchor": "local building/street origin; no district identity"
+      }
+    ],
+    "outputs": [
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\YabaFrontage.blend",
+        "sha256": "f65f16b7215eb745898816169885de31e149b12d0adacd2adc8b5fb1b57123d6",
+        "bytes": 105399183
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\execution.json",
+        "sha256": "5be810d51412a14b88a672ad8d102c234e402c0a0d075e8cea5ea40024109af0",
+        "bytes": 8413
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\placement.json",
+        "sha256": "7c0b6140cc2d3f07956fe78fe88bd69693f37e09d4ff12423fdc84693ec1f99d",
+        "bytes": 12727
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\material-bindings.json",
+        "sha256": "fd9efda83d15223eecf9052ead6cac006b76bfd00d11ad5425c3b0664cf469c3",
+        "bytes": 9222
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\scene-probe-reopened.json",
+        "sha256": "59cefdd799e1f5d03927ff408662520dcc9551808ebf5dffc69e5c830954b185",
+        "bytes": 6573
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\asset-inspection-reopened.json",
+        "sha256": "68eed7756c9336a60fb67254a5868f0b3f90620c4ec8ec3bcf6a58ace94fa6e6",
+        "bytes": 6276
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\ACServiceAssembly.fbx",
+        "sha256": "d4cc60aa0b010a965cad142c0bc91ca4d2d59b5c6b79e9994b8d786bbdb1c491",
+        "bytes": 287100
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Balcony3900.fbx",
+        "sha256": "16bc1ecd6a1fb7b9528ac75ed01f4a2f66001e4cacfc514963ca5513726e2a81",
+        "bytes": 195836
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Drain1000.fbx",
+        "sha256": "4299137345745e5a910d7f89317e4c4fc6154098ca75e8b8d0ade30e357278f0",
+        "bytes": 26924
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\DrainCover1000.fbx",
+        "sha256": "aa324c3af3913a2cb198b5848b410bbb2723e08e06b5333b36bb32313f16194a",
+        "bytes": 40508
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\FrontageStructure.fbx",
+        "sha256": "4e0d67c18e6fecf8659652ed7a313d0a7964e0a944dfbf289ea29133742ee419",
+        "bytes": 94044
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Gutter3900.fbx",
+        "sha256": "7ad3521e84b7d21b35eebf1ec158149500cb848d57087406fc94db05ee517301",
+        "bytes": 40028
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\JunctionInlet.fbx",
+        "sha256": "008f03a59b5546308e82671d4a065af3000910c1535329ffe865ae017af1cdb7",
+        "bytes": 74412
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Kerb1000.fbx",
+        "sha256": "307cf7ddb272c692268a03db466faeee9b2e13b1e4a467473ac9bd4b79e7461d",
+        "bytes": 21324
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\OpenShopInterior.fbx",
+        "sha256": "9746638f5ba72acc9b393a438f96a5ce5b246734ce3ed7c8805cc079052013ac",
+        "bytes": 71996
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Pavement1000.fbx",
+        "sha256": "c6c28659f4d0fece60cdc738dcb5ae4badc9b5aecdd251c46f350d68a5a334be",
+        "bytes": 29932
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\PlasterRepair.fbx",
+        "sha256": "aa4fd6d5769a94fa511ec93c8dfd4a704d66034ba3ed2e6fad7ed4c61dc47fac",
+        "bytes": 16012
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\RainwaterDownpipe.fbx",
+        "sha256": "4aebd0ee9550f04cb2ae2e9d4ed43c325ac2346f9929cd706a064e4af72eb249",
+        "bytes": 31932
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\ResidentialBay.fbx",
+        "sha256": "026a54573255f9c84253f9169b45862fbd5dc4b57a60781f9b79ab05f01492fa",
+        "bytes": 21996
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\RoadJunction.fbx",
+        "sha256": "026a092cc6f8c53fdf04f0f822e6ea30bd8324340f5f03a8a2368c924d9da9ae",
+        "bytes": 27212
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\RoofSheetPanel.fbx",
+        "sha256": "52b8a36a083b96d90b1e8ede4ee9e4a9ebbe95f5ddc6632bcaa6ab779c6dd827",
+        "bytes": 88300
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\ShopBay.fbx",
+        "sha256": "9621e21764a5073ba68cac856a778985c7c44a556ddea2c57b92ae53f42a7167",
+        "bytes": 21644
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Shutter2800.fbx",
+        "sha256": "80547716d369ae424a3fed006051ee3af41c1e463b6fde343af8c0e5d42f5a50",
+        "bytes": 162956
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\fbx\\Window1300.fbx",
+        "sha256": "afc954640714e73d7765cb13ed135ad55b8176a120bb18237f9d2be54e929def",
+        "bytes": 115260
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\asphalt_base_color.jpg",
+        "sha256": "8313d3f8d25515d6ef0be59d461cdeb0feb484694eae385711ecf688c0afa4de",
+        "bytes": 3573942
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\asphalt_normal_gl.png",
+        "sha256": "bad25a2225f23140ba2cca74e4222c558f6fb26de81fdd57abd97a94c4eb9647",
+        "bytes": 28117230
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\asphalt_roughness.png",
+        "sha256": "0264844b051d69af357d3bb8817729508656892475a3103fcf9d2dfabdec4ad3",
+        "bytes": 6938020
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\concrete_base_color.jpg",
+        "sha256": "a3eb7b24c5cf6f113ec9b3be8ab1715360ef3cbf4b1699979414e44341f54846",
+        "bytes": 2666189
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\concrete_normal_gl.png",
+        "sha256": "3d26d24586556ee400506888ad6496733a67bcc9020616c10119c1c343c5be24",
+        "bytes": 14170572
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\concrete_roughness.png",
+        "sha256": "af2c3055aea34c0b1366b04ccdc90a83ed22e997de446a2d1e02817c800eb026",
+        "bytes": 6697755
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\corrugated_metal_base_color.jpg",
+        "sha256": "1bd2b9900e066d7e6cbacc5093aa4204db71c1bbe13b42a3d8ad23d04fa8075a",
+        "bytes": 2325335
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\corrugated_metal_roughness.png",
+        "sha256": "7bf7e03196e601b4173822505e7cb01b401b4e50bb98bc0ecc556de7d4b231c3",
+        "bytes": 7864640
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\plaster_base_color.jpg",
+        "sha256": "6fd812ed8dd5be1873c29aeef38ce9bf1fb30a22c6d4b3a12db725e98c26a1be",
+        "bytes": 3132937
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\plaster_normal_gl.png",
+        "sha256": "322041257ab0dad1a1a1c18d98bc28689136103f6a64d4849f7aa3ae5b8b090f",
+        "bytes": 22789885
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\textures\\plaster_roughness.png",
+        "sha256": "e355a47f007bcf8b50c9e2f9edfc9f45d85501eefc63a822fd82c2dbc7ab34ea",
+        "bytes": 6836443
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\Construction.png",
+        "sha256": "292923889d0d5f43023772c7cbc61ea52b8ae2cc0b29d2b69158a37cdcc01949",
+        "bytes": 754609
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\Frontage.png",
+        "sha256": "31c27560a38b05c48a27980c502fa1b86148178e4a62190bc85cd94aadc3bf92",
+        "bytes": 769602
+      },
+      {
+        "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v2\\Junction.png",
+        "sha256": "6cd1b821a7b063f0e14a7a0fea043bdd4c86207e76a6b991b089ce7a1c6afd6b",
+        "bytes": 781662
+      }
+    ],
+    "review": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/frontage-v2-visual-review.json",
+    "immutable_policy": "V2 blend, FBXs and stable manifests frozen; later repair new revision",
+    "native_uv_multiplier": 1,
+    "normal_contract": "DX originals or invert GL green once; roof scan normal omitted intentionally"
+  },
+  "tree_revision": {
+    "output": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/roadside-tree-v2",
+    "pid": 7960,
+    "process_state": "exited",
+    "outputs": [
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\RoadsideShadeTree.blend",
+        "sha256": "364f26482c6c0ca51526de1e93489ac862d6c981f2cb9a7ed4108d4fe2078d04",
+        "bytes": 403767
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Bark.fbx",
+        "sha256": "bd59db92ba6cc1532fb796f41724cbb6388ca49c47757adcdec87e9b647ea876",
+        "bytes": 350204
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_00.fbx",
+        "sha256": "44d32f4ef7adc693c7189d68917ac66b670bc520c42914d4a4efcf3b0653c204",
+        "bytes": 168460
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_01.fbx",
+        "sha256": "aae2a7d1eef8c84a15ad5baf883ca11444c57bd629845faf0f9bf6c70cf38eb7",
+        "bytes": 168092
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_02.fbx",
+        "sha256": "90fd4cd47ad5d953f9cd3012c032f63e6a2b92f94f008e5dac67fa683fcc6488",
+        "bytes": 168156
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_03.fbx",
+        "sha256": "d86d502bf27e6de6627f6a8b29ce69f01aa797d881b812e1081851852c0fa62b",
+        "bytes": 168140
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_04.fbx",
+        "sha256": "0ae20163208c2bddf8153b3510ad8fec2ec2278e9da885eaa973c9210204f937",
+        "bytes": 168108
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\SM_RoadsideTree_Cluster_05.fbx",
+        "sha256": "b176f650e456b362b147a08f66c88ff806d8b97e42123e35f10342e713801fba",
+        "bytes": 167900
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\Tree-Ground-Shadow.png",
+        "sha256": "3779f287dda230099e5e089dd79c98b0d2106d44d83d0891d8deb95df091eada",
+        "bytes": 705736
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\tree-delivery.json",
+        "sha256": "0f7415aa6e834f0a620db4c5a257df7ca247522e19fd28bd172084bb09083290",
+        "bytes": 559746
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\fbx\\tree-manifest.json",
+        "sha256": "8e72c68b6c955f7ac03b3fbc6952865a259701bfd78f5d588b7a16ae60f90062",
+        "bytes": 559348
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\scene-probe-reopened.json",
+        "sha256": "5f4d49758a138dccea43ab06e249906ba89d50c383429bd6e5350ef5dc5b7174",
+        "bytes": 3019
+      },
+      {
+        "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\asset-inspection-reopened.json",
+        "sha256": "23ff51328574f6e520a2eedef6a15354ee26543f22cdb93a2de9386523cf4186",
+        "bytes": 760
+      }
+    ],
+    "placement_policy": "Unplaced pending coordinator review and actual native units/axes verification",
+    "status": "Spike and radial tiers changed, not final realism"
+  },
+  "workbench": {
+    "pid": 3224,
+    "path": "C:/dev/baddie-assets/Blender/LagosWorkbench.blend",
+    "sha256": "70592d3c04a9fc6c9599188ec2220c3b1425a85477e4f5984a4c5898fb993eab"
+  },
+  "active_owned_renderer": null,
+  "errors": []
+}

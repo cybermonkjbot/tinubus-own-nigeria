@@ -1,0 +1,130 @@
+{
+  "retrievedDate": "2026-10-11",
+  "provider": "Open Topo Data public API",
+  "sourceUrl": "https://api.opentopodata.org/v1/srtm30m?locations=6.5520004,3.3391722%7C6.5510982,3.3402922%7C6.551598,3.3413832%7C6.5516474,3.3413592%7C6.5517186,3.3415149%7C6.55126,3.3417332%7C6.5511891,3.3415799%7C6.5517478,3.3418029%7C6.5526154,3.341622%7C6.5557881,3.3452941&interpolation=nearest",
+  "rawSha256": "0c04cc4bc4f5e19d79a473e798374bd85778c48c963ac709ab7645c3938ebeee",
+  "dataset": "srtm30m",
+  "providerStatedVersion": 3,
+  "interpolation": "nearest",
+  "sourceHorizontalDatum": "WGS84",
+  "sourceVerticalDatum": "EGM96",
+  "sourceVerticalUnits": "metres",
+  "nominalAngularSpacingArcSeconds": 1,
+  "approximateHorizontalSpacingMetres": 30,
+  "missionAcquisition": "2000-02-11 through 2000-02-22; fill-source dates may differ",
+  "role": "Historical coarse raster context, not a bridge, stair, road or ground survey",
+  "engineVerticalDatum": null,
+  "canonicalWorldRegistration": null,
+  "approvedForCollision": false,
+  "approvedForRoadGrade": false,
+  "approvedForFloodCalibration": false,
+  "approvedForBridgeClearance": false,
+  "samples": [
+    {
+      "osmNodeId": 35785428,
+      "queryCoordinates": [
+        3.3391722,
+        6.5520004
+      ],
+      "rasterElevationMetres": 20,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 177174622,
+      "queryCoordinates": [
+        3.3402922,
+        6.5510982
+      ],
+      "rasterElevationMetres": 21,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1475182869,
+      "queryCoordinates": [
+        3.3413832,
+        6.551598
+      ],
+      "rasterElevationMetres": 28,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 5405812682,
+      "queryCoordinates": [
+        3.3413592,
+        6.5516474
+      ],
+      "rasterElevationMetres": 28,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 5405812681,
+      "queryCoordinates": [
+        3.3415149,
+        6.5517186
+      ],
+      "rasterElevationMetres": 28,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 5405812680,
+      "queryCoordinates": [
+        3.3417332,
+        6.55126
+      ],
+      "rasterElevationMetres": 28,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 5405812679,
+      "queryCoordinates": [
+        3.3415799,
+        6.5511891
+      ],
+      "rasterElevationMetres": 25,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 4395533032,
+      "queryCoordinates": [
+        3.3418029,
+        6.5517478
+      ],
+      "rasterElevationMetres": 29,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1079849447,
+      "queryCoordinates": [
+        3.341622,
+        6.5526154
+      ],
+      "rasterElevationMetres": 24,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    },
+    {
+      "osmNodeId": 1079849271,
+      "queryCoordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "rasterElevationMetres": 23,
+      "dataset": "srtm30m",
+      "isSurveyBenchmark": false
+    }
+  ],
+  "notes": [
+    "Equal raster elevations at bridge ends do not prove equal deck heights",
+    "Differences across stair nodes are not stair rise or road clearance",
+    "Result locations repeat requested coordinates, not documented cell centres",
+    "No ground/structure separation or original raster tile obtained"
+  ]
+}

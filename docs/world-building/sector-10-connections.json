@@ -1,0 +1,565 @@
+{
+  "retrievedDate": "2026-10-11",
+  "sourceSha256": "4026f2820aed6f705a2ff34bf6d1bfbb00bb4df660947a4bb5815a6247dd6c95",
+  "coordinateReference": "WGS84 longitude, latitude; no altitude",
+  "distanceMethod": "Haversine; radius 6371008.8 metres; totals sum unrounded segment lengths, rounded to 0.1 m; not survey accuracy",
+  "sharedNodePairs": [
+    {
+      "wayIds": [
+        93146072,
+        1343514141
+      ],
+      "osmNodeId": 9393853880,
+      "coordinates": [
+        3.3482733,
+        6.5557729
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        93146072,
+        1547601494
+      ],
+      "osmNodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        93146072,
+        441859097
+      ],
+      "osmNodeId": 4395533057,
+      "coordinates": [
+        3.3462837,
+        6.5557557
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        93146072,
+        134140049
+      ],
+      "osmNodeId": 1475182789,
+      "coordinates": [
+        3.3466968,
+        6.5557704
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        93146072,
+        496652589
+      ],
+      "osmNodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        93146072,
+        1105198603
+      ],
+      "osmNodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        93146072,
+        1314547202
+      ],
+      "osmNodeId": 9393853880,
+      "coordinates": [
+        3.3482733,
+        6.5557729
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1343514141,
+        441859099
+      ],
+      "osmNodeId": 1079849281,
+      "coordinates": [
+        3.3489836,
+        6.5557096
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1343514141,
+        1314547202
+      ],
+      "osmNodeId": 9393853880,
+      "coordinates": [
+        3.3482733,
+        6.5557729
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1547601494,
+        496652063
+      ],
+      "osmNodeId": 1079849430,
+      "coordinates": [
+        3.3452437,
+        6.5564568
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1547601494,
+        1547601493
+      ],
+      "osmNodeId": 1079849430,
+      "coordinates": [
+        3.3452437,
+        6.5564568
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1547601494,
+        496652589
+      ],
+      "osmNodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1547601494,
+        1105198603
+      ],
+      "osmNodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1547601494,
+        589001493
+      ],
+      "osmNodeId": 1079849430,
+      "coordinates": [
+        3.3452437,
+        6.5564568
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        496652063,
+        1547601493
+      ],
+      "osmNodeId": 1079849430,
+      "coordinates": [
+        3.3452437,
+        6.5564568
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        496652063,
+        589001493
+      ],
+      "osmNodeId": 1079849430,
+      "coordinates": [
+        3.3452437,
+        6.5564568
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1547601493,
+        5153761
+      ],
+      "osmNodeId": 4395533064,
+      "coordinates": [
+        3.3484235,
+        6.5564944
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1547601493,
+        441859097
+      ],
+      "osmNodeId": 4395533056,
+      "coordinates": [
+        3.3462864,
+        6.5564731
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        1547601493,
+        589001493
+      ],
+      "osmNodeId": 1079849430,
+      "coordinates": [
+        3.3452437,
+        6.5564568
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        5153761,
+        441859099
+      ],
+      "osmNodeId": 4395533063,
+      "coordinates": [
+        3.3490373,
+        6.556493
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        134140049,
+        441859090
+      ],
+      "osmNodeId": 4395533035,
+      "coordinates": [
+        3.3469462,
+        6.5552388
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        134140049,
+        496763688
+      ],
+      "osmNodeId": 4884345280,
+      "coordinates": [
+        3.3470469,
+        6.5550039
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        441859090,
+        496652587
+      ],
+      "osmNodeId": 4395533036,
+      "coordinates": [
+        3.3454371,
+        6.5552559
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        441859090,
+        1105198603
+      ],
+      "osmNodeId": 6967655617,
+      "coordinates": [
+        3.3453534,
+        6.5552221
+      ],
+      "legalTurnVerified": false
+    },
+    {
+      "wayIds": [
+        496652589,
+        1105198603
+      ],
+      "osmNodeId": 1079849271,
+      "coordinates": [
+        3.3452941,
+        6.5557881
+      ],
+      "legalTurnVerified": false
+    }
+  ],
+  "distinctSharedNodeCount": 13,
+  "routes": [
+    {
+      "id": "S10-loop-east",
+      "kind": "closed-geometric-candidate",
+      "legs": [
+        {
+          "osmWayId": 93146072,
+          "fromNode": 1079849271,
+          "toNode": 9393853880,
+          "osmNodeIds": [
+            1079849271,
+            6967655623,
+            4395533057,
+            1475182789,
+            13991718329,
+            9393853880
+          ],
+          "sourceTraversal": "reverse",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 329.2
+        },
+        {
+          "osmWayId": 1343514141,
+          "fromNode": 9393853880,
+          "toNode": 1079849281,
+          "osmNodeIds": [
+            9393853880,
+            1079849281
+          ],
+          "sourceTraversal": "forward",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 78.8
+        },
+        {
+          "osmWayId": 441859099,
+          "fromNode": 1079849281,
+          "toNode": 4395533063,
+          "osmNodeIds": [
+            1079849281,
+            4395533062,
+            4395533063
+          ],
+          "sourceTraversal": "forward",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 87.4
+        },
+        {
+          "osmWayId": 5153761,
+          "fromNode": 4395533063,
+          "toNode": 4395533064,
+          "osmNodeIds": [
+            4395533063,
+            13136000752,
+            13657641649,
+            13657641639,
+            4395533064
+          ],
+          "sourceTraversal": "reverse",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 67.8
+        },
+        {
+          "osmWayId": 1547601493,
+          "fromNode": 4395533064,
+          "toNode": 1079849430,
+          "osmNodeIds": [
+            4395533064,
+            1079849462,
+            35785463,
+            4395533056,
+            13657641638,
+            1079849430
+          ],
+          "sourceTraversal": "forward",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 351.3
+        },
+        {
+          "osmWayId": 1547601494,
+          "fromNode": 1079849430,
+          "toNode": 1079849271,
+          "osmNodeIds": [
+            1079849430,
+            1079849271
+          ],
+          "sourceTraversal": "forward",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 74.6
+        }
+      ],
+      "osmNodeIds": [
+        1079849271,
+        6967655623,
+        4395533057,
+        1475182789,
+        13991718329,
+        9393853880,
+        1079849281,
+        4395533062,
+        4395533063,
+        13136000752,
+        13657641649,
+        13657641639,
+        4395533064,
+        1079849462,
+        35785463,
+        4395533056,
+        13657641638,
+        1079849430,
+        1079849271
+      ],
+      "approximateHorizontalLengthMetres": 989.1,
+      "explicitOneWayViolations": 0,
+      "legalTurnsVerified": false,
+      "approvedVehicleRoute": false,
+      "verifiedPedestrianRoute": false
+    },
+    {
+      "id": "S10-loop-inner",
+      "kind": "closed-geometric-candidate",
+      "legs": [
+        {
+          "osmWayId": 93146072,
+          "fromNode": 1079849271,
+          "toNode": 4395533057,
+          "osmNodeIds": [
+            1079849271,
+            6967655623,
+            4395533057
+          ],
+          "sourceTraversal": "reverse",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 109.4
+        },
+        {
+          "osmWayId": 441859097,
+          "fromNode": 4395533057,
+          "toNode": 4395533056,
+          "osmNodeIds": [
+            4395533057,
+            4395533056
+          ],
+          "sourceTraversal": "forward",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 79.8
+        },
+        {
+          "osmWayId": 1547601493,
+          "fromNode": 4395533056,
+          "toNode": 1079849430,
+          "osmNodeIds": [
+            4395533056,
+            13657641638,
+            1079849430
+          ],
+          "sourceTraversal": "forward",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 115.2
+        },
+        {
+          "osmWayId": 1547601494,
+          "fromNode": 1079849430,
+          "toNode": 1079849271,
+          "osmNodeIds": [
+            1079849430,
+            1079849271
+          ],
+          "sourceTraversal": "forward",
+          "explicitOneWayViolation": false,
+          "approximateHorizontalLengthMetres": 74.6
+        }
+      ],
+      "osmNodeIds": [
+        1079849271,
+        6967655623,
+        4395533057,
+        4395533056,
+        13657641638,
+        1079849430,
+        1079849271
+      ],
+      "approximateHorizontalLengthMetres": 378.9,
+      "explicitOneWayViolations": 0,
+      "legalTurnsVerified": false,
+      "approvedVehicleRoute": false,
+      "verifiedPedestrianRoute": false
+    }
+  ],
+  "overlaps": [
+    {
+      "file": "sector-01-geometry.geojson",
+      "osmWayId": 5153761,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    },
+    {
+      "file": "sector-02-roads.geojson",
+      "osmWayId": 5153761,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    },
+    {
+      "file": "sector-02-roads.geojson",
+      "osmWayId": 1547601493,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    },
+    {
+      "file": "sector-03-roads.geojson",
+      "osmWayId": 496652063,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    },
+    {
+      "file": "sector-07-network.geojson",
+      "osmWayId": 589001493,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    },
+    {
+      "file": "sector-08-roads.geojson",
+      "osmWayId": 589001493,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    },
+    {
+      "file": "sector-09-network.geojson",
+      "osmWayId": 496652589,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    },
+    {
+      "file": "sector-09-network.geojson",
+      "osmWayId": 1105198603,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    },
+    {
+      "file": "sector-09-network.geojson",
+      "osmWayId": 1547601494,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    },
+    {
+      "file": "sector-09-network.geojson",
+      "osmWayId": 93146072,
+      "sourceGeometryAndVersionsMatch": true,
+      "futureRuntimeOwner": null
+    }
+  ],
+  "notes": [
+    "Shared nodes establish mapped connectivity, not legal turns or sidewalk continuity.",
+    "Only selected road pairs are enumerated; external boundary links require their own admission.",
+    "Two explicitly one-way links are traversed forward; absence of an explicit violation does not approve either route.",
+    "One future runtime owner per shared source feature; no automatic duplicate collision, queues or spawners."
+  ]
+}

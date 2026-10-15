@@ -1,0 +1,451 @@
+{
+  "retrievedDate": "2026-10-11",
+  "source": "sector-03-roads.geojson",
+  "sharedNodePairs": [
+    {
+      "wayIds": [
+        5153762,
+        1442626891
+      ],
+      "nodeId": 4395533093,
+      "coordinates": [
+        3.3477254,
+        6.5608319
+      ],
+      "kind": "same-road-segment-join",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        5153762,
+        93146084
+      ],
+      "nodeId": 1079849289,
+      "coordinates": [
+        3.3475022,
+        6.5595975
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626891,
+        1442626890
+      ],
+      "nodeId": 4395533094,
+      "coordinates": [
+        3.3478084,
+        6.561841
+      ],
+      "kind": "same-road-segment-join",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626890,
+        93146069
+      ],
+      "nodeId": 35785494,
+      "coordinates": [
+        3.347813,
+        6.5635174
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626890,
+        5153763
+      ],
+      "nodeId": 35785494,
+      "coordinates": [
+        3.347813,
+        6.5635174
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        93146069,
+        5153763
+      ],
+      "nodeId": 35785494,
+      "coordinates": [
+        3.347813,
+        6.5635174
+      ],
+      "kind": "same-road-segment-join",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        93146069,
+        93146079
+      ],
+      "nodeId": 1079849206,
+      "coordinates": [
+        3.3471947,
+        6.5632685
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        93146069,
+        496652063
+      ],
+      "nodeId": 1079849444,
+      "coordinates": [
+        3.3449118,
+        6.5612076
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        93146069,
+        8564504
+      ],
+      "nodeId": 1079849444,
+      "coordinates": [
+        3.3449118,
+        6.5612076
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        93146079,
+        1442626892
+      ],
+      "nodeId": 4395533091,
+      "coordinates": [
+        3.3470334,
+        6.5608279
+      ],
+      "kind": "same-road-segment-join",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        93146079,
+        93146061
+      ],
+      "nodeId": 1079849260,
+      "coordinates": [
+        3.3472588,
+        6.5624117
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626892,
+        441859107
+      ],
+      "nodeId": 4395533085,
+      "coordinates": [
+        3.347001,
+        6.5606501
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        441859107,
+        93146061
+      ],
+      "nodeId": 4395533083,
+      "coordinates": [
+        3.3458748,
+        6.5607079
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        441859107,
+        1442626895
+      ],
+      "nodeId": 4395533083,
+      "coordinates": [
+        3.3458748,
+        6.5607079
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        93146061,
+        1442626895
+      ],
+      "nodeId": 4395533083,
+      "coordinates": [
+        3.3458748,
+        6.5607079
+      ],
+      "kind": "same-road-segment-join",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626895,
+        1442626894
+      ],
+      "nodeId": 1079849293,
+      "coordinates": [
+        3.3458385,
+        6.5600661
+      ],
+      "kind": "same-road-segment-join",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626895,
+        93146084
+      ],
+      "nodeId": 1079849293,
+      "coordinates": [
+        3.3458385,
+        6.5600661
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626895,
+        1442626893
+      ],
+      "nodeId": 1079849293,
+      "coordinates": [
+        3.3458385,
+        6.5600661
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626894,
+        93146084
+      ],
+      "nodeId": 1079849293,
+      "coordinates": [
+        3.3458385,
+        6.5600661
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626894,
+        1442626893
+      ],
+      "nodeId": 1079849293,
+      "coordinates": [
+        3.3458385,
+        6.5600661
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        93146084,
+        1442626893
+      ],
+      "nodeId": 1079849293,
+      "coordinates": [
+        3.3458385,
+        6.5600661
+      ],
+      "kind": "same-road-segment-join",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        1442626893,
+        496652063
+      ],
+      "nodeId": 1079849278,
+      "coordinates": [
+        3.3449863,
+        6.5599732
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    },
+    {
+      "wayIds": [
+        496652063,
+        8564504
+      ],
+      "nodeId": 1079849444,
+      "coordinates": [
+        3.3449118,
+        6.5612076
+      ],
+      "kind": "cross-street-connection",
+      "walkabilityVerified": false
+    }
+  ],
+  "uniqueSharedNodes": [
+    4395533093,
+    1079849289,
+    4395533094,
+    35785494,
+    1079849206,
+    1079849444,
+    4395533091,
+    1079849260,
+    4395533085,
+    4395533083,
+    1079849293,
+    1079849278
+  ],
+  "candidateLoop": {
+    "purpose": "mapped route candidate, not verified walkability or legal vehicle route",
+    "approximateLengthMetres": 1199.1,
+    "legs": [
+      {
+        "wayId": 5153762,
+        "fromNodeId": 1079849289,
+        "toNodeId": 4395533093,
+        "nodeIds": [
+          1079849289,
+          1079849412,
+          4395533093
+        ],
+        "approximateLengthMetres": 139.6,
+        "mappedOnewayConflict": false
+      },
+      {
+        "wayId": 1442626891,
+        "fromNodeId": 4395533093,
+        "toNodeId": 4395533094,
+        "nodeIds": [
+          4395533093,
+          1079849308,
+          4395533094
+        ],
+        "approximateLengthMetres": 112.7,
+        "mappedOnewayConflict": false
+      },
+      {
+        "wayId": 1442626890,
+        "fromNodeId": 4395533094,
+        "toNodeId": 35785494,
+        "nodeIds": [
+          4395533094,
+          5604445612,
+          5604445608,
+          35785494
+        ],
+        "approximateLengthMetres": 189.8,
+        "mappedOnewayConflict": false
+      },
+      {
+        "wayId": 93146069,
+        "fromNodeId": 35785494,
+        "toNodeId": 1079849206,
+        "nodeIds": [
+          35785494,
+          4885151591,
+          1079849206
+        ],
+        "approximateLengthMetres": 73.7,
+        "mappedOnewayConflict": false
+      },
+      {
+        "wayId": 93146079,
+        "fromNodeId": 1079849206,
+        "toNodeId": 4395533091,
+        "nodeIds": [
+          1079849206,
+          1079849310,
+          1079849260,
+          4395533088,
+          4395533091
+        ],
+        "approximateLengthMetres": 275.3,
+        "mappedOnewayConflict": false
+      },
+      {
+        "wayId": 1442626892,
+        "fromNodeId": 4395533091,
+        "toNodeId": 4395533085,
+        "nodeIds": [
+          4395533091,
+          4395533085
+        ],
+        "approximateLengthMetres": 20.1,
+        "mappedOnewayConflict": false
+      },
+      {
+        "wayId": 441859107,
+        "fromNodeId": 4395533085,
+        "toNodeId": 4395533083,
+        "nodeIds": [
+          4395533085,
+          11837764374,
+          4395533084,
+          4395533083
+        ],
+        "approximateLengthMetres": 124.6,
+        "mappedOnewayConflict": false
+      },
+      {
+        "wayId": 1442626895,
+        "fromNodeId": 4395533083,
+        "toNodeId": 1079849293,
+        "nodeIds": [
+          4395533083,
+          1079849293
+        ],
+        "approximateLengthMetres": 71.5,
+        "mappedOnewayConflict": false
+      },
+      {
+        "wayId": 93146084,
+        "fromNodeId": 1079849293,
+        "toNodeId": 1079849289,
+        "nodeIds": [
+          1079849293,
+          13800762295,
+          1079849304,
+          6967655640,
+          1079849289
+        ],
+        "approximateLengthMetres": 191.8,
+        "mappedOnewayConflict": false
+      }
+    ]
+  },
+  "researchRegistration": {
+    "originLatitude": 6.556,
+    "originLongitude": 3.351,
+    "horizontalCRS": "EPSG:32631",
+    "verticalDatum": null,
+    "canonicalWorldTransform": null
+  },
+  "nextDiscovery": {
+    "wayId": 8564504,
+    "fromNodeId": 1079849444,
+    "toNodeId": 35785466,
+    "street": "Adeyemi Street",
+    "freshResearchRequired": true
+  }
+}

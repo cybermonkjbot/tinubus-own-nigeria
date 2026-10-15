@@ -1,0 +1,47 @@
+{
+  "schema": "baddie-local-authoring-kit-v1",
+  "kit": "yaba-frontage-replacement-v1",
+  "status": "authoring source; visual and native performance acceptance pending",
+  "units": "metres",
+  "axes": {"up": "+Z", "street_face": "+Y", "frontage_run": "+X"},
+  "placement": {"origin": [0, 0, 0], "canonical_assignment": null, "georeferencing": "separate later transform; no canonical IDs invented"},
+  "dimensions": {"bay_width_m": 3.9, "bay_count": 3, "frontage_m": 11.7, "storey_m": 3.0, "wall_m": 0.25, "window_opening_m": [1.3, 1.35], "window_sill_m": 1.025, "balcony_projection_m": 1.05},
+  "source": {
+    "silhouette": "packages/companion-scene/art/rooms/town-square-v05-detail/compound.py",
+    "sha256": "a2c07adae1708cbc0d9e16fa9dcd855ec4051d11e48eb2701284309c37814ec8",
+    "derivation": "3.9m aperture spacing, 3m storeys, 0.25m walls, 1.3x1.35m windows and supported services; bounded new mixed-use frontage, not a surveyed Yaba building",
+    "texture_provenance": "packages/companion-scene/art/rooms/town-square-v05-detail/material-provenance.json",
+    "yaba_photographic_reference": null
+  },
+  "materials": {
+    "plaster": {"scan_id": "painted_plaster_wall", "tile_m": 2.0, "base": [0.57, 0.53, 0.43], "roughness": 0.87, "metallic": 0, "required_for_finish": true},
+    "concrete": {"scan_id": "concrete_floor_02", "tile_m": 2.0, "base": [0.35, 0.34, 0.30], "roughness": 0.92, "metallic": 0, "required_for_finish": true},
+    "asphalt": {"scan_id": "asphalt_03", "tile_m": 2.05, "base": [0.075, 0.071, 0.062], "roughness": 0.93, "metallic": 0, "required_for_finish": true},
+    "repair_mortar": {"scan_id": null, "tile_m": 1.0, "base": [0.42, 0.41, 0.37], "roughness": 0.94, "metallic": 0, "required_for_finish": true},
+    "corrugated_metal": {"scan_id": null, "tile_m": 1.0, "base": [0.39, 0.41, 0.39], "roughness": 0.52, "metallic": 1, "required_for_finish": true},
+    "painted_steel": {"scan_id": null, "tile_m": 1.0, "base": [0.055, 0.079, 0.066], "roughness": 0.48, "metallic": 0, "required_for_finish": true},
+    "aluminium": {"scan_id": null, "tile_m": 1.0, "base": [0.55, 0.57, 0.57], "roughness": 0.30, "metallic": 1, "required_for_finish": false},
+    "glass": {"scan_id": null, "tile_m": 1.0, "base": [0.80, 0.87, 0.86], "roughness": 0.075, "metallic": 0, "transmission": 1, "ior": 1.45, "required_for_finish": false},
+    "rubber": {"scan_id": null, "tile_m": 1.0, "base": [0.021, 0.024, 0.023], "roughness": 0.85, "metallic": 0, "required_for_finish": false},
+    "ac_paint": {"scan_id": null, "tile_m": 1.0, "base": [0.67, 0.65, 0.58], "roughness": 0.50, "metallic": 0, "required_for_finish": false}
+  },
+  "texture_inputs": {
+    "default": "missing on Windows; use constants and report unresolved; no network retrieval",
+    "optional_manifest_schema": {"materials": {"plaster": {"license": "CC0", "source": "provenance URL or owned source", "tile_m": 2, "maps": {"base_color": {"file": "relative-path.jpg", "sha256": "required"}, "normal_gl": {"file": "relative-path.png", "sha256": "required"}, "orm": {"file": "relative-path.png", "sha256": "required"}}}}},
+    "normal": "OpenGL or DirectX tangent-space, Non-Color; UV0; normal_dx converts green for Blender; Unreal import inverts only supplied normal_gl green once",
+    "paths": "explicit manifest may authorize absolute existing Windows paths; relative paths stay beneath manifest directory; hashes and license required",
+    "coverage_m": "optional scalar or [width,height], overriding tile_m; concrete_wall_008 width 2.71m requires corresponding verified height",
+    "roughness": "optional separate roughness map in Non-Color; may replace ORM when metallic remains authored constant",
+    "orm": "Non-Color R=AO G=roughness B=metallic; AO not baked into base color",
+    "base_color": "sRGB; originals only, no old generated wear atlas",
+    "provenance_policy": "explicit commercial-use-compatible license and SHA256 required per supplied bitmap; originals under repo provenance may be bound automatically when present"
+  },
+  "export": {"format": "FBX per reusable module", "scale": 1, "apply_unit_scale": true, "apply_scale_options": "FBX_SCALE_UNITS", "axis_forward": "-Y", "axis_up": "Z", "uv0": "SurfaceUV, physical tile scale", "materials": "named slots plus material-bindings.json; FBX does not certify shader import", "instances": "module references with translation/rotation in placement.json; no geometry decimation"},
+  "known_gaps": [
+    "No dated Yaba photo set or surveyed building dimensions; source-derived Lagos frontage candidate only.",
+    "Windows texture inventory is empty; original CC0 maps exist on Mac but have not been transferred. Metal, mortar and contextual stain/decal scans remain absent.",
+    "Geometric repair boundaries are authored construction details, not evidence of real-world wear or a substitute for scans.",
+    "No native draw-call, triangle, memory or frame-time measurements; no LOD/collision/lightmap authoring or gameplay registration.",
+    "No render, reopen or Unreal import verified in this source task. No claim of Call-of-Duty visual parity."
+  ]
+}

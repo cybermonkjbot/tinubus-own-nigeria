@@ -1,0 +1,79 @@
+{
+  "job": "roadside-tree-v1",
+  "pid": 11460,
+  "step": "saved_rendered_reopened_pending_actual_image_review",
+  "updated_at": "2026-10-11T09:59:09.693828+00:00",
+  "outputs": [
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\RoadsideShadeTree.blend",
+      "sha256": "a450b7cc3a9cdbbc95cb478a46e385c9c09ec3627ba425c5ffd552c4c6f12911",
+      "bytes": 403149
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\fbx\\SM_RoadsideTree_Bark.fbx",
+      "sha256": "02d6cf3c24958288ba40b7de820759d5a732ef97f603306196b4073d04186c36",
+      "bytes": 349532
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\fbx\\SM_RoadsideTree_Cluster_00.fbx",
+      "sha256": "ae9d8180bbdc089a2084ffccb6e3a8bd3b78351d2e1b1afba38aede7e45a0067",
+      "bytes": 168460
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\fbx\\SM_RoadsideTree_Cluster_01.fbx",
+      "sha256": "edf73fa80005fc3817ebebe1b26f32204ffd6c5f108cc3ea93dc94d9a0fce89f",
+      "bytes": 168092
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\fbx\\SM_RoadsideTree_Cluster_02.fbx",
+      "sha256": "196a9852186083c6163b298ffc94dfef3a5e4464a8ff389e4455267e77de377b",
+      "bytes": 168156
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\fbx\\SM_RoadsideTree_Cluster_03.fbx",
+      "sha256": "1839248c6a0a8a79218279bcd56679fab55ad7f28d19de8f347175eda8023451",
+      "bytes": 168140
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\fbx\\SM_RoadsideTree_Cluster_04.fbx",
+      "sha256": "794220619bdd8824a52c2107019aad76ed98a31790526ffd5f46a1c1f824cbac",
+      "bytes": 168108
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\fbx\\SM_RoadsideTree_Cluster_05.fbx",
+      "sha256": "a6859bcb6297fb9a3947ca5841528dd3c07f1431cc45fcb0cf30ccc906f8548f",
+      "bytes": 167900
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\Tree-Ground-Shadow.png",
+      "sha256": "3f5f82c68080c0055f2bfc0c0d0b49761f431ed30c209641288a303682dbdbdc",
+      "bytes": 664692
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\Tree-Leaf-Branch-Detail.png",
+      "sha256": "d7dc7428ff891e111b73d8b67d8dd3085fa8cb0df652b1364198ce6fb7ff4916",
+      "bytes": 1023997
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\tree-delivery.json",
+      "sha256": "444c18da01f66ceebfe4765c18f044b3a535cb3bd5a8056d33afcb7921dd1303",
+      "bytes": 560000
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\fbx\\tree-manifest.json",
+      "sha256": "3c79cd42fdc9ba674a36f7e355ccbe6b5740f169e487be96fca50118c9c3ce43",
+      "bytes": 559419
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\scene-probe-reopened.json",
+      "sha256": "c49d6d10999b1931e615703574390b85125727b33c98b0e5a51c831529677788",
+      "bytes": 3020
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v1\\asset-inspection-reopened.json",
+      "sha256": "647945df50790c65b595e51590201a90e80c72cadf4f52bd300a5543d6a9a937",
+      "bytes": 762
+    }
+  ],
+  "errors": []
+}

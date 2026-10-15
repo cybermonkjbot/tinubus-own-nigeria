@@ -1,0 +1,27 @@
+{
+  "recorded_at": "2026-10-11T02:58:17-07:00",
+  "supersedes_local_absence_for": ["plaster", "concrete", "asphalt", "corrugated metal", "timber"],
+  "historical_inventory": "material-input-inventory.json; describes pre-transfer inspection, not current absence",
+  "complete_input_root": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified",
+  "partial_input_root": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs",
+  "partial_policy": "Preserved, not consumed",
+  "material_manifest": {"path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/material-manifest.json", "sha256": "767f273b37ffc150761a19092d4c1fd3c1e3e67bb4a17b11450484590c982e46"},
+  "frontage_binding_manifest": {"path": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/material-inputs-verified/yaba-material-inputs.json", "sha256": "892d6f78340ec268a97dfd9f15cfcff7b869881058f05f1d98d786016e62944a"},
+  "receipt": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/frontage-v1-control/media-receipt-verified.json",
+  "verification": "All 20 actual map paths, byte sizes and SHA256 rechecked by Windows worker after coordinator completion",
+  "map_count": 20,
+  "map_bytes": 260970634,
+  "provenance": "Coordinator-acquired Poly Haven original scans, CC0-1.0; source URLs, original authors and per-map hashes in material-manifest.json",
+  "sets": [
+    {"id": "painted_plaster_wall", "coverage_m": [2,2], "binding": "plaster"},
+    {"id": "concrete_wall_008", "coverage_m": [2.7100000381469727,2.7100000381469727], "binding": "concrete"},
+    {"id": "worn_asphalt", "coverage_m": [2,2], "binding": "asphalt"},
+    {"id": "corrugated_iron_02", "coverage_m": [2.700000047683716,2.700000047683716], "binding": "corrugated_metal; scan normal intentionally omitted, ridges modeled"},
+    {"id": "wood_planks_grey", "coverage_m": [1.5,1.5000001192092896], "binding": "Available; frozen frontage has no timber material slot, not silently substituted"}
+  ],
+  "color_policy": "Basecolor sRGB; roughness/normals Non-Color; OpenGL in Blender, DirectX originals or GL green inverted exactly once in native",
+  "uv_policy": "Frozen frontage SurfaceUV divides by physical coverage; native UV multiplier 1x, no second division",
+  "remaining_gaps": ["Approved dated Yaba building reference/measurements", "Context-specific traffic, water and handling wear", "Mortar/painted-steel finish inputs where source still uses constants", "Native material/units/axis inspection and target-device evidence"],
+  "acceptance": "Qualified generic scan inputs available, not specific Yaba photographic fidelity or final art acceptance",
+  "worker_external_actions": "No independent downloads, installations or purchases"
+}

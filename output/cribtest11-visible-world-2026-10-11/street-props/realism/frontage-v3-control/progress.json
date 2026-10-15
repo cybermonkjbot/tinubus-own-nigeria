@@ -1,0 +1,40 @@
+{
+  "job": "yaba-frontage-v3",
+  "pid": 10588,
+  "step": "saved_exported_reopened_four_frames_worker_inspected",
+  "process_state": "PID10588 exited after four sequential renders, actual images inspected",
+  "visual_review": "C:/dev/baddie-assets/YabaRealismKit/frontage-v3-owned/frontage-v3/worker-visual-review.json",
+  "acceptance": "Bounded authored kit only; open defects and no final realism/native acceptance",
+  "updated_at": "2026-10-11T10:33:10.847836+00:00",
+  "output": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3",
+  "blend": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\YabaFrontageV3.blend",
+  "sha256": "6ea6d7bb05a2c0d44deab135145d6c13f77dbc30751303a2670df753e0c88168",
+  "frames": [
+    {
+      "file": "Frontage.png",
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Frontage.png",
+      "seconds": 31.923525300007896,
+      "sha256": "bbce6c9e12523e34f3356404d1f5ed274269ea4feaaf2338e6fdd55895ade757"
+    },
+    {
+      "file": "Junction.png",
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Junction.png",
+      "seconds": 43.859774999989895,
+      "sha256": "90afe0de1754ba260366f20de473d8522deac52efc78bb2af90d2e821cb92e06"
+    },
+    {
+      "file": "Construction.png",
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\Construction.png",
+      "seconds": 41.044767400002456,
+      "sha256": "182ea8617666760b413b38d5586fbcaaea4d1ff1375b154e07db791055faea25"
+    },
+    {
+      "file": "WalkV3.png",
+      "path": "C:\\dev\\baddie-assets\\YabaRealismKit\\frontage-v3-owned\\frontage-v3\\WalkV3.png",
+      "seconds": 43.12545810001029,
+      "sha256": "7b05b065a0a52ba18824c119270a896273b67f415c3a949c64e121ed04bee879"
+    }
+  ],
+  "modules": 32,
+  "errors": []
+}

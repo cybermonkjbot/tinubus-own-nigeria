@@ -1,0 +1,291 @@
+{
+  "job": "lagos-street-props-v1",
+  "pid": 8840,
+  "blender_version": "5.2.2 LTS",
+  "script_sha256": "c25297c16a6fb24752d9fb13fb651d5be7683c92a530e3a4758365061b20e877",
+  "blend": "LagosStreetProps.blend",
+  "geometry_units": "metres",
+  "canonical_placement": "none; library preview transforms only",
+  "source_context": [
+    "packages/assets/city/lagos-city-v3.json",
+    "packages/assets/city/lagos-connected-transit-v1.json",
+    "packages/assets/vehicle-previews/danfo.webp"
+  ],
+  "coordinate_basis": "Blender Z-up; danfo front +Y; no canonical transform applied",
+  "fbx": {
+    "axis_forward": "-Y",
+    "axis_up": "Z",
+    "global_scale": 1.0,
+    "apply_scale_options": "FBX_SCALE_UNITS"
+  },
+  "render": {
+    "engine": "CYCLES",
+    "device": "CPU",
+    "threads": 2,
+    "samples": 24
+  },
+  "visual_review": "pending parent inspection",
+  "assets": [
+    {
+      "asset": "Danfo",
+      "collection": "Danfo",
+      "root": "Danfo_ROOT",
+      "units": "metres",
+      "front": "+Y",
+      "contact": "four tyres at Z=0; centre between axles",
+      "sockets_local_metres": {
+        "axles": [
+          [
+            0,
+            -1.32,
+            0.34
+          ],
+          [
+            0,
+            1.3,
+            0.34
+          ]
+        ],
+        "passenger_step": [
+          1.04,
+          0.5,
+          0.36
+        ]
+      },
+      "fbx": "Danfo.fbx",
+      "fbx_sha256": "c1f5a730988c21760ba805ea0953ba3aaf5d7925e24391dbed49e6e33bd3a969",
+      "editable_parts": 135,
+      "vertices": 6480,
+      "faces": 5746,
+      "materials": [
+        "StripeBlack",
+        "YellowFaded",
+        "DanfoYellow",
+        "Rubber",
+        "GlassDark",
+        "Steel",
+        "LampIvory",
+        "LampAmber",
+        "IvoryPaint",
+        "LampRed",
+        "Seat"
+      ]
+    },
+    {
+      "asset": "Kiosk",
+      "collection": "Kiosk",
+      "root": "Kiosk_ROOT",
+      "units": "metres",
+      "front": "+Y",
+      "contact": "four foot plates at Z=0; front counter faces +Y",
+      "sockets_local_metres": {},
+      "fbx": "Kiosk.fbx",
+      "fbx_sha256": "20154f3695fe2bafbced262815a1406656ef28531f3a99671776eeefe0bb37f1",
+      "editable_parts": 100,
+      "vertices": 5440,
+      "faces": 4921,
+      "materials": [
+        "Concrete",
+        "Steel",
+        "ShopTeal",
+        "RoofMetal",
+        "Timber",
+        "IvoryPaint",
+        "DanfoYellow"
+      ]
+    },
+    {
+      "asset": "ShopfrontShutter",
+      "collection": "ShopfrontShutter",
+      "root": "ShopfrontShutter_ROOT",
+      "units": "metres",
+      "front": "+Y",
+      "contact": "facade centre at ground Z=0; rear is -Y",
+      "sockets_local_metres": {},
+      "fbx": "ShopfrontShutter.fbx",
+      "fbx_sha256": "7c6855607c1d801886a955cc14f52994084a0f9841a9ddebc19f7b7cb99bf992",
+      "editable_parts": 43,
+      "vertices": 2408,
+      "faces": 2322,
+      "materials": [
+        "ConcreteLight",
+        "Steel",
+        "RoofMetal",
+        "StripeBlack",
+        "ShopTeal"
+      ]
+    },
+    {
+      "asset": "DrainOpen",
+      "collection": "DrainOpen",
+      "root": "DrainOpen_ROOT",
+      "units": "metres",
+      "front": "+X",
+      "contact": "bottom bed at Z=0; run along X; length 1m",
+      "sockets_local_metres": {
+        "run_start": [
+          -0.5,
+          0,
+          0
+        ],
+        "run_end": [
+          0.5,
+          0,
+          0
+        ]
+      },
+      "fbx": "DrainOpen.fbx",
+      "fbx_sha256": "2fb70c2f478f1558f3a74b4c16bf6373d499bdf832cb4b8452b7674c2826ffd0",
+      "editable_parts": 3,
+      "vertices": 168,
+      "faces": 162,
+      "materials": [
+        "Concrete"
+      ]
+    },
+    {
+      "asset": "DrainGrated",
+      "collection": "DrainGrated",
+      "root": "DrainGrated_ROOT",
+      "units": "metres",
+      "front": "+X",
+      "contact": "bottom bed at Z=0; run along X; length 1m",
+      "sockets_local_metres": {
+        "run_start": [
+          -0.5,
+          0,
+          0
+        ],
+        "run_end": [
+          0.5,
+          0,
+          0
+        ]
+      },
+      "fbx": "DrainGrated.fbx",
+      "fbx_sha256": "c14e1ea07f112ea4a7f22376c52c7e3a1268d084e503bd23edcd560938e176d7",
+      "editable_parts": 18,
+      "vertices": 1008,
+      "faces": 972,
+      "materials": [
+        "Concrete",
+        "Steel"
+      ]
+    },
+    {
+      "asset": "Kerb",
+      "collection": "Kerb",
+      "root": "Kerb_ROOT",
+      "units": "metres",
+      "front": "+X",
+      "contact": "bed at Z=0; run along X; length 1m",
+      "sockets_local_metres": {
+        "run_start": [
+          -0.5,
+          0,
+          0
+        ],
+        "run_end": [
+          0.5,
+          0,
+          0
+        ]
+      },
+      "fbx": "Kerb.fbx",
+      "fbx_sha256": "df833c53c2f914ea5fbd42ca2adeb1dce3f6afda3874a4eea445c5c93b9c4705",
+      "editable_parts": 5,
+      "vertices": 294,
+      "faces": 283,
+      "materials": [
+        "ConcreteLight",
+        "StripeBlack",
+        "IvoryPaint"
+      ]
+    },
+    {
+      "asset": "PowerPole",
+      "collection": "PowerPole",
+      "root": "PowerPole_ROOT",
+      "units": "metres",
+      "front": "+Y",
+      "contact": "base at Z=0; crossarm along X",
+      "sockets_local_metres": {
+        "wire_0": [
+          -0.63,
+          0,
+          6.6
+        ],
+        "wire_1": [
+          0,
+          0,
+          6.6
+        ],
+        "wire_2": [
+          0.63,
+          0,
+          6.6
+        ]
+      },
+      "fbx": "PowerPole.fbx",
+      "fbx_sha256": "cdf07c58fae062eb2860eb9bb320097d1e65025d87fd555ebc765cd45c737b55",
+      "editable_parts": 24,
+      "vertices": 616,
+      "faces": 404,
+      "materials": [
+        "Concrete",
+        "Steel",
+        "Ceramic",
+        "RoofMetal",
+        "StripeBlack"
+      ]
+    },
+    {
+      "asset": "WireSpan8m",
+      "collection": "WireSpan8m",
+      "root": "WireSpan8m_ROOT",
+      "units": "metres",
+      "front": "+Y",
+      "contact": "suspended span; root is pole ground anchor; do not ground the cable mesh",
+      "sockets_local_metres": {
+        "span_start": [
+          0,
+          0,
+          6.6
+        ],
+        "span_end": [
+          0,
+          8,
+          6.6
+        ]
+      },
+      "fbx": "WireSpan8m.fbx",
+      "fbx_sha256": "820b811595628dad366f1c5a017e43b6c523f4bb77e3aa2665b2d2653af562e4",
+      "editable_parts": 3,
+      "vertices": 450,
+      "faces": 438,
+      "materials": [
+        "StripeBlack"
+      ]
+    },
+    {
+      "asset": "StreetSignSupport",
+      "collection": "StreetSignSupport",
+      "root": "StreetSignSupport_ROOT",
+      "units": "metres",
+      "front": "+Y",
+      "contact": "foot at Z=0; blank plates face +Y; names assigned by world assembler",
+      "sockets_local_metres": {},
+      "fbx": "StreetSignSupport.fbx",
+      "fbx_sha256": "2d1037261248e511b9927f6c784176dea643337734b7a049920927021e96acfc",
+      "editable_parts": 8,
+      "vertices": 256,
+      "faces": 216,
+      "materials": [
+        "Concrete",
+        "Steel",
+        "SignGreen"
+      ]
+    }
+  ],
+  "rendered_views": []
+}

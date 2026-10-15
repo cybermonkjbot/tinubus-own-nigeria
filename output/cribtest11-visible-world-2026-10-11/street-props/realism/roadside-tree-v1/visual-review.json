@@ -1,0 +1,16 @@
+{
+  "recorded_at": "2026-10-11T03:00:29-07:00",
+  "status": "Coordinator rejected final realism; preserve and do not place in native scene",
+  "worker_method": "Opened actual ground and detail PNGs; saved blend reopened and bounded probe recorded",
+  "frames": [
+    {"path": "Tree-Ground-Shadow.png", "sha256": "3f5f82c68080c0055f2bfc0c0d0b49761f431ed30c209641288a303682dbdbdc", "observed": "Individual leaves, connected limbs, canopy gaps and soil contact; bare pointed central trunk spike, regularly layered radial limbs and smooth bark/root flare remain generated-placeholder defects"},
+    {"path": "Tree-Leaf-Branch-Detail.png", "sha256": "d7dc7428ff891e111b73d8b67d8dd3085fa8cb0df652b1364198ce6fb7ff4916", "observed": "Individual laminae and shoots visible; dense overlapping leaves obscure several junctions; leaf surface variation and botanical reference unresolved"}
+  ],
+  "reopened_bounds_metres": {"min": [-4.869558811187744,-5.119871139526367,-0.10614117980003357], "max": [5.795935153961182,5.066888332366943,7.481764316558838]},
+  "measured_versus_parameter": "Height8.5m and crown_radius4.2m are skeleton parameters, not measured outer dimensions",
+  "next_authorized_revision": "After frontage: separate owned source/output with natural fork/termination under foliage, varied limb heights/directions, same ground camera; do not hide spike by camera",
+  "native_status": "Leave unplaced until revision reviewed; importer units/axes not verified by Blender writer",
+  "species": "Unresolved",
+  "errors": [],
+  "warnings": ["Material.use_nodes and World.use_nodes deprecations, no authoring failure"]
+}

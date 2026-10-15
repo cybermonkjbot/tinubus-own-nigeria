@@ -1,0 +1,22 @@
+[
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\01-Dry-Earth-Ground.png",
+    "sha256": "d78879d7b7c23f6e9a7fb22819784d912b1064e1834d0ae5e0894ac9728b7202",
+    "seconds": 20.764878100002534
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\03-Damp-Ruts-Ground.png",
+    "sha256": "1dcb3be0fa67d27c339889ccd2e65a02c4db7a69cf7b34fd6ee168fc6d027a75",
+    "seconds": 20.893088299999363
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\04-Asphalt-Earth-Join.png",
+    "sha256": "1c582c796507b196e3a084151df197d18bb6a546b4e11ffd616d4eeef9a667f7",
+    "seconds": 22.492995299995528
+  },
+  {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\unpaved-road-v1\\preview-r2\\05-Road-Shop-Drain-Walk.png",
+    "sha256": "4429a66c7aaaaafc6d4739dcb9bd41cca5dd99132634460c52be7c2a90278e72",
+    "seconds": 23.81363020000572
+  }
+]

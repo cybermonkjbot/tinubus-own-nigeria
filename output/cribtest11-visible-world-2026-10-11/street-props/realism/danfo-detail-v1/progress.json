@@ -1,0 +1,52 @@
+{
+  "job": "lagos-danfo-detail-v1",
+  "pid": 3452,
+  "step": "derivative_worker_inspected_parent_review_pending",
+  "updated_at": "2026-10-11T02:47:15-07:00",
+  "process_state": "exited; Blender quit in stdout and PID absent from current process inventory",
+  "review": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/realism/danfo-detail-v1/visual-review.json",
+  "visual_acceptance": "Not final realism; detail revision only, parent review pending",
+  "blend": {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\danfo-detail-v1\\DanfoDetail_v1.blend",
+    "sha256": "8e5c0d4758bd8b92e7525328410998f3fcf6a907919a95048ac5ee825b3546c8"
+  },
+  "fbx": {
+    "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\danfo-detail-v1\\DanfoDetail_v1.fbx",
+    "sha256": "282dc12cbd98529f8c679aeca41426f173f9802f108650a80f2420bff5d05586",
+    "identity": "SM_DanfoDetail_v1",
+    "vertices": 22128,
+    "faces": 20770,
+    "uv_layers": [
+      "UVMap"
+    ],
+    "materials": [
+      "StripeBlack",
+      "YellowFaded",
+      "DanfoYellow",
+      "GlassDark",
+      "Steel",
+      "Rubber",
+      "LampIvory",
+      "LampAmber",
+      "IvoryPaint",
+      "LampRed",
+      "Seat"
+    ]
+  },
+  "frames": [
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\danfo-detail-v1\\01-Danfo-Detail-Quarter.png",
+      "sha256": "b74b43ef2a74d90de94b8cb9ccb14c3772e277c6cee69efdb174e6a961e3c9d8",
+      "seconds": 45.6890926000051,
+      "camera": "01-Danfo-Detail-Quarter"
+    },
+    {
+      "path": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\danfo-detail-v1\\02-Danfo-Cabin-Wheel-Close.png",
+      "sha256": "d21bfe3c4272f08e0d67a0a4e2fea31dc732599ddd94fc154217c035558d0cc8",
+      "seconds": 55.23181769999792,
+      "camera": "02-Danfo-Cabin-Wheel-Close"
+    }
+  ],
+  "warnings": ["World.use_nodes deprecation warning; no authoring failure"],
+  "errors": []
+}

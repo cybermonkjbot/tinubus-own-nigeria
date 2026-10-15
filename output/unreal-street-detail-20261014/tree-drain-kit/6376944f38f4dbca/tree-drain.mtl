@@ -1,0 +1,28 @@
+newmtl TD_bark
+Kd 0.16 0.105 0.065
+Pr 0.9
+Pm 0
+newmtl TD_leaf
+Kd 0.075 0.2 0.055
+Pr 0.78
+Pm 0
+newmtl TD_leaf_light
+Kd 0.15 0.28 0.065
+Pr 0.82
+Pm 0
+newmtl TD_concrete
+Kd 0.43 0.4 0.34
+Pr 0.9
+Pm 0
+newmtl TD_repair
+Kd 0.54 0.52 0.46
+Pr 0.85
+Pm 0
+newmtl TD_sediment
+Kd 0.105 0.09 0.065
+Pr 0.97
+Pm 0
+newmtl TD_iron
+Kd 0.11 0.12 0.11
+Pr 0.58
+Pm 0.65

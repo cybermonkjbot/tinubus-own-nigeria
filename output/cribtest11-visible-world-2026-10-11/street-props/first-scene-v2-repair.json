@@ -1,0 +1,18 @@
+{
+  "job": "lagos-first-scene-v1",
+  "previous_run": {"pid": 12252, "output": "first-scene-v1", "preserved": true, "error": "TypeError: 'int' object is not iterable", "location": "polygon() called from terrain()"},
+  "frozen_script_sha256": "19a11507790d0bcd1ab81b0db4e663fe1fab5765b0e7c71f5dd9dce395128fa5",
+  "owned_preimage_sha256": "db0835fec86aeb56357e321cb9539ea038a2a3fb7b73140eef1eb55a81efce11",
+  "owned_current_sha256": "f97a54cd5ece8c4735b22676160ab6fffbcb7acd4c8451676bc607b6bae0e887",
+  "fix": "tessellate_polygon() returns integer triangle indices in installed Blender 5.2.2; consume those indices directly and preserve upward winding check.",
+  "pinned_face_structure": "All ten theatre parts contain nested polygon-index arrays; existing fan triangulation retained. No flat face chunking required by these inputs.",
+  "optional_signature": "Not loaded only for authorized context-parcels=0; manifest carries optional-not-loaded and expected pin.",
+  "source_snapshot_modified": false,
+  "output": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/first-scene-v2",
+  "threads": 2,
+  "samples": 16,
+  "resolution": [960, 540],
+  "pid": 1776,
+  "started_at": "2026-10-11T02:30:05-07:00",
+  "step": "serial_retry_running"
+}

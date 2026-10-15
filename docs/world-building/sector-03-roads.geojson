@@ -1,0 +1,1098 @@
+{
+  "type": "FeatureCollection",
+  "name": "Sector 03 Igbehinadun–Oyetayo connected street study",
+  "retrievedDate": "2026-10-11",
+  "sourceUrl": "https://api.openstreetmap.org/api/0.6/map.json?bbox=3.3440,6.5593,3.3505,6.5660",
+  "sourceSha256": "552542bc9e15db1aad4dd403c77765421c97f1721f8b8f6a6cef09cf607f6da2",
+  "attribution": "© OpenStreetMap contributors",
+  "license": "ODbL 1.0",
+  "coordinateReference": "WGS84 longitude, latitude; no altitude",
+  "queryBbox": [
+    3.344,
+    6.5593,
+    3.3505,
+    6.566
+  ],
+  "geometryExtent": "Complete selected ways, not clipped; not sector ownership",
+  "features": [
+    {
+      "type": "Feature",
+      "id": "osm:way:5153762",
+      "properties": {
+        "osmWayId": 5153762,
+        "osmVersion": 11,
+        "osmTimestamp": "2026-03-20T03:41:01Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Igbehinadun Street",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          4395533093,
+          1079849412,
+          1079849289,
+          4395533074,
+          4395533070,
+          1079849205,
+          1079849314,
+          35785463
+        ],
+        "nodeVersions": [
+          4,
+          6,
+          5,
+          6,
+          4,
+          4,
+          5,
+          6
+        ],
+        "nodeTimestamps": [
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T13:59:20Z",
+          "2024-04-29T11:46:41Z"
+        ],
+        "approximatePolylineLengthMetres": 489.2,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3477254,
+            6.5608319
+          ],
+          [
+            3.3476512,
+            6.5602669
+          ],
+          [
+            3.3475022,
+            6.5595975
+          ],
+          [
+            3.3473714,
+            6.5588747
+          ],
+          [
+            3.3473539,
+            6.5587654
+          ],
+          [
+            3.3472721,
+            6.5582525
+          ],
+          [
+            3.3472051,
+            6.5578215
+          ],
+          [
+            3.3470173,
+            6.5564911
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1442626891",
+      "properties": {
+        "osmWayId": 1442626891,
+        "osmVersion": 1,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Igbehinadun Street",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          4395533094,
+          1079849308,
+          4395533093
+        ],
+        "nodeVersions": [
+          3,
+          4,
+          4
+        ],
+        "nodeTimestamps": [
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T11:46:41Z"
+        ],
+        "approximatePolylineLengthMetres": 112.7,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3478084,
+            6.561841
+          ],
+          [
+            3.3477496,
+            6.5609627
+          ],
+          [
+            3.3477254,
+            6.5608319
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1442626890",
+      "properties": {
+        "osmWayId": 1442626890,
+        "osmVersion": 2,
+        "osmTimestamp": "2026-07-31T13:24:39Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Igbehinadun Street",
+          "oneway": "yes",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          4395533094,
+          5604445612,
+          5604445608,
+          35785494
+        ],
+        "nodeVersions": [
+          3,
+          3,
+          3,
+          7
+        ],
+        "nodeTimestamps": [
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T11:46:41Z",
+          "2024-04-29T11:46:41Z",
+          "2026-05-06T06:26:26Z"
+        ],
+        "approximatePolylineLengthMetres": 189.8,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3478084,
+            6.561841
+          ],
+          [
+            3.3478413,
+            6.5623251
+          ],
+          [
+            3.3479449,
+            6.5631511
+          ],
+          [
+            3.347813,
+            6.5635174
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:93146069",
+      "properties": {
+        "osmWayId": 93146069,
+        "osmVersion": 14,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "embankment": "two_sided",
+          "highway": "secondary",
+          "lanes": "2",
+          "maxspeed": "40",
+          "name": "Oyetayo Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          35785494,
+          4885151591,
+          1079849206,
+          9526619403,
+          9526619396,
+          5604244486,
+          9395971477,
+          5604244484,
+          1079849454,
+          3740115953,
+          1079849264,
+          5604244482,
+          13800762297,
+          5604244483,
+          5604244481,
+          1079849444
+        ],
+        "nodeVersions": [
+          7,
+          3,
+          2,
+          1,
+          1,
+          2,
+          2,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          3,
+          2,
+          4
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T06:26:26Z",
+          "2023-04-06T08:38:34Z",
+          "2018-05-08T10:47:53Z",
+          "2022-02-22T09:49:25Z",
+          "2022-02-22T09:49:25Z",
+          "2023-04-06T08:38:34Z",
+          "2024-04-29T11:29:31Z",
+          "2018-05-08T10:47:53Z",
+          "2018-05-08T10:47:53Z",
+          "2018-05-07T17:46:34Z",
+          "2018-05-08T10:47:53Z",
+          "2018-05-08T10:47:53Z",
+          "2026-05-06T09:00:03Z",
+          "2024-05-01T17:45:40Z",
+          "2024-05-01T17:45:40Z",
+          "2024-05-01T17:45:40Z"
+        ],
+        "approximatePolylineLengthMetres": 455.2,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.347813,
+            6.5635174
+          ],
+          [
+            3.3476334,
+            6.563445
+          ],
+          [
+            3.3471947,
+            6.5632685
+          ],
+          [
+            3.3466421,
+            6.5630482
+          ],
+          [
+            3.3464592,
+            6.5629754
+          ],
+          [
+            3.3463219,
+            6.5629258
+          ],
+          [
+            3.3460966,
+            6.5628394
+          ],
+          [
+            3.3455732,
+            6.5625931
+          ],
+          [
+            3.3452594,
+            6.562416
+          ],
+          [
+            3.3450548,
+            6.5622196
+          ],
+          [
+            3.3449721,
+            6.5620475
+          ],
+          [
+            3.344907,
+            6.5618557
+          ],
+          [
+            3.344897,
+            6.5616859
+          ],
+          [
+            3.3449038,
+            6.5615468
+          ],
+          [
+            3.3449142,
+            6.5614002
+          ],
+          [
+            3.3449118,
+            6.5612076
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:5153763",
+      "properties": {
+        "osmWayId": 5153763,
+        "osmVersion": 12,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "embankment": "yes",
+          "highway": "secondary",
+          "lanes": "2",
+          "maxspeed": "40",
+          "name": "Oyetayo Street",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          35785494,
+          4885151590,
+          5604562047,
+          35785493,
+          12230486958,
+          1477755408
+        ],
+        "nodeVersions": [
+          7,
+          3,
+          2,
+          9,
+          2,
+          13
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T06:26:26Z",
+          "2018-07-02T08:42:43Z",
+          "2018-07-02T08:42:43Z",
+          "2024-05-31T09:38:49Z",
+          "2024-10-08T04:53:13Z",
+          "2024-10-08T04:53:13Z"
+        ],
+        "approximatePolylineLengthMetres": 90,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.347813,
+            6.5635174
+          ],
+          [
+            3.3481177,
+            6.5636251
+          ],
+          [
+            3.3481908,
+            6.5636491
+          ],
+          [
+            3.3484045,
+            6.5637409
+          ],
+          [
+            3.3485,
+            6.5637773
+          ],
+          [
+            3.3485744,
+            6.5638056
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:93146079",
+      "properties": {
+        "osmWayId": 93146079,
+        "osmVersion": 7,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Akinpelu Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1079849206,
+          1079849310,
+          1079849260,
+          4395533088,
+          4395533091
+        ],
+        "nodeVersions": [
+          2,
+          4,
+          4,
+          3,
+          4
+        ],
+        "nodeTimestamps": [
+          "2018-05-08T10:47:53Z",
+          "2026-05-06T06:26:26Z",
+          "2026-05-06T06:26:26Z",
+          "2026-05-06T06:26:26Z",
+          "2026-05-06T06:26:26Z"
+        ],
+        "approximatePolylineLengthMetres": 275.3,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3471947,
+            6.5632685
+          ],
+          [
+            3.3473044,
+            6.5629289
+          ],
+          [
+            3.3472588,
+            6.5624117
+          ],
+          [
+            3.3470918,
+            6.5612623
+          ],
+          [
+            3.3470334,
+            6.5608279
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1442626892",
+      "properties": {
+        "osmWayId": 1442626892,
+        "osmVersion": 1,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Akinpelu Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          4395533091,
+          4395533085
+        ],
+        "nodeVersions": [
+          4,
+          3
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T06:26:26Z",
+          "2026-05-06T06:26:26Z"
+        ],
+        "approximatePolylineLengthMetres": 20.1,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3470334,
+            6.5608279
+          ],
+          [
+            3.347001,
+            6.5606501
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:441859107",
+      "properties": {
+        "osmWayId": 441859107,
+        "osmVersion": 4,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Adeoye Street"
+        },
+        "osmNodeIds": [
+          4395533083,
+          4395533084,
+          11837764374,
+          4395533085
+        ],
+        "nodeVersions": [
+          4,
+          4,
+          2,
+          3
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T06:26:26Z",
+          "2025-10-16T16:32:44Z",
+          "2025-10-16T16:32:44Z",
+          "2026-05-06T06:26:26Z"
+        ],
+        "approximatePolylineLengthMetres": 124.6,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3458748,
+            6.5607079
+          ],
+          [
+            3.3465457,
+            6.5606641
+          ],
+          [
+            3.3468097,
+            6.5606517
+          ],
+          [
+            3.347001,
+            6.5606501
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:93146061",
+      "properties": {
+        "osmWayId": 93146061,
+        "osmVersion": 7,
+        "osmTimestamp": "2026-05-06T06:26:26Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Okun Owa Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1079849260,
+          11865956563,
+          1079849442,
+          5604445614,
+          4395533096,
+          13800495755,
+          13800495757,
+          13800495756,
+          5604445615,
+          4395533086,
+          4395533083
+        ],
+        "nodeVersions": [
+          4,
+          1,
+          2,
+          2,
+          2,
+          1,
+          1,
+          1,
+          3,
+          4,
+          4
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T06:26:26Z",
+          "2024-04-29T11:29:31Z",
+          "2024-04-29T11:29:31Z",
+          "2026-05-06T06:26:26Z",
+          "2018-05-08T12:31:34Z",
+          "2026-05-06T06:26:26Z",
+          "2026-05-06T06:26:26Z",
+          "2026-05-06T06:26:26Z",
+          "2026-05-06T06:26:26Z",
+          "2026-05-06T06:26:26Z",
+          "2026-05-06T06:26:26Z"
+        ],
+        "approximatePolylineLengthMetres": 295.2,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3472588,
+            6.5624117
+          ],
+          [
+            3.3468859,
+            6.5623774
+          ],
+          [
+            3.3465103,
+            6.5622827
+          ],
+          [
+            3.3462846,
+            6.5621842
+          ],
+          [
+            3.3460855,
+            6.562056
+          ],
+          [
+            3.3460276,
+            6.5620177
+          ],
+          [
+            3.3459793,
+            6.5619644
+          ],
+          [
+            3.3459444,
+            6.5619004
+          ],
+          [
+            3.3458901,
+            6.5617685
+          ],
+          [
+            3.3458987,
+            6.5612058
+          ],
+          [
+            3.3458748,
+            6.5607079
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1442626895",
+      "properties": {
+        "osmWayId": 1442626895,
+        "osmVersion": 1,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "tertiary",
+          "name": "Okun Owa Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          4395533083,
+          1079849293
+        ],
+        "nodeVersions": [
+          4,
+          4
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T06:26:26Z",
+          "2025-10-16T16:32:44Z"
+        ],
+        "approximatePolylineLengthMetres": 71.5,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3458748,
+            6.5607079
+          ],
+          [
+            3.3458385,
+            6.5600661
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1442626894",
+      "properties": {
+        "osmWayId": 1442626894,
+        "osmVersion": 1,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "residential",
+          "name": "Okun Owa Street",
+          "source": "BING",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1079849293,
+          4395533079,
+          4395533080
+        ],
+        "nodeVersions": [
+          4,
+          1,
+          1
+        ],
+        "nodeTimestamps": [
+          "2025-10-16T16:32:44Z",
+          "2016-09-11T01:20:06Z",
+          "2016-09-11T01:20:06Z"
+        ],
+        "approximatePolylineLengthMetres": 117.9,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3458385,
+            6.5600661
+          ],
+          [
+            3.3458311,
+            6.5595162
+          ],
+          [
+            3.3458114,
+            6.5590064
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:93146084",
+      "properties": {
+        "osmWayId": 93146084,
+        "osmVersion": 8,
+        "osmTimestamp": "2026-05-06T09:00:03Z",
+        "tags": {
+          "highway": "tertiary",
+          "lanes": "2",
+          "maxspeed": "40",
+          "name": "Brown Street",
+          "oneway": "no",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1079849239,
+          11386762262,
+          1079849221,
+          1079849289,
+          6967655640,
+          1079849304,
+          13800762295,
+          1079849293
+        ],
+        "nodeVersions": [
+          5,
+          2,
+          4,
+          5,
+          4,
+          4,
+          1,
+          4
+        ],
+        "nodeTimestamps": [
+          "2026-05-06T08:35:48Z",
+          "2024-04-29T08:04:39Z",
+          "2024-04-29T08:04:39Z",
+          "2024-04-29T11:46:41Z",
+          "2025-10-16T16:32:44Z",
+          "2025-10-16T16:32:44Z",
+          "2026-05-06T09:00:03Z",
+          "2025-10-16T16:32:44Z"
+        ],
+        "approximatePolylineLengthMetres": 517.2,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3502665,
+            6.5585907
+          ],
+          [
+            3.3490765,
+            6.558996
+          ],
+          [
+            3.3482359,
+            6.5593025
+          ],
+          [
+            3.3475022,
+            6.5595975
+          ],
+          [
+            3.3468411,
+            6.5598375
+          ],
+          [
+            3.3464148,
+            6.5599814
+          ],
+          [
+            3.3460544,
+            6.5600344
+          ],
+          [
+            3.3458385,
+            6.5600661
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:1442626893",
+      "properties": {
+        "osmWayId": 1442626893,
+        "osmVersion": 1,
+        "osmTimestamp": "2025-10-16T16:32:44Z",
+        "tags": {
+          "highway": "tertiary",
+          "lanes": "2",
+          "maxspeed": "40",
+          "name": "Brown Street",
+          "oneway": "no",
+          "surface": "unpaved"
+        },
+        "osmNodeIds": [
+          1079849293,
+          1079849473,
+          1079849278
+        ],
+        "nodeVersions": [
+          4,
+          4,
+          3
+        ],
+        "nodeTimestamps": [
+          "2025-10-16T16:32:44Z",
+          "2025-10-16T16:32:44Z",
+          "2024-04-29T08:04:39Z"
+        ],
+        "approximatePolylineLengthMetres": 94.7,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3458385,
+            6.5600661
+          ],
+          [
+            3.3454491,
+            6.560029
+          ],
+          [
+            3.3449863,
+            6.5599732
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:496652063",
+      "properties": {
+        "osmWayId": 496652063,
+        "osmVersion": 7,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "secondary",
+          "maxspeed": "40",
+          "name": "Church Street",
+          "surface": "asphalt"
+        },
+        "osmNodeIds": [
+          1079849444,
+          1079849278,
+          4395533082,
+          4395533067,
+          1079849242,
+          1079849449,
+          1079849430
+        ],
+        "nodeVersions": [
+          4,
+          3,
+          2,
+          3,
+          3,
+          4,
+          4
+        ],
+        "nodeTimestamps": [
+          "2024-05-01T17:45:40Z",
+          "2024-04-29T08:04:39Z",
+          "2018-05-17T04:03:12Z",
+          "2018-05-18T04:28:10Z",
+          "2018-05-18T04:28:10Z",
+          "2022-11-14T10:17:53Z",
+          "2024-04-29T11:14:14Z"
+        ],
+        "approximatePolylineLengthMetres": 529.6,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3449118,
+            6.5612076
+          ],
+          [
+            3.3449863,
+            6.5599732
+          ],
+          [
+            3.3450311,
+            6.5594303
+          ],
+          [
+            3.3450795,
+            6.5588574
+          ],
+          [
+            3.3451424,
+            6.5580953
+          ],
+          [
+            3.3451963,
+            6.5571301
+          ],
+          [
+            3.3452437,
+            6.5564568
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "id": "osm:way:8564504",
+      "properties": {
+        "osmWayId": 8564504,
+        "osmVersion": 12,
+        "osmTimestamp": "2026-10-03T08:02:11Z",
+        "tags": {
+          "highway": "secondary",
+          "name": "Adeyemi Street",
+          "source": "BING",
+          "surface": "asphalt"
+        },
+        "osmNodeIds": [
+          1079849444,
+          5623475764,
+          1079849290,
+          5623475765,
+          35785466
+        ],
+        "nodeVersions": [
+          4,
+          1,
+          3,
+          3,
+          4
+        ],
+        "nodeTimestamps": [
+          "2024-05-01T17:45:40Z",
+          "2018-05-17T04:03:11Z",
+          "2026-05-06T04:13:09Z",
+          "2026-05-06T06:26:26Z",
+          "2024-04-26T13:23:58Z"
+        ],
+        "approximatePolylineLengthMetres": 320.6,
+        "evidenceStatus": "mapped-not-surveyed",
+        "currentSurfaceVerified": false,
+        "heightDatum": null,
+        "gameplayAdmission": false
+      },
+      "geometry": {
+        "type": "LineString",
+        "coordinates": [
+          [
+            3.3449118,
+            6.5612076
+          ],
+          [
+            3.3445363,
+            6.5611596
+          ],
+          [
+            3.3442519,
+            6.561089
+          ],
+          [
+            3.3431885,
+            6.5611037
+          ],
+          [
+            3.3420212,
+            6.5611092
+          ]
+        ]
+      }
+    }
+  ]
+}

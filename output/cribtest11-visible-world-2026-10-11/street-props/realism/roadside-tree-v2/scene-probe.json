@@ -1,0 +1,137 @@
+{
+  "pid": 7960,
+  "file": "C:\\dev\\cribtest-game\\output\\cribtest11-visible-world-2026-10-11\\street-props\\realism\\roadside-tree-v2\\RoadsideShadeTree.blend",
+  "dirty": false,
+  "version": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "background": true,
+  "scene": "RoadsideShadeTreeAuthoring",
+  "engine": "CYCLES",
+  "units": {
+    "system": "METRIC",
+    "scale_length": 1.0
+  },
+  "object_count": 435,
+  "object_types": {
+    "EMPTY": 289,
+    "MESH": 143,
+    "LIGHT": 1,
+    "CAMERA": 2
+  },
+  "root_collections": [
+    "RoadsideShadeTree",
+    "TreePreviewOnly"
+  ],
+  "shared_meshes": 4,
+  "camera": "Tree-Ground-Shadow",
+  "frame": 1,
+  "range": [
+    1,
+    250
+  ],
+  "fps": 24.0,
+  "resolution": [
+    960,
+    640,
+    100
+  ],
+  "color": {
+    "view_transform": "AgX",
+    "look": "None",
+    "exposure": 0.0,
+    "display": "sRGB"
+  },
+  "cycles": {
+    "device": "CPU",
+    "samples": 24,
+    "use_denoising": true
+  },
+  "eevee": {
+    "taa_samples": 16,
+    "taa_render_samples": 64,
+    "shadow_resolution_scale": 1.0
+  },
+  "known_devices": [],
+  "assets": {
+    "external_count": 0,
+    "missing_count": 0,
+    "missing": [],
+    "unresolved_count": 0,
+    "unresolved": [],
+    "cache_audit": "separate inspection required"
+  },
+  "objects_sample": [
+    {
+      "name": "RoadsideShadeTree_ROOT",
+      "type": "EMPTY",
+      "hidden_render": false,
+      "data_users": null
+    },
+    {
+      "name": "RoadsideShadeTree_Trunk",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "RoadsideShadeTree_RootFlare_0",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "RoadsideShadeTree_RootFlare_1",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "RoadsideShadeTree_RootFlare_2",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "RoadsideShadeTree_RootFlare_3",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "RoadsideShadeTree_RootFlare_4",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "RoadsideShadeTree_Limb_00",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "RoadsideShadeTree_Fork_00_0",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "RoadsideShadeTree_Twig_00_0_0",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "RoadsideShadeTree_Foliage_000",
+      "type": "EMPTY",
+      "hidden_render": false,
+      "data_users": null
+    },
+    {
+      "name": "RoadsideShadeTree_Foliage_001",
+      "type": "EMPTY",
+      "hidden_render": false,
+      "data_users": null
+    }
+  ]
+}

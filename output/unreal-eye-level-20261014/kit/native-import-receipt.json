@@ -1,0 +1,240 @@
+{
+  "assets": [
+    {
+      "id": "SM_EL_FernPot",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FernPot.SM_EL_FernPot",
+      "native_triangles": [
+        2772,
+        1524,
+        994
+      ],
+      "source_triangles": [
+        2772,
+        1524,
+        994
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E9D82D16C0) {min: {x: -36.489498, y: -35.707130, z: 0.000000}, max: {x: 33.797729, y: 33.191647, z: 49.796097}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "leaf_dark",
+          "source": "leaf_dark"
+        },
+        {
+          "slot": "leaf_light",
+          "source": "leaf_light"
+        },
+        {
+          "slot": "soil",
+          "source": "soil"
+        },
+        {
+          "slot": "terracotta",
+          "source": "terracotta"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_UprightPot",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_UprightPot.SM_EL_UprightPot",
+      "native_triangles": [
+        396,
+        216,
+        110
+      ],
+      "source_triangles": [
+        396,
+        216,
+        110
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E6FAAF7980) {min: {x: -22.000000, y: -22.000000, z: 0.000000}, max: {x: 22.000000, y: 22.000000, z: 131.796432}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "leaf_dark",
+          "source": "leaf_dark"
+        },
+        {
+          "slot": "leaf_gold",
+          "source": "leaf_gold"
+        },
+        {
+          "slot": "soil",
+          "source": "soil"
+        },
+        {
+          "slot": "stone",
+          "source": "stone"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_GrassClump",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassClump.SM_EL_GrassClump",
+      "native_triangles": [
+        416,
+        228,
+        116
+      ],
+      "source_triangles": [
+        416,
+        228,
+        116
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E6E829A900) {min: {x: -31.375528, y: -26.053221, z: 0.000000}, max: {x: 23.807192, y: 30.582794, z: 44.720657}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "leaf_gold",
+          "source": "leaf_gold"
+        },
+        {
+          "slot": "leaf_light",
+          "source": "leaf_light"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_Groundcover",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_Groundcover.SM_EL_Groundcover",
+      "native_triangles": [
+        1664,
+        914,
+        576
+      ],
+      "source_triangles": [
+        1664,
+        914,
+        576
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E8E135B840) {min: {x: -16.402437, y: -17.505459, z: 1.301796}, max: {x: 14.525358, y: 18.397722, z: 11.812500}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "leaf_dark",
+          "source": "leaf_dark"
+        },
+        {
+          "slot": "leaf_light",
+          "source": "leaf_light"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_FlowerTrough",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_FlowerTrough.SM_EL_FlowerTrough",
+      "native_triangles": [
+        4440,
+        2442,
+        1480
+      ],
+      "source_triangles": [
+        4440,
+        2442,
+        1480
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001E904F43F40) {min: {x: -52.500000, y: -24.750006, z: 0.000000}, max: {x: 52.500000, y: 24.750006, z: 65.400002}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "flower_coral",
+          "source": "flower_coral"
+        },
+        {
+          "slot": "flower_cream",
+          "source": "flower_cream"
+        },
+        {
+          "slot": "leaf_dark",
+          "source": "leaf_dark"
+        },
+        {
+          "slot": "leaf_light",
+          "source": "leaf_light"
+        },
+        {
+          "slot": "soil",
+          "source": "soil"
+        },
+        {
+          "slot": "stone",
+          "source": "stone"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_GrassTrough",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_GrassTrough.SM_EL_GrassTrough",
+      "native_triangles": [
+        1416,
+        778,
+        396
+      ],
+      "source_triangles": [
+        1416,
+        778,
+        396
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EA03FE5800) {min: {x: -73.016342, y: -42.377377, z: 0.000000}, max: {x: 77.617180, y: 38.962952, z: 110.741112}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "leaf_gold",
+          "source": "leaf_gold"
+        },
+        {
+          "slot": "leaf_light",
+          "source": "leaf_light"
+        },
+        {
+          "slot": "soil",
+          "source": "soil"
+        },
+        {
+          "slot": "stone",
+          "source": "stone"
+        }
+      ]
+    },
+    {
+      "id": "SM_EL_WallBasket",
+      "asset": "/Game/BaddieGeneratedWorld/StreetFinish_20261014/EyeLevel/Meshes/SM_EL_WallBasket.SM_EL_WallBasket",
+      "native_triangles": [
+        2700,
+        1484,
+        894
+      ],
+      "source_triangles": [
+        2700,
+        1484,
+        894
+      ],
+      "bounds_cm": "<Struct 'Box' (0x000001EDBE6BC180) {min: {x: -21.545811, y: -57.814373, z: -60.067696}, max: {x: 22.363977, y: 0.000000, z: 13.500001}, is_valid: True}>",
+      "topology_match": true,
+      "material_aliases": [
+        {
+          "slot": "iron",
+          "source": "iron"
+        },
+        {
+          "slot": "leaf_dark",
+          "source": "leaf_dark"
+        },
+        {
+          "slot": "leaf_light",
+          "source": "leaf_light"
+        },
+        {
+          "slot": "soil",
+          "source": "soil"
+        },
+        {
+          "slot": "terracotta",
+          "source": "terracotta"
+        }
+      ]
+    }
+  ],
+  "source_kind": "Original native small-plant recipes, seed-stable; no external assets",
+  "visual_review": "pending"
+}

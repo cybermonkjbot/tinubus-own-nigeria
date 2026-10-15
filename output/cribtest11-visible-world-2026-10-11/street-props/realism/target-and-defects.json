@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-11",
+  "target": "Dense, photorealism-oriented Lagos environment art, with Call of Duty as a visual reference; not an achieved AAA claim.",
+  "milestone": "Finished 100-150 metre Yaba street segment; daylight and damp/evening walking-height views, facade/road/drainage/prop close views.",
+  "status": "Facade authoring awaiting parent generator; no final-art acceptance.",
+  "blockout_evidence": {
+    "png": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/camera-delivery-v1/03-Theatre-Danfo-Kiosk.png",
+    "sha256": "dcf6bd355ac74073851ffc500c7902d6f54ebb975b10ed7ff2a0807e3150a7ae",
+    "blend": "C:/dev/cribtest-game/output/cribtest11-visible-world-2026-10-11/street-props/camera-delivery-v1/LagosFirstScene-CameraDelivery.blend",
+    "parent_acceptance": "Rejected as final realism; preserved as blockout evidence only."
+  },
+  "observed_defects": [
+    {"view": "03-Theatre-Danfo-Kiosk.png", "location": "trees", "observed": "Blob canopy silhouettes", "required": "Real branch/leaf structure or suitable licensed trees, with economical distant representation", "repair": "not performed; no reuse as accepted final foliage"},
+    {"view": "03-Theatre-Danfo-Kiosk.png", "location": "ground and road", "observed": "Flat uniform ground without believable road edges/surface variation", "required": "Pedestrian-scale curb/drain connections, road construction and traffic/water wear", "repair": "pending frontage handoff"},
+    {"view": "03-Theatre-Danfo-Kiosk.png", "location": "kiosk", "observed": "Rear blank plane dominates", "required": "Intended facade and near detail visible in first-street composition", "repair": "pending frontage composition; retained blockout poses unchanged"},
+    {"view": "03-Theatre-Danfo-Kiosk.png", "location": "foreground", "observed": "Sparse empty foreground", "required": "Near/mid/far detail with believable access and variation", "repair": "pending frontage handoff"},
+    {"view": "03-Theatre-Danfo-Kiosk.png", "location": "theatre facade", "observed": "Repeating beams with limited surface detail", "required": "Reference-derived proportions, materials, framed/recessed openings, physical construction details", "repair": "Canonical theatre retained; new detailed art additive only"},
+    {"view": "v1/DanfoView.png", "location": "front-side cabin", "observed": "Missing front-side glazing exposes a dark wedge", "required": "Glazing thickness, seal/frame fit, readable cabin", "repair": "New danfo derivative authorized"},
+    {"view": "v1/DanfoView.png", "location": "wheels and finish", "observed": "Cylinder-like tyre profile and simple flat finish", "required": "Shoulder/sidewall profile, tread and rim detail with restrained paint/metal/glass response", "repair": "New danfo derivative authorized"}
+  ],
+  "boundaries": "Sole Blender writer; no Unreal control, runtime IDs, canonical pose changes or production renderer integration. Frozen outputs and live LagosWorkbench remain untouched."
+}

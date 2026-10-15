@@ -1,0 +1,3568 @@
+{
+  "owner": "cribtest11-world-generation-20261010",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "job": "places/civic-terrace-lounge",
+  "identity": "c0315c0fe33a407937a0d1981eb17e664cddc7d43835ab86f5cb3089a53d13d8",
+  "state": "saved",
+  "mapPackage": "/Game/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402",
+  "sources": [
+    {
+      "path": "packages/utils/src/companionPlacesExpansion.ts",
+      "sha256": "83f5f7ae488e10892ef72e8de196ec102a367c737ae330b34bca3e5975adff2b",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": "companionPlaceExpansionDestinations/civic-terrace-lounge"
+    },
+    {
+      "path": "packages/assets/venues/civic-interiors-v1.json",
+      "sha256": "682a8a8c70aa397f2c926be0159f68d32d06b431c865c4f7e6c6f6377fdcfdb5",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    },
+    {
+      "path": "packages/utils/src/companionPlacesCivicInteriors.ts",
+      "sha256": "c4b0ca3fb268ab7114dc5871a5cbc246aeebe2b121238a50f5fff3dbe3eb0ee6",
+      "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+      "pointer": ""
+    }
+  ],
+  "provenance": {
+    "schemaVersion": 1,
+    "job": "places/civic-terrace-lounge",
+    "generatorIdentity": "46ee26591fb098b0eab95c76eda8dd3d581dec26393073729228eee16efd855e",
+    "recipeSha256": "3422d0ad2981a4e80af9c143b04278ea87f169872c47d1c1d8fb8f709e4f16cd",
+    "sources": [
+      {
+        "path": "packages/utils/src/companionPlacesExpansion.ts",
+        "sha256": "83f5f7ae488e10892ef72e8de196ec102a367c737ae330b34bca3e5975adff2b",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": "companionPlaceExpansionDestinations/civic-terrace-lounge"
+      },
+      {
+        "path": "packages/assets/venues/civic-interiors-v1.json",
+        "sha256": "682a8a8c70aa397f2c926be0159f68d32d06b431c865c4f7e6c6f6377fdcfdb5",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      },
+      {
+        "path": "packages/utils/src/companionPlacesCivicInteriors.ts",
+        "sha256": "c4b0ca3fb268ab7114dc5871a5cbc246aeebe2b121238a50f5fff3dbe3eb0ee6",
+        "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+        "pointer": ""
+      }
+    ],
+    "template": null,
+    "contract": {
+      "placeId": "civic-terrace-lounge",
+      "seed": "civic-terrace-lounge-v1",
+      "layoutId": "civic-terrace-lounge:lagos-places-v1:civic-interiors-v1:civic-terrace-lounge-v1",
+      "assetVersion": "civic-interiors-v1",
+      "generatorVersion": "lagos-places-v1",
+      "assemblyFloorY": 3.66,
+      "navigation": {
+        "revision": "civic-terrace-lounge:lagos-places-v1:civic-interiors-v1:civic-terrace-lounge-v1:civic-interiors-v1",
+        "floorY": 0,
+        "radius": 0.24,
+        "gridSize": 0.25,
+        "bounds": {
+          "minX": -8.8,
+          "maxX": 8.8,
+          "minZ": -10.7,
+          "maxZ": 5.4
+        },
+        "obstacles": [
+          {
+            "id": "west enclosure",
+            "minX": -8.799999999999999,
+            "maxX": -8.58,
+            "minZ": -10.7,
+            "maxZ": 5.400000000000001,
+            "height": 3.16
+          },
+          {
+            "id": "east enclosure",
+            "minX": 8.58,
+            "maxX": 8.799999999999999,
+            "minZ": -10.7,
+            "maxZ": 5.400000000000001,
+            "height": 3.16
+          },
+          {
+            "id": "rear enclosure",
+            "minX": -8.8,
+            "maxX": 8.8,
+            "minZ": -10.7,
+            "maxZ": -10.48,
+            "height": 3.16
+          },
+          {
+            "id": "private dining partition left",
+            "minX": -8.58,
+            "maxX": -4.25,
+            "minZ": -4.29,
+            "maxZ": -4.11,
+            "height": 3.16
+          },
+          {
+            "id": "private dining partition right",
+            "minX": -2.8499999999999996,
+            "maxX": -2.3,
+            "minZ": -4.29,
+            "maxZ": -4.11,
+            "height": 3.16
+          },
+          {
+            "id": "private dining side",
+            "minX": -2.29,
+            "maxX": -2.1100000000000003,
+            "minZ": -10.600000000000001,
+            "maxZ": -4.2,
+            "height": 3.16
+          },
+          {
+            "id": "private dining table",
+            "minX": -6.74,
+            "maxX": -4.26,
+            "minZ": -7.99,
+            "maxZ": -6.8100000000000005,
+            "height": 0.75
+          },
+          {
+            "id": "private dining north -6.25",
+            "minX": -6.61,
+            "maxX": -5.89,
+            "minZ": -9.01,
+            "maxZ": -8.290000000000001,
+            "height": 1.13
+          },
+          {
+            "id": "private dining south -6.25",
+            "minX": -6.61,
+            "maxX": -5.89,
+            "minZ": -6.510000000000001,
+            "maxZ": -5.79,
+            "height": 1.13
+          },
+          {
+            "id": "private dining north -5.5",
+            "minX": -5.86,
+            "maxX": -5.14,
+            "minZ": -9.01,
+            "maxZ": -8.290000000000001,
+            "height": 1.13
+          },
+          {
+            "id": "private dining south -5.5",
+            "minX": -5.86,
+            "maxX": -5.14,
+            "minZ": -6.510000000000001,
+            "maxZ": -5.79,
+            "height": 1.13
+          },
+          {
+            "id": "private dining north -4.75",
+            "minX": -5.11,
+            "maxX": -4.39,
+            "minZ": -9.01,
+            "maxZ": -8.290000000000001,
+            "height": 1.13
+          },
+          {
+            "id": "private dining south -4.75",
+            "minX": -5.11,
+            "maxX": -4.39,
+            "minZ": -6.510000000000001,
+            "maxZ": -5.79,
+            "height": 1.13
+          },
+          {
+            "id": "upper-bar",
+            "minX": 1.0599999999999996,
+            "maxX": 7.14,
+            "minZ": -8.24,
+            "maxZ": -7.16,
+            "height": 1.2
+          },
+          {
+            "id": "upper-backbar",
+            "minX": 1.0749999999999997,
+            "maxX": 7.125,
+            "minZ": -10.504999999999999,
+            "maxZ": -10.055,
+            "height": 2.8
+          },
+          {
+            "id": "bar chair 2",
+            "minX": 1.6400000000000001,
+            "maxX": 2.36,
+            "minZ": -6.71,
+            "maxZ": -5.989999999999999,
+            "height": 1.13
+          },
+          {
+            "id": "bar chair 3.4",
+            "minX": 3.04,
+            "maxX": 3.76,
+            "minZ": -6.71,
+            "maxZ": -5.989999999999999,
+            "height": 1.13
+          },
+          {
+            "id": "bar chair 4.8",
+            "minX": 4.4399999999999995,
+            "maxX": 5.16,
+            "minZ": -6.71,
+            "maxZ": -5.989999999999999,
+            "height": 1.13
+          },
+          {
+            "id": "bar chair 6.2",
+            "minX": 5.84,
+            "maxX": 6.5600000000000005,
+            "minZ": -6.71,
+            "maxZ": -5.989999999999999,
+            "height": 1.13
+          },
+          {
+            "id": "upper west lounge sofa",
+            "minX": -1.2000000000000002,
+            "maxX": -0.09999999999999998,
+            "minZ": -2.95,
+            "maxZ": -0.050000000000000044,
+            "height": 1.16
+          },
+          {
+            "id": "upper north lounge sofa",
+            "minX": 1.425,
+            "maxX": 4.575,
+            "minZ": -3.6500000000000004,
+            "maxZ": -2.55,
+            "height": 1.16
+          },
+          {
+            "id": "upper east lounge sofa",
+            "minX": 6.15,
+            "maxX": 7.25,
+            "minZ": -2.95,
+            "maxZ": -0.050000000000000044,
+            "height": 1.16
+          },
+          {
+            "id": "upper lounge stone table",
+            "minX": 1.96,
+            "maxX": 4.04,
+            "minZ": -1.6400000000000001,
+            "maxZ": -0.56,
+            "height": 0.42
+          },
+          {
+            "id": "upper reading table",
+            "minX": -6.9399999999999995,
+            "maxX": -5.66,
+            "minZ": -1.015,
+            "maxZ": -0.185,
+            "height": 0.74
+          },
+          {
+            "id": "upper reading chair",
+            "minX": -6.66,
+            "maxX": -5.9399999999999995,
+            "minZ": -0.06,
+            "maxZ": 0.6599999999999999,
+            "height": 1.13
+          },
+          {
+            "id": "terrace threshold west pier",
+            "minX": -5.25,
+            "maxX": -5.050000000000001,
+            "minZ": 2.1100000000000003,
+            "maxZ": 2.29,
+            "height": 3.16
+          },
+          {
+            "id": "terrace threshold east pier",
+            "minX": 8.41,
+            "maxX": 8.59,
+            "minZ": 2.1100000000000003,
+            "maxZ": 2.29,
+            "height": 3.16
+          },
+          {
+            "id": "pavilion-glazing",
+            "minX": -4.050000000000001,
+            "maxX": 8.35,
+            "minZ": 2.1625,
+            "maxZ": 2.2375000000000003,
+            "height": 2.85
+          },
+          {
+            "id": "front terrace parapet",
+            "minX": -0.9650000000000003,
+            "maxX": 8.685,
+            "minZ": 5.159999999999999,
+            "maxZ": 5.38,
+            "height": 0.7
+          },
+          {
+            "id": "front left wing",
+            "minX": -8.735,
+            "maxX": -4.585,
+            "minZ": 5.159999999999999,
+            "maxZ": 5.38,
+            "height": 3.16
+          },
+          {
+            "id": "terrace table 0",
+            "minX": 0.45999999999999996,
+            "maxX": 1.54,
+            "minZ": 3.4,
+            "maxZ": 4.1,
+            "height": 0.69
+          },
+          {
+            "id": "terrace chair 0 west",
+            "minX": -0.20999999999999996,
+            "maxX": 0.51,
+            "minZ": 3.39,
+            "maxZ": 4.11,
+            "height": 1.13
+          },
+          {
+            "id": "terrace chair 0 east",
+            "minX": 1.4900000000000002,
+            "maxX": 2.21,
+            "minZ": 3.39,
+            "maxZ": 4.11,
+            "height": 1.13
+          },
+          {
+            "id": "terrace table 1",
+            "minX": 5.16,
+            "maxX": 6.24,
+            "minZ": 3.4,
+            "maxZ": 4.1,
+            "height": 0.69
+          },
+          {
+            "id": "terrace chair 1 west",
+            "minX": 4.49,
+            "maxX": 5.210000000000001,
+            "minZ": 3.39,
+            "maxZ": 4.11,
+            "height": 1.13
+          },
+          {
+            "id": "terrace chair 1 east",
+            "minX": 6.1899999999999995,
+            "maxX": 6.91,
+            "minZ": 3.39,
+            "maxZ": 4.11,
+            "height": 1.13
+          },
+          {
+            "id": "upper west plant",
+            "minX": -7.989999999999999,
+            "maxX": -7.21,
+            "minZ": 3.4099999999999997,
+            "maxZ": 4.1899999999999995,
+            "height": 1.8
+          },
+          {
+            "id": "terrace east plant",
+            "minX": 7.510000000000001,
+            "maxX": 8.290000000000001,
+            "minZ": 4.010000000000001,
+            "maxZ": 4.79,
+            "height": 1.8
+          }
+        ]
+      },
+      "entrances": [
+        {
+          "id": "world-entry",
+          "point": [
+            -3.58,
+            0.0,
+            4.6
+          ],
+          "outside": [
+            -3.58,
+            0.0,
+            6.4
+          ],
+          "width": 1.55,
+          "role": "world",
+          "access": "place-membership"
+        }
+      ],
+      "spawns": [
+        {
+          "point": [
+            -3.58,
+            0.0,
+            3.6
+          ],
+          "yaw": 3.141592653589793
+        },
+        {
+          "point": [
+            -2.68,
+            0.0,
+            3.6
+          ],
+          "yaw": 3.141592653589793
+        },
+        {
+          "point": [
+            -4.48,
+            0.0,
+            3.6
+          ],
+          "yaw": 3.141592653589793
+        },
+        {
+          "point": [
+            -3.58,
+            0.0,
+            2.7
+          ],
+          "yaw": 3.141592653589793
+        }
+      ],
+      "cameras": {
+        "wide": {
+          "eye": [
+            -3.8,
+            2.0999999999999996,
+            4.8500000000000005
+          ],
+          "target": [
+            0.2,
+            1.0999999999999996,
+            -2.6
+          ]
+        },
+        "close": {
+          "eye": [
+            -3.7,
+            1.6500000000000004,
+            4.7
+          ],
+          "target": [
+            -2.8,
+            1.0,
+            1.9000000000000004
+          ]
+        }
+      },
+      "rooms": [
+        {
+          "label": "Terrace lounge",
+          "bounds": [
+            -2.2,
+            8.5,
+            -4,
+            2.2
+          ]
+        },
+        {
+          "label": "Private dining",
+          "bounds": [
+            -8.5,
+            -2.3,
+            -10.4,
+            -4.2
+          ]
+        },
+        {
+          "label": "Bar",
+          "bounds": [
+            -1,
+            8.5,
+            -10.4,
+            -5.4
+          ]
+        },
+        {
+          "label": "Outdoor terrace",
+          "bounds": [
+            -4.3,
+            8.5,
+            2.3,
+            5.3
+          ]
+        }
+      ],
+      "services": [],
+      "npcs": [],
+      "gates": "runtime-authoritative-closed"
+    }
+  },
+  "startedAt": 1791746729.252583,
+  "instances": [],
+  "meshes": [
+    {
+      "actor": "StaticMeshActor_0",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ef506303b16659e67872c538.SM_ef506303b16659e67872c538",
+      "features": [
+        {
+          "canonicalId": "private dining partition door lining -4.25:39",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining partition door lining -2.8499999999999996:40",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining table top:43",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining table leg -1 -1:44",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining table leg -1 1:45",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining table leg 1 -1:46",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining table leg 1 1:47",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -6.25 leg -1 -1:48",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -6.25 leg -1 1:49",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -6.25 leg 1 -1:50",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -6.25 leg 1 1:51",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -6.25 seat frame:52",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -6.25 side -1:55",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -6.25 side 1:56",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -6.25 leg -1 -1:57",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -6.25 leg -1 1:58",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -6.25 leg 1 -1:59",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -6.25 leg 1 1:60",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -6.25 seat frame:61",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -6.25 side -1:64",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -6.25 side 1:65",
+          "firstTriangle": 240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -5.5 leg -1 -1:66",
+          "firstTriangle": 252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -5.5 leg -1 1:67",
+          "firstTriangle": 264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -5.5 leg 1 -1:68",
+          "firstTriangle": 276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -5.5 leg 1 1:69",
+          "firstTriangle": 288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -5.5 seat frame:70",
+          "firstTriangle": 300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -5.5 side -1:73",
+          "firstTriangle": 312,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -5.5 side 1:74",
+          "firstTriangle": 324,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -5.5 leg -1 -1:75",
+          "firstTriangle": 336,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -5.5 leg -1 1:76",
+          "firstTriangle": 348,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -5.5 leg 1 -1:77",
+          "firstTriangle": 360,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -5.5 leg 1 1:78",
+          "firstTriangle": 372,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -5.5 seat frame:79",
+          "firstTriangle": 384,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -5.5 side -1:82",
+          "firstTriangle": 396,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -5.5 side 1:83",
+          "firstTriangle": 408,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -4.75 leg -1 -1:84",
+          "firstTriangle": 420,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -4.75 leg -1 1:85",
+          "firstTriangle": 432,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -4.75 leg 1 -1:86",
+          "firstTriangle": 444,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -4.75 leg 1 1:87",
+          "firstTriangle": 456,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -4.75 seat frame:88",
+          "firstTriangle": 468,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -4.75 side -1:91",
+          "firstTriangle": 480,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining north -4.75 side 1:92",
+          "firstTriangle": 492,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -4.75 leg -1 -1:93",
+          "firstTriangle": 504,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -4.75 leg -1 1:94",
+          "firstTriangle": 516,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -4.75 leg 1 -1:95",
+          "firstTriangle": 528,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -4.75 leg 1 1:96",
+          "firstTriangle": 540,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -4.75 seat frame:97",
+          "firstTriangle": 552,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -4.75 side -1:100",
+          "firstTriangle": 564,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining south -4.75 side 1:101",
+          "firstTriangle": 576,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining abstract walnut frame:105",
+          "firstTriangle": 588,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper west lounge sofa walnut base:204",
+          "firstTriangle": 600,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading table top:251",
+          "firstTriangle": 612,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading table leg -1 -1:252",
+          "firstTriangle": 624,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading table leg -1 1:253",
+          "firstTriangle": 636,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading table leg 1 -1:254",
+          "firstTriangle": 648,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading table leg 1 1:255",
+          "firstTriangle": 660,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "lounge original abstract walnut frame:265",
+          "firstTriangle": 672,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_1",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_27d1173b4a1aea39e1e32302.SM_27d1173b4a1aea39e1e32302",
+      "features": [
+        {
+          "canonicalId": "upper reading chair leg -1 -1:256",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading chair leg -1 1:257",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading chair leg 1 -1:258",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading chair leg 1 1:259",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading chair seat frame:260",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading chair side -1:263",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper reading chair side 1:264",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 west leg -1 1:312",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 west leg 1 1:314",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper west plant stem:354",
+          "firstTriangle": 108,
+          "triangleCount": 48
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_2",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_0eb76a12bf9940580426cf3d.SM_0eb76a12bf9940580426cf3d",
+      "features": [
+        {
+          "canonicalId": "upper bar cabinetry:109",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper backbar:152",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 2 leg -1 -1:156",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 2 leg -1 1:157",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 2 leg 1 -1:158",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 2 leg 1 1:159",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 2 seat frame:160",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 2 side -1:163",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 2 side 1:164",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 3.4 leg -1 -1:168",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 3.4 leg -1 1:169",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 3.4 leg 1 -1:170",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 3.4 leg 1 1:171",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 3.4 seat frame:172",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 3.4 side -1:175",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 3.4 side 1:176",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 4.8 leg -1 -1:180",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 4.8 leg -1 1:181",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 4.8 leg 1 -1:182",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 4.8 leg 1 1:183",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 4.8 seat frame:184",
+          "firstTriangle": 240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 4.8 side -1:187",
+          "firstTriangle": 252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 4.8 side 1:188",
+          "firstTriangle": 264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 6.2 leg -1 -1:192",
+          "firstTriangle": 276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 6.2 leg -1 1:193",
+          "firstTriangle": 288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 6.2 leg 1 -1:194",
+          "firstTriangle": 300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 6.2 leg 1 1:195",
+          "firstTriangle": 312,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 6.2 seat frame:196",
+          "firstTriangle": 324,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 6.2 side -1:199",
+          "firstTriangle": 336,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar chair 6.2 side 1:200",
+          "firstTriangle": 348,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper north lounge sofa walnut base:218",
+          "firstTriangle": 360,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper east lounge sofa walnut base:232",
+          "firstTriangle": 372,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper lounge stone table leg -1 -1:247",
+          "firstTriangle": 384,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper lounge stone table leg -1 1:248",
+          "firstTriangle": 396,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper lounge stone table leg 1 -1:249",
+          "firstTriangle": 408,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper lounge stone table leg 1 1:250",
+          "firstTriangle": 420,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_3",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_bbf709775c2f3cf3f767e503.SM_bbf709775c2f3cf3f767e503",
+      "features": [
+        {
+          "canonicalId": "terrace table 0 top:306",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace table 0 leg -1 -1:307",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace table 0 leg -1 1:308",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace table 0 leg 1 -1:309",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace table 0 leg 1 1:310",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 west leg -1 -1:311",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 west leg 1 -1:313",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 west seat frame:315",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 west side -1:318",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 west side 1:319",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 east leg -1 -1:320",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 east leg -1 1:321",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 east leg 1 -1:322",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 east leg 1 1:323",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 east seat frame:324",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 east side -1:327",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 0 east side 1:328",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace table 1 top:329",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace table 1 leg -1 -1:330",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace table 1 leg -1 1:331",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace table 1 leg 1 -1:332",
+          "firstTriangle": 240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace table 1 leg 1 1:333",
+          "firstTriangle": 252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 west leg -1 -1:334",
+          "firstTriangle": 264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 west leg -1 1:335",
+          "firstTriangle": 276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 west leg 1 -1:336",
+          "firstTriangle": 288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 west leg 1 1:337",
+          "firstTriangle": 300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 west seat frame:338",
+          "firstTriangle": 312,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 west side -1:341",
+          "firstTriangle": 324,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 west side 1:342",
+          "firstTriangle": 336,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 east leg -1 -1:343",
+          "firstTriangle": 348,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 east leg -1 1:344",
+          "firstTriangle": 360,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 east leg 1 -1:345",
+          "firstTriangle": 372,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 east leg 1 1:346",
+          "firstTriangle": 384,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 east seat frame:347",
+          "firstTriangle": 396,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 east side -1:350",
+          "firstTriangle": 408,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace chair 1 east side 1:351",
+          "firstTriangle": 420,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace east plant stem:368",
+          "firstTriangle": 432,
+          "triangleCount": 48
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_4",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e8b46b51043695671edb5a39.SM_e8b46b51043695671edb5a39",
+      "features": [
+        {
+          "canonicalId": "west enclosure:1",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining partition left:34",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining partition right:36",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining partition lintel:38",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining side:41",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_5",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_34bc1d56461b40fa665f9b05.SM_34bc1d56461b40fa665f9b05",
+      "features": [
+        {
+          "canonicalId": "terrace threshold west pier:281",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "front left wing:287",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_6",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_9c7237cbc461474e81dcf5bb.SM_9c7237cbc461474e81dcf5bb",
+      "features": [
+        {
+          "canonicalId": "east enclosure:3",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "rear enclosure:5",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_7",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ec28aed6727f5810cea89070.SM_ec28aed6727f5810cea89070",
+      "features": [
+        {
+          "canonicalId": "terrace threshold east pier:283",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "front terrace parapet:285",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "deep terrace overhang:381",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_8",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4359f473d2a2be2089abb804.SM_4359f473d2a2be2089abb804",
+      "features": [
+        {
+          "canonicalId": "private dining pendant lamp:104",
+          "firstTriangle": 0,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "upper recessed light -5.6 -8.8:382",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper recessed light -5.6 -3.2:383",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_9",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_c280ca4c9d42d6752b2c716c.SM_c280ca4c9d42d6752b2c716c",
+      "features": [
+        {
+          "canonicalId": "upper recessed light -5.6 0.8:384",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_10",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_385c5ef3fb5e715354f01e5e.SM_385c5ef3fb5e715354f01e5e",
+      "features": [
+        {
+          "canonicalId": "bar pendant 2 lamp:167",
+          "firstTriangle": 0,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "bar pendant 3.4 lamp:179",
+          "firstTriangle": 48,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "bar pendant 4.8 lamp:191",
+          "firstTriangle": 96,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "bar pendant 6.2 lamp:203",
+          "firstTriangle": 144,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "upper recessed light 0.1 -8.8:385",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper recessed light 0.1 -3.2:386",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper recessed light 5.9 -8.8:388",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper recessed light 5.9 -3.2:389",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_11",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_7990ddab8596a4cd88efb876.SM_7990ddab8596a4cd88efb876",
+      "features": [
+        {
+          "canonicalId": "upper recessed light 0.1 0.8:387",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper recessed light 5.9 0.8:390",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_12",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_711dfbe7336a09674901bdd4.SM_711dfbe7336a09674901bdd4",
+      "features": [
+        {
+          "canonicalId": "upper west plant soil:353",
+          "firstTriangle": 0,
+          "triangleCount": 48
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_13",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_6b64f9a79df03ed46e9f67cb.SM_6b64f9a79df03ed46e9f67cb",
+      "features": [
+        {
+          "canonicalId": "terrace east plant soil:367",
+          "firstTriangle": 0,
+          "triangleCount": 48
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_14",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d660dae6f5d2eac269f10851.SM_d660dae6f5d2eac269f10851",
+      "features": [
+        {
+          "canonicalId": "private dining south -6.25 fitted seat:62",
+          "firstTriangle": 0,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining south -6.25 upholstered back:63",
+          "firstTriangle": 192,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining south -5.5 fitted seat:80",
+          "firstTriangle": 384,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining south -5.5 upholstered back:81",
+          "firstTriangle": 576,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining south -4.75 fitted seat:98",
+          "firstTriangle": 768,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining south -4.75 upholstered back:99",
+          "firstTriangle": 960,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining abstract violet field:108",
+          "firstTriangle": 1152,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper west lounge sofa back:209",
+          "firstTriangle": 1164,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper west lounge sofa arm -1:210",
+          "firstTriangle": 1356,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper west lounge sofa arm 1:211",
+          "firstTriangle": 1548,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper west lounge sofa seat 0:212",
+          "firstTriangle": 1740,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper west lounge sofa pillow 0:213",
+          "firstTriangle": 1932,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper west lounge sofa seat 1:214",
+          "firstTriangle": 2124,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper west lounge sofa seat 2:216",
+          "firstTriangle": 2316,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper west lounge sofa pillow 2:217",
+          "firstTriangle": 2508,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "lounge original abstract violet field:268",
+          "firstTriangle": 2700,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_15",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_19ba9c7091fa9887a48f5c64.SM_19ba9c7091fa9887a48f5c64",
+      "features": [
+        {
+          "canonicalId": "bar chair 2 fitted seat:161",
+          "firstTriangle": 0,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "bar chair 2 upholstered back:162",
+          "firstTriangle": 192,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "bar chair 3.4 fitted seat:173",
+          "firstTriangle": 384,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "bar chair 3.4 upholstered back:174",
+          "firstTriangle": 576,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "bar chair 4.8 fitted seat:185",
+          "firstTriangle": 768,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "bar chair 4.8 upholstered back:186",
+          "firstTriangle": 960,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "bar chair 6.2 fitted seat:197",
+          "firstTriangle": 1152,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "bar chair 6.2 upholstered back:198",
+          "firstTriangle": 1344,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper north lounge sofa pillow 0:227",
+          "firstTriangle": 1536,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper north lounge sofa pillow 2:231",
+          "firstTriangle": 1728,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper east lounge sofa pillow 0:241",
+          "firstTriangle": 1920,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper east lounge sofa pillow 2:245",
+          "firstTriangle": 2112,
+          "triangleCount": 192
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_16",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d9a718e35db94a3987862a1a.SM_d9a718e35db94a3987862a1a",
+      "features": [
+        {
+          "canonicalId": "private dining pendant stem:102",
+          "firstTriangle": 0,
+          "triangleCount": 48
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_17",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b9d33014100bd42d48c080d8.SM_b9d33014100bd42d48c080d8",
+      "features": [
+        {
+          "canonicalId": "backbar shelf 0.85:153",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "backbar shelf 1.55:154",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "backbar shelf 2.25:155",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar pendant 2 stem:165",
+          "firstTriangle": 36,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "bar pendant 3.4 stem:177",
+          "firstTriangle": 84,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "bar pendant 4.8 stem:189",
+          "firstTriangle": 132,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "bar pendant 6.2 stem:201",
+          "firstTriangle": 180,
+          "triangleCount": 48
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_18",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_2c0b7fc5963e06190734c5d7.SM_2c0b7fc5963e06190734c5d7",
+      "features": [
+        {
+          "canonicalId": "private dining abstract sage field:107",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper west lounge sofa pillow 1:215",
+          "firstTriangle": 12,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "lounge original abstract sage field:267",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_19",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_6cb9ab0eac80ec3714d9854f.SM_6cb9ab0eac80ec3714d9854f",
+      "features": [
+        {
+          "canonicalId": "upper reading chair fitted seat:261",
+          "firstTriangle": 0,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper reading chair upholstered back:262",
+          "firstTriangle": 192,
+          "triangleCount": 192
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_20",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_0f1b3b2d0c9e06aac56d96ec.SM_0f1b3b2d0c9e06aac56d96ec",
+      "features": [
+        {
+          "canonicalId": "upper north lounge sofa pillow 1:229",
+          "firstTriangle": 0,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper east lounge sofa pillow 1:243",
+          "firstTriangle": 192,
+          "triangleCount": 192
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_21",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b5564d2ac06538ca24ccc2f9.SM_b5564d2ac06538ca24ccc2f9",
+      "features": [
+        {
+          "canonicalId": "terrace chair 0 west fitted seat:316",
+          "firstTriangle": 0,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "terrace chair 0 west upholstered back:317",
+          "firstTriangle": 192,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "terrace chair 1 west fitted seat:339",
+          "firstTriangle": 384,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "terrace chair 1 west upholstered back:340",
+          "firstTriangle": 576,
+          "triangleCount": 192
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_22",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_2943860015f43b9a54513a49.SM_2943860015f43b9a54513a49",
+      "features": [
+        {
+          "canonicalId": "stone joint x -7.6:7",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x -6.3999999999999995:8",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x -5.199999999999999:9",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x -3.999999999999999:10",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x -2.799999999999999:11",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x -1.599999999999999:12",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x -0.399999999999999:13",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_23",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_7123b276f5f89d988f3d1c98.SM_7123b276f5f89d988f3d1c98",
+      "features": [
+        {
+          "canonicalId": "stone joint x 0.8000000000000009:14",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x 2.000000000000001:15",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x 3.200000000000001:16",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x 4.400000000000001:17",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x 5.600000000000001:18",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x 6.800000000000002:19",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint x 8.000000000000002:20",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z -9.9:21",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z -8.700000000000001:22",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z -7.500000000000001:23",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z -6.300000000000001:24",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z -5.1000000000000005:25",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z -3.9000000000000004:26",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z -2.7:27",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z -1.5000000000000002:28",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z -0.30000000000000027:29",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_24",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_727e06657167e411db125e43.SM_727e06657167e411db125e43",
+      "features": [
+        {
+          "canonicalId": "stone joint z 0.8999999999999997:30",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z 2.0999999999999996:31",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z 3.3:32",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "stone joint z 4.5:33",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_25",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e0af493c99bb22f5c080c60e.SM_e0af493c99bb22f5c080c60e",
+      "features": [
+        {
+          "canonicalId": "upper west lounge sofa foot -1 -1:205",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper west lounge sofa foot -1 1:206",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper west lounge sofa foot 1 -1:207",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper west lounge sofa foot 1 1:208",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_26",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_24b4e380b35d7bb022c124f6.SM_24b4e380b35d7bb022c124f6",
+      "features": [
+        {
+          "canonicalId": "upper pavilion blue glazing jamb -1:270",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion blue glazing mullion -4.6:274",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion blue glazing mullion -2.9999999999999996:275",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace rail post -0.95:290",
+          "firstTriangle": 36,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post -0.16999999999999993:291",
+          "firstTriangle": 84,
+          "triangleCount": 48
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_27",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_3727dec77c7af14a34c06cf0.SM_3727dec77c7af14a34c06cf0",
+      "features": [
+        {
+          "canonicalId": "upper north lounge sofa foot -1 -1:219",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper north lounge sofa foot -1 1:220",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper north lounge sofa foot 1 -1:221",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper north lounge sofa foot 1 1:222",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper east lounge sofa foot -1 -1:233",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper east lounge sofa foot -1 1:234",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper east lounge sofa foot 1 -1:235",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper east lounge sofa foot 1 1:236",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_28",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_302c5f842658c80b17fc1dd6.SM_302c5f842658c80b17fc1dd6",
+      "features": [
+        {
+          "canonicalId": "upper pavilion blue glazing rail -1:271",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion blue glazing jamb 1:272",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion blue glazing rail 1:273",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion blue glazing mullion -1.3999999999999995:276",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion blue glazing mullion 0.20000000000000062:277",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion blue glazing mullion 1.8000000000000007:278",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion blue glazing mullion 3.400000000000001:279",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper pavilion blue glazing mullion 5.000000000000001:280",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace rail post 0.6100000000000001:292",
+          "firstTriangle": 96,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 1.3900000000000001:293",
+          "firstTriangle": 144,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 2.17:294",
+          "firstTriangle": 192,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 2.95:295",
+          "firstTriangle": 240,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 3.7300000000000004:296",
+          "firstTriangle": 288,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 4.510000000000001:297",
+          "firstTriangle": 336,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 5.290000000000001:298",
+          "firstTriangle": 384,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 6.070000000000001:299",
+          "firstTriangle": 432,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 6.850000000000001:300",
+          "firstTriangle": 480,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 7.630000000000002:301",
+          "firstTriangle": 528,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail post 8.410000000000002:302",
+          "firstTriangle": 576,
+          "triangleCount": 48
+        },
+        {
+          "canonicalId": "terrace rail horizontal 0.88:303",
+          "firstTriangle": 624,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace rail horizontal 1.08:304",
+          "firstTriangle": 636,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace rail horizontal 1.28:305",
+          "firstTriangle": 648,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_29",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_4d2bbbacffa7b7a0566eb2e9.SM_4d2bbbacffa7b7a0566eb2e9",
+      "features": [
+        {
+          "canonicalId": "stone floor:0",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_30",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_d30fbaac097aa4418cfea499.SM_d30fbaac097aa4418cfea499",
+      "features": [
+        {
+          "canonicalId": "private dining pendant shade:103",
+          "firstTriangle": 0,
+          "triangleCount": 64
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_31",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_e1157497b89f2d9a53f511dc.SM_e1157497b89f2d9a53f511dc",
+      "features": [
+        {
+          "canonicalId": "upper bar cane flute 1.28:111",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 1.42:112",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 1.56:113",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 1.7000000000000002:114",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 1.8400000000000003:115",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 1.9800000000000004:116",
+          "firstTriangle": 60,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 2.1200000000000006:117",
+          "firstTriangle": 72,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 2.2600000000000007:118",
+          "firstTriangle": 84,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 2.400000000000001:119",
+          "firstTriangle": 96,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 2.540000000000001:120",
+          "firstTriangle": 108,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 2.680000000000001:121",
+          "firstTriangle": 120,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 2.820000000000001:122",
+          "firstTriangle": 132,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 2.9600000000000013:123",
+          "firstTriangle": 144,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 3.1000000000000014:124",
+          "firstTriangle": 156,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 3.2400000000000015:125",
+          "firstTriangle": 168,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 3.3800000000000017:126",
+          "firstTriangle": 180,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 3.520000000000002:127",
+          "firstTriangle": 192,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 3.660000000000002:128",
+          "firstTriangle": 204,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 3.800000000000002:129",
+          "firstTriangle": 216,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 3.940000000000002:130",
+          "firstTriangle": 228,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 4.080000000000002:131",
+          "firstTriangle": 240,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 4.2200000000000015:132",
+          "firstTriangle": 252,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 4.360000000000001:133",
+          "firstTriangle": 264,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 4.500000000000001:134",
+          "firstTriangle": 276,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 4.640000000000001:135",
+          "firstTriangle": 288,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 4.78:136",
+          "firstTriangle": 300,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 4.92:137",
+          "firstTriangle": 312,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 5.06:138",
+          "firstTriangle": 324,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 5.199999999999999:139",
+          "firstTriangle": 336,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 5.339999999999999:140",
+          "firstTriangle": 348,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 5.479999999999999:141",
+          "firstTriangle": 360,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 5.619999999999998:142",
+          "firstTriangle": 372,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 5.759999999999998:143",
+          "firstTriangle": 384,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 5.899999999999998:144",
+          "firstTriangle": 396,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 6.039999999999997:145",
+          "firstTriangle": 408,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 6.179999999999997:146",
+          "firstTriangle": 420,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 6.319999999999997:147",
+          "firstTriangle": 432,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 6.459999999999996:148",
+          "firstTriangle": 444,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 6.599999999999996:149",
+          "firstTriangle": 456,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 6.739999999999996:150",
+          "firstTriangle": 468,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar cane flute 6.8799999999999955:151",
+          "firstTriangle": 480,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "bar pendant 2 shade:166",
+          "firstTriangle": 492,
+          "triangleCount": 64
+        },
+        {
+          "canonicalId": "bar pendant 3.4 shade:178",
+          "firstTriangle": 556,
+          "triangleCount": 64
+        },
+        {
+          "canonicalId": "bar pendant 4.8 shade:190",
+          "firstTriangle": 620,
+          "triangleCount": 64
+        },
+        {
+          "canonicalId": "bar pendant 6.2 shade:202",
+          "firstTriangle": 684,
+          "triangleCount": 64
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_32",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ac0f9919369a09382b20b103.SM_ac0f9919369a09382b20b103",
+      "features": [
+        {
+          "canonicalId": "upper pavilion blue glazing glass:269",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_33",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_afaa6b279eaff0d3e65eded6.SM_afaa6b279eaff0d3e65eded6",
+      "features": [
+        {
+          "canonicalId": "private dining north -6.25 fitted seat:53",
+          "firstTriangle": 0,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining north -6.25 upholstered back:54",
+          "firstTriangle": 192,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining north -5.5 fitted seat:71",
+          "firstTriangle": 384,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining north -5.5 upholstered back:72",
+          "firstTriangle": 576,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining north -4.75 fitted seat:89",
+          "firstTriangle": 768,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining north -4.75 upholstered back:90",
+          "firstTriangle": 960,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "private dining abstract canvas:106",
+          "firstTriangle": 1152,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "lounge original abstract canvas:266",
+          "firstTriangle": 1164,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_34",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_ea4f41c9620ca483e0aede26.SM_ea4f41c9620ca483e0aede26",
+      "features": [
+        {
+          "canonicalId": "upper north lounge sofa back:223",
+          "firstTriangle": 0,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper north lounge sofa arm -1:224",
+          "firstTriangle": 192,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper north lounge sofa arm 1:225",
+          "firstTriangle": 384,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper north lounge sofa seat 0:226",
+          "firstTriangle": 576,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper north lounge sofa seat 1:228",
+          "firstTriangle": 768,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper north lounge sofa seat 2:230",
+          "firstTriangle": 960,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper east lounge sofa back:237",
+          "firstTriangle": 1152,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper east lounge sofa arm -1:238",
+          "firstTriangle": 1344,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper east lounge sofa arm 1:239",
+          "firstTriangle": 1536,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper east lounge sofa seat 0:240",
+          "firstTriangle": 1728,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper east lounge sofa seat 1:242",
+          "firstTriangle": 1920,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "upper east lounge sofa seat 2:244",
+          "firstTriangle": 2112,
+          "triangleCount": 192
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_35",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_37a95d85841d3c6b7e2dd1ff.SM_37a95d85841d3c6b7e2dd1ff",
+      "features": [
+        {
+          "canonicalId": "terrace chair 0 east fitted seat:325",
+          "firstTriangle": 0,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "terrace chair 0 east upholstered back:326",
+          "firstTriangle": 192,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "terrace chair 1 east fitted seat:348",
+          "firstTriangle": 384,
+          "triangleCount": 192
+        },
+        {
+          "canonicalId": "terrace chair 1 east upholstered back:349",
+          "firstTriangle": 576,
+          "triangleCount": 192
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_36",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_339fc3484fcdf61180787e49.SM_339fc3484fcdf61180787e49",
+      "features": [
+        {
+          "canonicalId": "upper west plant leaf 0:355",
+          "firstTriangle": 0,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 1:356",
+          "firstTriangle": 80,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 2:357",
+          "firstTriangle": 160,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 3:358",
+          "firstTriangle": 240,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 4:359",
+          "firstTriangle": 320,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 5:360",
+          "firstTriangle": 400,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 6:361",
+          "firstTriangle": 480,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 7:362",
+          "firstTriangle": 560,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 8:363",
+          "firstTriangle": 640,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 9:364",
+          "firstTriangle": 720,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "upper west plant leaf 10:365",
+          "firstTriangle": 800,
+          "triangleCount": 80
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_37",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_cebb8a436a25067d6828216c.SM_cebb8a436a25067d6828216c",
+      "features": [
+        {
+          "canonicalId": "terrace east plant leaf 0:369",
+          "firstTriangle": 0,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 1:370",
+          "firstTriangle": 80,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 2:371",
+          "firstTriangle": 160,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 3:372",
+          "firstTriangle": 240,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 4:373",
+          "firstTriangle": 320,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 5:374",
+          "firstTriangle": 400,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 6:375",
+          "firstTriangle": 480,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 7:376",
+          "firstTriangle": 560,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 8:377",
+          "firstTriangle": 640,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 9:378",
+          "firstTriangle": 720,
+          "triangleCount": 80
+        },
+        {
+          "canonicalId": "terrace east plant leaf 10:379",
+          "firstTriangle": 800,
+          "triangleCount": 80
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_38",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_55fa8d7d23bafa9afe8024ae.SM_55fa8d7d23bafa9afe8024ae",
+      "features": [
+        {
+          "canonicalId": "west enclosure skirting:2",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining partition left skirting:35",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining partition right skirting:37",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "private dining side skirting:42",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_39",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_1457c07d9eb4e01cbc65e31c.SM_1457c07d9eb4e01cbc65e31c",
+      "features": [
+        {
+          "canonicalId": "terrace threshold west pier skirting:282",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "front left wing skirting:288",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper west plant pot:352",
+          "firstTriangle": 24,
+          "triangleCount": 64
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_40",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_228f3c0442b18dc4ae790fa7.SM_228f3c0442b18dc4ae790fa7",
+      "features": [
+        {
+          "canonicalId": "east enclosure skirting:4",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "rear enclosure skirting:6",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper bar stone top:110",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper lounge stone table top:246",
+          "firstTriangle": 36,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "upper rear ceiling:380",
+          "firstTriangle": 48,
+          "triangleCount": 12
+        }
+      ]
+    },
+    {
+      "actor": "StaticMeshActor_41",
+      "mesh": "/Game/BaddieGeneratedWorld/Meshes/SM_b8cda829f6be128a65a7a5a6.SM_b8cda829f6be128a65a7a5a6",
+      "features": [
+        {
+          "canonicalId": "terrace threshold east pier skirting:284",
+          "firstTriangle": 0,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "front terrace parapet skirting:286",
+          "firstTriangle": 12,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "front terrace coping:289",
+          "firstTriangle": 24,
+          "triangleCount": 12
+        },
+        {
+          "canonicalId": "terrace east plant pot:366",
+          "firstTriangle": 36,
+          "triangleCount": 64
+        }
+      ]
+    }
+  ],
+  "contract": {
+    "placeId": "civic-terrace-lounge",
+    "seed": "civic-terrace-lounge-v1",
+    "layoutId": "civic-terrace-lounge:lagos-places-v1:civic-interiors-v1:civic-terrace-lounge-v1",
+    "assetVersion": "civic-interiors-v1",
+    "generatorVersion": "lagos-places-v1",
+    "assemblyFloorY": 3.66,
+    "navigation": {
+      "revision": "civic-terrace-lounge:lagos-places-v1:civic-interiors-v1:civic-terrace-lounge-v1:civic-interiors-v1",
+      "floorY": 0,
+      "radius": 0.24,
+      "gridSize": 0.25,
+      "bounds": {
+        "minX": -8.8,
+        "maxX": 8.8,
+        "minZ": -10.7,
+        "maxZ": 5.4
+      },
+      "obstacles": [
+        {
+          "id": "west enclosure",
+          "minX": -8.799999999999999,
+          "maxX": -8.58,
+          "minZ": -10.7,
+          "maxZ": 5.400000000000001,
+          "height": 3.16
+        },
+        {
+          "id": "east enclosure",
+          "minX": 8.58,
+          "maxX": 8.799999999999999,
+          "minZ": -10.7,
+          "maxZ": 5.400000000000001,
+          "height": 3.16
+        },
+        {
+          "id": "rear enclosure",
+          "minX": -8.8,
+          "maxX": 8.8,
+          "minZ": -10.7,
+          "maxZ": -10.48,
+          "height": 3.16
+        },
+        {
+          "id": "private dining partition left",
+          "minX": -8.58,
+          "maxX": -4.25,
+          "minZ": -4.29,
+          "maxZ": -4.11,
+          "height": 3.16
+        },
+        {
+          "id": "private dining partition right",
+          "minX": -2.8499999999999996,
+          "maxX": -2.3,
+          "minZ": -4.29,
+          "maxZ": -4.11,
+          "height": 3.16
+        },
+        {
+          "id": "private dining side",
+          "minX": -2.29,
+          "maxX": -2.1100000000000003,
+          "minZ": -10.600000000000001,
+          "maxZ": -4.2,
+          "height": 3.16
+        },
+        {
+          "id": "private dining table",
+          "minX": -6.74,
+          "maxX": -4.26,
+          "minZ": -7.99,
+          "maxZ": -6.8100000000000005,
+          "height": 0.75
+        },
+        {
+          "id": "private dining north -6.25",
+          "minX": -6.61,
+          "maxX": -5.89,
+          "minZ": -9.01,
+          "maxZ": -8.290000000000001,
+          "height": 1.13
+        },
+        {
+          "id": "private dining south -6.25",
+          "minX": -6.61,
+          "maxX": -5.89,
+          "minZ": -6.510000000000001,
+          "maxZ": -5.79,
+          "height": 1.13
+        },
+        {
+          "id": "private dining north -5.5",
+          "minX": -5.86,
+          "maxX": -5.14,
+          "minZ": -9.01,
+          "maxZ": -8.290000000000001,
+          "height": 1.13
+        },
+        {
+          "id": "private dining south -5.5",
+          "minX": -5.86,
+          "maxX": -5.14,
+          "minZ": -6.510000000000001,
+          "maxZ": -5.79,
+          "height": 1.13
+        },
+        {
+          "id": "private dining north -4.75",
+          "minX": -5.11,
+          "maxX": -4.39,
+          "minZ": -9.01,
+          "maxZ": -8.290000000000001,
+          "height": 1.13
+        },
+        {
+          "id": "private dining south -4.75",
+          "minX": -5.11,
+          "maxX": -4.39,
+          "minZ": -6.510000000000001,
+          "maxZ": -5.79,
+          "height": 1.13
+        },
+        {
+          "id": "upper-bar",
+          "minX": 1.0599999999999996,
+          "maxX": 7.14,
+          "minZ": -8.24,
+          "maxZ": -7.16,
+          "height": 1.2
+        },
+        {
+          "id": "upper-backbar",
+          "minX": 1.0749999999999997,
+          "maxX": 7.125,
+          "minZ": -10.504999999999999,
+          "maxZ": -10.055,
+          "height": 2.8
+        },
+        {
+          "id": "bar chair 2",
+          "minX": 1.6400000000000001,
+          "maxX": 2.36,
+          "minZ": -6.71,
+          "maxZ": -5.989999999999999,
+          "height": 1.13
+        },
+        {
+          "id": "bar chair 3.4",
+          "minX": 3.04,
+          "maxX": 3.76,
+          "minZ": -6.71,
+          "maxZ": -5.989999999999999,
+          "height": 1.13
+        },
+        {
+          "id": "bar chair 4.8",
+          "minX": 4.4399999999999995,
+          "maxX": 5.16,
+          "minZ": -6.71,
+          "maxZ": -5.989999999999999,
+          "height": 1.13
+        },
+        {
+          "id": "bar chair 6.2",
+          "minX": 5.84,
+          "maxX": 6.5600000000000005,
+          "minZ": -6.71,
+          "maxZ": -5.989999999999999,
+          "height": 1.13
+        },
+        {
+          "id": "upper west lounge sofa",
+          "minX": -1.2000000000000002,
+          "maxX": -0.09999999999999998,
+          "minZ": -2.95,
+          "maxZ": -0.050000000000000044,
+          "height": 1.16
+        },
+        {
+          "id": "upper north lounge sofa",
+          "minX": 1.425,
+          "maxX": 4.575,
+          "minZ": -3.6500000000000004,
+          "maxZ": -2.55,
+          "height": 1.16
+        },
+        {
+          "id": "upper east lounge sofa",
+          "minX": 6.15,
+          "maxX": 7.25,
+          "minZ": -2.95,
+          "maxZ": -0.050000000000000044,
+          "height": 1.16
+        },
+        {
+          "id": "upper lounge stone table",
+          "minX": 1.96,
+          "maxX": 4.04,
+          "minZ": -1.6400000000000001,
+          "maxZ": -0.56,
+          "height": 0.42
+        },
+        {
+          "id": "upper reading table",
+          "minX": -6.9399999999999995,
+          "maxX": -5.66,
+          "minZ": -1.015,
+          "maxZ": -0.185,
+          "height": 0.74
+        },
+        {
+          "id": "upper reading chair",
+          "minX": -6.66,
+          "maxX": -5.9399999999999995,
+          "minZ": -0.06,
+          "maxZ": 0.6599999999999999,
+          "height": 1.13
+        },
+        {
+          "id": "terrace threshold west pier",
+          "minX": -5.25,
+          "maxX": -5.050000000000001,
+          "minZ": 2.1100000000000003,
+          "maxZ": 2.29,
+          "height": 3.16
+        },
+        {
+          "id": "terrace threshold east pier",
+          "minX": 8.41,
+          "maxX": 8.59,
+          "minZ": 2.1100000000000003,
+          "maxZ": 2.29,
+          "height": 3.16
+        },
+        {
+          "id": "pavilion-glazing",
+          "minX": -4.050000000000001,
+          "maxX": 8.35,
+          "minZ": 2.1625,
+          "maxZ": 2.2375000000000003,
+          "height": 2.85
+        },
+        {
+          "id": "front terrace parapet",
+          "minX": -0.9650000000000003,
+          "maxX": 8.685,
+          "minZ": 5.159999999999999,
+          "maxZ": 5.38,
+          "height": 0.7
+        },
+        {
+          "id": "front left wing",
+          "minX": -8.735,
+          "maxX": -4.585,
+          "minZ": 5.159999999999999,
+          "maxZ": 5.38,
+          "height": 3.16
+        },
+        {
+          "id": "terrace table 0",
+          "minX": 0.45999999999999996,
+          "maxX": 1.54,
+          "minZ": 3.4,
+          "maxZ": 4.1,
+          "height": 0.69
+        },
+        {
+          "id": "terrace chair 0 west",
+          "minX": -0.20999999999999996,
+          "maxX": 0.51,
+          "minZ": 3.39,
+          "maxZ": 4.11,
+          "height": 1.13
+        },
+        {
+          "id": "terrace chair 0 east",
+          "minX": 1.4900000000000002,
+          "maxX": 2.21,
+          "minZ": 3.39,
+          "maxZ": 4.11,
+          "height": 1.13
+        },
+        {
+          "id": "terrace table 1",
+          "minX": 5.16,
+          "maxX": 6.24,
+          "minZ": 3.4,
+          "maxZ": 4.1,
+          "height": 0.69
+        },
+        {
+          "id": "terrace chair 1 west",
+          "minX": 4.49,
+          "maxX": 5.210000000000001,
+          "minZ": 3.39,
+          "maxZ": 4.11,
+          "height": 1.13
+        },
+        {
+          "id": "terrace chair 1 east",
+          "minX": 6.1899999999999995,
+          "maxX": 6.91,
+          "minZ": 3.39,
+          "maxZ": 4.11,
+          "height": 1.13
+        },
+        {
+          "id": "upper west plant",
+          "minX": -7.989999999999999,
+          "maxX": -7.21,
+          "minZ": 3.4099999999999997,
+          "maxZ": 4.1899999999999995,
+          "height": 1.8
+        },
+        {
+          "id": "terrace east plant",
+          "minX": 7.510000000000001,
+          "maxX": 8.290000000000001,
+          "minZ": 4.010000000000001,
+          "maxZ": 4.79,
+          "height": 1.8
+        }
+      ]
+    },
+    "entrances": [
+      {
+        "id": "world-entry",
+        "point": [
+          -3.58,
+          0.0,
+          4.6
+        ],
+        "outside": [
+          -3.58,
+          0.0,
+          6.4
+        ],
+        "width": 1.55,
+        "role": "world",
+        "access": "place-membership"
+      }
+    ],
+    "spawns": [
+      {
+        "point": [
+          -3.58,
+          0.0,
+          3.6
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "point": [
+          -2.68,
+          0.0,
+          3.6
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "point": [
+          -4.48,
+          0.0,
+          3.6
+        ],
+        "yaw": 3.141592653589793
+      },
+      {
+        "point": [
+          -3.58,
+          0.0,
+          2.7
+        ],
+        "yaw": 3.141592653589793
+      }
+    ],
+    "cameras": {
+      "wide": {
+        "eye": [
+          -3.8,
+          2.0999999999999996,
+          4.8500000000000005
+        ],
+        "target": [
+          0.2,
+          1.0999999999999996,
+          -2.6
+        ]
+      },
+      "close": {
+        "eye": [
+          -3.7,
+          1.6500000000000004,
+          4.7
+        ],
+        "target": [
+          -2.8,
+          1.0,
+          1.9000000000000004
+        ]
+      }
+    },
+    "rooms": [
+      {
+        "label": "Terrace lounge",
+        "bounds": [
+          -2.2,
+          8.5,
+          -4,
+          2.2
+        ]
+      },
+      {
+        "label": "Private dining",
+        "bounds": [
+          -8.5,
+          -2.3,
+          -10.4,
+          -4.2
+        ]
+      },
+      {
+        "label": "Bar",
+        "bounds": [
+          -1,
+          8.5,
+          -10.4,
+          -5.4
+        ]
+      },
+      {
+        "label": "Outdoor terrace",
+        "bounds": [
+          -4.3,
+          8.5,
+          2.3,
+          5.3
+        ]
+      }
+    ],
+    "services": [],
+    "npcs": [],
+    "gates": "runtime-authoritative-closed"
+  },
+  "mapFileSha256": "1c4bf97d9f4e97de1cf3eb5d86149aed54777f846d914bac99389afb1da75b1f",
+  "files": {
+    "apps/companion-unreal/Content/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402.umap": "1c4bf97d9f4e97de1cf3eb5d86149aed54777f846d914bac99389afb1da75b1f"
+  },
+  "packages": [
+    "/Game/BaddieGeneratedWorld/Materials/M_1d82559363b49b53c19963d9",
+    "/Game/BaddieGeneratedWorld/Materials/M_22e9aafad52c969231c2ce8c",
+    "/Game/BaddieGeneratedWorld/Materials/M_27eae1d8d2f2118d7345efd5",
+    "/Game/BaddieGeneratedWorld/Materials/M_2af964067ee831111d0bacde",
+    "/Game/BaddieGeneratedWorld/Materials/M_4cfa5f17395abdb8a3f22eb2",
+    "/Game/BaddieGeneratedWorld/Materials/M_536dfd99f590b5d2995aa952",
+    "/Game/BaddieGeneratedWorld/Materials/M_5e1c43db8c94f4efd8c2d232",
+    "/Game/BaddieGeneratedWorld/Materials/M_61a6e6fb8b5830bdea9f325e",
+    "/Game/BaddieGeneratedWorld/Materials/M_6b47f6bc37062b75e50b7eaa",
+    "/Game/BaddieGeneratedWorld/Materials/M_8593eba7b6041e584751c043",
+    "/Game/BaddieGeneratedWorld/Materials/M_89dfefb24a84b22fe281d03d",
+    "/Game/BaddieGeneratedWorld/Materials/M_8c15e6a63e9fe9feafb27830",
+    "/Game/BaddieGeneratedWorld/Materials/M_a883b351fedafd6883f3f057",
+    "/Game/BaddieGeneratedWorld/Materials/M_cab9b8161221509570fd2c69",
+    "/Game/BaddieGeneratedWorld/Materials/M_e7e2da04150b89b53c09ea1a",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0eb76a12bf9940580426cf3d",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0f1b3b2d0c9e06aac56d96ec",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1457c07d9eb4e01cbc65e31c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_19ba9c7091fa9887a48f5c64",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_228f3c0442b18dc4ae790fa7",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_24b4e380b35d7bb022c124f6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_27d1173b4a1aea39e1e32302",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2943860015f43b9a54513a49",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2c0b7fc5963e06190734c5d7",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_302c5f842658c80b17fc1dd6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_339fc3484fcdf61180787e49",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_34bc1d56461b40fa665f9b05",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3727dec77c7af14a34c06cf0",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_37a95d85841d3c6b7e2dd1ff",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_385c5ef3fb5e715354f01e5e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4359f473d2a2be2089abb804",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4d2bbbacffa7b7a0566eb2e9",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_55fa8d7d23bafa9afe8024ae",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6b64f9a79df03ed46e9f67cb",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6cb9ab0eac80ec3714d9854f",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_711dfbe7336a09674901bdd4",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7123b276f5f89d988f3d1c98",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_727e06657167e411db125e43",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7990ddab8596a4cd88efb876",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9c7237cbc461474e81dcf5bb",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ac0f9919369a09382b20b103",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_afaa6b279eaff0d3e65eded6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b5564d2ac06538ca24ccc2f9",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b8cda829f6be128a65a7a5a6",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b9d33014100bd42d48c080d8",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_bbf709775c2f3cf3f767e503",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c280ca4c9d42d6752b2c716c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_cebb8a436a25067d6828216c",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d30fbaac097aa4418cfea499",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d660dae6f5d2eac269f10851",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d9a718e35db94a3987862a1a",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e0af493c99bb22f5c080c60e",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e1157497b89f2d9a53f511dc",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e8b46b51043695671edb5a39",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ea4f41c9620ca483e0aede26",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ec28aed6727f5810cea89070",
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ef506303b16659e67872c538",
+    "/Game/BaddieGeneratedWorld/R_c0315c0fe33a407937a0d198/Maps/L_places_civic_terrace_lounge_975a670402"
+  ],
+  "generatedDependencies": {
+    "/Game/BaddieGeneratedWorld/Materials/M_1d82559363b49b53c19963d9": {
+      "identity": "1d82559363b49b53c19963d93d679dc0795e4273c9783226afb1977ab8027b45",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_1d82559363b49b53c19963d9.uasset": "4934b840fad9892b9c4de1761c705642ee2d7fa95a85c8ee8d3c98ab764b9b37"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_22e9aafad52c969231c2ce8c": {
+      "identity": "22e9aafad52c969231c2ce8c25e46e0c058e15082701c756e40e080b5ff7a9cd",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_22e9aafad52c969231c2ce8c.uasset": "35a017264f807333f8e8c544025d8ffdf8d127756f0e9508f8cd7d6012d03496"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_27eae1d8d2f2118d7345efd5": {
+      "identity": "27eae1d8d2f2118d7345efd534494cb77093f2fb11d1e2025153836cd6544606",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_27eae1d8d2f2118d7345efd5.uasset": "2af0a65fb0135c4a1aeb3e4e61ad077fa8237b010821406e4a690329dfb77bb2"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_2af964067ee831111d0bacde": {
+      "identity": "2af964067ee831111d0bacdeb8c5d9955fef29bfd344f2dd317df0115e0b0a73",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_2af964067ee831111d0bacde.uasset": "cc199944cf0ad6290463b429989d25e9327165894787456bc70a9908af5cfa6b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_4cfa5f17395abdb8a3f22eb2": {
+      "identity": "4cfa5f17395abdb8a3f22eb2fb42321967151358d04cadd00d437235211e215b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_4cfa5f17395abdb8a3f22eb2.uasset": "807ba041170862cd2365dfd795c6e9f237c493548778a0b9754dc59d8d9c305c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_536dfd99f590b5d2995aa952": {
+      "identity": "536dfd99f590b5d2995aa952b9fdde5cf32d80415e81bd323321420743c6522c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_536dfd99f590b5d2995aa952.uasset": "ae374921c543873a6d7569ce233c51148622eb551edaee44dd9a04975e076b31"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_5e1c43db8c94f4efd8c2d232": {
+      "identity": "5e1c43db8c94f4efd8c2d2328953e7f2fc81945319beda2dbc09625df27f4fa1",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_5e1c43db8c94f4efd8c2d232.uasset": "2019ce6af93e06cf4052fcc62bceaa0b1b6b14525628b155724034e408487b71"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_61a6e6fb8b5830bdea9f325e": {
+      "identity": "61a6e6fb8b5830bdea9f325e467d001f07c0ae2e3d3196dac33e20058582a421",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_61a6e6fb8b5830bdea9f325e.uasset": "d9b3309e16e1117b7684b621adf66838b215dfb2747d5e275c8d95d9e68c7a5a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_6b47f6bc37062b75e50b7eaa": {
+      "identity": "6b47f6bc37062b75e50b7eaa2a98f52923ee54fdc1820ee7ca42c476e2d0dcfb",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_6b47f6bc37062b75e50b7eaa.uasset": "c1ca1553b21f922e150ca88cc855f2f444fb0c09a3bb1eb1f70a4686d881b5b6"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_8593eba7b6041e584751c043": {
+      "identity": "8593eba7b6041e584751c043438453f9183f02963dfe856b0b83157ac383271a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_8593eba7b6041e584751c043.uasset": "07ec562ad6f4d10845b7b39c4b1a14b389e0b43c463f0397aca78a30d6dfae85"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_89dfefb24a84b22fe281d03d": {
+      "identity": "89dfefb24a84b22fe281d03d521b989a1f3e8a37c9b770f72af5db8ac7530ed0",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_89dfefb24a84b22fe281d03d.uasset": "4a91e08612591ba4799ee513e8742d0f806c7197300c355399bb6b7e2508f102"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_8c15e6a63e9fe9feafb27830": {
+      "identity": "8c15e6a63e9fe9feafb278307106d81980658d706c3996b0f76af02572cb948f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_8c15e6a63e9fe9feafb27830.uasset": "eefb7cf2374c40794fa2fb1ab0c40ea55cf525796890e546f480807b9cc63550"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_a883b351fedafd6883f3f057": {
+      "identity": "a883b351fedafd6883f3f05771e96bb0e584265351ca7f2ddd90a2c7c707bc42",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_a883b351fedafd6883f3f057.uasset": "caaa934d3c8e1e7324b07b0d338d269c6e2dfc3867cf5f3a68d50c632ad831de"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_cab9b8161221509570fd2c69": {
+      "identity": "cab9b8161221509570fd2c69499c08ea89a705ea963b79e528120c6c1b63d7fd",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_cab9b8161221509570fd2c69.uasset": "f65433f8d2e0f5f76346338ded4dae76cd97412efd706d77f3efbcd4b89d521c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Materials/M_e7e2da04150b89b53c09ea1a": {
+      "identity": "e7e2da04150b89b53c09ea1ab2ac0277d3b899ed7ffba60907083e77fdb38147",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Materials/M_e7e2da04150b89b53c09ea1a.uasset": "2ef1c6736101f63bafe200cfad95f3363652ea4d8dd44ace605e72864bd6c379"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0eb76a12bf9940580426cf3d": {
+      "identity": "0eb76a12bf9940580426cf3d96d994194f8a262229c6856ce630d9567c770491",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_0eb76a12bf9940580426cf3d.uasset": "c605a227180b8db660b823566725b4a3907aea9e302fc3ef0ec7f2e36b608af7"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_0f1b3b2d0c9e06aac56d96ec": {
+      "identity": "0f1b3b2d0c9e06aac56d96ecab60bd79b436a8782ba7596005e6c58f2769f9d4",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_0f1b3b2d0c9e06aac56d96ec.uasset": "e067543dc85b5f6284ec023878fe68ee4f4a69682e71f698e39425fb97354420"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_1457c07d9eb4e01cbc65e31c": {
+      "identity": "1457c07d9eb4e01cbc65e31c0c0bf7063b2d3a3e3578832fea02d0ae3f82ee6a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_1457c07d9eb4e01cbc65e31c.uasset": "160faf63d0381a6d534a564eed3a36ff4e3f7eb2d25384fc4fc3bc0f5103149e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_19ba9c7091fa9887a48f5c64": {
+      "identity": "19ba9c7091fa9887a48f5c64ac47da368f379a2b550cf6dc8eb687714c1b6802",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_19ba9c7091fa9887a48f5c64.uasset": "20f16988cd3118fd9a87b0d22a2c381fdbfee1314e201ca52d02949b2ea5701a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_228f3c0442b18dc4ae790fa7": {
+      "identity": "228f3c0442b18dc4ae790fa7b1607adb0dfc19da86459bd10770e4bd4b9c5eff",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_228f3c0442b18dc4ae790fa7.uasset": "11b7be0adec23e3f2683d9132c7b20e771c2d86b84518e3dafe2bbaf946ce3ff"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_24b4e380b35d7bb022c124f6": {
+      "identity": "24b4e380b35d7bb022c124f608e6caa8ddfeb40ea61e5fe6f47f2b283adadb27",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_24b4e380b35d7bb022c124f6.uasset": "b09cf88074f69ca378e184506fcaa65bb2ea5de374d0830e7cf19e5fd8f4c0aa"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_27d1173b4a1aea39e1e32302": {
+      "identity": "27d1173b4a1aea39e1e32302951029fc15ee91e9b019d707ab3e099260389a56",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_27d1173b4a1aea39e1e32302.uasset": "98540370a1e8786d9dcc262c0d700ee3dcc4e7c202bded854e45474e5da68235"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2943860015f43b9a54513a49": {
+      "identity": "2943860015f43b9a54513a493ae131c3258f08b1dafe7c13654b02e5ea9d9373",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_2943860015f43b9a54513a49.uasset": "9458af575e8b79bfaea8ed53420b9eeadb08bc37e82fab45b792c9329ca56446"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_2c0b7fc5963e06190734c5d7": {
+      "identity": "2c0b7fc5963e06190734c5d79bf5996179288f35bdda4f87d99f97af0e8fdf51",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_2c0b7fc5963e06190734c5d7.uasset": "91b138d68763807bc510f98a877f0cb16ff8abd5d69bfff1b74162d8b7fea3fa"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_302c5f842658c80b17fc1dd6": {
+      "identity": "302c5f842658c80b17fc1dd618c0be2d0d1732d0780c917f210373ce8d1cd4ad",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_302c5f842658c80b17fc1dd6.uasset": "884a0dadc8176051120e26f156ea24723649383bef7d6544be2494f73597e08b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_339fc3484fcdf61180787e49": {
+      "identity": "339fc3484fcdf61180787e497a6ed835ed384ddb41fd109fa5b36eb8eb1db802",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_339fc3484fcdf61180787e49.uasset": "fb2233e9afb9dfb6de88fb3e709233c6a46d180a14a7203141c4f553b129f9c8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_34bc1d56461b40fa665f9b05": {
+      "identity": "34bc1d56461b40fa665f9b05ea24340ad574d3358d3d95c474c42fee18439464",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_34bc1d56461b40fa665f9b05.uasset": "6d1f05ad706a2c8510f46f9d97275bc5a91d3d0ebdd90346be87fd5e718e0108"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_3727dec77c7af14a34c06cf0": {
+      "identity": "3727dec77c7af14a34c06cf0b3270b8238d55d368dadfe914d07b34cca96ce20",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_3727dec77c7af14a34c06cf0.uasset": "6a1ca6220cf0c74b6acb9ca2cb79abce33456e8b5bd7f39fb2ba523d0dbcc33e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_37a95d85841d3c6b7e2dd1ff": {
+      "identity": "37a95d85841d3c6b7e2dd1ff49d6f2c6d64265f96d4f66aaaf9a5b65f220cf94",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_37a95d85841d3c6b7e2dd1ff.uasset": "ca6c0ca76d7c1eae77394b667cb52baae37957d277bccb594e8089174ac2ce04"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_385c5ef3fb5e715354f01e5e": {
+      "identity": "385c5ef3fb5e715354f01e5e51d56a7ead8e17319ee9c3afc889bf0957059225",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_385c5ef3fb5e715354f01e5e.uasset": "f140a692cbb863ea446c60c8d8663d7a1ebadfc2584e769bc4bc25f8ebe81bb8"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4359f473d2a2be2089abb804": {
+      "identity": "4359f473d2a2be2089abb804694bd2f47f325ccf0c9971701da701d43db81817",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4359f473d2a2be2089abb804.uasset": "1dec36c997650f804d6c720e95cf7c6e6542303e8c32ba29be136205c7284a9e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_4d2bbbacffa7b7a0566eb2e9": {
+      "identity": "4d2bbbacffa7b7a0566eb2e9c61e3e5d1955da4a891ef9e4f9098946eb34ae9b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_4d2bbbacffa7b7a0566eb2e9.uasset": "f7bb8d634074ad03b5018b7a4452643e3ea3b153afbb3ac9468d8afcbd506f92"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_55fa8d7d23bafa9afe8024ae": {
+      "identity": "55fa8d7d23bafa9afe8024aef3604644abd07b6fae7e731bd070501381069c85",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_55fa8d7d23bafa9afe8024ae.uasset": "724cbf6afa03fdccdb070bcbf64cac4742514ec98b565b5823e71bb3f1ff1e70"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6b64f9a79df03ed46e9f67cb": {
+      "identity": "6b64f9a79df03ed46e9f67cbf1c0dc5dfa2bf585e262841befeda7e22d919dfb",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_6b64f9a79df03ed46e9f67cb.uasset": "d46bfa6f281309a2f5e672e5e8c33eee132b7c46a9804557495342dcb9ca7e50"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_6cb9ab0eac80ec3714d9854f": {
+      "identity": "6cb9ab0eac80ec3714d9854f572d8a322c6b2a1cb28a735a560ab3cfa757b83c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_6cb9ab0eac80ec3714d9854f.uasset": "699440473b4d756b331fa19ec5436ea3b4daf9c0485b1b8bff4997c2f06332f6"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_711dfbe7336a09674901bdd4": {
+      "identity": "711dfbe7336a09674901bdd465c46b37d515269e9b356f8baf5b01d8ac7c727c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_711dfbe7336a09674901bdd4.uasset": "bd69fd519a1f5ea013ee91f9f99966af6948cb3b9a3f51c1259ca31db391df70"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7123b276f5f89d988f3d1c98": {
+      "identity": "7123b276f5f89d988f3d1c981fd42700f5c1208dbbc8d7d8941ccdf035d0df6d",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_7123b276f5f89d988f3d1c98.uasset": "b1fa39d22c736855dc6186a30dc241682350e1b5e0852a87d9732cc9b1189dd0"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_727e06657167e411db125e43": {
+      "identity": "727e06657167e411db125e431dff83aede09269e1cdf1c14c4358044f1d85abd",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_727e06657167e411db125e43.uasset": "aea86971bb803bfe8bb79b76772e71aa0f0801bdd22d25107d981ffb6103e0a5"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_7990ddab8596a4cd88efb876": {
+      "identity": "7990ddab8596a4cd88efb876150846b2c6c284facfd8396b0fc97e6c222b9da2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_7990ddab8596a4cd88efb876.uasset": "4ba494728d5624ad96564c9c068c4797872bbfa2ca53bc08604bfb393209d9ff"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_9c7237cbc461474e81dcf5bb": {
+      "identity": "9c7237cbc461474e81dcf5bb4ab8fbb11e58fdc845be150866d8df8ebd08c9f4",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_9c7237cbc461474e81dcf5bb.uasset": "f941c1515b77ac2dd7f77af073bc7ab3adc5bce5c1270a80e019bb195a78b57f"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ac0f9919369a09382b20b103": {
+      "identity": "ac0f9919369a09382b20b103ae039e58878ac3730caadd121c7bf3be2b9e6988",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ac0f9919369a09382b20b103.uasset": "ffe090ac0c9ce6d7d412d4056323c89a93016e4815e77639cd3929b81cacf4a7"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_afaa6b279eaff0d3e65eded6": {
+      "identity": "afaa6b279eaff0d3e65eded66dffb48166135d1def100be9f0e7223b628f931f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_afaa6b279eaff0d3e65eded6.uasset": "7656f0290284a08963e41a5e510139b84251fbe1b2b402a26e3971d7ff72969a"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b5564d2ac06538ca24ccc2f9": {
+      "identity": "b5564d2ac06538ca24ccc2f951f089bf6b6447d100c0cce70fb00c514255040c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b5564d2ac06538ca24ccc2f9.uasset": "6e4074f55de5fd5661cf2472a445b285d0f7cd114dd36f4ac2a53a8d135c51ce"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b8cda829f6be128a65a7a5a6": {
+      "identity": "b8cda829f6be128a65a7a5a619d5fe71c1543dc57912370517161c2bb5bce2b3",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b8cda829f6be128a65a7a5a6.uasset": "40bc7ad09eb591b20c59b867cb9b4dafbe5be14b7e490368b7e731621b4d612c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_b9d33014100bd42d48c080d8": {
+      "identity": "b9d33014100bd42d48c080d88bb6144698ac7d327ed130405db0c3e00aaf1d2a",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_b9d33014100bd42d48c080d8.uasset": "2aadd5f0d80ad029d4698c72c8702c95d069fefcf97b4eacf8ecee3af77e3a0f"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_bbf709775c2f3cf3f767e503": {
+      "identity": "bbf709775c2f3cf3f767e503d1d023df38822a91a44ce67ec9d427677cf83be7",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_bbf709775c2f3cf3f767e503.uasset": "54343b2865f1a29700e09e226f08daada18a2ee9a64624272bd959c3b7eb368b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_c280ca4c9d42d6752b2c716c": {
+      "identity": "c280ca4c9d42d6752b2c716cdac0c57c5aface09560c0b6246a1ee1883e7d639",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_c280ca4c9d42d6752b2c716c.uasset": "c9f5d3a21c8f02ea4b8826fcadbaa8a5942343220d18e8b3db53573429224ec2"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_cebb8a436a25067d6828216c": {
+      "identity": "cebb8a436a25067d6828216cebda046abf0f1141b4824664fb841090297db23c",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_cebb8a436a25067d6828216c.uasset": "074abadb707c3f4769d80dcd4c6f1c8a754e099f34968676d401480fdc73df1c"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d30fbaac097aa4418cfea499": {
+      "identity": "d30fbaac097aa4418cfea499c3acc51448abe3578c1074cbb314ab593dc6dee2",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d30fbaac097aa4418cfea499.uasset": "c493f01f06fee643df2cf979010068d6e1add88ffc7a070e2bb3c68bc0aa439e"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d660dae6f5d2eac269f10851": {
+      "identity": "d660dae6f5d2eac269f108515bc7a3bb9bff3440f39f0406aaad2323e11961b6",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d660dae6f5d2eac269f10851.uasset": "592a320fe68082b4f3eb4d0f6c38b88a957ead991de36cccd7db1a971d01458b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_d9a718e35db94a3987862a1a": {
+      "identity": "d9a718e35db94a3987862a1a58221e642650d96864aebfdb2344978042cd856b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_d9a718e35db94a3987862a1a.uasset": "05c4e41db7929d35f9666f1e78564c3dfa207cc404944e504802c7187bc40200"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e0af493c99bb22f5c080c60e": {
+      "identity": "e0af493c99bb22f5c080c60e9718e62a02124413f80ec3aa54bcc070e4961b40",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e0af493c99bb22f5c080c60e.uasset": "a031a23fb888def15ca56cd67a219b7514138ac2eaf6dc7f5e501f68b00fdecd"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e1157497b89f2d9a53f511dc": {
+      "identity": "e1157497b89f2d9a53f511dc35465213921a18bf93dabbae5346321cc91e8f40",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e1157497b89f2d9a53f511dc.uasset": "4527be03c2dfd86a5dd64511f7609134f40a906e28fe07920a09e04f6303780b"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_e8b46b51043695671edb5a39": {
+      "identity": "e8b46b51043695671edb5a399548614ec91bad6602a310a473db3ea832239cff",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_e8b46b51043695671edb5a39.uasset": "24c91610b389d6a95d376ca4a39d10c4106375474a91c51ec53fefe7133293d1"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ea4f41c9620ca483e0aede26": {
+      "identity": "ea4f41c9620ca483e0aede267f150e9b1e0f15da0ee7b1b0443617a19d20044f",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ea4f41c9620ca483e0aede26.uasset": "4d56658eeb767938ad59c7c33c58b62c7c59499ee94a8921de9de2c2af7be6f2"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ec28aed6727f5810cea89070": {
+      "identity": "ec28aed6727f5810cea89070d54037044b6d0ae1d15b17557af044ab49401909",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ec28aed6727f5810cea89070.uasset": "8250ffa72bb1e91e040188e34ddde7054c1ded359dcdce81fba895e7e750d5fe"
+      }
+    },
+    "/Game/BaddieGeneratedWorld/Meshes/SM_ef506303b16659e67872c538": {
+      "identity": "ef506303b16659e67872c538d033faa06f625f62a553880b88af0fac8c5a508b",
+      "files": {
+        "apps/companion-unreal/Content/BaddieGeneratedWorld/Meshes/SM_ef506303b16659e67872c538.uasset": "feef11b5adba2456e495bc213a1fdafbc7542d7de77f0f6e5192b344e57e6958"
+      }
+    }
+  },
+  "savedAt": 1791746747.636131,
+  "runtimeAdmission": false,
+  "renderedInspection": "not-performed",
+  "playableAcceptance": "not-established"
+}

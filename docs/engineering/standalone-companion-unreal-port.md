@@ -28,6 +28,188 @@ The public water-control decoder reached Windows `9334934b78140a3bcfe720b2da77de
 
 The next integration dependency is gameplay entry and control ownership. `packages/api/src/companion-games.ts` enters through the existing game admission operations, joins the existing call-presence owner with audio disabled, and keeps voice as a separate choice. The standalone session currently accepts only read-only Home/apartment grants, which cannot authenticate these gameplay operations. Define separately consented, server-checked gameplay access and preserve the existing admission, presence, cancellation and lifecycle rules. Do not upgrade read-only grants or expose an account session credential to Unreal. Native movement/control receipt acceptance and clock ownership must follow that authority, not replace it. This is remaining source work; account access stays disabled.
 
+## Authoritative standalone completion matrix
+
+This section is the authoritative finish inventory for the standalone Unreal game only. It does not expand to the whole Baddie app, and a translated source slice does not complete an item until the named runtime, content and acceptance conditions are met.
+
+### 1. Make the native game playable
+
+| ID | Scope | Suggested owner | Complete when | Primary source references |
+| --- | --- | --- | --- | --- |
+| F01 | Account linking and world consent | Session, account-linking and gameplay-entry owners | Unreal can link the real Baddie account and request separately scoped approval for saved Companion, Home and gameplay/world access; approval, denial, expiry and reconnect preserve the intended scope; no full account credential is exposed to Unreal. | `standalone-companion-account-linking.md`, `standalone-companion-apartment-access.md`, `unreal-gameplay-session-handoff-2026-10-10.md`, `unreal-gameplay-connection-ui-handoff-2026-10-10.md` |
+| F02 | Secure native networking | Session, HTTP boundary and endpoint adapters | All native requests use credential-safe transport, bounded response parsing, redirect prevention and private request handling; no diagnostic, cache or retry path leaks protected tokens or private bodies. | `unreal-http-response-bounds-handoff-2026-10-10.md`, `standalone-companion-unreal.md`, `standalone-companion-account-linking.md` |
+| F03 | Authoritative world connection | World read, player and utility owners | Unreal mounts complete world observations, saved state, peer state and current server outcomes from the existing authoritative backend; no local mirror or fabricated state replaces accepted server results. | `unreal-world-control-read-handoff-2026-10-10.md`, `unreal-world-player-handoff-2026-10-10.md`, `unreal-world-utilities-handoff-2026-10-11.md`, `unreal-resident-state-handoff-2026-10-10.md` |
+| F04 | Command and lifecycle reliability | Shared command owners | Movement and gameplay commands handle cancellation, stale callbacks, content-loss, teardown, duplicate completion and reconnect cleanup without reviving older requests or dropping newer state. | `unreal-command-continuation-review-2026-10-10.md`, `unreal-world-control-read-handoff-2026-10-10.md`, `unreal-recovery-command-handoff-2026-10-10.md`, `unreal-social-command-handoff-2026-10-10.md` |
+| F05 | Resource accounting | Native runtime and rendering owners | The standalone client has named memory, CPU and streaming budgets for Windows and planned mobile tiers, with accountable limits for world, character, animation and audio work instead of open-ended gate language. | `standalone-companion-unreal.md`, `standalone-companion-rural-expedition.md`, `unreal-rural-mobile-reuse-2026-10-10.md`, `unreal-first-person-mobile-presentation-2026-10-10.md` |
+| F06 | Real content readiness | Content import, world and character owners | Imported characters, environments, navigation and animation bind to actual Unreal assets and authored maps that can be loaded and used in-game; placeholder plans or JSON decoders do not count as readiness. | `standalone-companion-unreal-assets.md`, `cribtest11-unreal-importer-2026-10-10.md`, `unreal-world-generation-source-review-2026-10-11.md`, `cribtest11-native-avatar-handoff-review-2026-10-10.md` |
+| F07 | Movement, camera and input | World player and controller owners | Ordinary walking, stopping, collision, focus transitions, camera control and interrupted-session recovery all work in admitted gameplay, not only offline inspection. | `unreal-world-control-read-handoff-2026-10-10.md`, `unreal-world-player-handoff-2026-10-10.md`, `standalone-companion-rural-expedition.md`, `unreal-mobile-mission-controls-handoff-2026-10-10.md` |
+| F08 | Account/device isolation | Session and identity owners | Ownership stays correct across mobile, Windows, guests, calls, character changes, suspension and reconnects; one device or guest path cannot inherit another user's private game authority. | `standalone-companion-account-linking.md`, `unreal-gameplay-session-handoff-2026-10-10.md`, `unreal-social-teams-state-handoff-2026-10-10.md` |
+| F09 | Windows source integration | Unreal integration owner | Remaining compatible source lands on Windows without overwriting authored maps, imported assets or unrelated local work, with explicit preservation of authored content namespaces and handoff evidence. | `standalone-companion-unreal.md`, `cribtest11-apartment-native-2026-10-10.md`, `unreal-world-generation-journal-guard-handoff-2026-10-10.md` |
+
+### 2. Build the full city and destinations
+
+| ID | Scope | Suggested owner | Complete when | Primary source references |
+| --- | --- | --- | --- | --- |
+| W01 | Resolve expansion geography | World geography owner | The city-wide composition decision is explicit: factual/additive versus fictional-island composition, with accepted coastlines, terrain and crossings carried into Unreal authoring and travel logic. | `standalone-companion-unreal.md`, `unreal-world-generation-source-review-2026-10-11.md`, `output/cribtest11-visible-world-2026-10-11/parent-geography/lagos-geographic-authoring-v1.json` |
+| W02 | Build all seven canonical districts | World generation owner | Town Centre, Palm Courts, Garden Quarter, South Market, Marina, Skyline and Lagoon Gardens are authored and connected, accounting for 806 parcels and 19 signature buildings. | `output/cribtest11-world-generation/HANDOFF.md`, `output/cribtest11-world-generation/coverage.json`, `packages/assets/city/lagos-city-v3.json` |
+| W03 | Build the wider Nigerian streets | World generation owner | Yaba reaches current quality and the planned mainland, island and Third Mainland context exists with distinct architecture rather than repeated shells. | `unreal-world-generation-source-review-2026-10-11.md`, `output/cribtest11-visible-world-2026-10-11/realism/HANDOFF.md`, `docs/world-building/README.md` |
+| W04 | Complete the road network | World generation owner | All 264 roads include usable junctions, kerbs, drains, crossings, ramps and the intended paved/unpaved mix, with native contact and continuity. | `output/cribtest11-world-generation/HANDOFF.md`, `output/cribtest11-world-generation/coverage.json`, `docs/world-building/*.md` |
+| W05 | Complete terrain and crossings | World generation owner | Shores, beaches, bridges, landmark footprints and their approaches are physically connected, traversable and visually continuous. | `output/cribtest11-world-generation/HANDOFF.md`, `output/cribtest11-world-generation/coverage.json`, `standalone-companion-rural-expedition.md` |
+| W06 | Finish National Theatre and refinery environments | World generation owner | National Theatre, its grounds and refinery areas ship as full-quality arrival environments with surrounding access routes rather than isolated hero shells. | `output/cribtest11-visible-world-2026-10-11/realism/HANDOFF.md`, `output/cribtest11-world-generation/coverage.json` |
+| W07 | Populate everyday city detail | World generation owner | The city contains the intended 44 green spaces and 697 amenities plus stalls, signs, utilities, parking and street dressing that match the authored districts. | `output/cribtest11-world-generation/HANDOFF.md`, `output/cribtest11-world-generation/coverage.json` |
+| W08 | Populate streamed regions | World generation owner | Streamed regions load and unload connected playable content instead of empty containers, while preserving authority and state across transitions. | `unreal-rural-mobile-reuse-2026-10-10.md`, `output/cribtest11-visible-world-2026-10-11/realism/README-before-checkpoint-20261011.md`, `output/cribtest11-visible-world-2026-10-11/realism/HANDOFF-RESUME-PID1784.md` |
+| W09 | Build all eleven base destinations | World and place owners | The base destination set is fully authored, connected and enterable in native play. See the appendix list. | `output/cribtest11-world-generation/coverage.json`, `packages/utils/src/companionWorld.ts`, `packages/utils/src/companionPlacesLayouts.ts` |
+| W10 | Build all seventeen expansion destinations | World and place owners | The expansion destination set is fully authored, connected and enterable in native play. See the appendix list. | `output/cribtest11-world-generation/coverage.json`, `packages/utils/src/companionPlacesExpansion.ts`, `packages/utils/src/companionPlacesLayouts.ts` |
+| W11 | Build all twelve waterfront destinations | Waterfront and transport owners | All waterfront destinations, jetties, terminals, marina, creeks, beaches, timber operations and under-bridge spaces are built and connected to water and road travel where intended. | `output/cribtest11-world-generation/coverage.json`, `packages/utils/src/companionWaterfront.ts` |
+| W12 | Deliver all 49 Home-generation recipes | Homes owner | All 49 Home recipes exist as native-supported shells with their turns, extensions, housing variants and common spaces intact. | `output/cribtest11-world-generation/HANDOFF.md`, `references/home-presentation-2026-10-10/packages/utils/src/companionHome.ts`, `references/home-presentation-2026-10-10/packages/utils/src/companionHomeDesign.ts` |
+| W13 | Connect apartments to outside | Homes owner | Saved rooms connect through private hallway, bright living room and exterior as a native traversable sequence, not a disconnected presentation plan. | `standalone-companion-apartment.md`, `standalone-companion-apartment-access.md`, `cribtest11-apartment-native-2026-10-10.md` |
+| W14 | Deliver all 23 furniture kinds | Homes owner | All furniture kinds use native meshes/materials, preserved saved transforms and lamp behavior, with placement/edit parity rather than a reduced subset. | `cribtest11-native-furniture-api-2026-10-10.md`, `unreal-homes-native-handoff-2026-10-11.md`, `references/home-presentation-2026-10-10/packages/utils/src/companionRoomItems.ts` |
+| W15 | Import the approved Companion rig | Character owner | The approved saved Companion rig, skeleton, morphs and supported appearance selections render in Unreal without replacing the actual saved character. | `standalone-companion-unreal-assets.md`, `unreal-native-avatar-ownership-2026-10-10.md`, `unreal-saved-appearance-handoff-2026-10-10.md` |
+| W16 | Finish wardrobe and accessories | Character owner | Face, body, clothing and attached accessories, including glasses, necklaces, chains and equipment bindings, all work on the native rig. | `unreal-character-material-reuse-2026-10-10.md`, `unreal-accessory-visibility-reuse-2026-10-10.md`, `unreal-character-equipment-handoff-2026-10-10.md` |
+| W17 | Complete animation | Character and animation owners | Locomotion, turning, foot contact, care actions, seating, cooking, dance, weapons and first-person hands all have native animation coverage. | `standalone-companion-unreal-assets.md`, `standalone-companion-rural-expedition.md`, `unreal-first-person-mobile-presentation-2026-10-10.md` |
+| W18 | Deliver NPC and mission-character art | Character and mission owners | Residents, vendors, guests, responders, squad members, captives and enemies all have native character art and bindings required by the planned world and missions. | `unreal-resident-state-handoff-2026-10-10.md`, `standalone-companion-rural-expedition.md`, `unreal-expedition-character-handoff-2026-10-10.md` |
+| W19 | Deliver road-vehicle art | Vehicle owner | The ten registered road vehicles exist with wheel/seat anchors, articulation and approved worn/breakdown variants ready for gameplay use. | `output/cribtest11-world-generation/missing-assets.json`, `output/cribtest11-visible-world-2026-10-11/vehicle-wear-direction.md`, `unreal-world-driving-decoding-2026-10-10.md` |
+| W20 | Deliver all eleven boat designs | Vehicle owner | All eleven planned boats have correct waterlines, cabins, controls, seats and boarding/mooring anchors. | `packages/utils/src/companionWaterfront.ts`, `unreal-world-water-decoding-2026-10-10.md` |
+| W21 | Deliver equipment and activity props | Gameplay content owner | Firearms, pickups, loot, sports objects and retained catalogue props all exist in Unreal with the bindings needed by the planned activities. | `unreal-combat-command-handoff-2026-10-10.md`, `unreal-football-state-handoff-2026-10-10.md`, `unreal-content-house-native-handoff-2026-10-11.md` |
+| W22 | Finish foliage and materials | World art owner | Trees, ground, buildings, glass and water read convincingly at playable distances with correct material scale and no fallback blob-canopy look. | `output/cribtest11-visible-world-2026-10-11/realism/defects.json`, `output/cribtest11-visible-world-2026-10-11/realism/HANDOFF.md` |
+| W23 | Build the five-area rural route | Rural world owner | The expressway, incident site, bush/gullies, river crossing and fortified camp all exist as connected authored terrain. | `standalone-companion-rural-expedition.md`, `output/cribtest11-world-generation/coverage.json`, `unreal-rural-mobile-reuse-2026-10-10.md` |
+| W24 | Stage rural mission spaces | Rural mission owner | Rural routes include the intended tracks, brush, cover, captives, extraction paths and squad positions required by the three mission designs. | `standalone-companion-rural-expedition.md`, `output/cribtest11-world-generation/coverage.json` |
+| W25 | Deliver native audio | Audio owner | Nigerian city, venue, vehicle, movement, combat, water, rural, voice and music coverage exists in Unreal with cleared sources and the intended information hierarchy. | `standalone-companion-rural-expedition.md`, `unreal-world-player-handoff-2026-10-10.md`, `apps/companion-unreal/README.md` |
+| W26 | Make the world traversable | World gameplay owner | Collision, navigation, openings, ground contact, lighting, distance detail and world boundaries support uninterrupted play across the authored city and rural spaces. | `output/cribtest11-visible-world-2026-10-11/realism/HANDOFF.md`, `standalone-companion-apartment.md`, `standalone-companion-rural-expedition.md` |
+
+### 3. Complete the planned gameplay
+
+| ID | Scope | Suggested owner | Complete when | Primary source references |
+| --- | --- | --- | --- | --- |
+| G01 | Care activities | Life owner | Sleep, sit, play, cook, eat, bathe, computer work, TV, reading, stretching and washing all work in native play with saved state and interruptions handled correctly. | `unreal-life-state-handoff-2026-10-10.md`, `unreal-life-command-handoff-2026-10-10.md`, `unreal-food-kitchen-state-handoff-2026-10-10.md` |
+| G02 | Task queues and skills | Life owner | Saved task ordering, pause/retry/cancel and all eight planned skills survive native translation and authority rules. | `unreal-life-state-handoff-2026-10-10.md`, `unreal-life-command-handoff-2026-10-10.md` |
+| G03 | Food and cooking | Food owner | Vendors, menus, stock, carried food, recipes, batches and kitchen stations work end to end in native play. | `unreal-food-kitchen-state-handoff-2026-10-10.md`, `unreal-food-kitchen-command-handoff-2026-10-10.md` |
+| G04 | NPC dialogue and trust | Dialogue owner | Conversations, directions, work enquiries, responses and courier trust progression all work with native UI and authority. | `unreal-npc-dialogue-state-handoff-2026-10-10.md`, `unreal-jobs-state-handoff-2026-10-10.md` |
+| G05 | Player encounters and Inbox | Social owner | Offers, acceptance, conversation handoff, privacy-aware previews and credit gifting work without leaking private Inbox content or skipping consent. | `unreal-social-command-handoff-2026-10-10.md`, `unreal-social-teams-state-handoff-2026-10-10.md` |
+| G06 | Crews, Teams, shared rooms and voice | Social owner | Invitations, rosters, room ownership, reservations, emotes and permitted spatial voice work with the existing call rules preserved. | `unreal-social-teams-state-handoff-2026-10-10.md`, `unreal-teams-command-handoff-2026-10-10.md`, `unreal-teams-native-reservation-handoff-2026-10-11.md` |
+| G07 | Courier employment | Jobs owner | Offers, pickup, delivery, cancellation, failure, trust and rewards all work natively with the existing authoritative job state. | `unreal-jobs-state-handoff-2026-10-10.md`, `unreal-jobs-command-handoff-2026-10-10.md` |
+| G08 | Supported economy and POS | Economy owner | Vendor quotes, confirmations, weapon purchases, balances, settlement and receipts work with the existing supported economy rules. | `unreal-game-economy-state-handoff-2026-10-10.md`, `unreal-pos-state-handoff-2026-10-10.md`, `unreal-pos-command-handoff-2026-10-10.md`, `unreal-economy-vendor-bound-handoff-2026-10-11.md` |
+| G09 | Inventory, loot and haul | Inventory owner | Carried, banked and forfeited belongings, drops, robbery losses and authoritative return-Home settlement all work in native play. | `unreal-haul-state-handoff-2026-10-10.md`, `unreal-combat-recovery-handoff-2026-10-10.md` |
+| G10 | Home editing and visits | Homes owner | Saved furniture editing, placement, invitations, guest access and revocation all work through native UI with preserved authority and recovery. | `unreal-homes-native-handoff-2026-10-11.md`, `standalone-companion-apartment.md`, `standalone-companion-apartment-access.md` |
+| G11 | Content House capture | Content House owner | Native photos and clips, permission checks, saving and handoff into the existing publishing flow all work from the Content House. | `unreal-content-house-native-handoff-2026-10-11.md`, `unreal-content-house-native-review-2026-10-11.md` |
+| G12 | Road, transit and water transport | Transport owner | Cars, okada, keke, danfo, BRT and speedboat controls, boarding, fuel, recovery and docking all work with admitted transport authority. | `unreal-world-driving-decoding-2026-10-10.md`, `unreal-world-water-decoding-2026-10-10.md`, `unreal-world-player-handoff-2026-10-10.md` |
+| G13 | Five current room games | Play owner | Mirror me, Room mystery, Runway, Kitchen session and Leave a surprise are all playable natively with results and progression preserved. | `unreal-play-state-handoff-2026-10-10.md`, `unreal-play-command-handoff-2026-10-11.md` |
+| G14 | Football and nightclub rhythm | Play owner | Football matches and nightclub dance challenges are playable with controls, results and progression. | `unreal-football-state-handoff-2026-10-10.md`, `unreal-football-command-handoff-2026-10-11.md`, `unreal-world-player-handoff-2026-10-10.md` |
+| G15 | Circuit racing | Racing owner | Eligibility, lobby, countdown, driving controls, laps, checkpoints, results and recovery all work on the Lagos Circuit. | `unreal-racing-state-handoff-2026-10-10.md`, `unreal-racing-command-codec-handoff-2026-10-10.md`, `unreal-racing-read-assignment-2026-10-10.md` |
+| G16 | All 26 existing city missions | Mission owner | The complete existing city mission catalog is mounted in Unreal with targets, dialogue, choices, challenges, prerequisites, resume and rewards, preserving the authored IDs and no silent omissions. | `unreal-mission-state-handoff-2026-10-10.md`, `unreal-mission-command-handoff-2026-10-10.md`, `packages/utils/src/companionMissions.ts`, `packages/utils/src/companionMissionExpansion.ts`, `packages/utils/src/companionMissionTargets.ts` |
+| G17 | Combat and robberies | Combat owner | Equipment, aim/fire/block, ammunition, hits, arena encounters and flee/defend/surrender outcomes all work with native controls and existing authority. | `unreal-combat-command-handoff-2026-10-10.md`, `unreal-combat-recovery-handoff-2026-10-10.md` |
+| G18 | Policing, custody and recovery | Policing and recovery owners | Encounters, cooperation/refusal, release, movement restrictions and medical recovery all work with preserved life and enforcement rules. | `unreal-policing-state-handoff-2026-10-10.md`, `unreal-policing-command-handoff-2026-10-11.md`, `unreal-recovery-command-handoff-2026-10-10.md` |
+| G19 | Three rural missions | Mission and rural owners | The Intercept, The Extraction and The Insurgent Stronghold all work with tracking, alarms, brush clearing, rescue, escort and assault objectives. | `standalone-companion-rural-expedition.md`, `unreal-mission-state-handoff-2026-10-10.md`, `unreal-mission-command-handoff-2026-10-10.md` |
+| G20 | First-person tactical play | Rural gameplay owner | The existing expedition control direction, ADS, squad Move/Hold, focused interactions, hearing cues and terrain penalties are mounted in native first-person play. | `standalone-companion-rural-expedition.md`, `unreal-first-person-mobile-presentation-2026-10-10.md`, `unreal-mobile-mission-controls-handoff-2026-10-10.md` |
+| G21 | Prepared travel and fares | Transport owner | Route preparation, fare quote, confirmation, departure, cancellation and uncertain-result recovery work for planned travel. | `unreal-world-player-handoff-2026-10-10.md`, `unreal-pos-command-handoff-2026-10-10.md`, `unreal-world-control-read-handoff-2026-10-10.md` |
+| G22 | Living residents and traffic | Resident and world owners | Resident population, traffic actors, movement, occupancy and interaction targets are driven by actual world updates rather than static dressing. | `unreal-resident-state-handoff-2026-10-10.md`, `unreal-world-player-handoff-2026-10-10.md`, `unreal-world-utilities-handoff-2026-10-11.md` |
+| G23 | Time, power and simulated network conditions | World utilities owner | The existing world clock and utility rules affect appliances, lighting, venues and activities in native play, including the intended degraded-network conditions. | `unreal-world-utilities-handoff-2026-10-11.md`, `unreal-world-utilities-review-2026-10-11.md`, `unreal-apartment-power-handoff-2026-10-10.md` |
+
+### 4. Finish and release the game
+
+| ID | Scope | Suggested owner | Complete when | Primary source references |
+| --- | --- | --- | --- | --- |
+| R01 | Complete game-facing UI | Unreal UI owner | Every shipped feature is usable through native UI with cancellation, errors, keyboard/controller support and planned touch coverage. | `unreal-gameplay-connection-ui-handoff-2026-10-10.md`, `unreal-mobile-mission-controls-handoff-2026-10-10.md`, `apps/companion-unreal/README.md` |
+| R02 | Windows quality and performance | Unreal runtime owner | The populated game is verified on an actual target Windows renderer, not only the VM software preview, with accepted visual and performance evidence. | `output/cribtest11-visible-world-2026-10-11/realism/HANDOFF.md`, `output/cribtest11-visible-world-2026-10-11/realism/README-before-checkpoint-20261011.md` |
+| R03 | Mobile target | Unreal runtime owner | Planned mobile controls, renderer variants and device performance work are complete for the selected device class. | `standalone-companion-rural-expedition.md`, `unreal-rural-mobile-reuse-2026-10-10.md`, `unreal-first-person-mobile-presentation-2026-10-10.md` |
+| R04 | Current integrated compilation and verification | Integration owner | The actual combined source compiles and an explicitly authorized verification pass covers every gameplay domain, not only isolated decoder slices. | `standalone-companion-unreal-port.md`, `standalone-companion-unreal.md` |
+| R05 | Deployment, packaging and release | Release owner | Backend endpoints, trusted configuration, packaged game build and released player access all work for the standalone Unreal client. | `standalone-companion-unreal.md`, `standalone-companion-account-linking.md` |
+| R06 | Full-port acceptance | Product owner | Existing saved data, mobile/web behavior and the full planned standalone feature set are accounted for, with no silent omissions or reintroduced retired systems. | `standalone-companion-unreal-port.md`, `standalone-companion-unreal.md`, `standalone-companion-rural-expedition.md` |
+
+## Destination inventory
+
+The current standalone destination set is 40 total: 11 base destinations, 17 expansion destinations and 12 waterfront destinations. These labels come from the prepared coverage inventory in `output/cribtest11-world-generation/coverage.json`.
+
+### Base destinations (11)
+
+- Town Square
+- Mama put
+- Hospital
+- Home
+- Content house
+- Football pitch
+- Arena
+- Police station
+- Skyline restaurant
+- Fine dining
+- Nightclub
+
+### Expansion destinations (17)
+
+- Lagos Circuit
+- South Market
+- Corner supermarket
+- Danfo terminal
+- Unity fuel station
+- Mechanic yard
+- Salon
+- Community gym
+- Cinema
+- City library
+- Arts centre
+- College courtyard
+- Co-working studio
+- Dance Again
+- Pool courtyard
+- Civic reception
+- Civic terrace lounge
+
+### Waterfront destinations (12)
+
+- CMS jetty
+- Five Cowries terminal
+- Ikorodu jetty
+- Ikoyi marina
+- Makoko creeks
+- Tarkwa Bay
+- Ilashe
+- Okobaba timber atoll
+- Obalende under-bridge
+- Ojuelegba under-bridge
+- Carter Bridge pier
+- Obalende upper abutment
+
+## Mission inventory
+
+The standalone mission scope includes the full existing city mission catalog plus the planned rural missions. The city count remains 26 canonical authored missions from `packages/utils/src/companionMissions.ts`, `packages/utils/src/companionMissionExpansion.ts` and `packages/utils/src/companionMissionTargets.ts`; this tracker preserves those IDs and does not authorize silent omission, renaming or replacement. The checked-out repo does not include those package files directly, but the local preserved readonly snapshot under `.git/operations/world-generation-20261010/readonly-source/packages/utils/src/` retains the same catalog and IDs used below.
+
+### Existing city missions (26)
+
+- `missing-reel` - The missing reel
+- `last-witness` - The last witness
+- `market-introductions` - Names at the market
+- `counter-round` - The counter round
+- `terminal-word` - A word at the terminal
+- `salon-crossed-wires` - Crossed wires at the salon
+- `neighbourhood-table` - Room at the table
+- `blue-chalk` - The blue chalk trail
+- `carbon-copy` - The carbon copy
+- `plinth-number` - The number on the plinth
+- `bench-alibi` - The bench alibi
+- `notice-author` - Who signed the notice?
+- `first-whistle` - The first whistle
+- `give-and-go` - Give and go
+- `everyone-on-scoresheet` - Everyone on the scoresheet
+- `find-the-count` - Find the count
+- `hold-the-eight` - Hold the eight
+- `twenty-one-after-dark` - Twenty-one after dark
+- `empty-stage` - An empty stage
+- `two-location-brief` - The two-location brief
+- `gallery-blocking` - Blocking the gallery
+- `foyer-rehearsal` - The foyer rehearsal
+- `after-the-witness` - After the witness
+- `gate-note` - The gate note
+- `second-envelope` - The second envelope
+- `open-doors` - Open doors
+
+The three planned rural missions are:
+
+- The Intercept
+- The Extraction
+- The Insurgent Stronghold
+
+Unconfigured financial features, unavailable customisation checkout and the expansion-geography decision remain explicit decision items. Retired Room toys, speculative property trading and a new romance system are not part of this scope and are not silently reintroduced.
+
 ## Unreal-first implementation
 
 Joshua's October 10 requirement is to reuse as much existing Unreal implementation as possible. Translate the game's behavior and saved data, not the web renderer's internal machinery. Before adding a custom gameplay or rendering system, inspect the corresponding Unreal implementation and relevant Epic sample for the selected engine version. Configure or extend that implementation. Record the concrete missing behavior before writing a replacement.

@@ -1,0 +1,101 @@
+{
+  "pid": 18120,
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-eye-level-20261014\\kit\\converted\\EyeLevel_Kit.blend",
+  "dirty": false,
+  "version": "5.2.2 LTS",
+  "build": "d13f752e3b9c",
+  "background": true,
+  "scene": "StreetFinish_EyeLevel_20261014",
+  "engine": "BLENDER_EEVEE",
+  "units": {
+    "system": "METRIC",
+    "scale_length": 1.0
+  },
+  "object_count": 7,
+  "object_types": {
+    "MESH": 7
+  },
+  "root_collections": [],
+  "shared_meshes": 0,
+  "camera": null,
+  "frame": 1,
+  "range": [
+    1,
+    250
+  ],
+  "fps": 24.0,
+  "resolution": [
+    1920,
+    1080,
+    100
+  ],
+  "color": {
+    "view_transform": "AgX",
+    "look": "None",
+    "exposure": 0.0,
+    "display": "sRGB"
+  },
+  "cycles": {
+    "device": "CPU",
+    "samples": 4096,
+    "use_denoising": true
+  },
+  "eevee": {
+    "taa_samples": 16,
+    "taa_render_samples": 64,
+    "shadow_resolution_scale": 1.0
+  },
+  "known_devices": [],
+  "assets": {
+    "external_count": 0,
+    "missing_count": 0,
+    "missing": [],
+    "unresolved_count": 0,
+    "unresolved": [],
+    "cache_audit": "separate inspection required"
+  },
+  "objects_sample": [
+    {
+      "name": "SM_EL_FernPot",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "SM_EL_UprightPot",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "SM_EL_GrassClump",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "SM_EL_Groundcover",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "SM_EL_FlowerTrough",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "SM_EL_GrassTrough",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    },
+    {
+      "name": "SM_EL_WallBasket",
+      "type": "MESH",
+      "hidden_render": false,
+      "data_users": 1
+    }
+  ]
+}
