@@ -1,0 +1,32 @@
+Parent-supplied verbatim excerpts. Both full TS paths absent Windows at authoring.
+PRIMARY packages/companion-scene/src/interactions/city/cityMiniParks.ts
+Parent full-file SHA25624916a56bfb556c2ed721b32f8c0852fb7a9ea7ac20e28a702bd14380f8c9829
+Line16:
+  const cube = new THREE.BoxGeometry(1, 1, 1), wheel = new THREE.CylinderGeometry(.39, .39, .22, 14);
+Lines27-38:
+  const mat = (colour: string, metalness = 0, roughness = .85) => {
+    const key = `${colour}:${metalness}:${roughness}`;
+    let material = materials.get(key);
+    if (!material) { material = new THREE.MeshStandardMaterial({ color: colour, roughness, metalness }); materials.set(key, material); }
+    return material;
+  };
+  const add = (owner: THREE.Group, name: string, x: number, y: number, z: number, w: number, h: number, d: number,
+    colour: string, geometry: THREE.BufferGeometry = cube) => {
+    const mesh = new THREE.Mesh(geometry, mat(colour)); mesh.name = name;
+    mesh.position.set(x, y, z); mesh.scale.set(w, h, d); mesh.receiveShadow = true; mesh.castShadow = h > .08;
+    owner.add(mesh); return mesh;
+  };
+Lines175-179:
+  const build = (body: ParkBody) => {
+    const park = body.park, root = new THREE.Group();
+    root.name = park.name; root.position.set(park.x, 0, park.z); root.rotation.y = park.yaw;
+    root.userData.miniParkId = park.id; body.root = root;
+    add(root, "Bus park hardstand", 0, -.038, 0, park.width, .08, park.depth, "#817b68");
+Line198:
+    add(root, "Waste bin", 10.2, .42, -.5, .65, .84, .65, "#566956");
+UTILITY packages/utils/src/companionCityMiniParks.ts
+Parent full-file SHA2567dbeadf7b18b39b38aa4707de4913e1461cfc15c7a874453a2d976c50d82118d
+Lines86-88; reserve/placement provenance only, not authoring coordinates:
+    parks.push(chosen); reserves.push(rectangle(chosen.x, chosen.z, 24, 20, chosen.yaw));
+    obstacles.push(...chosen.buses.map(bus => cityMiniParkObstacle(chosen, bus.x, bus.z, 2.6, 5.2, bus.yaw)),
+      cityMiniParkObstacle(chosen, -10.1, 0, .9, 6.7), cityMiniParkObstacle(chosen, 10.2, -.5, .7, .7));

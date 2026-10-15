@@ -1,0 +1,8 @@
+{
+  "image": "early-front.png",
+  "inspected": true,
+  "observations": "Whole bin and hardstand uncropped; true open rim/interior walls, thin restrained metal edges, joined corners, contact shadow without floating base or black rectangular junction patches. Interior floor is occluded in this view and remains for top/interior view.",
+  "largest_visible_owned_defect": null,
+  "correction": "None indicated; no fake geometry correction. Continue fixed geometry/lights/exposure to final views.",
+  "measured_evidence": "measurements-initial.json"
+}

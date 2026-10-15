@@ -1,0 +1,27 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 2932,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-minipark-waste-bin01-20261015\\work-in-progress.blend",
+    "scene": "MiniParkWasteBin01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "minipark-waste-bin01",
+    "phase": "render early-front",
+    "utc": "2026-10-15T07:16:42.980665+00:00",
+    "rendering": false
+  },
+  "location": [
+    1.6,
+    -2.15,
+    1.6
+  ],
+  "target": [
+    0,
+    0,
+    0.4
+  ],
+  "lens": 54,
+  "hidden_objects": [],
+  "profile": "800px Cycles CPU24 samples six threads AgX fixed neutral lights exposure0"
+}

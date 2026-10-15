@@ -1,0 +1,12 @@
+{
+  "host": "Cribtest11",
+  "pid": 2932,
+  "file": "",
+  "scene": "Scene",
+  "engine": "BLENDER_EEVEE",
+  "version": "5.2.2 LTS",
+  "job": "minipark-waste-bin01",
+  "phase": "empty isolated file before mutation",
+  "utc": "2026-10-15T07:16:42.764951+00:00",
+  "rendering": false
+}

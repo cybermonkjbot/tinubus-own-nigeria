@@ -1,0 +1,549 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 2932,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-minipark-waste-bin01-20261015\\MiniParkWasteBin01.blend",
+    "scene": "MiniParkWasteBin01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "minipark-waste-bin01",
+    "phase": "actual evaluated measurements",
+    "utc": "2026-10-15T07:17:38.892748+00:00",
+    "rendering": false
+  },
+  "solids": [
+    {
+      "object": "OnePieceOpenTopBin",
+      "components": 1,
+      "volume_m3": 0.00817971329591305,
+      "invalid_edges": [],
+      "duplicate_faces": 0
+    },
+    {
+      "object": "PresentationHardstandOnly",
+      "components": 1,
+      "volume_m3": 0.09680000203251833,
+      "invalid_edges": [],
+      "duplicate_faces": 0
+    }
+  ],
+  "actual_dimensions": {
+    "outer_width_m": 0.6499999761581421,
+    "outer_depth_m": 0.6499999761581421,
+    "height_m": 0.8399999737739563,
+    "bottom_m": 0.0,
+    "top_m": 0.8399999737739563,
+    "clear_width_m": 0.6439999938011169,
+    "clear_depth_m": 0.6439999938011169,
+    "inner_depth_m": 0.8359999656677246,
+    "extents_m": [
+      [
+        -0.32499998807907104,
+        0.32499998807907104
+      ],
+      [
+        -0.32499998807907104,
+        0.32499998807907104
+      ],
+      [
+        0.0,
+        0.8399999737739563
+      ]
+    ]
+  },
+  "paired_section_samples": [
+    {
+      "sample": "right wall flat Z.40",
+      "actual_thickness_m": 0.003000020971361124,
+      "normal_dot": -1.0,
+      "outer": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "right wall flat Z.40 outer",
+        "origin": [
+          1,
+          0,
+          0.4
+        ],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "hit": [
+          0.32499998807907104,
+          0.0,
+          0.4000000059604645
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "face": 10,
+        "distance_m": 0.675000011920929
+      },
+      "inner": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "right wall flat Z.40 inner",
+        "origin": [
+          0,
+          0,
+          0.4
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "hit": [
+          0.3219999670982361,
+          0.0,
+          0.4000000059604645
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "face": 42,
+        "distance_m": 0.3219999670982361
+      }
+    },
+    {
+      "sample": "front wall flat Z.40",
+      "actual_thickness_m": 0.003000020971361124,
+      "normal_dot": -1.0,
+      "outer": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "front wall flat Z.40 outer",
+        "origin": [
+          0,
+          -1,
+          0.4
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "hit": [
+          0.0,
+          -0.32499998807907104,
+          0.4000000059604645
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "face": 16,
+        "distance_m": 0.675000011920929
+      },
+      "inner": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "front wall flat Z.40 inner",
+        "origin": [
+          0,
+          0,
+          0.4
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "hit": [
+          0.0,
+          -0.3219999670982361,
+          0.4000000059604645
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "face": 48,
+        "distance_m": 0.3219999670982361
+      }
+    },
+    {
+      "sample": "left wall flat Z.65",
+      "actual_thickness_m": 0.0029999613992831215,
+      "normal_dot": -1.0,
+      "outer": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "left wall flat Z.65 outer",
+        "origin": [
+          -1,
+          0,
+          0.65
+        ],
+        "direction": [
+          1,
+          0,
+          0
+        ],
+        "hit": [
+          -0.32499992847442627,
+          0.0,
+          0.6499999761581421
+        ],
+        "normal": [
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "face": 14,
+        "distance_m": 0.6750000715255737
+      },
+      "inner": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "left wall flat Z.65 inner",
+        "origin": [
+          0,
+          0,
+          0.65
+        ],
+        "direction": [
+          -1,
+          0,
+          0
+        ],
+        "hit": [
+          -0.3219999670982361,
+          0.0,
+          0.6499999761581421
+        ],
+        "normal": [
+          1.0,
+          0.0,
+          0.0
+        ],
+        "face": 46,
+        "distance_m": 0.3219999670982361
+      }
+    },
+    {
+      "sample": "rear wall flat Z.20",
+      "actual_thickness_m": 0.0029999315370075525,
+      "normal_dot": -1.0,
+      "outer": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "rear wall flat Z.20 outer",
+        "origin": [
+          0,
+          1,
+          0.2
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "hit": [
+          0.0,
+          0.32499992847442627,
+          0.20000000298023224
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "face": 12,
+        "distance_m": 0.6750000715255737
+      },
+      "inner": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "rear wall flat Z.20 inner",
+        "origin": [
+          0,
+          0,
+          0.2
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "hit": [
+          0.0,
+          0.32199999690055847,
+          0.20000000298023224
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "face": 44,
+        "distance_m": 0.32199999690055847
+      }
+    },
+    {
+      "sample": "floor centre",
+      "actual_thickness_m": 0.003999993173734397,
+      "normal_dot": -1.0,
+      "outer": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "floor centre outer",
+        "origin": [
+          0,
+          0,
+          -1
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "face": 0,
+        "distance_m": 1.0
+      },
+      "inner": {
+        "object": "OnePieceOpenTopBin",
+        "sample": "floor centre inner",
+        "origin": [
+          0,
+          0,
+          0.2
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          0.003999993205070496
+        ],
+        "normal": [
+          2.663413378733992e-10,
+          0.0,
+          1.0
+        ],
+        "face": 57,
+        "distance_m": 0.19600000977516174
+      }
+    }
+  ],
+  "aperture_ray_samples": [
+    {
+      "object": "OnePieceOpenTopBin",
+      "sample": "inner left",
+      "origin": [
+        0,
+        0,
+        0.8
+      ],
+      "direction": [
+        -1,
+        0,
+        0
+      ],
+      "hit": [
+        -0.32199999690055847,
+        0.0,
+        0.800000011920929
+      ],
+      "normal": [
+        1.0,
+        0.0,
+        0.0
+      ],
+      "face": 46,
+      "distance_m": 0.32199999690055847
+    },
+    {
+      "object": "OnePieceOpenTopBin",
+      "sample": "inner right",
+      "origin": [
+        0,
+        0,
+        0.8
+      ],
+      "direction": [
+        1,
+        0,
+        0
+      ],
+      "hit": [
+        0.32199999690055847,
+        0.0,
+        0.800000011920929
+      ],
+      "normal": [
+        -1.0,
+        0.0,
+        0.0
+      ],
+      "face": 42,
+      "distance_m": 0.32199999690055847
+    },
+    {
+      "object": "OnePieceOpenTopBin",
+      "sample": "inner front",
+      "origin": [
+        0,
+        0,
+        0.8
+      ],
+      "direction": [
+        0,
+        -1,
+        0
+      ],
+      "hit": [
+        0.0,
+        -0.32199999690055847,
+        0.800000011920929
+      ],
+      "normal": [
+        0.0,
+        1.0,
+        0.0
+      ],
+      "face": 48,
+      "distance_m": 0.32199999690055847
+    },
+    {
+      "object": "OnePieceOpenTopBin",
+      "sample": "inner back",
+      "origin": [
+        0,
+        0,
+        0.8
+      ],
+      "direction": [
+        0,
+        1,
+        0
+      ],
+      "hit": [
+        0.0,
+        0.32199999690055847,
+        0.800000011920929
+      ],
+      "normal": [
+        0.0,
+        -1.0,
+        0.0
+      ],
+      "face": 44,
+      "distance_m": 0.32199999690055847
+    },
+    {
+      "object": "OnePieceOpenTopBin",
+      "sample": "open top centre ray sees integral floor",
+      "origin": [
+        0,
+        0,
+        1
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "hit": [
+        0.0,
+        0.0,
+        0.0040000081062316895
+      ],
+      "normal": [
+        2.663413378733992e-10,
+        0.0,
+        1.0
+      ],
+      "face": 57,
+      "distance_m": 0.9959999918937683
+    }
+  ],
+  "contact": {
+    "patches": [
+      {
+        "bin_face": 0,
+        "ground_face": 1,
+        "signed_gaps_m": [
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "area_m2": 0.42093695998435976,
+        "opposing_normals": [
+          [
+            0.0,
+            0.0,
+            -1.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "normal_dot": -1.0,
+        "polygon_world": [
+          [
+            -0.3228999972343445,
+            -0.32440000772476196,
+            0.0
+          ],
+          [
+            -0.32440000772476196,
+            -0.3228999972343445,
+            0.0
+          ],
+          [
+            -0.32440000772476196,
+            0.3228999972343445,
+            0.0
+          ],
+          [
+            -0.3228999972343445,
+            0.32440000772476196,
+            0.0
+          ],
+          [
+            0.3228999972343445,
+            0.32440000772476196,
+            0.0
+          ],
+          [
+            0.32440000772476196,
+            0.3228999972343445,
+            0.0
+          ],
+          [
+            0.32440000772476196,
+            -0.3228999972343445,
+            0.0
+          ],
+          [
+            0.3228999972343445,
+            -0.32440000772476196,
+            0.0
+          ]
+        ]
+      }
+    ],
+    "total_area_m2": 0.42093695998435976,
+    "signed_gap_m": 0.0,
+    "neighbor_check": "All bin boundary vertices at/above actual hardstand top; genuine flat opposing patch proves bearing, no AABB solid overlap claim"
+  },
+  "tolerance_m": 1e-06,
+  "tolerance_rationale": "1um; float32 spacing about .06um below .84m; unchanged fixed comparisons",
+  "exceptions": "Octagonal2.1mm corner relief; .6mm rim/base/inner-floor eased sections (unless correction recorded); sampled flats not exhaustive minimum certification"
+}

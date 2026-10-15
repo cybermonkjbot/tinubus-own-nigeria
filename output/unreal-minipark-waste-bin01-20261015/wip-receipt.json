@@ -1,0 +1,15 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 2932,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-minipark-waste-bin01-20261015\\work-in-progress.blend",
+    "scene": "MiniParkWasteBin01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "minipark-waste-bin01",
+    "phase": "saved early WIP NOT guard acceptance",
+    "utc": "2026-10-15T07:16:42.966024+00:00",
+    "rendering": false
+  },
+  "sha256": "077f56270de88f6077f857b3e08857f72f5e2850885f0a95a06db0f4e87e41a6"
+}

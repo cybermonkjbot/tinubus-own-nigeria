@@ -1,0 +1,40 @@
+{
+  "name": "MiniParkWasteBin01",
+  "units": "metres",
+  "axes": "source(x,y,z) -> Blender(x,-z,y); +Xwidth +Zup front-Y; footorigin0 centredX/Y",
+  "source_status": "Parent-provided excerpt/full-file hashes; TS absent Windows; no full-source closure",
+  "primary_parent_sha256": "24916a56bfb556c2ed721b32f8c0852fb7a9ea7ac20e28a702bd14380f8c9829",
+  "utility_parent_sha256": "7dbeadf7b18b39b38aa4707de4913e1461cfc15c7a874453a2d976c50d82118d",
+  "source_excerpt_sha256": "589faf56e68acc9a8051917153c870035c38589d80f7bba13a5e5bd58aa012ea",
+  "construction": "Direct connected octagonal boundary rings and joined floor; no Boolean/modifiers/foreign meshes; integral freestanding open-top metal shell",
+  "authored_gauges": {
+    "wall_m": 0.003,
+    "floor_m": 0.004,
+    "edge_ease_m": 0.0006,
+    "corner_chamfer_m": 0.0021,
+    "presentation_slab_m": [
+      1.1,
+      1.1,
+      0.08
+    ]
+  },
+  "materials": [
+    {
+      "id": "BinPaint",
+      "tint": "#566956",
+      "roughness": 0.85,
+      "metallic": 0
+    },
+    {
+      "id": "HardstandFinish",
+      "tint": "#817b68",
+      "roughness": 0.85,
+      "metallic": 0
+    }
+  ],
+  "measured_evidence": "measurements-reopened.json",
+  "readback": "exact evaluated geometry/materials/transforms/light/render matched",
+  "corrections": [],
+  "sha256": "858467d261c8d34db7a5997218c70efb2493bed73d5d1afa847521bab6da672f",
+  "limits": "Transport mini-park asset only, not botanical park; no canonical placement, disposal/interaction, engineering/hygiene/load/nav/collision or native integration"
+}

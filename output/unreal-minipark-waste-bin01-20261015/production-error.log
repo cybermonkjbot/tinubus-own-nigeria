@@ -1,0 +1,6 @@
+C:\dev\cribtest-game\output\unreal-minipark-waste-bin01-20261015\author_bin.py:37: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+C:\dev\cribtest-game\output\unreal-minipark-waste-bin01-20261015\author_bin.py:358: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  s.world.use_nodes=True
+C:\dev\cribtest-game\output\unreal-minipark-waste-bin01-20261015\author_bin.py:121: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  return dict(id=m.name,use_nodes=m.use_nodes,

@@ -1,0 +1,12 @@
+{
+  "inspected_actual_images": ["front.png", "reverse.png", "grazing.png", "player165.png", "interior.png"],
+  "early_preview": "early-front.png",
+  "front": "Whole bin and presentation slab uncropped. Thin continuous open rim and restrained coated-metal finish. No visible black rectangular joins, floating base or corner leaks.",
+  "reverse": "Whole freestanding assembly and closed underside visible. ONLY presentation hardstand hidden; no explosion. Natural dark underside shading is not a join defect. Does not show assembled bearing contact.",
+  "grazing": "Thin rim and eased wall edges readable. Lower bin/ground cropped for rim detail; whole-asset framing covered by front.",
+  "player165": "Camera Z1.65m relative footground0; whole bin visible with clear hollow top. Interior floor occluded by front wall.",
+  "interior": "Detail crop shows true inner walls and integral floor/corner junctions. Rear upper tip is cropped. Natural cavity shadows remain; no black fake aperture plate, light leak or overlapping corner patch observed.",
+  "defects_requiring_correction": [],
+  "corrections": "No causal owned defect identified; no fabricated repair, material/exposure/light change or additional render.",
+  "limits": "Five fixed stills support bounded art inspection, not full photorealism, mechanics, material engineering or native integration. Bearing proof is evaluated opposing polygon evidence, not underside-hidden image. Fine .6mm relief is subpixel in wider views. Smooth intentionally clean paint, no invented wear."
+}

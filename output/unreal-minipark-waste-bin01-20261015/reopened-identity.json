@@ -1,0 +1,12 @@
+{
+  "host": "Cribtest11",
+  "pid": 2932,
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-minipark-waste-bin01-20261015\\MiniParkWasteBin01.blend",
+  "scene": "MiniParkWasteBin01",
+  "engine": "CYCLES",
+  "version": "5.2.2 LTS",
+  "job": "minipark-waste-bin01",
+  "phase": "same process new final reopened",
+  "utc": "2026-10-15T07:17:38.844574+00:00",
+  "rendering": false
+}
