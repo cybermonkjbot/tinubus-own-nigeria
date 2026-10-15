@@ -1,0 +1,21 @@
+Parent-supplied excerpt, not a locally verified full source file.
+packages/companion-scene/src/interactions/city/cityLandscapeDetails.ts
+Parent SHA256 7454025cf87a4a85caf22711fc438129f4f01b1758e04e8e3e4345ae7d33ded6, lines 224-237.
+at arguments: centre x, y UP, z DEPTH, width, height, depth, tint, finish.
+    } else if (a.kind === "bench") {
+      at(base, 0, .43, 0, 2.38, .08, .7, t.timber, "wood");
+      for (const x of [-.86, .86]) {
+        at(base, x, .22, 0, .085, .44, .58, "#46524a", "metal");
+        at(fine, x, .32, -.37, .07, .64, .07, "#46524a", "metal");
+        at(fine, x, .7, 0, .07, .06, .58, "#46524a", "metal");
+        for (const z of [-.24, .24]) at(fine, x, .036, z, .2, .065, .12, "#596052", "metal");
+      }
+      for (const y of [.66, .86]) at(base, 0, y, -.41, 2.38, .16, .065, t.timber, "wood");
+      for (let z = -.27; z < .32; z += .145) at(fine, 0, .473, z, 2.35, .009, .014, "#61513b", "wood");
+      for (const x of [-.86, .86]) for (const y of [.66, .86]) at(fine, x, y, -.451, .022, .022, .012, "#9c9d8d", "metal");
+Utility companionCityLandscapeDetails.ts parent SHA256 5aa4f628054c239106eb3a7544ce1b3dd64d9d3f287470869ae02500a4283d4a.
+civic-square kind civic; timber #877459; ground #c0b9a5; reserve +/-1.3 X, +/-0.55 depth.
+Canonical JSON parent SHA256 13a2699ee6ad513616ca25a41bbb05f165e9aeaf3e52b5d89e550ed8b523ad9a.
+civic-square-bench-0 kind bench x115.47 z-513.04 yaw0.4073985864263842 variant0.
+SOURCE PROVENANCE ONLY: no canonical placement, full-byte verification or Git dependency closure.
+Right-handed conversion (source X,Y,Z) -> Blender (X,-Z,Y). Front -Y; back +Y.

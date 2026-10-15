@@ -1,0 +1,11 @@
+00:50.078  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-bench01-20261015\front.png'
+01:53.922  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-bench01-20261015\reverse.png'
+02:28.875  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-bench01-20261015\grazing.png'
+03:08.484  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-bench01-20261015\player165.png'
+03:52.078  render           | Saved: 'C:\dev\cribtest-game\output\unreal-street-bench01-20261015\jointdetail.png'
+04:08.344  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-street-bench01-20261015\StreetBench01.blend"
+Info: Saved as "work-in-progress.blend"
+Info: Saved as "StreetBench01.blend"
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

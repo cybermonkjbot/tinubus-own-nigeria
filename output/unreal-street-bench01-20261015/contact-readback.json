@@ -1,0 +1,1010 @@
+{
+  "contacts": [
+    {
+      "a": "FrontFoot_0",
+      "b": "PresentationGround_NOT_CANONICAL",
+      "axis": 2,
+      "direction": -1,
+      "touchingPatches": [
+        {
+          "signedGapM": -0.0,
+          "areaM2": 0.022736003936767446,
+          "polygon": [
+            [
+              -0.9580000042915344,
+              -0.2980000078678131
+            ],
+            [
+              -0.9580000042915344,
+              -0.18200001120567322
+            ],
+            [
+              -0.7619999647140503,
+              -0.18200001120567322
+            ],
+            [
+              -0.7619999647140503,
+              -0.2980000078678131
+            ]
+          ],
+          "planeA": 0.0,
+          "planeB": 0.0
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "RearFoot_0",
+      "b": "PresentationGround_NOT_CANONICAL",
+      "axis": 2,
+      "direction": -1,
+      "touchingPatches": [
+        {
+          "signedGapM": -0.0,
+          "areaM2": 0.02273601561928018,
+          "polygon": [
+            [
+              -0.9580000042915344,
+              0.4194999933242798
+            ],
+            [
+              -0.9580000042915344,
+              0.5355000495910645
+            ],
+            [
+              -0.7619999647140503,
+              0.5355000495910645
+            ],
+            [
+              -0.7619999647140503,
+              0.4194999933242798
+            ]
+          ],
+          "planeA": 0.0,
+          "planeB": 0.0
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "FrontFoot_0",
+      "b": "FrontLeg_0",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.006561001245617426,
+          "polygon": [
+            [
+              -0.8194999694824219,
+              -0.28049999475479126
+            ],
+            [
+              -0.8194999694824219,
+              -0.19950000941753387
+            ],
+            [
+              -0.9004999995231628,
+              -0.19950000941753387
+            ],
+            [
+              -0.9004999995231628,
+              -0.28049999475479126
+            ]
+          ],
+          "planeA": 0.06499999761581421,
+          "planeB": 0.06499999761581421
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "RearFoot_0",
+      "b": "BackPost_0",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.0043560038867003215,
+          "polygon": [
+            [
+              -0.8269999623298645,
+              0.44449999928474426
+            ],
+            [
+              -0.8269999623298645,
+              0.5105000138282776
+            ],
+            [
+              -0.8930000066757202,
+              0.5105000138282776
+            ],
+            [
+              -0.8930000066757202,
+              0.44449999928474426
+            ]
+          ],
+          "planeA": 0.06499999761581421,
+          "planeB": 0.06499999761581421
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "FrontLeg_0",
+      "b": "SeatBearing_0",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.006561001245617426,
+          "polygon": [
+            [
+              -0.9004999995231628,
+              -0.28049999475479126
+            ],
+            [
+              -0.8194999694824219,
+              -0.28049999475479126
+            ],
+            [
+              -0.8194999694824219,
+              -0.19950000941753387
+            ],
+            [
+              -0.9004999995231628,
+              -0.19950000941753387
+            ]
+          ],
+          "planeA": 0.3499999940395355,
+          "planeB": 0.3499999940395355
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_0",
+      "b": "RearBearingLink_0",
+      "axis": 1,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.002915999748944742,
+          "polygon": [
+            [
+              -0.8194999694824219,
+              0.35199999809265137
+            ],
+            [
+              -0.9004999995231628,
+              0.35199999809265137
+            ],
+            [
+              -0.9004999995231628,
+              0.3879999816417694
+            ],
+            [
+              -0.8194999694824219,
+              0.3879999816417694
+            ]
+          ],
+          "planeA": 0.3499999940395355,
+          "planeB": 0.3499999940395355
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "ArmBaseLink_0",
+      "b": "SeatBearing_0",
+      "axis": 1,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.002915999748944742,
+          "polygon": [
+            [
+              -0.8194999694824219,
+              0.35199999809265137
+            ],
+            [
+              -0.9004999995231628,
+              0.35199999809265137
+            ],
+            [
+              -0.9004999995231628,
+              0.3879999816417694
+            ],
+            [
+              -0.8194999694824219,
+              0.3879999816417694
+            ]
+          ],
+          "planeA": -0.3499999940395355,
+          "planeB": -0.3499999940395355
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "ArmFrontPost_0",
+      "b": "ArmRail_0",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.002046000603675324,
+          "polygon": [
+            [
+              -0.8269999623298645,
+              -0.382999986410141
+            ],
+            [
+              -0.8269999623298645,
+              -0.35199999809265137
+            ],
+            [
+              -0.8930000066757202,
+              -0.35199999809265137
+            ],
+            [
+              -0.8930000066757202,
+              -0.382999986410141
+            ]
+          ],
+          "planeA": 0.6700000166893005,
+          "planeB": 0.6700000166893005
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_0",
+      "b": "SeatPlank_00",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010335603777194002,
+          "polygon": [
+            [
+              -0.8194999694824219,
+              -0.34700000286102295
+            ],
+            [
+              -0.8194999694824219,
+              -0.21940000355243683
+            ],
+            [
+              -0.9004999995231628,
+              -0.21940000355243683
+            ],
+            [
+              -0.9004999995231628,
+              -0.34700000286102295
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_0",
+      "b": "SeatPlank_01",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.01033560317369675,
+          "polygon": [
+            [
+              -0.8194999694824219,
+              -0.2053999900817871
+            ],
+            [
+              -0.8194999694824219,
+              -0.07779999822378159
+            ],
+            [
+              -0.9004999995231628,
+              -0.07779999822378159
+            ],
+            [
+              -0.9004999995231628,
+              -0.2053999900817871
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_0",
+      "b": "SeatPlank_02",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010335603777194002,
+          "polygon": [
+            [
+              -0.8194999694824219,
+              -0.06379999965429306
+            ],
+            [
+              -0.8194999694824219,
+              0.06379999965429306
+            ],
+            [
+              -0.9004999995231628,
+              0.06379999965429306
+            ],
+            [
+              -0.9004999995231628,
+              -0.06379999965429306
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_0",
+      "b": "SeatPlank_03",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.01033560317369675,
+          "polygon": [
+            [
+              -0.8194999694824219,
+              0.07779999822378159
+            ],
+            [
+              -0.8194999694824219,
+              0.2053999900817871
+            ],
+            [
+              -0.9004999995231628,
+              0.2053999900817871
+            ],
+            [
+              -0.9004999995231628,
+              0.07779999822378159
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_0",
+      "b": "SeatPlank_04",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010335603777194002,
+          "polygon": [
+            [
+              -0.8194999694824219,
+              0.21940000355243683
+            ],
+            [
+              -0.8194999694824219,
+              0.34700000286102295
+            ],
+            [
+              -0.9004999995231628,
+              0.34700000286102295
+            ],
+            [
+              -0.9004999995231628,
+              0.21940000355243683
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "Backboard_0",
+      "b": "BackPost_0",
+      "axis": 1,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010164005790709751,
+          "polygon": [
+            [
+              -0.8269999623298645,
+              0.5830000042915344
+            ],
+            [
+              -0.8930000066757202,
+              0.5830000042915344
+            ],
+            [
+              -0.8930000066757202,
+              0.7369999885559082
+            ],
+            [
+              -0.8269999623298645,
+              0.7369999885559082
+            ]
+          ],
+          "planeA": 0.4424999952316284,
+          "planeB": 0.4424999952316284
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "Backboard_1",
+      "b": "BackPost_0",
+      "axis": 1,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010164005790709751,
+          "polygon": [
+            [
+              -0.8269999623298645,
+              0.7829999923706055
+            ],
+            [
+              -0.8930000066757202,
+              0.7829999923706055
+            ],
+            [
+              -0.8930000066757202,
+              0.9369999766349792
+            ],
+            [
+              -0.8269999623298645,
+              0.9369999766349792
+            ]
+          ],
+          "planeA": 0.4424999952316284,
+          "planeB": 0.4424999952316284
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "FrontFoot_1",
+      "b": "PresentationGround_NOT_CANONICAL",
+      "axis": 2,
+      "direction": -1,
+      "touchingPatches": [
+        {
+          "signedGapM": -0.0,
+          "areaM2": 0.022736003936767446,
+          "polygon": [
+            [
+              0.7619999647140503,
+              -0.2980000078678131
+            ],
+            [
+              0.7619999647140503,
+              -0.18200001120567322
+            ],
+            [
+              0.9580000042915344,
+              -0.18200001120567322
+            ],
+            [
+              0.9580000042915344,
+              -0.2980000078678131
+            ]
+          ],
+          "planeA": 0.0,
+          "planeB": 0.0
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "RearFoot_1",
+      "b": "PresentationGround_NOT_CANONICAL",
+      "axis": 2,
+      "direction": -1,
+      "touchingPatches": [
+        {
+          "signedGapM": -0.0,
+          "areaM2": 0.02273601561928018,
+          "polygon": [
+            [
+              0.7619999647140503,
+              0.4194999933242798
+            ],
+            [
+              0.7619999647140503,
+              0.5355000495910645
+            ],
+            [
+              0.9580000042915344,
+              0.5355000495910645
+            ],
+            [
+              0.9580000042915344,
+              0.4194999933242798
+            ]
+          ],
+          "planeA": 0.0,
+          "planeB": 0.0
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "FrontFoot_1",
+      "b": "FrontLeg_1",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.006561001245617426,
+          "polygon": [
+            [
+              0.9004999995231628,
+              -0.28049999475479126
+            ],
+            [
+              0.9004999995231628,
+              -0.19950000941753387
+            ],
+            [
+              0.8194999694824219,
+              -0.19950000941753387
+            ],
+            [
+              0.8194999694824219,
+              -0.28049999475479126
+            ]
+          ],
+          "planeA": 0.06499999761581421,
+          "planeB": 0.06499999761581421
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "RearFoot_1",
+      "b": "BackPost_1",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.0043560038867003215,
+          "polygon": [
+            [
+              0.8930000066757202,
+              0.44449999928474426
+            ],
+            [
+              0.8930000066757202,
+              0.5105000138282776
+            ],
+            [
+              0.8269999623298645,
+              0.5105000138282776
+            ],
+            [
+              0.8269999623298645,
+              0.44449999928474426
+            ]
+          ],
+          "planeA": 0.06499999761581421,
+          "planeB": 0.06499999761581421
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "FrontLeg_1",
+      "b": "SeatBearing_1",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.006561001245617426,
+          "polygon": [
+            [
+              0.8194999694824219,
+              -0.28049999475479126
+            ],
+            [
+              0.9004999995231628,
+              -0.28049999475479126
+            ],
+            [
+              0.9004999995231628,
+              -0.19950000941753387
+            ],
+            [
+              0.8194999694824219,
+              -0.19950000941753387
+            ]
+          ],
+          "planeA": 0.3499999940395355,
+          "planeB": 0.3499999940395355
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_1",
+      "b": "RearBearingLink_1",
+      "axis": 1,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.002915999748944742,
+          "polygon": [
+            [
+              0.9004999995231628,
+              0.35199999809265137
+            ],
+            [
+              0.8194999694824219,
+              0.35199999809265137
+            ],
+            [
+              0.8194999694824219,
+              0.3879999816417694
+            ],
+            [
+              0.9004999995231628,
+              0.3879999816417694
+            ]
+          ],
+          "planeA": 0.3499999940395355,
+          "planeB": 0.3499999940395355
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "ArmBaseLink_1",
+      "b": "SeatBearing_1",
+      "axis": 1,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.002915999748944742,
+          "polygon": [
+            [
+              0.9004999995231628,
+              0.35199999809265137
+            ],
+            [
+              0.8194999694824219,
+              0.35199999809265137
+            ],
+            [
+              0.8194999694824219,
+              0.3879999816417694
+            ],
+            [
+              0.9004999995231628,
+              0.3879999816417694
+            ]
+          ],
+          "planeA": -0.3499999940395355,
+          "planeB": -0.3499999940395355
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "ArmFrontPost_1",
+      "b": "ArmRail_1",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.002046000603675324,
+          "polygon": [
+            [
+              0.8930000066757202,
+              -0.382999986410141
+            ],
+            [
+              0.8930000066757202,
+              -0.35199999809265137
+            ],
+            [
+              0.8269999623298645,
+              -0.35199999809265137
+            ],
+            [
+              0.8269999623298645,
+              -0.382999986410141
+            ]
+          ],
+          "planeA": 0.6700000166893005,
+          "planeB": 0.6700000166893005
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_1",
+      "b": "SeatPlank_00",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010335603777194002,
+          "polygon": [
+            [
+              0.9004999995231628,
+              -0.34700000286102295
+            ],
+            [
+              0.9004999995231628,
+              -0.21940000355243683
+            ],
+            [
+              0.8194999694824219,
+              -0.21940000355243683
+            ],
+            [
+              0.8194999694824219,
+              -0.34700000286102295
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_1",
+      "b": "SeatPlank_01",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.01033560317369675,
+          "polygon": [
+            [
+              0.9004999995231628,
+              -0.2053999900817871
+            ],
+            [
+              0.9004999995231628,
+              -0.07779999822378159
+            ],
+            [
+              0.8194999694824219,
+              -0.07779999822378159
+            ],
+            [
+              0.8194999694824219,
+              -0.2053999900817871
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_1",
+      "b": "SeatPlank_02",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010335603777194002,
+          "polygon": [
+            [
+              0.9004999995231628,
+              -0.06379999965429306
+            ],
+            [
+              0.9004999995231628,
+              0.06379999965429306
+            ],
+            [
+              0.8194999694824219,
+              0.06379999965429306
+            ],
+            [
+              0.8194999694824219,
+              -0.06379999965429306
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_1",
+      "b": "SeatPlank_03",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.01033560317369675,
+          "polygon": [
+            [
+              0.9004999995231628,
+              0.07779999822378159
+            ],
+            [
+              0.9004999995231628,
+              0.2053999900817871
+            ],
+            [
+              0.8194999694824219,
+              0.2053999900817871
+            ],
+            [
+              0.8194999694824219,
+              0.07779999822378159
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "SeatBearing_1",
+      "b": "SeatPlank_04",
+      "axis": 2,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010335603777194002,
+          "polygon": [
+            [
+              0.9004999995231628,
+              0.21940000355243683
+            ],
+            [
+              0.9004999995231628,
+              0.34700000286102295
+            ],
+            [
+              0.8194999694824219,
+              0.34700000286102295
+            ],
+            [
+              0.8194999694824219,
+              0.21940000355243683
+            ]
+          ],
+          "planeA": 0.38999998569488525,
+          "planeB": 0.38999998569488525
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "Backboard_0",
+      "b": "BackPost_1",
+      "axis": 1,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010164005790709751,
+          "polygon": [
+            [
+              0.8930000066757202,
+              0.5830000042915344
+            ],
+            [
+              0.8269999623298645,
+              0.5830000042915344
+            ],
+            [
+              0.8269999623298645,
+              0.7369999885559082
+            ],
+            [
+              0.8930000066757202,
+              0.7369999885559082
+            ]
+          ],
+          "planeA": 0.4424999952316284,
+          "planeB": 0.4424999952316284
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    },
+    {
+      "a": "Backboard_1",
+      "b": "BackPost_1",
+      "axis": 1,
+      "direction": 1,
+      "touchingPatches": [
+        {
+          "signedGapM": 0.0,
+          "areaM2": 0.010164005790709751,
+          "polygon": [
+            [
+              0.8930000066757202,
+              0.7829999923706055
+            ],
+            [
+              0.8269999623298645,
+              0.7829999923706055
+            ],
+            [
+              0.8269999623298645,
+              0.9369999766349792
+            ],
+            [
+              0.8930000066757202,
+              0.9369999766349792
+            ]
+          ],
+          "planeA": 0.4424999952316284,
+          "planeB": 0.4424999952316284
+        }
+      ],
+      "criterion": "Actual evaluated opposing planar polygon intersection; 1um float representation tolerance"
+    }
+  ],
+  "intentionalOverlaps": [
+    "Back posts welded through rear bearing links and arm rails",
+    "Arm front posts welded through base link",
+    "Fasteners intentionally penetrate timber/footplates"
+  ],
+  "bevelReliefM": 0.002,
+  "seatTopM": 0.47,
+  "timberWidthM": 2.38,
+  "seatDepthM": 0.7,
+  "upperEnvelopeM": 0.94,
+  "supportAxesX": [
+    -0.86,
+    0.86
+  ],
+  "reserveHalfDepthM": 0.55,
+  "authoredRefinements": "Rear post/foot axis +Y .4775; feet bottom Z0; loadpath rails/arm supports; not engineering certified"
+}

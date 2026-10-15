@@ -1,0 +1,11 @@
+C:\dev\cribtest-game\output\unreal-street-bench01-20261015\author_bench.py:88: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+C:\dev\cribtest-game\output\unreal-street-bench01-20261015\author_bench.py:242: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes = True
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\unreal-street-bench01-20261015\author_bench.py", line 284, in <module>
+    assert before == after, 'Saved/reopened explicit mesh/material/light state differs'
+           ^^^^^^^^^^^^^^^
+AssertionError: Saved/reopened explicit mesh/material/light state differs
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-street-bench01-20261015\author_bench.py', exiting.

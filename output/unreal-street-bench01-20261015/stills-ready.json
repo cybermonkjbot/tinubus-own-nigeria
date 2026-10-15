@@ -1,0 +1,85 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 5556,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-street-bench01-20261015\\work-in-progress.blend",
+    "scene": "StreetBench01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "street-bench01",
+    "utc": "2026-10-15T04:53:59.367865+00:00",
+    "rendering": false
+  },
+  "views": [
+    [
+      "front",
+      [
+        3,
+        -4,
+        2.3
+      ],
+      [
+        0,
+        0,
+        0.45
+      ],
+      48
+    ],
+    [
+      "reverse",
+      [
+        -3,
+        3.6,
+        1.9
+      ],
+      [
+        0,
+        0,
+        0.5
+      ],
+      48
+    ],
+    [
+      "grazing",
+      [
+        3.5,
+        -1.7,
+        1.1
+      ],
+      [
+        0,
+        0,
+        0.48
+      ],
+      48
+    ],
+    [
+      "player165",
+      [
+        0.8,
+        -3.5,
+        1.65
+      ],
+      [
+        0,
+        0,
+        0.46
+      ],
+      44
+    ],
+    [
+      "jointdetail",
+      [
+        1.95,
+        -1.55,
+        0.28
+      ],
+      [
+        0.86,
+        0.05,
+        0.28
+      ],
+      60
+    ]
+  ]
+}
