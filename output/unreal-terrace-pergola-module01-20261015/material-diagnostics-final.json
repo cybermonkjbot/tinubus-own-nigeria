@@ -1,0 +1,684 @@
+[
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Post_0",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Post_1",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Post_2",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Post_3",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Beam_0",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Beam_1",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Lath_0",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Lath_1",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Lath_2",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Lath_3",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Lath_4",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Lath_5",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedTimber",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedTimber",
+        "slot": 0
+      }
+    ],
+    "object": "Lath_6",
+    "slots": [
+      "OwnedTimber"
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedBed",
+        "slot": 0
+      }
+    ],
+    "object": "PresentationBed",
+    "slots": [
+      "OwnedBed"
+    ]
+  }
+]

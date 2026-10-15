@@ -1,0 +1,5 @@
+{
+  "pid": 4776,
+  "action": "accept",
+  "inspection": "Actual early-front.png 800x800 inspected. Entire assembly and bed uncropped, seven laths and open gaps, square beam/lath ends and direct supports. Rear-left post occluded in this angle, not removed. Uniform dry finish intentional. Actual measurements-early.json:14 convex closed manifold one-component positive-volume solids,22 distinct contact patches,91neighborpairs (22contacts/69separated),area0.41398591755472225m2,175mm bearings/15mm setbacks/30mm overhangs and all fixed tolerance guards pass. No observed geometry defect; no reconstruction/cosmetic repair performed. Final reverse/player/detail views remain to inspect."
+}

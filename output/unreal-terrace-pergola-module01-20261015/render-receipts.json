@@ -1,0 +1,312 @@
+[
+  {
+    "bed_hidden": false,
+    "camera": {
+      "hide_render": false,
+      "matrix_world": [
+        [
+          0.7873047590255737,
+          -0.24432149529457092,
+          0.5660902857780457,
+          6.5
+        ],
+        [
+          0.6165640354156494,
+          0.31197983026504517,
+          -0.7228536009788513,
+          -8.300000190734863
+        ],
+        [
+          -9.18962612672658e-08,
+          0.9181370139122009,
+          0.396263062953949,
+          6.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "owned_job": "terrace-pergola-module01",
+      "type": "CAMERA"
+    },
+    "image": "whole-front.png",
+    "mating_faces": "occluded; geometry evidence not photo assertion",
+    "render": {
+      "camera": "whole-front",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-terrace-pergola-module01-20261015\\whole-front.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percentage": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "unit_system": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "settings_sha256": "b46fbced3c16db5949abd3d07446f3ece208bbdb6076ed564772a20894f2ebb7",
+    "utc": "2026-10-15T11:50:46.875176+00:00",
+    "view": "whole-front"
+  },
+  {
+    "bed_hidden": true,
+    "camera": {
+      "hide_render": false,
+      "matrix_world": [
+        [
+          -0.7912850379943848,
+          -0.013741742819547653,
+          -0.6112930178642273,
+          -6.800000190734863
+        ],
+        [
+          -0.6114474534988403,
+          0.017783422023057938,
+          0.7910851836204529,
+          8.800000190734863
+        ],
+        [
+          -6.732482127347339e-09,
+          0.9997473955154419,
+          -0.02247411012649536,
+          1.350000023841858
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "owned_job": "terrace-pergola-module01",
+      "type": "CAMERA"
+    },
+    "image": "reverse-low.png",
+    "mating_faces": "occluded; geometry evidence not photo assertion",
+    "render": {
+      "camera": "reverse-low",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-terrace-pergola-module01-20261015\\reverse-low.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percentage": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "unit_system": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "settings_sha256": "23065d70d0b4e6566309cfc6c9844b3f0649b36bbc4771dead1c188c963f7298",
+    "utc": "2026-10-15T11:51:05.569758+00:00",
+    "view": "reverse-low"
+  },
+  {
+    "bed_hidden": false,
+    "camera": {
+      "hide_render": false,
+      "matrix_world": [
+        [
+          0.7837458848953247,
+          -0.21536272764205933,
+          0.5825472474098206,
+          2.200000047683716
+        ],
+        [
+          0.6210816502571106,
+          0.27176716923713684,
+          -0.7351191639900208,
+          -2.9000000953674316
+        ],
+        [
+          5.415051518298242e-08,
+          0.9379560351371765,
+          0.3467542231082916,
+          3.4800000190734863
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "owned_job": "terrace-pergola-module01",
+      "type": "CAMERA"
+    },
+    "image": "grazing-junction.png",
+    "mating_faces": "occluded; geometry evidence not photo assertion",
+    "render": {
+      "camera": "grazing-junction",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-terrace-pergola-module01-20261015\\grazing-junction.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percentage": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "unit_system": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "settings_sha256": "26d3ffcf1ac26bc18d5f0e71e2eabc2f25302b8ed4f12070105f8e336e648da0",
+    "utc": "2026-10-15T11:51:39.914534+00:00",
+    "view": "grazing-junction"
+  },
+  {
+    "bed_hidden": false,
+    "camera": {
+      "hide_render": false,
+      "matrix_world": [
+        [
+          0.8371661901473999,
+          -0.0030524253379553556,
+          0.5469400882720947,
+          4.900000095367432
+        ],
+        [
+          0.5469486117362976,
+          0.004672225099056959,
+          -0.8371531367301941,
+          -7.5
+        ],
+        [
+          -7.962609060996328e-08,
+          0.9999844431877136,
+          0.005580948665738106,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "owned_job": "terrace-pergola-module01",
+      "type": "CAMERA"
+    },
+    "image": "player165.png",
+    "mating_faces": "occluded; geometry evidence not photo assertion",
+    "render": {
+      "camera": "player165",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-terrace-pergola-module01-20261015\\player165.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percentage": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "unit_system": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "settings_sha256": "73d0879f1e8c2a641289a80f5f9d38c836ebcf09d607cf351189ac9d13e8bdeb",
+    "utc": "2026-10-15T11:51:59.649038+00:00",
+    "view": "player165"
+  },
+  {
+    "bed_hidden": false,
+    "camera": {
+      "hide_render": false,
+      "matrix_world": [
+        [
+          0.7682211995124817,
+          -0.19243432581424713,
+          0.6105778217315674,
+          2.049999952316284
+        ],
+        [
+          0.6401845216751099,
+          0.2309211641550064,
+          -0.732693076133728,
+          -2.619999885559082
+        ],
+        [
+          -3.424379357852558e-08,
+          0.9537528157234192,
+          0.30059200525283813,
+          0.46000000834465027
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "owned_job": "terrace-pergola-module01",
+      "type": "CAMERA"
+    },
+    "image": "foot-bearing.png",
+    "mating_faces": "occluded; geometry evidence not photo assertion",
+    "render": {
+      "camera": "foot-bearing",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-terrace-pergola-module01-20261015\\foot-bearing.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percentage": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "unit_system": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "settings_sha256": "0e20794f59f5ef1f3e9716a7b14e9093a8462da4f703154fe7867c3f24ce9d02",
+    "utc": "2026-10-15T11:52:35.650978+00:00",
+    "view": "foot-bearing"
+  }
+]

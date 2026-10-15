@@ -1,0 +1,28 @@
+{
+    "utc":  "2026-10-15T11:49:24.0472288Z",
+    "host":  "Cribtest11",
+    "pid":  4776,
+    "arguments":  [
+                      "--background",
+                      "--factory-startup",
+                      "--disable-autoexec",
+                      "--threads",
+                      "6",
+                      "--python-exit-code",
+                      "1",
+                      "--python",
+                      "C:\\dev\\cribtest-game\\output\\unreal-terrace-pergola-module01-20261015\\author_pergola.py"
+                  ],
+    "original":  [
+                     {
+                         "Id":  6116,
+                         "ProcessName":  "blender",
+                         "SessionId":  0
+                     },
+                     {
+                         "Id":  10404,
+                         "ProcessName":  "UnrealEditor",
+                         "SessionId":  2
+                     }
+                 ]
+}

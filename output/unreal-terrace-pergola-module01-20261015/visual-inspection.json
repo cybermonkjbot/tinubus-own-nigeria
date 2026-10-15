@@ -1,0 +1,10 @@
+{
+  "actual_images_opened": ["early-front.png", "whole-front.png", "reverse-low.png", "grazing-junction.png", "player165.png", "foot-bearing.png"],
+  "whole_front": "Entire asset and bed uncropped;7laths/open gaps;rear-leftpost occluded by camera, not hidden.",
+  "reverse_low": "Entire external timber silhouette/undersides;onlybedhidden;farpost/matingcontacts occluded;no explosion.",
+  "grazing_junction": "Focused end-lath/beam/post interfaces show squareends, setback and subtle topchamfer;neighbor ends visible;distantstructure outside closeframe.",
+  "player165": "CameraZ1.65;wholeasset/bed/fourposts visible and open interior.",
+  "foot_bearing": "Closepostfoot retained against visible bed;2mmverticalrelief/horizontalbottom;actualmatingface occluded.",
+  "correction": "none: no observed owned defect requiring reconstruction;uniformdry basefinish intentional",
+  "limits": "Measurements establish occluded contacts;photos are not load/manufacture/nativeplacement/gameplay/accessibility proof. No fullphotowood/sourcegrainfidelity claim."
+}

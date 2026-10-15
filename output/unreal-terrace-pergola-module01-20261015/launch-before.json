@@ -1,0 +1,21 @@
+{
+    "utc":  "2026-10-15T11:49:23.9192249Z",
+    "host":  "Cribtest11",
+    "root":  "C:\\dev\\cribtest-game",
+    "base":  "19d6ea4d28dfa9435d3af8b0fa0be89f05166225",
+    "original":  [
+                     {
+                         "Id":  6116,
+                         "ProcessName":  "blender",
+                         "SessionId":  0
+                     },
+                     {
+                         "Id":  10404,
+                         "ProcessName":  "UnrealEditor",
+                         "SessionId":  2
+                     }
+                 ],
+    "executable":  "C:\\dev\\tools\\baddie-blender\\blender-5.2.2-windows-x64\\blender.exe",
+    "job":  "terrace-pergola-module01",
+    "model_selection":  "requested gpt-6.1-sol/medium not independently observable"
+}

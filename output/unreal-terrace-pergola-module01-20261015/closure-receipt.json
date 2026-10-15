@@ -1,0 +1,68 @@
+{
+    "utc":  "2026-10-15T11:54:35.1827482Z",
+    "status":  "BOUNDED_ART_COMPLETE",
+    "base":  "19d6ea4d28dfa9435d3af8b0fa0be89f05166225",
+    "completion":  {
+                       "file":  "C:\\dev\\cribtest-game\\output\\unreal-terrace-pergola-module01-20261015\\TerracePergolaModule01.blend",
+                       "five_images":  5,
+                       "no_native_integration":  true,
+                       "pid":  4776,
+                       "readback_sha256":  "b46fbced3c16db5949abd3d07446f3ece208bbdb6076ed564772a20894f2ebb7",
+                       "restored_exact_match":  true,
+                       "utc":  "2026-10-15T11:52:35.724877+00:00"
+                   },
+    "readback_file_sha256":  "2e4bc7273ee150d068d042ee9f80e876e8e2623efb04f8210c168893fa83effb",
+    "final_blend_sha256":  "9655ec33e7ea9bd387ccf54dc3f9734a016b77e9472f77d28adfc4528c4e8640",
+    "images":  [
+                   {
+                       "name":  "whole-front.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  567311,
+                       "sha256":  "77044e6050acf44713554fa35e671f4a0a930925ba7377435076706b381a12f6"
+                   },
+                   {
+                       "name":  "reverse-low.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  515536,
+                       "sha256":  "bb28fc7e2760d466ab1efbfa43d8bf68fbb82d46d2323d67abb97a716ba04584"
+                   },
+                   {
+                       "name":  "grazing-junction.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  644928,
+                       "sha256":  "d517b72b474b5985412c7b1f161f53cc051d3c4e9ea9e4c6028264a884ca9f3a"
+                   },
+                   {
+                       "name":  "player165.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  542013,
+                       "sha256":  "c16dc0e214eb321d36198690dde1f8aaf5fcc78defcf348e66193bddcc9f66ae"
+                   },
+                   {
+                       "name":  "foot-bearing.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  598197,
+                       "sha256":  "08898efc33119197fe3e7f76b8bf1a22857696043fab6193d9e199ceb0863139"
+                   }
+               ],
+    "historical_preserved":  605,
+    "original_processes":  [
+                               {
+                                   "Id":  6116,
+                                   "ProcessName":  "blender",
+                                   "SessionId":  0
+                               },
+                               {
+                                   "Id":  10404,
+                                   "ProcessName":  "UnrealEditor",
+                                   "SessionId":  2
+                               }
+                           ],
+    "os_exit_code":  "UNKNOWN wrapper numeric unavailable",
+    "native_integration":  false
+}
