@@ -1,0 +1,117 @@
+PARENT-SUPPLIED SOURCE EXCERPTS. Full source bytes verified by parent only; no assertion that full files exist on Windows. UTF-8, LF, final LF.
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 11-19:
+/** Parcel-local metric geometry. +Z faces the parcel's authored street. */
+export type CityArchitecturePart = {
+  role: string;
+  x: number; y: number; z: number;
+  w: number; h: number; d: number;
+  material: CityArchitectureMaterial;
+  geometry: CityArchitectureGeometry;
+  colour: string;
+  shadow: boolean;
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 63-70:
+  const courtyard = p.style === "courtyard";
+  const luxury = p.style === "terrace-villa" || p.style === "courtyard-villa";
+  const tower = p.style === "stepped-tower";
+  const shed = p.style === "warehouse" || p.style === "workshop";
+  const retail = p.units === 0 && !shed;
+  const pitched = shed || p.style === "townhouse" || p.style === "garden-home";
+  // Land use and individual frontage matter. A tower or villa does not inherit market clutter.
+  const maintained = tower || luxury || p.style === "waterfront" || p.district === "skyline" || p.district === "lagoon-gardens";
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 75-80:
+  // Recess the front structure so balconies and sheltered entrances do not overhang routes.
+  const face = front - 1.3;
+  const add = (role: string, material: CityArchitectureMaterial, x: number, y: number, z: number,
+    width: number, height: number, depth: number, colour = trim,
+    geometry: CityArchitectureGeometry = "box", shadow = true) => {
+    parts.push({ role, material, x, y, z, w: width, h: height, d: depth, colour, geometry, shadow });
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 438-454:
+  if (!luxury) {
+    // Utilities sit on an occupied wing. Pitched buildings use a roof vent rather than a floating tank.
+    const utilityX = courtyard ? -w * .35 : tower ? w * .05 : -w * .18;
+    const utilityZ = courtyard ? -d * .12 : tower ? -d * .09 : pitched ? -.1 - forecourt / 2 : -d * .19;
+    const roofY = tower ? h + 6.84 : pitched ? h + 2.7 : h + .24;
+    const raisedTank = !pitched && !maintained && variation(p.id, "tank-frame") < .38;
+    const tankBase = roofY + (raisedTank ? 1.2 : 0);
+    add(pitched ? "roof vent" : "water tank", pitched ? "metal" : "recess", utilityX, tankBase + (pitched ? .43 : .67), utilityZ,
+      pitched ? .65 : 1.5, pitched ? .86 : 1.34, pitched ? .65 : 1.5,
+      pitched || maintained ? "#4d5a50" : "#292e2b", "pipe");
+    add("roof utility base", "stone", utilityX, roofY + .09, utilityZ, pitched ? .75 : 1.7, .18,
+      pitched ? .75 : 1.7, "#b1b3a1");
+    if (!pitched && !maintained) {
+      add("water tank lid", "recess", utilityX, tankBase + 1.38, utilityZ, .64, .1, .64, "#242926", "pipe");
+      for (let level = .25; level < 1.2; level += .29)
+        add("water tank rib", "recess", utilityX, tankBase + level, utilityZ, 1.54, .035, 1.54, "#363c36", "pipe");
+    }
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 59-68:
+function materialForPart(parcel: CompanionCityParcel, part: CityArchitecturePart): DetailMaterial {
+  const groundWall = part.material === "plaster" && part.y - part.h / 2 < .05
+    || /^compound (side|front|rear) wall$/.test(part.role) || part.role === "frontage boundary wall";
+  if (groundWall && (part.material === "stone" || part.material === "plaster")) {
+    const tidy = parcel.kind === "tower" || parcel.style === "waterfront" || ["terrace-villa", "courtyard-villa"].includes(parcel.style)
+      || ["skyline", "lagoon-gardens", "garden-quarter"].includes(parcel.district);
+    return part.material === "stone" ? tidy ? "tidyStone" : "dampStone" : tidy ? "tidyPlaster" : "dampPlaster";
+  }
+  // Only individual panes admit interior light. Doors and whole glazing bands stay passive.
+  if (part.material !== "glass" || part.role !== "window glass") return part.material;
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 90-90:
+  const pipe = new THREE.CylinderGeometry(.5, .5, 1, 8);
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 169-179:
+  const materials: Record<DetailMaterial, THREE.MeshStandardMaterial> = {
+    plaster: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .88 }),
+    stone: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .92 }),
+    metal: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .52, metalness: .32 }),
+    glass: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .22, metalness: .2 }),
+    litWindow: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .22, metalness: .2,
+      emissive: "#efc58d", emissiveIntensity: 0 }),
+    wood: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .79 }),
+    canvas: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .96 }),
+    roof: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .65, metalness: .15 }),
+    recess: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .98 }),
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 207-228:
+  // Metric grain rather than per-box UVs. There are no photographed textures or flat window decals.
+  for (const name of ["plaster", "stone", "wood", "canvas", "roof", "dampPlaster", "dampStone", "tidyPlaster", "tidyStone"] as const) {
+    const material = materials[name];
+    const damp = name.startsWith("damp") ? .85 : name.startsWith("tidy") ? .24 : 0;
+    material.onBeforeCompile = shader => {
+      shader.vertexShader = `varying vec3 architecturePoint;\n${shader.vertexShader}`
+        .replace("#include <begin_vertex>", `#include <begin_vertex>
+          vec4 architectureVertex = vec4(transformed, 1.);
+          #ifdef USE_INSTANCING
+            architectureVertex = instanceMatrix * architectureVertex;
+          #endif
+          architecturePoint = (modelMatrix * architectureVertex).xyz;`);
+      shader.fragmentShader = `varying vec3 architecturePoint;\n${shader.fragmentShader}`
+        .replace("#include <color_fragment>", `#include <color_fragment>
+          float grain = fract(sin(dot(floor(architecturePoint * 95.), vec3(17.13, 91.77, 43.11))) * 43758.5453);
+          float wash = sin(architecturePoint.x * 1.3 + sin(architecturePoint.z * 1.9)) * sin(architecturePoint.y * .73);
+          diffuseColor.rgb *= .976 + grain * .036 + wash * .014;
+          float moisture = (1.-smoothstep(.08,.68+(grain-.5)*.08,architecturePoint.y))*${damp.toFixed(2)};
+          diffuseColor.rgb *= 1.-moisture*.24;`);
+    };
+    material.customProgramCacheKey = () => `city-architecture-metric-grain-v2-${damp}`;
+  }

@@ -1,0 +1,11 @@
+{
+  "file": "source-excerpt.txt",
+  "bytes": 7491,
+  "sha256": "108533c8bde50426416bccd081f72c4ced7fcbfdc4fca160157552836a7047a9",
+  "matches_parent_exact_bytes_hash": true,
+  "encoding": "UTF-8 without BOM, LF, final LF",
+  "shader_literal_backslash_n": "Preserved5c6e in both template literals",
+  "all_blocks_manually_inspected_before_launch": true,
+  "full_windows_source_verified": false,
+  "typescript_executed": false
+}

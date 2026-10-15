@@ -1,0 +1,6 @@
+C:\dev\cribtest-game\output\unreal-rooftop-water-tank01-20261015\author_tank.py:63: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\dev\cribtest-game\output\unreal-rooftop-water-tank01-20261015\author_tank.py:476: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+C:\dev\cribtest-game\output\unreal-rooftop-water-tank01-20261015\author_tank.py:525: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  materials[name] = {'diffuse':list(mat.diffuse_color),'use_nodes':mat.use_nodes,'inputs':values,

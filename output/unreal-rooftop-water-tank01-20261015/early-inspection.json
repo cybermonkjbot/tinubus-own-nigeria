@@ -1,0 +1,10 @@
+{
+  "actual_image": "early-front.png",
+  "viewed": true,
+  "coverage": "Whole uncropped tank, retained lid, all four integral ribs, plinth and hardstand.",
+  "measurements_inspected": "Four closed positive-volume solids, ordered nonintersecting meridians, ring/triangle/winding guards, three opposing polygon bearings and six neighbor records passed.",
+  "largest_defect": null,
+  "decision": "Retain authored geometry. No visible floating base/lid, disconnected rib or oversized edge relief. 64-sector faceting and untextured matte finish are intentional, not photopolymer fidelity.",
+  "correction": "None warranted; no fake repair or lighting change.",
+  "limits": "Cavity and mating underside/rim faces remain occluded by retained lid and assembled solids; profile/ray/contact evidence, not this photo, proves those interfaces."
+}

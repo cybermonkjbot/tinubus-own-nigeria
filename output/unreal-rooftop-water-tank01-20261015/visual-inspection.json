@@ -1,0 +1,12 @@
+{
+  "actual_images_inspected": ["front.png", "reverse.png", "grazing.png", "player165.png", "lid-neck.png"],
+  "resolution": [800, 800],
+  "front": "Whole uncropped tank, retained lid, four integral ribs, plinth and hardstand. No visible disconnected rib, floating base or oversized relief.",
+  "reverse": "Low assembled exterior with ONLY hardstand hidden, body/lid/plinth retained. Plinth underside visible; lid naturally occluded by body/shoulder, tank-bottom bearing occluded. No explosion or contact photo proof.",
+  "grazing": "Close rib ramps/flats and shoulder profile, visible64-sector faceting. Natural narrow underside shadows, no visible coplanar black patch or light leak. Interior and rim mating faces not visible.",
+  "player165": "Ground-relative cameraZ1.65, whole uncropped asset including lid/plinth/hardstand. Source placement and roof heights not reproduced.",
+  "lid_neck": "Retained seated lid, small top chamfer and20mm radial overhang/neck exterior visible. Cavity and annular seat remain occluded; actual profile/ray/polygon evidence provides proof.",
+  "defect_ledger": [],
+  "early_to_final": "No causal geometry defect identified in early image/measurements. Explicit finish retained geometry/material/lights/exposure; no fake correction.",
+  "limits": "Intentional dry matte untextured64-sector art, not photographed/tested polymer/manufacturing/plumbing/load/native/gameplay acceptance."
+}
