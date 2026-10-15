@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\unreal-courtyard-sconce01-mounting-finish01-20261015\finish_mount.py", line 150, in <module>
+    write('measurements-authored.json',measured()); write('authored-identity.json',identity())
+                                       ~~~~~~~~^^
+  File "C:\dev\cribtest-game\output\unreal-courtyard-sconce01-mounting-finish01-20261015\finish_mount.py", line 128, in measured
+    guards={n:surface_guard(before['meshes'][n],geo(bpy.data.objects[n])) for n in ('HousingHoodSpacer','PresentationWall')}
+              ~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\cribtest-game\output\unreal-courtyard-sconce01-mounting-finish01-20261015\finish_mount.py", line 113, in surface_guard
+    assert maximum<1e-6,('Protected surface altered outside mask',maximum)
+           ^^^^^^^^^^^^
+AssertionError: ('Protected surface altered outside mask', 1.6624608178972267e-05)
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-courtyard-sconce01-mounting-finish01-20261015\finish_mount.py', exiting.

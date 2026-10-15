@@ -1,0 +1,29 @@
+{
+  "localizedObjects": [
+    "HousingHoodSpacer",
+    "PresentationWall"
+  ],
+  "boreRegions": [
+    {
+      "x": -0.05,
+      "z": -0.18,
+      "radiusM": 0.009,
+      "yMin": 0.03,
+      "yMax": 0.106
+    },
+    {
+      "x": 0.05,
+      "z": 0.18,
+      "radiusM": 0.009,
+      "yMin": 0.03,
+      "yMax": 0.106
+    }
+  ],
+  "protected": [
+    "DiffuserCup",
+    "Gasket",
+    "existing materials",
+    "lights/world/exposure"
+  ],
+  "surfaceGuard": "Bidirectional evaluated vertex/face-centroid nearest surface checks outside bore masks,1um float bound; not exact face-index preservation"
+}
