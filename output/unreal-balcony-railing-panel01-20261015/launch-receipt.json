@@ -1,0 +1,20 @@
+﻿{
+    "host":  "Cribtest11",
+    "root":  "C:\\dev\\cribtest-game",
+    "base":  "193a09fe7f99a80d34f099b727f0a43ad747e5d8",
+    "pid":  7636,
+    "originalBlender":  6116,
+    "originalUnreal":  10404,
+    "utc":  "2026-10-15T13:06:05.5329728Z",
+    "executable":  "C:\\dev\\tools\\baddie-blender\\blender-5.2.2-windows-x64\\blender.exe",
+    "arguments":  [
+                      "--background",
+                      "--factory-startup",
+                      "--threads",
+                      "6",
+                      "--python-exit-code",
+                      "23",
+                      "--python",
+                      "C:\\dev\\cribtest-game\\output\\unreal-balcony-railing-panel01-20261015\\author_panel.py"
+                  ]
+}

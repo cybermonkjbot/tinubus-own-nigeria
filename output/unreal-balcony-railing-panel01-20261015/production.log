@@ -1,0 +1,12 @@
+00:04.782  render           | Saved: 'C:\dev\cribtest-game\output\unreal-balcony-railing-panel01-20261015\early-front.png'
+00:34.922  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-balcony-railing-panel01-20261015\BalconyRailingPanel01.blend"
+00:39.563  render           | Saved: 'C:\dev\cribtest-game\output\unreal-balcony-railing-panel01-20261015\front.png'
+00:43.579  render           | Saved: 'C:\dev\cribtest-game\output\unreal-balcony-railing-panel01-20261015\reverse.png'
+00:49.735  render           | Saved: 'C:\dev\cribtest-game\output\unreal-balcony-railing-panel01-20261015\hand-end.png'
+00:53.922  render           | Saved: 'C:\dev\cribtest-game\output\unreal-balcony-railing-panel01-20261015\player165.png'
+01:06.516  render           | Saved: 'C:\dev\cribtest-game\output\unreal-balcony-railing-panel01-20261015\foot-toe.png'
+Info: Saved as "work-in-progress.blend"
+Info: Saved as "BalconyRailingPanel01.blend"
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

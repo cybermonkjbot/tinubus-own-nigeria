@@ -1,0 +1,98 @@
+[
+  {
+    "actual_convex_halfspaces": true,
+    "components": 1,
+    "faces": 10,
+    "manifold": true,
+    "minimum_triangle_area": 7.749990829997334e-06,
+    "object": "EndUpright_0",
+    "outward": true,
+    "positive_volume": 0.0012763002529633614,
+    "triangles": 28,
+    "vertices": 16
+  },
+  {
+    "actual_convex_halfspaces": true,
+    "components": 1,
+    "faces": 10,
+    "manifold": true,
+    "minimum_triangle_area": 7.749990829997334e-06,
+    "object": "EndUpright_1",
+    "outward": true,
+    "positive_volume": 0.001276300252963357,
+    "triangles": 28,
+    "vertices": 16
+  },
+  {
+    "actual_convex_halfspaces": true,
+    "components": 1,
+    "faces": 10,
+    "manifold": true,
+    "minimum_triangle_area": 7.749976056836817e-06,
+    "object": "Infill_0",
+    "outward": true,
+    "positive_volume": 0.0010811773266444415,
+    "triangles": 28,
+    "vertices": 16
+  },
+  {
+    "actual_convex_halfspaces": true,
+    "components": 1,
+    "faces": 10,
+    "manifold": true,
+    "minimum_triangle_area": 7.749986353285e-06,
+    "object": "Infill_1",
+    "outward": true,
+    "positive_volume": 0.0010811774942567356,
+    "triangles": 28,
+    "vertices": 16
+  },
+  {
+    "actual_convex_halfspaces": true,
+    "components": 1,
+    "faces": 10,
+    "manifold": true,
+    "minimum_triangle_area": 7.749976056836817e-06,
+    "object": "Infill_2",
+    "outward": true,
+    "positive_volume": 0.001081177326644441,
+    "triangles": 28,
+    "vertices": 16
+  },
+  {
+    "actual_convex_halfspaces": true,
+    "components": 1,
+    "faces": 8,
+    "manifold": true,
+    "minimum_triangle_area": 1.350063141768517e-05,
+    "object": "Handrail",
+    "outward": true,
+    "positive_volume": 0.007162609600830672,
+    "triangles": 20,
+    "vertices": 12
+  },
+  {
+    "actual_convex_halfspaces": true,
+    "components": 1,
+    "faces": 6,
+    "manifold": true,
+    "minimum_triangle_area": 0.001512499880569228,
+    "object": "ToeRail",
+    "outward": true,
+    "positive_volume": 0.007163199867742756,
+    "triangles": 12,
+    "vertices": 8
+  },
+  {
+    "actual_convex_halfspaces": true,
+    "components": 1,
+    "faces": 6,
+    "manifold": true,
+    "minimum_triangle_area": 0.0179999990046231,
+    "object": "PresentationBed",
+    "outward": true,
+    "positive_volume": 0.09719999879598619,
+    "triangles": 12,
+    "vertices": 8
+  }
+]

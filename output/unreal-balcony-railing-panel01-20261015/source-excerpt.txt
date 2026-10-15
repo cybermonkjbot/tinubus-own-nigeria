@@ -1,0 +1,113 @@
+PARENT-SUPPLIED SOURCE EXCERPTS. Full source bytes verified by parent only; no assertion that full files exist on Windows. UTF-8, LF, final LF.
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 11-19:
+/** Parcel-local metric geometry. +Z faces the parcel's authored street. */
+export type CityArchitecturePart = {
+  role: string;
+  x: number; y: number; z: number;
+  w: number; h: number; d: number;
+  material: CityArchitectureMaterial;
+  geometry: CityArchitectureGeometry;
+  colour: string;
+  shadow: boolean;
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 55-64:
+  const w = p.width, d = p.depth, h = p.floors * 3.3, front = d / 2 - forecourt, back = -d / 2;
+  const entry = companionCityArchitectureEntrance(p).x;
+  const tint = (finishes[p.district] ?? finishes["town-centre"])[p.variant % 6];
+  const trim = p.district === "south-market" ? "#b7a38b" : p.district === "skyline" ? "#d1d5cf" : "#d8cfbb";
+  const steel = p.district === "marina" ? "#536c70" : "#505c55";
+  const timber = p.district === "lagoon-gardens" ? "#9b805c" : "#80654a";
+  const awningColours = ["#987655", "#687b6d", "#bd9368", "#5e737c", "#92715d", "#ac9c75"];
+  const awning = awningColours[Math.floor(variation(p.id, "awning") * awningColours.length)];
+  const courtyard = p.style === "courtyard";
+  const luxury = p.style === "terrace-villa" || p.style === "courtyard-villa";
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 75-80:
+  // Recess the front structure so balconies and sheltered entrances do not overhang routes.
+  const face = front - 1.3;
+  const add = (role: string, material: CityArchitectureMaterial, x: number, y: number, z: number,
+    width: number, height: number, depth: number, colour = trim,
+    geometry: CityArchitectureGeometry = "box", shadow = true) => {
+    parts.push({ role, material, x, y, z, w: width, h: height, d: depth, colour, geometry, shadow });
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 136-151:
+  const balcony = (cx: number, width: number, y: number, z = front - .04) => {
+    const depth = 1.18;
+    add("balcony slab", "stone", cx, y, z - depth / 2, width, .18, depth, trim, "bevel");
+    add("balcony handrail", "metal", cx, y + 1.06, z - .055, width, .055, .055, steel);
+    add("balcony toe rail", "metal", cx, y + .16, z - .055, width, .055, .055, steel);
+    const count = Math.ceil(width / .7);
+    for (let i = 0; i <= count; i++) add("balcony baluster", "metal", cx - width / 2 + width * i / count,
+      y + .6, z - .055, .032, .91, .04, steel);
+    for (const side of [-1, 1]) {
+      add("balcony return", "metal", cx + side * (width / 2 - .04), y + 1.06, z - depth / 2, .05, .05, depth, steel);
+      add("balcony privacy end", "stone", cx + side * (width / 2 - .07), y + .56, z - depth / 2, .1, .95, depth, trim);
+    }
+    // Doors sit behind the rail. The balcony replaces the missing 1.3 m of the near shell.
+    window(cx, y + 1.44, face + .08, Math.min(2.65, width - .55), 2.45, `balcony-${cx}-${y}`);
+  };
+
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 59-68:
+function materialForPart(parcel: CompanionCityParcel, part: CityArchitecturePart): DetailMaterial {
+  const groundWall = part.material === "plaster" && part.y - part.h / 2 < .05
+    || /^compound (side|front|rear) wall$/.test(part.role) || part.role === "frontage boundary wall";
+  if (groundWall && (part.material === "stone" || part.material === "plaster")) {
+    const tidy = parcel.kind === "tower" || parcel.style === "waterfront" || ["terrace-villa", "courtyard-villa"].includes(parcel.style)
+      || ["skyline", "lagoon-gardens", "garden-quarter"].includes(parcel.district);
+    return part.material === "stone" ? tidy ? "tidyStone" : "dampStone" : tidy ? "tidyPlaster" : "dampPlaster";
+  }
+  // Only individual panes admit interior light. Doors and whole glazing bands stay passive.
+  if (part.material !== "glass" || part.role !== "window glass") return part.material;
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 83-83:
+  const box = new THREE.BoxGeometry(1, 1, 1);
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 169-179:
+  const materials: Record<DetailMaterial, THREE.MeshStandardMaterial> = {
+    plaster: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .88 }),
+    stone: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .92 }),
+    metal: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .52, metalness: .32 }),
+    glass: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .22, metalness: .2 }),
+    litWindow: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .22, metalness: .2,
+      emissive: "#efc58d", emissiveIntensity: 0 }),
+    wood: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .79 }),
+    canvas: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .96 }),
+    roof: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .65, metalness: .15 }),
+    recess: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .98 }),
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 207-208:
+  // Metric grain rather than per-box UVs. There are no photographed textures or flat window decals.
+  for (const name of ["plaster", "stone", "wood", "canvas", "roof", "dampPlaster", "dampStone", "tidyPlaster", "tidyStone"] as const) {
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 259-269:
+    for (const { parcel, parts } of parcels) for (const part of parts) {
+      const at = companionCityParcelPoint(parcel, part.x, part.z);
+      rotation.setFromAxisAngle(up, parcel.yaw);
+      if (part.rotation) {
+        // Yaw stays on the parcel plane; bonnet pitch follows the vehicle's local axis.
+        euler.set(part.rotation[0], part.rotation[1], part.rotation[2], "YXZ");
+        rotation.multiply(localRotation.setFromEuler(euler));
+      }
+      matrix.compose(position.set(at[0], part.y, at[2]), rotation, scale.set(part.w, part.h, part.d));
+      matrix.toArray(matrices, index * 16); colour.set(part.text ? "#ffffff" : part.colour).toArray(colours, index * 3);
+      const material = materialForPart(parcel, part), key = `${part.geometry}:${material}`, printKey = signKey(part);

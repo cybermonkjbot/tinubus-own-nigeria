@@ -1,0 +1,49 @@
+{
+  "allOwnedVisible": [
+    {
+      "hide_render": false,
+      "name": "EndUpright_0"
+    },
+    {
+      "hide_render": false,
+      "name": "EndUpright_1"
+    },
+    {
+      "hide_render": false,
+      "name": "Infill_0"
+    },
+    {
+      "hide_render": false,
+      "name": "Infill_1"
+    },
+    {
+      "hide_render": false,
+      "name": "Infill_2"
+    },
+    {
+      "hide_render": false,
+      "name": "Handrail"
+    },
+    {
+      "hide_render": false,
+      "name": "ToeRail"
+    },
+    {
+      "hide_render": false,
+      "name": "PresentationBed"
+    }
+  ],
+  "camera": "Camera_front",
+  "device": "CPU",
+  "engine": "CYCLES",
+  "file": "early-front.png",
+  "resolution": [
+    800,
+    800
+  ],
+  "samples": 24,
+  "seconds": 3.439420099995914,
+  "threads": 6,
+  "utc": "2026-10-15T13:06:10.512910+00:00",
+  "view": "front"
+}

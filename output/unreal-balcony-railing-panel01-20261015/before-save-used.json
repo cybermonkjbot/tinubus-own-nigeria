@@ -1,0 +1,4947 @@
+{
+  "camera": "Camera_front",
+  "materials": [
+    {
+      "diffuse": [
+        0.0802198201417923,
+        0.10702310502529144,
+        0.09084171056747437,
+        1.0
+      ],
+      "name": "OwnedSteel",
+      "nodes": {
+        "links": [
+          [
+            "OwnedPrincipled",
+            "BSDF",
+            "OwnedOutput",
+            "Surface"
+          ]
+        ],
+        "nodes": [
+          {
+            "inputs": [
+              {
+                "identifier": "Surface",
+                "linked": true,
+                "name": "Surface",
+                "value": null
+              },
+              {
+                "identifier": "Volume",
+                "linked": false,
+                "name": "Volume",
+                "value": null
+              },
+              {
+                "identifier": "Displacement",
+                "linked": false,
+                "name": "Displacement",
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "identifier": "Thickness",
+                "linked": false,
+                "name": "Thickness",
+                "value": 0.0
+              }
+            ],
+            "name": "OwnedOutput",
+            "type": "ShaderNodeOutputMaterial"
+          },
+          {
+            "inputs": [
+              {
+                "identifier": "Base Color",
+                "linked": false,
+                "name": "Base Color",
+                "value": [
+                  0.0802198201417923,
+                  0.10702310502529144,
+                  0.09084171056747437,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Metallic",
+                "linked": false,
+                "name": "Metallic",
+                "value": 0.3199999928474426
+              },
+              {
+                "identifier": "Roughness",
+                "linked": false,
+                "name": "Roughness",
+                "value": 0.5199999809265137
+              },
+              {
+                "identifier": "IOR",
+                "linked": false,
+                "name": "IOR",
+                "value": 1.5
+              },
+              {
+                "identifier": "Alpha",
+                "linked": false,
+                "name": "Alpha",
+                "value": 1.0
+              },
+              {
+                "identifier": "Thin Wall",
+                "linked": false,
+                "name": "Thin Wall",
+                "value": false
+              },
+              {
+                "identifier": "Normal",
+                "linked": false,
+                "name": "Normal",
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "identifier": "Weight",
+                "linked": false,
+                "name": "Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Diffuse Roughness",
+                "linked": false,
+                "name": "Diffuse Roughness",
+                "value": 0.0
+              },
+              {
+                "identifier": "Subsurface Weight",
+                "linked": false,
+                "name": "Subsurface Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Subsurface Radius",
+                "linked": false,
+                "name": "Subsurface Radius",
+                "value": [
+                  1.0,
+                  0.20000000298023224,
+                  0.10000000149011612
+                ]
+              },
+              {
+                "identifier": "Subsurface Scale",
+                "linked": false,
+                "name": "Subsurface Scale",
+                "value": 0.004999999888241291
+              },
+              {
+                "identifier": "Subsurface IOR",
+                "linked": false,
+                "name": "Subsurface IOR",
+                "value": 1.399999976158142
+              },
+              {
+                "identifier": "Subsurface Anisotropy",
+                "linked": false,
+                "name": "Subsurface Anisotropy",
+                "value": 0.0
+              },
+              {
+                "identifier": "Specular IOR Level",
+                "linked": false,
+                "name": "Specular IOR Level",
+                "value": 0.5
+              },
+              {
+                "identifier": "Specular Tint",
+                "linked": false,
+                "name": "Specular Tint",
+                "value": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Anisotropic",
+                "linked": false,
+                "name": "Anisotropic",
+                "value": 0.0
+              },
+              {
+                "identifier": "Anisotropic Rotation",
+                "linked": false,
+                "name": "Anisotropic Rotation",
+                "value": 0.0
+              },
+              {
+                "identifier": "Tangent",
+                "linked": false,
+                "name": "Tangent",
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "identifier": "Transmission Weight",
+                "linked": false,
+                "name": "Transmission Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Coat Weight",
+                "linked": false,
+                "name": "Coat Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Coat Roughness",
+                "linked": false,
+                "name": "Coat Roughness",
+                "value": 0.029999999329447746
+              },
+              {
+                "identifier": "Coat IOR",
+                "linked": false,
+                "name": "Coat IOR",
+                "value": 1.5
+              },
+              {
+                "identifier": "Coat Tint",
+                "linked": false,
+                "name": "Coat Tint",
+                "value": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Coat Normal",
+                "linked": false,
+                "name": "Coat Normal",
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "identifier": "Sheen Weight",
+                "linked": false,
+                "name": "Sheen Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Sheen Roughness",
+                "linked": false,
+                "name": "Sheen Roughness",
+                "value": 0.5
+              },
+              {
+                "identifier": "Sheen Tint",
+                "linked": false,
+                "name": "Sheen Tint",
+                "value": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Emission Color",
+                "linked": false,
+                "name": "Emission Color",
+                "value": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Emission Strength",
+                "linked": false,
+                "name": "Emission Strength",
+                "value": 0.0
+              },
+              {
+                "identifier": "Thin Film Thickness",
+                "linked": false,
+                "name": "Thin Film Thickness",
+                "value": 0.0
+              },
+              {
+                "identifier": "Thin Film IOR",
+                "linked": false,
+                "name": "Thin Film IOR",
+                "value": 1.3300000429153442
+              }
+            ],
+            "name": "OwnedPrincipled",
+            "type": "ShaderNodeBsdfPrincipled"
+          }
+        ]
+      }
+    },
+    {
+      "diffuse": [
+        0.5088813304901123,
+        0.4677838087081909,
+        0.3762621283531189,
+        1.0
+      ],
+      "name": "OwnedBed",
+      "nodes": {
+        "links": [
+          [
+            "OwnedPrincipled",
+            "BSDF",
+            "OwnedOutput",
+            "Surface"
+          ]
+        ],
+        "nodes": [
+          {
+            "inputs": [
+              {
+                "identifier": "Surface",
+                "linked": true,
+                "name": "Surface",
+                "value": null
+              },
+              {
+                "identifier": "Volume",
+                "linked": false,
+                "name": "Volume",
+                "value": null
+              },
+              {
+                "identifier": "Displacement",
+                "linked": false,
+                "name": "Displacement",
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "identifier": "Thickness",
+                "linked": false,
+                "name": "Thickness",
+                "value": 0.0
+              }
+            ],
+            "name": "OwnedOutput",
+            "type": "ShaderNodeOutputMaterial"
+          },
+          {
+            "inputs": [
+              {
+                "identifier": "Base Color",
+                "linked": false,
+                "name": "Base Color",
+                "value": [
+                  0.5088813304901123,
+                  0.4677838087081909,
+                  0.3762621283531189,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Metallic",
+                "linked": false,
+                "name": "Metallic",
+                "value": 0.0
+              },
+              {
+                "identifier": "Roughness",
+                "linked": false,
+                "name": "Roughness",
+                "value": 0.9399999976158142
+              },
+              {
+                "identifier": "IOR",
+                "linked": false,
+                "name": "IOR",
+                "value": 1.5
+              },
+              {
+                "identifier": "Alpha",
+                "linked": false,
+                "name": "Alpha",
+                "value": 1.0
+              },
+              {
+                "identifier": "Thin Wall",
+                "linked": false,
+                "name": "Thin Wall",
+                "value": false
+              },
+              {
+                "identifier": "Normal",
+                "linked": false,
+                "name": "Normal",
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "identifier": "Weight",
+                "linked": false,
+                "name": "Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Diffuse Roughness",
+                "linked": false,
+                "name": "Diffuse Roughness",
+                "value": 0.0
+              },
+              {
+                "identifier": "Subsurface Weight",
+                "linked": false,
+                "name": "Subsurface Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Subsurface Radius",
+                "linked": false,
+                "name": "Subsurface Radius",
+                "value": [
+                  1.0,
+                  0.20000000298023224,
+                  0.10000000149011612
+                ]
+              },
+              {
+                "identifier": "Subsurface Scale",
+                "linked": false,
+                "name": "Subsurface Scale",
+                "value": 0.004999999888241291
+              },
+              {
+                "identifier": "Subsurface IOR",
+                "linked": false,
+                "name": "Subsurface IOR",
+                "value": 1.399999976158142
+              },
+              {
+                "identifier": "Subsurface Anisotropy",
+                "linked": false,
+                "name": "Subsurface Anisotropy",
+                "value": 0.0
+              },
+              {
+                "identifier": "Specular IOR Level",
+                "linked": false,
+                "name": "Specular IOR Level",
+                "value": 0.5
+              },
+              {
+                "identifier": "Specular Tint",
+                "linked": false,
+                "name": "Specular Tint",
+                "value": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Anisotropic",
+                "linked": false,
+                "name": "Anisotropic",
+                "value": 0.0
+              },
+              {
+                "identifier": "Anisotropic Rotation",
+                "linked": false,
+                "name": "Anisotropic Rotation",
+                "value": 0.0
+              },
+              {
+                "identifier": "Tangent",
+                "linked": false,
+                "name": "Tangent",
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "identifier": "Transmission Weight",
+                "linked": false,
+                "name": "Transmission Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Coat Weight",
+                "linked": false,
+                "name": "Coat Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Coat Roughness",
+                "linked": false,
+                "name": "Coat Roughness",
+                "value": 0.029999999329447746
+              },
+              {
+                "identifier": "Coat IOR",
+                "linked": false,
+                "name": "Coat IOR",
+                "value": 1.5
+              },
+              {
+                "identifier": "Coat Tint",
+                "linked": false,
+                "name": "Coat Tint",
+                "value": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Coat Normal",
+                "linked": false,
+                "name": "Coat Normal",
+                "value": [
+                  0.0,
+                  0.0,
+                  0.0
+                ]
+              },
+              {
+                "identifier": "Sheen Weight",
+                "linked": false,
+                "name": "Sheen Weight",
+                "value": 0.0
+              },
+              {
+                "identifier": "Sheen Roughness",
+                "linked": false,
+                "name": "Sheen Roughness",
+                "value": 0.5
+              },
+              {
+                "identifier": "Sheen Tint",
+                "linked": false,
+                "name": "Sheen Tint",
+                "value": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Emission Color",
+                "linked": false,
+                "name": "Emission Color",
+                "value": [
+                  1.0,
+                  1.0,
+                  1.0,
+                  1.0
+                ]
+              },
+              {
+                "identifier": "Emission Strength",
+                "linked": false,
+                "name": "Emission Strength",
+                "value": 0.0
+              },
+              {
+                "identifier": "Thin Film Thickness",
+                "linked": false,
+                "name": "Thin Film Thickness",
+                "value": 0.0
+              },
+              {
+                "identifier": "Thin Film IOR",
+                "linked": false,
+                "name": "Thin Film IOR",
+                "value": 1.3300000429153442
+              }
+            ],
+            "name": "OwnedPrincipled",
+            "type": "ShaderNodeBsdfPrincipled"
+          }
+        ]
+      }
+    }
+  ],
+  "objects": [
+    {
+      "geometry": {
+        "faces": [
+          {
+            "id": 0,
+            "indices": [
+              7,
+              6,
+              5,
+              4,
+              3,
+              2,
+              1,
+              0
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "id": 1,
+            "indices": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "id": 2,
+            "indices": [
+              0,
+              1,
+              9,
+              8
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 3,
+            "indices": [
+              1,
+              2,
+              10,
+              9
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7071318030357361,
+              -0.7070817947387695,
+              0.0
+            ]
+          },
+          {
+            "id": 4,
+            "indices": [
+              2,
+              3,
+              11,
+              10
+            ],
+            "material_index": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 5,
+            "indices": [
+              3,
+              4,
+              12,
+              11
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7071318030357361,
+              0.7070817947387695,
+              0.0
+            ]
+          },
+          {
+            "id": 6,
+            "indices": [
+              4,
+              5,
+              13,
+              12
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 7,
+            "indices": [
+              5,
+              6,
+              14,
+              13
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7071318030357361,
+              0.7070817947387695,
+              0.0
+            ]
+          },
+          {
+            "id": 8,
+            "indices": [
+              6,
+              7,
+              15,
+              14
+            ],
+            "material_index": 0,
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 9,
+            "indices": [
+              7,
+              0,
+              8,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7071318030357361,
+              -0.7070817947387695,
+              0.0
+            ]
+          }
+        ],
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "maximum": [
+          -1.184000015258789,
+          0.019999999552965164,
+          0.9975000023841858
+        ],
+        "minimum": [
+          -1.215999960899353,
+          -0.019999999552965164,
+          0.0
+        ],
+        "object": "EndUpright_0",
+        "triangles": [
+          {
+            "face": 0,
+            "indices": [
+              0,
+              7,
+              6
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              6,
+              5,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              3,
+              2
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              0,
+              6,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              2,
+              0
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              8,
+              9
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              12,
+              13
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              9,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              13,
+              15
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              1,
+              9
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              9,
+              8
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              2,
+              10
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              10,
+              9
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              3,
+              11
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              11,
+              10
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              4,
+              12
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              12,
+              11
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              5,
+              13
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              13,
+              12
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              6,
+              14
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              14,
+              13
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              7,
+              15
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              15,
+              14
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              0,
+              8
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              8,
+              15
+            ]
+          }
+        ],
+        "vertices": [
+          [
+            -1.215499997138977,
+            -0.019999999552965164,
+            0.0
+          ],
+          [
+            -1.184499979019165,
+            -0.019999999552965164,
+            0.0
+          ],
+          [
+            -1.184000015258789,
+            -0.019500000402331352,
+            0.0
+          ],
+          [
+            -1.184000015258789,
+            0.019500000402331352,
+            0.0
+          ],
+          [
+            -1.184499979019165,
+            0.019999999552965164,
+            0.0
+          ],
+          [
+            -1.215499997138977,
+            0.019999999552965164,
+            0.0
+          ],
+          [
+            -1.215999960899353,
+            0.019500000402331352,
+            0.0
+          ],
+          [
+            -1.215999960899353,
+            -0.019500000402331352,
+            0.0
+          ],
+          [
+            -1.215499997138977,
+            -0.019999999552965164,
+            0.9975000023841858
+          ],
+          [
+            -1.184499979019165,
+            -0.019999999552965164,
+            0.9975000023841858
+          ],
+          [
+            -1.184000015258789,
+            -0.019500000402331352,
+            0.9975000023841858
+          ],
+          [
+            -1.184000015258789,
+            0.019500000402331352,
+            0.9975000023841858
+          ],
+          [
+            -1.184499979019165,
+            0.019999999552965164,
+            0.9975000023841858
+          ],
+          [
+            -1.215499997138977,
+            0.019999999552965164,
+            0.9975000023841858
+          ],
+          [
+            -1.215999960899353,
+            0.019500000402331352,
+            0.9975000023841858
+          ],
+          [
+            -1.215999960899353,
+            -0.019500000402331352,
+            0.9975000023841858
+          ]
+        ]
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "name": "EndUpright_0",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "slots": [
+        "OwnedSteel"
+      ],
+      "type": "MESH"
+    },
+    {
+      "geometry": {
+        "faces": [
+          {
+            "id": 0,
+            "indices": [
+              7,
+              6,
+              5,
+              4,
+              3,
+              2,
+              1,
+              0
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "id": 1,
+            "indices": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "id": 2,
+            "indices": [
+              0,
+              1,
+              9,
+              8
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 3,
+            "indices": [
+              1,
+              2,
+              10,
+              9
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7071318030357361,
+              -0.7070817947387695,
+              0.0
+            ]
+          },
+          {
+            "id": 4,
+            "indices": [
+              2,
+              3,
+              11,
+              10
+            ],
+            "material_index": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 5,
+            "indices": [
+              3,
+              4,
+              12,
+              11
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7071318030357361,
+              0.7070817947387695,
+              0.0
+            ]
+          },
+          {
+            "id": 6,
+            "indices": [
+              4,
+              5,
+              13,
+              12
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 7,
+            "indices": [
+              5,
+              6,
+              14,
+              13
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7071318030357361,
+              0.7070817947387695,
+              0.0
+            ]
+          },
+          {
+            "id": 8,
+            "indices": [
+              6,
+              7,
+              15,
+              14
+            ],
+            "material_index": 0,
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 9,
+            "indices": [
+              7,
+              0,
+              8,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7071318030357361,
+              -0.7070817947387695,
+              0.0
+            ]
+          }
+        ],
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "maximum": [
+          1.215999960899353,
+          0.019999999552965164,
+          0.9975000023841858
+        ],
+        "minimum": [
+          1.184000015258789,
+          -0.019999999552965164,
+          0.0
+        ],
+        "object": "EndUpright_1",
+        "triangles": [
+          {
+            "face": 0,
+            "indices": [
+              0,
+              7,
+              6
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              6,
+              5,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              3,
+              2
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              0,
+              6,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              2,
+              0
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              8,
+              9
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              12,
+              13
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              9,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              13,
+              15
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              1,
+              9
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              9,
+              8
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              2,
+              10
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              10,
+              9
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              3,
+              11
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              11,
+              10
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              4,
+              12
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              12,
+              11
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              5,
+              13
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              13,
+              12
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              6,
+              14
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              14,
+              13
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              7,
+              15
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              15,
+              14
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              0,
+              8
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              8,
+              15
+            ]
+          }
+        ],
+        "vertices": [
+          [
+            1.184499979019165,
+            -0.019999999552965164,
+            0.0
+          ],
+          [
+            1.215499997138977,
+            -0.019999999552965164,
+            0.0
+          ],
+          [
+            1.215999960899353,
+            -0.019500000402331352,
+            0.0
+          ],
+          [
+            1.215999960899353,
+            0.019500000402331352,
+            0.0
+          ],
+          [
+            1.215499997138977,
+            0.019999999552965164,
+            0.0
+          ],
+          [
+            1.184499979019165,
+            0.019999999552965164,
+            0.0
+          ],
+          [
+            1.184000015258789,
+            0.019500000402331352,
+            0.0
+          ],
+          [
+            1.184000015258789,
+            -0.019500000402331352,
+            0.0
+          ],
+          [
+            1.184499979019165,
+            -0.019999999552965164,
+            0.9975000023841858
+          ],
+          [
+            1.215499997138977,
+            -0.019999999552965164,
+            0.9975000023841858
+          ],
+          [
+            1.215999960899353,
+            -0.019500000402331352,
+            0.9975000023841858
+          ],
+          [
+            1.215999960899353,
+            0.019500000402331352,
+            0.9975000023841858
+          ],
+          [
+            1.215499997138977,
+            0.019999999552965164,
+            0.9975000023841858
+          ],
+          [
+            1.184499979019165,
+            0.019999999552965164,
+            0.9975000023841858
+          ],
+          [
+            1.184000015258789,
+            0.019500000402331352,
+            0.9975000023841858
+          ],
+          [
+            1.184000015258789,
+            -0.019500000402331352,
+            0.9975000023841858
+          ]
+        ]
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "name": "EndUpright_1",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "slots": [
+        "OwnedSteel"
+      ],
+      "type": "MESH"
+    },
+    {
+      "geometry": {
+        "faces": [
+          {
+            "id": 0,
+            "indices": [
+              7,
+              6,
+              5,
+              4,
+              3,
+              2,
+              1,
+              0
+            ],
+            "material_index": 0,
+            "normal": [
+              5.402234748430601e-08,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "id": 1,
+            "indices": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "id": 2,
+            "indices": [
+              0,
+              1,
+              9,
+              8
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 3,
+            "indices": [
+              1,
+              2,
+              10,
+              9
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7070896625518799,
+              -0.707123875617981,
+              0.0
+            ]
+          },
+          {
+            "id": 4,
+            "indices": [
+              2,
+              3,
+              11,
+              10
+            ],
+            "material_index": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 5,
+            "indices": [
+              3,
+              4,
+              12,
+              11
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7070896625518799,
+              0.707123875617981,
+              0.0
+            ]
+          },
+          {
+            "id": 6,
+            "indices": [
+              4,
+              5,
+              13,
+              12
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 7,
+            "indices": [
+              5,
+              6,
+              14,
+              13
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7070896625518799,
+              0.707123875617981,
+              0.0
+            ]
+          },
+          {
+            "id": 8,
+            "indices": [
+              6,
+              7,
+              15,
+              14
+            ],
+            "material_index": 0,
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 9,
+            "indices": [
+              7,
+              0,
+              8,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7070896625518799,
+              -0.707123875617981,
+              0.0
+            ]
+          }
+        ],
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "maximum": [
+          -0.5839999914169312,
+          0.019999999552965164,
+          0.9424999952316284
+        ],
+        "minimum": [
+          -0.6159999966621399,
+          -0.019999999552965164,
+          0.09749999642372131
+        ],
+        "object": "Infill_0",
+        "triangles": [
+          {
+            "face": 0,
+            "indices": [
+              0,
+              7,
+              6
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              6,
+              5,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              3,
+              2
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              0,
+              6,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              2,
+              0
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              8,
+              9
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              12,
+              13
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              9,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              13,
+              15
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              1,
+              9
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              9,
+              8
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              2,
+              10
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              10,
+              9
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              3,
+              11
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              11,
+              10
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              4,
+              12
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              12,
+              11
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              5,
+              13
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              13,
+              12
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              6,
+              14
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              14,
+              13
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              7,
+              15
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              15,
+              14
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              0,
+              8
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              8,
+              15
+            ]
+          }
+        ],
+        "vertices": [
+          [
+            -0.6154999732971191,
+            -0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            -0.5845000147819519,
+            -0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            -0.5839999914169312,
+            -0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            -0.5839999914169312,
+            0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            -0.5845000147819519,
+            0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            -0.6154999732971191,
+            0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            -0.6159999966621399,
+            0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            -0.6159999966621399,
+            -0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            -0.6154999732971191,
+            -0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            -0.5845000147819519,
+            -0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            -0.5839999914169312,
+            -0.019500000402331352,
+            0.9424999952316284
+          ],
+          [
+            -0.5839999914169312,
+            0.019500000402331352,
+            0.9424999952316284
+          ],
+          [
+            -0.5845000147819519,
+            0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            -0.6154999732971191,
+            0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            -0.6159999966621399,
+            0.019500000402331352,
+            0.9424999952316284
+          ],
+          [
+            -0.6159999966621399,
+            -0.019500000402331352,
+            0.9424999952316284
+          ]
+        ]
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "name": "Infill_0",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "slots": [
+        "OwnedSteel"
+      ],
+      "type": "MESH"
+    },
+    {
+      "geometry": {
+        "faces": [
+          {
+            "id": 0,
+            "indices": [
+              7,
+              6,
+              5,
+              4,
+              3,
+              2,
+              1,
+              0
+            ],
+            "material_index": 0,
+            "normal": [
+              5.402234748430601e-08,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "id": 1,
+            "indices": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "id": 2,
+            "indices": [
+              0,
+              1,
+              9,
+              8
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 3,
+            "indices": [
+              1,
+              2,
+              10,
+              9
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7071054577827454,
+              -0.7071080803871155,
+              0.0
+            ]
+          },
+          {
+            "id": 4,
+            "indices": [
+              2,
+              3,
+              11,
+              10
+            ],
+            "material_index": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 5,
+            "indices": [
+              3,
+              4,
+              12,
+              11
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7071054577827454,
+              0.7071080803871155,
+              0.0
+            ]
+          },
+          {
+            "id": 6,
+            "indices": [
+              4,
+              5,
+              13,
+              12
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 7,
+            "indices": [
+              5,
+              6,
+              14,
+              13
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7071054577827454,
+              0.7071080803871155,
+              0.0
+            ]
+          },
+          {
+            "id": 8,
+            "indices": [
+              6,
+              7,
+              15,
+              14
+            ],
+            "material_index": 0,
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 9,
+            "indices": [
+              7,
+              0,
+              8,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7071054577827454,
+              -0.7071080803871155,
+              0.0
+            ]
+          }
+        ],
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "maximum": [
+          0.01600000075995922,
+          0.019999999552965164,
+          0.9424999952316284
+        ],
+        "minimum": [
+          -0.01600000075995922,
+          -0.019999999552965164,
+          0.09749999642372131
+        ],
+        "object": "Infill_1",
+        "triangles": [
+          {
+            "face": 0,
+            "indices": [
+              0,
+              7,
+              6
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              6,
+              5,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              3,
+              2
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              0,
+              6,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              2,
+              0
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              8,
+              9
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              12,
+              13
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              9,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              13,
+              15
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              1,
+              9
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              9,
+              8
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              2,
+              10
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              10,
+              9
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              3,
+              11
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              11,
+              10
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              4,
+              12
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              12,
+              11
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              5,
+              13
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              13,
+              12
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              6,
+              14
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              14,
+              13
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              7,
+              15
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              15,
+              14
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              0,
+              8
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              8,
+              15
+            ]
+          }
+        ],
+        "vertices": [
+          [
+            -0.01549999974668026,
+            -0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            0.01549999974668026,
+            -0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            0.01600000075995922,
+            -0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            0.01600000075995922,
+            0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            0.01549999974668026,
+            0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            -0.01549999974668026,
+            0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            -0.01600000075995922,
+            0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            -0.01600000075995922,
+            -0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            -0.01549999974668026,
+            -0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            0.01549999974668026,
+            -0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            0.01600000075995922,
+            -0.019500000402331352,
+            0.9424999952316284
+          ],
+          [
+            0.01600000075995922,
+            0.019500000402331352,
+            0.9424999952316284
+          ],
+          [
+            0.01549999974668026,
+            0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            -0.01549999974668026,
+            0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            -0.01600000075995922,
+            0.019500000402331352,
+            0.9424999952316284
+          ],
+          [
+            -0.01600000075995922,
+            -0.019500000402331352,
+            0.9424999952316284
+          ]
+        ]
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "name": "Infill_1",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "slots": [
+        "OwnedSteel"
+      ],
+      "type": "MESH"
+    },
+    {
+      "geometry": {
+        "faces": [
+          {
+            "id": 0,
+            "indices": [
+              7,
+              6,
+              5,
+              4,
+              3,
+              2,
+              1,
+              0
+            ],
+            "material_index": 0,
+            "normal": [
+              5.402234748430601e-08,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "id": 1,
+            "indices": [
+              8,
+              9,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "id": 2,
+            "indices": [
+              0,
+              1,
+              9,
+              8
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 3,
+            "indices": [
+              1,
+              2,
+              10,
+              9
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7070896625518799,
+              -0.707123875617981,
+              0.0
+            ]
+          },
+          {
+            "id": 4,
+            "indices": [
+              2,
+              3,
+              11,
+              10
+            ],
+            "material_index": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 5,
+            "indices": [
+              3,
+              4,
+              12,
+              11
+            ],
+            "material_index": 0,
+            "normal": [
+              0.7070896625518799,
+              0.707123875617981,
+              0.0
+            ]
+          },
+          {
+            "id": 6,
+            "indices": [
+              4,
+              5,
+              13,
+              12
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 7,
+            "indices": [
+              5,
+              6,
+              14,
+              13
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7070896625518799,
+              0.707123875617981,
+              0.0
+            ]
+          },
+          {
+            "id": 8,
+            "indices": [
+              6,
+              7,
+              15,
+              14
+            ],
+            "material_index": 0,
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 9,
+            "indices": [
+              7,
+              0,
+              8,
+              15
+            ],
+            "material_index": 0,
+            "normal": [
+              -0.7070896625518799,
+              -0.707123875617981,
+              0.0
+            ]
+          }
+        ],
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "maximum": [
+          0.6159999966621399,
+          0.019999999552965164,
+          0.9424999952316284
+        ],
+        "minimum": [
+          0.5839999914169312,
+          -0.019999999552965164,
+          0.09749999642372131
+        ],
+        "object": "Infill_2",
+        "triangles": [
+          {
+            "face": 0,
+            "indices": [
+              0,
+              7,
+              6
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              6,
+              5,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              3,
+              2
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              0,
+              6,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              2,
+              0
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              8,
+              9
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              12,
+              13
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              13,
+              14,
+              15
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              15,
+              9,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              13,
+              15
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              1,
+              9
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              9,
+              8
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              2,
+              10
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              10,
+              9
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              3,
+              11
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              11,
+              10
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              4,
+              12
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              12,
+              11
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              5,
+              13
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              13,
+              12
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              6,
+              14
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              14,
+              13
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              7,
+              15
+            ]
+          },
+          {
+            "face": 8,
+            "indices": [
+              6,
+              15,
+              14
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              0,
+              8
+            ]
+          },
+          {
+            "face": 9,
+            "indices": [
+              7,
+              8,
+              15
+            ]
+          }
+        ],
+        "vertices": [
+          [
+            0.5845000147819519,
+            -0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            0.6154999732971191,
+            -0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            0.6159999966621399,
+            -0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            0.6159999966621399,
+            0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            0.6154999732971191,
+            0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            0.5845000147819519,
+            0.019999999552965164,
+            0.09749999642372131
+          ],
+          [
+            0.5839999914169312,
+            0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            0.5839999914169312,
+            -0.019500000402331352,
+            0.09749999642372131
+          ],
+          [
+            0.5845000147819519,
+            -0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            0.6154999732971191,
+            -0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            0.6159999966621399,
+            -0.019500000402331352,
+            0.9424999952316284
+          ],
+          [
+            0.6159999966621399,
+            0.019500000402331352,
+            0.9424999952316284
+          ],
+          [
+            0.6154999732971191,
+            0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            0.5845000147819519,
+            0.019999999552965164,
+            0.9424999952316284
+          ],
+          [
+            0.5839999914169312,
+            0.019500000402331352,
+            0.9424999952316284
+          ],
+          [
+            0.5839999914169312,
+            -0.019500000402331352,
+            0.9424999952316284
+          ]
+        ]
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "name": "Infill_2",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "slots": [
+        "OwnedSteel"
+      ],
+      "type": "MESH"
+    },
+    {
+      "geometry": {
+        "faces": [
+          {
+            "id": 0,
+            "indices": [
+              5,
+              4,
+              3,
+              2,
+              1,
+              0
+            ],
+            "material_index": 0,
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 1,
+            "indices": [
+              6,
+              7,
+              8,
+              9,
+              10,
+              11
+            ],
+            "material_index": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 2,
+            "indices": [
+              0,
+              1,
+              7,
+              6
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "id": 3,
+            "indices": [
+              1,
+              2,
+              8,
+              7
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 4,
+            "indices": [
+              2,
+              3,
+              9,
+              8
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.7071239352226257,
+              0.7070896625518799
+            ]
+          },
+          {
+            "id": 5,
+            "indices": [
+              3,
+              4,
+              10,
+              9
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "id": 6,
+            "indices": [
+              4,
+              5,
+              11,
+              10
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              -0.7071239352226257,
+              0.7070896625518799
+            ]
+          },
+          {
+            "id": 7,
+            "indices": [
+              5,
+              0,
+              6,
+              11
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          }
+        ],
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "maximum": [
+          1.184000015258789,
+          0.027499999850988388,
+          0.9975000023841858
+        ],
+        "minimum": [
+          -1.184000015258789,
+          -0.027499999850988388,
+          0.9424999952316284
+        ],
+        "object": "Handrail",
+        "triangles": [
+          {
+            "face": 0,
+            "indices": [
+              0,
+              5,
+              4
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              3,
+              2
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              2,
+              1,
+              0
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              4,
+              2,
+              0
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              11,
+              6,
+              7
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              7,
+              8,
+              9
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              9,
+              10,
+              11
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              7,
+              9,
+              11
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              1,
+              7
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              7,
+              6
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              2,
+              8
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              8,
+              7
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              3,
+              9
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              9,
+              8
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              4,
+              10
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              10,
+              9
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              5,
+              11
+            ]
+          },
+          {
+            "face": 6,
+            "indices": [
+              4,
+              11,
+              10
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              0,
+              6
+            ]
+          },
+          {
+            "face": 7,
+            "indices": [
+              5,
+              6,
+              11
+            ]
+          }
+        ],
+        "vertices": [
+          [
+            -1.184000015258789,
+            -0.027499999850988388,
+            0.9424999952316284
+          ],
+          [
+            -1.184000015258789,
+            0.027499999850988388,
+            0.9424999952316284
+          ],
+          [
+            -1.184000015258789,
+            0.027499999850988388,
+            0.996999979019165
+          ],
+          [
+            -1.184000015258789,
+            0.027000000700354576,
+            0.9975000023841858
+          ],
+          [
+            -1.184000015258789,
+            -0.027000000700354576,
+            0.9975000023841858
+          ],
+          [
+            -1.184000015258789,
+            -0.027499999850988388,
+            0.996999979019165
+          ],
+          [
+            1.184000015258789,
+            -0.027499999850988388,
+            0.9424999952316284
+          ],
+          [
+            1.184000015258789,
+            0.027499999850988388,
+            0.9424999952316284
+          ],
+          [
+            1.184000015258789,
+            0.027499999850988388,
+            0.996999979019165
+          ],
+          [
+            1.184000015258789,
+            0.027000000700354576,
+            0.9975000023841858
+          ],
+          [
+            1.184000015258789,
+            -0.027000000700354576,
+            0.9975000023841858
+          ],
+          [
+            1.184000015258789,
+            -0.027499999850988388,
+            0.996999979019165
+          ]
+        ]
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "name": "Handrail",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "slots": [
+        "OwnedSteel"
+      ],
+      "type": "MESH"
+    },
+    {
+      "geometry": {
+        "faces": [
+          {
+            "id": 0,
+            "indices": [
+              3,
+              2,
+              1,
+              0
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "id": 1,
+            "indices": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "id": 2,
+            "indices": [
+              0,
+              1,
+              5,
+              4
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 3,
+            "indices": [
+              1,
+              2,
+              6,
+              5
+            ],
+            "material_index": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 4,
+            "indices": [
+              2,
+              3,
+              7,
+              6
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 5,
+            "indices": [
+              3,
+              0,
+              4,
+              7
+            ],
+            "material_index": 0,
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "maximum": [
+          1.184000015258789,
+          0.027499999850988388,
+          0.09749999642372131
+        ],
+        "minimum": [
+          -1.184000015258789,
+          -0.027499999850988388,
+          0.042500000447034836
+        ],
+        "object": "ToeRail",
+        "triangles": [
+          {
+            "face": 0,
+            "indices": [
+              3,
+              2,
+              1
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              3,
+              1,
+              0
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              4,
+              5,
+              6
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              4,
+              6,
+              7
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              1,
+              5
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              5,
+              4
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              2,
+              6
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              6,
+              5
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              3,
+              7
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              7,
+              6
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              0,
+              4
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              4,
+              7
+            ]
+          }
+        ],
+        "vertices": [
+          [
+            -1.184000015258789,
+            -0.027499999850988388,
+            0.042500000447034836
+          ],
+          [
+            1.184000015258789,
+            -0.027499999850988388,
+            0.042500000447034836
+          ],
+          [
+            1.184000015258789,
+            0.027499999850988388,
+            0.042500000447034836
+          ],
+          [
+            -1.184000015258789,
+            0.027499999850988388,
+            0.042500000447034836
+          ],
+          [
+            -1.184000015258789,
+            -0.027499999850988388,
+            0.09749999642372131
+          ],
+          [
+            1.184000015258789,
+            -0.027499999850988388,
+            0.09749999642372131
+          ],
+          [
+            1.184000015258789,
+            0.027499999850988388,
+            0.09749999642372131
+          ],
+          [
+            -1.184000015258789,
+            0.027499999850988388,
+            0.09749999642372131
+          ]
+        ]
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "name": "ToeRail",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "slots": [
+        "OwnedSteel"
+      ],
+      "type": "MESH"
+    },
+    {
+      "geometry": {
+        "faces": [
+          {
+            "id": 0,
+            "indices": [
+              3,
+              2,
+              1,
+              0
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              -1.0
+            ]
+          },
+          {
+            "id": 1,
+            "indices": [
+              4,
+              5,
+              6,
+              7
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              0.0,
+              1.0
+            ]
+          },
+          {
+            "id": 2,
+            "indices": [
+              0,
+              1,
+              5,
+              4
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              -1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 3,
+            "indices": [
+              1,
+              2,
+              6,
+              5
+            ],
+            "material_index": 0,
+            "normal": [
+              1.0,
+              0.0,
+              0.0
+            ]
+          },
+          {
+            "id": 4,
+            "indices": [
+              2,
+              3,
+              7,
+              6
+            ],
+            "material_index": 0,
+            "normal": [
+              0.0,
+              1.0,
+              0.0
+            ]
+          },
+          {
+            "id": 5,
+            "indices": [
+              3,
+              0,
+              4,
+              7
+            ],
+            "material_index": 0,
+            "normal": [
+              -1.0,
+              0.0,
+              0.0
+            ]
+          }
+        ],
+        "matrix": [
+          [
+            1.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            1.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            1.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0,
+            1.0
+          ]
+        ],
+        "maximum": [
+          1.350000023841858,
+          0.22499999403953552,
+          0.0
+        ],
+        "minimum": [
+          -1.350000023841858,
+          -0.22499999403953552,
+          -0.07999999821186066
+        ],
+        "object": "PresentationBed",
+        "triangles": [
+          {
+            "face": 0,
+            "indices": [
+              3,
+              2,
+              1
+            ]
+          },
+          {
+            "face": 0,
+            "indices": [
+              3,
+              1,
+              0
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              4,
+              5,
+              6
+            ]
+          },
+          {
+            "face": 1,
+            "indices": [
+              4,
+              6,
+              7
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              1,
+              5
+            ]
+          },
+          {
+            "face": 2,
+            "indices": [
+              0,
+              5,
+              4
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              2,
+              6
+            ]
+          },
+          {
+            "face": 3,
+            "indices": [
+              1,
+              6,
+              5
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              3,
+              7
+            ]
+          },
+          {
+            "face": 4,
+            "indices": [
+              2,
+              7,
+              6
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              0,
+              4
+            ]
+          },
+          {
+            "face": 5,
+            "indices": [
+              3,
+              4,
+              7
+            ]
+          }
+        ],
+        "vertices": [
+          [
+            -1.350000023841858,
+            -0.22499999403953552,
+            -0.07999999821186066
+          ],
+          [
+            1.350000023841858,
+            -0.22499999403953552,
+            -0.07999999821186066
+          ],
+          [
+            1.350000023841858,
+            0.22499999403953552,
+            -0.07999999821186066
+          ],
+          [
+            -1.350000023841858,
+            0.22499999403953552,
+            -0.07999999821186066
+          ],
+          [
+            -1.350000023841858,
+            -0.22499999403953552,
+            0.0
+          ],
+          [
+            1.350000023841858,
+            -0.22499999403953552,
+            0.0
+          ],
+          [
+            1.350000023841858,
+            0.22499999403953552,
+            0.0
+          ],
+          [
+            -1.350000023841858,
+            0.22499999403953552,
+            0.0
+          ]
+        ]
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "name": "PresentationBed",
+      "rotation": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "slots": [
+        "OwnedBed"
+      ],
+      "type": "MESH"
+    },
+    {
+      "hide_render": false,
+      "hide_viewport": false,
+      "light": {
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "energy": 650.0,
+        "shape": "DISK",
+        "size": 4.0,
+        "type": "AREA"
+      },
+      "location": [
+        1.0,
+        -3.0,
+        4.0
+      ],
+      "matrix": [
+        [
+          0.9486832618713379,
+          -0.23464059829711914,
+          0.2119995802640915,
+          1.0
+        ],
+        [
+          0.31622782349586487,
+          0.7039216160774231,
+          -0.6359986662864685,
+          -3.0
+        ],
+        [
+          2.7659361023779638e-08,
+          0.6704014539718628,
+          0.741998553276062,
+          4.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "OwnedKey",
+      "rotation": [
+        0.7347497344017029,
+        -2.7659361023779638e-08,
+        0.32175061106681824
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "type": "LIGHT"
+    },
+    {
+      "hide_render": false,
+      "hide_viewport": false,
+      "light": {
+        "color": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "energy": 450.0,
+        "shape": "DISK",
+        "size": 3.0,
+        "type": "AREA"
+      },
+      "location": [
+        -3.0,
+        1.0,
+        2.5
+      ],
+      "matrix": [
+        [
+          -0.3162277638912201,
+          0.5070924758911133,
+          -0.8017837405204773,
+          -3.0
+        ],
+        [
+          -0.9486833214759827,
+          -0.16903068125247955,
+          0.2672613561153412,
+          1.0
+        ],
+        [
+          1.7439060684409924e-07,
+          0.845154345035553,
+          0.5345223546028137,
+          2.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "OwnedFill",
+      "rotation": [
+        1.0068538188934326,
+        -1.7439060684409924e-07,
+        -1.8925468921661377
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "type": "LIGHT"
+    },
+    {
+      "camera": {
+        "clip_end": 100.0,
+        "clip_start": 0.0010000000474974513,
+        "lens": 50.0,
+        "ortho_scale": 3.3499999046325684,
+        "shift_x": 0.0,
+        "shift_y": 0.0,
+        "type": "ORTHO"
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        3.0,
+        -5.0,
+        2.5
+      ],
+      "matrix": [
+        [
+          0.8574928045272827,
+          -0.1684156060218811,
+          0.48615044355392456,
+          3.0
+        ],
+        [
+          0.5144959092140198,
+          0.280692458152771,
+          -0.8102504014968872,
+          -5.0
+        ],
+        [
+          4.562430788723759e-08,
+          0.9449062943458557,
+          0.32734090089797974,
+          2.5
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "Camera_front",
+      "rotation": [
+        1.2373082637786865,
+        -4.562430788723759e-08,
+        0.5404196977615356
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "type": "CAMERA"
+    },
+    {
+      "camera": {
+        "clip_end": 100.0,
+        "clip_start": 0.0010000000474974513,
+        "lens": 50.0,
+        "ortho_scale": 3.3499999046325684,
+        "shift_x": 0.0,
+        "shift_y": 0.0,
+        "type": "ORTHO"
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        -3.0,
+        5.0,
+        0.47999998927116394
+      ],
+      "matrix": [
+        [
+          -0.8574929237365723,
+          5.4378315184067105e-08,
+          -0.5144957304000854,
+          -3.0
+        ],
+        [
+          -0.5144957304000854,
+          -5.541793512975346e-08,
+          0.8574929237365723,
+          5.0
+        ],
+        [
+          1.8116727673600508e-08,
+          1.0,
+          7.549790126404332e-08,
+          0.47999998927116394
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "Camera_reverse",
+      "rotation": [
+        1.570796251296997,
+        -1.8116727673600508e-08,
+        -2.601173162460327
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "type": "CAMERA"
+    },
+    {
+      "camera": {
+        "clip_end": 100.0,
+        "clip_start": 0.0010000000474974513,
+        "lens": 50.0,
+        "ortho_scale": 0.46000000834465027,
+        "shift_x": 0.0,
+        "shift_y": 0.0,
+        "type": "ORTHO"
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        1.4800000190734863,
+        -0.4000000059604645,
+        1.2200000286102295
+      ],
+      "matrix": [
+        [
+          0.7713732123374939,
+          -0.3023598790168762,
+          0.559965968132019,
+          1.4800000190734863
+        ],
+        [
+          0.636383056640625,
+          0.366496741771698,
+          -0.6787464618682861,
+          -0.4000000059604645
+        ],
+        [
+          3.2529356985833147e-10,
+          0.879919707775116,
+          0.47512245178222656,
+          1.2200000286102295
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "Camera_hand-end",
+      "rotation": [
+        1.075693130493164,
+        -3.2529356985833147e-10,
+        0.6898001432418823
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "type": "CAMERA"
+    },
+    {
+      "camera": {
+        "clip_end": 100.0,
+        "clip_start": 0.0010000000474974513,
+        "lens": 50.0,
+        "ortho_scale": 3.3499999046325684,
+        "shift_x": 0.0,
+        "shift_y": 0.0,
+        "type": "ORTHO"
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        0.30000001192092896,
+        -4.800000190734863,
+        1.649999976158142
+      ],
+      "matrix": [
+        [
+          0.9980525970458984,
+          -0.014982662163674831,
+          0.06055222451686859,
+          0.30000001192092896
+        ],
+        [
+          0.06237829849123955,
+          0.23972254991531372,
+          -0.9688354134559631,
+          -4.800000190734863
+        ],
+        [
+          -2.4448532087717467e-10,
+          0.9707258343696594,
+          0.2401903122663498,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "Camera_player165",
+      "rotation": [
+        1.3282344341278076,
+        2.4448532087717467e-10,
+        0.062418822199106216
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "type": "CAMERA"
+    },
+    {
+      "camera": {
+        "clip_end": 100.0,
+        "clip_start": 0.0010000000474974513,
+        "lens": 50.0,
+        "ortho_scale": 0.6700000166893005,
+        "shift_x": 0.0,
+        "shift_y": 0.0,
+        "type": "ORTHO"
+      },
+      "hide_render": false,
+      "hide_viewport": false,
+      "location": [
+        1.4600000381469727,
+        -0.46000000834465027,
+        0.3199999928474426
+      ],
+      "matrix": [
+        [
+          0.7875049114227295,
+          -0.24657826125621796,
+          0.5648320317268372,
+          1.4600000381469727
+        ],
+        [
+          0.6163083910942078,
+          0.31507208943367004,
+          -0.7217295169830322,
+          -0.46000000834465027
+        ],
+        [
+          6.716909695114737e-09,
+          0.9164762496948242,
+          0.4000890552997589,
+          0.3199999928474426
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "name": "Camera_foot-toe",
+      "rotation": [
+        1.1591823101043701,
+        -6.716909695114737e-09,
+        0.6640463471412659
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "type": "CAMERA"
+    }
+  ],
+  "render": {
+    "color_mode": "RGBA",
+    "denoising": false,
+    "device": "CPU",
+    "engine": "CYCLES",
+    "exposure": 0.0,
+    "filepath": "C:\\dev\\cribtest-game\\output\\unreal-balcony-railing-panel01-20261015\\front.png",
+    "format": "PNG",
+    "gamma": 1.0,
+    "look": "None",
+    "percentage": 100,
+    "samples": 24,
+    "threads": 6,
+    "threads_mode": "FIXED",
+    "transparent": false,
+    "view_transform": "AgX",
+    "x": 800,
+    "y": 800
+  },
+  "scene": "Scene",
+  "world": {
+    "name": "OwnedWorld",
+    "nodes": {
+      "links": [
+        [
+          "OwnedBackground",
+          "Background",
+          "OwnedWorldOutput",
+          "Surface"
+        ]
+      ],
+      "nodes": [
+        {
+          "inputs": [
+            {
+              "identifier": "Color",
+              "linked": false,
+              "name": "Color",
+              "value": [
+                0.3199999928474426,
+                0.3199999928474426,
+                0.3199999928474426,
+                1.0
+              ]
+            },
+            {
+              "identifier": "Strength",
+              "linked": false,
+              "name": "Strength",
+              "value": 0.699999988079071
+            },
+            {
+              "identifier": "Weight",
+              "linked": false,
+              "name": "Weight",
+              "value": 0.0
+            }
+          ],
+          "name": "OwnedBackground",
+          "type": "ShaderNodeBackground"
+        },
+        {
+          "inputs": [
+            {
+              "identifier": "Surface",
+              "linked": true,
+              "name": "Surface",
+              "value": null
+            },
+            {
+              "identifier": "Volume",
+              "linked": false,
+              "name": "Volume",
+              "value": null
+            }
+          ],
+          "name": "OwnedWorldOutput",
+          "type": "ShaderNodeOutputWorld"
+        }
+      ]
+    }
+  }
+}

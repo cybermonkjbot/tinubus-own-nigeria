@@ -1,0 +1,250 @@
+[
+  {
+    "a": "EndUpright_0",
+    "b": "EndUpright_1",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 2.368000030517578,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "EndUpright_0",
+    "b": "Infill_0",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.5680000185966492,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "EndUpright_0",
+    "b": "Infill_1",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 1.1680000144988298,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "EndUpright_0",
+    "b": "Infill_2",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 1.7680000066757202,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "EndUpright_0",
+    "b": "Handrail",
+    "classification": "contact",
+    "patch": 0
+  },
+  {
+    "a": "EndUpright_0",
+    "b": "ToeRail",
+    "classification": "contact",
+    "patch": 1
+  },
+  {
+    "a": "EndUpright_0",
+    "b": "PresentationBed",
+    "classification": "contact",
+    "patch": 2
+  },
+  {
+    "a": "EndUpright_1",
+    "b": "Infill_0",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 1.7680000066757202,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "EndUpright_1",
+    "b": "Infill_1",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 1.1680000144988298,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "EndUpright_1",
+    "b": "Infill_2",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.5680000185966492,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "EndUpright_1",
+    "b": "Handrail",
+    "classification": "contact",
+    "patch": 3
+  },
+  {
+    "a": "EndUpright_1",
+    "b": "ToeRail",
+    "classification": "contact",
+    "patch": 4
+  },
+  {
+    "a": "EndUpright_1",
+    "b": "PresentationBed",
+    "classification": "contact",
+    "patch": 5
+  },
+  {
+    "a": "Infill_0",
+    "b": "Infill_1",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.5679999906569719,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "Infill_0",
+    "b": "Infill_2",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 1.1679999828338623,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "Infill_0",
+    "b": "Handrail",
+    "classification": "contact",
+    "patch": 6
+  },
+  {
+    "a": "Infill_0",
+    "b": "ToeRail",
+    "classification": "contact",
+    "patch": 7
+  },
+  {
+    "a": "Infill_0",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.09749999642372131,
+        "axis": 2
+      }
+    ]
+  },
+  {
+    "a": "Infill_1",
+    "b": "Infill_2",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.5679999906569719,
+        "axis": 0
+      }
+    ]
+  },
+  {
+    "a": "Infill_1",
+    "b": "Handrail",
+    "classification": "contact",
+    "patch": 8
+  },
+  {
+    "a": "Infill_1",
+    "b": "ToeRail",
+    "classification": "contact",
+    "patch": 9
+  },
+  {
+    "a": "Infill_1",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.09749999642372131,
+        "axis": 2
+      }
+    ]
+  },
+  {
+    "a": "Infill_2",
+    "b": "Handrail",
+    "classification": "contact",
+    "patch": 10
+  },
+  {
+    "a": "Infill_2",
+    "b": "ToeRail",
+    "classification": "contact",
+    "patch": 11
+  },
+  {
+    "a": "Infill_2",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.09749999642372131,
+        "axis": 2
+      }
+    ]
+  },
+  {
+    "a": "Handrail",
+    "b": "ToeRail",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.8449999988079071,
+        "axis": 2
+      }
+    ]
+  },
+  {
+    "a": "Handrail",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.9424999952316284,
+        "axis": 2
+      }
+    ]
+  },
+  {
+    "a": "ToeRail",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualPositiveGap": 0.042500000447034836,
+        "axis": 2
+      }
+    ]
+  }
+]

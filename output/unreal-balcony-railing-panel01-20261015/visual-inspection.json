@@ -1,0 +1,15 @@
+{
+  "inspector": "same author session, direct actual PNG inspection",
+  "early": {"file":"early-front.png","wholePanelBedUncropped":true,"fourOpenings":true,"observedCausalDefect":null,"measurementsInspected":true,"correction":"NONE"},
+  "finalViews": [
+    {"file":"front.png","wholePanelBedUncropped":true,"observed":"All eight solids visible, four open bays, both end feet on presentation bed; no opaque infill."},
+    {"file":"reverse.png","wholePanelBedUncropped":true,"observed":"Opposite low view, bed retained and visible, back rail joints and support silhouette; mating contact faces occluded."},
+    {"file":"hand-end.png","wholePanelBedUncropped":false,"observed":"Close rail-end/upright junction, projecting rail depth and small corner/top chamfer highlights. All eight solids retained, distant members and bed outside close framing. No fabricated weld or hardware."},
+    {"file":"player165.png","wholePanelBedUncropped":true,"observed":"Camera Z1.65 relative to bed top; whole panel, bed and four openings. Not gameplay standing or guarding approval."},
+    {"file":"foot-toe.png","wholePanelBedUncropped":false,"observed":"Close end foot touching visible bed and toe-end junction with gap beneath toe; nearest infill outside framing. Prioritized requested foot/toe evidence. Distant solids retained, not exploded or hidden."}
+  ],
+  "limits":"Contact faces occluded and proved by evaluated geometry evidence, not photographs. Close shots intentionally partial. Uniform generic finish, actual 24-sample Cycles grain, not a photographed coating or alloy. No observed defect requiring correction.",
+  "allEightRetainedEveryView":true,
+  "hiddenGeometry":false,
+  "rerenderOrRetry":false
+}

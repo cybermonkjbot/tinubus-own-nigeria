@@ -1,0 +1,11 @@
+{
+  "actualFanTotal": 0.018815996500512785,
+  "actualPolygonTotal": 0.018815996788084627,
+  "contactPairs": 12,
+  "fixedAggregateAgreement": 2e-07,
+  "fixedLengthTolerance": 2e-06,
+  "fixedPatchAgreement": 2e-08,
+  "nominalComparisonOnly": 0.018816,
+  "pairs": 28,
+  "separatedPairs": 16
+}
