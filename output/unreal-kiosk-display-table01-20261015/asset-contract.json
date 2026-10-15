@@ -1,0 +1,28 @@
+{
+  "actual_parameters": {
+    "bed_top": 0.0,
+    "leg_chamfer": 0.001,
+    "leg_top": 0.77,
+    "rail_top": 0.77,
+    "top_chamfer": 0.002
+  },
+  "area_tolerance_m2": 2e-08,
+  "axes": "+X run, +Z up, front -Y, origin centred feet0",
+  "interfaces": "20 opposing contacts, ten separate solids; square apron/lower tabletop edges",
+  "limits": "Dry base colour/roughness only, omitted source grain; no engineering/joinery/native/gameplay claim",
+  "materials": {
+    "ApronBack": "DryTimber",
+    "ApronFront": "DryTimber",
+    "ApronLeft": "DryTimber",
+    "ApronRight": "DryTimber",
+    "LegBackLeft": "DryTimber",
+    "LegBackRight": "DryTimber",
+    "LegFrontLeft": "DryTimber",
+    "LegFrontRight": "DryTimber",
+    "PresentationHardstandOnly": "PresentationStone",
+    "Tabletop": "DryTimber"
+  },
+  "source_refinement": "Legs authored Z0..77cm replacing source0..76cm; four new aprons",
+  "source_status": "Parent excerpts only; both full TS absent Windows",
+  "tolerance_m": 2e-06
+}

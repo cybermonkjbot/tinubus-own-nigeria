@@ -1,0 +1,12 @@
+00:23.703  render           | Saved: 'C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\early-front.png'
+03:06.375  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\KioskDisplayTable01.blend"
+03:30.391  render           | Saved: 'C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\front.png'
+03:50.922  render           | Saved: 'C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\reverse.png'
+04:23.344  render           | Saved: 'C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\grazing.png'
+04:50.656  render           | Saved: 'C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\player165.png'
+05:24.641  render           | Saved: 'C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\foot-detail.png'
+Info: Saved as "work-in-progress.blend"
+Info: Saved as "KioskDisplayTable01.blend"
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

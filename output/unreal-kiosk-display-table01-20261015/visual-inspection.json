@@ -1,0 +1,12 @@
+{
+  "actual_images_inspected": ["front.png", "reverse.png", "grazing.png", "player165.png", "foot-detail.png"],
+  "resolution": [800, 800],
+  "front": "Whole uncropped table and hardstand, all four legs visible, modest top perimeter chamfer. No visible floating foot or disconnected frame.",
+  "reverse": "Low view of underside and apron frame, only presentation hardstand hidden; actual assembled positions, no explosion. Feet underside visible; bed bearing not visible in this view.",
+  "grazing": "Close front-left apron ends/leg/underside junction, leg corner relief visible, square apron edges retained. Natural underside shadow, no visible light leak or coplanar black patch. Mating interior faces are occluded.",
+  "player165": "Camera ground-relative Z1.65; whole table uncropped. Top and four legs readable, bed lower corner close to frame edge but not clipped.",
+  "foot_detail": "Front-left foot contact and second foot on visible hardstand, chamfered leg corner and bed edge visible. Actual bottom bearing patch is occluded by assembled leg and bed; polygon evidence provides proof, not this image alone.",
+  "defect_ledger": [],
+  "early_to_final": "Retained inspected early geometry/material/light state. No causal defect identified, no fake correction or exposure masking.",
+  "limits": "Restrained dry untextured timber is intentional basecolour/roughness simplification, not grain/photographic wood fidelity. No engineering/joinery/load/native/gameplay acceptance."
+}

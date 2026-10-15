@@ -1,0 +1,6 @@
+C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\author_table.py:64: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\author_table.py:385: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+C:\dev\cribtest-game\output\unreal-kiosk-display-table01-20261015\author_table.py:437: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  materials[name] = {'diffuse':list(m.diffuse_color),'use_nodes':m.use_nodes,'inputs':inputs,

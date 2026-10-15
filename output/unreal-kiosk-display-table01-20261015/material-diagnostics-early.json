@@ -1,0 +1,422 @@
+{
+  "ApronBack": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "DryTimber",
+        "slot_index": 0
+      }
+    ]
+  },
+  "ApronFront": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "DryTimber",
+        "slot_index": 0
+      }
+    ]
+  },
+  "ApronLeft": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "DryTimber",
+        "slot_index": 0
+      }
+    ]
+  },
+  "ApronRight": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "DryTimber",
+        "slot_index": 0
+      }
+    ]
+  },
+  "LegBackLeft": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      },
+      {
+        "face": 6,
+        "slot_index": 0
+      },
+      {
+        "face": 7,
+        "slot_index": 0
+      },
+      {
+        "face": 8,
+        "slot_index": 0
+      },
+      {
+        "face": 9,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "DryTimber",
+        "slot_index": 0
+      }
+    ]
+  },
+  "LegBackRight": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      },
+      {
+        "face": 6,
+        "slot_index": 0
+      },
+      {
+        "face": 7,
+        "slot_index": 0
+      },
+      {
+        "face": 8,
+        "slot_index": 0
+      },
+      {
+        "face": 9,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "DryTimber",
+        "slot_index": 0
+      }
+    ]
+  },
+  "LegFrontLeft": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      },
+      {
+        "face": 6,
+        "slot_index": 0
+      },
+      {
+        "face": 7,
+        "slot_index": 0
+      },
+      {
+        "face": 8,
+        "slot_index": 0
+      },
+      {
+        "face": 9,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "DryTimber",
+        "slot_index": 0
+      }
+    ]
+  },
+  "LegFrontRight": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      },
+      {
+        "face": 6,
+        "slot_index": 0
+      },
+      {
+        "face": 7,
+        "slot_index": 0
+      },
+      {
+        "face": 8,
+        "slot_index": 0
+      },
+      {
+        "face": 9,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "DryTimber",
+        "slot_index": 0
+      }
+    ]
+  },
+  "PresentationHardstandOnly": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "PresentationStone",
+        "slot_index": 0
+      }
+    ]
+  },
+  "Tabletop": {
+    "faces": [
+      {
+        "face": 0,
+        "slot_index": 0
+      },
+      {
+        "face": 1,
+        "slot_index": 0
+      },
+      {
+        "face": 2,
+        "slot_index": 0
+      },
+      {
+        "face": 3,
+        "slot_index": 0
+      },
+      {
+        "face": 4,
+        "slot_index": 0
+      },
+      {
+        "face": 5,
+        "slot_index": 0
+      },
+      {
+        "face": 6,
+        "slot_index": 0
+      },
+      {
+        "face": 7,
+        "slot_index": 0
+      },
+      {
+        "face": 8,
+        "slot_index": 0
+      },
+      {
+        "face": 9,
+        "slot_index": 0
+      }
+    ],
+    "slots": [
+      {
+        "material": "DryTimber",
+        "slot_index": 0
+      }
+    ]
+  }
+}

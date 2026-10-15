@@ -1,0 +1,10 @@
+{
+  "image": "early-front.png",
+  "actual_image_viewed": true,
+  "coverage": "Complete uncropped tabletop, four legs and presentation hardstand; top chamfer and apron seating visible.",
+  "measurements_inspected": "20 opposing contact records, signed gaps0, normal dots-1, octagonal feet/top patches; ten closed convex solids and45 neighbor records passed.",
+  "largest_observed_defect": null,
+  "decision": "Retain geometry. No visible floating foot, disconnected apron, large black joint or oversized bevel. Dry untextured finish is an explicitly requested simplification, not photowood fidelity.",
+  "correction": "None warranted; no fake repair or lighting change.",
+  "limits": "Wide view cannot expose each contact underside; final close and reverse views required. No load/joinery certification."
+}

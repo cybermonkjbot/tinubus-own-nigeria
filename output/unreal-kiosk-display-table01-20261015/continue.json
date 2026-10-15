@@ -1,0 +1,5 @@
+{
+  "job": "kiosk-display-table01",
+  "expected_pid": 12592,
+  "action": "finish"
+}

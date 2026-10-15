@@ -1,0 +1,10 @@
+{
+  "engine": "CYCLES",
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-kiosk-display-table01-20261015\\KioskDisplayTable01.blend",
+  "host": "Cribtest11",
+  "job": "kiosk-display-table01",
+  "pid": 12592,
+  "scene": "KioskDisplayTable01",
+  "utc": "2026-10-15T08:46:08.481649+00:00",
+  "version": "5.2.2 LTS"
+}
