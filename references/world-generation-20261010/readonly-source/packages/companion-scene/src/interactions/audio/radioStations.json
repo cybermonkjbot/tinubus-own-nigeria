@@ -1,0 +1,28 @@
+{
+  "stations": [
+    {
+      "id": "lagos-jump",
+      "name": "LagosJump Radio",
+      "source": "https://www.lagosjumpradio.com/",
+      "stream": "https://radio.lagosjumpradio.com/listen/lagosjumpradio/radio.mp3"
+    },
+    {
+      "id": "smooth-lagos",
+      "name": "Smooth 98.1",
+      "source": "https://smooth981.fm/",
+      "stream": "https://smooth981fm-atunwadigital.streamguys1.com/smooth981fm"
+    },
+    {
+      "id": "africa-business",
+      "name": "Africa Business Radio",
+      "source": "https://www.africabusinessradio.com/",
+      "stream": "https://stream.zeno.fm/zmmzwfqsty8uv"
+    }
+  ],
+  "mediaOrigins": [
+    "https://radio.lagosjumpradio.com",
+    "https://smooth981fm-atunwadigital.streamguys1.com",
+    "https://stream.zeno.fm",
+    "https://*.surfernetwork.com"
+  ]
+}

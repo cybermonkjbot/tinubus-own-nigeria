@@ -1,0 +1,13 @@
+{
+  "at": "2026-10-10T18:02:45.008Z",
+  "sourceCommit": "e978763b74acfb0369b65b879af6a3a8c90b110b",
+  "referenceFiles": 250,
+  "referenceBytes": 7744086,
+  "manifestSha256": "15c73b4c06e57b6cc7088d26bd439e9c7345e22c5d93445bf7034399c0771d91",
+  "operationDirectory": "C:\\dev\\cribtest-game\\.git\\operations\\world-generation-20261010",
+  "referenceRoot": "C:\\dev\\cribtest-game\\.git\\operations\\world-generation-20261010\\readonly-source",
+  "protectedCount": 117,
+  "windowsCommit": "cdc7dcc03596365cdfbdc8d5a0c62d3f258f66ee",
+  "preservedStatus": "M apps/companion-unreal/Config/DefaultEngine.ini\n M apps/companion-unreal/Config/DefaultInput.ini",
+  "readOnlyReferenceCopy": true
+}

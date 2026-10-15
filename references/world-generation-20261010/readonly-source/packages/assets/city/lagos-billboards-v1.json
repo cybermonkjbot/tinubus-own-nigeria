@@ -1,0 +1,176 @@
+{
+  "version": 1,
+  "cityVersion": "lagos-city-v3",
+  "placements": [
+    {
+      "parcelId": "market-road-2",
+      "id": "bestieBillboardTownCentre",
+      "label": "Town Centre electric billboard",
+      "mount": "roof",
+      "width": 10,
+      "height": 2.25,
+      "x": 0,
+      "headline": "Find your next favourite.",
+      "accent": "#e894b5",
+      "artwork": "ribbon",
+      "assetKey": "bestieBillboardTownCentre",
+      "position": [
+        -107.14,
+        0,
+        -36.56
+      ],
+      "yaw": -0.1533845142648681,
+      "focusPosition": [
+        -109.07,
+        0,
+        -24.05
+      ],
+      "screenBottom": 7.14,
+      "base": 6.84,
+      "screenZ": 9.26,
+      "footprint": [
+        19.56,
+        19.32
+      ],
+      "maximumHeight": 9.6,
+      "district": "town-centre",
+      "street": "Market Road"
+    },
+    {
+      "parcelId": "unity-avenue-31",
+      "id": "bestieBillboardSouthMarket",
+      "label": "South Market electric billboard",
+      "mount": "roof",
+      "width": 10,
+      "height": 2.25,
+      "x": 0,
+      "headline": "Style worth passing on.",
+      "accent": "#f3c28e",
+      "artwork": "bag",
+      "assetKey": "bestieBillboardSouthMarket",
+      "position": [
+        21.79,
+        0,
+        -1089.14
+      ],
+      "yaw": 0.8039293220736489,
+      "focusPosition": [
+        30.92,
+        0,
+        -1080.35
+      ],
+      "screenBottom": 10.44,
+      "base": 10.139999999999999,
+      "screenZ": 9.275,
+      "footprint": [
+        19.1,
+        19.35
+      ],
+      "maximumHeight": 12.899999999999999,
+      "district": "south-market",
+      "street": "Unity Avenue"
+    },
+    {
+      "parcelId": "marina-drive-8",
+      "id": "bestieBillboardMarina",
+      "label": "Marina electric billboard",
+      "mount": "roof",
+      "width": 10,
+      "height": 2.25,
+      "x": -2.0616,
+      "headline": "Explore something new.",
+      "accent": "#9fd6dc",
+      "artwork": "waves",
+      "assetKey": "bestieBillboardMarina",
+      "position": [
+        -675.42,
+        0,
+        1034.01
+      ],
+      "yaw": 0.46534066584343375,
+      "focusPosition": [
+        -668.45,
+        0,
+        1047.88
+      ],
+      "screenBottom": 20.339999999999996,
+      "base": 20.039999999999996,
+      "screenZ": 12.125,
+      "footprint": [
+        25.77,
+        25.05
+      ],
+      "maximumHeight": 22.799999999999997,
+      "district": "marina",
+      "street": "Marina Drive"
+    },
+    {
+      "parcelId": "marina-drive-3",
+      "id": "bestieBillboardSkyline",
+      "label": "Skyline electric billboard",
+      "mount": "facade",
+      "width": 12,
+      "height": 3.4,
+      "x": 0,
+      "headline": "Make it your world.",
+      "accent": "#b8a2e0",
+      "artwork": "orbit",
+      "assetKey": "bestieBillboardSkyline",
+      "position": [
+        -487.73,
+        0,
+        1016.35
+      ],
+      "yaw": -2.043425730187725,
+      "focusPosition": [
+        -502.23,
+        0,
+        1008.94
+      ],
+      "screenBottom": 4.15,
+      "base": 4.15,
+      "screenZ": 12.885,
+      "footprint": [
+        43.85,
+        26.57
+      ],
+      "maximumHeight": 118.79999999999998,
+      "district": "skyline",
+      "street": "Marina Drive"
+    },
+    {
+      "parcelId": "market-road-17",
+      "id": "bestieBillboardPalmCourts",
+      "label": "Palm Courts electric billboard",
+      "mount": "roof",
+      "width": 5.2,
+      "height": 2.3,
+      "x": -7.259,
+      "headline": "Your people.\nYour place.",
+      "accent": "#bfd49d",
+      "artwork": "arches",
+      "assetKey": "bestieBillboardPalmCourts",
+      "position": [
+        -589.73,
+        0,
+        -329.36
+      ],
+      "yaw": 2.3204420487742135,
+      "focusPosition": [
+        -578.07,
+        0,
+        -340.21
+      ],
+      "screenBottom": 13.74,
+      "base": 13.44,
+      "screenZ": 12.53,
+      "footprint": [
+        20.74,
+        25.86
+      ],
+      "maximumHeight": 16.2,
+      "district": "palm-courts",
+      "street": "Market Road"
+    }
+  ]
+}

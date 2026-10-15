@@ -1,0 +1,9 @@
+{
+  "before": "ab8de9b944355142cf3388b7d96aa66ab196418c",
+  "after": "1a54458af5a52e82d49ddfc936dc77cb2490d8d6",
+  "redactedBlobCount": 1,
+  "redactedFields": 1,
+  "originalHeadUnchanged": true,
+  "originalWorkingFilesModified": false,
+  "credentialRotated": false
+}

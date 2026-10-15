@@ -1,0 +1,19 @@
+{
+  "version": "dance-again-v1",
+  "label": "Dance Again",
+  "size": [9, 3.4, 16],
+  "boothRows": [-4.5, -0.8, 2.9],
+  "boothX": 3.65,
+  "boothSize": [2.9, 1.12, 1.05],
+  "tableX": 2.35,
+  "tableSize": [0.9, 0.76, 0.9],
+  "chairX": 1.45,
+  "chairSize": [0.54, 0.96, 0.6],
+  "bar": { "point": [0, 0, -6.6], "size": [5.8, 1.06, 0.72] },
+  "backbar": { "point": [0, 0, -7.55], "size": [5.8, 1.55, 0.35] },
+  "neon": { "text": "DANCE AGAIN", "point": [0, 2.55, -7.72], "size": [3.8, 0.68, 0.12] },
+  "theme": { "background": "#171017", "floor": "#62432f", "wall": "#863b47", "accent": "#ed639a", "openAir": false },
+  "palette": { "wall": "#863b47", "fabric": "#954d50", "flower": "#c78079", "leaf": "#31403a", "wood": "#56382b", "black": "#141215", "brass": "#ac8251", "pink": "#ff559e", "amber": "#f2ac74" },
+  "floral": { "resolution": 256, "tileMetres": 0.65, "flowers": [[0.22, 0.23], [0.72, 0.62]], "leaves": [[0.4, 0.32, 0.7], [0.1, 0.5, -0.8], [0.88, 0.79, 0.7], [0.57, 0.83, -0.8]] },
+  "cameras": { "wide": { "eye": [0.25, 1.72, 6.4], "target": [0, 1.55, -5.8] }, "close": { "eye": [0, 1.65, 3.8], "target": [0, 1.4, -4.5] } }
+}

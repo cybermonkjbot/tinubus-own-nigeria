@@ -1,0 +1,12 @@
+# Local credentials and machine state; existing tracked evidence remains tracked.
+.env
+.env.*
+!.env.example
+*.p8
+*.p12
+*.pfx
+.DS_Store
+__pycache__/
+*.py[cod]
+/.vs/
+/tmp/
