@@ -1,0 +1,4 @@
+C:\dev\cribtest-game\output\unreal-courtyard-sconce01-20261015\author_sconce.py:23: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name); m.use_nodes=True
+C:\dev\cribtest-game\output\unreal-courtyard-sconce01-20261015\author_sconce.py:190: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes=True; scene.world.node_tree.nodes['Background'].inputs[0].default_value=(.65,.65,.65,1)

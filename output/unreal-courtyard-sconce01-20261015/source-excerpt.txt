@@ -1,0 +1,24 @@
+Parent-supplied verbatim primary excerpt, lines602-615.
+packages/companion-scene/src/interactions/city/cityStreetDetails.ts
+Full-file SHA25614addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8.
+Full source absent on Windows; excerpt attribution, not full-byte verification.
+    for (const light of tile.residentialLights) {
+      const c = Math.cos(light.yaw), s = Math.sin(light.yaw);
+      const at = (x: number, y: number, z: number, w: number, h: number, d: number, tint: string): Part => ({
+        x: light.x + x * c + z * s, y: light.y + y, z: light.z - x * s + z * c,
+        w, h, d, yaw: light.yaw, colour: tint,
+      });
+      if (light.kind === "canopy") {
+        metal.push(at(0, 0, 0, .46, .1, .34, "#48544f"));
+        bulbs.push(at(0, -.059, 0, .36, .025, .25, "#fff0cc"));
+      } else if (light.kind === "sconce") {
+        metal.push(at(0, 0, 0, .22, .46, .09, "#46534c"));
+        metal.push(at(0, .23, .06, .29, .065, .25, "#46534c"));
+        bulbs.push(at(0, -.015, .072, .17, .32, .065, "#ffe3b1"));
+      } else {
+Utility parent provenance: packages/utils/src/companionCityLighting.ts lines34-50,
+SHA25695967a75c10a74f820cda5a8cdef434c6bcac946dd3eea47f889d5bc44525780.
+Courtyard pilasters sourceY2.65m rotated +/-pi/2; excluded authored parcel identities preserved.
+Utility full bytes/excluded identities not supplied here; no invented IDs or placement.
+Only sconce branch authored; canopy/other branches retained as excerpt context, not constructed.
+Conversion source(X,Y,Z)->Blender(X,-Z,Y), body-centre origin0, +Xwidth/+Zup/front-Y.

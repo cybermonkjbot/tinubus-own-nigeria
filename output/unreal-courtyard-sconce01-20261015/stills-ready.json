@@ -1,0 +1,86 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 2252,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-courtyard-sconce01-20261015\\work-in-progress.blend",
+    "scene": "CourtyardSconce01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "courtyard-sconce01",
+    "utc": "2026-10-15T06:18:49.502841+00:00",
+    "rendering": false
+  },
+  "views": [
+    [
+      "front",
+      [
+        0.8,
+        -1.4,
+        0.6
+      ],
+      [
+        0,
+        -0.03,
+        0.02
+      ],
+      60
+    ],
+    [
+      "reverse",
+      [
+        -0.7,
+        0.9,
+        0.4
+      ],
+      [
+        0,
+        0.03,
+        0.01
+      ],
+      65
+    ],
+    [
+      "grazing",
+      [
+        0.65,
+        -0.6,
+        0.1
+      ],
+      [
+        0,
+        -0.03,
+        0.02
+      ],
+      60
+    ],
+    [
+      "player165",
+      [
+        0.25,
+        -1.3,
+        -1.0
+      ],
+      [
+        0,
+        -0.03,
+        0.01
+      ],
+      62
+    ],
+    [
+      "detail",
+      [
+        0.42,
+        -0.65,
+        0.38
+      ],
+      [
+        0,
+        -0.04,
+        0.14
+      ],
+      75
+    ]
+  ],
+  "hiddenPresentation": "Only wall hidden in reverse; all asset transforms unchanged"
+}

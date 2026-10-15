@@ -1,0 +1,11 @@
+{
+  "host": "Cribtest11",
+  "pid": 2252,
+  "file": "",
+  "scene": "CourtyardSconce01",
+  "engine": "CYCLES",
+  "version": "5.2.2 LTS",
+  "job": "courtyard-sconce01",
+  "utc": "2026-10-15T06:13:43.905155+00:00",
+  "rendering": false
+}

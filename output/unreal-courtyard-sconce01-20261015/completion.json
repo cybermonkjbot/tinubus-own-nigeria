@@ -1,0 +1,16 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 2252,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-courtyard-sconce01-20261015\\CourtyardSconce01.blend",
+    "scene": "CourtyardSconce01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "courtyard-sconce01",
+    "utc": "2026-10-15T06:19:03.974256+00:00",
+    "rendering": false
+  },
+  "savedReopened": true,
+  "stills": 5,
+  "sha256": "39a1cb27b0ad92f0fdd3c0fb3803f9108eba4142d06a0d6685758fef276eb86f"
+}

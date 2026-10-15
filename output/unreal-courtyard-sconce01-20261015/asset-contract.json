@@ -1,0 +1,27 @@
+{
+  "job": "courtyard-sconce01",
+  "axes": "Xwidth,Zup,front-Y,body-centre origin0",
+  "sourceExcerptSHA256": "196e32a8d6e3b654cf96e1c5f19396a5325cbe3b947941dfd33afb567e16d9ab",
+  "sourceFullFileSHA256": "14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8",
+  "utilityFullFileSHA256": "95967a75c10a74f820cda5a8cdef434c6bcac946dd3eea47f889d5bc44525780",
+  "windowsFullSourceVerified": false,
+  "ownedMeshIDs": [
+    "HousingHoodSpacer",
+    "DiffuserCup",
+    "Gasket",
+    "PresentationWall"
+  ],
+  "usedMaterialIDs": [
+    "Sconce_CoatedMetal",
+    "Sconce_WarmDiffuser",
+    "Sconce_Gasket",
+    "Presentation_Masonry"
+  ],
+  "lightIDs": [
+    "Key",
+    "Fill"
+  ],
+  "authored": "3mm hollow shell/diffuser cup,5.5mm seated gasket,20mm back spacer,joined hood/header,physical bevel;not surveyed",
+  "emission": "Restrained0.35 shader emission only,no installed lightpool/clock/wiring",
+  "limits": "No canonical placement/privateHome/native integration/collision/nav/gameplay/electrical/IP/load/performance/release claims"
+}
