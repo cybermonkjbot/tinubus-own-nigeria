@@ -1,0 +1,73 @@
+Parent-supplied provenance, not Windows full-source verification. Both full TS paths absent Windows.
+PARENT packages/utils/src/companionCityArchitectureDetails.ts SHA25652895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857 lines11-19:
+/** Parcel-local metric geometry. +Z faces the parcel's authored street. */
+export type CityArchitecturePart = {
+  role: string;
+  x: number; y: number; z: number;
+  w: number; h: number; d: number;
+  material: CityArchitectureMaterial;
+  geometry: CityArchitectureGeometry;
+  colour: string;
+  shadow: boolean;
+lines55-60:
+  const w = p.width, d = p.depth, h = p.floors * 3.3, front = d / 2 - forecourt, back = -d / 2;
+  const entry = companionCityArchitectureEntrance(p).x;
+  const tint = (finishes[p.district] ?? finishes["town-centre"])[p.variant % 6];
+  const trim = p.district === "south-market" ? "#b7a38b" : p.district === "skyline" ? "#d1d5cf" : "#d8cfbb";
+  const steel = p.district === "marina" ? "#536c70" : "#505c55";
+  const timber = p.district === "lagoon-gardens" ? "#9b805c" : "#80654a";
+lines75-80:
+  // Recess the front structure so balconies and sheltered entrances do not overhang routes.
+  const face = front - 1.3;
+  const add = (role: string, material: CityArchitectureMaterial, x: number, y: number, z: number,
+    width: number, height: number, depth: number, colour = trim,
+    geometry: CityArchitectureGeometry = "box", shadow = true) => {
+    parts.push({ role, material, x, y, z, w: width, h: height, d: depth, colour, geometry, shadow });
+lines127-135:
+  const entrance = (x: number, z: number, openPassage = false) => {
+    if (!openPassage) door(x, z - .48);
+    // 2.85 m headroom and an open central axis, including courtyards.
+    add("entrance canopy", "stone", x, 3.03, z - .4, 3.65, .22, .9, trim, "bevel");
+    for (const side of [-1, 1]) add("entrance pier", "stone", x + side * 1.75, 1.43, z - .42, .22, 2.85, .82);
+    if (!openPassage) for (const side of [-1, 1]) add("entrance return", "plaster", x + side * 1.55,
+      1.43, face + .35, .17, 2.85, .7, tint);
+    add("flush threshold", "stone", x, .015, z - .43, 3.26, .03, .86, "#b6b4a5", "box", false);
+  };
+PARENT packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts SHA256fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa lines59-68:
+function materialForPart(parcel: CompanionCityParcel, part: CityArchitecturePart): DetailMaterial {
+  const groundWall = part.material === "plaster" && part.y - part.h / 2 < .05
+    || /^compound (side|front|rear) wall$/.test(part.role) || part.role === "frontage boundary wall";
+  if (groundWall && (part.material === "stone" || part.material === "plaster")) {
+    const tidy = parcel.kind === "tower" || parcel.style === "waterfront" || ["terrace-villa", "courtyard-villa"].includes(parcel.style)
+      || ["skyline", "lagoon-gardens", "garden-quarter"].includes(parcel.district);
+    return part.material === "stone" ? tidy ? "tidyStone" : "dampStone" : tidy ? "tidyPlaster" : "dampPlaster";
+  }
+  // Only individual panes admit interior light. Doors and whole glazing bands stay passive.
+  if (part.material !== "glass" || part.role !== "window glass") return part.material;
+line171:
+    stone: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .92 }),
+lines207-228:
+  // Metric grain rather than per-box UVs. There are no photographed textures or flat window decals.
+  for (const name of ["plaster", "stone", "wood", "canvas", "roof", "dampPlaster", "dampStone", "tidyPlaster", "tidyStone"] as const) {
+    const material = materials[name];
+    const damp = name.startsWith("damp") ? .85 : name.startsWith("tidy") ? .24 : 0;
+    material.onBeforeCompile = shader => {
+      shader.vertexShader = `varying vec3 architecturePoint;
+${shader.vertexShader}`
+        .replace("#include <begin_vertex>", `#include <begin_vertex>
+          vec4 architectureVertex = vec4(transformed, 1.);
+          #ifdef USE_INSTANCING
+            architectureVertex = instanceMatrix * architectureVertex;
+          #endif
+          architecturePoint = (modelMatrix * architectureVertex).xyz;`);
+      shader.fragmentShader = `varying vec3 architecturePoint;
+${shader.fragmentShader}`
+        .replace("#include <color_fragment>", `#include <color_fragment>
+          float grain = fract(sin(dot(floor(architecturePoint * 95.), vec3(17.13, 91.77, 43.11))) * 43758.5453);
+          float wash = sin(architecturePoint.x * 1.3 + sin(architecturePoint.z * 1.9)) * sin(architecturePoint.y * .73);
+          diffuseColor.rgb *= .976 + grain * .036 + wash * .014;
+          float moisture = (1.-smoothstep(.08,.68+(grain-.5)*.08,architecturePoint.y))*${damp.toFixed(2)};
+          diffuseColor.rgb *= 1.-moisture*.24;`);
+    };
+    material.customProgramCacheKey = () => `city-architecture-metric-grain-v2-${damp}`;
+  }

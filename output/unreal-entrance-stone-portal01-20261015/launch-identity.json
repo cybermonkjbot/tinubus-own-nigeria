@@ -1,0 +1,10 @@
+{
+    "host":  "Cribtest11",
+    "pid":  9972,
+    "startUtc":  "2026-10-15T08:27:49.0645094Z",
+    "exe":  "C:\\dev\\tools\\baddie-blender\\blender-5.2.2-windows-x64\\blender.exe",
+    "job":  "entrance-stone-portal01",
+    "arguments":  "--background --factory-startup --python-exit-code 1 --python author_portal.py",
+    "freePhysicalKB":  12091848,
+    "totalPhysicalKB":  16771796
+}

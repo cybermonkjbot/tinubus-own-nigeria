@@ -1,0 +1,6 @@
+  File "C:\dev\cribtest-game\output\unreal-entrance-stone-portal01-20261015\author_portal.py", line 502
+    edge_limits='2mm vertical pier corners; 2mm canopy top longitudinal corners; 1mm threshold top longitudinal corners; square X ends')))
+                                                                                                                                         ^
+SyntaxError: unmatched ')'
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-entrance-stone-portal01-20261015\author_portal.py', exiting.
