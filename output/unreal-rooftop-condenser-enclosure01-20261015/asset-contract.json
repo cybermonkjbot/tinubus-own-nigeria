@@ -1,0 +1,62 @@
+{
+  "area_tolerance_m2": 2e-08,
+  "correction_action": "finish",
+  "job": "rooftop-condenser-enclosure01",
+  "length_tolerance_m": 2e-06,
+  "limits": "Static exterior art; no fan/coil/operating HVAC, roof/native placement, engineering or exhaustive collision certification. Real hollow housing closed material shell, five independent static bars, rails and presentation bed.",
+  "material_roles": {
+    "Bar1": "BarMetal",
+    "Bar2": "BarMetal",
+    "Bar3": "BarMetal",
+    "Bar4": "BarMetal",
+    "Bar5": "BarMetal",
+    "Housing": "HousingMetal",
+    "PresentationHardstandOnly": "BedStone",
+    "RailLeft": "RailStone",
+    "RailRight": "RailStone"
+  },
+  "parameters_actual_authored": {
+    "bar_centres": [
+      0.2,
+      0.32,
+      0.44,
+      0.56,
+      0.68
+    ],
+    "bar_halfheight": 0.017,
+    "bed_bottom": -0.08,
+    "bed_halfdepth": 0.575,
+    "bed_halfwidth": 0.75,
+    "bottom": 0.08,
+    "chamfer": 0.001,
+    "inner_back": 0.417,
+    "inner_bottom": 0.088,
+    "inner_top": 0.772,
+    "inner_x": 0.592,
+    "opening_bottom": 0.165,
+    "opening_top": 0.715,
+    "opening_x": 0.51,
+    "outer_x": 0.6,
+    "outer_y": 0.425,
+    "rail_centres": [
+      -0.45,
+      0.45
+    ],
+    "rail_halfdepth": 0.35,
+    "rail_halfwidth": 0.05,
+    "throat_back": -0.4,
+    "top": 0.78
+  },
+  "solid_ids": [
+    "Housing",
+    "Bar1",
+    "Bar2",
+    "Bar3",
+    "Bar4",
+    "Bar5",
+    "RailLeft",
+    "RailRight",
+    "PresentationHardstandOnly"
+  ],
+  "source_excerpt_sha256": "55b74f16594f233ad3185a71c305be862c3d00a6888dbf3f65e9ee030bd27726"
+}

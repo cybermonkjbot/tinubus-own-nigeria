@@ -1,0 +1,104 @@
+PARENT-SUPPLIED SOURCE EXCERPTS. Full source bytes verified by parent only; no assertion that full files exist on Windows. UTF-8, LF, final LF.
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 11-19:
+/** Parcel-local metric geometry. +Z faces the parcel's authored street. */
+export type CityArchitecturePart = {
+  role: string;
+  x: number; y: number; z: number;
+  w: number; h: number; d: number;
+  material: CityArchitectureMaterial;
+  geometry: CityArchitectureGeometry;
+  colour: string;
+  shadow: boolean;
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 55-70:
+  const w = p.width, d = p.depth, h = p.floors * 3.3, front = d / 2 - forecourt, back = -d / 2;
+  const entry = companionCityArchitectureEntrance(p).x;
+  const tint = (finishes[p.district] ?? finishes["town-centre"])[p.variant % 6];
+  const trim = p.district === "south-market" ? "#b7a38b" : p.district === "skyline" ? "#d1d5cf" : "#d8cfbb";
+  const steel = p.district === "marina" ? "#536c70" : "#505c55";
+  const timber = p.district === "lagoon-gardens" ? "#9b805c" : "#80654a";
+  const awningColours = ["#987655", "#687b6d", "#bd9368", "#5e737c", "#92715d", "#ac9c75"];
+  const awning = awningColours[Math.floor(variation(p.id, "awning") * awningColours.length)];
+  const courtyard = p.style === "courtyard";
+  const luxury = p.style === "terrace-villa" || p.style === "courtyard-villa";
+  const tower = p.style === "stepped-tower";
+  const shed = p.style === "warehouse" || p.style === "workshop";
+  const retail = p.units === 0 && !shed;
+  const pitched = shed || p.style === "townhouse" || p.style === "garden-home";
+  // Land use and individual frontage matter. A tower or villa does not inherit market clutter.
+  const maintained = tower || luxury || p.style === "waterfront" || p.district === "skyline" || p.district === "lagoon-gardens";
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 75-80:
+  // Recess the front structure so balconies and sheltered entrances do not overhang routes.
+  const face = front - 1.3;
+  const add = (role: string, material: CityArchitectureMaterial, x: number, y: number, z: number,
+    width: number, height: number, depth: number, colour = trim,
+    geometry: CityArchitectureGeometry = "box", shadow = true) => {
+    parts.push({ role, material, x, y, z, w: width, h: height, d: depth, colour, geometry, shadow });
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 438-444:
+  if (!luxury) {
+    // Utilities sit on an occupied wing. Pitched buildings use a roof vent rather than a floating tank.
+    const utilityX = courtyard ? -w * .35 : tower ? w * .05 : -w * .18;
+    const utilityZ = courtyard ? -d * .12 : tower ? -d * .09 : pitched ? -.1 - forecourt / 2 : -d * .19;
+    const roofY = tower ? h + 6.84 : pitched ? h + 2.7 : h + .24;
+    const raisedTank = !pitched && !maintained && variation(p.id, "tank-frame") < .38;
+    const tankBase = roofY + (raisedTank ? 1.2 : 0);
+
+PARENT SOURCE packages/utils/src/companionCityArchitectureDetails.ts
+SHA256 52895a86c0a5c310a4b4603af9073c57b53ea59399fafe70c32644ff1342d857
+Verbatim lines 462-467:
+    const utilityLimit = courtyard ? -w * .2 - .7 : tower ? w * .25 - .7 : w * .25;
+    if (!pitched) for (let x = utilityX + 2.1; x < Math.min(utilityLimit, utilityX + 6); x += 1.7) {
+      add("roof condenser", "metal", x, roofY + .43, utilityZ, 1.2, .7, .85, "#afb7ab", "bevel");
+      for (let y = roofY + .2; y < roofY + .69; y += .12)
+        add("condenser grille", "metal", x, y, utilityZ + .44, 1.02, .034, .025, steel);
+    }
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 59-68:
+function materialForPart(parcel: CompanionCityParcel, part: CityArchitecturePart): DetailMaterial {
+  const groundWall = part.material === "plaster" && part.y - part.h / 2 < .05
+    || /^compound (side|front|rear) wall$/.test(part.role) || part.role === "frontage boundary wall";
+  if (groundWall && (part.material === "stone" || part.material === "plaster")) {
+    const tidy = parcel.kind === "tower" || parcel.style === "waterfront" || ["terrace-villa", "courtyard-villa"].includes(parcel.style)
+      || ["skyline", "lagoon-gardens", "garden-quarter"].includes(parcel.district);
+    return part.material === "stone" ? tidy ? "tidyStone" : "dampStone" : tidy ? "tidyPlaster" : "dampPlaster";
+  }
+  // Only individual panes admit interior light. Doors and whole glazing bands stay passive.
+  if (part.material !== "glass" || part.role !== "window glass") return part.material;
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 84-89:
+  const shape = new THREE.Shape();
+  shape.moveTo(-.475, -.475); shape.lineTo(.475, -.475); shape.lineTo(.475, .475);
+  shape.lineTo(-.475, .475); shape.closePath();
+  const bevel = new THREE.ExtrudeGeometry(shape, { depth: .95, steps: 1, bevelEnabled: true,
+    bevelSize: .025, bevelThickness: .025, bevelSegments: 1, curveSegments: 1 });
+  bevel.translate(0, 0, -.475);
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityArchitectureDetails.ts
+SHA256 fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa
+Verbatim lines 169-179:
+  const materials: Record<DetailMaterial, THREE.MeshStandardMaterial> = {
+    plaster: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .88 }),
+    stone: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .92 }),
+    metal: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .52, metalness: .32 }),
+    glass: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .22, metalness: .2 }),
+    litWindow: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .22, metalness: .2,
+      emissive: "#efc58d", emissiveIntensity: 0 }),
+    wood: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .79 }),
+    canvas: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .96 }),
+    roof: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .65, metalness: .15 }),
+    recess: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .98 }),

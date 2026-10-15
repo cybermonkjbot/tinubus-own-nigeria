@@ -1,0 +1,31 @@
+{
+  "engine": "CYCLES",
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-rooftop-condenser-enclosure01-20261015\\RooftopCondenserEnclosure01.blend",
+  "host": "Cribtest11",
+  "job": "rooftop-condenser-enclosure01",
+  "objects": [
+    "Bar1",
+    "Bar2",
+    "Bar3",
+    "Bar4",
+    "Bar5",
+    "Camera_front",
+    "Camera_grazing",
+    "Camera_player165",
+    "Camera_reverse",
+    "Camera_support",
+    "Housing",
+    "OwnedFill",
+    "OwnedKey",
+    "OwnedReverse",
+    "PresentationHardstandOnly",
+    "RailLeft",
+    "RailRight"
+  ],
+  "pid": 11872,
+  "render_job": false,
+  "scene": "RooftopCondenserEnclosure01",
+  "stage": "reopened",
+  "utc": "2026-10-15T09:59:09.135557+00:00",
+  "version": "5.2.2 LTS"
+}

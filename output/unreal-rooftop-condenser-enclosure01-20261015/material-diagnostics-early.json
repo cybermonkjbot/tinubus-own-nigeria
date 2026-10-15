@@ -1,0 +1,480 @@
+[
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 10,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 11,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 12,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 13,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 14,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 15,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 16,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 17,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 18,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 19,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 20,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 21,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 22,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 23,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 24,
+        "material": "HousingMetal",
+        "slot": 0
+      },
+      {
+        "face": 25,
+        "material": "HousingMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Housing",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "HousingMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Bar1",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Bar2",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Bar3",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Bar4",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "BarMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Bar5",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "BarMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "RailStone",
+        "slot": 0
+      }
+    ],
+    "object": "RailLeft",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "RailStone",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "RailStone",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "RailStone",
+        "slot": 0
+      }
+    ],
+    "object": "RailRight",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "RailStone",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "BedStone",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "BedStone",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "BedStone",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "BedStone",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "BedStone",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "BedStone",
+        "slot": 0
+      }
+    ],
+    "object": "PresentationHardstandOnly",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "BedStone",
+        "slot": 0
+      }
+    ]
+  }
+]

@@ -1,0 +1,69 @@
+{
+    "utc":  "2026-10-15T10:05:09.0146198Z",
+    "base":  "87b750f913f8c6211fa142091da25e0a973cecee",
+    "blend_sha256":  "6ec8b9b4d7b0ecc1beec0829a9b4b045ae8482086be2ffafaa7974edd739d117",
+    "source_sha256":  "55b74f16594f233ad3185a71c305be862c3d00a6888dbf3f65e9ee030bd27726",
+    "images":  {
+                   "early-front":  {
+                                       "width":  800,
+                                       "height":  800,
+                                       "bytes":  576419,
+                                       "sha256":  "69ee78827be8f4c20743c3c656bd456ddb1720c6a7d6e5086735676f89b8630d"
+                                   },
+                   "front":  {
+                                 "width":  800,
+                                 "height":  800,
+                                 "bytes":  576430,
+                                 "sha256":  "4c94605f17a89449abef6e090da49db50c73df6e294267ee87b0c50287bf4b1f"
+                             },
+                   "reverse":  {
+                                   "width":  800,
+                                   "height":  800,
+                                   "bytes":  525289,
+                                   "sha256":  "33bf0c66b46803c71f3c32cfaebd5d7cb7cb1c5aa5c66f96b064c0ba99f0f2d7"
+                               },
+                   "grazing":  {
+                                   "width":  800,
+                                   "height":  800,
+                                   "bytes":  637299,
+                                   "sha256":  "7c59a4fa5afd391842442c442c5e4402c2f33f79ca2e19171a46a777af919699"
+                               },
+                   "player165":  {
+                                     "width":  800,
+                                     "height":  800,
+                                     "bytes":  590977,
+                                     "sha256":  "5b118a45178fffd50c903a19660cb6219d09d5bffe70baf9d7e0eb2bd4f02e53"
+                                 },
+                   "support":  {
+                                   "width":  800,
+                                   "height":  800,
+                                   "bytes":  623504,
+                                   "sha256":  "e9c8cb58d58851d27d1e092653a947532b820b87d673e241a485e5ea9adc71ea"
+                               }
+               },
+    "readbacks":  {
+                      "before-save-readback.json":  "795db38c9f40fa40c02cea2dffc335888dd1486644a70fe8ed4812b496c67367",
+                      "reopened-readback.json":  "795db38c9f40fa40c02cea2dffc335888dd1486644a70fe8ed4812b496c67367",
+                      "postviews-readback.json":  "795db38c9f40fa40c02cea2dffc335888dd1486644a70fe8ed4812b496c67367"
+                  },
+    "historical_preserved":  489,
+    "outside_tracked_diff":  [
+
+                             ],
+    "outside_untracked":  [
+
+                          ],
+    "original_processes":  [
+                               {
+                                   "Id":  6116,
+                                   "ProcessName":  "blender",
+                                   "SessionId":  0
+                               },
+                               {
+                                   "Id":  10404,
+                                   "ProcessName":  "UnrealEditor",
+                                   "SessionId":  2
+                               }
+                           ],
+    "os_exit_code":  "unknown: wrapper null"
+}

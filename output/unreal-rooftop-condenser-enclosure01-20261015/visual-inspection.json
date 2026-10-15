@@ -1,0 +1,14 @@
+{
+  "actual_images_inspected": ["front.png", "reverse.png", "grazing.png", "player165.png", "support.png"],
+  "front": "Complete uncropped housing/top/front annulus/five bars/recess/rails and full bed. Both rails partly occluded naturally. No added equipment or false panel.",
+  "reverse": "Whole closed rear exterior and both rail exteriors, low view. ONLY presentation bed hidden; bars remain present but naturally occluded by rear shell. No explosion. Bed contacts unshown in this view.",
+  "grazing": "Intentional close crop at right bar ends/throat/front bezel, showing square bar flats and subtle external front chamfer. End mating polygons naturally occluded; geometry contact records prove those interfaces, not photo visibility.",
+  "player165": "Camera Z1.65 ground relative; complete uncropped enclosure, real gap/recess appearance, supports and bed. No route/accessibility/gameplay claim.",
+  "support": "Low close crop shows right rail touching housing underside and visible bed, lower front bars/recess/frame. Left support and actual hidden mating polygons not all visible. Shadow under unsupported span is natural, not false floating support or black material.",
+  "defect_ledger": [],
+  "correction": "None required by observed image/measurement evidence. Explicit finish, unchanged geometry, no fake correction or lighting mask.",
+  "finish_limits": "Uniform dry approximate generic metal/stone, intentionally omitted texture/noise/weather; not tested coating/alloy/photo fidelity. Square back/bar/support edges intentional, not all-edge chamfer.",
+  "evidence_limits": "Hollow cavity and closed inner rear/8mm walls/contact planes proved by evaluated shell/rays/readback; not full photo-visible mating surfaces or exhaustive engineering/HVAC/collision certification.",
+  "saved_state_restored_exactly": true,
+  "os_exit_code": "unknown: wrapper returned null; completion receipt and stdout Blender quit observed, PID no longer present"
+}

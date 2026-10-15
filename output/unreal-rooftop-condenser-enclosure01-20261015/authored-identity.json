@@ -1,0 +1,23 @@
+{
+  "engine": "BLENDER_EEVEE",
+  "file": "",
+  "host": "Cribtest11",
+  "job": "rooftop-condenser-enclosure01",
+  "objects": [
+    "Bar1",
+    "Bar2",
+    "Bar3",
+    "Bar4",
+    "Bar5",
+    "Housing",
+    "PresentationHardstandOnly",
+    "RailLeft",
+    "RailRight"
+  ],
+  "pid": 11872,
+  "render_job": false,
+  "scene": "RooftopCondenserEnclosure01",
+  "stage": "authored",
+  "utc": "2026-10-15T09:57:45.858980+00:00",
+  "version": "5.2.2 LTS"
+}

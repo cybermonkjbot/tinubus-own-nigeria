@@ -1,0 +1,23 @@
+{
+  "engine": "BLENDER_EEVEE",
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-rooftop-condenser-enclosure01-20261015\\work-in-progress.blend",
+  "host": "Cribtest11",
+  "job": "rooftop-condenser-enclosure01",
+  "objects": [
+    "Bar1",
+    "Bar2",
+    "Bar3",
+    "Bar4",
+    "Bar5",
+    "Housing",
+    "PresentationHardstandOnly",
+    "RailLeft",
+    "RailRight"
+  ],
+  "pid": 11872,
+  "render_job": false,
+  "scene": "RooftopCondenserEnclosure01",
+  "stage": "wip",
+  "utc": "2026-10-15T09:57:46.056031+00:00",
+  "version": "5.2.2 LTS"
+}

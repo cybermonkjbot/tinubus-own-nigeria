@@ -1,0 +1,10 @@
+{
+    "host":  "Cribtest11",
+    "root":  "C:\\dev\\cribtest-game\\output\\unreal-rooftop-condenser-enclosure01-20261015",
+    "head":  "87b750f913f8c6211fa142091da25e0a973cecee",
+    "pid":  11872,
+    "exe":  "C:\\dev\\tools\\baddie-blender\\blender-5.2.2-windows-x64\\blender.exe",
+    "utc":  "2026-10-15T09:57:38.0065291Z",
+    "originalBlender":  6116,
+    "originalUnreal":  10404
+}

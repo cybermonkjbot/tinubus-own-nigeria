@@ -1,0 +1,8 @@
+C:\dev\cribtest-game\output\unreal-rooftop-condenser-enclosure01-20261015\author_enclosure.py:71: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\dev\cribtest-game\output\unreal-rooftop-condenser-enclosure01-20261015\author_enclosure.py:538: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+C:\dev\cribtest-game\output\unreal-rooftop-condenser-enclosure01-20261015\author_enclosure.py:597: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  result['materials'][name] = {'diffuse':list(mat.diffuse_color),'use_nodes':mat.use_nodes,'nodes':node_readback(mat.node_tree),'source_srgb':mat['source_srgb'],'users':mat.users}
+C:\dev\cribtest-game\output\unreal-rooftop-condenser-enclosure01-20261015\author_enclosure.py:609: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  result['world'] = {'name':scene.world.name,'use_nodes':scene.world.use_nodes,'color':list(scene.world.color),'tree':node_readback(scene.world.node_tree)}

@@ -1,0 +1,13 @@
+{
+  "image": "early-front.png",
+  "actual_image_inspected": true,
+  "measurements_inspected": "measurements-early.json",
+  "whole_uncropped": true,
+  "coverage": "Housing/top/front frame/five separate bars/real recess/full display bed, rail exteriors partly occluded by housing. Mating faces and inner rear are geometry/ray evidence, not fully photo-visible.",
+  "defect_ledger": [],
+  "decision": "No observed causal geometry or finish defect requires correction. Continue unchanged, no fake correction or lighting mask.",
+  "counts": {"solids": 9, "contact_patches": 14, "contact_pairs": 9, "separated_pairs": 27},
+  "bearing_signed_gaps_m": 0,
+  "bearing_normal_dot": -1,
+  "limitations": "Dry uniform approximate finish/square unselected edges intentional. Static art, not functional HVAC/native installation."
+}

@@ -1,0 +1,7 @@
+{
+  "job": "rooftop-condenser-enclosure01",
+  "expected_pid": 11872,
+  "action": "finish",
+  "inspection": "early-inspection.json",
+  "observed_defect": null
+}

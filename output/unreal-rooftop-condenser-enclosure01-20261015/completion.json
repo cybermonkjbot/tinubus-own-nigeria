@@ -1,0 +1,17 @@
+{
+  "correction_action": "finish",
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-rooftop-condenser-enclosure01-20261015\\RooftopCondenserEnclosure01.blend",
+  "job": "rooftop-condenser-enclosure01",
+  "os_exit_code": "recorded by launch wrapper after process exits",
+  "pid": 11872,
+  "readback_exact_match": true,
+  "saved_state_restored": true,
+  "utc": "2026-10-15T10:02:01.045579+00:00",
+  "views": [
+    "front",
+    "reverse",
+    "grazing",
+    "player165",
+    "support"
+  ]
+}
