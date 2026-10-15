@@ -1,0 +1,22 @@
+  // Metric grain rather than per-box UVs. There are no photographed textures or flat window decals.
+  for (const name of ["plaster", "stone", "wood", "canvas", "roof", "dampPlaster", "dampStone", "tidyPlaster", "tidyStone"] as const) {
+    const material = materials[name];
+    const damp = name.startsWith("damp") ? .85 : name.startsWith("tidy") ? .24 : 0;
+    material.onBeforeCompile = shader => {
+      shader.vertexShader = `varying vec3 architecturePoint;\n${shader.vertexShader}`
+        .replace("#include <begin_vertex>", `#include <begin_vertex>
+          vec4 architectureVertex = vec4(transformed, 1.);
+          #ifdef USE_INSTANCING
+            architectureVertex = instanceMatrix * architectureVertex;
+          #endif
+          architecturePoint = (modelMatrix * architectureVertex).xyz;`);
+      shader.fragmentShader = `varying vec3 architecturePoint;\n${shader.fragmentShader}`
+        .replace("#include <color_fragment>", `#include <color_fragment>
+          float grain = fract(sin(dot(floor(architecturePoint * 95.), vec3(17.13, 91.77, 43.11))) * 43758.5453);
+          float wash = sin(architecturePoint.x * 1.3 + sin(architecturePoint.z * 1.9)) * sin(architecturePoint.y * .73);
+          diffuseColor.rgb *= .976 + grain * .036 + wash * .014;
+          float moisture = (1.-smoothstep(.08,.68+(grain-.5)*.08,architecturePoint.y))*${damp.toFixed(2)};
+          diffuseColor.rgb *= 1.-moisture*.24;`);
+    };
+    material.customProgramCacheKey = () => `city-architecture-metric-grain-v2-${damp}`;
+  }
