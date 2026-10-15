@@ -1,0 +1,17 @@
+{
+  "activeJob": "before-mutation",
+  "engine": "BLENDER_EEVEE",
+  "factoryObjects": [
+    "Cube",
+    "Light",
+    "Camera"
+  ],
+  "filepath": "",
+  "host": "Cribtest11",
+  "job": "TerminalShelterCanopy01-mainthread-exclusive",
+  "pid": 7012,
+  "scene": "Scene",
+  "session": "7a3c1438-49ce-4c36-8999-23da0223d26d",
+  "utc": "2026-10-15T16:21:55.055769+00:00",
+  "version": "5.2.2 LTS"
+}

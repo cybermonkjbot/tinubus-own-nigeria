@@ -1,0 +1,207 @@
+[
+  {
+    "a": "Post0",
+    "actualAxisEvidence": [
+      {
+        "actualPositiveGap": 5.380000114440918,
+        "axis": 1,
+        "extremaA": [
+          -2.809999942779541,
+          -2.690000057220459
+        ],
+        "extremaB": [
+          2.690000057220459,
+          2.809999942779541
+        ]
+      }
+    ],
+    "b": "Post1",
+    "classification": "separated"
+  },
+  {
+    "a": "Post0",
+    "actualAxisEvidence": [
+      {
+        "actualPositiveGap": 4.579999923706055,
+        "axis": 0,
+        "extremaA": [
+          -2.4100000858306885,
+          -2.2899999618530273
+        ],
+        "extremaB": [
+          2.2899999618530273,
+          2.4100000858306885
+        ]
+      }
+    ],
+    "b": "Post2",
+    "classification": "separated"
+  },
+  {
+    "a": "Post0",
+    "actualAxisEvidence": [
+      {
+        "actualPositiveGap": 4.579999923706055,
+        "axis": 0,
+        "extremaA": [
+          -2.4100000858306885,
+          -2.2899999618530273
+        ],
+        "extremaB": [
+          2.2899999618530273,
+          2.4100000858306885
+        ]
+      },
+      {
+        "actualPositiveGap": 5.380000114440918,
+        "axis": 1,
+        "extremaA": [
+          -2.809999942779541,
+          -2.690000057220459
+        ],
+        "extremaB": [
+          2.690000057220459,
+          2.809999942779541
+        ]
+      }
+    ],
+    "b": "Post3",
+    "classification": "separated"
+  },
+  {
+    "a": "Post0",
+    "b": "Roof",
+    "classification": "contact",
+    "patchIndex": 0
+  },
+  {
+    "a": "Post0",
+    "b": "PresentationBed",
+    "classification": "contact",
+    "patchIndex": 1
+  },
+  {
+    "a": "Post1",
+    "actualAxisEvidence": [
+      {
+        "actualPositiveGap": 4.579999923706055,
+        "axis": 0,
+        "extremaA": [
+          -2.4100000858306885,
+          -2.2899999618530273
+        ],
+        "extremaB": [
+          2.2899999618530273,
+          2.4100000858306885
+        ]
+      },
+      {
+        "actualPositiveGap": 5.380000114440918,
+        "axis": 1,
+        "extremaA": [
+          2.690000057220459,
+          2.809999942779541
+        ],
+        "extremaB": [
+          -2.809999942779541,
+          -2.690000057220459
+        ]
+      }
+    ],
+    "b": "Post2",
+    "classification": "separated"
+  },
+  {
+    "a": "Post1",
+    "actualAxisEvidence": [
+      {
+        "actualPositiveGap": 4.579999923706055,
+        "axis": 0,
+        "extremaA": [
+          -2.4100000858306885,
+          -2.2899999618530273
+        ],
+        "extremaB": [
+          2.2899999618530273,
+          2.4100000858306885
+        ]
+      }
+    ],
+    "b": "Post3",
+    "classification": "separated"
+  },
+  {
+    "a": "Post1",
+    "b": "Roof",
+    "classification": "contact",
+    "patchIndex": 2
+  },
+  {
+    "a": "Post1",
+    "b": "PresentationBed",
+    "classification": "contact",
+    "patchIndex": 3
+  },
+  {
+    "a": "Post2",
+    "actualAxisEvidence": [
+      {
+        "actualPositiveGap": 5.380000114440918,
+        "axis": 1,
+        "extremaA": [
+          -2.809999942779541,
+          -2.690000057220459
+        ],
+        "extremaB": [
+          2.690000057220459,
+          2.809999942779541
+        ]
+      }
+    ],
+    "b": "Post3",
+    "classification": "separated"
+  },
+  {
+    "a": "Post2",
+    "b": "Roof",
+    "classification": "contact",
+    "patchIndex": 4
+  },
+  {
+    "a": "Post2",
+    "b": "PresentationBed",
+    "classification": "contact",
+    "patchIndex": 5
+  },
+  {
+    "a": "Post3",
+    "b": "Roof",
+    "classification": "contact",
+    "patchIndex": 6
+  },
+  {
+    "a": "Post3",
+    "b": "PresentationBed",
+    "classification": "contact",
+    "patchIndex": 7
+  },
+  {
+    "a": "Roof",
+    "actualAxisEvidence": [
+      {
+        "actualPositiveGap": 3.059999942779541,
+        "axis": 2,
+        "extremaA": [
+          3.059999942779541,
+          3.140000104904175
+        ],
+        "extremaB": [
+          -0.07999999821186066,
+          0.0
+        ]
+      }
+    ],
+    "b": "PresentationBed",
+    "classification": "separated"
+  }
+]

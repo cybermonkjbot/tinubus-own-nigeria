@@ -1,0 +1,15 @@
+{
+  "stage": "early-only-failure-frozen",
+  "image": "early-front.png",
+  "directlyInspected": true,
+  "wholeRoofAndBedUncropped": true,
+  "fourPostsRetained": true,
+  "rearPostPartiallyOccluded": true,
+  "causalVisualDefectObserved": false,
+  "finishRequestRejected": "control.identity_source_WIP_pin",
+  "correctionBranchRuntimeExercised": false,
+  "finalImagesInspected": 0,
+  "finalVisualAcceptance": false,
+  "persistenceAcceptance": false,
+  "retryAuthorized": false
+}

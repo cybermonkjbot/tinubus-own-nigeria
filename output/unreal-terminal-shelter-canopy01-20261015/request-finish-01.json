@@ -1,0 +1,8 @@
+{
+  "requestID": "finish-01",
+  "session": "7a3c1438-49ce-4c36-8999-23da0223d26d",
+  "pid": 7012,
+  "expectedWIP": "C:\\dev\\cribtest-game\\output\\unreal-terminal-shelter-canopy01-20261015\\work-in-progress.blend",
+  "sourcePin": "1c34c0a02f7eb54fd241beb8e334d14ccabeff6a2faa0d33f6146efbbf6a7309",
+  "action": "finish-no-correction"
+}

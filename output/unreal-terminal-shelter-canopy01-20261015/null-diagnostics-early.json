@@ -1,0 +1,274 @@
+[
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Post0",
+    "requested": "Post0",
+    "slots": [
+      {
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Post1",
+    "requested": "Post1",
+    "slots": [
+      {
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Post2",
+    "requested": "Post2",
+    "slots": [
+      {
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Post3",
+    "requested": "Post3",
+    "slots": [
+      {
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "material": "OwnedMetal",
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ],
+    "object": "Roof",
+    "requested": "Roof",
+    "slots": [
+      {
+        "material": "OwnedMetal",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedBed",
+        "slot": 0
+      }
+    ],
+    "object": "PresentationBed",
+    "requested": "PresentationBed",
+    "slots": [
+      {
+        "material": "OwnedBed",
+        "slot": 0
+      }
+    ]
+  }
+]

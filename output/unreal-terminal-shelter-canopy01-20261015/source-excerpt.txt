@@ -1,0 +1,84 @@
+PARENT-SUPPLIED SOURCE EXCERPTS. Full source bytes verified by parent only; no assertion that full files exist on Windows. UTF-8, LF, final LF.
+
+PARENT SOURCE packages/utils/src/companionPlacesExpansionLayouts.ts
+SHA256 e49a93fb2f7f74c5f31aa872f2957a99137e86da75b56778d099d413d289eece
+Verbatim lines 69-83:
+    case "bus-terminal": {
+      const b = create(input, 20, 22, true);
+      b.layout.theme.floor = "#b8b7ad";
+      for (const x of [-6, 6]) {
+        b.add("canopy", `shelter-${x}`, x, -4.5, 5, 6, 3.1, "metal", false);
+        for (const dx of [-2.35, 2.35]) for (const z of [-7.25, -1.75])
+          b.add("cover", `shelter-post-${x}-${dx}-${z}`, x + dx, z, .12, .12, 3.1, "metal");
+        b.add("bench", `waiting-bench-${x}`, x, -5, 3.2, .65, .5, "wood");
+      }
+      b.service("driver", "terminal-driver", "Choose transport", -5, 1, -6.2, 1, "driver");
+      mealTable(b, "terminal-meal", 5, 2);
+      zone(b, "boarding", "Boarding concourse", 0, -1, 3, 14);
+      gap(b, "Transport quotes, vehicle seats, boarding and arrival stay with the existing journey owner. No parked vehicle or ticket entitlement is invented.");
+      return b.finish();
+    }
+
+PARENT SOURCE packages/utils/src/companionPlacesLayouts.ts
+SHA256 29c0bdbd4bb21a72801b99e56d23517d895f5307ede5fb52d5d1d8624e431541
+Verbatim lines 24-24:
+const p = (x: number, z: number, y = 0): ScenePoint => [x, y, z];
+
+PARENT SOURCE packages/utils/src/companionPlacesLayouts.ts
+SHA256 29c0bdbd4bb21a72801b99e56d23517d895f5307ede5fb52d5d1d8624e431541
+Verbatim lines 51-55:
+  const add = (kind: CompanionPlaceFixtureKind, id: string, x: number, z: number, w: number, d: number, h: number,
+    material: CompanionPlaceLayout["fixtures"][number]["material"] = "wood", collides = true, y = 0) => {
+    fixtures.push({ id, kind, point: p(x, z, y), size: [w, h, d], yaw: 0, material,
+      collision: collides ? footprint(id, x, z, w, d, h) : undefined });
+  };
+
+PARENT SOURCE packages/companion-scene/src/interactions/lagos-places/geometry.ts
+SHA256 da5283130b94c422caba7e4d1078fb0856bda5e37010ec01711ce6b788374992
+Verbatim lines 23-44:
+/** Generated fixtures use explicit metre-scale construction. Published room
+ * parts are added separately, without changing their materials or scale. */
+export function createLagosPlaceGeometry(layout: CompanionPlaceLayout, loungeAsset?: EnvironmentAsset,
+  delivery?: CompanionAssetDelivery, changed: () => void = () => {}) {
+  const group = new THREE.Group(); group.name = `${layout.id}:geometry`;
+  const materials = {
+    plaster: new THREE.MeshStandardMaterial({ color: layout.theme.wall, roughness: .88 }),
+    wood: new THREE.MeshStandardMaterial({ color: "#92735b", roughness: .68 }),
+    stone: new THREE.MeshStandardMaterial({ color: "#ded7ca", roughness: .46 }),
+    metal: new THREE.MeshStandardMaterial({ color: "#657078", metalness: .5, roughness: .4 }),
+    linen: new THREE.MeshStandardMaterial({ color: "#eeeae0", roughness: .98 }),
+    sage: new THREE.MeshStandardMaterial({ color: "#819072", roughness: .9 }),
+    rose: new THREE.MeshStandardMaterial({ color: layout.theme.accent, roughness: .85 }),
+  };
+  const place = (owner: THREE.Group, geometry: THREE.BufferGeometry, material: THREE.Material, x: number, y: number, z: number) => {
+    const mesh = new THREE.Mesh(geometry, material); mesh.position.set(x, y, z); mesh.castShadow = true; mesh.receiveShadow = true; owner.add(mesh); return mesh;
+  };
+  const box = (owner: THREE.Group, material: THREE.Material, w: number, h: number, d: number, x: number, y: number, z: number) =>
+    place(owner, new THREE.BoxGeometry(w, h, d), material, x, y, z);
+  const bounds = layout.navigation.bounds, width = bounds.maxX - bounds.minX, depth = bounds.maxZ - bounds.minZ;
+  const floor = new THREE.MeshStandardMaterial({ color: layout.theme.floor, roughness: layout.kind === "nightclub" ? .52 : .78 });
+  const ownedMaterials: THREE.Material[] = [...Object.values(materials), floor];
+
+PARENT SOURCE packages/companion-scene/src/interactions/lagos-places/geometry.ts
+SHA256 da5283130b94c422caba7e4d1078fb0856bda5e37010ec01711ce6b788374992
+Verbatim lines 52-56:
+    function fixture(value: CompanionPlaceFixture) {
+      const root = new THREE.Group(); root.name = value.id; root.userData.lagosFixtureId = value.id;
+      group.add(root);
+      const [w, h, d] = value.size, m = materials[value.material];
+      root.position.fromArray(value.point); root.rotation.y = value.yaw;
+
+PARENT SOURCE packages/companion-scene/src/interactions/lagos-places/geometry.ts
+SHA256 da5283130b94c422caba7e4d1078fb0856bda5e37010ec01711ce6b788374992
+Verbatim lines 77-82:
+        case "canopy": {
+          box(root, m, w, .08, d, 0, h, 0);
+          // Uprights are outside the working counter footprint. They are still
+          // supplied as collision fixtures by the resolved layout generator.
+          break;
+        }
+
+PARENT SOURCE packages/companion-scene/src/interactions/lagos-places/geometry.ts
+SHA256 da5283130b94c422caba7e4d1078fb0856bda5e37010ec01711ce6b788374992
+Verbatim lines 181-181:
+        default: box(root, m, w, h, d, 0, h / 2, 0);

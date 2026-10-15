@@ -1,0 +1,109 @@
+{
+  "actions": [
+    "correct-all",
+    "finish-no-correction"
+  ],
+  "completeCorrectionParameters": {
+    "bed": {
+      "material": "OwnedBed",
+      "maximum": [
+        2.8,
+        3.3,
+        0
+      ],
+      "minimum": [
+        -2.8,
+        -3.3,
+        -0.08
+      ],
+      "name": "PresentationBed"
+    },
+    "materials": {
+      "OwnedBed": {
+        "metallic": 0,
+        "roughness": 0.78,
+        "srgb": "#b8b7ad"
+      },
+      "OwnedMetal": {
+        "metallic": 0.5,
+        "roughness": 0.4,
+        "srgb": "#657078"
+      }
+    },
+    "posts": [
+      {
+        "bottom": 0,
+        "center": [
+          -2.35,
+          -2.75
+        ],
+        "material": "OwnedMetal",
+        "name": "Post0",
+        "section": [
+          0.12,
+          0.12
+        ],
+        "top": 3.06
+      },
+      {
+        "bottom": 0,
+        "center": [
+          -2.35,
+          2.75
+        ],
+        "material": "OwnedMetal",
+        "name": "Post1",
+        "section": [
+          0.12,
+          0.12
+        ],
+        "top": 3.06
+      },
+      {
+        "bottom": 0,
+        "center": [
+          2.35,
+          -2.75
+        ],
+        "material": "OwnedMetal",
+        "name": "Post2",
+        "section": [
+          0.12,
+          0.12
+        ],
+        "top": 3.06
+      },
+      {
+        "bottom": 0,
+        "center": [
+          2.35,
+          2.75
+        ],
+        "material": "OwnedMetal",
+        "name": "Post3",
+        "section": [
+          0.12,
+          0.12
+        ],
+        "top": 3.06
+      }
+    ],
+    "roof": {
+      "bottom": 3.06,
+      "halfDepth": 3.0,
+      "halfWidth": 2.5,
+      "inset": 0.002,
+      "material": "OwnedMetal",
+      "name": "Roof",
+      "shoulder": 3.138,
+      "top": 3.14
+    }
+  },
+  "expectedWIP": "C:\\dev\\cribtest-game\\output\\unreal-terminal-shelter-canopy01-20261015\\work-in-progress.blend",
+  "image": "early-front.png",
+  "measurements": "measurements-early.json",
+  "pid": 7012,
+  "session": "7a3c1438-49ce-4c36-8999-23da0223d26d",
+  "sourcePin": "1c34c0a02f7eb54fd241beb8e334d14ccabeff6a2faa0d33f6146efbbf6a7309",
+  "utc": "2026-10-15T16:22:27.752922+00:00"
+}

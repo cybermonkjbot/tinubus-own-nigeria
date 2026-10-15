@@ -1,0 +1,17 @@
+# TerminalShelterCanopy01 FAILED / FROZEN
+
+October 15, 2026. Bounded art allocation did not complete. No final blend, five final views or save/reopen/restored acceptance. No retry, reopen, rerender, relaunch, renamed retry or guard change performed. All existing art remains frozen; full city/native gameplay remains OPEN.
+
+Actual Windows execution: Cribtest11 / C:\dev\cribtest-game, parent HEAD82945ff8a86ba54b9e8d2982bb3c5dd208525423. Before mutation clean tree, proposed output absent, original Blender6116/session0 and Unreal10404/session2 only. Requested existing owner01a12c3b-42c0-7d13-9c0c-0c289bd912f9 and gpt-6.1-sol/medium supplied by user; model/effort and TLS owner-state not independently observable here. No delegation or new dispatch.
+
+ONE new Blender5.2.2LTS background PID7012, session7a3c1438-49ce-4c36-8999-23da0223d26d. Initial identity2026-10-15T16:21:55.055769Z recorded empty filepath, Scene, factory Cube/Light/Camera and initial EEVEE engine before scene mutation. New scene switched to Cycles. Gross six assigned solids saved early WIP before diagnostics. Initial evaluated evidence passed six convex manifold outward solids, eight contact patches and all fifteen pairs. Actual polygon and double-fan area totals both0.11520000915515993m2, not replaced by nominal0.1152.
+
+Early actual800x800 front image inspected directly: entire bed/roof uncropped, four posts retained, rear post partly occluded, solid roof and empty central passages visually consistent. Sampling noise is render noise, not material texture. Mating face interiors are occluded and evidenced by evaluated geometry, not photographs. No causal visual geometry defect observed; finish-no-correction requested. Correction branch never exercised or runtime accepted.
+
+Failure2026-10-15T16:29:56.195553Z: object control / field identity_source_WIP_pin / exact sample and traceback in failure.json. Identity-bound finish-01 request used actual PID/session/source pin/advertised native Windows WIP path. The guard compares bpy.data.filepath with backslashes converted to forward slashes against str(Windows Path), which retains backslashes. This inconsistent path comparison rejects the healthy finish request before consumption/acknowledgement. Failure source and request retained unchanged; no fix or retry attempted. Author process ended, numeric OS exit UNKNOWN (wrapper observed null), not invented zero. Only original6116/10404 remain.
+
+Frozen WIP SHA256660f89246d2e34a9586a7605d8de6e8bbd1bc85d8b43d4f61adbd3c51f33f715. Early-front.png SHAc635a18e3d62d4ca83b9142f0aeda3543b75bd8b7c98ecb38e661ffacefa00d7. Source excerpt exact5104bytes SHA1c34c0a02f7eb54fd241beb8e334d14ccabeff6a2faa0d33f6146efbbf6a7309; parent full-file hashes attribution only, full TS absent Windows.
+
+Strict799 preservation baseline derives748 Shelf parent manifest at exact162914480727d6f09091ff270e3f25784e49221a9c9c536e19cd3b317d593961 plus51 pinned tracked Shelf paths. Before/after manifests and receipts record actual unchanged hashes. New root alone checkpointed locally, hooks/automatic maintenance disabled; no push. Owned SHA manifest excludes itself. Clean Git is not art acceptance.
+
+No Unreal/native/import/collision/navigation/transport operation, tests, compilation, lint, packaging, export, installation, server or global setting change. Static editable WIP only; persistence final acceptance, final visual acceptance, native placement, gameplay, performance and release NOT complete. Finish this failure handoff, then wait.

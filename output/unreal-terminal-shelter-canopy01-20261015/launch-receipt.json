@@ -1,0 +1,22 @@
+﻿{
+    "utc":  "2026-10-15T16:21:41.1998321Z",
+    "host":  "Cribtest11",
+    "root":  "C:\\dev\\cribtest-game",
+    "base":  "82945ff8a86ba54b9e8d2982bb3c5dd208525423",
+    "pid":  7012,
+    "executable":  "C:\\dev\\tools\\baddie-blender\\blender-5.2.2-windows-x64\\blender.exe",
+    "arguments":  [
+                      "--background",
+                      "--factory-startup",
+                      "--threads",
+                      "6",
+                      "--python-exit-code",
+                      "23",
+                      "--python",
+                      "C:\\dev\\cribtest-game\\output\\unreal-terminal-shelter-canopy01-20261015\\author_canopy.py"
+                  ],
+    "originals":  [
+                      6116,
+                      10404
+                  ]
+}

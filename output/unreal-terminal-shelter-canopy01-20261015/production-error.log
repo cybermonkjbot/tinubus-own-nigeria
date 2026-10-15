@@ -1,0 +1,19 @@
+C:\dev\cribtest-game\output\unreal-terminal-shelter-canopy01-20261015\author_canopy.py:71: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m.use_nodes = True
+C:\dev\cribtest-game\output\unreal-terminal-shelter-canopy01-20261015\author_canopy.py:412: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  world.use_nodes = True
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\unreal-terminal-shelter-canopy01-20261015\author_canopy.py", line 575, in <module>
+    main()
+    ~~~~^^
+  File "C:\dev\cribtest-game\output\unreal-terminal-shelter-canopy01-20261015\author_canopy.py", line 546, in main
+    control()
+    ~~~~~~~^^
+  File "C:\dev\cribtest-game\output\unreal-terminal-shelter-canopy01-20261015\author_canopy.py", line 508, in control
+    guard(request['session']==SESSION and type(request['pid']) is int and request['pid']==os.getpid() and request['expectedWIP']==str(OUT/'work-in-progress.blend') and bpy.data.filepath.replace('\\','/')==str(OUT/'work-in-progress.blend') and request['sourcePin']==PIN,'control','identity_source_WIP_pin',request)
+    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\cribtest-game\output\unreal-terminal-shelter-canopy01-20261015\author_canopy.py", line 46, in guard
+    raise RuntimeError(json.dumps({'object':obj,'field':field,'sample':sample},allow_nan=False))
+RuntimeError: {"object": "control", "field": "identity_source_WIP_pin", "sample": {"requestID": "finish-01", "session": "7a3c1438-49ce-4c36-8999-23da0223d26d", "pid": 7012, "expectedWIP": "C:\\dev\\cribtest-game\\output\\unreal-terminal-shelter-canopy01-20261015\\work-in-progress.blend", "sourcePin": "1c34c0a02f7eb54fd241beb8e334d14ccabeff6a2faa0d33f6146efbbf6a7309", "action": "finish-no-correction"}}
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-terminal-shelter-canopy01-20261015\author_canopy.py', exiting.
