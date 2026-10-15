@@ -1,0 +1,593 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 3000,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-frontage-low-wall-bay01-20261015\\FrontageLowWallBay01.blend",
+    "scene": "FrontageLowWallBay01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "frontage-low-wall-bay01",
+    "phase": "evaluated dimensions/contact",
+    "utc": "2026-10-15T07:58:12.156569+00:00",
+    "rendering": false
+  },
+  "solids": [
+    {
+      "object": "WallBody",
+      "components": 1,
+      "invalid_edges": [],
+      "volume_m3": 0.30465362203147967,
+      "duplicate_faces": 0
+    },
+    {
+      "object": "MineralBedding",
+      "components": 1,
+      "invalid_edges": [],
+      "volume_m3": 0.0015839796609871323,
+      "duplicate_faces": 0
+    },
+    {
+      "object": "StoneCoping",
+      "components": 1,
+      "invalid_edges": [],
+      "volume_m3": 0.05398802205228918,
+      "duplicate_faces": 0
+    },
+    {
+      "object": "PresentationStripFootingOnly",
+      "components": 1,
+      "invalid_edges": [],
+      "volume_m3": 0.10399999386072165,
+      "duplicate_faces": 0
+    }
+  ],
+  "actual_dimensions": {
+    "WallBody": {
+      "length_m": 2.4000000953674316,
+      "width_m": 0.2199999988079071,
+      "bottom_m": 0.0,
+      "top_m": 0.5770000219345093,
+      "height_m": 0.5770000219345093,
+      "extents_m": [
+        [
+          -1.2000000476837158,
+          1.2000000476837158
+        ],
+        [
+          -0.10999999940395355,
+          0.10999999940395355
+        ],
+        [
+          0.0,
+          0.5770000219345093
+        ]
+      ]
+    },
+    "MineralBedding": {
+      "length_m": 2.4000000953674316,
+      "width_m": 0.2199999988079071,
+      "bottom_m": 0.5770000219345093,
+      "top_m": 0.5799999833106995,
+      "height_m": 0.0029999613761901855,
+      "extents_m": [
+        [
+          -1.2000000476837158,
+          1.2000000476837158
+        ],
+        [
+          -0.10999999940395355,
+          0.10999999940395355
+        ],
+        [
+          0.5770000219345093,
+          0.5799999833106995
+        ]
+      ]
+    },
+    "StoneCoping": {
+      "length_m": 2.4000000953674316,
+      "width_m": 0.25,
+      "bottom_m": 0.5799999833106995,
+      "top_m": 0.6700000166893005,
+      "height_m": 0.09000003337860107,
+      "extents_m": [
+        [
+          -1.2000000476837158,
+          1.2000000476837158
+        ],
+        [
+          -0.125,
+          0.125
+        ],
+        [
+          0.5799999833106995,
+          0.6700000166893005
+        ]
+      ]
+    },
+    "PresentationStripFootingOnly": {
+      "length_m": 2.5999999046325684,
+      "width_m": 0.5,
+      "bottom_m": -0.07999999821186066,
+      "top_m": 0.0,
+      "height_m": 0.07999999821186066,
+      "extents_m": [
+        [
+          -1.2999999523162842,
+          1.2999999523162842
+        ],
+        [
+          -0.25,
+          0.25
+        ],
+        [
+          -0.07999999821186066,
+          0.0
+        ]
+      ]
+    }
+  },
+  "paired_flat_sections": [
+    {
+      "sample": "body flat width",
+      "thickness_m": 0.21999990627167612,
+      "normal_dot": -1.0,
+      "a": {
+        "object": "WallBody",
+        "sample": "body flat width A",
+        "origin": [
+          0,
+          -1,
+          0.3
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "hit": [
+          0.0,
+          -0.10999995470046997,
+          0.30000001192092896
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "face": 6,
+        "distance_m": 0.89000004529953
+      },
+      "b": {
+        "object": "WallBody",
+        "sample": "body flat width B",
+        "origin": [
+          0,
+          1,
+          0.3
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "hit": [
+          0.0,
+          0.10999995470046997,
+          0.30000001192092896
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "face": 4,
+        "distance_m": 0.89000004529953
+      }
+    },
+    {
+      "sample": "body flat height",
+      "thickness_m": 0.5770000131365743,
+      "normal_dot": -1.0,
+      "a": {
+        "object": "WallBody",
+        "sample": "body flat height A",
+        "origin": [
+          0,
+          0,
+          -1
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          0.0
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "face": 2,
+        "distance_m": 1.0
+      },
+      "b": {
+        "object": "WallBody",
+        "sample": "body flat height B",
+        "origin": [
+          0,
+          0,
+          1
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          0.5770000219345093
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 5,
+        "distance_m": 0.4229999780654907
+      }
+    },
+    {
+      "sample": "bedding flat gauge",
+      "thickness_m": 0.0029999613992831215,
+      "normal_dot": -1.0,
+      "a": {
+        "object": "MineralBedding",
+        "sample": "bedding flat gauge A",
+        "origin": [
+          0,
+          0,
+          0.5
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          0.5770000219345093
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "face": 2,
+        "distance_m": 0.07700002193450928
+      },
+      "b": {
+        "object": "MineralBedding",
+        "sample": "bedding flat gauge B",
+        "origin": [
+          0,
+          0,
+          0.65
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          0.5799999833106995
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 4,
+        "distance_m": 0.06999998539686203
+      }
+    },
+    {
+      "sample": "coping flat gauge",
+      "thickness_m": 0.09000003221133768,
+      "normal_dot": -1.0,
+      "a": {
+        "object": "StoneCoping",
+        "sample": "coping flat gauge A",
+        "origin": [
+          0,
+          0,
+          0.5
+        ],
+        "direction": [
+          0,
+          0,
+          1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          0.5799999833106995
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          -1.0
+        ],
+        "face": 2,
+        "distance_m": 0.07999998331069946
+      },
+      "b": {
+        "object": "StoneCoping",
+        "sample": "coping flat gauge B",
+        "origin": [
+          0,
+          0,
+          1
+        ],
+        "direction": [
+          0,
+          0,
+          -1
+        ],
+        "hit": [
+          0.0,
+          0.0,
+          0.6700000166893005
+        ],
+        "normal": [
+          0.0,
+          0.0,
+          1.0
+        ],
+        "face": 6,
+        "distance_m": 0.32999998331069946
+      }
+    },
+    {
+      "sample": "coping flat depth",
+      "thickness_m": 0.25,
+      "normal_dot": -1.0,
+      "a": {
+        "object": "StoneCoping",
+        "sample": "coping flat depth A",
+        "origin": [
+          0,
+          -1,
+          0.62
+        ],
+        "direction": [
+          0,
+          1,
+          0
+        ],
+        "hit": [
+          0.0,
+          -0.125,
+          0.6200000047683716
+        ],
+        "normal": [
+          0.0,
+          -1.0,
+          0.0
+        ],
+        "face": 8,
+        "distance_m": 0.875
+      },
+      "b": {
+        "object": "StoneCoping",
+        "sample": "coping flat depth B",
+        "origin": [
+          0,
+          1,
+          0.62
+        ],
+        "direction": [
+          0,
+          -1,
+          0
+        ],
+        "hit": [
+          0.0,
+          0.125,
+          0.6200000047683716
+        ],
+        "normal": [
+          0.0,
+          1.0,
+          0.0
+        ],
+        "face": 4,
+        "distance_m": 0.875
+      }
+    }
+  ],
+  "actual_overall": {
+    "length_m": 2.4000000953674316,
+    "height_m": 0.6700000166893005,
+    "coping_depth_m": 0.25,
+    "projections_m": [
+      0.015000000596046448,
+      0.015000000596046448
+    ]
+  },
+  "contacts": [
+    {
+      "upper": "WallBody",
+      "lower": "PresentationStripFootingOnly",
+      "patches": [
+        {
+          "upper_face": 2,
+          "lower_face": 4,
+          "area_m2": 0.5232000082015986,
+          "polygon_world": [
+            [
+              -1.2000000476837158,
+              -0.10899999737739563,
+              0.0
+            ],
+            [
+              1.2000000476837158,
+              -0.10899999737739563,
+              0.0
+            ],
+            [
+              1.2000000476837158,
+              0.10899999737739563,
+              0.0
+            ],
+            [
+              -1.2000000476837158,
+              0.10899999737739563,
+              0.0
+            ]
+          ],
+          "signed_gaps_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "opposing_normals": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "normal_dot": -1.0
+        }
+      ],
+      "total_area_m2": 0.5232000082015986,
+      "method": "Exact intersection of actual rectangular planar horizontal faces; all boundary surfaces vertically ordered, no internal overlap/AABB-solid inference"
+    },
+    {
+      "upper": "MineralBedding",
+      "lower": "WallBody",
+      "patches": [
+        {
+          "upper_face": 2,
+          "lower_face": 5,
+          "area_m2": 0.5280000181198119,
+          "polygon_world": [
+            [
+              -1.2000000476837158,
+              -0.10999999940395355,
+              0.5770000219345093
+            ],
+            [
+              1.2000000476837158,
+              -0.10999999940395355,
+              0.5770000219345093
+            ],
+            [
+              1.2000000476837158,
+              0.10999999940395355,
+              0.5770000219345093
+            ],
+            [
+              -1.2000000476837158,
+              0.10999999940395355,
+              0.5770000219345093
+            ]
+          ],
+          "signed_gaps_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "opposing_normals": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "normal_dot": -1.0
+        }
+      ],
+      "total_area_m2": 0.5280000181198119,
+      "method": "Exact intersection of actual rectangular planar horizontal faces; all boundary surfaces vertically ordered, no internal overlap/AABB-solid inference"
+    },
+    {
+      "upper": "StoneCoping",
+      "lower": "MineralBedding",
+      "patches": [
+        {
+          "upper_face": 2,
+          "lower_face": 4,
+          "area_m2": 0.5280000181198119,
+          "polygon_world": [
+            [
+              -1.2000000476837158,
+              -0.10999999940395355,
+              0.5799999833106995
+            ],
+            [
+              1.2000000476837158,
+              -0.10999999940395355,
+              0.5799999833106995
+            ],
+            [
+              1.2000000476837158,
+              0.10999999940395355,
+              0.5799999833106995
+            ],
+            [
+              -1.2000000476837158,
+              0.10999999940395355,
+              0.5799999833106995
+            ]
+          ],
+          "signed_gaps_m": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "opposing_normals": [
+            [
+              0.0,
+              0.0,
+              -1.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ],
+          "normal_dot": -1.0
+        }
+      ],
+      "total_area_m2": 0.5280000181198119,
+      "method": "Exact intersection of actual rectangular planar horizontal faces; all boundary surfaces vertically ordered, no internal overlap/AABB-solid inference"
+    }
+  ],
+  "tolerance_m": 1e-06,
+  "rationale": "Fixed1um; float32 spacing near1.3m .12um; rays/transforms use small local coordinates; no relaxing",
+  "limits": "Four separately closed solids, not one integral assembly; sampled flats exclude chamfers; square X ends; no exhaustive minimum/structural/waterproof certification"
+}

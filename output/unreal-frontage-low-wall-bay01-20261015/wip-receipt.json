@@ -1,0 +1,15 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 3000,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-frontage-low-wall-bay01-20261015\\work-in-progress.blend",
+    "scene": "FrontageLowWallBay01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "frontage-low-wall-bay01",
+    "phase": "recoverable WIP NOT guard pass",
+    "utc": "2026-10-15T07:57:26.055103+00:00",
+    "rendering": false
+  },
+  "sha256": "9958b808ae79cd010334aacee093ae79a64d5b87920ed46e1c6fda788af8fcc0"
+}

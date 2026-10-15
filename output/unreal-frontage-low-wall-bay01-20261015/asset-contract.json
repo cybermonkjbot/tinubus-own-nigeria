@@ -1,0 +1,74 @@
+{
+  "name": "FrontageLowWallBay01",
+  "units": "metres",
+  "axes": "+Xrun +Zup front-Y centredXY bottom0; source(x,y,z)->Blender(x,-z,y) reference only",
+  "parent_frontages_sha256": "31fa84281ceb45916f3b714d4d897b5a747b50dde7249c0ca5dd8a2d307347a0",
+  "parent_architecture_sha256": "fdb3f1c50d6a65855978b011ab5664a82b748ed8acf9ee2777861796e06370fa",
+  "source_status": "TS absent Windows; parent excerpt/full hash provenance, no full-byte Git closure",
+  "source_excerpt_sha256": "580826bde141d9668275fe333a7533eb1cf300d32399f9f43cfb164bce3b2a4c",
+  "authored_section": {
+    "length_m": 2.4,
+    "body_z": [
+      0,
+      0.577
+    ],
+    "bedding_z": [
+      0.577,
+      0.58
+    ],
+    "coping_z": [
+      0.58,
+      0.67
+    ],
+    "body_bedding_width_m": 0.22,
+    "coping_width_m": 0.25,
+    "coping_projection_m": 0.015,
+    "body_bottom_relief_m": 0.001,
+    "coping_top_chamfer_m": 0.002,
+    "coping_bottom_relief_m": 0.001,
+    "footing_m": [
+      2.6,
+      0.5,
+      0.08
+    ],
+    "footing_top_m": 0
+  },
+  "source_distinction": "2400mm length authored NOT entry2.4 formula; 580mm combined wall includes NEW3mm bedding. No gate/parcel assignment or open plot treatment altered",
+  "materials": [
+    {
+      "object": "WallBody",
+      "id": "BodyStone",
+      "tint": "#d4cebd",
+      "roughness": 0.92,
+      "metallic": 0
+    },
+    {
+      "object": "MineralBedding",
+      "id": "BeddingMineral",
+      "tint": "#b2aa96",
+      "roughness": 0.94,
+      "metallic": 0
+    },
+    {
+      "object": "StoneCoping",
+      "id": "CopingStone",
+      "tint": "#ded7c5",
+      "roughness": 0.92,
+      "metallic": 0
+    },
+    {
+      "object": "PresentationStripFootingOnly",
+      "id": "FootingFinish",
+      "tint": "#bdb6a5",
+      "roughness": 0.94,
+      "metallic": 0
+    }
+  ],
+  "material_limit": "Intentional dry base-colour/roughness simplification; source metric grain/moisture tidy/damp NOT reproduced, no shader fidelity claim",
+  "geometry": "Four separately closed extrusion solids; no Boolean/modifier/foreign mesh; square Xends, ONLY longitudinal named chamfers",
+  "actual_measurements": "measurements-reopened.json",
+  "readback": "Exact owned-used geometry/material/light/transform/render state matched",
+  "corrections": [],
+  "sha256": "43555559e48623c152908e3b3af7548357d387d21c8129a87a9ca2371aa4bfd9",
+  "limits": "Bonded mineral art not engineering/security/building/native placement/gameplay/performance/release certification"
+}

@@ -1,0 +1,12 @@
+{
+  "host": "Cribtest11",
+  "pid": 3000,
+  "file": "",
+  "scene": "FrontageLowWallBay01",
+  "engine": "CYCLES",
+  "version": "5.2.2 LTS",
+  "job": "frontage-low-wall-bay01",
+  "phase": "gross four-solid construction",
+  "utc": "2026-10-15T07:57:25.860464+00:00",
+  "rendering": false
+}

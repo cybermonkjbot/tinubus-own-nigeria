@@ -1,0 +1,27 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 3000,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-frontage-low-wall-bay01-20261015\\FrontageLowWallBay01.blend",
+    "scene": "FrontageLowWallBay01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "frontage-low-wall-bay01",
+    "phase": "render grazing",
+    "utc": "2026-10-15T07:58:54.856002+00:00",
+    "rendering": false
+  },
+  "location": [
+    2.0,
+    -1.2,
+    1.05
+  ],
+  "target": [
+    0.3,
+    0,
+    0.52
+  ],
+  "lens": 53,
+  "hidden_objects": [],
+  "profile": "800px CyclesCPU24samples6threadsAgX fixedneutral exposure0"
+}

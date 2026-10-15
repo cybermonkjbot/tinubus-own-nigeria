@@ -1,0 +1,12 @@
+{
+  "actual_images_inspected": ["front.png", "reverse.png", "grazing.png", "player165.png", "end-detail.png"],
+  "early_preview": "early-front.png",
+  "front": "Whole module and footing uncropped. Seated coping with restrained projection; thin joint shadow, no floating slab or black rectangular patch.",
+  "reverse": "Whole underside visible with ONLY presentation footing hidden, no explosion. Body underside shading is natural; this does not show assembled footing bearing.",
+  "grazing": "Detail crop of coping and joint. Continuous thin shadow under overhang, no light leak. Some ends cropped; whole views retained separately.",
+  "player165": "Camera Z1.65 relative bodybottom0. Whole bay and footing visible, unchanged material/light/exposure.",
+  "end-detail": "Square module end, coping15mmprojection, thin muted bedding line and visible footing. End surface is not an invented room/canonical cutaway. Narrow dark overhang corner is contact shading; measured joints zero-gap. Underside bearing faces partly occluded.",
+  "defects_requiring_correction": [],
+  "corrections": "No causal owned defect identified; no fabricated repair or material/light/exposure concealment.",
+  "limits": "Bedding is subpixel/partly shadowed in wide views. Clean dry material simplification, not source grain/moisture fidelity or full photorealism. Only named longitudinal chamfers, square ends. Visual inspection not engineering or native integration acceptance."
+}

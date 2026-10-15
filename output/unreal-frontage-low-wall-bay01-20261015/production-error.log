@@ -1,0 +1,6 @@
+C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\author_low_wall.py:33: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  m=bpy.data.materials.new(name); m.use_nodes=True
+C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\author_low_wall.py:224: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  s.world=bpy.data.worlds.new('OwnedNeutralWorld'); s.world.use_nodes=True
+C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\author_low_wall.py:83: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  return dict(id=m.name,use_nodes=m.use_nodes,nodes=[(n.name,n.bl_idname) for n in m.node_tree.nodes],

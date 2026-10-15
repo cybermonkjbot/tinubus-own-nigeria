@@ -1,0 +1,8 @@
+{
+  "image": "early-front.png",
+  "actual_image_inspected": true,
+  "observations": "Whole bay/footing uncropped. Coping seated with restrained overhang, thin natural joint shadow. No floating coping/black rectangular patch/light leak observed. Bedding visibility at wide view limited by scale/overhang; close section view required.",
+  "measurements": "measurements-initial.json: all3interfaces signedgaps0/opposingnormals-1; body-footing.5232000082m2, body-bedding/bedding-coping.5280000181m2; actualbedding2.999961mm/coping90.000032mm",
+  "largest_visible_owned_defect": null,
+  "correction": "None indicated; no fake repair or light/exposure/material masking. Retaingeometry for finalviews."
+}

@@ -1,0 +1,12 @@
+00:21.938  render           | Saved: 'C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\early-front.png'
+00:47.563  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\FrontageLowWallBay01.blend"
+01:09.172  render           | Saved: 'C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\front.png'
+01:30.313  render           | Saved: 'C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\reverse.png'
+01:59.110  render           | Saved: 'C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\grazing.png'
+02:21.203  render           | Saved: 'C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\player165.png'
+02:54.750  render           | Saved: 'C:\dev\cribtest-game\output\unreal-frontage-low-wall-bay01-20261015\end-detail.png'
+Info: Saved as "work-in-progress.blend"
+Info: Saved as "FrontageLowWallBay01.blend"
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit
