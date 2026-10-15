@@ -1,0 +1,11 @@
+{
+  "canonical_readback_sha256": "3b8d6cff35a0ec84404778a7cbd36ffba31ec87c0d997cbdbca74ae6a3fa4cb0",
+  "contacts": 13,
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-raised-flower-bed01-20261015\\RaisedFlowerBed01.blend",
+  "images": 5,
+  "native_integration": false,
+  "pid": 7108,
+  "restored_exact_match": true,
+  "solids": 6,
+  "utc": "2026-10-15T12:31:12.390089+00:00"
+}

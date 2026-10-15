@@ -1,0 +1,171 @@
+PARENT-SUPPLIED SOURCE EXCERPTS. Full source bytes verified by parent only; no assertion that full files exist on Windows. UTF-8, LF, final LF.
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityLandscapeDetails.ts
+SHA256 7454025cf87a4a85caf22711fc438129f4f01b1758e04e8e3e4345ae7d33ded6
+Verbatim lines 11-19:
+type Shape = "box" | "crown" | "stem" | "disc" | "frond" | "canopy" | "pylon";
+type Finish = "stone" | "wood" | "bark" | "metal" | "leaf" | "cloth" | "water";
+type PartBatch = { shape: Shape; finish: Finish; values: Float64Array; used: number; count: number };
+type Parts = Map<string, PartBatch>;
+type Cell = { x: number; z: number; parts: Parts; fine: Parts; base?: THREE.Group; detail?: THREE.Group; shadows: boolean };
+
+// Rows contain rotation kind, tint index, position, scale, then yaw or quaternion.
+// Keep recipe numbers at JavaScript precision until writing the GPU instance buffer.
+const YAW_ROW = 9, TILT_ROW = 12;
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityLandscapeDetails.ts
+SHA256 7454025cf87a4a85caf22711fc438129f4f01b1758e04e8e3e4345ae7d33ded6
+Verbatim lines 29-87:
+/** Replace the central amenity and landmark batches, never the streets or bank geometry. */
+export function createCityLandscapeDetails(anchorsEnabled = false, parkPaths = false) {
+  const group = new THREE.Group();
+  group.name = "Public gardens, shores and landmark construction";
+  group.userData.cityLandscapeCoverage = companionCityLandscapeCoverage();
+  group.userData.cityLandscapeAdditionalFootprints = companionCityLandscapeAdditionalFootprints();
+  const cells = new Map<string, Cell>();
+  const geometries: Record<Shape, THREE.BufferGeometry> = {
+    box: new THREE.BoxGeometry(1, 1, 1),
+    crown: new THREE.IcosahedronGeometry(1, 2),
+    stem: new THREE.CylinderGeometry(.5, .62, 1, 9),
+    disc: new THREE.CylinderGeometry(.5, .5, 1, 32),
+    frond: palmFrond(),
+    canopy: new THREE.ConeGeometry(1, .44, 16, 1, true),
+    pylon: taperedPylon(),
+  };
+  const materials: Record<Finish, THREE.MeshStandardMaterial> = {
+    stone: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .89 }),
+    wood: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .82 }),
+    bark: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .95 }),
+    metal: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .57, metalness: .3 }),
+    leaf: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .94, side: THREE.DoubleSide }),
+    cloth: new THREE.MeshStandardMaterial({ color: "#ffffff", roughness: .96, side: THREE.DoubleSide }),
+    water: new THREE.MeshStandardMaterial({ color: "#5b7875", roughness: .27, metalness: .08 }),
+  };
+  // Grain is evaluated in metres after instance scale. No downloaded maps or textures.
+  for (const finish of ["wood", "bark", "stone", "cloth"] as const) {
+    const material = materials[finish];
+    material.onBeforeCompile = shader => {
+      shader.vertexShader = "varying vec3 landscapeLocal;\n" + shader.vertexShader;
+      shader.vertexShader = shader.vertexShader.replace("#include <begin_vertex>", `
+        #include <begin_vertex>
+        vec3 landscapeScale=vec3(1.);
+        #ifdef USE_INSTANCING
+          landscapeScale=vec3(length(instanceMatrix[0].xyz),length(instanceMatrix[1].xyz),length(instanceMatrix[2].xyz));
+        #endif
+        landscapeLocal=position*landscapeScale;`);
+      shader.fragmentShader = "varying vec3 landscapeLocal;\n" + shader.fragmentShader;
+      shader.fragmentShader = shader.fragmentShader.replace("#include <color_fragment>", `
+        #include <color_fragment>
+        ${finish === "wood" ? `
+          float fibre=sin(landscapeLocal.z*68.+sin(landscapeLocal.x*1.7)*1.2);
+          diffuseColor.rgb*=.96+fibre*.023;
+        ` : finish === "bark" ? `
+          float furrow=sin(landscapeLocal.x*43.+landscapeLocal.z*29.+sin(landscapeLocal.y*2.)*.6);
+          diffuseColor.rgb*=.94+furrow*.048;
+        ` : finish === "stone" ? `
+          float aggregate=fract(sin(dot(floor(landscapeLocal.xz*24.+landscapeLocal.y*19.),vec2(12.9,78.2)))*43758.5);
+          diffuseColor.rgb*=.97+aggregate*.05;
+        ` : `
+          float weave=sin(landscapeLocal.x*85.)*sin(landscapeLocal.z*85.);
+          diffuseColor.rgb*=.98+weave*.016;
+        `}`);
+    };
+    material.customProgramCacheKey = () => "city-landscape-" + finish + "-v1";
+  }
+  const matrix = new THREE.Matrix4(), rotation = new THREE.Quaternion();
+  const position = new THREE.Vector3(), scale = new THREE.Vector3();
+  const up = new THREE.Vector3(0, 1, 0);
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityLandscapeDetails.ts
+SHA256 7454025cf87a4a85caf22711fc438129f4f01b1758e04e8e3e4345ae7d33ded6
+Verbatim lines 99-109:
+        const values = part.values;
+        for (let i = 0, offset = 0; i < part.count; i++) {
+          const tilted = values[offset] === 1;
+          if (tilted) rotation.set(values[offset + 8], values[offset + 9], values[offset + 10], values[offset + 11]);
+          else rotation.setFromAxisAngle(up, values[offset + 8]);
+          matrix.compose(position.set(values[offset + 2], values[offset + 3], values[offset + 4]), rotation,
+            scale.set(values[offset + 5], values[offset + 6], values[offset + 7]));
+          mesh.setMatrixAt(i, matrix); mesh.setColorAt(i, tints[values[offset + 1]]);
+          offset += tilted ? TILT_ROW : YAW_ROW;
+        }
+        mesh.instanceMatrix.needsUpdate = true;
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityLandscapeDetails.ts
+SHA256 7454025cf87a4a85caf22711fc438129f4f01b1758e04e8e3e4345ae7d33ded6
+Verbatim lines 125-149:
+  const put = (parts: Parts, x: number, y: number, z: number, w: number, h: number, d: number, tint: string,
+    finish: Finish = "stone", shape: Shape = "box", yaw = 0, tilt?: THREE.Quaternion) => {
+    const key = shape + ":" + finish;
+    let part = parts.get(key);
+    if (!part) {
+      part = { shape, finish, values: new Float64Array(8 * YAW_ROW), used: 0, count: 0 };
+      parts.set(key, part);
+    }
+    const offset = part.used, end = offset + (tilt ? TILT_ROW : YAW_ROW);
+    if (end > part.values.length) {
+      const expanded = new Float64Array(Math.max(end, part.values.length * 2));
+      expanded.set(part.values); part.values = expanded;
+    }
+    let tintId = tintIds.get(tint);
+    if (tintId === undefined) { tintId = tints.length; tints.push(new THREE.Color(tint)); tintIds.set(tint, tintId); }
+    const values = part.values;
+    values[offset] = tilt ? 1 : 0; values[offset + 1] = tintId;
+    values[offset + 2] = x; values[offset + 3] = y; values[offset + 4] = z;
+    values[offset + 5] = w; values[offset + 6] = h; values[offset + 7] = d;
+    if (tilt) {
+      values[offset + 8] = tilt.x; values[offset + 9] = tilt.y;
+      values[offset + 10] = tilt.z; values[offset + 11] = tilt.w;
+    } else values[offset + 8] = yaw;
+    part.used = end; part.count++;
+  };
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityLandscapeDetails.ts
+SHA256 7454025cf87a4a85caf22711fc438129f4f01b1758e04e8e3e4345ae7d33ded6
+Verbatim lines 174-183:
+  for (const a of parkPaths ? companionCityParks().amenities : plan.amenities) {
+    const cell = cellAt(a.x, a.z), base = cell.parts, fine = cell.fine;
+    const t = treatmentFor(a), seed = companionCityLandscapeSeed(a.id);
+    const varied = (seed % 97) / 97;
+    const cosine = Math.cos(a.yaw), sine = Math.sin(a.yaw);
+    const at = (parts: Parts, x: number, y: number, z: number, w: number, h: number, d: number, tint: string,
+      finish: Finish = "stone", shape: Shape = "box", turn = 0) => {
+      put(parts, a.x + x * cosine + z * sine, y,
+        a.z - x * sine + z * cosine, w, h, d, tint, finish, shape, a.yaw + turn);
+    };
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityLandscapeDetails.ts
+SHA256 7454025cf87a4a85caf22711fc438129f4f01b1758e04e8e3e4345ae7d33ded6
+Verbatim lines 235-247:
+    } else if (a.kind === "flower-bed") {
+      // Four walls enclose soil instead of one solid plinth with plants on top.
+      at(base, 0, .13, 0, 5.5, .16, 3.45, "#65563f", "stone");
+      for (const z of [-1.78, 1.78]) at(base, 0, .16, z, 5.72, .32, .15, "#aaa084");
+      for (const x of [-2.78, 2.78]) at(base, x, .16, 0, .15, .32, 3.42, "#aaa084");
+      const wild = t.kind === "shore" || t.kind === "common" || t.kind === "grove";
+      for (let x = -2.2; x <= 2.2; x += .72) for (let z = -1.22; z < 1.3; z += .76) {
+        const shift = Math.sin(x * 7 + z * 3 + varied) * .12;
+        at(base, x, .44, z + shift, .4, wild ? .45 : .28, .41, t.leaf, "leaf", "crown");
+        at(fine, x + shift, wild ? .75 : .63, z, .17, .09, .16, t.flower, "leaf", "crown");
+        at(fine, x, .47, z, .045, .48, .045, "#698254", "leaf", "stem");
+      }
+      for (let x = -2.1; x < 2.5; x += .72) for (const z of [-1.86, 1.86]) at(fine, x, .16, z, .012, .29, .007, "#776f5b");
+
+PARENT SOURCE packages/utils/src/companionCityLandscapeDetails.ts
+SHA256 5aa4f628054c239106eb3a7544ce1b3dd64d9d3f287470869ae02500a4283d4a
+Verbatim lines 1-4:
+import plan from "../../assets/city/lagos-city-v3.json";
+
+export type CityLandscapeAmenity = typeof plan.amenities[number];
+export type CityLandscapeSpace = typeof plan.greenSpaces[number];
+
+PARENT SOURCE packages/utils/src/companionCityLandscapeDetails.ts
+SHA256 5aa4f628054c239106eb3a7544ce1b3dd64d9d3f287470869ae02500a4283d4a
+Verbatim lines 51-57:
+/** Existing authoritative reserves only. Consumers must not append these again. */
+export function companionCityLandscapeReservedFootprint(a: CityLandscapeAmenity) {
+  const w = a.kind === "market-canopy" ? 8 : a.kind === "fountain" ? 5 : a.kind === "clock-tower" ? 2
+    : a.kind === "beach-umbrella" || a.kind === "flower-bed" ? 3 : a.kind === "bench" ? 1.3 : .4;
+  const d = a.kind === "bench" ? .55 : a.kind === "flower-bed" ? 2 : w;
+  return { minX: a.x - w, maxX: a.x + w, minZ: a.z - d, maxZ: a.z + d, yaw: a.yaw };
+}

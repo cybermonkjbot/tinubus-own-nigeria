@@ -1,0 +1,4 @@
+C:\dev\cribtest-game\output\unreal-raised-flower-bed01-20261015\author_flower_bed.py:79: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+C:\dev\cribtest-game\output\unreal-raised-flower-bed01-20261015\author_flower_bed.py:525: DeprecationWarning: 'World.use_nodes' is expected to be removed in Blender 6.0
+  scene.world.use_nodes = True

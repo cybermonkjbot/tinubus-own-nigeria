@@ -1,0 +1,317 @@
+[
+  {
+    "camera": {
+      "hide_render": false,
+      "job": "raised-flower-bed01",
+      "matrix_world": [
+        [
+          0.7598092555999756,
+          -0.3638174533843994,
+          0.5388197898864746,
+          8.300000190734863
+        ],
+        [
+          0.6501460671424866,
+          0.4251842796802521,
+          -0.629705011844635,
+          -9.699999809265137
+        ],
+        [
+          -3.035219720004534e-08,
+          0.8287672400474548,
+          0.5595934391021729,
+          8.699999809265137
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "type": "CAMERA"
+    },
+    "hidden_solids": [],
+    "image": "whole-high.png",
+    "mating_faces": "occluded, contactgeometry not photo-only assertion",
+    "render": {
+      "camera": "whole-high",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-raised-flower-bed01-20261015\\whole-high.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percent": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "units": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "state_sha256": "3b8d6cff35a0ec84404778a7cbd36ffba31ec87c0d997cbdbca74ae6a3fa4cb0",
+    "utc": "2026-10-15T12:29:20.343562+00:00",
+    "view": "whole-high"
+  },
+  {
+    "camera": {
+      "hide_render": false,
+      "job": "raised-flower-bed01",
+      "matrix_world": [
+        [
+          -0.7226417660713196,
+          0.05412747338414192,
+          -0.6891002058982849,
+          -8.800000190734863
+        ],
+        [
+          -0.6912227272987366,
+          -0.05658763274550438,
+          0.7204228043556213,
+          9.199999809265137
+        ],
+        [
+          1.1624310758406864e-07,
+          0.9969292879104614,
+          0.07830672711133957,
+          1.1200000047683716
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "type": "CAMERA"
+    },
+    "hidden_solids": [],
+    "image": "reverse-low.png",
+    "mating_faces": "occluded, contactgeometry not photo-only assertion",
+    "render": {
+      "camera": "reverse-low",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-raised-flower-bed01-20261015\\reverse-low.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percent": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "units": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "state_sha256": "5a3d6abaf978c18ae09de69f5847e4885b63c51543a1587ef0f31fb2cdafeec9",
+    "utc": "2026-10-15T12:29:38.355255+00:00",
+    "view": "reverse-low"
+  },
+  {
+    "camera": {
+      "hide_render": false,
+      "job": "raised-flower-bed01",
+      "matrix_world": [
+        [
+          0.685553789138794,
+          -0.3518662750720978,
+          0.6373429894447327,
+          3.380000114440918
+        ],
+        [
+          0.7280219793319702,
+          0.3313406705856323,
+          -0.6001644730567932,
+          -2.2699999809265137
+        ],
+        [
+          -3.2391248794283456e-08,
+          0.8754447102546692,
+          0.4833182394504547,
+          0.699999988079071
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "type": "CAMERA"
+    },
+    "hidden_solids": [],
+    "image": "corner-joint.png",
+    "mating_faces": "occluded, contactgeometry not photo-only assertion",
+    "render": {
+      "camera": "corner-joint",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-raised-flower-bed01-20261015\\corner-joint.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percent": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "units": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "state_sha256": "c07275d7e6d605c723b9d1846fb376c405e268e0c1bbf7472e49788f6153ee1e",
+    "utc": "2026-10-15T12:30:19.884750+00:00",
+    "view": "corner-joint"
+  },
+  {
+    "camera": {
+      "hide_render": false,
+      "job": "raised-flower-bed01",
+      "matrix_world": [
+        [
+          0.6988373398780823,
+          -0.08927197009325027,
+          0.7096878886222839,
+          8.699999809265137
+        ],
+        [
+          0.7152806520462036,
+          0.08721974492073059,
+          -0.6933731436729431,
+          -8.5
+        ],
+        [
+          -1.0906606284777354e-08,
+          0.9921810626983643,
+          0.12480692565441132,
+          1.649999976158142
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "type": "CAMERA"
+    },
+    "hidden_solids": [],
+    "image": "player165.png",
+    "mating_faces": "occluded, contactgeometry not photo-only assertion",
+    "render": {
+      "camera": "player165",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-raised-flower-bed01-20261015\\player165.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percent": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "units": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "state_sha256": "035c642c6745ebe0c3027674f42b4eec78da173b769817deb768e9d5cebcfe72",
+    "utc": "2026-10-15T12:30:38.019066+00:00",
+    "view": "player165"
+  },
+  {
+    "camera": {
+      "hide_render": false,
+      "job": "raised-flower-bed01",
+      "matrix_world": [
+        [
+          -0.7270132303237915,
+          0.5271586179733276,
+          -0.43994951248168945,
+          2.0999999046325684
+        ],
+        [
+          -0.6866234540939331,
+          -0.5581680536270142,
+          0.4658290147781372,
+          -1.059999942779541
+        ],
+        [
+          3.5581290802610965e-08,
+          0.6407434940338135,
+          0.7677550315856934,
+          1.1200000047683716
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "modifiers": [],
+      "type": "CAMERA"
+    },
+    "hidden_solids": [],
+    "image": "rim-soil.png",
+    "mating_faces": "occluded, contactgeometry not photo-only assertion",
+    "render": {
+      "camera": "rim-soil",
+      "color_mode": "RGBA",
+      "denoising": true,
+      "device": "CPU",
+      "display": "sRGB",
+      "engine": "CYCLES",
+      "exposure": 0.0,
+      "filepath": "C:\\dev\\cribtest-game\\output\\unreal-raised-flower-bed01-20261015\\rim-soil.png",
+      "format": "PNG",
+      "gamma": 1.0,
+      "look": "None",
+      "percent": 100,
+      "samples": 24,
+      "threads": 6,
+      "threads_mode": "FIXED",
+      "transparent": false,
+      "unit_scale": 1.0,
+      "units": "METRIC",
+      "view_transform": "AgX",
+      "x": 800,
+      "y": 800
+    },
+    "state_sha256": "d9ae0b600bd5a4768c8ac5196607c401000a6f2cc0becaeab47ba09b986e6364",
+    "utc": "2026-10-15T12:31:12.368905+00:00",
+    "view": "rim-soil"
+  }
+]

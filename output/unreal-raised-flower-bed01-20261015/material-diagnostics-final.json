@@ -1,0 +1,276 @@
+[
+  {
+    "actual_object": "LongWall_0",
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedEdging",
+        "slot": 0
+      }
+    ],
+    "object": "LongWall_0",
+    "slots": [
+      "OwnedEdging"
+    ]
+  },
+  {
+    "actual_object": "LongWall_1",
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedEdging",
+        "slot": 0
+      }
+    ],
+    "object": "LongWall_1",
+    "slots": [
+      "OwnedEdging"
+    ]
+  },
+  {
+    "actual_object": "EndWall_0",
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedEdging",
+        "slot": 0
+      }
+    ],
+    "object": "EndWall_0",
+    "slots": [
+      "OwnedEdging"
+    ]
+  },
+  {
+    "actual_object": "EndWall_1",
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedEdging",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedEdging",
+        "slot": 0
+      }
+    ],
+    "object": "EndWall_1",
+    "slots": [
+      "OwnedEdging"
+    ]
+  },
+  {
+    "actual_object": "SoilVolume",
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedSoil",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedSoil",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedSoil",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedSoil",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedSoil",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedSoil",
+        "slot": 0
+      }
+    ],
+    "object": "SoilVolume",
+    "slots": [
+      "OwnedSoil"
+    ]
+  },
+  {
+    "actual_object": "PresentationBed",
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedBed",
+        "slot": 0
+      }
+    ],
+    "object": "PresentationBed",
+    "slots": [
+      "OwnedBed"
+    ]
+  }
+]

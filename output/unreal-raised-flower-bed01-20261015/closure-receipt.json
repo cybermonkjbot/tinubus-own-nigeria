@@ -1,0 +1,72 @@
+{
+    "utc":  "2026-10-15T12:33:24.2723171Z",
+    "base":  "42b35e250a561e76b3f70e8824ac74754ade4161",
+    "status":  "BOUNDED_EDGING_SOIL_ART_COMPLETE",
+    "historical_preserved":  650,
+    "native_integration":  false,
+    "completion":  {
+                       "canonical_readback_sha256":  "3b8d6cff35a0ec84404778a7cbd36ffba31ec87c0d997cbdbca74ae6a3fa4cb0",
+                       "contacts":  13,
+                       "file":  "C:\\dev\\cribtest-game\\output\\unreal-raised-flower-bed01-20261015\\RaisedFlowerBed01.blend",
+                       "images":  5,
+                       "native_integration":  false,
+                       "pid":  7108,
+                       "restored_exact_match":  true,
+                       "solids":  6,
+                       "utc":  "2026-10-15T12:31:12.390089+00:00"
+                   },
+    "readback_file_sha256":  "0d77b0b1181ee32a4180fa37436264253648e29fdb45bc483163cae2cceeea1a",
+    "final_blend_sha256":  "09da427d3b44276413a9650e07454e250176e880c13734b75e9fb8a8ca946e9c",
+    "images":  [
+                   {
+                       "name":  "whole-high.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  538606,
+                       "sha256":  "bfebd64223de694b7d36dacf7bc4a3012e70dfc5b3c63bc5b7e3a23b948c2607"
+                   },
+                   {
+                       "name":  "reverse-low.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  507258,
+                       "sha256":  "98212c2bc1c81523b08afe71021d9d079a8f86deef03bdc9a025f75097cdabf2"
+                   },
+                   {
+                       "name":  "corner-joint.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  637396,
+                       "sha256":  "be73cb96619d2231dd7b7efd6b41934273dd733203c61fd270847e7f3035a8a7"
+                   },
+                   {
+                       "name":  "player165.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  511402,
+                       "sha256":  "c7b82c25e621e32cba934ad60740ff2063762c131ea8f229143d5be4e3185b92"
+                   },
+                   {
+                       "name":  "rim-soil.png",
+                       "width":  800,
+                       "height":  800,
+                       "bytes":  618261,
+                       "sha256":  "1c49cfc32e6edc787c50ffb253742756737f7d449dfffaa665b1303c3a48d434"
+                   }
+               ],
+    "wip_sha256":  "421fb6ca2f2d4aa12cdf52ae7f09dc1608508e04e7495936a81621e0cf44b5e4",
+    "source_sha256":  "288fd846ff0af691c57637029d35c2de5d779ee1788577c9b75c87d12b5ecacc",
+    "original_processes":  [
+                               {
+                                   "Id":  6116,
+                                   "ProcessName":  "blender",
+                                   "SessionId":  0
+                               },
+                               {
+                                   "Id":  10404,
+                                   "ProcessName":  "UnrealEditor",
+                                   "SessionId":  2
+                               }
+                           ],
+    "os_exit_code":  "UNKNOWN numeric unavailable"
+}

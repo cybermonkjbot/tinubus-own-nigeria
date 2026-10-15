@@ -1,0 +1,29 @@
+{
+    "utc":  "2026-10-15T12:27:26.7358119Z",
+    "host":  "Cribtest11",
+    "pid":  7108,
+    "arguments":  [
+                      "--background",
+                      "--factory-startup",
+                      "--disable-autoexec",
+                      "--threads",
+                      "6",
+                      "--python-exit-code",
+                      "1",
+                      "--python",
+                      "C:\\dev\\cribtest-game\\output\\unreal-raised-flower-bed01-20261015\\author_flower_bed.py"
+                  ],
+    "executable":  "C:\\dev\\tools\\baddie-blender\\blender-5.2.2-windows-x64\\blender.exe",
+    "original":  [
+                     {
+                         "Id":  6116,
+                         "ProcessName":  "blender",
+                         "SessionId":  0
+                     },
+                     {
+                         "Id":  10404,
+                         "ProcessName":  "UnrealEditor",
+                         "SessionId":  2
+                     }
+                 ]
+}

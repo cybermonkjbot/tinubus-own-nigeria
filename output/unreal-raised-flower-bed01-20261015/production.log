@@ -1,0 +1,12 @@
+00:19.750  render           | Saved: 'C:\dev\cribtest-game\output\unreal-raised-flower-bed01-20261015\early-front.png'
+01:33.204  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-raised-flower-bed01-20261015\RaisedFlowerBed01.blend"
+01:53.454  render           | Saved: 'C:\dev\cribtest-game\output\unreal-raised-flower-bed01-20261015\whole-high.png'
+02:11.469  render           | Saved: 'C:\dev\cribtest-game\output\unreal-raised-flower-bed01-20261015\reverse-low.png'
+02:53.000  render           | Saved: 'C:\dev\cribtest-game\output\unreal-raised-flower-bed01-20261015\corner-joint.png'
+03:11.141  render           | Saved: 'C:\dev\cribtest-game\output\unreal-raised-flower-bed01-20261015\player165.png'
+03:45.485  render           | Saved: 'C:\dev\cribtest-game\output\unreal-raised-flower-bed01-20261015\rim-soil.png'
+Info: Saved as "work-in-progress.blend"
+Info: Saved as "RaisedFlowerBed01.blend"
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

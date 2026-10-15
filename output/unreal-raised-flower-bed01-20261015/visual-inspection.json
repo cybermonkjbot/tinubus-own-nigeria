@@ -1,0 +1,11 @@
+{
+  "actual_images_opened": ["early-front.png", "whole-high.png", "reverse-low.png", "corner-joint.png", "player165.png", "rim-soil.png"],
+  "whole_high": "Entire fourwalls/soil/displaybed uncropped;soil recessed110mm;uniformdryfinish intentional;no plants.",
+  "reverse_low": "Oppositecorner/wholeexternal silhouette andbedvisible;all6retained;interiormatingfaces partlyoccluded bylowangle.",
+  "corner_joint": "Actualsquareend/longwall joint,5mmprojection andtopchamferrelief visible;soil andbed retained incloseframe;distantasset outsidecloseframe.",
+  "player165": "CameraZ1.65bedrelative;wholeasset/displaybed andsoil visible;no standing/gameplayclaim.",
+  "rim_soil": "Insidecornertwoinnerwalls/soilrecess/topprofiles visible;closeframe notwholeasset;110mmfreeboard geometry evidence retained.",
+  "hidden_solids": [],
+  "correction": "none: no observed owneddefect requiring reconstruction;no fake/cosmetic fix",
+  "limits": "Matingfaces occluded;actualpolygons/hits establish contacts notphotovisibility. Uniformdryart omits sourceaggregate/plants/stems/fakejointstrips. Notfullplantedamenity/park/nativeinstallation/loadsoilretentiondrainaccesscertificate."
+}
