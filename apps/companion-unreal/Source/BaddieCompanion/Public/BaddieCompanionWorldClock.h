@@ -25,6 +25,12 @@ namespace BaddieCompanion
         // Returns false without changing the current receipt for rejected input.
         bool Observe(const FString& ResponseGameRoomId, double ServerNowMs);
 
+        // The session retains this anchor on the original capture-producing ticket.
+        // Manifest/page completion and result lookup must not supply a new anchor.
+        // ServerNowMs remains the original receipt value, without elapsed time added.
+        bool ObserveCaptured(const FString& ResponseGameRoomId, double ServerNowMs,
+            double TicketReceivedAtSeconds);
+
         // Requires the current player's room to match. Failure clears Out.
         bool CopyTime(const FString& PlayerGameRoomId, FWorldPresentationTime& Out) const;
 

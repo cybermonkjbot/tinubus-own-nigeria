@@ -4,13 +4,20 @@
 #include "Containers/Ticker.h"
 #include "Subsystems/GameInstanceSubsystem.h"
 #include "Templates/PimplPtr.h"
+#include "BaddieCompanionWorldObservation.h"
 #include "BaddieCompanionGameplaySession.generated.h"
 
 class FJsonObject;
+class APlayerController;
+class ABaddieCompanionWorldCharacter;
+class ABaddieCompanionSlicePlayerController;
+class UBaddieCompanionWorldPresentation;
 struct FBaddieCompanionGameplaySessionData;
 
 namespace BaddieCompanion
 {
+    struct FWorldNativeEvidence;
+    enum class EGameplayScope : uint8 { EntryOnly, World };
     enum class EGameplayConnectionState : uint8
     {
         Disabled, SignedOut, RequestingCode, AwaitingApproval, Authorized,
@@ -26,6 +33,9 @@ namespace BaddieCompanion
         double PresenceRemainingSeconds = 0;
         double RetryAfterSeconds = 0;
         bool bStale = false;
+        EGameplayScope Scope = EGameplayScope::EntryOnly;
+        uint64 WorldGeneration = 0;
+        EWorldReadStatus WorldStatus = EWorldReadStatus::Unavailable;
     };
 
     enum class EGameplayRequest : uint8 { None, Begin, Exchange, Enter, Heartbeat, Leave };
@@ -49,18 +59,41 @@ public:
     // This source adds no caller and defaults to disabled.
     void Configure(const FString& ConvexOrigin, bool bEnabled);
     void BeginPairing(const FString& DeviceName);
+    void BeginWorldPairing(const FString& DeviceName);
     void Enter(const FString& CrewThreadId = FString());
     void Leave();
     void Disconnect();
     BaddieCompanion::FGameplayConnectionView GetConnectionView() const;
+    BaddieCompanion::FWorldSessionView GetWorldView() const;
+    void AttachWorldConsumer(APlayerController* Consumer);
+    void DetachWorldConsumer(APlayerController* Consumer);
+    void ReloadWorld(APlayerController* Consumer);
+    bool RequestWorldWalk(APlayerController* Consumer, const BaddieCompanion::FMovementPoint& Target,
+        BaddieCompanion::EMovementPace Pace);
+    void StopWorldWalk(APlayerController* Consumer);
+    void WorldContentLost(APlayerController* Consumer, BaddieCompanion::FWorldObservationToken ObservationToken);
     FBaddieCompanionGameplayConnectionChanged OnConnectionChanged;
 
 private:
+    friend class ABaddieCompanionWorldCharacter;
+    friend class ABaddieCompanionSlicePlayerController;
+    friend class UBaddieCompanionWorldPresentation;
+    void WorldCollisionStop(APlayerController* Consumer, BaddieCompanion::FWorldObservationToken Token,
+        const BaddieCompanion::FMovementCollisionStop& Receipt, const BaddieCompanion::FMovementPose& Origin);
+    void ObserveWorldNative(APlayerController* Consumer, const BaddieCompanion::FWorldNativeEvidence& Evidence);
+    bool WorldCycleCurrent(APlayerController* Consumer, BaddieCompanion::FWorldObservationToken Token) const;
+    void ReleaseWorldInput(APlayerController* Consumer);
+    bool WorldInputReleaseRequired(APlayerController* Consumer) const;
+    bool WorldTransferCurrent(APlayerController* Consumer, BaddieCompanion::FWorldObservationToken Before,
+        BaddieCompanion::FWorldObservationToken After) const;
     TPimplPtr<FBaddieCompanionGameplaySessionData> Data;
     FTSTicker::FDelegateHandle Ticker;
     FDelegateHandle DeactivateHandle, ReactivateHandle, BackgroundHandle, ForegroundHandle, SlateActivationHandle;
 
     bool TickSession(float DeltaSeconds);
+    void TickWorld();
+    void SendWorld();
+    void RetireWorldRequests();
     bool IsForeground() const;
     void AttachSlateLifecycle();
     void ApplicationDeactivated();
@@ -70,7 +103,7 @@ private:
     void SlateActivationChanged(bool bActive);
     void FocusLost();
     void RetireRequest();
-    void ClearPrivateState();
+    bool ClearPrivateState();
     void Stop(BaddieCompanion::EGameplayConnectionState State, const TCHAR* Message);
     bool CheckLifetimes();
     void BeginLeave(const TCHAR* Message);

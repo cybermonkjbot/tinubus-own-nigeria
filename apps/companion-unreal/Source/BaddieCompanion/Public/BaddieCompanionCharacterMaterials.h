@@ -8,6 +8,7 @@
 class UMaterialInstanceDynamic;
 class UMaterialInterface;
 class UMeshComponent;
+class ABaddieCompanionCharacterActor;
 
 namespace BaddieCompanion
 {
@@ -70,6 +71,8 @@ public:
     UBaddieCompanionCharacterMaterials();
     bool Apply(const BaddieCompanion::FHomePresentationPlan& Plan,
         const BaddieCompanion::FNativeCharacterMaterialContent& Content);
+    bool Apply(const BaddieCompanion::FHomePresentationData& Plan,
+        const BaddieCompanion::FNativeCharacterMaterialContent& Content);
     void ClearPrivateMaterials();
     // Game-thread lifetime guard, including restoration from EndPlay/OnUnregister.
     bool IsChangingMaterials() const { return bChangingMaterials; }
@@ -81,9 +84,24 @@ protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
     virtual void OnUnregister() override;
 private:
+    friend class ABaddieCompanionCharacterActor;
+    bool InspectCurrent(const BaddieCompanion::FHomePresentationData& Plan,
+        const BaddieCompanion::FNativeCharacterMaterialContent& Content, uint64 Generation) const;
     void RestoreOwnedMaterials();
     UPROPERTY(Transient)
     TArray<FBaddieOwnedCharacterMaterial> Owned;
+    struct FSlotIdentity
+    {
+        TWeakObjectPtr<UMeshComponent> Component;
+        TWeakObjectPtr<UObject> MeshAsset;
+        TWeakObjectPtr<UMaterialInterface> AuthoredMaterial, AuthoredOverride;
+        int32 Slot = INDEX_NONE;
+        FName SlotName, ColorParameter, IrisEnabledParameter;
+        FString SourceMaterialName;
+        FLinearColor AuthoredColor;
+        bool bAuthoredOverride = false;
+    };
+    TArray<FSlotIdentity> InspectedSlots;
     BaddieCompanion::ENativeCharacterMaterialIssue Issue = BaddieCompanion::ENativeCharacterMaterialIssue::None;
     uint64 ApplicationGeneration = 0;
     uint64 AppliedGeneration = 0;

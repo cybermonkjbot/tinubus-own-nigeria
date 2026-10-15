@@ -27,14 +27,23 @@ namespace BaddieCompanion
 
     bool FWorldPresentationClock::Observe(const FString& ResponseGameRoomId, double ServerNowMs)
     {
+        return ObserveCaptured(ResponseGameRoomId, ServerNowMs, FPlatformTime::Seconds());
+    }
+
+    bool FWorldPresentationClock::ObserveCaptured(const FString& ResponseGameRoomId,
+        double ServerNowMs, double TicketReceivedAtSeconds)
+    {
         if (SelectedGameRoomId.IsEmpty()
             || !SelectedGameRoomId.Equals(ResponseGameRoomId, ESearchCase::CaseSensitive)
             || !std::isfinite(ServerNowMs) || ServerNowMs <= 0 || ServerNowMs > WorldClockMaxSafeInteger
             || std::floor(ServerNowMs) != ServerNowMs
             || (Receipt.IsSet() && ServerNowMs <= Receipt.GetValue().ServerNowMs)) return false;
-        const double ReceivedAtSeconds = FPlatformTime::Seconds();
-        if (!std::isfinite(ReceivedAtSeconds)) return false;
-        Receipt = FReceipt{ServerNowMs, ReceivedAtSeconds};
+        const double NowSeconds = FPlatformTime::Seconds();
+        const double AgeMs = (NowSeconds - TicketReceivedAtSeconds) * 1000;
+        if (!std::isfinite(NowSeconds) || !std::isfinite(TicketReceivedAtSeconds)
+            || TicketReceivedAtSeconds < 0 || TicketReceivedAtSeconds > NowSeconds
+            || !std::isfinite(AgeMs) || AgeMs > WorldClockMaxReceiptAgeMs) return false;
+        Receipt = FReceipt{ServerNowMs, TicketReceivedAtSeconds};
         return true;
     }
 
@@ -46,9 +55,9 @@ namespace BaddieCompanion
             || !SelectedGameRoomId.Equals(PlayerGameRoomId, ESearchCase::CaseSensitive)) return false;
         const auto& Current = Receipt.GetValue();
         const double ElapsedMs = (FPlatformTime::Seconds() - Current.ReceivedAtSeconds) * 1000;
-        if (!std::isfinite(ElapsedMs)) return false;
-        const double AgeMs = std::floor(FMath::Max(0.0, ElapsedMs));
-        if (AgeMs > WorldClockMaxReceiptAgeMs) return false;
+        if (!std::isfinite(ElapsedMs) || ElapsedMs < 0
+            || ElapsedMs > WorldClockMaxReceiptAgeMs) return false;
+        const double AgeMs = std::floor(ElapsedMs);
         const double ServerNowMs = Current.ServerNowMs + AgeMs;
         if (!std::isfinite(ServerNowMs) || ServerNowMs > WorldClockMaxSafeInteger) return false;
         Out = {ServerNowMs, static_cast<int32>(WorldClockMaxReceiptAgeMs - AgeMs)};

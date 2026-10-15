@@ -54,6 +54,8 @@ public:
     ABaddieCompanionCharacterActor();
     static bool AcceptsContent(const BaddieCompanion::FHomePresentationPlan& Plan,
         const BaddieCompanion::FNativeCharacterContent& Content);
+    static bool AcceptsContent(const BaddieCompanion::FHomePresentationData& Plan,
+        const BaddieCompanion::FNativeCharacterContent& Content);
     void ClearPrivateCharacter();
 protected:
     virtual void PostInitializeComponents() override;
@@ -61,15 +63,22 @@ protected:
     virtual void EndPlay(const EEndPlayReason::Type Reason) override;
 private:
     friend class UBaddieCompanionNativeApartment;
+    friend class UBaddieCompanionWorldPresentation;
     static bool HasInertDefaults(UClass* Class);
-    bool Prepare(const BaddieCompanion::FHomePresentationPlan& Plan,
+    bool Prepare(const BaddieCompanion::FHomePresentationData& Plan,
         const BaddieCompanion::FNativeCharacterContent& Content,
         const FTransform& LevelToApartment, bool bLevelAlreadyTransformed);
-    bool PrepareBindings(const BaddieCompanion::FHomePresentationPlan& Plan,
+    bool PrepareBindings(const BaddieCompanion::FHomePresentationData& Plan,
         const BaddieCompanion::FNativeCharacterContent& Content,
-        const FTransform& LevelToApartment, bool bLevelAlreadyTransformed);
+        const FTransform& LevelToApartment, bool bLevelAlreadyTransformed,
+        const FTransform* WorldPose = nullptr);
+    bool PrepareWorld(const BaddieCompanion::FHomePresentationData& Plan,
+        const BaddieCompanion::FNativeCharacterContent& Content, const FTransform& WorldPose);
     bool ReconcileLevelTransform();
     bool HasCurrentMaterials() const;
+    bool InspectCurrent(const BaddieCompanion::FHomePresentationData& Plan,
+        const BaddieCompanion::FNativeCharacterContent& Content, const UWorld* World,
+        const AActor* Owner, uint64 MaterialGeneration) const;
     BaddieCompanion::ECharacterEquipmentIssue ObserveEquipment(
         const BaddieCompanion::FCharacterEquipmentObservation& Observation, bool bRetryFailed);
     bool PollEquipment();
@@ -85,6 +94,17 @@ private:
     TObjectPtr<UBaddieCompanionCharacterMaterials> Materials;
     BaddieCompanion::FNativeCharacterFaceAppearance FaceAppearance;
     BaddieCompanion::FNativeCharacterEquipment Equipment;
+    struct FAccessoryIdentity
+    {
+        TWeakObjectPtr<UMeshComponent> Component;
+        TWeakObjectPtr<USceneComponent> Parent;
+        TWeakObjectPtr<UObject> Asset;
+        FTransform LocalPose;
+        FName Name, Socket;
+        FString Source;
+        bool bBaseline = false;
+    };
+    TArray<FAccessoryIdentity> PreparedAccessories;
     TOptional<FTransform> PendingApartmentPose;
     uint64 PreparedMaterialGeneration = 0;
     FTSTicker::FDelegateHandle DeferredDisposal;

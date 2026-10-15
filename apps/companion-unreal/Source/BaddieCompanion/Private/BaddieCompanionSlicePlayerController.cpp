@@ -1,4 +1,8 @@
 #include "BaddieCompanionSlicePlayerController.h"
+#include "BaddieCompanionWorldCharacter.h"
+#include "BaddieCompanionWorldCommandLifecycle.h"
+#include "NavigationSystem.h"
+#include "NavigationData.h"
 
 #include "BaddieCompanionConnectionUi.h"
 #include "BaddieCompanionSession.h"
@@ -22,6 +26,7 @@
 ABaddieCompanionSlicePlayerController::ABaddieCompanionSlicePlayerController()
 {
     NativeApartment = CreateDefaultSubobject<UBaddieCompanionNativeApartment>(TEXT("NativeApartment"));
+    WorldPresentation = CreateDefaultSubobject<UBaddieCompanionWorldPresentation>(TEXT("WorldPresentation"));
 }
 
 void ABaddieCompanionSlicePlayerController::BeginPlay()
@@ -46,8 +51,11 @@ void ABaddieCompanionSlicePlayerController::BeginPlay()
         ConnectionHandle = Session->OnConnectionChanged.AddUObject(this,
             &ABaddieCompanionSlicePlayerController::ConnectionChanged);
     if (auto* Session = GameplaySession.Get())
+    {
         GameplayConnectionHandle = Session->OnConnectionChanged.AddUObject(this,
             &ABaddieCompanionSlicePlayerController::GameplayConnectionChanged);
+        if (!bOfflineInspection) Session->AttachWorldConsumer(this);
+    }
     if (auto* Session = OfflineSession.Get())
     {
         OfflineHandle = Session->OnSelectionChanged.AddUObject(this,
@@ -83,6 +91,8 @@ void ABaddieCompanionSlicePlayerController::OnPossess(APawn* InPawn)
 
 void ABaddieCompanionSlicePlayerController::OnUnPossess()
 {
+    StopWorldWalk();
+    if (auto* Character = Cast<ABaddieCompanionWorldCharacter>(GetPawn())) Character->ClearWorldMovement();
     ClearMissionPresentation();
     Super::OnUnPossess();
 }
@@ -90,6 +100,8 @@ void ABaddieCompanionSlicePlayerController::OnUnPossess()
 void ABaddieCompanionSlicePlayerController::EndPlay(const EEndPlayReason::Type EndPlayReason)
 {
     bEndingPlay = true;
+    ClearWorldPresentation();
+    if (auto* Session = GameplaySession.Get()) Session->DetachWorldConsumer(this);
     FCoreDelegates::ApplicationWillDeactivateDelegate.Remove(MissionDeactivateHandle);
     FCoreDelegates::ApplicationWillEnterBackgroundDelegate.Remove(MissionBackgroundHandle);
     ClearMissionPresentation();
@@ -121,6 +133,8 @@ void ABaddieCompanionSlicePlayerController::Tick(float DeltaSeconds)
 {
     Super::Tick(DeltaSeconds);
     if (IsLocalController() && !bEndingPlay) RefreshConnectionPresentation();
+    if (IsLocalController() && !bEndingPlay) RefreshWorldPresentation();
+    if (IsLocalController() && !bEndingPlay) UpdateWorldInput();
     if (IsLocalController() && !bEndingPlay) RefreshMissionPresentation();
 }
 
@@ -143,7 +157,7 @@ void ABaddieCompanionSlicePlayerController::ConnectionChanged()
         if (State == EConnectionState::RequestingCode || State == EConnectionState::SignedOut
             || State == EConnectionState::Disabled || State == EConnectionState::Expired
             || State == EConnectionState::Unavailable)
-            ClearPrivatePresentation();
+            ClearReadPresentation();
     }
     RefreshConnectionPresentation();
 }
@@ -153,6 +167,7 @@ void ABaddieCompanionSlicePlayerController::GameplayConnectionChanged()
     if (bEndingPlay || !IsLocalController()) return;
     // Even a same-status notification may represent a replaced private grant/configuration.
     InvalidateGameplayControls();
+    RefreshWorldPresentation();
     if (bOfflineInspection)
     {
         if (auto* Session = GameplaySession.Get())
@@ -226,7 +241,7 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
         if (NativeApartment && NativeApartment->HasPrivateContent()) NativeApartment->ClearPrivateContent();
         const auto* Session = OfflineSession.Get();
         const auto* Selection = HasOfflineSelection() ? Session->GetSelection() : nullptr;
-        if (!Selection && RetainedSelection.IsSet()) ClearPrivatePresentation();
+        if (!Selection && RetainedSelection.IsSet()) ClearReadPresentation();
         if (Selection) RetainedSelection = *Selection;
         if (ConnectionPanel.IsValid())
             ConnectionPanel->PresentOffline(Selection, Session ? Session->GetStatus() : FString(), bPointerCaptured);
@@ -240,7 +255,7 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
     if (!bValid)
     {
         if (RetainedSelection.IsSet() || PendingAction.IsSet() || HomePresentation.HasInput()
-            || (NativeApartment && NativeApartment->HasPrivateContent())) ClearPrivatePresentation();
+            || (NativeApartment && NativeApartment->HasPrivateContent())) ClearReadPresentation();
     }
     else
     {
@@ -251,7 +266,7 @@ void ABaddieCompanionSlicePlayerController::RefreshConnectionPresentation()
             && (!RetainedSelection.GetValue().Character.Id.Equals(Next.Character.Id, ESearchCase::CaseSensitive)
                 || !RetainedSelection.GetValue().HomeRoom.Id.Equals(Next.HomeRoom.Id, ESearchCase::CaseSensitive)
                 || !RetainedSelection.GetValue().ActiveRoom.Id.Equals(Next.ActiveRoom.Id, ESearchCase::CaseSensitive)))
-            ClearPrivatePresentation();
+            ClearReadPresentation();
         RetainedSelection = MoveTemp(Next);
         HomePresentation.Update(RetainedSelection.GetValue());
         if (NativeApartment)
@@ -295,20 +310,184 @@ bool ABaddieCompanionSlicePlayerController::CopyHomePresentation(BaddieCompanion
 
 void ABaddieCompanionSlicePlayerController::ClearPrivatePresentation()
 {
+    ClearWorldPresentation();
+    ClearReadPresentation();
+}
+
+void ABaddieCompanionSlicePlayerController::ClearReadPresentation()
+{
     InvalidateGameplayControls();
-    ClearMissionPresentation();
+    // Preserve the existing inspection/expedition clearing outside an independent
+    // world view. A Home read refresh is not world lifetime retirement.
+    if (!WorldObservation.IsCurrent()) ClearMissionPresentation();
     if (NativeApartment) NativeApartment->ClearPrivateContent();
     RetainedSelection.Reset();
     HomePresentation.Clear();
     PendingAction.Reset();
     PendingDeviceName.Reset();
     PendingScope = BaddieCompanion::EConnectionScope::Home;
-    bPointerCaptured = false;
+    if (!WorldObservation.IsCurrent()) bPointerCaptured = false;
     if (ConnectionPanel.IsValid()) ConnectionPanel->ClearPrivatePresentation();
     if (auto* ControlledCharacter = Cast<ABaddieCompanionSliceCharacter>(GetPawn()))
         ControlledCharacter->ClearInspectionPresentation();
-    SetControlRotation(FRotator::ZeroRotator);
+    if (!WorldObservation.IsCurrent()) SetControlRotation(FRotator::ZeroRotator);
     if (!bEndingPlay) ApplyPointerCapture();
+}
+
+void ABaddieCompanionSlicePlayerController::RefreshWorldPresentation()
+{
+    if (bRefreshingWorld || bClearingWorld || bEndingPlay || !IsLocalController()) return;
+    TGuardValue<bool> Guard(bRefreshingWorld, true);
+    auto* Session = GameplaySession.Get();
+    const auto View = Session ? Session->GetWorldView() : BaddieCompanion::FWorldSessionView();
+    if (bOfflineInspection || MissionToken.IsSet() || !View.bHasObservation || !View.Observation.IsCurrent()
+        || !FSlateApplication::IsInitialized() || !FSlateApplication::Get().IsActive())
+    { ClearWorldPresentation(); return; }
+    if (WorldObservation.Token() != View.Observation.Token())
+    {
+        const bool bTransfer = Session->WorldTransferCurrent(this, WorldObservation.Token(), View.Observation.Token());
+        if (bTransfer)
+        {
+            bWorldTargetHeld = false;
+            if (!WorldPresentation->AdoptCompatible(View.Observation))
+            { Session->WorldContentLost(this, View.Observation.Token()); ClearWorldPresentation(); return; }
+        }
+        else ClearWorldPresentation();
+        if (bEndingPlay || !View.Observation.IsCurrent()
+            || Session->GetWorldView().Observation.Token() != View.Observation.Token()) return;
+        WorldObservation = View.Observation;
+    }
+    WorldPresentation->Observe(WorldObservation);
+    WorldPresentation->Reconcile();
+    if (bEndingPlay || GameplaySession.Get() != Session || !WorldObservation.IsCurrent()
+        || WorldObservation.Token() != View.Observation.Token()
+        || Session->GetWorldView().Observation.Token() != View.Observation.Token()) return;
+    BaddieCompanion::FWorldNativeEvidence Evidence;
+    if (WorldPresentation->InspectNative(Evidence)) Session->ObserveWorldNative(this, Evidence);
+    if (bEndingPlay || GameplaySession.Get() != Session || !WorldObservation.IsCurrent()
+        || WorldObservation.Token() != View.Observation.Token()
+        || Session->GetWorldView().Observation.Token() != View.Observation.Token()) return;
+    // Initial unavailable imports are not loss of an accepted native generation.
+    if (auto* Character = Cast<ABaddieCompanionWorldCharacter>(GetPawn()))
+    {
+        if (!View.bWalkingAvailable || !WorldPresentation->CurrentCycle()
+            || PendingAction.IsSet() || PendingGameplayAction.IsSet()) Character->ClearWorldMovement();
+        else Character->FollowAccepted(*Session);
+    }
+}
+
+void ABaddieCompanionSlicePlayerController::ClearWorldPresentation()
+{
+    if (bClearingWorld) return;
+    TGuardValue<bool> Guard(bClearingWorld, true);
+    const bool bHadWorld = WorldObservation.IsCurrent() || Cast<ABaddieCompanionWorldCharacter>(GetPawn());
+    WorldObservation = {};
+    bWorldReleaseRequired = true; bWorldTargetHeld = false;
+    StopWorldWalk();
+    if (auto* Character = Cast<ABaddieCompanionWorldCharacter>(GetPawn()))
+    {
+        Character->ClearWorldMovement();
+        UnPossess();
+    }
+    if (WorldPresentation) WorldPresentation->Clear();
+    if (bHadWorld && !bEndingPlay)
+    {
+        bPointerCaptured = false;
+        SetControlRotation(FRotator::ZeroRotator);
+        ApplyPointerCapture();
+    }
+}
+
+void ABaddieCompanionSlicePlayerController::WorldNativeContentLost(BaddieCompanion::FWorldObservationToken Token)
+{
+    if (bEndingPlay || bClearingWorld || !Token.IsSet() || WorldObservation.Token() != Token) return;
+    auto* Session = GameplaySession.Get();
+    if (!Session || Session->GetWorldView().Observation.Token() != Token) return;
+    Session->WorldContentLost(this, Token);
+    // The session revokes the observation before native hiding/unpossess can
+    // reenter. A newer publication must not be cleared by this older loss.
+    if (WorldObservation.Token() == Token) ClearWorldPresentation();
+}
+
+bool ABaddieCompanionSlicePlayerController::PrepareWorldContent(const BaddieCompanion::FNativeWorldContent& Content)
+{
+    RefreshWorldPresentation();
+    return WorldObservation.IsCurrent() && WorldPresentation && WorldPresentation->Prepare(Content);
+}
+
+bool ABaddieCompanionSlicePlayerController::RequestWorldWalk(
+    const BaddieCompanion::FMovementPoint& Target, BaddieCompanion::EMovementPace Pace)
+{
+    auto* Session = GameplaySession.Get();
+    return !bEndingPlay && IsLocalController() && WorldObservation.IsCurrent() && Session
+        && !PendingAction.IsSet() && !PendingGameplayAction.IsSet() && !MissionToken.IsSet()
+        && FSlateApplication::IsInitialized() && FSlateApplication::Get().IsActive()
+        && WorldPresentation && WorldPresentation->CurrentCycle() && Session->RequestWorldWalk(this, Target, Pace);
+}
+
+void ABaddieCompanionSlicePlayerController::StopWorldWalk()
+{
+    if (auto* Session = GameplaySession.Get()) Session->StopWorldWalk(this);
+}
+void ABaddieCompanionSlicePlayerController::WorldMoveForward(float Value)
+{ WorldAxis.X = FMath::IsFinite(Value) ? Value : 0; }
+void ABaddieCompanionSlicePlayerController::WorldMoveRight(float Value)
+{ WorldAxis.Y = FMath::IsFinite(Value) ? Value : 0; }
+void ABaddieCompanionSlicePlayerController::UpdateWorldInput()
+{
+    using namespace BaddieCompanion;
+    if (WorldAxis.Size() <= .1)
+    {
+        if (bWorldTargetHeld) StopWorldWalk();
+        if (auto* Session = GameplaySession.Get()) Session->ReleaseWorldInput(this);
+        bWorldTargetHeld = false; bWorldReleaseRequired = false; return;
+    }
+    auto* Session = GameplaySession.Get();
+    if (!Session || Session->WorldInputReleaseRequired(this) || !WorldObservation.IsCurrent()
+        || !WorldPresentation || !WorldPresentation->CurrentCycle()
+        || !Cast<ABaddieCompanionWorldCharacter>(GetPawn()) || bOfflineInspection || MissionToken.IsSet()
+        || PendingAction.IsSet() || PendingGameplayAction.IsSet() || !IsLocalController()
+        || !FSlateApplication::IsInitialized() || !FSlateApplication::Get().IsActive())
+    {
+        if (bWorldTargetHeld) StopWorldWalk();
+        bWorldTargetHeld = false; bWorldReleaseRequired = true; return;
+    }
+    if (bWorldReleaseRequired) return;
+    FWorldPlayerRead Read; FWorldPlayerHeader Player;
+    const auto Token = WorldObservation.Token();
+    if (WorldObservation.ReadPlayer(Read) != EWorldReadResult::Ready || Read.Header(Player) != EWorldReadResult::Ready) return;
+    constexpr bool bQualifiedTrustedStreetNavigation = false;
+    if (!bQualifiedTrustedStreetNavigation || WorldObservation.AdmitNativeMovementWork(true) != EWorldReadResult::Ready
+        || !WorldPresentation->StreetNavigation.IsValid()
+        || WorldPresentation->StreetNavigationGeneration != WorldPresentation->BindingGeneration) return;
+    auto* StreetNavigation = WorldPresentation->StreetNavigation.Get();
+    if (StreetNavigation->GetWorld() != GetWorld() || StreetNavigation->IsActorBeingDestroyed()) return;
+    const FRotator Camera(0, GetControlRotation().Yaw, 0);
+    FVector Direction = Camera.Vector() * WorldAxis.X + FRotationMatrix(Camera).GetUnitAxis(EAxis::Y) * WorldAxis.Y;
+    Direction.Z = 0;
+    if (!Direction.Normalize()) return;
+    // Inverse of the existing source-metres/UE-centimetres basis.
+    const FVector SourceDirection(Direction.Y / 100, Direction.Z / 100, Direction.X / 100);
+    FVector2D Source(SourceDirection.X, SourceDirection.Z);
+    if (!Source.Normalize()) return;
+    if (bWorldTargetHeld && FVector2D::Distance(Source, WorldLastDirection) < .1
+        && FMath::Square(Player.Position.X - WorldLastOrigin.X) + FMath::Square(Player.Position.Z - WorldLastOrigin.Z) < .25) return;
+    FWorldInstanceRead InstanceRead; FWorldInstanceHeader Instance;
+    if (WorldObservation.ReadInstance(InstanceRead) != EWorldReadResult::Ready
+        || InstanceRead.Header(Instance) != EWorldReadResult::Ready) return;
+    const FVector Candidate = SourceToUnreal(FVector(Player.Position.X + Source.X * 2, Instance.FloorY, Player.Position.Z + Source.Y * 2));
+    auto* Navigation = FNavigationSystem::GetCurrent<UNavigationSystemV1>(GetWorld());
+    FNavLocation Projected;
+    if (!Navigation || !Navigation->ProjectPointToNavigation(Candidate, Projected, FVector(200, 200, 200), StreetNavigation)) return;
+    const FVector Target(Projected.Location.Y / 100, Projected.Location.Z / 100, Projected.Location.X / 100);
+    if (!FMath::IsFinite(Target.X) || !FMath::IsFinite(Target.Z)
+        || FMath::Square(Target.X - Player.Position.X) + FMath::Square(Target.Z - Player.Position.Z) > 4
+        || WorldObservation.Token() != Token || !WorldObservation.IsCurrent()) return;
+    if (bEndingPlay || GameplaySession.Get() != Session || !WorldPresentation->CurrentCycle()
+        || WorldPresentation->StreetNavigation.Get() != StreetNavigation
+        || WorldPresentation->StreetNavigationGeneration != WorldPresentation->BindingGeneration) return;
+    if (RequestWorldWalk({Target.X, Target.Z}, EMovementPace::Walk))
+    { WorldLastDirection = Source; WorldLastOrigin = {Player.Position.X, Player.Position.Z}; bWorldTargetHeld = true; }
 }
 
 bool ABaddieCompanionSlicePlayerController::CopyNativeApartmentStatus(BaddieCompanion::FNativeApartmentStatus& Out)
@@ -354,14 +533,14 @@ void ABaddieCompanionSlicePlayerController::StartPairing(
     const FString& DeviceName, BaddieCompanion::EConnectionScope Scope)
 {
     // Clear before a synchronous notification or request from a new pairing.
-    ClearPrivatePresentation();
+    ClearReadPresentation();
     if (auto* Session = ConnectionSession.Get()) Session->BeginPairing(DeviceName, Scope);
     RefreshConnectionPresentation();
 }
 
 void ABaddieCompanionSlicePlayerController::StopConnection()
 {
-    ClearPrivatePresentation();
+    ClearReadPresentation();
     if (auto* Session = ConnectionSession.Get()) Session->Disconnect();
     RefreshConnectionPresentation();
 }
@@ -425,6 +604,22 @@ void ABaddieCompanionSlicePlayerController::RequestGameplayConnectionAction(
     if (!Session) return;
     const auto View = Session->GetConnectionView();
     using BaddieCompanion::EGameplayConnectionState;
+    if (Action == EBaddieGameplayConnectionAction::PairWorld && BaddieCompanion::CanPairGameplay(View)
+        && BaddieCompanion::IsValidConnectionDeviceName(DeviceName))
+    {
+        InvalidateGameplayControls();
+        Session->BeginWorldPairing(DeviceName);
+        RefreshConnectionPresentation();
+        return;
+    }
+    if (Action == EBaddieGameplayConnectionAction::ReloadWorld
+        && View.Scope == BaddieCompanion::EGameplayScope::World)
+    {
+        InvalidateGameplayControls();
+        Session->ReloadWorld(this);
+        RefreshWorldPresentation();
+        return;
+    }
     if (Action == EBaddieGameplayConnectionAction::CopyLink)
     {
         if (View.State == EGameplayConnectionState::AwaitingApproval && View.GrantOrPairingRemainingSeconds > 0
@@ -524,6 +719,8 @@ void ABaddieCompanionSlicePlayerController::SetupInputComponent()
     Super::SetupInputComponent();
     InputComponent->BindAction(TEXT("ReleasePointer"), IE_Pressed,
         this, &ABaddieCompanionSlicePlayerController::HandleConnectionEscape);
+    InputComponent->BindAxis(TEXT("MoveForward"), this, &ABaddieCompanionSlicePlayerController::WorldMoveForward);
+    InputComponent->BindAxis(TEXT("MoveRight"), this, &ABaddieCompanionSlicePlayerController::WorldMoveRight);
 }
 
 void ABaddieCompanionSlicePlayerController::TogglePointerCapture()
@@ -535,6 +732,29 @@ void ABaddieCompanionSlicePlayerController::TogglePointerCapture()
 
 void ABaddieCompanionSlicePlayerController::ApplyPointerCapture()
 {
+    if (WorldObservation.IsCurrent() && !MissionToken.IsSet())
+    {
+        const auto* Session = GameplaySession.Get();
+        const bool bWalking = Session && Session->GetWorldView().bWalkingAvailable
+            && WorldPresentation && WorldPresentation->CurrentCycle()
+            && !PendingAction.IsSet() && !PendingGameplayAction.IsSet();
+        bPointerCaptured = bWalking; bShowMouseCursor = !bWalking;
+        ResetIgnoreMoveInput(); ResetIgnoreLookInput();
+        SetIgnoreMoveInput(!bWalking); SetIgnoreLookInput(!bWalking);
+        if (bWalking)
+        {
+            FInputModeGameOnly Mode; Mode.SetConsumeCaptureMouseDown(false); SetInputMode(Mode);
+        }
+        else
+        {
+            StopWorldWalk();
+            if (auto* Character = Cast<ABaddieCompanionWorldCharacter>(GetPawn())) Character->ClearWorldMovement();
+            FInputModeUIOnly Mode; Mode.SetLockMouseToViewportBehavior(EMouseLockMode::DoNotLock);
+            if (ConnectionPanel) Mode.SetWidgetToFocus(ConnectionPanel);
+            SetInputMode(Mode);
+        }
+        return;
+    }
     if (MissionToken.IsSet())
     {
         // Slate owns all expedition pointers/keys, forwarding only admitted native delegates.
@@ -716,6 +936,7 @@ void ABaddieCompanionSlicePlayerController::ClearMissionPresentation()
 
 void ABaddieCompanionSlicePlayerController::HandleMissionFocusLoss()
 {
+    ClearWorldPresentation();
     CancelConnectionAction();
     if (ConnectionPanel.IsValid()) ConnectionPanel->ClearGameplayPresentation();
     ClearMissionPresentation();

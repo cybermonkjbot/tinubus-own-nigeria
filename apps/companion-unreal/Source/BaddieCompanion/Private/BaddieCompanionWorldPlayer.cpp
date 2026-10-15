@@ -1,4 +1,5 @@
 #include "BaddieCompanionWorldPlayer.h"
+#include "BaddieCompanionWorldPlayerRead.h"
 
 #include "Dom/JsonObject.h"
 #include "Dom/JsonValue.h"
@@ -10,6 +11,266 @@
 
 namespace BaddieCompanion
 {
+    namespace WorldReadPrivate
+    {
+        namespace
+        {
+            using K = EWorldValueKind;
+            template <SIZE_T N> constexpr FFieldRule KeyRule(const TCHAR (&Name)[N], uint64 Max = 240,
+                bool bRequired = true, bool bNullable = false)
+            { return FFieldRule(Name, K::String, bRequired, bNullable).WithText({1, Max, true, true}); }
+            template <SIZE_T N> constexpr FFieldRule TimeRule(const TCHAR (&Name)[N], bool Required = true, bool Nullable = false)
+            { return FFieldRule(Name, K::Number, Required, Nullable).WithNumber(0, MaxSafeInteger); }
+            template <SIZE_T N> constexpr FFieldRule CounterRule(const TCHAR (&Name)[N], double Max = MaxSafeInteger,
+                bool Required = true, bool Nullable = false)
+            { return FFieldRule(Name, K::Number, Required, Nullable).WithNumber(0, Max, true); }
+            template <SIZE_T N> constexpr FFieldRule ObjectRule(const TCHAR (&Name)[N], bool Required = true, bool Nullable = false)
+            { return FFieldRule(Name, K::Object, Required, Nullable); }
+            template <SIZE_T N> constexpr FFieldRule ArrayRule(const TCHAR (&Name)[N], uint64 Min = 0, uint64 Max = MAX_uint64,
+                bool Required = true)
+            { return FFieldRule(Name, K::Array, Required).WithCount(Min, Max); }
+            template <SIZE_T N> FDomainSchema RecordDomain(const FRecordSchema& Record, const FChildRule (&Children)[N])
+            { return {&Record, Children, N}; }
+            FDomainSchema RecordDomain(const FRecordSchema& Record) { return {&Record}; }
+            FDomainSchema ArrayDomain(EDomain Element, uint64 Minimum = 0, uint64 Maximum = MAX_uint64)
+            {
+                FDomainSchema S; S.Kind = K::Array; S.Element = Element; S.MinCount = Minimum; S.MaxCount = Maximum; return S;
+            }
+            FDomainSchema NumberDomain(double Minimum = -DBL_MAX, double Maximum = DBL_MAX, bool bInteger = false)
+            {
+                FDomainSchema S; S.Kind = K::Number; S.Minimum = Minimum; S.Maximum = Maximum; S.bInteger = bInteger; return S;
+            }
+        }
+
+        const FDomainSchema& DomainSchema(EDomain Domain)
+        {
+            switch (Domain)
+            {
+            case EDomain::Number: { static const auto S = NumberDomain(); return S; }
+            case EDomain::Time: { static const auto S = NumberDomain(0, MaxSafeInteger); return S; }
+            case EDomain::Lane: { static const auto S = NumberDomain(0, 3, true); return S; }
+            case EDomain::ScenePoint: { static const auto S = ArrayDomain(EDomain::Number, 3, 3); return S; }
+            case EDomain::Vertex: { static const auto S = ArrayDomain(EDomain::Number, 2, 2); return S; }
+            case EDomain::Edge: { static const auto S = ArrayDomain(EDomain::Time, 2, 2); return S; }
+            case EDomain::Points: { static const auto S = ArrayDomain(EDomain::ScenePoint); return S; }
+            case EDomain::Vertices: { static const auto S = ArrayDomain(EDomain::Vertex, 3, 8); return S; }
+            case EDomain::Edges: { static const auto S = ArrayDomain(EDomain::Edge); return S; }
+            case EDomain::Obstacles: { static const auto S = ArrayDomain(EDomain::NavigationObstacle); return S; }
+            case EDomain::GeoPoints: { static const auto S = ArrayDomain(EDomain::Geo, 2, 4096); return S; }
+            case EDomain::Durations: { static const auto S = ArrayDomain(EDomain::Time); return S; }
+            case EDomain::Lanes: { static const auto S = ArrayDomain(EDomain::Lane, 1, 24); return S; }
+            case EDomain::DanceInputs: { static const auto S = ArrayDomain(EDomain::DanceInput, 0, 24); return S; }
+            case EDomain::Pose:
+            {
+                static constexpr FFieldRule Rules[] = {FFieldRule(TEXT("x"), K::Number), FFieldRule(TEXT("z"), K::Number), FFieldRule(TEXT("yaw"), K::Number)};
+                static constexpr FRecordSchema R(Rules, false); static const auto S = RecordDomain(R); return S;
+            }
+            case EDomain::Geo:
+            {
+                static constexpr FFieldRule Rules[] = {FFieldRule(TEXT("latitude"), K::Number).WithNumber(-90, 90),
+                    FFieldRule(TEXT("longitude"), K::Number).WithNumber(-180, 180)};
+                static constexpr FRecordSchema R(Rules, false); static const auto S = RecordDomain(R); return S;
+            }
+            case EDomain::Endpoint:
+            {
+                static constexpr FTextChoice Kinds[] = {TEXT("place"), TEXT("road")};
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("kind")).WithChoices(Kinds), KeyRule(TEXT("id"), 128),
+                    ObjectRule(TEXT("point")), KeyRule(TEXT("vehicleId"), 160, false, true), CounterRule(TEXT("vehicleRevision"), MaxSafeInteger - 1, false, true)};
+                static constexpr FRecordSchema R(Rules, false, [](const FRecordFacts& F)
+                {
+                    return F.Choices[0] == 0 ? F.Presences[3] == EWorldFieldPresence::Missing && F.Presences[4] == EWorldFieldPresence::Missing
+                        : F.Counts[1] <= 85 && F.Presences[3] != EWorldFieldPresence::Missing && F.Presences[3] == F.Presences[4];
+                });
+                static constexpr FChildRule C[] = {{2, EDomain::Geo}}; static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::Route:
+            {
+                static constexpr FTextChoice Versions[] = {TEXT("lagos-corridors-v1"), TEXT("mapbox-directions-v5")};
+                static constexpr FTextChoice Placements[] = {TEXT("proposed"), TEXT("road-network")};
+                static constexpr FTextChoice Profiles[] = {TEXT("driving-traffic"), TEXT("walking")};
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("id")), KeyRule(TEXT("placement")).WithChoices(Placements),
+                    KeyRule(TEXT("version")).WithChoices(Versions), FFieldRule(TEXT("lengthMetres"), K::Number).WithNumber(0, DBL_MAX),
+                    ArrayRule(TEXT("points"), 2, 4096), ArrayRule(TEXT("segmentDurationsMs"), 0, MAX_uint64, false),
+                    KeyRule(TEXT("profile"), 240, false).WithChoices(Profiles)};
+                static constexpr FRecordSchema R(Rules, false, [](const FRecordFacts& F)
+                {
+                    if (F.Choices[1] != F.Choices[2]) return false;
+                    return F.Choices[2] == 0 ? F.Presences[5] == EWorldFieldPresence::Missing && F.Presences[6] == EWorldFieldPresence::Missing
+                        : F.Presences[5] == EWorldFieldPresence::Value && F.Counts[5] == F.Counts[4] - 1;
+                });
+                static constexpr FChildRule C[] = {{4, EDomain::GeoPoints}, {5, EDomain::Durations}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::JourneyTraffic:
+            {
+                static constexpr FTextChoice Providers[] = {TEXT("mapbox")};
+                static constexpr FTextChoice Coverage[] = {TEXT("complete"), TEXT("partial"), TEXT("unavailable")};
+                static constexpr FTextChoice Congestion[] = {TEXT("low"), TEXT("moderate"), TEXT("heavy"), TEXT("severe")};
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("provider")).WithChoices(Providers), TimeRule(TEXT("fetchedAtRealMs")),
+                    TimeRule(TEXT("durationMs")), TimeRule(TEXT("typicalDurationMs"), true, true), KeyRule(TEXT("coverage")).WithChoices(Coverage),
+                    KeyRule(TEXT("congestion"), 240, true, true).WithChoices(Congestion)};
+                static constexpr FRecordSchema R(Rules, false); static const auto S = RecordDomain(R); return S;
+            }
+            case EDomain::Enforcement:
+            {
+                static constexpr FTextChoice Agencies[] = {TEXT("police"), TEXT("lastma"), TEXT("efcc"), TEXT("ndlea")};
+                static constexpr FTextChoice Stops[] = {TEXT("checkpoint"), TEXT("roadside")};
+                static constexpr FTextChoice Districts[] = {TEXT("town-centre"), TEXT("palm-courts"), TEXT("garden-quarter"), TEXT("south-market"), TEXT("marina"), TEXT("skyline"), TEXT("lagoon-gardens")};
+                static constexpr FFieldRule Rules[] = {FFieldRule(TEXT("version"), K::Number).WithNumber(1, 1, true),
+                    KeyRule(TEXT("agency")).WithChoices(Agencies), KeyRule(TEXT("stopKind")).WithChoices(Stops),
+                    KeyRule(TEXT("district")).WithChoices(Districts), FFieldRule(TEXT("isNight"), K::Boolean)};
+                static constexpr FRecordSchema R(Rules, false); static const auto S = RecordDomain(R); return S;
+            }
+            case EDomain::Checkpoint:
+            {
+                static constexpr FFieldRule Rules[] = {FFieldRule(TEXT("progress"), K::Number).WithNumber(0, 1),
+                    TimeRule(TEXT("startsAt")), TimeRule(TEXT("endsAt")), TimeRule(TEXT("resumedAt"), false, true), ObjectRule(TEXT("enforcement"), false)};
+                static constexpr FRecordSchema R(Rules, false, [](const FRecordFacts& F) { return F.Numbers[2] >= F.Numbers[1]; });
+                static constexpr FChildRule C[] = {{4, EDomain::Enforcement}}; static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::JourneyTiming:
+            {
+                static constexpr FFieldRule Rules[] = {CounterRule(TEXT("rate"), 4), TimeRule(TEXT("anchorAt")),
+                    FFieldRule(TEXT("anchorProgress"), K::Number).WithNumber(0, 1), TimeRule(TEXT("durationMs"))};
+                static constexpr FRecordSchema R(Rules, false, [](const FRecordFacts& F)
+                { return (F.Numbers[0] == 1 || F.Numbers[0] == 4) && F.Numbers[3] > 0; });
+                static const auto S = RecordDomain(R); return S;
+            }
+            case EDomain::Journey:
+            {
+                static constexpr FTextChoice Statuses[] = {TEXT("traveling"), TEXT("arrived"), TEXT("interrupted")};
+                static constexpr FTextChoice Vehicles[] = {TEXT("car"), TEXT("okada"), TEXT("keke"), TEXT("danfo"), TEXT("canoe"), TEXT("speedboat")};
+                static constexpr FTextChoice Modes[] = {TEXT("walk"), TEXT("vehicle"), TEXT("boat")};
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("id")), KeyRule(TEXT("requestId")), KeyRule(TEXT("fromPlaceId")), KeyRule(TEXT("toPlaceId")),
+                    ObjectRule(TEXT("route")), KeyRule(TEXT("status")).WithChoices(Statuses), KeyRule(TEXT("vehicle")).WithChoices(Vehicles),
+                    TimeRule(TEXT("startedAt")), TimeRule(TEXT("arrivesAt")), ObjectRule(TEXT("checkpoint"), true, true),
+                    ObjectRule(TEXT("travelTiming"), false), ObjectRule(TEXT("fromEndpoint"), false), ObjectRule(TEXT("toEndpoint"), false),
+                    KeyRule(TEXT("travelMode"), 240, false).WithChoices(Modes), ObjectRule(TEXT("traffic"), false)};
+                static constexpr FRecordSchema R(Rules, false, [](const FRecordFacts& F) { return F.Numbers[8] >= F.Numbers[7]; });
+                static constexpr FChildRule C[] = {{4, EDomain::Route}, {9, EDomain::Checkpoint}, {10, EDomain::JourneyTiming},
+                    {11, EDomain::Endpoint}, {12, EDomain::Endpoint}, {14, EDomain::JourneyTraffic}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::RoadsideExit:
+            {
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("placeId")), ObjectRule(TEXT("route"))};
+                static constexpr FRecordSchema R(Rules, false); static constexpr FChildRule C[] = {{1, EDomain::Route}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::Roadside:
+            {
+                static constexpr FFieldRule Rules[] = {ObjectRule(TEXT("endpoint")), KeyRule(TEXT("sourceJourneyId")), TimeRule(TEXT("stoppedAt")), ObjectRule(TEXT("exit"))};
+                static constexpr FRecordSchema R(Rules, false); static constexpr FChildRule C[] = {{0, EDomain::Endpoint}, {3, EDomain::RoadsideExit}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::TransitExit:
+            {
+                static constexpr FFieldRule Rules[] = {TimeRule(TEXT("at")), ObjectRule(TEXT("point")), KeyRule(TEXT("stopId"), 240, true, true)};
+                static constexpr FRecordSchema R(Rules, false); static constexpr FChildRule C[] = {{1, EDomain::Pose}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::TransitRide:
+            {
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("id")), KeyRule(TEXT("vehicleId")), CounterRule(TEXT("seat")),
+                    CounterRule(TEXT("visitRevision")), TimeRule(TEXT("boardedAt")), ObjectRule(TEXT("exit"), true, true)};
+                static constexpr FRecordSchema R(Rules, false); static constexpr FChildRule C[] = {{5, EDomain::TransitExit}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::DanceInput:
+            {
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("userId")), CounterRule(TEXT("beatIndex"), 23), CounterRule(TEXT("lane"), 3), TimeRule(TEXT("receivedAt"))};
+                static constexpr FRecordSchema R(Rules, false); static const auto S = RecordDomain(R); return S;
+            }
+            case EDomain::DanceRound:
+            {
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("id")), KeyRule(TEXT("instanceId")), KeyRule(TEXT("serviceId")), TimeRule(TEXT("startsAt")),
+                    FFieldRule(TEXT("beatMs"), K::Number).WithNumber(250, 2000), FFieldRule(TEXT("windowMs"), K::Number).WithNumber(30, DBL_MAX),
+                    CounterRule(TEXT("requiredHits"), 24), ArrayRule(TEXT("lanes"), 1, 24)};
+                static constexpr FRecordSchema R(Rules, false, [](const FRecordFacts& F)
+                { return F.Numbers[5] < F.Numbers[4] / 2 && F.Numbers[6] >= 1 && F.Numbers[6] <= F.Counts[7]; });
+                static constexpr FChildRule C[] = {{7, EDomain::Lanes}}; static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::Nightclub:
+            {
+                static constexpr FTextChoice Kinds[] = {TEXT("dance"), TEXT("lounge")};
+                static constexpr FTextChoice Difficulties[] = {TEXT("easy"), TEXT("standard"), TEXT("hard")};
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("id")), CounterRule(TEXT("visitRevision")), KeyRule(TEXT("kind")).WithChoices(Kinds),
+                    KeyRule(TEXT("serviceId"), 240, false).When(2, 1), TimeRule(TEXT("joinedAt"), false).When(2, 1), KeyRule(TEXT("seatId"), 240, false).When(2, 1),
+                    ObjectRule(TEXT("round"), false).When(2, 0), ArrayRule(TEXT("inputs"), 0, 24, false).When(2, 0), TimeRule(TEXT("stoppedAt"), false, true).When(2, 0),
+                    KeyRule(TEXT("difficulty"), 240, false).WithChoices(Difficulties).When(2, 0), KeyRule(TEXT("skillCharacterId"), 240, false).When(2, 0),
+                    FFieldRule(TEXT("skillsSettled"), K::Boolean, false).When(2, 0)};
+                static constexpr FRecordSchema R(Rules, false, [](const FRecordFacts& F)
+                {
+                    return F.Choices[2] == 1 ? F.Presences[3] == EWorldFieldPresence::Value && F.Presences[4] == EWorldFieldPresence::Value
+                        : F.Presences[6] == EWorldFieldPresence::Value && F.Presences[7] == EWorldFieldPresence::Value && F.Presences[8] != EWorldFieldPresence::Missing;
+                });
+                static constexpr FChildRule C[] = {{6, EDomain::DanceRound}, {7, EDomain::DanceInputs}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::Residence:
+            {
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("cityVersion")), KeyRule(TEXT("parcelId")),
+                    FFieldRule(TEXT("unit"), K::Number).WithNumber(1, MaxSafeInteger, true)};
+                static constexpr FRecordSchema R(Rules, false); static const auto S = RecordDomain(R); return S;
+            }
+            case EDomain::NavigationObstacle:
+            {
+                static constexpr FFieldRule Rules[] = {FFieldRule(TEXT("minX"), K::Number), FFieldRule(TEXT("maxX"), K::Number),
+                    FFieldRule(TEXT("minZ"), K::Number), FFieldRule(TEXT("maxZ"), K::Number), FFieldRule(TEXT("yaw"), K::Number, false),
+                    ArrayRule(TEXT("polygon"), 3, 8, false)};
+                static constexpr FRecordSchema R(Rules, false, [](const FRecordFacts& F)
+                { return F.Numbers[0] <= F.Numbers[1] && F.Numbers[2] <= F.Numbers[3]
+                    && (F.Presences[5] == EWorldFieldPresence::Missing || F.Presences[4] == EWorldFieldPresence::Missing || F.Numbers[4] == 0); });
+                static constexpr FChildRule C[] = {{5, EDomain::Vertices}}; static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::StreetGraph:
+            {
+                static constexpr FFieldRule Rules[] = {ArrayRule(TEXT("points")), ArrayRule(TEXT("edges"))};
+                static constexpr FRecordSchema R(Rules, false); static constexpr FChildRule C[] = {{0, EDomain::Points}, {1, EDomain::Edges}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::Navigation:
+            {
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("revision"), 160000), ObjectRule(TEXT("bounds")),
+                    FFieldRule(TEXT("radius"), K::Number), FFieldRule(TEXT("floorY"), K::Number), FFieldRule(TEXT("gridSize"), K::Number, false),
+                    ObjectRule(TEXT("streetGraph"), false), ArrayRule(TEXT("obstacles"))};
+                static constexpr FRecordSchema R(Rules, false, [](const FRecordFacts& F)
+                { return F.Numbers[2] > 0 && (F.Presences[4] == EWorldFieldPresence::Missing || F.Numbers[4] > 0); });
+                static constexpr FChildRule C[] = {{1, EDomain::NavigationObstacle}, {5, EDomain::StreetGraph}, {6, EDomain::Obstacles}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::Instance:
+            {
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("id")), KeyRule(TEXT("placeId")), KeyRule(TEXT("seed")), KeyRule(TEXT("generatorVersion")),
+                    KeyRule(TEXT("layoutId"), 160000), CounterRule(TEXT("sharedStartedAt")), ObjectRule(TEXT("roadside"), false),
+                    ObjectRule(TEXT("layout"), true, true), ObjectRule(TEXT("room"), true, true), ObjectRule(TEXT("transitPlan"), false),
+                    ObjectRule(TEXT("navigation")), ArrayRule(TEXT("spawns")), ArrayRule(TEXT("exit"), 3, 3)};
+                static constexpr FRecordSchema R(Rules, false); static constexpr FChildRule C[] = {{6, EDomain::Endpoint}, {10, EDomain::Navigation},
+                    {11, EDomain::Points}, {12, EDomain::ScenePoint}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            case EDomain::Player:
+            {
+                static constexpr FTextChoice Statuses[] = {TEXT("present"), TEXT("traveling"), TEXT("recovering")};
+                static constexpr FTextChoice Weapons[] = {TEXT("bat"), TEXT("pistol")};
+                static constexpr FFieldRule Rules[] = {KeyRule(TEXT("userId")), KeyRule(TEXT("characterId")), KeyRule(TEXT("gameRoomId")), KeyRule(TEXT("placeId")),
+                    KeyRule(TEXT("instanceId")), KeyRule(TEXT("homeRoomId")), CounterRule(TEXT("revision")), CounterRule(TEXT("moveSequence"), 1000000000),
+                    ObjectRule(TEXT("position")), ObjectRule(TEXT("movement"), true, true), KeyRule(TEXT("status")).WithChoices(Statuses),
+                    FFieldRule(TEXT("health"), K::Number), ObjectRule(TEXT("journey"), true, true), ObjectRule(TEXT("roadside"), false, true),
+                    ObjectRule(TEXT("transitRide"), false, true), ObjectRule(TEXT("driving"), false, true), ObjectRule(TEXT("waterControl"), false, true),
+                    ObjectRule(TEXT("nightclub"), false, true), ObjectRule(TEXT("residence"), false, true), KeyRule(TEXT("drawnWeaponId"), 240, false, true).WithChoices(Weapons)};
+                static constexpr FRecordSchema R(Rules); static constexpr FChildRule C[] = {{8, EDomain::Pose}, {9, EDomain::Movement}, {12, EDomain::Journey},
+                    {13, EDomain::Roadside}, {14, EDomain::TransitRide}, {15, EDomain::Driving}, {16, EDomain::Water}, {17, EDomain::Nightclub}, {18, EDomain::Residence}};
+                static const auto S = RecordDomain(R, C); return S;
+            }
+            default:
+                if (Domain >= EDomain::Selection && Domain <= EDomain::Rooms) return SelectionDomainSchema(Domain);
+                if (Domain >= EDomain::RaceInput && Domain <= EDomain::Racing) return RacingDomainSchema(Domain);
+                return MovementDomainSchema(Domain);
+            }
+        }
+    }
+
     namespace WorldPlayerPrivate
     {
         constexpr int64 MaxInteger = 9007199254740991LL;
@@ -23,6 +284,8 @@ namespace BaddieCompanion
         constexpr int32 MaxStreetPoints = 2048, MaxStreetEdges = 8192;
         using FObject = TSharedPtr<FJsonObject>;
         using FValue = TSharedPtr<FJsonValue>;
+        bool Fields(const FObject& Object, WorldReadPrivate::EDomain Domain)
+        { return WorldReadPrivate::ReadRecord(Object, *WorldReadPrivate::DomainSchema(Domain).Record); }
 
         bool Same(const FString& A, const FString& B)
         {
@@ -65,7 +328,7 @@ namespace BaddieCompanion
         bool Number(const FValue& Value, double& Out)
         {
             return Value.IsValid() && Value->Type == EJson::Number && Value->TryGetNumber(Out)
-                && std::isfinite(Out);
+                && WorldReadPrivate::FiniteNumber(Out);
         }
         bool Number(const FObject& Value, const TCHAR* Key, double& Out)
         {
@@ -74,7 +337,7 @@ namespace BaddieCompanion
         bool Integer(const FValue& Value, int64& Out, int64 Maximum = MaxInteger)
         {
             double N = 0;
-            if (!Number(Value, N) || N < 0 || N > Maximum || std::floor(N) != N) return false;
+            if (!Number(Value, N) || !WorldReadPrivate::IntegerNumber(N, 0, Maximum)) return false;
             Out = static_cast<int64>(N);
             return true;
         }
@@ -85,7 +348,7 @@ namespace BaddieCompanion
         // Journey/activity times are v.number(), including fractional legacy timing.
         bool Time(const FValue& Value, double& Out)
         {
-            return Number(Value, Out) && Out >= 0 && Out <= MaxInteger;
+            return Number(Value, Out) && WorldReadPrivate::TimeNumber(Out);
         }
         bool Time(const FObject& Value, const TCHAR* Key, double& Out)
         {
@@ -93,10 +356,8 @@ namespace BaddieCompanion
         }
         bool Key(const FValue& Value, FString& Out, int32 Maximum = 240)
         {
-            if (!Value.IsValid() || Value->Type != EJson::String || !Value->TryGetString(Out)
-                || Out.IsEmpty() || Out.Len() > Maximum || !Same(Out, Out.TrimStartAndEnd())) return false;
-            for (const TCHAR C : Out) if (C < 32) return false;
-            return true;
+            return Value.IsValid() && Value->Type == EJson::String && Value->TryGetString(Out)
+                && WorldReadPrivate::TextValue(Out, {1, static_cast<uint64>(Maximum), true, true});
         }
         bool Key(const FObject& Value, const TCHAR* Name, FString& Out, int32 Maximum = 240)
         {
@@ -150,7 +411,7 @@ namespace BaddieCompanion
         bool Pose(const FValue& Value, FMovementPose& Out)
         {
             const auto O = Object(Value);
-            return Number(O, TEXT("x"), Out.X) && Number(O, TEXT("z"), Out.Z)
+            return Fields(O, WorldReadPrivate::EDomain::Pose) && Number(O, TEXT("x"), Out.X) && Number(O, TEXT("z"), Out.Z)
                 && Number(O, TEXT("yaw"), Out.YawRadians);
         }
         bool ScenePoint(const FValue& Value, FWorldScenePoint& Out)
@@ -177,6 +438,7 @@ namespace BaddieCompanion
         bool NavigationObstacle(const FValue& Value, FWorldNavigationObstacle& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::NavigationObstacle)) return false;
             if (!Number(O, TEXT("minX"), Out.MinX) || !Number(O, TEXT("maxX"), Out.MaxX)
                 || !Number(O, TEXT("minZ"), Out.MinZ) || !Number(O, TEXT("maxZ"), Out.MaxZ)
                 || Out.MinX > Out.MaxX || Out.MinZ > Out.MaxZ
@@ -206,6 +468,7 @@ namespace BaddieCompanion
         bool StreetGraph(const FValue& Value, FWorldStreetGraph& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::StreetGraph)) return false;
             if (!ScenePoints(Field(O, TEXT("points")), Out.Points, MaxStreetPoints)) return false;
             const auto EdgeValue = Field(O, TEXT("edges"));
             if (!EdgeValue.IsValid() || EdgeValue->Type != EJson::Array) return false;
@@ -229,6 +492,7 @@ namespace BaddieCompanion
         bool Navigation(const FValue& Value, FWorldNavigation& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::Navigation)) return false;
             if (!Key(O, TEXT("revision"), Out.Revision, MaxLayoutIdentityCharacters)
                 || !NavigationObstacle(Field(O, TEXT("bounds")), Out.Bounds)
                 || !Number(O, TEXT("radius"), Out.Radius) || Out.Radius <= 0
@@ -253,7 +517,7 @@ namespace BaddieCompanion
         bool Geo(const FValue& Value, double& Latitude, double& Longitude)
         {
             const auto O = Object(Value);
-            return Number(O, TEXT("latitude"), Latitude) && std::abs(Latitude) <= 90
+            return Fields(O, WorldReadPrivate::EDomain::Geo) && Number(O, TEXT("latitude"), Latitude) && std::abs(Latitude) <= 90
                 && Number(O, TEXT("longitude"), Longitude) && std::abs(Longitude) <= 180;
         }
         FString PlaceId(const FWorldTravelEndpoint& Endpoint)
@@ -263,6 +527,7 @@ namespace BaddieCompanion
         bool Endpoint(const FValue& Value, FWorldTravelEndpoint& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::Endpoint)) return false;
             if (!Enum(Field(O, TEXT("kind")), Out.Kind,
                 {{TEXT("place"), EWorldEndpointKind::Place}, {TEXT("road"), EWorldEndpointKind::Road}})
                 || !Key(O, TEXT("id"), Out.Id, Out.Kind == EWorldEndpointKind::Road ? 85 : 128)
@@ -278,6 +543,7 @@ namespace BaddieCompanion
         bool Route(const FValue& Value, FWorldJourneyRouteIdentity& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::Route)) return false;
             FString Placement;
             if (!Key(O, TEXT("id"), Out.Id) || !Key(O, TEXT("placement"), Placement)
                 || !Enum(Field(O, TEXT("version")), Out.Kind,
@@ -316,6 +582,7 @@ namespace BaddieCompanion
         bool JourneyTraffic(const FValue& Value, FWorldJourneyTraffic& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::JourneyTraffic)) return false;
             return Enum(Field(O, TEXT("provider")), Out.Provider, {{TEXT("mapbox"), EWorldTrafficProvider::Mapbox}})
                 && Time(O, TEXT("fetchedAtRealMs"), Out.FetchedAtRealMs) && Time(O, TEXT("durationMs"), Out.DurationMs)
                 && Optional(O, TEXT("typicalDurationMs"), Out.TypicalDurationMs, true, true,
@@ -331,6 +598,7 @@ namespace BaddieCompanion
         bool JourneyEnforcement(const FValue& Value, FWorldJourneyEnforcement& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::Enforcement)) return false;
             return Integer(O, TEXT("version"), Out.Version, 1) && Out.Version == 1
                 && Enum(Field(O, TEXT("agency")), Out.Agency,
                     {{TEXT("police"), EWorldEnforcementAgency::Police}, {TEXT("lastma"), EWorldEnforcementAgency::Lastma},
@@ -347,6 +615,7 @@ namespace BaddieCompanion
         bool Checkpoint(const FValue& Value, FWorldJourneyCheckpoint& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::Checkpoint)) return false;
             return Number(O, TEXT("progress"), Out.Progress) && Out.Progress >= 0 && Out.Progress <= 1
                 && Time(O, TEXT("startsAt"), Out.StartsAtMs) && Time(O, TEXT("endsAt"), Out.EndsAtMs)
                 && Out.EndsAtMs >= Out.StartsAtMs
@@ -357,6 +626,7 @@ namespace BaddieCompanion
         bool JourneyTiming(const FValue& Value, FWorldJourneyTiming& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::JourneyTiming)) return false;
             return Integer(O, TEXT("rate"), Out.Rate, 4) && (Out.Rate == 1 || Out.Rate == 4)
                 && Time(O, TEXT("anchorAt"), Out.AnchorAtMs)
                 && Number(O, TEXT("anchorProgress"), Out.AnchorProgress) && Out.AnchorProgress >= 0 && Out.AnchorProgress <= 1
@@ -365,6 +635,7 @@ namespace BaddieCompanion
         bool Journey(const FValue& Value, FWorldJourneyView& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::Journey)) return false;
             if (!Key(O, TEXT("id"), Out.Id) || !Key(O, TEXT("requestId"), Out.RequestId)
                 || !Key(O, TEXT("fromPlaceId"), Out.FromPlaceId) || !Key(O, TEXT("toPlaceId"), Out.ToPlaceId)
                 || !Route(Field(O, TEXT("route")), Out.Route)
@@ -390,6 +661,7 @@ namespace BaddieCompanion
         bool Roadside(const FValue& Value, FWorldRoadsideVisit& Out)
         {
             const auto O = Object(Value), Exit = Object(Field(O, TEXT("exit")));
+            if (!Fields(O, WorldReadPrivate::EDomain::Roadside) || !Fields(Exit, WorldReadPrivate::EDomain::RoadsideExit)) return false;
             return Endpoint(Field(O, TEXT("endpoint")), Out.Endpoint) && Out.Endpoint.Kind == EWorldEndpointKind::Road
                 && Key(O, TEXT("sourceJourneyId"), Out.SourceJourneyId) && Time(O, TEXT("stoppedAt"), Out.StoppedAtMs)
                 && Key(Exit, TEXT("placeId"), Out.ExitPlaceId) && Route(Field(Exit, TEXT("route")), Out.ExitRoute);
@@ -397,12 +669,14 @@ namespace BaddieCompanion
         bool Transit(const FValue& Value, FWorldTransitRide& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::TransitRide)) return false;
             return Key(O, TEXT("id"), Out.Id) && Key(O, TEXT("vehicleId"), Out.VehicleId)
                 && Integer(O, TEXT("seat"), Out.Seat) && Integer(O, TEXT("visitRevision"), Out.VisitRevision)
                 && Time(O, TEXT("boardedAt"), Out.BoardedAtMs)
                 && Optional(O, TEXT("exit"), Out.Exit, true, true, [](const FValue& V, FWorldTransitExit& E)
                 {
                     const auto Exit = Object(V);
+                    if (!Fields(Exit, WorldReadPrivate::EDomain::TransitExit)) return false;
                     return Time(Exit, TEXT("at"), E.AtMs) && Pose(Field(Exit, TEXT("point")), E.Point)
                         && OptionalKey(Exit, TEXT("stopId"), E.StopId, true, true);
                 });
@@ -410,6 +684,7 @@ namespace BaddieCompanion
         bool Nightclub(const FValue& Value, FWorldNightclubActivity& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::Nightclub)) return false;
             if (!Key(O, TEXT("id"), Out.Id) || !Integer(O, TEXT("visitRevision"), Out.VisitRevision)
                 || !Enum(Field(O, TEXT("kind")), Out.Kind,
                     {{TEXT("dance"), EWorldNightclubKind::Dance}, {TEXT("lounge"), EWorldNightclubKind::Lounge}})) return false;
@@ -417,6 +692,7 @@ namespace BaddieCompanion
                 return Key(O, TEXT("serviceId"), Out.ServiceId) && Time(O, TEXT("joinedAt"), Out.JoinedAtMs)
                     && OptionalKey(O, TEXT("seatId"), Out.SeatId);
             const auto R = Object(Field(O, TEXT("round")));
+            if (!Fields(R, WorldReadPrivate::EDomain::DanceRound)) return false;
             auto& Round = Out.Round;
             const TArray<FValue>* Lanes = nullptr;
             const TArray<FValue>* Inputs = nullptr;
@@ -437,6 +713,7 @@ namespace BaddieCompanion
             for (const auto& Input : *Inputs)
             {
                 const auto I = Object(Input);
+                if (!Fields(I, WorldReadPrivate::EDomain::DanceInput)) return false;
                 FWorldDanceInput Next;
                 if (!Key(I, TEXT("userId"), Next.UserId) || !Integer(I, TEXT("beatIndex"), Next.BeatIndex, Lanes->Num() - 1)
                     || !Integer(I, TEXT("lane"), Next.Lane, 3) || !Time(I, TEXT("receivedAt"), Next.ReceivedAtMs)) return false;
@@ -454,35 +731,20 @@ namespace BaddieCompanion
         bool Residence(const FValue& Value, FWorldResidenceIdentity& Out)
         {
             const auto O = Object(Value);
+            if (!Fields(O, WorldReadPrivate::EDomain::Residence)) return false;
             return Key(O, TEXT("cityVersion"), Out.CityVersion) && Key(O, TEXT("parcelId"), Out.ParcelId)
                 && Integer(O, TEXT("unit"), Out.Unit) && Out.Unit > 0;
         }
         bool PlayerFields(const FObject& O)
         {
-            // The public projection has no storage-only/session fields. Reject added
-            // top-level fields until their effect on control ownership is reviewed.
-            for (const auto& Pair : O->Values)
-            {
-                bool bKnown = false;
-                for (const TCHAR* Name : {TEXT("userId"), TEXT("characterId"), TEXT("gameRoomId"), TEXT("placeId"),
-                    TEXT("instanceId"), TEXT("homeRoomId"), TEXT("revision"), TEXT("moveSequence"), TEXT("position"),
-                    TEXT("movement"), TEXT("status"), TEXT("health"), TEXT("journey"), TEXT("roadside"),
-                    TEXT("transitRide"), TEXT("driving"), TEXT("waterControl"), TEXT("nightclub"), TEXT("residence"), TEXT("drawnWeaponId")})
-                    if (Same(Pair.Key, Name)) { bKnown = true; break; }
-                if (!bKnown) return false;
-            }
-            FString Ignored;
-            for (const TCHAR* Name : {TEXT("userId"), TEXT("characterId"), TEXT("gameRoomId"), TEXT("placeId"), TEXT("instanceId"), TEXT("homeRoomId")})
-                if (!Key(O, Name, Ignored)) return false;
-            return true;
+            return Fields(O, WorldReadPrivate::EDomain::Player);
         }
         bool ConsistentPlayer(FWorldPlayerView& P)
         {
-            auto& C = P.Controls;
-            C.bRecovering = P.Status == EWorldPlayerStatus::Recovering;
-            C.bHealthDepleted = P.Health <= 0;
-            C.bTraveling = P.Status == EWorldPlayerStatus::Traveling
-                || (P.Journey.Value.IsSet() && P.Journey.Value.GetValue().Status == EWorldJourneyStatus::Traveling);
+            WorldReadPrivate::FControlFacts Facts;
+            Facts.Status = P.Status; Facts.Health = P.Health;
+            Facts.bJourneyTraveling = P.Journey.Value.IsSet()
+                && P.Journey.Value.GetValue().Status == EWorldJourneyStatus::Traveling;
             if (P.Status == EWorldPlayerStatus::Traveling && (!P.Journey.Value.IsSet()
                 || P.Journey.Value.GetValue().Status != EWorldJourneyStatus::Traveling)) return false;
             if (P.TransitRide.Value.IsSet() && (P.Status != EWorldPlayerStatus::Present
@@ -492,35 +754,34 @@ namespace BaddieCompanion
                 const auto& N = P.Nightclub.Value.GetValue();
                 if (P.Status != EWorldPlayerStatus::Present || !Same(P.PlaceId, TEXT("nightclub")) || N.VisitRevision != P.Revision
                     || (N.Kind == EWorldNightclubKind::Dance && !Same(N.Round.InstanceId, P.InstanceId))) return false;
-                C.bDanceActivity = N.Kind == EWorldNightclubKind::Dance;
-                C.bLoungeSeat = N.Kind == EWorldNightclubKind::Lounge && N.SeatId.Value.IsSet();
+                Facts.bDance = N.Kind == EWorldNightclubKind::Dance;
+                Facts.bLoungeSeat = N.Kind == EWorldNightclubKind::Lounge && N.SeatId.Value.IsSet();
             }
-            C.bDriving = P.Driving.Value.IsSet();
-            C.bActiveWater = P.WaterControl.Value.IsSet() && P.WaterControl.Value.GetValue().Phase == EWorldWaterPhase::Active;
-            C.bTransit = P.TransitRide.Value.IsSet();
-            C.bMissingControlFields = P.Driving.Presence == EWorldFieldPresence::Missing
-                || P.WaterControl.Presence == EWorldFieldPresence::Missing
-                || P.TransitRide.Presence == EWorldFieldPresence::Missing || P.Nightclub.Presence == EWorldFieldPresence::Missing;
-            C.bConflictingTransport = (C.bDriving && C.bActiveWater)
-                || ((C.bDriving || C.bActiveWater) && (P.Movement.IsSet() || C.bTransit || C.bTraveling));
-            if (C.bDriving)
+            Facts.bDriving = P.Driving.Value.IsSet();
+            Facts.bActiveWater = P.WaterControl.Value.IsSet() && P.WaterControl.Value.GetValue().Phase == EWorldWaterPhase::Active;
+            Facts.bTransit = P.TransitRide.Value.IsSet();
+            if (Facts.bDriving)
             {
                 const auto& D = P.Driving.Value.GetValue();
-                C.bTransportIdentityMismatch = P.Status != EWorldPlayerStatus::Present || !Same(D.GameRoomId, P.GameRoomId)
+                Facts.bTransportIdentityMismatch = P.Status != EWorldPlayerStatus::Present || !Same(D.GameRoomId, P.GameRoomId)
                     || !Same(D.InstanceId, P.InstanceId) || !Same(D.Driver.UserId, P.UserId) || !Same(D.Driver.CharacterId, P.CharacterId);
                 for (const auto& Occupant : D.Occupants)
-                    C.bTransportIdentityMismatch |= !Same(Occupant.UserId, P.UserId) || !Same(Occupant.CharacterId, P.CharacterId)
+                    Facts.bTransportIdentityMismatch |= !Same(Occupant.UserId, P.UserId) || !Same(Occupant.CharacterId, P.CharacterId)
                         || !Same(Occupant.LifeId, D.Driver.LifeId);
             }
             if (P.WaterControl.Value.IsSet())
             {
                 const auto& S = P.WaterControl.Value.GetValue().Scope;
-                C.bTransportIdentityMismatch |= P.Status != EWorldPlayerStatus::Present || !Same(S.GameRoomId, P.GameRoomId)
+                Facts.bTransportIdentityMismatch |= P.Status != EWorldPlayerStatus::Present || !Same(S.GameRoomId, P.GameRoomId)
                     || !Same(S.InstanceId, P.InstanceId) || !Same(S.PlaceId, P.PlaceId) || S.Revision != P.Revision
                     || !Same(S.UserId, P.UserId) || !Same(S.CharacterId, P.CharacterId);
             }
             // Retain mismatched/conflicting transport as an observation, never erase
             // it to null. Current life, previous receipt and instance checks need an owner.
+            Facts.bMovement = P.Movement.IsSet();
+            Facts.Driving = P.Driving.Presence; Facts.Water = P.WaterControl.Presence;
+            Facts.Transit = P.TransitRide.Presence; Facts.Nightclub = P.Nightclub.Presence;
+            P.Controls = WorldReadPrivate::ControlObservations(Facts);
             return true;
         }
         bool SameEndpoint(const FWorldTravelEndpoint& A, const FWorldTravelEndpoint& B)
@@ -541,7 +802,17 @@ namespace BaddieCompanion
         Out.Reset();
         OutError = TEXT("World player document is invalid or exceeds the decoder bounds.");
         FObject Player;
-        if (ServerNowMs < 1 || ServerNowMs > MaxInteger || !Parse(PlayerDocumentJson, Player) || !PlayerFields(Player)) return false;
+        if (ServerNowMs < 1 || ServerNowMs > MaxInteger || !Parse(PlayerDocumentJson, Player)) return false;
+        return ReadWorldPlayerObject(Player, ServerNowMs, Out, OutError);
+    }
+
+    bool ReadWorldPlayerObject(const TSharedPtr<FJsonObject>& Player, int64 ServerNowMs,
+        TSharedPtr<const FWorldPlayerView>& Out, FString& OutError)
+    {
+        using namespace WorldPlayerPrivate;
+        Out.Reset();
+        OutError = TEXT("World player document is invalid or exceeds the decoder bounds.");
+        if (ServerNowMs < 1 || ServerNowMs > MaxInteger || !Player.IsValid() || !PlayerFields(Player)) return false;
         const auto Envelope = MakeShared<FJsonObject>();
         Envelope->SetObjectField(TEXT("player"), Player);
         Envelope->SetNumberField(TEXT("serverNow"), ServerNowMs);
@@ -583,6 +854,16 @@ namespace BaddieCompanion
         OutError = TEXT("World instance identity is invalid or exceeds the decoder bounds.");
         FObject O;
         if (!Parse(InstanceDocumentJson, O)) return false;
+        return ReadWorldInstanceObject(O, Player, Out, OutError);
+    }
+
+    bool ReadWorldInstanceObject(const TSharedPtr<FJsonObject>& O, const FWorldPlayerView& Player,
+        TSharedPtr<const FWorldCurrentInstanceIdentity>& Out, FString& OutError)
+    {
+        using namespace WorldPlayerPrivate;
+        Out.Reset();
+        OutError = TEXT("World instance identity is invalid or exceeds the decoder bounds.");
+        if (!Fields(O, WorldReadPrivate::EDomain::Instance)) return false;
         auto Next = MakeShared<FWorldCurrentInstanceIdentity>();
         if (!Key(O, TEXT("id"), Next->Id) || !Key(O, TEXT("placeId"), Next->PlaceId)
             || !Key(O, TEXT("seed"), Next->Seed) || !Key(O, TEXT("generatorVersion"), Next->GeneratorVersion)

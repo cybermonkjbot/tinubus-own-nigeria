@@ -219,6 +219,10 @@ void SBaddieCompanionConnectionPanel::Construct(const FArguments& Args)
         Content->AddSlot().AutoHeight().Padding(0, 0, 0, 8)[MakeGameplayButton(Target, Label, Action)];
     };
     AddGameplayButton(GameplayPairButton, TEXT("Connect gameplay entry"), EBaddieGameplayConnectionAction::Pair);
+    AddGameplayButton(WorldPairButton, TEXT("Connect world"), EBaddieGameplayConnectionAction::PairWorld);
+    WorldPairButton->SetEnabled(TAttribute<bool>::CreateLambda([this]()
+        { return CanUseGameplayControls() && BaddieCompanion::CanPairGameplay(GameplayView) && ValidGameplayDeviceName(); }));
+    AddGameplayButton(WorldReloadButton, TEXT("Reload world"), EBaddieGameplayConnectionAction::ReloadWorld);
     GameplayPairButton->SetEnabled(TAttribute<bool>::CreateLambda([this]()
         { return CanUseGameplayControls() && BaddieCompanion::CanPairGameplay(GameplayView) && ValidGameplayDeviceName(); }));
     AddGameplayButton(GameplayCopyButton, TEXT("Copy gameplay approval link"), EBaddieGameplayConnectionAction::CopyLink);
@@ -229,7 +233,7 @@ void SBaddieCompanionConnectionPanel::Construct(const FArguments& Args)
     AddGameplayButton(GameplayCancelEntryButton, TEXT("Cancel entry"), EBaddieGameplayConnectionAction::CancelEntry);
     AddGameplayButton(GameplayLeaveButton, TEXT("Leave city presence"), EBaddieGameplayConnectionAction::Leave);
     AddGameplayButton(GameplayDisconnectButton, TEXT("Disconnect gameplay"), EBaddieGameplayConnectionAction::Disconnect);
-    GameplayControls = { GameplayDeviceName, GameplayPairButton, GameplayCopyButton, GameplayCancelButton,
+    GameplayControls = { GameplayDeviceName, GameplayPairButton, WorldPairButton, WorldReloadButton, GameplayCopyButton, GameplayCancelButton,
         GameplayEnterButton, GameplayCancelEntryButton, GameplayLeaveButton, GameplayDisconnectButton };
     Controls.Append(GameplayControls);
     PresentConnection(BaddieCompanion::FConnectionView(), nullptr);
@@ -363,7 +367,8 @@ void SBaddieCompanionConnectionPanel::PresentGameplay(const BaddieCompanion::FGa
     GameplayRevision = Revision;
     if (bOffline) { ClearGameplayPresentation(); return; }
     if (bChanged && bFocused && !bModal) { bFocusDefault = true; bPreferGameplayFocus = true; }
-    SetText(GameplayTitle, TEXT("Gameplay entry"));
+    const bool bWorld = View.Scope == BaddieCompanion::EGameplayScope::World;
+    SetText(GameplayTitle, bWorld ? TEXT("World") : TEXT("Gameplay entry"));
     FString Status;
     switch (View.State)
     {
@@ -379,8 +384,8 @@ void SBaddieCompanionConnectionPanel::PresentGameplay(const BaddieCompanion::FGa
     case EGameplayConnectionState::Expired: Status = TEXT("Gameplay access expired."); break;
     case EGameplayConnectionState::Unavailable: Status = TEXT("Gameplay entry is unavailable."); break;
     }
-    SetText(GameplayStatus, Status);
-    SetText(GameplayLimits, View.State == EGameplayConnectionState::Disabled ? FString()
+    SetText(GameplayStatus, bWorld ? TEXT("World access is unavailable.") : Status);
+    SetText(GameplayLimits, bWorld || View.State == EGameplayConnectionState::Disabled ? FString()
         : TEXT("City presence only. Movement, combat and voice are not available."));
     SetText(GameplayDeviceText, View.DeviceName.IsEmpty() ? FString() : TEXT("Gameplay device: ") + View.DeviceName);
     const bool bCanRequest = View.State == EGameplayConnectionState::SignedOut || View.State == EGameplayConnectionState::Expired
@@ -400,6 +405,9 @@ void SBaddieCompanionConnectionPanel::PresentGameplay(const BaddieCompanion::FGa
     SetText(GameplayRetry, View.RetryAfterSeconds > 0
         ? FString::Printf(TEXT("Gameplay retry in %d seconds."), FMath::CeilToInt(View.RetryAfterSeconds)) : FString());
     SetVisible(GameplayPairButton, bCanRequest);
+    SetVisible(WorldPairButton, bCanRequest);
+    SetVisible(WorldReloadButton, bWorld && View.State == EGameplayConnectionState::Joined
+        && View.WorldStatus != BaddieCompanion::EWorldReadStatus::Accepted);
     SetVisible(GameplayCopyButton, bApproval && !View.ApprovalLink.IsEmpty());
     SetVisible(GameplayCancelButton, BaddieCompanion::IsGameplayPairing(View.State));
     SetVisible(GameplayEnterButton, View.State == EGameplayConnectionState::Authorized);

@@ -1,4 +1,5 @@
 #include "BaddieCompanionWorldControls.h"
+#include "BaddieCompanionWorldPlayerRead.h"
 
 #include <cmath>
 
@@ -7,8 +8,6 @@ namespace BaddieCompanion
     namespace WorldControlsPrivate
     {
         constexpr int64 MaxSafeInteger = 9007199254740991LL;
-        // companionPlayerDrivingRules.maxSpeed, in source metres per second.
-        constexpr double MaxDrivingSpeed = 7;
 
         bool Same(const FString& A, const FString& B)
         {
@@ -63,7 +62,7 @@ namespace BaddieCompanion
                 || !Integer(Driving.AcceptedAtMs) || !Integer(Driving.InputExpiresAtMs)
                 || !std::isfinite(Pose.Position.X) || !std::isfinite(Pose.Position.Y)
                 || !std::isfinite(Pose.Position.Z) || !std::isfinite(Pose.YawRadians)
-                || !InRange(Driving.Speed, -MaxDrivingSpeed, MaxDrivingSpeed)
+                || !WorldReadPrivate::DrivingSpeed(Driving.Speed)
                 || !Nonnegative(Driving.DrivenMetres) || !Nonnegative(Driving.FuelMetres)
                 || !InRange(Driving.Throttle, 0, 1) || !InRange(Driving.Brake, 0, 1)
                 || !InRange(Driving.Steering, -1, 1) || !bKnownMode || !bKnownSurface
@@ -81,7 +80,7 @@ namespace BaddieCompanion
                 && ScopeKey(Scope.UserId) && ScopeKey(Scope.CharacterId) && ScopeKey(Scope.LifeId)
                 && ScopeKey(Scope.LayoutId, 160000) && ScopeKey(Scope.LayoutRevision, 160000)
                 // validCompanionWaterScope uses the stricter traversal integer bound.
-                && Scope.Revision >= 0 && Scope.Revision < MaxSafeInteger - 1;
+                && WorldReadPrivate::WaterRevision(Scope.Revision);
         }
 
         bool SameWaterScope(const FWorldWaterScope& A, const FWorldWaterScope& B)
@@ -113,8 +112,8 @@ namespace BaddieCompanion
                 && std::isfinite(Water.X) && std::isfinite(Water.Y) && std::isfinite(Water.Z)
                 && std::isfinite(Water.YawRadians) && std::isfinite(Water.Velocity.X) && std::isfinite(Water.Velocity.Z)
                 && InRange(Water.Throttle, -1, 1) && InRange(Water.Steer, -1, 1)
-                && Water.StartedAtMs <= Water.SimulatedAtMs && Water.LastInputAtMs <= Water.SimulatedAtMs
-                && Water.ExpiresAtMs <= Water.EndsAtMs && bKnownFeedback;
+                && WorldReadPrivate::WaterTiming(Water.StartedAtMs, Water.LastInputAtMs, Water.SimulatedAtMs,
+                    Water.ExpiresAtMs, Water.EndsAtMs) && bKnownFeedback;
         }
 
         template <typename T> bool SelectField(const TWorldPlayerField<T>& Field, TOptional<T>& Out)
@@ -136,8 +135,8 @@ namespace BaddieCompanion
                 && Read.WaterControl.GetValue().Phase == EWorldWaterPhase::Active;
             const bool bTravelingJourney = Player.Journey.Value.IsSet()
                 && Player.Journey.Value.GetValue().Status == EWorldJourneyStatus::Traveling;
-            return (bDriving && bActiveWater) || ((bDriving || bActiveWater)
-                && (Player.Movement.IsSet() || Player.TransitRide.Value.IsSet() || bTravelingJourney));
+            return WorldReadPrivate::ConflictingTransport(bDriving, bActiveWater,
+                Player.Movement.IsSet(), Player.TransitRide.Value.IsSet(), bTravelingJourney);
         }
 
         bool ValidControls(const FWorldTransportRead& Read, const FWorldPlayerView& Player,
@@ -188,9 +187,8 @@ namespace BaddieCompanion
             {
                 const auto& Incoming = Next->Driving.GetValue();
                 const auto& Prior = Previous->Driving.GetValue();
-                if (Same(Prior.Id, Incoming.Id) && Same(Prior.Driver.LifeId, Incoming.Driver.LifeId)
-                    && (Incoming.Revision < Prior.Revision || Incoming.Sequence < Prior.Sequence
-                        || Incoming.AcceptedAtMs < Prior.AcceptedAtMs))
+                if (WorldReadPrivate::RetainDriving(Same(Prior.Id, Incoming.Id) && Same(Prior.Driver.LifeId, Incoming.Driver.LifeId),
+                    Incoming.Revision, Incoming.Sequence, Incoming.AcceptedAtMs, Prior.Revision, Prior.Sequence, Prior.AcceptedAtMs))
                 {
                     Next->Driving = Prior;
                     Next->Position = Previous->Position;
@@ -200,9 +198,8 @@ namespace BaddieCompanion
             {
                 const auto& Incoming = Next->WaterControl.GetValue();
                 const auto& Prior = Previous->WaterControl.GetValue();
-                if (Same(Prior.Id, Incoming.Id) && SameWaterScope(Prior.Scope, Incoming.Scope)
-                    && (Incoming.Sequence < Prior.Sequence || Incoming.CraftRevision < Prior.CraftRevision
-                        || Incoming.SimulatedAtMs < Prior.SimulatedAtMs))
+                if (WorldReadPrivate::RetainWater(Same(Prior.Id, Incoming.Id) && SameWaterScope(Prior.Scope, Incoming.Scope),
+                    Incoming.Sequence, Incoming.CraftRevision, Incoming.SimulatedAtMs, Prior.Sequence, Prior.CraftRevision, Prior.SimulatedAtMs))
                 {
                     Next->WaterControl = Prior;
                     Next->Position = Previous->Position;

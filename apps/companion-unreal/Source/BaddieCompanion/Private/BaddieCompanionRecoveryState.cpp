@@ -1,10 +1,99 @@
 #include "BaddieCompanionRecoveryState.h"
+#include "BaddieCompanionWorldPlayerRead.h"
 #include "BaddieCompanionStateJson.h"
 #include "Serialization/JsonSerializer.h"
 #include "Serialization/JsonWriter.h"
 
 namespace BaddieCompanion
 {
+    namespace WorldReadPrivate
+    {
+        const FRecordSchema& HealthSchema()
+        {
+            using K = EWorldValueKind;
+            static constexpr FTextChoice Statuses[] = {TEXT("active"), TEXT("hospital"), TEXT("detained")};
+            static constexpr FFieldRule Rules[] = {
+                FFieldRule(TEXT("lifeId"), K::String).WithText({1}),
+                FFieldRule(TEXT("revision"), K::Number).WithNumber(0, MaxSafeInteger, true),
+                FFieldRule(TEXT("health"), K::Number), FFieldRule(TEXT("maxHealth"), K::Number),
+                FFieldRule(TEXT("status"), K::String).WithChoices(Statuses),
+                FFieldRule(TEXT("deathKey"), K::String, true, true),
+                FFieldRule(TEXT("protectedUntil"), K::Number), FFieldRule(TEXT("recovery"), K::Object, true, true)
+            };
+            static constexpr FRecordSchema Schema(Rules);
+            return Schema;
+        }
+        const FRecordSchema& RecoveryDestinationSchema()
+        {
+            using K = EWorldValueKind;
+            static constexpr FFieldRule Rules[] = {
+                FFieldRule(TEXT("placeId"), K::String), FFieldRule(TEXT("instanceId"), K::String),
+                FFieldRule(TEXT("position"), K::Array).WithCount(3, 3), FFieldRule(TEXT("readyAt"), K::Number)
+            };
+            static constexpr FRecordSchema Schema(Rules);
+            return Schema;
+        }
+        void FHealthRead::Cancel()
+        {
+            Health.Cancel(); Destination.Cancel(); Root = {}; Position = 0;
+            Phase = Coordinate = 0; bNull = false; Status = WorldObservationPrivate::EStep::Invalid;
+        }
+        void FHealthRead::Begin(FValueRef InValue)
+        {
+            Cancel(); Root = InValue; Status = WorldObservationPrivate::EStep::Pending;
+        }
+        WorldObservationPrivate::EStep FHealthRead::Advance(const WorldObservationPrivate::FStorage& Storage)
+        {
+            using namespace WorldObservationPrivate;
+            if (!Storage.bComplete || Storage.bRetiring) return Status = EStep::Invalid;
+            if (Status != EStep::Pending) return Status;
+            if (Phase == 0)
+            {
+                EWorldValueKind Kind;
+                const auto Result = ReadKind(Storage, Root, Kind);
+                if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+                if (Kind == EWorldValueKind::Null) { bNull = true; return Status = EStep::Complete; }
+                if (!Storage.Budget->Spend(FRecordRead::BeginWork())) return Storage.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+                Health.Begin(Root, HealthSchema()); Phase = 1;
+            }
+            if (Phase == 1)
+            {
+                const auto Result = Health.Advance(Storage);
+                if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+                if (Health.Presence(7) == EWorldFieldPresence::Null) return Status = EStep::Complete;
+                if (!Storage.Budget->Spend(FRecordRead::BeginWork())) return Storage.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+                Destination.Begin(Health.Field(7), RecoveryDestinationSchema()); Phase = 2;
+            }
+            if (Phase == 2)
+            {
+                const auto Result = Destination.Advance(Storage);
+                if (Result != EStep::Complete) return Result == EStep::Pending ? Result : Status = Result;
+                Phase = 3;
+            }
+            if (Phase == 3)
+            {
+                if (!Storage.Budget->Spend(8)) return Storage.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+                const auto Ref = Destination.Field(2);
+                const auto* Array = Resolve(Storage, Ref);
+                if (!Array) return Status = EStep::Invalid;
+                Position = Array->FirstChild; Phase = 4;
+            }
+            while (Coordinate < 3)
+            {
+                // Coordinate and sibling are one atomic step, so a tick yield
+                // cannot skip a value or reread it without charging.
+                if (!Storage.Budget->Spend(24)) return Storage.Budget->bExhausted ? EStep::ResourceUnavailable : EStep::Pending;
+                const auto* Node = Resolve(Storage, Root.Child(Position));
+                if (!Node || Node->Kind != EWorldValueKind::Number) return Status = EStep::Invalid;
+                double N = 0;
+                FMemory::Memcpy(&N, &Node->NumberBits, sizeof(N));
+                if (!FiniteNumber(N)) return Status = EStep::Invalid;
+                Position = Node->NextSibling; ++Coordinate;
+            }
+            return Status = Position == 0 ? EStep::Complete : EStep::Invalid;
+        }
+    }
+
     namespace RecoveryStatePrivate
     {
         using StateJsonPrivate::FObject;
@@ -23,7 +112,7 @@ namespace BaddieCompanion
         bool Destination(const FValue& V, FCompanionRecoveryDestination& Out)
         {
             const auto O = Object(V);
-            if (!Only(O, {TEXT("placeId"), TEXT("instanceId"), TEXT("position"), TEXT("readyAt")})
+            if (!WorldReadPrivate::ReadRecord(O, WorldReadPrivate::RecoveryDestinationSchema())
                 || !String(Field(O, TEXT("placeId")), Out.PlaceId) || !String(Field(O, TEXT("instanceId")), Out.InstanceId)
                 || !Number(O, TEXT("readyAt"), Out.ReadyAtMs)) return false;
             const auto P = Field(O, TEXT("position"));
@@ -34,8 +123,7 @@ namespace BaddieCompanion
         bool Health(const FObject& O, FCompanionHealthView& Out)
         {
             FString Status;
-            if (!Only(O, {TEXT("lifeId"), TEXT("revision"), TEXT("health"), TEXT("maxHealth"), TEXT("status"),
-                    TEXT("deathKey"), TEXT("protectedUntil"), TEXT("recovery")})
+            if (!WorldReadPrivate::ReadRecord(O, WorldReadPrivate::HealthSchema())
                 || !String(Field(O, TEXT("lifeId")), Out.LifeId) || Out.LifeId.IsEmpty()
                 || !Integer(Field(O, TEXT("revision")), Out.Revision)
                 || !Number(O, TEXT("health"), Out.Health) || !Number(O, TEXT("maxHealth"), Out.MaxHealth)
@@ -56,13 +144,26 @@ namespace BaddieCompanion
         Out = {}; OutError = TEXT("Recovery response is unsupported or malformed.");
         if (Json.IsEmpty() || Json.Len() > ParseLimits.Characters
             || (Kind != ERecoveryResponseKind::Subscription && Kind != ERecoveryResponseKind::Mutation)) return false;
-        FRecoveryDecodedResponse Next; Next.Kind = Kind;
         if (Kind == ERecoveryResponseKind::Subscription && Same(Json.TrimStartAndEnd(), TEXT("null")))
+            return ReadWorldRecoveryValue(MakeShared<FJsonValueNull>(), Kind, Out, OutError);
+        FObject O;
+        if (!Parse(Json, O, ParseLimits)) return false;
+        return ReadWorldRecoveryValue(MakeShared<FJsonValueObject>(O), Kind, Out, OutError);
+    }
+
+    bool ReadWorldRecoveryValue(const TSharedPtr<FJsonValue>& Value, ERecoveryResponseKind Kind,
+        FRecoveryDecodedResponse& Out, FString& OutError)
+    {
+        using namespace RecoveryStatePrivate;
+        Out = {}; OutError = TEXT("Recovery response is unsupported or malformed.");
+        if (!Value.IsValid() || (Kind != ERecoveryResponseKind::Subscription
+            && Kind != ERecoveryResponseKind::Mutation)) return false;
+        FRecoveryDecodedResponse Next; Next.Kind = Kind;
+        if (Kind == ERecoveryResponseKind::Subscription && Value->Type == EJson::Null)
         {
             Next.bValid = true; Out = MoveTemp(Next); OutError.Reset(); return true;
         }
-        FObject O;
-        if (!Parse(Json, O, ParseLimits)) return false;
+        const auto O = Object(Value);
         FObject HealthObject = O;
         if (Kind == ERecoveryResponseKind::Mutation)
         {
@@ -83,6 +184,46 @@ namespace BaddieCompanion
         const FString NextOwner = OwnerId;
         View = {}; View.OwnerId = NextOwner; Generation = FGuid::NewGuid(); RetireRecovery();
         bSubscribed = false; Changed.Broadcast();
+    }
+
+    bool FRecoveryReadState::BeginWorldSubscription(uint64 Lifetime, FWorldRecoveryReceipt& Out)
+    {
+        Out = {};
+        if (bDisposed || !Lifetime || bSubscribed || WorldLifetime || View.Health || !View.OwnerId.IsEmpty()
+            || PreparedRecovery.IsSet() || View.Error.IsSet()) return false;
+        Generation = FGuid::NewGuid(); WorldLifetime = Lifetime; bSubscribed = true;
+        Out.Generation = Generation; Out.Lifetime = Lifetime; return true;
+    }
+    bool FRecoveryReadState::CurrentWorldSubscription(const FWorldRecoveryReceipt& Receipt) const
+    {
+        return !bDisposed && bSubscribed && Receipt.Lifetime && Receipt.Lifetime == WorldLifetime
+            && Receipt.Generation.IsValid() && Receipt.Generation == Generation;
+    }
+    bool FRecoveryReadState::StageWorldSubscription(const FWorldRecoveryReceipt& Receipt, FRecoveryReadView& Next) const
+    {
+        if (!CurrentWorldSubscription(Receipt) || Next.OwnerId.IsEmpty()
+            || Next.HealthPresence != EWorldFieldPresence::Value || !Next.Health
+            || Next.Health->LifeId.IsEmpty() || Next.Error.IsSet() || Next.bBusy) return false;
+        Next.bReady = true; Next.ServerOffsetMs = 0; return true;
+    }
+    void FRecoveryReadState::CommitWorldSubscription(const FWorldRecoveryReceipt& Receipt,
+        FRecoveryReadView&& Next, FRecoveryReadView& Retired)
+    {
+        check(CurrentWorldSubscription(Receipt));
+        check(Retired.OwnerId.IsEmpty() && !Retired.Health && !Retired.Error.IsSet());
+        Retired = MoveTemp(View); View = MoveTemp(Next);
+    }
+    void FRecoveryReadState::ClearWorldSubscription(FRecoveryReadView& Retired, bool bEndLifetime)
+    {
+        check(Retired.OwnerId.IsEmpty() && !Retired.Health && !Retired.Error.IsSet());
+        Retired = MoveTemp(View); View = {};
+        if (bEndLifetime) { WorldLifetime = 0; Generation.Invalidate(); bSubscribed = false; }
+        ActiveMutation.Invalidate(); bRecoveryDispatched = false;
+        check(!PreparedRecovery.IsSet());
+    }
+    void FRecoveryReadState::NotifyWorldSubscription(const FWorldRecoveryReceipt& Receipt)
+    {
+        if (CurrentWorldSubscription(Receipt)) Changed.Broadcast();
     }
     FRecoveryReceipt FRecoveryReadState::BeginSubscription()
     {

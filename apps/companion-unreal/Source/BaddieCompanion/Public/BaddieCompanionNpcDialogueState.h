@@ -119,9 +119,24 @@ namespace BaddieCompanion
         FNpcDialogueScope Scope;
         FNpcDialogueTarget Target;
         FNpcDialogueSendArguments Arguments;
+        bool bRequiresDispatchMark = false;
+    };
+    // Immutable non-auth action description. Copies retain one request, not another send.
+    class FNpcDialogueSerializedCommand
+    {
+    public:
+        bool IsValid() const { return Intent.IsValid() && !ArgumentsJson.IsEmpty(); }
+        const TCHAR* GetFunctionName() const { return TEXT("companionNpcDialogue:respond"); }
+        const FString& GetArgumentsJson() const { return ArgumentsJson; }
+        const FNpcDialogueSendIntent& GetIntent() const { return Intent; }
+        bool ShouldRetry() const { return false; }
+    private:
+        friend class FNpcDialogueState;
+        FNpcDialogueSendIntent Intent;
+        FString ArgumentsJson;
     };
     enum class ENpcDialogueOpenResult : uint8 { Opened, Ineligible, UnimplementedTarget };
-    enum class ENpcDialogueSendResult : uint8 { IntentCaptured, Ignored, Loading, InvalidInput, UnimplementedTarget };
+    enum class ENpcDialogueSendResult : uint8 { IntentCaptured, Ignored, Loading, InvalidInput, UnimplementedTarget, SerializationFailed };
     enum class ENpcDialogueReceiptResult : uint8 { Accepted, ErrorAccepted, StaleReceipt, InvalidReply, IdentityMismatch };
 
     // Caller-driven value state, on one owning thread. No subscriptions, delegates,
@@ -149,6 +164,25 @@ namespace BaddieCompanion
             const FNpcDialogueObservation& Observation, const FString& Message, FNpcDialogueSendIntent& Out);
         ENpcDialogueSendResult SendTopic(const FNpcDialogueOwnerReceipt& Owner,
             const FNpcDialogueObservation& Observation, ENpcDialogueTopic Topic, FNpcDialogueSendIntent& Out);
+        // Same Capture order as legacy sends. Notify synchronously for IntentCaptured,
+        // Loading, InvalidInput or SerializationFailed. Ignored/UnimplementedTarget may
+        // still close an invalid selection; compare the view for that notification.
+        ENpcDialogueSendResult PrepareSerializedMessage(const FNpcDialogueOwnerReceipt& Owner,
+            const FNpcDialogueObservation& Observation, const FString& Message, FNpcDialogueSerializedCommand& Out);
+        ENpcDialogueSendResult PrepareSerializedTopic(const FNpcDialogueOwnerReceipt& Owner,
+            const FNpcDialogueObservation& Observation, ENpcDialogueTopic Topic, FNpcDialogueSerializedCommand& Out);
+        // After the busy notification, recheck fresh canonical scope(false)/target.
+        // On true, send immediately without another yield/notification. No permission.
+        bool MarkCommandDispatched(const FNpcDialogueSerializedCommand& Command, const FNpcDialogueObservation& Observation);
+        // Matching unsent ownership survives Close/observer loss. True releases only
+        // its latch; notify if the visible busy value changed. Marked requests refuse.
+        bool AbandonUnsentCommand(const FNpcDialogueSerializedCommand& Command);
+        // Only marked packets complete here. Matching old-conversation completion can
+        // release its latch but returns StaleReceipt without publishing into a new view.
+        ENpcDialogueReceiptResult CompleteSerializedCommand(const FNpcDialogueSerializedCommand& Command,
+            const FNpcDialogueObservation& Observation, const FString& Json);
+        ENpcDialogueReceiptResult FailSerializedCommand(const FNpcDialogueSerializedCommand& Command,
+            const FNpcDialogueObservation& Observation, ENpcDialogueError Error = ENpcDialogueError::ReplyUnavailable);
         // The matching completion releases the pending latch even after Close. A stale
         // receipt cannot clear a newer request or publish text/errors into another scope.
         ENpcDialogueReceiptResult AcceptReply(const FNpcDialogueSendIntent& Intent,
@@ -162,7 +196,18 @@ namespace BaddieCompanion
         bool ReadTarget(const FNpcDialogueObservation& Observation, const FNpcDialogueScope& Scope,
             const FString& ServiceId, FNpcDialogueTarget& Out) const;
         bool SelectionMatches(const FNpcDialogueObservation& Observation) const;
+        bool CurrentIntent(const FNpcDialogueSendIntent& Intent) const;
+        bool CurrentSerialized(const FNpcDialogueSerializedCommand& Command) const;
+        bool ConversationMatches(const FNpcDialogueSendIntent& Intent, const FNpcDialogueObservation& Observation) const;
+        void RetireDispatch();
         bool FinishReceipt(const FNpcDialogueSendIntent& Intent, const FNpcDialogueObservation& Observation);
+        ENpcDialogueReceiptResult AcceptCurrentReply(const FNpcDialogueSendIntent& Intent,
+            const FNpcDialogueObservation& Observation, const FString& Json);
+        ENpcDialogueReceiptResult AcceptCurrentFailure(const FNpcDialogueSendIntent& Intent,
+            const FNpcDialogueObservation& Observation, ENpcDialogueError Error);
+        ENpcDialogueSendResult PrepareSerialized(const FNpcDialogueOwnerReceipt& Owner,
+            const FNpcDialogueObservation& Observation, const FString& Message,
+            TOptional<ENpcDialogueTopic> Topic, FNpcDialogueSerializedCommand& Out);
         ENpcDialogueSendResult Capture(const FNpcDialogueOwnerReceipt& Owner,
             const FNpcDialogueObservation& Observation, const FString& Message,
             TOptional<ENpcDialogueTopic> Topic, FNpcDialogueSendIntent& Out);
@@ -171,5 +216,6 @@ namespace BaddieCompanion
         TOptional<FNpcDialogueScope> SelectedScope;
         FNpcDialogueView View;
         bool bObserved = false, bDisposed = false;
+        bool bActiveRequiresMark = false, bActiveMarked = false;
     };
 }

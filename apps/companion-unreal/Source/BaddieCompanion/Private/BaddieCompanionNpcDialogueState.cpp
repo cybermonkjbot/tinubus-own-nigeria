@@ -1,5 +1,8 @@
 #include "BaddieCompanionNpcDialogueState.h"
 #include "BaddieCompanionStateJson.h"
+#include "Policies/CondensedJsonPrintPolicy.h"
+#include "Serialization/JsonSerializer.h"
+#include "Serialization/JsonWriter.h"
 
 #include <cmath>
 
@@ -19,6 +22,9 @@ namespace BaddieCompanion
         using StateJsonPrivate::EnumValue;
         constexpr StateJsonPrivate::FParseLimits ReplyLimits{16384, 4, 64};
         constexpr int32 MessageCharacters = 400, ReplyCharacters = 1024;
+        // Retained string ceilings sum to 1,430 UTF-16 units, allowing 10 for topic.
+        // Six-character escaping plus 512 for keys/punctuation/revision.
+        constexpr int32 MaxCommandJsonCharacters = 6 * (240 + 100 + 320 + 160 + 100 + 100 + MessageCharacters + 10) + 512;
 
         int32 Utf16Length(const FString& Value)
         {
@@ -206,7 +212,7 @@ namespace BaddieCompanion
     {
         if (bDisposed) return {};
         const FString NextOwner = NpcDialogueStatePrivate::Bounded(UserId, 240) ? UserId : FString();
-        Close(); OwnerId.Reset(); OwnerGeneration.Invalidate(); ActiveDispatch.Invalidate(); bObserved = false;
+        Close(); OwnerId.Reset(); OwnerGeneration.Invalidate(); RetireDispatch(); bObserved = false;
         if (NextOwner.IsEmpty()) return {};
         OwnerId = NextOwner; OwnerGeneration = FGuid::NewGuid();
         FNpcDialogueOwnerReceipt Receipt; Receipt.Generation = OwnerGeneration; return Receipt;
@@ -344,7 +350,8 @@ namespace BaddieCompanion
         Args.Revision = Intent.Target.Revision; Args.LifeId = Intent.Scope.LifeId;
         Args.RequestId = TEXT("npc-") + Intent.DispatchId.ToString(EGuidFormats::Digits);
         Args.Message = OriginalMessage; Args.Topic = Topic;
-        ActiveDispatch = Intent.DispatchId; View.bBusy = true; View.Error.Reset(); View.Reply.Reset();
+        ActiveDispatch = Intent.DispatchId; bActiveRequiresMark = false; bActiveMarked = false;
+        View.bBusy = true; View.Error.Reset(); View.Reply.Reset();
         Out = MoveTemp(Intent); return ENpcDialogueSendResult::IntentCaptured;
     }
     ENpcDialogueSendResult FNpcDialogueState::SendMessage(const FNpcDialogueOwnerReceipt& Owner,
@@ -357,11 +364,93 @@ namespace BaddieCompanion
     {
         return Capture(Owner, O, TEXT(""), TOptional<ENpcDialogueTopic>(Topic), Out);
     }
+    bool FNpcDialogueState::CurrentIntent(const FNpcDialogueSendIntent& Intent) const
+    {
+        return !bDisposed && Intent.DispatchId.IsValid() && Intent.OwnerGeneration == OwnerGeneration
+            && Intent.DispatchId == ActiveDispatch && Intent.bRequiresDispatchMark == bActiveRequiresMark;
+    }
+    bool FNpcDialogueState::CurrentSerialized(const FNpcDialogueSerializedCommand& Command) const
+    {
+        return Command.IsValid() && Command.Intent.bRequiresDispatchMark && CurrentIntent(Command.Intent);
+    }
+    bool FNpcDialogueState::ConversationMatches(const FNpcDialogueSendIntent& Intent, const FNpcDialogueObservation& O) const
+    {
+        return Intent.ConversationGeneration == ConversationGeneration && SelectedScope.IsSet()
+            && NpcDialogueStatePrivate::SameScope(Intent.Scope, SelectedScope.GetValue()) && SelectionMatches(O);
+    }
+    void FNpcDialogueState::RetireDispatch()
+    {
+        ActiveDispatch.Invalidate(); bActiveRequiresMark = false; bActiveMarked = false;
+    }
+    ENpcDialogueSendResult FNpcDialogueState::PrepareSerialized(const FNpcDialogueOwnerReceipt& Owner,
+        const FNpcDialogueObservation& O, const FString& Message, TOptional<ENpcDialogueTopic> Topic, FNpcDialogueSerializedCommand& Out)
+    {
+        using namespace NpcDialogueStatePrivate;
+        FNpcDialogueSerializedCommand Next;
+        // Capture snapshots bounded Message before clearing output or old view state.
+        // Message may alias Out's intent arguments, JSON, or the currently shown reply.
+        const auto Result = Capture(Owner, O, Message, Topic, Next.Intent);
+        Out = {};
+        if (Result != ENpcDialogueSendResult::IntentCaptured) return Result;
+        Next.Intent.bRequiresDispatchMark = true; bActiveRequiresMark = true;
+        const auto& A = Next.Intent.Arguments;
+        const auto Args = MakeShared<FJsonObject>();
+        Args->SetStringField(TEXT("gameRoomId"), A.GameRoomId);
+        Args->SetStringField(TEXT("serviceId"), A.ServiceId);
+        Args->SetStringField(TEXT("actorIdentity"), A.ActorIdentity);
+        Args->SetStringField(TEXT("instanceId"), A.InstanceId);
+        Args->SetNumberField(TEXT("revision"), A.Revision);
+        Args->SetStringField(TEXT("lifeId"), A.LifeId);
+        Args->SetStringField(TEXT("requestId"), A.RequestId);
+        Args->SetStringField(TEXT("message"), A.Message);
+        if (A.Topic.IsSet()) Args->SetStringField(TEXT("topic"), NpcDialogueTopicId(A.Topic.GetValue()));
+        if (!FJsonSerializer::Serialize(Args, TJsonWriterFactory<TCHAR, TCondensedJsonPrintPolicy<TCHAR>>::Create(&Next.ArgumentsJson))
+            || Next.ArgumentsJson.Len() > MaxCommandJsonCharacters)
+        {
+            // No notification has run since capture. Only this newly owned unsent latch settles.
+            AcceptCurrentFailure(Next.Intent, O, ENpcDialogueError::ReplyUnavailable);
+            return ENpcDialogueSendResult::SerializationFailed;
+        }
+        Out = MoveTemp(Next); return ENpcDialogueSendResult::IntentCaptured;
+    }
+    ENpcDialogueSendResult FNpcDialogueState::PrepareSerializedMessage(const FNpcDialogueOwnerReceipt& Owner,
+        const FNpcDialogueObservation& O, const FString& Message, FNpcDialogueSerializedCommand& Out)
+    {
+        return PrepareSerialized(Owner, O, Message, {}, Out);
+    }
+    ENpcDialogueSendResult FNpcDialogueState::PrepareSerializedTopic(const FNpcDialogueOwnerReceipt& Owner,
+        const FNpcDialogueObservation& O, ENpcDialogueTopic Topic, FNpcDialogueSerializedCommand& Out)
+    {
+        return PrepareSerialized(Owner, O, TEXT(""), TOptional<ENpcDialogueTopic>(Topic), Out);
+    }
+    bool FNpcDialogueState::MarkCommandDispatched(const FNpcDialogueSerializedCommand& Command, const FNpcDialogueObservation& O)
+    {
+        if (!CurrentSerialized(Command) || bActiveMarked || !ConversationMatches(Command.Intent, O)) return false;
+        bActiveMarked = true; return true;
+    }
+    bool FNpcDialogueState::AbandonUnsentCommand(const FNpcDialogueSerializedCommand& Command)
+    {
+        if (!CurrentSerialized(Command) || bActiveMarked) return false;
+        RetireDispatch();
+        if (Command.Intent.ConversationGeneration == ConversationGeneration) View.bBusy = false;
+        return true;
+    }
+    ENpcDialogueReceiptResult FNpcDialogueState::CompleteSerializedCommand(const FNpcDialogueSerializedCommand& Command,
+        const FNpcDialogueObservation& O, const FString& Json)
+    {
+        if (!CurrentSerialized(Command) || !bActiveMarked) return ENpcDialogueReceiptResult::StaleReceipt;
+        return AcceptCurrentReply(Command.Intent, O, Json);
+    }
+    ENpcDialogueReceiptResult FNpcDialogueState::FailSerializedCommand(const FNpcDialogueSerializedCommand& Command,
+        const FNpcDialogueObservation& O, ENpcDialogueError Error)
+    {
+        if (!CurrentSerialized(Command) || !bActiveMarked) return ENpcDialogueReceiptResult::StaleReceipt;
+        return AcceptCurrentFailure(Command.Intent, O, Error);
+    }
     bool FNpcDialogueState::FinishReceipt(const FNpcDialogueSendIntent& Intent, const FNpcDialogueObservation& O)
     {
-        if (bDisposed || !Intent.DispatchId.IsValid() || Intent.OwnerGeneration != OwnerGeneration
-            || Intent.DispatchId != ActiveDispatch) return false;
-        ActiveDispatch.Invalidate();
+        if (!CurrentIntent(Intent)) return false;
+        RetireDispatch();
         const bool bSelectionMatches = SelectionMatches(O);
         if (Intent.ConversationGeneration != ConversationGeneration || !SelectedScope.IsSet()
             || !NpcDialogueStatePrivate::SameScope(Intent.Scope, SelectedScope.GetValue()) || !bSelectionMatches)
@@ -372,6 +461,12 @@ namespace BaddieCompanion
         View.bBusy = false; return true;
     }
     ENpcDialogueReceiptResult FNpcDialogueState::AcceptReply(const FNpcDialogueSendIntent& Intent,
+        const FNpcDialogueObservation& O, const FString& Json)
+    {
+        if (Intent.bRequiresDispatchMark) return ENpcDialogueReceiptResult::StaleReceipt;
+        return AcceptCurrentReply(Intent, O, Json);
+    }
+    ENpcDialogueReceiptResult FNpcDialogueState::AcceptCurrentReply(const FNpcDialogueSendIntent& Intent,
         const FNpcDialogueObservation& O, const FString& Json)
     {
         using namespace NpcDialogueStatePrivate;
@@ -393,6 +488,12 @@ namespace BaddieCompanion
     ENpcDialogueReceiptResult FNpcDialogueState::AcceptFailure(const FNpcDialogueSendIntent& Intent,
         const FNpcDialogueObservation& O, ENpcDialogueError Error)
     {
+        if (Intent.bRequiresDispatchMark) return ENpcDialogueReceiptResult::StaleReceipt;
+        return AcceptCurrentFailure(Intent, O, Error);
+    }
+    ENpcDialogueReceiptResult FNpcDialogueState::AcceptCurrentFailure(const FNpcDialogueSendIntent& Intent,
+        const FNpcDialogueObservation& O, ENpcDialogueError Error)
+    {
         if (!FinishReceipt(Intent, O)) return ENpcDialogueReceiptResult::StaleReceipt;
         View.Error = Error; return ENpcDialogueReceiptResult::ErrorAccepted;
     }
@@ -400,6 +501,6 @@ namespace BaddieCompanion
     {
         if (bDisposed) return;
         Close(); bDisposed = true; bObserved = false; OwnerId.Reset();
-        OwnerGeneration.Invalidate(); ActiveDispatch.Invalidate();
+        OwnerGeneration.Invalidate(); RetireDispatch();
     }
 }
