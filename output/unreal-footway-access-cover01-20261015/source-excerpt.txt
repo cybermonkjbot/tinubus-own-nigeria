@@ -1,0 +1,62 @@
+PARENT-SUPPLIED SOURCE EXCERPTS. Full source bytes verified by parent only; no assertion that the full file exists on Windows. UTF-8, LF, final LF.
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityStreetDetails.ts
+SHA256 14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8
+Verbatim lines 131-131:
+  const flatMaterial = new THREE.MeshStandardMaterial({ vertexColors: true, roughness: .93 });
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityStreetDetails.ts
+SHA256 14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8
+Verbatim lines 238-255:
+  // Surface helpers consume this scratch synchronously. Construction and winding
+  // keep full number precision; only completed output values enter Float32 chunks.
+  const surfacePoints = new Float64Array(12);
+  const quadIndices = [0, 2, 1, 1, 2, 3] as const;
+  const makeSurface = (colourSize: 3 | 4 = 3): FlatSurface => ({ chunks: [], count: 0, colourSize });
+  const vertex = (surface: FlatSurface, x: number, y: number, z: number, tint: THREE.Color, alpha = 1) => {
+    let chunk = surface.chunks[surface.chunks.length - 1];
+    if (!chunk || chunk.count === SURFACE_CHUNK_VERTICES) {
+      chunk = { positions: new Float32Array(SURFACE_CHUNK_VERTICES * 3),
+        colours: new Float32Array(SURFACE_CHUNK_VERTICES * surface.colourSize), count: 0 };
+      surface.chunks.push(chunk);
+    }
+    const positionOffset = chunk.count * 3, colourOffset = chunk.count * surface.colourSize;
+    chunk.positions[positionOffset] = x; chunk.positions[positionOffset + 1] = y; chunk.positions[positionOffset + 2] = z;
+    chunk.colours[colourOffset] = tint.r; chunk.colours[colourOffset + 1] = tint.g; chunk.colours[colourOffset + 2] = tint.b;
+    if (surface.colourSize === 4) chunk.colours[colourOffset + 3] = alpha;
+    chunk.count++; surface.count++;
+  };
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityStreetDetails.ts
+SHA256 14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8
+Verbatim lines 274-284:
+  const plane = (surface: FlatSurface, point: CityStreetSample, along: number, across: number, length: number, width: number, y: number, tint: string) => {
+    surfacePoints[0] = along - length / 2; surfacePoints[1] = across - width / 2;
+    surfacePoints[2] = along + length / 2; surfacePoints[3] = across - width / 2;
+    surfacePoints[4] = along - length / 2; surfacePoints[5] = across + width / 2;
+    surfacePoints[6] = along + length / 2; surfacePoints[7] = across + width / 2;
+    colour.set(tint);
+    for (const index of quadIndices) {
+      const x = surfacePoints[index * 2], z = surfacePoints[index * 2 + 1];
+      vertex(surface, point.x + point.tx * x + point.nx * z, y, point.z + point.tz * x + point.nz * z, colour);
+    }
+  };
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityStreetDetails.ts
+SHA256 14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8
+Verbatim lines 534-542:
+        // Access-cover frames and lifting slots add service detail without
+        // occupying a route or changing its floor/collision revision.
+        for (let d = Math.ceil((start - seed % 23) / 57) * 57 + seed % 23; d < end; d += 57) {
+          if (d < Math.max(start, 12) || road.pavement < 1.6 || crossingAt(road, d, side)) continue;
+          const point = sampleCityStreet(road, d), across = side * (road.width / 2 + road.pavement * .67);
+          plane(surface, point, 0, across, .79, .63, -.003, "#687164");
+          plane(surface, point, 0, across, .69, .53, -.002, "#a9ad9b");
+          for (const lift of [-.22, .22]) plane(surface, point, lift, across, .035, .12, -.001, "#535f51");
+        }
+
+PARENT SOURCE packages/companion-scene/src/interactions/city/cityStreetDetails.ts
+SHA256 14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8
+Verbatim lines 651-652:
+    // Kerb paint and footway marks share one material and one submission per tile.
+    surfaceMesh(tile, root, [drains], drainMaterial); surfaceMesh(tile, root, [surface, kerbs], flatMaterial);

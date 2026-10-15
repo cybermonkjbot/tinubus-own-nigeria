@@ -1,0 +1,16 @@
+{
+  "engine": "BLENDER_EEVEE",
+  "file": "C:\\dev\\cribtest-game\\output\\unreal-footway-access-cover01-20261015\\work-in-progress.blend",
+  "host": "Cribtest11",
+  "job": "footway-access-cover01",
+  "objects": [
+    "Cover",
+    "PresentationBed",
+    "SeatingFrame"
+  ],
+  "pid": 10284,
+  "render_job": false,
+  "scene": "FootwayAccessCover01",
+  "utc": "2026-10-15T11:19:40.080732+00:00",
+  "version": "5.2.2 LTS"
+}

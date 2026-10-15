@@ -1,0 +1,20 @@
+C:\dev\cribtest-game\output\unreal-footway-access-cover01-20261015\author_access.py:62: DeprecationWarning: 'Material.use_nodes' is expected to be removed in Blender 6.0
+  mat.use_nodes = True
+Traceback (most recent call last):
+  File "C:\dev\cribtest-game\output\unreal-footway-access-cover01-20261015\author_access.py", line 653, in <module>
+    main()
+    ~~~~^^
+  File "C:\dev\cribtest-game\output\unreal-footway-access-cover01-20261015\author_access.py", line 600, in main
+    measure(p,'measurements-early.json')
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\cribtest-game\output\unreal-footway-access-cover01-20261015\author_access.py", line 435, in measure
+    result['interfaces'] = [interface(data['Cover'],data['SeatingFrame'],cover_bottom,seats,.0912,'cover_seat_annulus',p['lower']),
+                            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\cribtest-game\output\unreal-footway-access-cover01-20261015\author_access.py", line 361, in interface
+    require(inside_area <= MIN_AREA,a['object'],label+'_hole_preserved',{'area':inside_area,'polygon':world})
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\dev\cribtest-game\output\unreal-footway-access-cover01-20261015\author_access.py", line 40, in require
+    raise RuntimeError(json.dumps({'object':obj,'field':field,'sample':sample},sort_keys=True))
+RuntimeError: {"field": "cover_seat_annulus_hole_preserved", "object": "Cover", "sample": {"area": 4.0233137654777096e-10, "polygon": [[-0.3050000071525574, -0.22499999403953552, -0.05000000074505806], [-0.3449999988079071, -0.26499998569488525, -0.05000000074505806], [-0.23749999701976776, -0.26499998569488525, -0.05000000074505806], [-0.23749999701976776, -0.22499999403953552, -0.05000000074505806]]}}
+
+Error: script failed, file: 'C:\dev\cribtest-game\output\unreal-footway-access-cover01-20261015\author_access.py', exiting.

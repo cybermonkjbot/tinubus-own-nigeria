@@ -1,0 +1,558 @@
+[
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 10,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 11,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 12,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 13,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 14,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 15,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 16,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 17,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 18,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 19,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 20,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 21,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 22,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 23,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 24,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 25,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 26,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 27,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 28,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 29,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 30,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 31,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 32,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 33,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 34,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 35,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 36,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 37,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 38,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 39,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 40,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 41,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 42,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 43,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 44,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 45,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 46,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 47,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 48,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 49,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 50,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 51,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 52,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 53,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 54,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 55,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 56,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 57,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 58,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 59,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 60,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 61,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 62,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 63,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 64,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 65,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 66,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 67,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 68,
+        "material": "DryCover",
+        "slot": 0
+      },
+      {
+        "face": 69,
+        "material": "DryCover",
+        "slot": 0
+      }
+    ],
+    "object": "Cover",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "DryCover",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 8,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 9,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 10,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 11,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 12,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 13,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 14,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 15,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 16,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 17,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 18,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 19,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 20,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 21,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 22,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 23,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 24,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 25,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 26,
+        "material": "DryFrame",
+        "slot": 0
+      },
+      {
+        "face": 27,
+        "material": "DryFrame",
+        "slot": 0
+      }
+    ],
+    "object": "SeatingFrame",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "DryFrame",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "DisplayBed",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "DisplayBed",
+        "slot": 0
+      }
+    ],
+    "object": "PresentationBed",
+    "object_present": true,
+    "slots": [
+      {
+        "material": "DisplayBed",
+        "slot": 0
+      }
+    ]
+  }
+]

@@ -1,0 +1,16 @@
+{
+  "engine": "BLENDER_EEVEE",
+  "file": "",
+  "host": "Cribtest11",
+  "job": "footway-access-cover01",
+  "objects": [
+    "Cover",
+    "PresentationBed",
+    "SeatingFrame"
+  ],
+  "pid": 10284,
+  "render_job": false,
+  "scene": "FootwayAccessCover01",
+  "utc": "2026-10-15T11:19:39.732336+00:00",
+  "version": "5.2.2 LTS"
+}

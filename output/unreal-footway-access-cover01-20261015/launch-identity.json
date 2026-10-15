@@ -1,0 +1,10 @@
+{
+    "host":  "Cribtest11",
+    "workspace":  "C:\\dev\\cribtest-game",
+    "head":  "8dd0825c5e8ec14ac8892143faa8f634a95b99fc",
+    "pid":  10284,
+    "exe":  "C:\\dev\\tools\\baddie-blender\\blender-5.2.2-windows-x64\\blender.exe",
+    "utc":  "2026-10-15T11:19:38.3041081Z",
+    "originalBlender":  6116,
+    "originalUnreal":  10404
+}

@@ -1,0 +1,32 @@
+{
+    "utc":  "2026-10-15T11:22:10.7400097Z",
+    "base":  "8dd0825c5e8ec14ac8892143faa8f634a95b99fc",
+    "status":  "FAILED_FROZEN_NO_RETRY",
+    "failure":  {
+                    "error":  "Traceback (most recent call last):\n  File \"C:\\dev\\cribtest-game\\output\\unreal-footway-access-cover01-20261015\\author_access.py\", line 653, in \u003cmodule\u003e\n    main()\n    ~~~~^^\n  File \"C:\\dev\\cribtest-game\\output\\unreal-footway-access-cover01-20261015\\author_access.py\", line 600, in main\n    measure(p,\u0027measurements-early.json\u0027)\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\cribtest-game\\output\\unreal-footway-access-cover01-20261015\\author_access.py\", line 435, in measure\n    result[\u0027interfaces\u0027] = [interface(data[\u0027Cover\u0027],data[\u0027SeatingFrame\u0027],cover_bottom,seats,.0912,\u0027cover_seat_annulus\u0027,p[\u0027lower\u0027]),\n                            ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\cribtest-game\\output\\unreal-footway-access-cover01-20261015\\author_access.py\", line 361, in interface\n    require(inside_area \u003c= MIN_AREA,a[\u0027object\u0027],label+\u0027_hole_preserved\u0027,{\u0027area\u0027:inside_area,\u0027polygon\u0027:world})\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\dev\\cribtest-game\\output\\unreal-footway-access-cover01-20261015\\author_access.py\", line 40, in require\n    raise RuntimeError(json.dumps({\u0027object\u0027:obj,\u0027field\u0027:field,\u0027sample\u0027:sample},sort_keys=True))\nRuntimeError: {\"field\": \"cover_seat_annulus_hole_preserved\", \"object\": \"Cover\", \"sample\": {\"area\": 4.0233137654777096e-10, \"polygon\": [[-0.3050000071525574, -0.22499999403953552, -0.05000000074505806], [-0.3449999988079071, -0.26499998569488525, -0.05000000074505806], [-0.23749999701976776, -0.26499998569488525, -0.05000000074505806], [-0.23749999701976776, -0.22499999403953552, -0.05000000074505806]]}}\n",
+                    "file":  "C:\\dev\\cribtest-game\\output\\unreal-footway-access-cover01-20261015\\work-in-progress.blend",
+                    "host":  "Cribtest11",
+                    "job":  "footway-access-cover01",
+                    "pid":  10284,
+                    "retry_forbidden":  true,
+                    "utc":  "2026-10-15T11:19:40.187978+00:00"
+                },
+    "wip_sha256":  "51756d07143cc6ecb1d6e1cda5485990e7889d2e0c30100b39b0101e97e32d8e",
+    "source_sha256":  "575f69f31c3e271724a6518d0a3584d008cbb1865796ff8ab78af27529f375d0",
+    "historical_preserved":  581,
+    "original_processes":  [
+                               {
+                                   "Id":  6116,
+                                   "ProcessName":  "blender",
+                                   "SessionId":  0
+                               },
+                               {
+                                   "Id":  10404,
+                                   "ProcessName":  "UnrealEditor",
+                                   "SessionId":  2
+                               }
+                           ],
+    "os_exit_code":  "UNKNOWN wrapper null",
+    "final_art_delivered":  false,
+    "images_delivered":  0
+}
