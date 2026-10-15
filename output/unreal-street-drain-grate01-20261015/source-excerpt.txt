@@ -1,0 +1,26 @@
+Parent-supplied verbatim combined lines274-284 and543-550.
+packages/companion-scene/src/interactions/city/cityStreetDetails.ts
+Full source SHA256 14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8.
+Full Windows source bytes absent/not verified; excerpt provenance only.
+  const plane = (surface: FlatSurface, point: CityStreetSample, along: number, across: number, length: number, width: number, y: number, tint: string) => {
+    surfacePoints[0] = along - length / 2; surfacePoints[1] = across - width / 2;
+    surfacePoints[2] = along + length / 2; surfacePoints[3] = across - width / 2;
+    surfacePoints[4] = along - length / 2; surfacePoints[5] = across + width / 2;
+    surfacePoints[6] = along + length / 2; surfacePoints[7] = across + width / 2;
+    colour.set(tint);
+    for (const index of quadIndices) {
+      const x = surfacePoints[index * 2], z = surfacePoints[index * 2 + 1];
+      vertex(surface, point.x + point.tx * x + point.nx * z, y, point.z + point.tz * x + point.nz * z, colour);
+    }
+  };
+        // Small inset drain grates, rather than raised boxes on the walking route.
+        for (let d = Math.ceil((start - seed % 19) / 31) * 31 + seed % 19; d < end; d += 31) {
+          if (d < start || crossingAt(road, d, side)) continue;
+          const point = sampleCityStreet(road, d), across = side * (road.width / 2 + .27);
+          plane(drains, point, 0, across, .74, .43, -.003, "#555e51");
+          for (let slot = -.28; slot <= .28; slot += .09) plane(surface, point, slot, across, .027, .36, -.002, "#a1a28f");
+        }
+      }
+Parent utility packages/utils/src/companionCityStreetDetails.ts full SHA256 39ccf3d8e4947ed58ee3bb8fe54b3f57843e2be5c596ef1455b3816f20fa1bb4.
+Civic paving #bbb7aa, kerb #c9c5b6, covered drain. W04/W07/W22 backlog and TS absent on Windows.
+No canonical placement or full-source Git closure. Conversion (X,Y,Z)->(X,-Z,Y).

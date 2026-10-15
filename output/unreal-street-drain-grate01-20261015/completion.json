@@ -1,0 +1,16 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 12344,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-street-drain-grate01-20261015\\StreetDrainGrate01.blend",
+    "scene": "StreetDrainGrate01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "street-drain-grate01",
+    "utc": "2026-10-15T06:00:27.312645+00:00",
+    "rendering": false
+  },
+  "sha256": "28e2696060e6cd7db2bd2743e246935b4f81250f35a553497464864e954c5bb5",
+  "savedReopened": true,
+  "stills": 5
+}

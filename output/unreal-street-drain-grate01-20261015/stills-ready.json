@@ -1,0 +1,86 @@
+{
+  "identity": {
+    "host": "Cribtest11",
+    "pid": 12344,
+    "file": "C:\\dev\\cribtest-game\\output\\unreal-street-drain-grate01-20261015\\work-in-progress.blend",
+    "scene": "StreetDrainGrate01",
+    "engine": "CYCLES",
+    "version": "5.2.2 LTS",
+    "job": "street-drain-grate01",
+    "utc": "2026-10-15T05:59:43.151276+00:00",
+    "rendering": false
+  },
+  "views": [
+    [
+      "front",
+      [
+        1.25,
+        -1.5,
+        1.2
+      ],
+      [
+        0,
+        0,
+        -0.02
+      ],
+      48
+    ],
+    [
+      "reverse",
+      [
+        -1.25,
+        1.5,
+        1.1
+      ],
+      [
+        0,
+        0,
+        -0.02
+      ],
+      48
+    ],
+    [
+      "grazing",
+      [
+        1.1,
+        -1.3,
+        0.25
+      ],
+      [
+        0,
+        0,
+        -0.025
+      ],
+      48
+    ],
+    [
+      "player165",
+      [
+        0.35,
+        -1.1,
+        1.65
+      ],
+      [
+        0,
+        0,
+        -0.01
+      ],
+      48
+    ],
+    [
+      "bearingdetail",
+      [
+        0.65,
+        -0.8,
+        -0.45
+      ],
+      [
+        0,
+        0,
+        -0.02
+      ],
+      65
+    ]
+  ],
+  "underside": "Only Presentation_ConcreteBearingSocket hidden; grate actual assembled pose unchanged"
+}

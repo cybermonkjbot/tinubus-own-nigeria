@@ -1,0 +1,33 @@
+{
+  "job": "street-drain-grate01",
+  "sourceExcerptSHA256": "8c2deb4ebbbf987a2fcec48fc9b344416d0629839e9c17ab08f41943cca4e0ae",
+  "fullSourceWindowsVerified": false,
+  "sourceSHA256": "14addfab5caacc7e66a5323dd7cb70e45786bb1b4a463489453a627a0d1372f8",
+  "utilitySHA256": "39ccf3d8e4947ed58ee3bb8fe54b3f57843e2be5c596ef1455b3816f20fa1bb4",
+  "axes": "X along,-Y across,+Z up,walking datum origin0",
+  "footprintM": [
+    0.74,
+    0.43
+  ],
+  "ownedMeshIDs": [
+    "Asset_ConnectedCastGrate",
+    "Presentation_ConcreteBearingSocket"
+  ],
+  "usedMaterialIDs": [
+    "Grate_CastMetalDark",
+    "Grate_WornRibTop",
+    "Presentation_CivicConcrete"
+  ],
+  "lightIDs": [
+    "Key",
+    "Fill"
+  ],
+  "authored": "Connected cast geometry/gauge/root/frame/bevel/bearing ledge refinements,not surveyed or load-certified",
+  "limits": "No canonical placement/native integration/collision/nav/gameplay/simulation/performance/release acceptance",
+  "sourceDatumsM": {
+    "frameTop": -0.003,
+    "ribTop": -0.002,
+    "walking": 0
+  },
+  "presentationOnly": "Presentation_ConcreteBearingSocket"
+}
