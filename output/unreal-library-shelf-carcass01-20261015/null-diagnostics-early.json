@@ -1,0 +1,430 @@
+[
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ],
+    "object": "LeftSide",
+    "requested": "LeftSide",
+    "slots": [
+      {
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ],
+    "object": "RightSide",
+    "requested": "RightSide",
+    "slots": [
+      {
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ],
+    "object": "Back",
+    "requested": "Back",
+    "slots": [
+      {
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ],
+    "object": "Shelf0",
+    "requested": "Shelf0",
+    "slots": [
+      {
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ],
+    "object": "Shelf1",
+    "requested": "Shelf1",
+    "slots": [
+      {
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ],
+    "object": "Shelf2",
+    "requested": "Shelf2",
+    "slots": [
+      {
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ],
+    "object": "Shelf3",
+    "requested": "Shelf3",
+    "slots": [
+      {
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 6,
+        "material": "OwnedWood",
+        "slot": 0
+      },
+      {
+        "face": 7,
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ],
+    "object": "Shelf4",
+    "requested": "Shelf4",
+    "slots": [
+      {
+        "material": "OwnedWood",
+        "slot": 0
+      }
+    ]
+  },
+  {
+    "faces": [
+      {
+        "face": 0,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 1,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 2,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 3,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 4,
+        "material": "OwnedBed",
+        "slot": 0
+      },
+      {
+        "face": 5,
+        "material": "OwnedBed",
+        "slot": 0
+      }
+    ],
+    "object": "PresentationBed",
+    "requested": "PresentationBed",
+    "slots": [
+      {
+        "material": "OwnedBed",
+        "slot": 0
+      }
+    ]
+  }
+]

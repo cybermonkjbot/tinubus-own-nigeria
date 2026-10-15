@@ -1,0 +1,8 @@
+{
+  "completeNineEntrypoint": "reconstruct_all",
+  "observedCausalDefect": null,
+  "reason": "Actual early front and evaluated measurements inspected; no causal geometry defect observed",
+  "reconstructionExecuted": false,
+  "status": "NONE",
+  "utc": "2026-10-15T13:53:25.028759+00:00"
+}

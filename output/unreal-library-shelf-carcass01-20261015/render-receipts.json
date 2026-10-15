@@ -1,0 +1,272 @@
+[
+  {
+    "allNineRetained": [
+      {
+        "hide_render": false,
+        "object": "LeftSide"
+      },
+      {
+        "hide_render": false,
+        "object": "RightSide"
+      },
+      {
+        "hide_render": false,
+        "object": "Back"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf0"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf1"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf2"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf3"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf4"
+      },
+      {
+        "hide_render": false,
+        "object": "PresentationBed"
+      }
+    ],
+    "camera": "Camera_front",
+    "cameraZ": 3.299999952316284,
+    "device": "CPU",
+    "engine": "CYCLES",
+    "file": "front.png",
+    "projection": "ORTHO",
+    "resolution": [
+      800,
+      800
+    ],
+    "samples": 24,
+    "seconds": 13.352163000003202,
+    "threads": 6,
+    "utc": "2026-10-15T13:53:39.448363+00:00"
+  },
+  {
+    "allNineRetained": [
+      {
+        "hide_render": false,
+        "object": "LeftSide"
+      },
+      {
+        "hide_render": false,
+        "object": "RightSide"
+      },
+      {
+        "hide_render": false,
+        "object": "Back"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf0"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf1"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf2"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf3"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf4"
+      },
+      {
+        "hide_render": false,
+        "object": "PresentationBed"
+      }
+    ],
+    "camera": "Camera_reverse",
+    "cameraZ": 0.75,
+    "device": "CPU",
+    "engine": "CYCLES",
+    "file": "reverse.png",
+    "projection": "ORTHO",
+    "resolution": [
+      800,
+      800
+    ],
+    "samples": 24,
+    "seconds": 8.660513700000593,
+    "threads": 6,
+    "utc": "2026-10-15T13:53:48.109202+00:00"
+  },
+  {
+    "allNineRetained": [
+      {
+        "hide_render": false,
+        "object": "LeftSide"
+      },
+      {
+        "hide_render": false,
+        "object": "RightSide"
+      },
+      {
+        "hide_render": false,
+        "object": "Back"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf0"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf1"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf2"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf3"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf4"
+      },
+      {
+        "hide_render": false,
+        "object": "PresentationBed"
+      }
+    ],
+    "camera": "Camera_shelf-end",
+    "cameraZ": 1.2200000286102295,
+    "device": "CPU",
+    "engine": "CYCLES",
+    "file": "shelf-end.png",
+    "projection": "ORTHO",
+    "resolution": [
+      800,
+      800
+    ],
+    "samples": 24,
+    "seconds": 29.455082000000402,
+    "threads": 6,
+    "utc": "2026-10-15T13:54:17.565006+00:00"
+  },
+  {
+    "allNineRetained": [
+      {
+        "hide_render": false,
+        "object": "LeftSide"
+      },
+      {
+        "hide_render": false,
+        "object": "RightSide"
+      },
+      {
+        "hide_render": false,
+        "object": "Back"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf0"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf1"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf2"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf3"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf4"
+      },
+      {
+        "hide_render": false,
+        "object": "PresentationBed"
+      }
+    ],
+    "camera": "Camera_player165",
+    "cameraZ": 1.649999976158142,
+    "device": "CPU",
+    "engine": "CYCLES",
+    "file": "player165.png",
+    "projection": "ORTHO",
+    "resolution": [
+      800,
+      800
+    ],
+    "samples": 24,
+    "seconds": 13.692393899997114,
+    "threads": 6,
+    "utc": "2026-10-15T13:54:31.257815+00:00"
+  },
+  {
+    "allNineRetained": [
+      {
+        "hide_render": false,
+        "object": "LeftSide"
+      },
+      {
+        "hide_render": false,
+        "object": "RightSide"
+      },
+      {
+        "hide_render": false,
+        "object": "Back"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf0"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf1"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf2"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf3"
+      },
+      {
+        "hide_render": false,
+        "object": "Shelf4"
+      },
+      {
+        "hide_render": false,
+        "object": "PresentationBed"
+      }
+    ],
+    "camera": "Camera_back-ground",
+    "cameraZ": 0.41999998688697815,
+    "device": "CPU",
+    "engine": "CYCLES",
+    "file": "back-ground.png",
+    "projection": "ORTHO",
+    "resolution": [
+      800,
+      800
+    ],
+    "samples": 24,
+    "seconds": 21.22112470000866,
+    "threads": 6,
+    "utc": "2026-10-15T13:54:52.479515+00:00"
+  }
+]

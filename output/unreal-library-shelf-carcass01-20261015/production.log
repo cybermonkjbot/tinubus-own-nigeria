@@ -1,0 +1,12 @@
+00:13.672  render           | Saved: 'C:\dev\cribtest-game\output\unreal-library-shelf-carcass01-20261015\early-front.png'
+01:04.812  blend            | Read blend: "C:\dev\cribtest-game\output\unreal-library-shelf-carcass01-20261015\LibraryShelfCarcass01.blend"
+01:18.234  render           | Saved: 'C:\dev\cribtest-game\output\unreal-library-shelf-carcass01-20261015\front.png'
+01:26.890  render           | Saved: 'C:\dev\cribtest-game\output\unreal-library-shelf-carcass01-20261015\reverse.png'
+01:56.344  render           | Saved: 'C:\dev\cribtest-game\output\unreal-library-shelf-carcass01-20261015\shelf-end.png'
+02:10.047  render           | Saved: 'C:\dev\cribtest-game\output\unreal-library-shelf-carcass01-20261015\player165.png'
+02:31.265  render           | Saved: 'C:\dev\cribtest-game\output\unreal-library-shelf-carcass01-20261015\back-ground.png'
+Info: Saved as "work-in-progress.blend"
+Info: Saved as "LibraryShelfCarcass01.blend"
+Blender 5.2.2 LTS (hash d13f752e3b9c built 2026-09-15 01:37:04)
+
+Blender quit

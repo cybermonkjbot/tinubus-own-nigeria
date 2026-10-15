@@ -1,0 +1,20 @@
+﻿{
+    "utc":  "2026-10-15T13:52:20.9942264Z",
+    "host":  "Cribtest11",
+    "root":  "C:\\dev\\cribtest-game",
+    "base":  "43a1fd809394fd93a30779b315283c985c40d68d",
+    "pid":  2240,
+    "executable":  "C:\\dev\\tools\\baddie-blender\\blender-5.2.2-windows-x64\\blender.exe",
+    "arguments":  [
+                      "--background",
+                      "--factory-startup",
+                      "--threads",
+                      "6",
+                      "--python-exit-code",
+                      "23",
+                      "--python",
+                      "C:\\dev\\cribtest-game\\output\\unreal-library-shelf-carcass01-20261015\\author_shelf.py"
+                  ],
+    "originalBlender":  6116,
+    "originalUnreal":  10404
+}

@@ -1,0 +1,21 @@
+{
+  "activeJob": "before-mutation",
+  "engine": "BLENDER_EEVEE",
+  "factoryObjects": [
+    "Cube",
+    "Light",
+    "Camera"
+  ],
+  "filepath": "",
+  "host": "Cribtest11",
+  "job": "LibraryShelfCarcass01-exclusive-mainthread",
+  "pid": 2240,
+  "scene": "Scene",
+  "utc": "2026-10-15T13:52:22.427521+00:00",
+  "version": "5.2.2 LTS",
+  "versionTuple": [
+    5,
+    2,
+    2
+  ]
+}

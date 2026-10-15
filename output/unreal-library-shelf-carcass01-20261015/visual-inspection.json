@@ -1,0 +1,15 @@
+{
+  "inspection":"same owner author session, direct actual 800px PNGs",
+  "early":{"file":"early-front.png","wholeUncropped":true,"fourBackedBays":true,"measurementsInspected":true,"observedCausalDefect":null,"correction":"NONE"},
+  "views":[
+    {"file":"front.png","wholeUncropped":true,"observation":"Entire carcass and bed; five shelves/four bare backed bays, sides and top reveal readable."},
+    {"file":"reverse.png","wholeUncropped":true,"observation":"Opposite low rear view; back and side square interfaces and bed support visible. Shelves and front bays occluded by real back, not claimed visible."},
+    {"file":"shelf-end.png","wholeUncropped":false,"observation":"Midlevel front/side fitted junction, real top/bottom 1mm chamfer highlight/profile, no fake strip/weld. Distant solids outside close framing, all retained."},
+    {"file":"player165.png","wholeUncropped":true,"observation":"Actual cameraZ1.65, orthographic presentation; entire carcass/bed/four bays, not gameplay standing or perspective view."},
+    {"file":"back-ground.png","wholeUncropped":false,"observation":"Back/side corner down to visible bed; square grounded bottom interface. Front shelves occluded and distant parts outside close frame."}
+  ],
+  "allNineRetainedEveryView":true,
+  "hiddenOrExploded":false,
+  "limits":"Mating faces occluded, contact evidence from evaluated geometry not photographs. Actual 24sample Cycles grain is not authored material grain. Bare generic fixture, no stock/books/installation/engineering claim.",
+  "retryRerender":false
+}

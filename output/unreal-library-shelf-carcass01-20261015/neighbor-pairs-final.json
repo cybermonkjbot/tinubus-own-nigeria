@@ -1,0 +1,426 @@
+[
+  {
+    "a": "LeftSide",
+    "b": "RightSide",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          -1.75,
+          -1.6699999570846558
+        ],
+        "actualExtremaB": [
+          1.6699999570846558,
+          1.75
+        ],
+        "axis": 0,
+        "positiveGap": 3.3399999141693115
+      }
+    ]
+  },
+  {
+    "a": "LeftSide",
+    "b": "Back",
+    "classification": "contact",
+    "patchIndex": 0
+  },
+  {
+    "a": "LeftSide",
+    "b": "Shelf0",
+    "classification": "contact",
+    "patchIndex": 1
+  },
+  {
+    "a": "LeftSide",
+    "b": "Shelf1",
+    "classification": "contact",
+    "patchIndex": 2
+  },
+  {
+    "a": "LeftSide",
+    "b": "Shelf2",
+    "classification": "contact",
+    "patchIndex": 3
+  },
+  {
+    "a": "LeftSide",
+    "b": "Shelf3",
+    "classification": "contact",
+    "patchIndex": 4
+  },
+  {
+    "a": "LeftSide",
+    "b": "Shelf4",
+    "classification": "contact",
+    "patchIndex": 5
+  },
+  {
+    "a": "LeftSide",
+    "b": "PresentationBed",
+    "classification": "contact",
+    "patchIndex": 6
+  },
+  {
+    "a": "RightSide",
+    "b": "Back",
+    "classification": "contact",
+    "patchIndex": 7
+  },
+  {
+    "a": "RightSide",
+    "b": "Shelf0",
+    "classification": "contact",
+    "patchIndex": 8
+  },
+  {
+    "a": "RightSide",
+    "b": "Shelf1",
+    "classification": "contact",
+    "patchIndex": 9
+  },
+  {
+    "a": "RightSide",
+    "b": "Shelf2",
+    "classification": "contact",
+    "patchIndex": 10
+  },
+  {
+    "a": "RightSide",
+    "b": "Shelf3",
+    "classification": "contact",
+    "patchIndex": 11
+  },
+  {
+    "a": "RightSide",
+    "b": "Shelf4",
+    "classification": "contact",
+    "patchIndex": 12
+  },
+  {
+    "a": "RightSide",
+    "b": "PresentationBed",
+    "classification": "contact",
+    "patchIndex": 13
+  },
+  {
+    "a": "Back",
+    "b": "Shelf0",
+    "classification": "contact",
+    "patchIndex": 14
+  },
+  {
+    "a": "Back",
+    "b": "Shelf1",
+    "classification": "contact",
+    "patchIndex": 15
+  },
+  {
+    "a": "Back",
+    "b": "Shelf2",
+    "classification": "contact",
+    "patchIndex": 16
+  },
+  {
+    "a": "Back",
+    "b": "Shelf3",
+    "classification": "contact",
+    "patchIndex": 17
+  },
+  {
+    "a": "Back",
+    "b": "Shelf4",
+    "classification": "contact",
+    "patchIndex": 18
+  },
+  {
+    "a": "Back",
+    "b": "PresentationBed",
+    "classification": "contact",
+    "patchIndex": 19
+  },
+  {
+    "a": "Shelf0",
+    "b": "Shelf1",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          0.05249999836087227,
+          0.10750000178813934
+        ],
+        "actualExtremaB": [
+          0.5375000238418579,
+          0.5924999713897705
+        ],
+        "axis": 2,
+        "positiveGap": 0.43000002205371857
+      }
+    ]
+  },
+  {
+    "a": "Shelf0",
+    "b": "Shelf2",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          0.05249999836087227,
+          0.10750000178813934
+        ],
+        "actualExtremaB": [
+          1.0225000381469727,
+          1.0774999856948853
+        ],
+        "axis": 2,
+        "positiveGap": 0.9150000363588333
+      }
+    ]
+  },
+  {
+    "a": "Shelf0",
+    "b": "Shelf3",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          0.05249999836087227,
+          0.10750000178813934
+        ],
+        "actualExtremaB": [
+          1.5075000524520874,
+          1.5625
+        ],
+        "axis": 2,
+        "positiveGap": 1.400000050663948
+      }
+    ]
+  },
+  {
+    "a": "Shelf0",
+    "b": "Shelf4",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          0.05249999836087227,
+          0.10750000178813934
+        ],
+        "actualExtremaB": [
+          1.9924999475479126,
+          2.047499895095825
+        ],
+        "axis": 2,
+        "positiveGap": 1.8849999457597733
+      }
+    ]
+  },
+  {
+    "a": "Shelf0",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          0.05249999836087227,
+          0.10750000178813934
+        ],
+        "actualExtremaB": [
+          -0.07999999821186066,
+          0.0
+        ],
+        "axis": 2,
+        "positiveGap": 0.05249999836087227
+      }
+    ]
+  },
+  {
+    "a": "Shelf1",
+    "b": "Shelf2",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          0.5375000238418579,
+          0.5924999713897705
+        ],
+        "actualExtremaB": [
+          1.0225000381469727,
+          1.0774999856948853
+        ],
+        "axis": 2,
+        "positiveGap": 0.43000006675720215
+      }
+    ]
+  },
+  {
+    "a": "Shelf1",
+    "b": "Shelf3",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          0.5375000238418579,
+          0.5924999713897705
+        ],
+        "actualExtremaB": [
+          1.5075000524520874,
+          1.5625
+        ],
+        "axis": 2,
+        "positiveGap": 0.9150000810623169
+      }
+    ]
+  },
+  {
+    "a": "Shelf1",
+    "b": "Shelf4",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          0.5375000238418579,
+          0.5924999713897705
+        ],
+        "actualExtremaB": [
+          1.9924999475479126,
+          2.047499895095825
+        ],
+        "axis": 2,
+        "positiveGap": 1.399999976158142
+      }
+    ]
+  },
+  {
+    "a": "Shelf1",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          0.5375000238418579,
+          0.5924999713897705
+        ],
+        "actualExtremaB": [
+          -0.07999999821186066,
+          0.0
+        ],
+        "axis": 2,
+        "positiveGap": 0.5375000238418579
+      }
+    ]
+  },
+  {
+    "a": "Shelf2",
+    "b": "Shelf3",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          1.0225000381469727,
+          1.0774999856948853
+        ],
+        "actualExtremaB": [
+          1.5075000524520874,
+          1.5625
+        ],
+        "axis": 2,
+        "positiveGap": 0.43000006675720215
+      }
+    ]
+  },
+  {
+    "a": "Shelf2",
+    "b": "Shelf4",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          1.0225000381469727,
+          1.0774999856948853
+        ],
+        "actualExtremaB": [
+          1.9924999475479126,
+          2.047499895095825
+        ],
+        "axis": 2,
+        "positiveGap": 0.9149999618530273
+      }
+    ]
+  },
+  {
+    "a": "Shelf2",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          1.0225000381469727,
+          1.0774999856948853
+        ],
+        "actualExtremaB": [
+          -0.07999999821186066,
+          0.0
+        ],
+        "axis": 2,
+        "positiveGap": 1.0225000381469727
+      }
+    ]
+  },
+  {
+    "a": "Shelf3",
+    "b": "Shelf4",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          1.5075000524520874,
+          1.5625
+        ],
+        "actualExtremaB": [
+          1.9924999475479126,
+          2.047499895095825
+        ],
+        "axis": 2,
+        "positiveGap": 0.4299999475479126
+      }
+    ]
+  },
+  {
+    "a": "Shelf3",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          1.5075000524520874,
+          1.5625
+        ],
+        "actualExtremaB": [
+          -0.07999999821186066,
+          0.0
+        ],
+        "axis": 2,
+        "positiveGap": 1.5075000524520874
+      }
+    ]
+  },
+  {
+    "a": "Shelf4",
+    "b": "PresentationBed",
+    "classification": "separated",
+    "positiveAxisEvidence": [
+      {
+        "actualExtremaA": [
+          1.9924999475479126,
+          2.047499895095825
+        ],
+        "actualExtremaB": [
+          -0.07999999821186066,
+          0.0
+        ],
+        "axis": 2,
+        "positiveGap": 1.9924999475479126
+      }
+    ]
+  }
+]

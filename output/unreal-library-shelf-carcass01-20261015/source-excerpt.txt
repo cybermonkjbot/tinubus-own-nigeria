@@ -1,0 +1,89 @@
+PARENT-SUPPLIED SOURCE EXCERPTS. Full source bytes verified by parent only; no assertion that full files exist on Windows. UTF-8, LF, final LF.
+
+PARENT SOURCE packages/utils/src/companionPlacesExpansionLayouts.ts
+SHA256 e49a93fb2f7f74c5f31aa872f2957a99137e86da75b56778d099d413d289eece
+Verbatim lines 156-170:
+    case "library": {
+      const b = create(input, 22, 20);
+      b.layout.theme.floor = "#d3cebd";
+      for (const x of [-8.5, 8.5]) for (const z of [-6, -1.5])
+        b.add("shelf", `books-${x}-${z}`, x, z, 3.5, .65, 2.1, "wood");
+      for (const x of [-4.8, 4.8]) {
+        b.add("table", `reading-table-${x}`, x, -4, 2.4, 1.1, .76, "wood");
+        b.add("bench", `reading-bench-${x}`, x, -2.8, 2.4, .5, .48, "wood");
+      }
+      b.service("gather", "library-host", "Reading group", -5, 3.5, -6.3, 3.5, "host", ["conversation-circle"], 6);
+      zone(b, "reading-circle", "Reading circle", -5, 3.5, 5.5, 3, "gather");
+      ride(b);
+      gap(b, "Books are authored scenery with no catalogue or borrowing entitlement. Reading groups reuse existing social activity, not a new learning reward.");
+      return b.finish();
+    }
+
+PARENT SOURCE packages/utils/src/companionPlacesLayouts.ts
+SHA256 29c0bdbd4bb21a72801b99e56d23517d895f5307ede5fb52d5d1d8624e431541
+Verbatim lines 24-24:
+const p = (x: number, z: number, y = 0): ScenePoint => [x, y, z];
+
+PARENT SOURCE packages/utils/src/companionPlacesLayouts.ts
+SHA256 29c0bdbd4bb21a72801b99e56d23517d895f5307ede5fb52d5d1d8624e431541
+Verbatim lines 51-55:
+  const add = (kind: CompanionPlaceFixtureKind, id: string, x: number, z: number, w: number, d: number, h: number,
+    material: CompanionPlaceLayout["fixtures"][number]["material"] = "wood", collides = true, y = 0) => {
+    fixtures.push({ id, kind, point: p(x, z, y), size: [w, h, d], yaw: 0, material,
+      collision: collides ? footprint(id, x, z, w, d, h) : undefined });
+  };
+
+PARENT SOURCE packages/companion-scene/src/interactions/lagos-places/geometry.ts
+SHA256 da5283130b94c422caba7e4d1078fb0856bda5e37010ec01711ce6b788374992
+Verbatim lines 23-44:
+/** Generated fixtures use explicit metre-scale construction. Published room
+ * parts are added separately, without changing their materials or scale. */
+export function createLagosPlaceGeometry(layout: CompanionPlaceLayout, loungeAsset?: EnvironmentAsset,
+  delivery?: CompanionAssetDelivery, changed: () => void = () => {}) {
+  const group = new THREE.Group(); group.name = `${layout.id}:geometry`;
+  const materials = {
+    plaster: new THREE.MeshStandardMaterial({ color: layout.theme.wall, roughness: .88 }),
+    wood: new THREE.MeshStandardMaterial({ color: "#92735b", roughness: .68 }),
+    stone: new THREE.MeshStandardMaterial({ color: "#ded7ca", roughness: .46 }),
+    metal: new THREE.MeshStandardMaterial({ color: "#657078", metalness: .5, roughness: .4 }),
+    linen: new THREE.MeshStandardMaterial({ color: "#eeeae0", roughness: .98 }),
+    sage: new THREE.MeshStandardMaterial({ color: "#819072", roughness: .9 }),
+    rose: new THREE.MeshStandardMaterial({ color: layout.theme.accent, roughness: .85 }),
+  };
+  const place = (owner: THREE.Group, geometry: THREE.BufferGeometry, material: THREE.Material, x: number, y: number, z: number) => {
+    const mesh = new THREE.Mesh(geometry, material); mesh.position.set(x, y, z); mesh.castShadow = true; mesh.receiveShadow = true; owner.add(mesh); return mesh;
+  };
+  const box = (owner: THREE.Group, material: THREE.Material, w: number, h: number, d: number, x: number, y: number, z: number) =>
+    place(owner, new THREE.BoxGeometry(w, h, d), material, x, y, z);
+  const bounds = layout.navigation.bounds, width = bounds.maxX - bounds.minX, depth = bounds.maxZ - bounds.minZ;
+  const floor = new THREE.MeshStandardMaterial({ color: layout.theme.floor, roughness: layout.kind === "nightclub" ? .52 : .78 });
+  const ownedMaterials: THREE.Material[] = [...Object.values(materials), floor];
+
+PARENT SOURCE packages/companion-scene/src/interactions/lagos-places/geometry.ts
+SHA256 da5283130b94c422caba7e4d1078fb0856bda5e37010ec01711ce6b788374992
+Verbatim lines 52-56:
+    function fixture(value: CompanionPlaceFixture) {
+      const root = new THREE.Group(); root.name = value.id; root.userData.lagosFixtureId = value.id;
+      group.add(root);
+      const [w, h, d] = value.size, m = materials[value.material];
+      root.position.fromArray(value.point); root.rotation.y = value.yaw;
+
+PARENT SOURCE packages/companion-scene/src/interactions/lagos-places/geometry.ts
+SHA256 da5283130b94c422caba7e4d1078fb0856bda5e37010ec01711ce6b788374992
+Verbatim lines 95-110:
+        case "shelf": case "tool-cabinet": {
+          const levels = value.kind === "shelf" ? 4 : 3;
+          for (const x of [-w / 2 + .04, w / 2 - .04]) box(root, m, .08, h, d, x, h / 2, 0);
+          box(root, m, w, h, .06, 0, h / 2, -d / 2 + .03);
+          for (let level = 0; level <= levels; level++) {
+            const y = .08 + level * (h - .16) / levels;
+            box(root, m, w - .08, .055, d, 0, y, 0);
+            if (level < levels) for (let item = 0; item < 5; item++) {
+              const itemHeight = (h - .16) / levels * (.48 + (item % 3) * .1);
+              const colour = item % 2 ? materials.sage : materials.linen;
+              box(root, colour, w / 9, itemHeight, d * .42, (item - 2) * w / 6,
+                y + .03 + itemHeight / 2, -.06);
+            }
+          }
+          break;
+        }
