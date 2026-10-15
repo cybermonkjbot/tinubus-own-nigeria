@@ -18,6 +18,26 @@
       "Name": "AllToolsets",
       "Enabled": true,
       "TargetAllowList": ["Editor"]
+    },
+    {
+      "Name": "PCG",
+      "Enabled": true,
+      "TargetAllowList": ["Editor"]
+    },
+    {
+      "Name": "PCGToolset",
+      "Enabled": true,
+      "TargetAllowList": ["Editor"]
+    },
+    {
+      "Name": "PCGPrimitives",
+      "Enabled": true,
+      "TargetAllowList": ["Editor"]
+    },
+    {
+      "Name": "PCGPythonInterop",
+      "Enabled": true,
+      "TargetAllowList": ["Editor"]
     }
   ],
   "Modules": [

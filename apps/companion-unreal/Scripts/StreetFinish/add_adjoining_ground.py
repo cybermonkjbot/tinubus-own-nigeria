@@ -13,6 +13,12 @@ import unreal as u
 
 AD = runpy.run_path(str(Path(__file__).with_name('add_adjoining.py')))
 BASE, ROOT, OUTPUT = AD['BASE'], AD['ROOT'], AD['OUTPUT']
+SURFACE_PREFIX = 'Adjoining ground: '
+PLANTING_LABEL = 'Adjoining planting'
+PLANTING_GRAPH = 'PCG_Adjoining_GroundPlanting'
+MESH_PREFIX = 'SM_AD_'
+IMPORT_SOURCE = 'adjoining-20261014-ground-source'
+FOLDER = 'StreetFinish_20261014/Adjoining'
 VERGES = ['TC_Ground22_unity-avenue_' + str(i) + '_support' for i in range(10, 14)] + [
     'TC_Ground22_theatre-street_' + str(i) + '_support' for i in range(3)]
 
@@ -143,9 +149,9 @@ def prepare():
                 faces.append([start, start+1, start+2])
         if len(faces) < 3:
             raise RuntimeError('Fitted surface was completely excluded')
-        package = BASE + '/Meshes/SM_AD_' + surface['id'].replace('-', '_')
+        package = BASE + '/Meshes/' + MESH_PREFIX + surface['id'].replace('-', '_')
         mesh, asset = kit.FABRIC.IMPORT.import_section(package, 0, 0, 0, 0,
-            supplied_geometry=(vertices, faces), source_directory='adjoining-20261014-ground-source',
+            supplied_geometry=(vertices, faces), source_directory=IMPORT_SOURCE,
             vertical_uv=False, recover=True)
         if mesh.get_num_triangles(0) != len(faces):
             raise RuntimeError('Ground topology mismatch: ' + surface['id'])
@@ -161,7 +167,7 @@ def prepare():
 def install(resume_surfaces=False):
     AD['guard'](False)
     existing = {a.get_actor_label(): a for a in AD['actors']()
-                if a.get_actor_label().startswith(('Adjoining ground:', 'Adjoining planting'))}
+                if a.get_actor_label().startswith((SURFACE_PREFIX, PLANTING_LABEL))}
     if existing and not resume_surfaces:
         raise RuntimeError('Adjoining ground already exists')
     data = json.loads((OUTPUT / 'ground-prepared.json').read_text())
@@ -169,18 +175,18 @@ def install(resume_surfaces=False):
     kit = AD['native_kit']()
     kit.BASE.make_level_current(AD['LAYER'])
     rows = []
-    if resume_surfaces and set(existing) != {'Adjoining ground: ' + s['id'] for s in data['surfaces']}:
+    if resume_surfaces and set(existing) != {SURFACE_PREFIX + s['id'] for s in data['surfaces']}:
         raise RuntimeError('Only the exact incomplete sixteen-surface installation can resume')
     for surface in data['surfaces']:
         if resume_surfaces:
-            actor = existing['Adjoining ground: ' + surface['id']]
+            actor = existing[SURFACE_PREFIX + surface['id']]
             if actor.static_mesh_component.static_mesh.get_path_name().split('.')[0] != surface['mesh'] or math.dist(
                     AD['STREET']['vec'](actor.get_actor_location()), [*surface['centre'], 0]) > .01:
                 raise RuntimeError('Incomplete ground was edited; preserve it')
             continue
         actor = u.get_editor_subsystem(u.EditorActorSubsystem).spawn_actor_from_class(u.StaticMeshActor, u.Vector(*surface['centre'], 0))
-        actor.set_actor_label('Adjoining ground: ' + surface['id'])
-        actor.set_folder_path('StreetFinish_20261014/Adjoining/Ground')
+        actor.set_actor_label(SURFACE_PREFIX + surface['id'])
+        actor.set_folder_path(FOLDER + '/Ground')
         actor.tags = [AD['OWNER'], 'Baddie.NoRuntimeAuthority']
         c = actor.static_mesh_component
         c.set_static_mesh(u.load_asset(surface['mesh']))
@@ -243,10 +249,10 @@ def install(resume_surfaces=False):
                         # transform_local includes local Z, so keep the soil contact explicit.
                         leaf[2] = 16
                         put('EyeLevel/Meshes/SM_EL_GrassClump', leaf, rng.uniform(0, 360), (1.15, 1.15, 1.0), pid)
-    actor = AD['STREET']['make_graph']('PCG_Adjoining_GroundPlanting', rows,
-        scope='Fixed, seed-derived verge points and source-garden beds; CPU editor scenery', label='Adjoining planting')
+    actor = AD['STREET']['make_graph'](PLANTING_GRAPH, rows,
+        scope='Fixed, seed-derived verge points and source-garden beds; CPU editor scenery', label=PLANTING_LABEL)
     actor.tags = list(actor.tags) + [AD['OWNER']]
-    actor.set_folder_path('StreetFinish_20261014/Adjoining')
+    actor.set_folder_path(FOLDER)
     AD['write']('ground-installed.json', {'surfaces': [{'id': s['id'], 'areaM2': s['areaM2'], 'mesh': s['mesh']} for s in data['surfaces']],
         'placements': rows, 'rejectedPlantingPoints': rejected})
     actor.pcg_component.generate(True)
@@ -259,7 +265,7 @@ def audit(name='ground-readback.json'):
     installed = json.loads((OUTPUT / 'ground-installed.json').read_text())
     scene = {a.get_actor_label(): a for a in AD['actors']()}
     for surface in prepared['surfaces']:
-        actor = scene['Adjoining ground: ' + surface['id']]
+        actor = scene[SURFACE_PREFIX + surface['id']]
         c = actor.static_mesh_component
         if c.static_mesh.get_path_name().split('.')[0] != surface['mesh'] or c.get_material(0).get_path_name().split('.')[0] != surface['material']:
             raise RuntimeError('Ground mesh/material mismatch')
@@ -267,7 +273,7 @@ def audit(name='ground-readback.json'):
             raise RuntimeError('Ground moved')
         if c.get_collision_enabled() != u.CollisionEnabled.NO_COLLISION or c.get_editor_property('can_ever_affect_navigation'):
             raise RuntimeError('Ground acquired collision/navigation authority')
-    planting = scene['Adjoining planting']
+    planting = scene[PLANTING_LABEL]
     if planting.pcg_component.get_editor_property('generation_in_progress') or not planting.pcg_component.generated:
         raise RuntimeError('Ground planting generation incomplete')
     actual = []

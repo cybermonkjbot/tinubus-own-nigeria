@@ -24,6 +24,11 @@ ROOT, MAP = STREET['ROOT'], STREET['MAP']
 BASE = ROOT + '/Adjoining'
 LAYER = ROOT + '/Maps/L_TownCentre_Adjoining'
 OWNER = 'Baddie.Adjoining.20261014'
+LABEL_PREFIX = 'Adjoining: '
+FOLDER = 'StreetFinish_20261014/Adjoining'
+GRAPH_NAME = 'PCG_AdjoiningFacadeGrammar'
+MESH_PREFIX = 'SM_AD_'
+IMPORT_SOURCE = 'adjoining-20261014-import-source'
 FOCUS = ('unity-avenue-17', 'unity-avenue-19', 'unity-avenue-20',
          'unity-avenue-21', 'unity-avenue-22', 'theatre-street-2',
          'theatre-street-4', 'theatre-street-5', 'theatre-street-6')
@@ -36,7 +41,7 @@ def native_kit():
     kit = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(kit)
     kit.FABRIC.FOCUS = FOCUS
-    kit.GRAPH = BASE + '/PCG/PCG_AdjoiningFacadeGrammar'
+    kit.GRAPH = BASE + '/PCG/' + GRAPH_NAME
     kit.SPLINE_TAG = OWNER + '.Facade'
     kit.GENERATION_TAG = OWNER
     # Keep the accepted mesh/material pairs, but do not create gameplay authority.
@@ -147,9 +152,9 @@ def imported_rows():
     rows = list(survey_data['rows'])
     assets = []
     def fitted(plan, role, geometry, material, local=(0, 0, 0), vertical=True):
-        package = BASE + '/Meshes/SM_AD_' + plan['parcelId'].replace('-', '_') + '_' + role
+        package = BASE + '/Meshes/' + MESH_PREFIX + plan['parcelId'].replace('-', '_') + '_' + role
         mesh, asset = fabric.IMPORT.import_section(package, 0, 0, 0, 0,
-            supplied_geometry=geometry, source_directory='adjoining-20261014-import-source',
+            supplied_geometry=geometry, source_directory=IMPORT_SOURCE,
             vertical_uv=vertical, recover=True)
         mesh.set_material(0, u.load_asset(material))
         # The inherited importer validates bounds/UVs. Topology is checked here too.
@@ -235,8 +240,8 @@ def install():
         pid = p['parcelId']
         selected = [r for r in rows if r['parcelId'] == pid]
         actor = u.get_editor_subsystem(u.EditorActorSubsystem).spawn_actor_from_class(u.Actor, u.Vector())
-        actor.set_actor_label('Adjoining: ' + pid)
-        actor.set_folder_path('StreetFinish_20261014/Adjoining')
+        actor.set_actor_label(LABEL_PREFIX + pid)
+        actor.set_folder_path(FOLDER)
         actor.tags = [OWNER, 'Baddie.Source:' + pid, 'Baddie.NoRuntimeAuthority']
         for key, items in kit.spline_runs(selected):
             t = items[0][1]['transform']
@@ -287,7 +292,7 @@ def generate(site):
     scene = actors()
     if any(c.get_editor_property('generation_in_progress') for a in scene for c in a.get_components_by_class(u.PCGComponent)):
         raise RuntimeError('Wait for active generation')
-    actor = next(a for a in scene if a.get_actor_label() == 'Adjoining: ' + site)
+    actor = next(a for a in scene if a.get_actor_label() == LABEL_PREFIX + site)
     for c in actor.get_components_by_class(u.PCGComponent):
         c.generate(True)
     print('Generating ' + site)
@@ -335,7 +340,7 @@ def audit(name='readback.json'):
             group.remove(t)
         result['sites'].append({'id': record['id'], 'instances': len(expected), 'sourceFloors': next(p['floors'] for p in survey_data['plans'] if p['parcelId'] == record['id'])})
     for row in installed['runs']:
-        actor = named['Adjoining: ' + row['parcelId']]
+        actor = named[LABEL_PREFIX + row['parcelId']]
         spline = next(c for c in actor.get_components_by_class(u.SplineComponent) if c.get_name() == row['name'])
         if spline.get_number_of_spline_points() != 2 or abs(spline.get_spline_length()-row['length']) > .05:
             raise RuntimeError('Spline did not persist')
